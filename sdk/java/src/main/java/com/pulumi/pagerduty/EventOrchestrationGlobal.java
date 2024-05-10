@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn&#39;t have any `actions` so it&#39;ll leave events as-is.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,60 +61,60 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var databaseTeam = new Team(&#34;databaseTeam&#34;, TeamArgs.builder()        
- *             .name(&#34;Database Team&#34;)
+ *         var databaseTeam = new Team("databaseTeam", TeamArgs.builder()        
+ *             .name("Database Team")
  *             .build());
  * 
- *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;, EventOrchestrationArgs.builder()        
- *             .name(&#34;Example Orchestration&#34;)
+ *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()        
+ *             .name("Example Orchestration")
  *             .team(databaseTeam.id())
  *             .build());
  * 
  *         final var p1 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()
- *             .name(&#34;P1&#34;)
+ *             .name("P1")
  *             .build());
  * 
- *         var global = new EventOrchestrationGlobal(&#34;global&#34;, EventOrchestrationGlobalArgs.builder()        
+ *         var global = new EventOrchestrationGlobal("global", EventOrchestrationGlobalArgs.builder()        
  *             .eventOrchestration(eventOrchestration.id())
  *             .sets(            
  *                 EventOrchestrationGlobalSetArgs.builder()
- *                     .id(&#34;start&#34;)
+ *                     .id("start")
  *                     .rules(EventOrchestrationGlobalSetRuleArgs.builder()
- *                         .label(&#34;Always annotate a note to all events&#34;)
+ *                         .label("Always annotate a note to all events")
  *                         .actions(EventOrchestrationGlobalSetRuleActionsArgs.builder()
- *                             .annotate(&#34;This incident was created by the Database Team via a Global Orchestration&#34;)
- *                             .routeTo(&#34;step-two&#34;)
+ *                             .annotate("This incident was created by the Database Team via a Global Orchestration")
+ *                             .routeTo("step-two")
  *                             .build())
  *                         .build())
  *                     .build(),
  *                 EventOrchestrationGlobalSetArgs.builder()
- *                     .id(&#34;step-two&#34;)
+ *                     .id("step-two")
  *                     .rules(                    
  *                         EventOrchestrationGlobalSetRuleArgs.builder()
- *                             .label(&#34;Drop events that are marked as no-op&#34;)
+ *                             .label("Drop events that are marked as no-op")
  *                             .conditions(EventOrchestrationGlobalSetRuleConditionArgs.builder()
- *                                 .expression(&#34;event.summary matches &#39;no-op&#39;&#34;)
+ *                                 .expression("event.summary matches 'no-op'")
  *                                 .build())
  *                             .actions(EventOrchestrationGlobalSetRuleActionsArgs.builder()
  *                                 .dropEvent(true)
  *                                 .build())
  *                             .build(),
  *                         EventOrchestrationGlobalSetRuleArgs.builder()
- *                             .label(&#34;If there&#39;s something wrong on the replica, then mark the alert as a warning&#34;)
+ *                             .label("If there's something wrong on the replica, then mark the alert as a warning")
  *                             .conditions(EventOrchestrationGlobalSetRuleConditionArgs.builder()
- *                                 .expression(&#34;event.custom_details.hostname matches part &#39;replica&#39;&#34;)
+ *                                 .expression("event.custom_details.hostname matches part 'replica'")
  *                                 .build())
  *                             .actions(EventOrchestrationGlobalSetRuleActionsArgs.builder()
- *                                 .severity(&#34;warning&#34;)
+ *                                 .severity("warning")
  *                                 .build())
  *                             .build(),
  *                         EventOrchestrationGlobalSetRuleArgs.builder()
- *                             .label(&#34;Otherwise, set the incident to P1 and run a diagnostic&#34;)
+ *                             .label("Otherwise, set the incident to P1 and run a diagnostic")
  *                             .actions(EventOrchestrationGlobalSetRuleActionsArgs.builder()
- *                                 .priority(p1.applyValue(getPriorityResult -&gt; getPriorityResult.id()))
+ *                                 .priority(p1.applyValue(getPriorityResult -> getPriorityResult.id()))
  *                                 .automationAction(EventOrchestrationGlobalSetRuleActionsAutomationActionArgs.builder()
- *                                     .name(&#34;db-diagnostic&#34;)
- *                                     .url(&#34;https://example.com/run-diagnostic&#34;)
+ *                                     .name("db-diagnostic")
+ *                                     .url("https://example.com/run-diagnostic")
  *                                     .autoSend(true)
  *                                     .build())
  *                                 .build())
@@ -126,7 +127,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

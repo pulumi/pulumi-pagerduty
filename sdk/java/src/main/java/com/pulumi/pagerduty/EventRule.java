@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,56 +47,56 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var second = new EventRule(&#34;second&#34;, EventRuleArgs.builder()        
+ *         var second = new EventRule("second", EventRuleArgs.builder()        
  *             .actionJson(serializeJson(
  *                 jsonArray(
  *                     jsonArray(
- *                         &#34;route&#34;, 
- *                         &#34;P5DTL0K&#34;
+ *                         "route", 
+ *                         "P5DTL0K"
  *                     ), 
  *                     jsonArray(
- *                         &#34;severity&#34;, 
- *                         &#34;warning&#34;
+ *                         "severity", 
+ *                         "warning"
  *                     ), 
  *                     jsonArray(
- *                         &#34;annotate&#34;, 
- *                         &#34;2 Managed by terraform&#34;
+ *                         "annotate", 
+ *                         "2 Managed by terraform"
  *                     ), 
  *                     jsonArray(
- *                         &#34;priority&#34;, 
- *                         &#34;PL451DT&#34;
+ *                         "priority", 
+ *                         "PL451DT"
  *                     )
  *                 )))
  *             .conditionJson(serializeJson(
  *                 jsonArray(
- *                     &#34;and&#34;, 
+ *                     "and", 
  *                     jsonArray(
- *                         &#34;contains&#34;, 
+ *                         "contains", 
  *                         jsonArray(
- *                             &#34;path&#34;, 
- *                             &#34;payload&#34;, 
- *                             &#34;source&#34;
+ *                             "path", 
+ *                             "payload", 
+ *                             "source"
  *                         ), 
- *                         &#34;website&#34;
+ *                         "website"
  *                     ), 
  *                     jsonArray(
- *                         &#34;contains&#34;, 
+ *                         "contains", 
  *                         jsonArray(
- *                             &#34;path&#34;, 
- *                             &#34;headers&#34;, 
- *                             &#34;from&#34;, 
- *                             &#34;0&#34;, 
- *                             &#34;address&#34;
+ *                             "path", 
+ *                             "headers", 
+ *                             "from", 
+ *                             "0", 
+ *                             "address"
  *                         ), 
- *                         &#34;homer&#34;
+ *                         "homer"
  *                     )
  *                 )))
  *             .advancedConditionJson(serializeJson(
  *                 jsonArray(jsonArray(
- *                     &#34;scheduled-weekly&#34;, 
+ *                     "scheduled-weekly", 
  *                     1565392127032, 
  *                     3600000, 
- *                     &#34;America/Los_Angeles&#34;, 
+ *                     "America/Los_Angeles", 
  *                     jsonArray(
  *                         1, 
  *                         2, 
@@ -106,48 +107,48 @@ import javax.annotation.Nullable;
  *                 ))))
  *             .build());
  * 
- *         var third = new EventRule(&#34;third&#34;, EventRuleArgs.builder()        
+ *         var third = new EventRule("third", EventRuleArgs.builder()        
  *             .actionJson(serializeJson(
  *                 jsonArray(
  *                     jsonArray(
- *                         &#34;route&#34;, 
- *                         &#34;P5DTL0K&#34;
+ *                         "route", 
+ *                         "P5DTL0K"
  *                     ), 
  *                     jsonArray(
- *                         &#34;severity&#34;, 
- *                         &#34;warning&#34;
+ *                         "severity", 
+ *                         "warning"
  *                     ), 
  *                     jsonArray(
- *                         &#34;annotate&#34;, 
- *                         &#34;3 Managed by terraform&#34;
+ *                         "annotate", 
+ *                         "3 Managed by terraform"
  *                     ), 
  *                     jsonArray(
- *                         &#34;priority&#34;, 
- *                         &#34;PL451DT&#34;
+ *                         "priority", 
+ *                         "PL451DT"
  *                     )
  *                 )))
  *             .conditionJson(serializeJson(
  *                 jsonArray(
- *                     &#34;and&#34;, 
+ *                     "and", 
  *                     jsonArray(
- *                         &#34;contains&#34;, 
+ *                         "contains", 
  *                         jsonArray(
- *                             &#34;path&#34;, 
- *                             &#34;payload&#34;, 
- *                             &#34;source&#34;
+ *                             "path", 
+ *                             "payload", 
+ *                             "source"
  *                         ), 
- *                         &#34;website&#34;
+ *                         "website"
  *                     ), 
  *                     jsonArray(
- *                         &#34;contains&#34;, 
+ *                         "contains", 
  *                         jsonArray(
- *                             &#34;path&#34;, 
- *                             &#34;headers&#34;, 
- *                             &#34;from&#34;, 
- *                             &#34;0&#34;, 
- *                             &#34;address&#34;
+ *                             "path", 
+ *                             "headers", 
+ *                             "from", 
+ *                             "0", 
+ *                             "address"
  *                         ), 
- *                         &#34;homer&#34;
+ *                         "homer"
  *                     )
  *                 )))
  *             .build(), CustomResourceOptions.builder()
@@ -156,7 +157,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

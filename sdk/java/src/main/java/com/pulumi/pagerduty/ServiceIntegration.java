@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,138 +57,139 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User(&#34;example&#34;, UserArgs.builder()        
- *             .name(&#34;Earline Greenholt&#34;)
- *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+ *         var example = new User("example", UserArgs.builder()        
+ *             .name("Earline Greenholt")
+ *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .teams(examplePagerdutyTeam.id())
  *             .build());
  * 
- *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
- *             .name(&#34;Engineering Escalation Policy&#34;)
+ *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+ *             .name("Engineering Escalation Policy")
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
  *                 .escalationDelayInMinutes(10)
  *                 .targets(EscalationPolicyRuleTargetArgs.builder()
- *                     .type(&#34;user&#34;)
+ *                     .type("user")
  *                     .id(example.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;My Web App&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("My Web App")
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
  *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
  *             .build());
  * 
- *         var exampleServiceIntegration = new ServiceIntegration(&#34;exampleServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
- *             .name(&#34;Generic API Service Integration&#34;)
- *             .type(&#34;generic_events_api_inbound_integration&#34;)
+ *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()        
+ *             .name("Generic API Service Integration")
+ *             .type("generic_events_api_inbound_integration")
  *             .service(exampleService.id())
  *             .build());
  * 
- *         var apiv2 = new ServiceIntegration(&#34;apiv2&#34;, ServiceIntegrationArgs.builder()        
- *             .name(&#34;API V2&#34;)
- *             .type(&#34;events_api_v2_inbound_integration&#34;)
+ *         var apiv2 = new ServiceIntegration("apiv2", ServiceIntegrationArgs.builder()        
+ *             .name("API V2")
+ *             .type("events_api_v2_inbound_integration")
  *             .service(exampleService.id())
  *             .build());
  * 
- *         var emailX = new ServiceIntegration(&#34;emailX&#34;, ServiceIntegrationArgs.builder()        
- *             .name(&#34;Email X&#34;)
- *             .type(&#34;generic_email_inbound_integration&#34;)
- *             .integrationEmail(&#34;ecommerce@subdomain.pagerduty.com&#34;)
+ *         var emailX = new ServiceIntegration("emailX", ServiceIntegrationArgs.builder()        
+ *             .name("Email X")
+ *             .type("generic_email_inbound_integration")
+ *             .integrationEmail("ecommerce{@literal @}subdomain.pagerduty.com")
  *             .service(exampleService.id())
  *             .build());
  * 
  *         final var datadog = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
- *             .name(&#34;Datadog&#34;)
+ *             .name("Datadog")
  *             .build());
  * 
- *         var datadogServiceIntegration = new ServiceIntegration(&#34;datadogServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
- *             .name(datadog.applyValue(getVendorResult -&gt; getVendorResult.name()))
+ *         var datadogServiceIntegration = new ServiceIntegration("datadogServiceIntegration", ServiceIntegrationArgs.builder()        
+ *             .name(datadog.applyValue(getVendorResult -> getVendorResult.name()))
  *             .service(exampleService.id())
- *             .vendor(datadog.applyValue(getVendorResult -&gt; getVendorResult.id()))
+ *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
  *             .build());
  * 
  *         final var cloudwatch = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
- *             .name(&#34;Cloudwatch&#34;)
+ *             .name("Cloudwatch")
  *             .build());
  * 
- *         var cloudwatchServiceIntegration = new ServiceIntegration(&#34;cloudwatchServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
- *             .name(cloudwatch.applyValue(getVendorResult -&gt; getVendorResult.name()))
+ *         var cloudwatchServiceIntegration = new ServiceIntegration("cloudwatchServiceIntegration", ServiceIntegrationArgs.builder()        
+ *             .name(cloudwatch.applyValue(getVendorResult -> getVendorResult.name()))
  *             .service(exampleService.id())
- *             .vendor(cloudwatch.applyValue(getVendorResult -&gt; getVendorResult.id()))
+ *             .vendor(cloudwatch.applyValue(getVendorResult -> getVendorResult.id()))
  *             .build());
  * 
  *         final var email = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
- *             .name(&#34;Email&#34;)
+ *             .name("Email")
  *             .build());
  * 
- *         var emailServiceIntegration = new ServiceIntegration(&#34;emailServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
- *             .name(email.applyValue(getVendorResult -&gt; getVendorResult.name()))
+ *         var emailServiceIntegration = new ServiceIntegration("emailServiceIntegration", ServiceIntegrationArgs.builder()        
+ *             .name(email.applyValue(getVendorResult -> getVendorResult.name()))
  *             .service(exampleService.id())
- *             .vendor(email.applyValue(getVendorResult -&gt; getVendorResult.id()))
- *             .integrationEmail(&#34;s1@your_account.pagerduty.com&#34;)
- *             .emailIncidentCreation(&#34;use_rules&#34;)
- *             .emailFilterMode(&#34;and-rules-email&#34;)
+ *             .vendor(email.applyValue(getVendorResult -> getVendorResult.id()))
+ *             .integrationEmail("s1{@literal @}your_account.pagerduty.com")
+ *             .emailIncidentCreation("use_rules")
+ *             .emailFilterMode("and-rules-email")
  *             .emailFilters(            
  *                 ServiceIntegrationEmailFilterArgs.builder()
- *                     .bodyMode(&#34;always&#34;)
+ *                     .bodyMode("always")
  *                     .bodyRegex(null)
- *                     .fromEmailMode(&#34;match&#34;)
- *                     .fromEmailRegex(&#34;(@foo.test*)&#34;)
- *                     .subjectMode(&#34;match&#34;)
- *                     .subjectRegex(&#34;(CRITICAL*)&#34;)
+ *                     .fromEmailMode("match")
+ *                     .fromEmailRegex("({@literal @}foo.test*)")
+ *                     .subjectMode("match")
+ *                     .subjectRegex("(CRITICAL*)")
  *                     .build(),
  *                 ServiceIntegrationEmailFilterArgs.builder()
- *                     .bodyMode(&#34;always&#34;)
+ *                     .bodyMode("always")
  *                     .bodyRegex(null)
- *                     .fromEmailMode(&#34;match&#34;)
- *                     .fromEmailRegex(&#34;(@bar.com*)&#34;)
- *                     .subjectMode(&#34;match&#34;)
- *                     .subjectRegex(&#34;(CRITICAL*)&#34;)
+ *                     .fromEmailMode("match")
+ *                     .fromEmailRegex("({@literal @}bar.com*)")
+ *                     .subjectMode("match")
+ *                     .subjectRegex("(CRITICAL*)")
  *                     .build())
  *             .emailParsers(ServiceIntegrationEmailParserArgs.builder()
- *                 .action(&#34;resolve&#34;)
+ *                 .action("resolve")
  *                 .matchPredicate(ServiceIntegrationEmailParserMatchPredicateArgs.builder()
- *                     .type(&#34;any&#34;)
+ *                     .type("any")
  *                     .predicates(                    
  *                         ServiceIntegrationEmailParserMatchPredicatePredicateArgs.builder()
- *                             .matcher(&#34;foo&#34;)
- *                             .part(&#34;subject&#34;)
- *                             .type(&#34;contains&#34;)
+ *                             .matcher("foo")
+ *                             .part("subject")
+ *                             .type("contains")
  *                             .build(),
  *                         ServiceIntegrationEmailParserMatchPredicatePredicateArgs.builder()
- *                             .type(&#34;not&#34;)
+ *                             .type("not")
  *                             .predicates(ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs.builder()
- *                                 .matcher(&#34;(bar*)&#34;)
- *                                 .part(&#34;body&#34;)
- *                                 .type(&#34;regex&#34;)
+ *                                 .matcher("(bar*)")
+ *                                 .part("body")
+ *                                 .type("regex")
  *                                 .build())
  *                             .build())
  *                     .build())
  *                 .valueExtractors(                
  *                     ServiceIntegrationEmailParserValueExtractorArgs.builder()
- *                         .endsBefore(&#34;end&#34;)
- *                         .part(&#34;subject&#34;)
- *                         .startsAfter(&#34;start&#34;)
- *                         .type(&#34;between&#34;)
- *                         .valueName(&#34;incident_key&#34;)
+ *                         .endsBefore("end")
+ *                         .part("subject")
+ *                         .startsAfter("start")
+ *                         .type("between")
+ *                         .valueName("incident_key")
  *                         .build(),
  *                     ServiceIntegrationEmailParserValueExtractorArgs.builder()
- *                         .endsBefore(&#34;end&#34;)
- *                         .part(&#34;subject&#34;)
- *                         .startsAfter(&#34;start&#34;)
- *                         .type(&#34;between&#34;)
- *                         .valueName(&#34;FieldName1&#34;)
+ *                         .endsBefore("end")
+ *                         .part("subject")
+ *                         .startsAfter("start")
+ *                         .type("between")
+ *                         .valueName("FieldName1")
  *                         .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

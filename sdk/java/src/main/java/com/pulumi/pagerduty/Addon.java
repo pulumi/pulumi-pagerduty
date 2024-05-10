@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,14 +41,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Addon(&#34;example&#34;, AddonArgs.builder()        
- *             .name(&#34;Internal Status Page&#34;)
- *             .src(&#34;https://intranet.example.com/status&#34;)
+ *         var example = new Addon("example", AddonArgs.builder()        
+ *             .name("Internal Status Page")
+ *             .src("https://intranet.example.com/status")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

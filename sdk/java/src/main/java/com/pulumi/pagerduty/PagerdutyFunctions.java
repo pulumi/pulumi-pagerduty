@@ -104,7 +104,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,12 +127,13 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getAutomationActionsAction(GetAutomationActionsActionArgs.builder()
-     *             .id(&#34;01CS1685B2UDM4I3XUUOXPPORM&#34;)
+     *             .id("01CS1685B2UDM4I3XUUOXPPORM")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -144,7 +146,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -166,12 +169,13 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getAutomationActionsAction(GetAutomationActionsActionArgs.builder()
-     *             .id(&#34;01CS1685B2UDM4I3XUUOXPPORM&#34;)
+     *             .id("01CS1685B2UDM4I3XUUOXPPORM")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -184,7 +188,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -206,12 +211,13 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getAutomationActionsAction(GetAutomationActionsActionArgs.builder()
-     *             .id(&#34;01CS1685B2UDM4I3XUUOXPPORM&#34;)
+     *             .id("01CS1685B2UDM4I3XUUOXPPORM")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -224,7 +230,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -246,12 +253,13 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getAutomationActionsAction(GetAutomationActionsActionArgs.builder()
-     *             .id(&#34;01CS1685B2UDM4I3XUUOXPPORM&#34;)
+     *             .id("01CS1685B2UDM4I3XUUOXPPORM")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -264,7 +272,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -286,12 +295,13 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getAutomationActionsRunner(GetAutomationActionsRunnerArgs.builder()
-     *             .id(&#34;01DBJLIGED17S1DQKQC2AV8XYZ&#34;)
+     *             .id("01DBJLIGED17S1DQKQC2AV8XYZ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -304,7 +314,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -326,12 +337,13 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getAutomationActionsRunner(GetAutomationActionsRunnerArgs.builder()
-     *             .id(&#34;01DBJLIGED17S1DQKQC2AV8XYZ&#34;)
+     *             .id("01DBJLIGED17S1DQKQC2AV8XYZ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -344,7 +356,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -366,12 +379,13 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getAutomationActionsRunner(GetAutomationActionsRunnerArgs.builder()
-     *             .id(&#34;01DBJLIGED17S1DQKQC2AV8XYZ&#34;)
+     *             .id("01DBJLIGED17S1DQKQC2AV8XYZ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -384,7 +398,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -406,12 +421,13 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getAutomationActionsRunner(GetAutomationActionsRunnerArgs.builder()
-     *             .id(&#34;01DBJLIGED17S1DQKQC2AV8XYZ&#34;)
+     *             .id("01DBJLIGED17S1DQKQC2AV8XYZ")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -424,7 +440,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -446,12 +463,13 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getBusinessService(GetBusinessServiceArgs.builder()
-     *             .name(&#34;My Service&#34;)
+     *             .name("My Service")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -464,7 +482,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -486,12 +505,13 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getBusinessService(GetBusinessServiceArgs.builder()
-     *             .name(&#34;My Service&#34;)
+     *             .name("My Service")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -504,7 +524,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -526,12 +547,13 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getBusinessService(GetBusinessServiceArgs.builder()
-     *             .name(&#34;My Service&#34;)
+     *             .name("My Service")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -544,7 +566,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -566,12 +589,13 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getBusinessService(GetBusinessServiceArgs.builder()
-     *             .name(&#34;My Service&#34;)
+     *             .name("My Service")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -584,7 +608,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -608,19 +633,20 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = PagerdutyFunctions.getEscalationPolicy(GetEscalationPolicyArgs.builder()
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *             .name("Engineering Escalation Policy")
      *             .build());
      * 
-     *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;My Web App&#34;)
+     *         var testService = new Service("testService", ServiceArgs.builder()        
+     *             .name("My Web App")
      *             .autoResolveTimeout(14400)
      *             .acknowledgementTimeout(600)
-     *             .escalationPolicy(test.applyValue(getEscalationPolicyResult -&gt; getEscalationPolicyResult.id()))
+     *             .escalationPolicy(test.applyValue(getEscalationPolicyResult -> getEscalationPolicyResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -633,7 +659,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -657,19 +684,20 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = PagerdutyFunctions.getEscalationPolicy(GetEscalationPolicyArgs.builder()
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *             .name("Engineering Escalation Policy")
      *             .build());
      * 
-     *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;My Web App&#34;)
+     *         var testService = new Service("testService", ServiceArgs.builder()        
+     *             .name("My Web App")
      *             .autoResolveTimeout(14400)
      *             .acknowledgementTimeout(600)
-     *             .escalationPolicy(test.applyValue(getEscalationPolicyResult -&gt; getEscalationPolicyResult.id()))
+     *             .escalationPolicy(test.applyValue(getEscalationPolicyResult -> getEscalationPolicyResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -682,7 +710,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -706,19 +735,20 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = PagerdutyFunctions.getEscalationPolicy(GetEscalationPolicyArgs.builder()
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *             .name("Engineering Escalation Policy")
      *             .build());
      * 
-     *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;My Web App&#34;)
+     *         var testService = new Service("testService", ServiceArgs.builder()        
+     *             .name("My Web App")
      *             .autoResolveTimeout(14400)
      *             .acknowledgementTimeout(600)
-     *             .escalationPolicy(test.applyValue(getEscalationPolicyResult -&gt; getEscalationPolicyResult.id()))
+     *             .escalationPolicy(test.applyValue(getEscalationPolicyResult -> getEscalationPolicyResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -731,7 +761,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -755,19 +786,20 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = PagerdutyFunctions.getEscalationPolicy(GetEscalationPolicyArgs.builder()
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *             .name("Engineering Escalation Policy")
      *             .build());
      * 
-     *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;My Web App&#34;)
+     *         var testService = new Service("testService", ServiceArgs.builder()        
+     *             .name("My Web App")
      *             .autoResolveTimeout(14400)
      *             .acknowledgementTimeout(600)
-     *             .escalationPolicy(test.applyValue(getEscalationPolicyResult -&gt; getEscalationPolicyResult.id()))
+     *             .escalationPolicy(test.applyValue(getEscalationPolicyResult -> getEscalationPolicyResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -780,7 +812,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -808,23 +841,23 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var tfOrchA = new EventOrchestration(&#34;tfOrchA&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event Orchestration&#34;)
+     *         var tfOrchA = new EventOrchestration("tfOrchA", EventOrchestrationArgs.builder()        
+     *             .name("Test Event Orchestration")
      *             .build());
      * 
      *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestration(GetEventOrchestrationArgs.builder()
      *             .name(tfOrchA.name())
      *             .build());
      * 
-     *         var router = new EventOrchestrationRouter(&#34;router&#34;, EventOrchestrationRouterArgs.builder()        
+     *         var router = new EventOrchestrationRouter("router", EventOrchestrationRouterArgs.builder()        
      *             .parent(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .catchAll(EventOrchestrationRouterCatchAllArgs.builder()
      *                 .actions(EventOrchestrationRouterCatchAllActionsArgs.builder()
-     *                     .routeTo(&#34;unrouted&#34;)
+     *                     .routeTo("unrouted")
      *                     .build())
      *                 .build())
      *             .set(EventOrchestrationRouterSetArgs.builder()
-     *                 .id(&#34;start&#34;)
+     *                 .id("start")
      *                 .rules(EventOrchestrationRouterSetRuleArgs.builder()
      *                     .actions(EventOrchestrationRouterSetRuleActionsArgs.builder()
      *                         .routeTo(db.id())
@@ -835,7 +868,8 @@ public final class PagerdutyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -848,7 +882,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -876,23 +911,23 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var tfOrchA = new EventOrchestration(&#34;tfOrchA&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event Orchestration&#34;)
+     *         var tfOrchA = new EventOrchestration("tfOrchA", EventOrchestrationArgs.builder()        
+     *             .name("Test Event Orchestration")
      *             .build());
      * 
      *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestration(GetEventOrchestrationArgs.builder()
      *             .name(tfOrchA.name())
      *             .build());
      * 
-     *         var router = new EventOrchestrationRouter(&#34;router&#34;, EventOrchestrationRouterArgs.builder()        
+     *         var router = new EventOrchestrationRouter("router", EventOrchestrationRouterArgs.builder()        
      *             .parent(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .catchAll(EventOrchestrationRouterCatchAllArgs.builder()
      *                 .actions(EventOrchestrationRouterCatchAllActionsArgs.builder()
-     *                     .routeTo(&#34;unrouted&#34;)
+     *                     .routeTo("unrouted")
      *                     .build())
      *                 .build())
      *             .set(EventOrchestrationRouterSetArgs.builder()
-     *                 .id(&#34;start&#34;)
+     *                 .id("start")
      *                 .rules(EventOrchestrationRouterSetRuleArgs.builder()
      *                     .actions(EventOrchestrationRouterSetRuleActionsArgs.builder()
      *                         .routeTo(db.id())
@@ -903,7 +938,8 @@ public final class PagerdutyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -916,7 +952,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -944,23 +981,23 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var tfOrchA = new EventOrchestration(&#34;tfOrchA&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event Orchestration&#34;)
+     *         var tfOrchA = new EventOrchestration("tfOrchA", EventOrchestrationArgs.builder()        
+     *             .name("Test Event Orchestration")
      *             .build());
      * 
      *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestration(GetEventOrchestrationArgs.builder()
      *             .name(tfOrchA.name())
      *             .build());
      * 
-     *         var router = new EventOrchestrationRouter(&#34;router&#34;, EventOrchestrationRouterArgs.builder()        
+     *         var router = new EventOrchestrationRouter("router", EventOrchestrationRouterArgs.builder()        
      *             .parent(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .catchAll(EventOrchestrationRouterCatchAllArgs.builder()
      *                 .actions(EventOrchestrationRouterCatchAllActionsArgs.builder()
-     *                     .routeTo(&#34;unrouted&#34;)
+     *                     .routeTo("unrouted")
      *                     .build())
      *                 .build())
      *             .set(EventOrchestrationRouterSetArgs.builder()
-     *                 .id(&#34;start&#34;)
+     *                 .id("start")
      *                 .rules(EventOrchestrationRouterSetRuleArgs.builder()
      *                     .actions(EventOrchestrationRouterSetRuleActionsArgs.builder()
      *                         .routeTo(db.id())
@@ -971,7 +1008,8 @@ public final class PagerdutyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -984,7 +1022,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1012,23 +1051,23 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var tfOrchA = new EventOrchestration(&#34;tfOrchA&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event Orchestration&#34;)
+     *         var tfOrchA = new EventOrchestration("tfOrchA", EventOrchestrationArgs.builder()        
+     *             .name("Test Event Orchestration")
      *             .build());
      * 
      *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestration(GetEventOrchestrationArgs.builder()
      *             .name(tfOrchA.name())
      *             .build());
      * 
-     *         var router = new EventOrchestrationRouter(&#34;router&#34;, EventOrchestrationRouterArgs.builder()        
+     *         var router = new EventOrchestrationRouter("router", EventOrchestrationRouterArgs.builder()        
      *             .parent(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .catchAll(EventOrchestrationRouterCatchAllArgs.builder()
      *                 .actions(EventOrchestrationRouterCatchAllActionsArgs.builder()
-     *                     .routeTo(&#34;unrouted&#34;)
+     *                     .routeTo("unrouted")
      *                     .build())
      *                 .build())
      *             .set(EventOrchestrationRouterSetArgs.builder()
-     *                 .id(&#34;start&#34;)
+     *                 .id("start")
      *                 .rules(EventOrchestrationRouterSetRuleArgs.builder()
      *                     .actions(EventOrchestrationRouterSetRuleActionsArgs.builder()
      *                         .routeTo(db.id())
@@ -1039,7 +1078,8 @@ public final class PagerdutyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1052,7 +1092,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1075,18 +1116,19 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event Orchestration&#34;)
+     *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()        
+     *             .name("Test Event Orchestration")
      *             .build());
      * 
      *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationGlobalCacheVariable(GetEventOrchestrationGlobalCacheVariableArgs.builder()
      *             .eventOrchestration(eventOrchestration.id())
-     *             .name(&#34;example_cache_variable&#34;)
+     *             .name("example_cache_variable")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1099,7 +1141,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1122,18 +1165,19 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event Orchestration&#34;)
+     *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()        
+     *             .name("Test Event Orchestration")
      *             .build());
      * 
      *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationGlobalCacheVariable(GetEventOrchestrationGlobalCacheVariableArgs.builder()
      *             .eventOrchestration(eventOrchestration.id())
-     *             .name(&#34;example_cache_variable&#34;)
+     *             .name("example_cache_variable")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1146,7 +1190,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1169,18 +1214,19 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event Orchestration&#34;)
+     *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()        
+     *             .name("Test Event Orchestration")
      *             .build());
      * 
      *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationGlobalCacheVariable(GetEventOrchestrationGlobalCacheVariableArgs.builder()
      *             .eventOrchestration(eventOrchestration.id())
-     *             .name(&#34;example_cache_variable&#34;)
+     *             .name("example_cache_variable")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1193,7 +1239,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1216,18 +1263,19 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event Orchestration&#34;)
+     *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()        
+     *             .name("Test Event Orchestration")
      *             .build());
      * 
      *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationGlobalCacheVariable(GetEventOrchestrationGlobalCacheVariableArgs.builder()
      *             .eventOrchestration(eventOrchestration.id())
-     *             .name(&#34;example_cache_variable&#34;)
+     *             .name("example_cache_variable")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1240,7 +1288,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1263,18 +1312,19 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event Orchestration&#34;)
+     *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()        
+     *             .name("Test Event Orchestration")
      *             .build());
      * 
      *         final var integration = PagerdutyFunctions.getEventOrchestrationIntegration(GetEventOrchestrationIntegrationArgs.builder()
      *             .eventOrchestration(eventOrchestration.id())
-     *             .label(&#34;Test Event Orchestration Default Integration&#34;)
+     *             .label("Test Event Orchestration Default Integration")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1287,7 +1337,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1310,18 +1361,19 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event Orchestration&#34;)
+     *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()        
+     *             .name("Test Event Orchestration")
      *             .build());
      * 
      *         final var integration = PagerdutyFunctions.getEventOrchestrationIntegration(GetEventOrchestrationIntegrationArgs.builder()
      *             .eventOrchestration(eventOrchestration.id())
-     *             .label(&#34;Test Event Orchestration Default Integration&#34;)
+     *             .label("Test Event Orchestration Default Integration")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1334,7 +1386,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1357,18 +1410,19 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event Orchestration&#34;)
+     *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()        
+     *             .name("Test Event Orchestration")
      *             .build());
      * 
      *         final var integration = PagerdutyFunctions.getEventOrchestrationIntegration(GetEventOrchestrationIntegrationArgs.builder()
      *             .eventOrchestration(eventOrchestration.id())
-     *             .label(&#34;Test Event Orchestration Default Integration&#34;)
+     *             .label("Test Event Orchestration Default Integration")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1381,7 +1435,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1404,18 +1459,19 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event Orchestration&#34;)
+     *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()        
+     *             .name("Test Event Orchestration")
      *             .build());
      * 
      *         final var integration = PagerdutyFunctions.getEventOrchestrationIntegration(GetEventOrchestrationIntegrationArgs.builder()
      *             .eventOrchestration(eventOrchestration.id())
-     *             .label(&#34;Test Event Orchestration Default Integration&#34;)
+     *             .label("Test Event Orchestration Default Integration")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1428,7 +1484,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1458,44 +1515,45 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var engineering = new Team(&#34;engineering&#34;, TeamArgs.builder()        
-     *             .name(&#34;Engineering&#34;)
+     *         var engineering = new Team("engineering", TeamArgs.builder()        
+     *             .name("Engineering")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
      *             .teams(engineering.id())
      *             .build());
      * 
-     *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
+     *                     .type("user")
      *                     .id(example.id())
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var service = new Service(&#34;service&#34;, ServiceArgs.builder()        
-     *             .name(&#34;My Web App&#34;)
+     *         var service = new Service("service", ServiceArgs.builder()        
+     *             .name("My Web App")
      *             .autoResolveTimeout(14400)
      *             .acknowledgementTimeout(600)
      *             .escalationPolicy(exampleEscalationPolicy.id())
-     *             .alertCreation(&#34;create_alerts_and_incidents&#34;)
+     *             .alertCreation("create_alerts_and_incidents")
      *             .build());
      * 
      *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationServiceCacheVariable(GetEventOrchestrationServiceCacheVariableArgs.builder()
      *             .service(service.id())
-     *             .name(&#34;example_cache_variable&#34;)
+     *             .name("example_cache_variable")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1508,7 +1566,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1538,44 +1597,45 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var engineering = new Team(&#34;engineering&#34;, TeamArgs.builder()        
-     *             .name(&#34;Engineering&#34;)
+     *         var engineering = new Team("engineering", TeamArgs.builder()        
+     *             .name("Engineering")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
      *             .teams(engineering.id())
      *             .build());
      * 
-     *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
+     *                     .type("user")
      *                     .id(example.id())
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var service = new Service(&#34;service&#34;, ServiceArgs.builder()        
-     *             .name(&#34;My Web App&#34;)
+     *         var service = new Service("service", ServiceArgs.builder()        
+     *             .name("My Web App")
      *             .autoResolveTimeout(14400)
      *             .acknowledgementTimeout(600)
      *             .escalationPolicy(exampleEscalationPolicy.id())
-     *             .alertCreation(&#34;create_alerts_and_incidents&#34;)
+     *             .alertCreation("create_alerts_and_incidents")
      *             .build());
      * 
      *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationServiceCacheVariable(GetEventOrchestrationServiceCacheVariableArgs.builder()
      *             .service(service.id())
-     *             .name(&#34;example_cache_variable&#34;)
+     *             .name("example_cache_variable")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1588,7 +1648,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1618,44 +1679,45 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var engineering = new Team(&#34;engineering&#34;, TeamArgs.builder()        
-     *             .name(&#34;Engineering&#34;)
+     *         var engineering = new Team("engineering", TeamArgs.builder()        
+     *             .name("Engineering")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
      *             .teams(engineering.id())
      *             .build());
      * 
-     *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
+     *                     .type("user")
      *                     .id(example.id())
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var service = new Service(&#34;service&#34;, ServiceArgs.builder()        
-     *             .name(&#34;My Web App&#34;)
+     *         var service = new Service("service", ServiceArgs.builder()        
+     *             .name("My Web App")
      *             .autoResolveTimeout(14400)
      *             .acknowledgementTimeout(600)
      *             .escalationPolicy(exampleEscalationPolicy.id())
-     *             .alertCreation(&#34;create_alerts_and_incidents&#34;)
+     *             .alertCreation("create_alerts_and_incidents")
      *             .build());
      * 
      *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationServiceCacheVariable(GetEventOrchestrationServiceCacheVariableArgs.builder()
      *             .service(service.id())
-     *             .name(&#34;example_cache_variable&#34;)
+     *             .name("example_cache_variable")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1668,7 +1730,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1698,44 +1761,45 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var engineering = new Team(&#34;engineering&#34;, TeamArgs.builder()        
-     *             .name(&#34;Engineering&#34;)
+     *         var engineering = new Team("engineering", TeamArgs.builder()        
+     *             .name("Engineering")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
      *             .teams(engineering.id())
      *             .build());
      * 
-     *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
+     *                     .type("user")
      *                     .id(example.id())
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var service = new Service(&#34;service&#34;, ServiceArgs.builder()        
-     *             .name(&#34;My Web App&#34;)
+     *         var service = new Service("service", ServiceArgs.builder()        
+     *             .name("My Web App")
      *             .autoResolveTimeout(14400)
      *             .acknowledgementTimeout(600)
      *             .escalationPolicy(exampleEscalationPolicy.id())
-     *             .alertCreation(&#34;create_alerts_and_incidents&#34;)
+     *             .alertCreation("create_alerts_and_incidents")
      *             .build());
      * 
      *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationServiceCacheVariable(GetEventOrchestrationServiceCacheVariableArgs.builder()
      *             .service(service.id())
-     *             .name(&#34;example_cache_variable&#34;)
+     *             .name("example_cache_variable")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1748,7 +1812,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1771,21 +1836,22 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var tfOrchA = new EventOrchestration(&#34;tfOrchA&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event A Orchestration&#34;)
+     *         var tfOrchA = new EventOrchestration("tfOrchA", EventOrchestrationArgs.builder()        
+     *             .name("Test Event A Orchestration")
      *             .build());
      * 
-     *         var tfOrchB = new EventOrchestration(&#34;tfOrchB&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event B Orchestration&#34;)
+     *         var tfOrchB = new EventOrchestration("tfOrchB", EventOrchestrationArgs.builder()        
+     *             .name("Test Event B Orchestration")
      *             .build());
      * 
      *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestrations(GetEventOrchestrationsArgs.builder()
-     *             .nameFilter(&#34;.*Orchestration$&#34;)
+     *             .nameFilter(".*Orchestration$")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1798,7 +1864,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1821,21 +1888,22 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var tfOrchA = new EventOrchestration(&#34;tfOrchA&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event A Orchestration&#34;)
+     *         var tfOrchA = new EventOrchestration("tfOrchA", EventOrchestrationArgs.builder()        
+     *             .name("Test Event A Orchestration")
      *             .build());
      * 
-     *         var tfOrchB = new EventOrchestration(&#34;tfOrchB&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event B Orchestration&#34;)
+     *         var tfOrchB = new EventOrchestration("tfOrchB", EventOrchestrationArgs.builder()        
+     *             .name("Test Event B Orchestration")
      *             .build());
      * 
      *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestrations(GetEventOrchestrationsArgs.builder()
-     *             .nameFilter(&#34;.*Orchestration$&#34;)
+     *             .nameFilter(".*Orchestration$")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1848,7 +1916,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1871,21 +1940,22 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var tfOrchA = new EventOrchestration(&#34;tfOrchA&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event A Orchestration&#34;)
+     *         var tfOrchA = new EventOrchestration("tfOrchA", EventOrchestrationArgs.builder()        
+     *             .name("Test Event A Orchestration")
      *             .build());
      * 
-     *         var tfOrchB = new EventOrchestration(&#34;tfOrchB&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event B Orchestration&#34;)
+     *         var tfOrchB = new EventOrchestration("tfOrchB", EventOrchestrationArgs.builder()        
+     *             .name("Test Event B Orchestration")
      *             .build());
      * 
      *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestrations(GetEventOrchestrationsArgs.builder()
-     *             .nameFilter(&#34;.*Orchestration$&#34;)
+     *             .nameFilter(".*Orchestration$")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1898,7 +1968,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1921,21 +1992,22 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var tfOrchA = new EventOrchestration(&#34;tfOrchA&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event A Orchestration&#34;)
+     *         var tfOrchA = new EventOrchestration("tfOrchA", EventOrchestrationArgs.builder()        
+     *             .name("Test Event A Orchestration")
      *             .build());
      * 
-     *         var tfOrchB = new EventOrchestration(&#34;tfOrchB&#34;, EventOrchestrationArgs.builder()        
-     *             .name(&#34;Test Event B Orchestration&#34;)
+     *         var tfOrchB = new EventOrchestration("tfOrchB", EventOrchestrationArgs.builder()        
+     *             .name("Test Event B Orchestration")
      *             .build());
      * 
      *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestrations(GetEventOrchestrationsArgs.builder()
-     *             .nameFilter(&#34;.*Orchestration$&#34;)
+     *             .nameFilter(".*Orchestration$")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1948,7 +2020,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1979,44 +2052,45 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var webhook = PagerdutyFunctions.getExtensionSchema(GetExtensionSchemaArgs.builder()
-     *             .name(&#34;Generic V2 Webhook&#34;)
+     *             .name("Generic V2 Webhook")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Howard James&#34;)
-     *             .email(&#34;howard.james@example.domain&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Howard James")
+     *             .email("howard.james{@literal @}example.domain")
      *             .teams(examplePagerdutyTeam.id())
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
+     *                     .type("user")
      *                     .id(example.id())
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;My Web App&#34;)
+     *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+     *             .name("My Web App")
      *             .autoResolveTimeout(14400)
      *             .acknowledgementTimeout(600)
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
-     *         var slack = new Extension(&#34;slack&#34;, ExtensionArgs.builder()        
-     *             .name(&#34;My Web App Extension&#34;)
-     *             .endpointUrl(&#34;https://generic_webhook_url/XXXXXX/BBBBBB&#34;)
-     *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -&gt; getExtensionSchemaResult.id()))
+     *         var slack = new Extension("slack", ExtensionArgs.builder()        
+     *             .name("My Web App Extension")
+     *             .endpointUrl("https://generic_webhook_url/XXXXXX/BBBBBB")
+     *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -> getExtensionSchemaResult.id()))
      *             .extensionObjects(exampleService.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2029,7 +2103,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2060,44 +2135,45 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var webhook = PagerdutyFunctions.getExtensionSchema(GetExtensionSchemaArgs.builder()
-     *             .name(&#34;Generic V2 Webhook&#34;)
+     *             .name("Generic V2 Webhook")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Howard James&#34;)
-     *             .email(&#34;howard.james@example.domain&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Howard James")
+     *             .email("howard.james{@literal @}example.domain")
      *             .teams(examplePagerdutyTeam.id())
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
+     *                     .type("user")
      *                     .id(example.id())
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;My Web App&#34;)
+     *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+     *             .name("My Web App")
      *             .autoResolveTimeout(14400)
      *             .acknowledgementTimeout(600)
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
-     *         var slack = new Extension(&#34;slack&#34;, ExtensionArgs.builder()        
-     *             .name(&#34;My Web App Extension&#34;)
-     *             .endpointUrl(&#34;https://generic_webhook_url/XXXXXX/BBBBBB&#34;)
-     *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -&gt; getExtensionSchemaResult.id()))
+     *         var slack = new Extension("slack", ExtensionArgs.builder()        
+     *             .name("My Web App Extension")
+     *             .endpointUrl("https://generic_webhook_url/XXXXXX/BBBBBB")
+     *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -> getExtensionSchemaResult.id()))
      *             .extensionObjects(exampleService.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2110,7 +2186,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2141,44 +2218,45 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var webhook = PagerdutyFunctions.getExtensionSchema(GetExtensionSchemaArgs.builder()
-     *             .name(&#34;Generic V2 Webhook&#34;)
+     *             .name("Generic V2 Webhook")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Howard James&#34;)
-     *             .email(&#34;howard.james@example.domain&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Howard James")
+     *             .email("howard.james{@literal @}example.domain")
      *             .teams(examplePagerdutyTeam.id())
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
+     *                     .type("user")
      *                     .id(example.id())
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;My Web App&#34;)
+     *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+     *             .name("My Web App")
      *             .autoResolveTimeout(14400)
      *             .acknowledgementTimeout(600)
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
-     *         var slack = new Extension(&#34;slack&#34;, ExtensionArgs.builder()        
-     *             .name(&#34;My Web App Extension&#34;)
-     *             .endpointUrl(&#34;https://generic_webhook_url/XXXXXX/BBBBBB&#34;)
-     *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -&gt; getExtensionSchemaResult.id()))
+     *         var slack = new Extension("slack", ExtensionArgs.builder()        
+     *             .name("My Web App Extension")
+     *             .endpointUrl("https://generic_webhook_url/XXXXXX/BBBBBB")
+     *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -> getExtensionSchemaResult.id()))
      *             .extensionObjects(exampleService.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2191,7 +2269,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2222,44 +2301,45 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var webhook = PagerdutyFunctions.getExtensionSchema(GetExtensionSchemaArgs.builder()
-     *             .name(&#34;Generic V2 Webhook&#34;)
+     *             .name("Generic V2 Webhook")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Howard James&#34;)
-     *             .email(&#34;howard.james@example.domain&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Howard James")
+     *             .email("howard.james{@literal @}example.domain")
      *             .teams(examplePagerdutyTeam.id())
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
+     *                     .type("user")
      *                     .id(example.id())
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;My Web App&#34;)
+     *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+     *             .name("My Web App")
      *             .autoResolveTimeout(14400)
      *             .acknowledgementTimeout(600)
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
-     *         var slack = new Extension(&#34;slack&#34;, ExtensionArgs.builder()        
-     *             .name(&#34;My Web App Extension&#34;)
-     *             .endpointUrl(&#34;https://generic_webhook_url/XXXXXX/BBBBBB&#34;)
-     *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -&gt; getExtensionSchemaResult.id()))
+     *         var slack = new Extension("slack", ExtensionArgs.builder()        
+     *             .name("My Web App Extension")
+     *             .endpointUrl("https://generic_webhook_url/XXXXXX/BBBBBB")
+     *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -> getExtensionSchemaResult.id()))
      *             .extensionObjects(exampleService.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2272,7 +2352,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2296,18 +2377,19 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var environment = PagerdutyFunctions.getIncidentCustomField(GetIncidentCustomFieldArgs.builder()
-     *             .name(&#34;environment&#34;)
+     *             .name("environment")
      *             .build());
      * 
-     *         var devEnvironment = new IncidentCustomFieldOption(&#34;devEnvironment&#34;, IncidentCustomFieldOptionArgs.builder()        
-     *             .field(environment.applyValue(getIncidentCustomFieldResult -&gt; getIncidentCustomFieldResult.id()))
-     *             .datatype(&#34;string&#34;)
-     *             .value(&#34;dev&#34;)
+     *         var devEnvironment = new IncidentCustomFieldOption("devEnvironment", IncidentCustomFieldOptionArgs.builder()        
+     *             .field(environment.applyValue(getIncidentCustomFieldResult -> getIncidentCustomFieldResult.id()))
+     *             .datatype("string")
+     *             .value("dev")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2320,7 +2402,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2344,18 +2427,19 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var environment = PagerdutyFunctions.getIncidentCustomField(GetIncidentCustomFieldArgs.builder()
-     *             .name(&#34;environment&#34;)
+     *             .name("environment")
      *             .build());
      * 
-     *         var devEnvironment = new IncidentCustomFieldOption(&#34;devEnvironment&#34;, IncidentCustomFieldOptionArgs.builder()        
-     *             .field(environment.applyValue(getIncidentCustomFieldResult -&gt; getIncidentCustomFieldResult.id()))
-     *             .datatype(&#34;string&#34;)
-     *             .value(&#34;dev&#34;)
+     *         var devEnvironment = new IncidentCustomFieldOption("devEnvironment", IncidentCustomFieldOptionArgs.builder()        
+     *             .field(environment.applyValue(getIncidentCustomFieldResult -> getIncidentCustomFieldResult.id()))
+     *             .datatype("string")
+     *             .value("dev")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2368,7 +2452,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2392,18 +2477,19 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var environment = PagerdutyFunctions.getIncidentCustomField(GetIncidentCustomFieldArgs.builder()
-     *             .name(&#34;environment&#34;)
+     *             .name("environment")
      *             .build());
      * 
-     *         var devEnvironment = new IncidentCustomFieldOption(&#34;devEnvironment&#34;, IncidentCustomFieldOptionArgs.builder()        
-     *             .field(environment.applyValue(getIncidentCustomFieldResult -&gt; getIncidentCustomFieldResult.id()))
-     *             .datatype(&#34;string&#34;)
-     *             .value(&#34;dev&#34;)
+     *         var devEnvironment = new IncidentCustomFieldOption("devEnvironment", IncidentCustomFieldOptionArgs.builder()        
+     *             .field(environment.applyValue(getIncidentCustomFieldResult -> getIncidentCustomFieldResult.id()))
+     *             .datatype("string")
+     *             .value("dev")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2416,7 +2502,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2440,18 +2527,19 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var environment = PagerdutyFunctions.getIncidentCustomField(GetIncidentCustomFieldArgs.builder()
-     *             .name(&#34;environment&#34;)
+     *             .name("environment")
      *             .build());
      * 
-     *         var devEnvironment = new IncidentCustomFieldOption(&#34;devEnvironment&#34;, IncidentCustomFieldOptionArgs.builder()        
-     *             .field(environment.applyValue(getIncidentCustomFieldResult -&gt; getIncidentCustomFieldResult.id()))
-     *             .datatype(&#34;string&#34;)
-     *             .value(&#34;dev&#34;)
+     *         var devEnvironment = new IncidentCustomFieldOption("devEnvironment", IncidentCustomFieldOptionArgs.builder()        
+     *             .field(environment.applyValue(getIncidentCustomFieldResult -> getIncidentCustomFieldResult.id()))
+     *             .datatype("string")
+     *             .value("dev")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2464,7 +2552,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2489,23 +2578,24 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var myWorkflow = PagerdutyFunctions.getIncidentWorkflow(GetIncidentWorkflowArgs.builder()
-     *             .name(&#34;Some Workflow Name&#34;)
+     *             .name("Some Workflow Name")
      *             .build());
      * 
      *         final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;My First Service&#34;)
+     *             .name("My First Service")
      *             .build());
      * 
-     *         var automaticTrigger = new IncidentWorkflowTrigger(&#34;automaticTrigger&#34;, IncidentWorkflowTriggerArgs.builder()        
-     *             .type(&#34;conditional&#34;)
-     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -&gt; getIncidentWorkflowResult.id()))
-     *             .services(firstService.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .condition(&#34;incident.priority matches &#39;P1&#39;&#34;)
+     *         var automaticTrigger = new IncidentWorkflowTrigger("automaticTrigger", IncidentWorkflowTriggerArgs.builder()        
+     *             .type("conditional")
+     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -> getIncidentWorkflowResult.id()))
+     *             .services(firstService.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .condition("incident.priority matches 'P1'")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2518,7 +2608,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2543,23 +2634,24 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var myWorkflow = PagerdutyFunctions.getIncidentWorkflow(GetIncidentWorkflowArgs.builder()
-     *             .name(&#34;Some Workflow Name&#34;)
+     *             .name("Some Workflow Name")
      *             .build());
      * 
      *         final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;My First Service&#34;)
+     *             .name("My First Service")
      *             .build());
      * 
-     *         var automaticTrigger = new IncidentWorkflowTrigger(&#34;automaticTrigger&#34;, IncidentWorkflowTriggerArgs.builder()        
-     *             .type(&#34;conditional&#34;)
-     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -&gt; getIncidentWorkflowResult.id()))
-     *             .services(firstService.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .condition(&#34;incident.priority matches &#39;P1&#39;&#34;)
+     *         var automaticTrigger = new IncidentWorkflowTrigger("automaticTrigger", IncidentWorkflowTriggerArgs.builder()        
+     *             .type("conditional")
+     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -> getIncidentWorkflowResult.id()))
+     *             .services(firstService.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .condition("incident.priority matches 'P1'")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2572,7 +2664,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2597,23 +2690,24 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var myWorkflow = PagerdutyFunctions.getIncidentWorkflow(GetIncidentWorkflowArgs.builder()
-     *             .name(&#34;Some Workflow Name&#34;)
+     *             .name("Some Workflow Name")
      *             .build());
      * 
      *         final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;My First Service&#34;)
+     *             .name("My First Service")
      *             .build());
      * 
-     *         var automaticTrigger = new IncidentWorkflowTrigger(&#34;automaticTrigger&#34;, IncidentWorkflowTriggerArgs.builder()        
-     *             .type(&#34;conditional&#34;)
-     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -&gt; getIncidentWorkflowResult.id()))
-     *             .services(firstService.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .condition(&#34;incident.priority matches &#39;P1&#39;&#34;)
+     *         var automaticTrigger = new IncidentWorkflowTrigger("automaticTrigger", IncidentWorkflowTriggerArgs.builder()        
+     *             .type("conditional")
+     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -> getIncidentWorkflowResult.id()))
+     *             .services(firstService.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .condition("incident.priority matches 'P1'")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2626,7 +2720,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2651,23 +2746,24 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var myWorkflow = PagerdutyFunctions.getIncidentWorkflow(GetIncidentWorkflowArgs.builder()
-     *             .name(&#34;Some Workflow Name&#34;)
+     *             .name("Some Workflow Name")
      *             .build());
      * 
      *         final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;My First Service&#34;)
+     *             .name("My First Service")
      *             .build());
      * 
-     *         var automaticTrigger = new IncidentWorkflowTrigger(&#34;automaticTrigger&#34;, IncidentWorkflowTriggerArgs.builder()        
-     *             .type(&#34;conditional&#34;)
-     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -&gt; getIncidentWorkflowResult.id()))
-     *             .services(firstService.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .condition(&#34;incident.priority matches &#39;P1&#39;&#34;)
+     *         var automaticTrigger = new IncidentWorkflowTrigger("automaticTrigger", IncidentWorkflowTriggerArgs.builder()        
+     *             .type("conditional")
+     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -> getIncidentWorkflowResult.id()))
+     *             .services(firstService.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .condition("incident.priority matches 'P1'")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2682,7 +2778,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2705,23 +2802,24 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var invalidRoles = &#34;owner&#34;;
+     *         final var invalidRoles = "owner";
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
-     *             .name(&#34;Full User&#34;)
-     *             .description(&#34;&#34;)
+     *             .name("Full User")
+     *             .description("")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
-     *             .license(fullUser.applyValue(getLicenseResult -&gt; getLicenseResult.id()))
-     *             .role(&#34;user&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
+     *             .role("user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2736,7 +2834,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2759,23 +2858,24 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var invalidRoles = &#34;owner&#34;;
+     *         final var invalidRoles = "owner";
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
-     *             .name(&#34;Full User&#34;)
-     *             .description(&#34;&#34;)
+     *             .name("Full User")
+     *             .description("")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
-     *             .license(fullUser.applyValue(getLicenseResult -&gt; getLicenseResult.id()))
-     *             .role(&#34;user&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
+     *             .role("user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2790,7 +2890,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2813,23 +2914,24 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var invalidRoles = &#34;owner&#34;;
+     *         final var invalidRoles = "owner";
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
-     *             .name(&#34;Full User&#34;)
-     *             .description(&#34;&#34;)
+     *             .name("Full User")
+     *             .description("")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
-     *             .license(fullUser.applyValue(getLicenseResult -&gt; getLicenseResult.id()))
-     *             .role(&#34;user&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
+     *             .role("user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2844,7 +2946,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2867,23 +2970,24 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var invalidRoles = &#34;owner&#34;;
+     *         final var invalidRoles = "owner";
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
-     *             .name(&#34;Full User&#34;)
-     *             .description(&#34;&#34;)
+     *             .name("Full User")
+     *             .description("")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
-     *             .license(fullUser.applyValue(getLicenseResult -&gt; getLicenseResult.id()))
-     *             .role(&#34;user&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
+     *             .role("user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2898,7 +3002,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2921,23 +3026,24 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var invalidRoles = &#34;owner&#34;;
+     *         final var invalidRoles = "owner";
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
-     *             .name(&#34;Full User&#34;)
-     *             .description(&#34;&#34;)
+     *             .name("Full User")
+     *             .description("")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
-     *             .license(fullUser.applyValue(getLicenseResult -&gt; getLicenseResult.id()))
-     *             .role(&#34;user&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
+     *             .role("user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2952,7 +3058,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2975,23 +3082,24 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var invalidRoles = &#34;owner&#34;;
+     *         final var invalidRoles = "owner";
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
-     *             .name(&#34;Full User&#34;)
-     *             .description(&#34;&#34;)
+     *             .name("Full User")
+     *             .description("")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
-     *             .license(fullUser.applyValue(getLicenseResult -&gt; getLicenseResult.id()))
-     *             .role(&#34;user&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
+     *             .role("user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3004,7 +3112,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3027,20 +3136,21 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var invalidRoles = &#34;owner&#34;;
+     *         final var invalidRoles = "owner";
      * 
      *         final var licenses = PagerdutyFunctions.getLicenses();
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
-     *             .license(licenses.applyValue(getLicensesResult -&gt; getLicensesResult.licenses()[0].id()))
-     *             .role(&#34;user&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
+     *             .role("user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3053,7 +3163,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3076,20 +3187,21 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var invalidRoles = &#34;owner&#34;;
+     *         final var invalidRoles = "owner";
      * 
      *         final var licenses = PagerdutyFunctions.getLicenses();
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
-     *             .license(licenses.applyValue(getLicensesResult -&gt; getLicensesResult.licenses()[0].id()))
-     *             .role(&#34;user&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
+     *             .role("user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3102,7 +3214,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3125,20 +3238,21 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var invalidRoles = &#34;owner&#34;;
+     *         final var invalidRoles = "owner";
      * 
      *         final var licenses = PagerdutyFunctions.getLicenses();
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
-     *             .license(licenses.applyValue(getLicensesResult -&gt; getLicensesResult.licenses()[0].id()))
-     *             .role(&#34;user&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
+     *             .role("user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3151,7 +3265,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3174,20 +3289,21 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var invalidRoles = &#34;owner&#34;;
+     *         final var invalidRoles = "owner";
      * 
      *         final var licenses = PagerdutyFunctions.getLicenses();
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
-     *             .license(licenses.applyValue(getLicensesResult -&gt; getLicensesResult.licenses()[0].id()))
-     *             .role(&#34;user&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
+     *             .role("user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3200,7 +3316,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3223,20 +3340,21 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var invalidRoles = &#34;owner&#34;;
+     *         final var invalidRoles = "owner";
      * 
      *         final var licenses = PagerdutyFunctions.getLicenses();
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
-     *             .license(licenses.applyValue(getLicensesResult -&gt; getLicensesResult.licenses()[0].id()))
-     *             .role(&#34;user&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
+     *             .role("user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3249,7 +3367,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3272,20 +3391,21 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var invalidRoles = &#34;owner&#34;;
+     *         final var invalidRoles = "owner";
      * 
      *         final var licenses = PagerdutyFunctions.getLicenses();
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
-     *             .license(licenses.applyValue(getLicensesResult -&gt; getLicensesResult.licenses()[0].id()))
-     *             .role(&#34;user&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
+     *             .role("user")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3298,7 +3418,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3326,48 +3447,49 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var p1 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()
-     *             .name(&#34;P1&#34;)
+     *             .name("P1")
      *             .build());
      * 
-     *         var foo = new Ruleset(&#34;foo&#34;, RulesetArgs.builder()        
-     *             .name(&#34;Primary Ruleset&#34;)
+     *         var foo = new Ruleset("foo", RulesetArgs.builder()        
+     *             .name("Primary Ruleset")
      *             .build());
      * 
-     *         var fooRulesetRule = new RulesetRule(&#34;fooRulesetRule&#34;, RulesetRuleArgs.builder()        
+     *         var fooRulesetRule = new RulesetRule("fooRulesetRule", RulesetRuleArgs.builder()        
      *             .ruleset(foo.id())
      *             .position(0)
-     *             .disabled(&#34;false&#34;)
+     *             .disabled("false")
      *             .conditions(RulesetRuleConditionsArgs.builder()
-     *                 .operator(&#34;and&#34;)
+     *                 .operator("and")
      *                 .subconditions(                
      *                     RulesetRuleConditionsSubconditionArgs.builder()
-     *                         .operator(&#34;contains&#34;)
+     *                         .operator("contains")
      *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
-     *                             .value(&#34;disk space&#34;)
-     *                             .path(&#34;payload.summary&#34;)
+     *                             .value("disk space")
+     *                             .path("payload.summary")
      *                             .build())
      *                         .build(),
      *                     RulesetRuleConditionsSubconditionArgs.builder()
-     *                         .operator(&#34;contains&#34;)
+     *                         .operator("contains")
      *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
-     *                             .value(&#34;db&#34;)
-     *                             .path(&#34;payload.source&#34;)
+     *                             .value("db")
+     *                             .path("payload.source")
      *                             .build())
      *                         .build())
      *                 .build())
      *             .actions(RulesetRuleActionsArgs.builder()
      *                 .routes(RulesetRuleActionsRouteArgs.builder()
-     *                     .value(&#34;P5DTL0K&#34;)
+     *                     .value("P5DTL0K")
      *                     .build())
      *                 .priorities(RulesetRuleActionsPriorityArgs.builder()
-     *                     .value(p1.applyValue(getPriorityResult -&gt; getPriorityResult.id()))
+     *                     .value(p1.applyValue(getPriorityResult -> getPriorityResult.id()))
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3380,7 +3502,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3408,48 +3531,49 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var p1 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()
-     *             .name(&#34;P1&#34;)
+     *             .name("P1")
      *             .build());
      * 
-     *         var foo = new Ruleset(&#34;foo&#34;, RulesetArgs.builder()        
-     *             .name(&#34;Primary Ruleset&#34;)
+     *         var foo = new Ruleset("foo", RulesetArgs.builder()        
+     *             .name("Primary Ruleset")
      *             .build());
      * 
-     *         var fooRulesetRule = new RulesetRule(&#34;fooRulesetRule&#34;, RulesetRuleArgs.builder()        
+     *         var fooRulesetRule = new RulesetRule("fooRulesetRule", RulesetRuleArgs.builder()        
      *             .ruleset(foo.id())
      *             .position(0)
-     *             .disabled(&#34;false&#34;)
+     *             .disabled("false")
      *             .conditions(RulesetRuleConditionsArgs.builder()
-     *                 .operator(&#34;and&#34;)
+     *                 .operator("and")
      *                 .subconditions(                
      *                     RulesetRuleConditionsSubconditionArgs.builder()
-     *                         .operator(&#34;contains&#34;)
+     *                         .operator("contains")
      *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
-     *                             .value(&#34;disk space&#34;)
-     *                             .path(&#34;payload.summary&#34;)
+     *                             .value("disk space")
+     *                             .path("payload.summary")
      *                             .build())
      *                         .build(),
      *                     RulesetRuleConditionsSubconditionArgs.builder()
-     *                         .operator(&#34;contains&#34;)
+     *                         .operator("contains")
      *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
-     *                             .value(&#34;db&#34;)
-     *                             .path(&#34;payload.source&#34;)
+     *                             .value("db")
+     *                             .path("payload.source")
      *                             .build())
      *                         .build())
      *                 .build())
      *             .actions(RulesetRuleActionsArgs.builder()
      *                 .routes(RulesetRuleActionsRouteArgs.builder()
-     *                     .value(&#34;P5DTL0K&#34;)
+     *                     .value("P5DTL0K")
      *                     .build())
      *                 .priorities(RulesetRuleActionsPriorityArgs.builder()
-     *                     .value(p1.applyValue(getPriorityResult -&gt; getPriorityResult.id()))
+     *                     .value(p1.applyValue(getPriorityResult -> getPriorityResult.id()))
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3462,7 +3586,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3490,48 +3615,49 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var p1 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()
-     *             .name(&#34;P1&#34;)
+     *             .name("P1")
      *             .build());
      * 
-     *         var foo = new Ruleset(&#34;foo&#34;, RulesetArgs.builder()        
-     *             .name(&#34;Primary Ruleset&#34;)
+     *         var foo = new Ruleset("foo", RulesetArgs.builder()        
+     *             .name("Primary Ruleset")
      *             .build());
      * 
-     *         var fooRulesetRule = new RulesetRule(&#34;fooRulesetRule&#34;, RulesetRuleArgs.builder()        
+     *         var fooRulesetRule = new RulesetRule("fooRulesetRule", RulesetRuleArgs.builder()        
      *             .ruleset(foo.id())
      *             .position(0)
-     *             .disabled(&#34;false&#34;)
+     *             .disabled("false")
      *             .conditions(RulesetRuleConditionsArgs.builder()
-     *                 .operator(&#34;and&#34;)
+     *                 .operator("and")
      *                 .subconditions(                
      *                     RulesetRuleConditionsSubconditionArgs.builder()
-     *                         .operator(&#34;contains&#34;)
+     *                         .operator("contains")
      *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
-     *                             .value(&#34;disk space&#34;)
-     *                             .path(&#34;payload.summary&#34;)
+     *                             .value("disk space")
+     *                             .path("payload.summary")
      *                             .build())
      *                         .build(),
      *                     RulesetRuleConditionsSubconditionArgs.builder()
-     *                         .operator(&#34;contains&#34;)
+     *                         .operator("contains")
      *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
-     *                             .value(&#34;db&#34;)
-     *                             .path(&#34;payload.source&#34;)
+     *                             .value("db")
+     *                             .path("payload.source")
      *                             .build())
      *                         .build())
      *                 .build())
      *             .actions(RulesetRuleActionsArgs.builder()
      *                 .routes(RulesetRuleActionsRouteArgs.builder()
-     *                     .value(&#34;P5DTL0K&#34;)
+     *                     .value("P5DTL0K")
      *                     .build())
      *                 .priorities(RulesetRuleActionsPriorityArgs.builder()
-     *                     .value(p1.applyValue(getPriorityResult -&gt; getPriorityResult.id()))
+     *                     .value(p1.applyValue(getPriorityResult -> getPriorityResult.id()))
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3544,7 +3670,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3572,48 +3699,49 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var p1 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()
-     *             .name(&#34;P1&#34;)
+     *             .name("P1")
      *             .build());
      * 
-     *         var foo = new Ruleset(&#34;foo&#34;, RulesetArgs.builder()        
-     *             .name(&#34;Primary Ruleset&#34;)
+     *         var foo = new Ruleset("foo", RulesetArgs.builder()        
+     *             .name("Primary Ruleset")
      *             .build());
      * 
-     *         var fooRulesetRule = new RulesetRule(&#34;fooRulesetRule&#34;, RulesetRuleArgs.builder()        
+     *         var fooRulesetRule = new RulesetRule("fooRulesetRule", RulesetRuleArgs.builder()        
      *             .ruleset(foo.id())
      *             .position(0)
-     *             .disabled(&#34;false&#34;)
+     *             .disabled("false")
      *             .conditions(RulesetRuleConditionsArgs.builder()
-     *                 .operator(&#34;and&#34;)
+     *                 .operator("and")
      *                 .subconditions(                
      *                     RulesetRuleConditionsSubconditionArgs.builder()
-     *                         .operator(&#34;contains&#34;)
+     *                         .operator("contains")
      *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
-     *                             .value(&#34;disk space&#34;)
-     *                             .path(&#34;payload.summary&#34;)
+     *                             .value("disk space")
+     *                             .path("payload.summary")
      *                             .build())
      *                         .build(),
      *                     RulesetRuleConditionsSubconditionArgs.builder()
-     *                         .operator(&#34;contains&#34;)
+     *                         .operator("contains")
      *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
-     *                             .value(&#34;db&#34;)
-     *                             .path(&#34;payload.source&#34;)
+     *                             .value("db")
+     *                             .path("payload.source")
      *                             .build())
      *                         .build())
      *                 .build())
      *             .actions(RulesetRuleActionsArgs.builder()
      *                 .routes(RulesetRuleActionsRouteArgs.builder()
-     *                     .value(&#34;P5DTL0K&#34;)
+     *                     .value("P5DTL0K")
      *                     .build())
      *                 .priorities(RulesetRuleActionsPriorityArgs.builder()
-     *                     .value(p1.applyValue(getPriorityResult -&gt; getPriorityResult.id()))
+     *                     .value(p1.applyValue(getPriorityResult -> getPriorityResult.id()))
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3624,7 +3752,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3650,47 +3779,49 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getRuleset(GetRulesetArgs.builder()
-     *             .name(&#34;My Ruleset&#34;)
+     *             .name("My Ruleset")
      *             .build());
      * 
-     *         var foo = new RulesetRule(&#34;foo&#34;, RulesetRuleArgs.builder()        
-     *             .ruleset(example.applyValue(getRulesetResult -&gt; getRulesetResult.id()))
+     *         var foo = new RulesetRule("foo", RulesetRuleArgs.builder()        
+     *             .ruleset(example.applyValue(getRulesetResult -> getRulesetResult.id()))
      *             .position(0)
-     *             .disabled(&#34;false&#34;)
+     *             .disabled("false")
      *             .conditions(RulesetRuleConditionsArgs.builder()
-     *                 .operator(&#34;and&#34;)
+     *                 .operator("and")
      *                 .subconditions(                
      *                     RulesetRuleConditionsSubconditionArgs.builder()
-     *                         .operator(&#34;contains&#34;)
+     *                         .operator("contains")
      *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
-     *                             .value(&#34;disk space&#34;)
-     *                             .path(&#34;payload.summary&#34;)
+     *                             .value("disk space")
+     *                             .path("payload.summary")
      *                             .build())
      *                         .build(),
      *                     RulesetRuleConditionsSubconditionArgs.builder()
-     *                         .operator(&#34;contains&#34;)
+     *                         .operator("contains")
      *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
-     *                             .value(&#34;db&#34;)
-     *                             .path(&#34;payload.source&#34;)
+     *                             .value("db")
+     *                             .path("payload.source")
      *                             .build())
      *                         .build())
      *                 .build())
      *             .actions(RulesetRuleActionsArgs.builder()
      *                 .routes(RulesetRuleActionsRouteArgs.builder()
-     *                     .value(&#34;P5DTL0K&#34;)
+     *                     .value("P5DTL0K")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Default Global Ruleset
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3712,12 +3843,13 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var defaultGlobal = PagerdutyFunctions.getRuleset(GetRulesetArgs.builder()
-     *             .name(&#34;Default Global&#34;)
+     *             .name("Default Global")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3728,7 +3860,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3754,47 +3887,49 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getRuleset(GetRulesetArgs.builder()
-     *             .name(&#34;My Ruleset&#34;)
+     *             .name("My Ruleset")
      *             .build());
      * 
-     *         var foo = new RulesetRule(&#34;foo&#34;, RulesetRuleArgs.builder()        
-     *             .ruleset(example.applyValue(getRulesetResult -&gt; getRulesetResult.id()))
+     *         var foo = new RulesetRule("foo", RulesetRuleArgs.builder()        
+     *             .ruleset(example.applyValue(getRulesetResult -> getRulesetResult.id()))
      *             .position(0)
-     *             .disabled(&#34;false&#34;)
+     *             .disabled("false")
      *             .conditions(RulesetRuleConditionsArgs.builder()
-     *                 .operator(&#34;and&#34;)
+     *                 .operator("and")
      *                 .subconditions(                
      *                     RulesetRuleConditionsSubconditionArgs.builder()
-     *                         .operator(&#34;contains&#34;)
+     *                         .operator("contains")
      *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
-     *                             .value(&#34;disk space&#34;)
-     *                             .path(&#34;payload.summary&#34;)
+     *                             .value("disk space")
+     *                             .path("payload.summary")
      *                             .build())
      *                         .build(),
      *                     RulesetRuleConditionsSubconditionArgs.builder()
-     *                         .operator(&#34;contains&#34;)
+     *                         .operator("contains")
      *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
-     *                             .value(&#34;db&#34;)
-     *                             .path(&#34;payload.source&#34;)
+     *                             .value("db")
+     *                             .path("payload.source")
      *                             .build())
      *                         .build())
      *                 .build())
      *             .actions(RulesetRuleActionsArgs.builder()
      *                 .routes(RulesetRuleActionsRouteArgs.builder()
-     *                     .value(&#34;P5DTL0K&#34;)
+     *                     .value("P5DTL0K")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Default Global Ruleset
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3816,12 +3951,13 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var defaultGlobal = PagerdutyFunctions.getRuleset(GetRulesetArgs.builder()
-     *             .name(&#34;Default Global&#34;)
+     *             .name("Default Global")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3832,7 +3968,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3858,47 +3995,49 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getRuleset(GetRulesetArgs.builder()
-     *             .name(&#34;My Ruleset&#34;)
+     *             .name("My Ruleset")
      *             .build());
      * 
-     *         var foo = new RulesetRule(&#34;foo&#34;, RulesetRuleArgs.builder()        
-     *             .ruleset(example.applyValue(getRulesetResult -&gt; getRulesetResult.id()))
+     *         var foo = new RulesetRule("foo", RulesetRuleArgs.builder()        
+     *             .ruleset(example.applyValue(getRulesetResult -> getRulesetResult.id()))
      *             .position(0)
-     *             .disabled(&#34;false&#34;)
+     *             .disabled("false")
      *             .conditions(RulesetRuleConditionsArgs.builder()
-     *                 .operator(&#34;and&#34;)
+     *                 .operator("and")
      *                 .subconditions(                
      *                     RulesetRuleConditionsSubconditionArgs.builder()
-     *                         .operator(&#34;contains&#34;)
+     *                         .operator("contains")
      *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
-     *                             .value(&#34;disk space&#34;)
-     *                             .path(&#34;payload.summary&#34;)
+     *                             .value("disk space")
+     *                             .path("payload.summary")
      *                             .build())
      *                         .build(),
      *                     RulesetRuleConditionsSubconditionArgs.builder()
-     *                         .operator(&#34;contains&#34;)
+     *                         .operator("contains")
      *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
-     *                             .value(&#34;db&#34;)
-     *                             .path(&#34;payload.source&#34;)
+     *                             .value("db")
+     *                             .path("payload.source")
      *                             .build())
      *                         .build())
      *                 .build())
      *             .actions(RulesetRuleActionsArgs.builder()
      *                 .routes(RulesetRuleActionsRouteArgs.builder()
-     *                     .value(&#34;P5DTL0K&#34;)
+     *                     .value("P5DTL0K")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Default Global Ruleset
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3920,12 +4059,13 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var defaultGlobal = PagerdutyFunctions.getRuleset(GetRulesetArgs.builder()
-     *             .name(&#34;Default Global&#34;)
+     *             .name("Default Global")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3936,7 +4076,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3962,47 +4103,49 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getRuleset(GetRulesetArgs.builder()
-     *             .name(&#34;My Ruleset&#34;)
+     *             .name("My Ruleset")
      *             .build());
      * 
-     *         var foo = new RulesetRule(&#34;foo&#34;, RulesetRuleArgs.builder()        
-     *             .ruleset(example.applyValue(getRulesetResult -&gt; getRulesetResult.id()))
+     *         var foo = new RulesetRule("foo", RulesetRuleArgs.builder()        
+     *             .ruleset(example.applyValue(getRulesetResult -> getRulesetResult.id()))
      *             .position(0)
-     *             .disabled(&#34;false&#34;)
+     *             .disabled("false")
      *             .conditions(RulesetRuleConditionsArgs.builder()
-     *                 .operator(&#34;and&#34;)
+     *                 .operator("and")
      *                 .subconditions(                
      *                     RulesetRuleConditionsSubconditionArgs.builder()
-     *                         .operator(&#34;contains&#34;)
+     *                         .operator("contains")
      *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
-     *                             .value(&#34;disk space&#34;)
-     *                             .path(&#34;payload.summary&#34;)
+     *                             .value("disk space")
+     *                             .path("payload.summary")
      *                             .build())
      *                         .build(),
      *                     RulesetRuleConditionsSubconditionArgs.builder()
-     *                         .operator(&#34;contains&#34;)
+     *                         .operator("contains")
      *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
-     *                             .value(&#34;db&#34;)
-     *                             .path(&#34;payload.source&#34;)
+     *                             .value("db")
+     *                             .path("payload.source")
      *                             .build())
      *                         .build())
      *                 .build())
      *             .actions(RulesetRuleActionsArgs.builder()
      *                 .routes(RulesetRuleActionsRouteArgs.builder()
-     *                     .value(&#34;P5DTL0K&#34;)
+     *                     .value("P5DTL0K")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Default Global Ruleset
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4024,12 +4167,13 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var defaultGlobal = PagerdutyFunctions.getRuleset(GetRulesetArgs.builder()
-     *             .name(&#34;Default Global&#34;)
+     *             .name("Default Global")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4042,7 +4186,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4067,24 +4212,25 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = PagerdutyFunctions.getSchedule(GetScheduleArgs.builder()
-     *             .name(&#34;Daily Engineering Rotation&#34;)
+     *             .name("Daily Engineering Rotation")
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;schedule&#34;)
-     *                     .id(test.applyValue(getScheduleResult -&gt; getScheduleResult.id()))
+     *                     .type("schedule")
+     *                     .id(test.applyValue(getScheduleResult -> getScheduleResult.id()))
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4097,7 +4243,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4122,24 +4269,25 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = PagerdutyFunctions.getSchedule(GetScheduleArgs.builder()
-     *             .name(&#34;Daily Engineering Rotation&#34;)
+     *             .name("Daily Engineering Rotation")
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;schedule&#34;)
-     *                     .id(test.applyValue(getScheduleResult -&gt; getScheduleResult.id()))
+     *                     .type("schedule")
+     *                     .id(test.applyValue(getScheduleResult -> getScheduleResult.id()))
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4152,7 +4300,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4177,24 +4326,25 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = PagerdutyFunctions.getSchedule(GetScheduleArgs.builder()
-     *             .name(&#34;Daily Engineering Rotation&#34;)
+     *             .name("Daily Engineering Rotation")
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;schedule&#34;)
-     *                     .id(test.applyValue(getScheduleResult -&gt; getScheduleResult.id()))
+     *                     .type("schedule")
+     *                     .id(test.applyValue(getScheduleResult -> getScheduleResult.id()))
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4207,7 +4357,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4232,24 +4383,25 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = PagerdutyFunctions.getSchedule(GetScheduleArgs.builder()
-     *             .name(&#34;Daily Engineering Rotation&#34;)
+     *             .name("Daily Engineering Rotation")
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;schedule&#34;)
-     *                     .id(test.applyValue(getScheduleResult -&gt; getScheduleResult.id()))
+     *                     .type("schedule")
+     *                     .id(test.applyValue(getScheduleResult -> getScheduleResult.id()))
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4262,7 +4414,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4287,23 +4440,24 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;My Service&#34;)
+     *             .name("My Service")
      *             .build());
      * 
      *         final var datadog = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
-     *             .name(&#34;Datadog&#34;)
+     *             .name("Datadog")
      *             .build());
      * 
-     *         var exampleServiceIntegration = new ServiceIntegration(&#34;exampleServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
-     *             .name(&#34;Datadog Integration&#34;)
-     *             .vendor(datadog.applyValue(getVendorResult -&gt; getVendorResult.id()))
-     *             .service(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .type(&#34;generic_events_api_inbound_integration&#34;)
+     *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()        
+     *             .name("Datadog Integration")
+     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
+     *             .service(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .type("generic_events_api_inbound_integration")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4316,7 +4470,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4341,23 +4496,24 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;My Service&#34;)
+     *             .name("My Service")
      *             .build());
      * 
      *         final var datadog = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
-     *             .name(&#34;Datadog&#34;)
+     *             .name("Datadog")
      *             .build());
      * 
-     *         var exampleServiceIntegration = new ServiceIntegration(&#34;exampleServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
-     *             .name(&#34;Datadog Integration&#34;)
-     *             .vendor(datadog.applyValue(getVendorResult -&gt; getVendorResult.id()))
-     *             .service(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .type(&#34;generic_events_api_inbound_integration&#34;)
+     *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()        
+     *             .name("Datadog Integration")
+     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
+     *             .service(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .type("generic_events_api_inbound_integration")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4370,7 +4526,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4395,23 +4552,24 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;My Service&#34;)
+     *             .name("My Service")
      *             .build());
      * 
      *         final var datadog = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
-     *             .name(&#34;Datadog&#34;)
+     *             .name("Datadog")
      *             .build());
      * 
-     *         var exampleServiceIntegration = new ServiceIntegration(&#34;exampleServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
-     *             .name(&#34;Datadog Integration&#34;)
-     *             .vendor(datadog.applyValue(getVendorResult -&gt; getVendorResult.id()))
-     *             .service(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .type(&#34;generic_events_api_inbound_integration&#34;)
+     *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()        
+     *             .name("Datadog Integration")
+     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
+     *             .service(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .type("generic_events_api_inbound_integration")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4424,7 +4582,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4449,23 +4608,24 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;My Service&#34;)
+     *             .name("My Service")
      *             .build());
      * 
      *         final var datadog = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
-     *             .name(&#34;Datadog&#34;)
+     *             .name("Datadog")
      *             .build());
      * 
-     *         var exampleServiceIntegration = new ServiceIntegration(&#34;exampleServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
-     *             .name(&#34;Datadog Integration&#34;)
-     *             .vendor(datadog.applyValue(getVendorResult -&gt; getVendorResult.id()))
-     *             .service(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .type(&#34;generic_events_api_inbound_integration&#34;)
+     *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()        
+     *             .name("Datadog Integration")
+     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
+     *             .service(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .type("generic_events_api_inbound_integration")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4478,7 +4638,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4500,13 +4661,14 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getServiceIntegration(GetServiceIntegrationArgs.builder()
-     *             .serviceName(&#34;My Service&#34;)
-     *             .integrationSummary(&#34;Datadog&#34;)
+     *             .serviceName("My Service")
+     *             .integrationSummary("Datadog")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4519,7 +4681,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4541,13 +4704,14 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getServiceIntegration(GetServiceIntegrationArgs.builder()
-     *             .serviceName(&#34;My Service&#34;)
-     *             .integrationSummary(&#34;Datadog&#34;)
+     *             .serviceName("My Service")
+     *             .integrationSummary("Datadog")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4560,7 +4724,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4582,13 +4747,14 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getServiceIntegration(GetServiceIntegrationArgs.builder()
-     *             .serviceName(&#34;My Service&#34;)
-     *             .integrationSummary(&#34;Datadog&#34;)
+     *             .serviceName("My Service")
+     *             .integrationSummary("Datadog")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4601,7 +4767,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4623,13 +4790,14 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getServiceIntegration(GetServiceIntegrationArgs.builder()
-     *             .serviceName(&#34;My Service&#34;)
-     *             .integrationSummary(&#34;Datadog&#34;)
+     *             .serviceName("My Service")
+     *             .integrationSummary("Datadog")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4643,7 +4811,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4668,7 +4837,8 @@ public final class PagerdutyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4682,7 +4852,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4707,7 +4878,8 @@ public final class PagerdutyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4721,7 +4893,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4746,7 +4919,8 @@ public final class PagerdutyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4760,7 +4934,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4785,7 +4960,8 @@ public final class PagerdutyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4799,7 +4975,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4824,7 +5001,8 @@ public final class PagerdutyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4838,7 +5016,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4863,7 +5042,8 @@ public final class PagerdutyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4877,7 +5057,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4900,17 +5081,18 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;My Service&#34;)
+     *             .name("My Service")
      *             .build());
      * 
      *         final var scores = PagerdutyFunctions.getStandardsResourceScores(GetStandardsResourceScoresArgs.builder()
-     *             .resourceType(&#34;technical_services&#34;)
-     *             .id(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .resourceType("technical_services")
+     *             .id(example.applyValue(getServiceResult -> getServiceResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4924,7 +5106,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4947,17 +5130,18 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;My Service&#34;)
+     *             .name("My Service")
      *             .build());
      * 
      *         final var scores = PagerdutyFunctions.getStandardsResourceScores(GetStandardsResourceScoresArgs.builder()
-     *             .resourceType(&#34;technical_services&#34;)
-     *             .id(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .resourceType("technical_services")
+     *             .id(example.applyValue(getServiceResult -> getServiceResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4971,7 +5155,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4994,17 +5179,18 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;My Service&#34;)
+     *             .name("My Service")
      *             .build());
      * 
      *         final var scores = PagerdutyFunctions.getStandardsResourceScores(GetStandardsResourceScoresArgs.builder()
-     *             .resourceType(&#34;technical_services&#34;)
-     *             .id(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .resourceType("technical_services")
+     *             .id(example.applyValue(getServiceResult -> getServiceResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5018,7 +5204,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5041,17 +5228,18 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;My Service&#34;)
+     *             .name("My Service")
      *             .build());
      * 
      *         final var scores = PagerdutyFunctions.getStandardsResourceScores(GetStandardsResourceScoresArgs.builder()
-     *             .resourceType(&#34;technical_services&#34;)
-     *             .id(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .resourceType("technical_services")
+     *             .id(example.applyValue(getServiceResult -> getServiceResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5065,7 +5253,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5088,28 +5277,29 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;foo&#34;)
+     *             .name("foo")
      *             .build());
      * 
      *         final var bar = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;bar&#34;)
+     *             .name("bar")
      *             .build());
      * 
      *         final var baz = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;baz&#34;)
+     *             .name("baz")
      *             .build());
      * 
      *         final var scores = PagerdutyFunctions.getStandardsResourcesScores(GetStandardsResourcesScoresArgs.builder()
-     *             .resourceType(&#34;technical_services&#34;)
+     *             .resourceType("technical_services")
      *             .ids(            
-     *                 foo.applyValue(getServiceResult -&gt; getServiceResult.id()),
-     *                 bar.applyValue(getServiceResult -&gt; getServiceResult.id()),
-     *                 baz.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *                 foo.applyValue(getServiceResult -> getServiceResult.id()),
+     *                 bar.applyValue(getServiceResult -> getServiceResult.id()),
+     *                 baz.applyValue(getServiceResult -> getServiceResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5123,7 +5313,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5146,28 +5337,29 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;foo&#34;)
+     *             .name("foo")
      *             .build());
      * 
      *         final var bar = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;bar&#34;)
+     *             .name("bar")
      *             .build());
      * 
      *         final var baz = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;baz&#34;)
+     *             .name("baz")
      *             .build());
      * 
      *         final var scores = PagerdutyFunctions.getStandardsResourcesScores(GetStandardsResourcesScoresArgs.builder()
-     *             .resourceType(&#34;technical_services&#34;)
+     *             .resourceType("technical_services")
      *             .ids(            
-     *                 foo.applyValue(getServiceResult -&gt; getServiceResult.id()),
-     *                 bar.applyValue(getServiceResult -&gt; getServiceResult.id()),
-     *                 baz.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *                 foo.applyValue(getServiceResult -> getServiceResult.id()),
+     *                 bar.applyValue(getServiceResult -> getServiceResult.id()),
+     *                 baz.applyValue(getServiceResult -> getServiceResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5181,7 +5373,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5204,28 +5397,29 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;foo&#34;)
+     *             .name("foo")
      *             .build());
      * 
      *         final var bar = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;bar&#34;)
+     *             .name("bar")
      *             .build());
      * 
      *         final var baz = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;baz&#34;)
+     *             .name("baz")
      *             .build());
      * 
      *         final var scores = PagerdutyFunctions.getStandardsResourcesScores(GetStandardsResourcesScoresArgs.builder()
-     *             .resourceType(&#34;technical_services&#34;)
+     *             .resourceType("technical_services")
      *             .ids(            
-     *                 foo.applyValue(getServiceResult -&gt; getServiceResult.id()),
-     *                 bar.applyValue(getServiceResult -&gt; getServiceResult.id()),
-     *                 baz.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *                 foo.applyValue(getServiceResult -> getServiceResult.id()),
+     *                 bar.applyValue(getServiceResult -> getServiceResult.id()),
+     *                 baz.applyValue(getServiceResult -> getServiceResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5239,7 +5433,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5262,28 +5457,29 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;foo&#34;)
+     *             .name("foo")
      *             .build());
      * 
      *         final var bar = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;bar&#34;)
+     *             .name("bar")
      *             .build());
      * 
      *         final var baz = PagerdutyFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;baz&#34;)
+     *             .name("baz")
      *             .build());
      * 
      *         final var scores = PagerdutyFunctions.getStandardsResourcesScores(GetStandardsResourcesScoresArgs.builder()
-     *             .resourceType(&#34;technical_services&#34;)
+     *             .resourceType("technical_services")
      *             .ids(            
-     *                 foo.applyValue(getServiceResult -&gt; getServiceResult.id()),
-     *                 bar.applyValue(getServiceResult -&gt; getServiceResult.id()),
-     *                 baz.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *                 foo.applyValue(getServiceResult -> getServiceResult.id()),
+     *                 bar.applyValue(getServiceResult -> getServiceResult.id()),
+     *                 baz.applyValue(getServiceResult -> getServiceResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5296,7 +5492,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5321,22 +5518,23 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
      *         final var devops = PagerdutyFunctions.getTag(GetTagArgs.builder()
-     *             .label(&#34;devops&#34;)
+     *             .label("devops")
      *             .build());
      * 
-     *         var foo = new TagAssignment(&#34;foo&#34;, TagAssignmentArgs.builder()        
-     *             .tagId(devops.applyValue(getTagResult -&gt; getTagResult.id()))
-     *             .entityId(me.applyValue(getUserResult -&gt; getUserResult.id()))
-     *             .entityType(&#34;users&#34;)
+     *         var foo = new TagAssignment("foo", TagAssignmentArgs.builder()        
+     *             .tagId(devops.applyValue(getTagResult -> getTagResult.id()))
+     *             .entityId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .entityType("users")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5349,7 +5547,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5374,22 +5573,23 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
      *         final var devops = PagerdutyFunctions.getTag(GetTagArgs.builder()
-     *             .label(&#34;devops&#34;)
+     *             .label("devops")
      *             .build());
      * 
-     *         var foo = new TagAssignment(&#34;foo&#34;, TagAssignmentArgs.builder()        
-     *             .tagId(devops.applyValue(getTagResult -&gt; getTagResult.id()))
-     *             .entityId(me.applyValue(getUserResult -&gt; getUserResult.id()))
-     *             .entityType(&#34;users&#34;)
+     *         var foo = new TagAssignment("foo", TagAssignmentArgs.builder()        
+     *             .tagId(devops.applyValue(getTagResult -> getTagResult.id()))
+     *             .entityId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .entityType("users")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5402,7 +5602,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5427,22 +5628,23 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
      *         final var devops = PagerdutyFunctions.getTag(GetTagArgs.builder()
-     *             .label(&#34;devops&#34;)
+     *             .label("devops")
      *             .build());
      * 
-     *         var foo = new TagAssignment(&#34;foo&#34;, TagAssignmentArgs.builder()        
-     *             .tagId(devops.applyValue(getTagResult -&gt; getTagResult.id()))
-     *             .entityId(me.applyValue(getUserResult -&gt; getUserResult.id()))
-     *             .entityType(&#34;users&#34;)
+     *         var foo = new TagAssignment("foo", TagAssignmentArgs.builder()        
+     *             .tagId(devops.applyValue(getTagResult -> getTagResult.id()))
+     *             .entityId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .entityType("users")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5455,7 +5657,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5480,22 +5683,23 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
      *         final var devops = PagerdutyFunctions.getTag(GetTagArgs.builder()
-     *             .label(&#34;devops&#34;)
+     *             .label("devops")
      *             .build());
      * 
-     *         var foo = new TagAssignment(&#34;foo&#34;, TagAssignmentArgs.builder()        
-     *             .tagId(devops.applyValue(getTagResult -&gt; getTagResult.id()))
-     *             .entityId(me.applyValue(getUserResult -&gt; getUserResult.id()))
-     *             .entityType(&#34;users&#34;)
+     *         var foo = new TagAssignment("foo", TagAssignmentArgs.builder()        
+     *             .tagId(devops.applyValue(getTagResult -> getTagResult.id()))
+     *             .entityId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .entityType("users")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5508,7 +5712,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5534,29 +5739,30 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
-     *             .name(&#34;devops&#34;)
+     *             .name("devops")
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;DevOps Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("DevOps Escalation Policy")
      *             .numLoops(2)
-     *             .teams(devops.applyValue(getTeamResult -&gt; getTeamResult.id()))
+     *             .teams(devops.applyValue(getTeamResult -> getTeamResult.id()))
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
-     *                     .id(me.applyValue(getUserResult -&gt; getUserResult.id()))
+     *                     .type("user")
+     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5569,7 +5775,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5595,29 +5802,30 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
-     *             .name(&#34;devops&#34;)
+     *             .name("devops")
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;DevOps Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("DevOps Escalation Policy")
      *             .numLoops(2)
-     *             .teams(devops.applyValue(getTeamResult -&gt; getTeamResult.id()))
+     *             .teams(devops.applyValue(getTeamResult -> getTeamResult.id()))
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
-     *                     .id(me.applyValue(getUserResult -&gt; getUserResult.id()))
+     *                     .type("user")
+     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5630,7 +5838,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5656,29 +5865,30 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
-     *             .name(&#34;devops&#34;)
+     *             .name("devops")
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;DevOps Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("DevOps Escalation Policy")
      *             .numLoops(2)
-     *             .teams(devops.applyValue(getTeamResult -&gt; getTeamResult.id()))
+     *             .teams(devops.applyValue(getTeamResult -> getTeamResult.id()))
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
-     *                     .id(me.applyValue(getUserResult -&gt; getUserResult.id()))
+     *                     .type("user")
+     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5691,7 +5901,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5717,29 +5928,30 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
-     *             .name(&#34;devops&#34;)
+     *             .name("devops")
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;DevOps Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("DevOps Escalation Policy")
      *             .numLoops(2)
-     *             .teams(devops.applyValue(getTeamResult -&gt; getTeamResult.id()))
+     *             .teams(devops.applyValue(getTeamResult -> getTeamResult.id()))
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
-     *                     .id(me.applyValue(getUserResult -&gt; getUserResult.id()))
+     *                     .type("user")
+     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5752,7 +5964,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5775,16 +5988,17 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
-     *             .name(&#34;devops&#34;)
+     *             .name("devops")
      *             .build());
      * 
      *         final var devopsMembers = PagerdutyFunctions.getTeamMembers(GetTeamMembersArgs.builder()
-     *             .teamId(devops.applyValue(getTeamResult -&gt; getTeamResult.id()))
+     *             .teamId(devops.applyValue(getTeamResult -> getTeamResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5797,7 +6011,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5820,16 +6035,17 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
-     *             .name(&#34;devops&#34;)
+     *             .name("devops")
      *             .build());
      * 
      *         final var devopsMembers = PagerdutyFunctions.getTeamMembers(GetTeamMembersArgs.builder()
-     *             .teamId(devops.applyValue(getTeamResult -&gt; getTeamResult.id()))
+     *             .teamId(devops.applyValue(getTeamResult -> getTeamResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5842,7 +6058,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5865,16 +6082,17 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
-     *             .name(&#34;devops&#34;)
+     *             .name("devops")
      *             .build());
      * 
      *         final var devopsMembers = PagerdutyFunctions.getTeamMembers(GetTeamMembersArgs.builder()
-     *             .teamId(devops.applyValue(getTeamResult -&gt; getTeamResult.id()))
+     *             .teamId(devops.applyValue(getTeamResult -> getTeamResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5887,7 +6105,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5910,16 +6129,17 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
-     *             .name(&#34;devops&#34;)
+     *             .name("devops")
      *             .build());
      * 
      *         final var devopsMembers = PagerdutyFunctions.getTeamMembers(GetTeamMembersArgs.builder()
-     *             .teamId(devops.applyValue(getTeamResult -&gt; getTeamResult.id()))
+     *             .teamId(devops.applyValue(getTeamResult -> getTeamResult.id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5932,7 +6152,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5957,24 +6178,25 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
-     *                     .id(me.applyValue(getUserResult -&gt; getUserResult.id()))
+     *                     .type("user")
+     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5987,7 +6209,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6012,24 +6235,25 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
-     *                     .id(me.applyValue(getUserResult -&gt; getUserResult.id()))
+     *                     .type("user")
+     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6042,7 +6266,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6067,24 +6292,25 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
-     *                     .id(me.applyValue(getUserResult -&gt; getUserResult.id()))
+     *                     .type("user")
+     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6097,7 +6323,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6122,24 +6349,25 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
-     *                     .id(me.applyValue(getUserResult -&gt; getUserResult.id()))
+     *                     .type("user")
+     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6152,7 +6380,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6177,28 +6406,29 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
      *         final var phonePush = PagerdutyFunctions.getUserContactMethod(GetUserContactMethodArgs.builder()
-     *             .userId(me.applyValue(getUserResult -&gt; getUserResult.id()))
-     *             .type(&#34;push_notification_contact_method&#34;)
-     *             .label(&#34;iPhone (John)&#34;)
+     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .type("push_notification_contact_method")
+     *             .label("iPhone (John)")
      *             .build());
      * 
-     *         var lowUrgencySms = new UserNotificationRule(&#34;lowUrgencySms&#34;, UserNotificationRuleArgs.builder()        
-     *             .userId(me.applyValue(getUserResult -&gt; getUserResult.id()))
+     *         var lowUrgencySms = new UserNotificationRule("lowUrgencySms", UserNotificationRuleArgs.builder()        
+     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
      *             .startDelayInMinutes(5)
-     *             .urgency(&#34;high&#34;)
+     *             .urgency("high")
      *             .contactMethod(Map.ofEntries(
-     *                 Map.entry(&#34;type&#34;, &#34;push_notification_contact_method&#34;),
-     *                 Map.entry(&#34;id&#34;, phonePush.applyValue(getUserContactMethodResult -&gt; getUserContactMethodResult.id()))
+     *                 Map.entry("type", "push_notification_contact_method"),
+     *                 Map.entry("id", phonePush.applyValue(getUserContactMethodResult -> getUserContactMethodResult.id()))
      *             ))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6211,7 +6441,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6236,28 +6467,29 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
      *         final var phonePush = PagerdutyFunctions.getUserContactMethod(GetUserContactMethodArgs.builder()
-     *             .userId(me.applyValue(getUserResult -&gt; getUserResult.id()))
-     *             .type(&#34;push_notification_contact_method&#34;)
-     *             .label(&#34;iPhone (John)&#34;)
+     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .type("push_notification_contact_method")
+     *             .label("iPhone (John)")
      *             .build());
      * 
-     *         var lowUrgencySms = new UserNotificationRule(&#34;lowUrgencySms&#34;, UserNotificationRuleArgs.builder()        
-     *             .userId(me.applyValue(getUserResult -&gt; getUserResult.id()))
+     *         var lowUrgencySms = new UserNotificationRule("lowUrgencySms", UserNotificationRuleArgs.builder()        
+     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
      *             .startDelayInMinutes(5)
-     *             .urgency(&#34;high&#34;)
+     *             .urgency("high")
      *             .contactMethod(Map.ofEntries(
-     *                 Map.entry(&#34;type&#34;, &#34;push_notification_contact_method&#34;),
-     *                 Map.entry(&#34;id&#34;, phonePush.applyValue(getUserContactMethodResult -&gt; getUserContactMethodResult.id()))
+     *                 Map.entry("type", "push_notification_contact_method"),
+     *                 Map.entry("id", phonePush.applyValue(getUserContactMethodResult -> getUserContactMethodResult.id()))
      *             ))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6270,7 +6502,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6295,28 +6528,29 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
      *         final var phonePush = PagerdutyFunctions.getUserContactMethod(GetUserContactMethodArgs.builder()
-     *             .userId(me.applyValue(getUserResult -&gt; getUserResult.id()))
-     *             .type(&#34;push_notification_contact_method&#34;)
-     *             .label(&#34;iPhone (John)&#34;)
+     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .type("push_notification_contact_method")
+     *             .label("iPhone (John)")
      *             .build());
      * 
-     *         var lowUrgencySms = new UserNotificationRule(&#34;lowUrgencySms&#34;, UserNotificationRuleArgs.builder()        
-     *             .userId(me.applyValue(getUserResult -&gt; getUserResult.id()))
+     *         var lowUrgencySms = new UserNotificationRule("lowUrgencySms", UserNotificationRuleArgs.builder()        
+     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
      *             .startDelayInMinutes(5)
-     *             .urgency(&#34;high&#34;)
+     *             .urgency("high")
      *             .contactMethod(Map.ofEntries(
-     *                 Map.entry(&#34;type&#34;, &#34;push_notification_contact_method&#34;),
-     *                 Map.entry(&#34;id&#34;, phonePush.applyValue(getUserContactMethodResult -&gt; getUserContactMethodResult.id()))
+     *                 Map.entry("type", "push_notification_contact_method"),
+     *                 Map.entry("id", phonePush.applyValue(getUserContactMethodResult -> getUserContactMethodResult.id()))
      *             ))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6329,7 +6563,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6354,28 +6589,29 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
      *         final var phonePush = PagerdutyFunctions.getUserContactMethod(GetUserContactMethodArgs.builder()
-     *             .userId(me.applyValue(getUserResult -&gt; getUserResult.id()))
-     *             .type(&#34;push_notification_contact_method&#34;)
-     *             .label(&#34;iPhone (John)&#34;)
+     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .type("push_notification_contact_method")
+     *             .label("iPhone (John)")
      *             .build());
      * 
-     *         var lowUrgencySms = new UserNotificationRule(&#34;lowUrgencySms&#34;, UserNotificationRuleArgs.builder()        
-     *             .userId(me.applyValue(getUserResult -&gt; getUserResult.id()))
+     *         var lowUrgencySms = new UserNotificationRule("lowUrgencySms", UserNotificationRuleArgs.builder()        
+     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
      *             .startDelayInMinutes(5)
-     *             .urgency(&#34;high&#34;)
+     *             .urgency("high")
      *             .contactMethod(Map.ofEntries(
-     *                 Map.entry(&#34;type&#34;, &#34;push_notification_contact_method&#34;),
-     *                 Map.entry(&#34;id&#34;, phonePush.applyValue(getUserContactMethodResult -&gt; getUserContactMethodResult.id()))
+     *                 Map.entry("type", "push_notification_contact_method"),
+     *                 Map.entry("id", phonePush.applyValue(getUserContactMethodResult -> getUserContactMethodResult.id()))
      *             ))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6388,7 +6624,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6416,19 +6653,19 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
-     *             .name(&#34;devops&#34;)
+     *             .name("devops")
      *             .build());
      * 
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
-     *         var exampleWTeam = new User(&#34;exampleWTeam&#34;, UserArgs.builder()        
-     *             .name(&#34;user-with-team&#34;)
-     *             .email(&#34;user-with-team@example.com&#34;)
+     *         var exampleWTeam = new User("exampleWTeam", UserArgs.builder()        
+     *             .name("user-with-team")
+     *             .email("user-with-team{@literal @}example.com")
      *             .build());
      * 
-     *         var example = new TeamMembership(&#34;example&#34;, TeamMembershipArgs.builder()        
+     *         var example = new TeamMembership("example", TeamMembershipArgs.builder()        
      *             .teamId(devopsPagerdutyTeam.id())
      *             .userId(exampleWTeam.id())
      *             .build());
@@ -6441,7 +6678,8 @@ public final class PagerdutyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6454,7 +6692,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6482,19 +6721,19 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
-     *             .name(&#34;devops&#34;)
+     *             .name("devops")
      *             .build());
      * 
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
-     *         var exampleWTeam = new User(&#34;exampleWTeam&#34;, UserArgs.builder()        
-     *             .name(&#34;user-with-team&#34;)
-     *             .email(&#34;user-with-team@example.com&#34;)
+     *         var exampleWTeam = new User("exampleWTeam", UserArgs.builder()        
+     *             .name("user-with-team")
+     *             .email("user-with-team{@literal @}example.com")
      *             .build());
      * 
-     *         var example = new TeamMembership(&#34;example&#34;, TeamMembershipArgs.builder()        
+     *         var example = new TeamMembership("example", TeamMembershipArgs.builder()        
      *             .teamId(devopsPagerdutyTeam.id())
      *             .userId(exampleWTeam.id())
      *             .build());
@@ -6507,7 +6746,8 @@ public final class PagerdutyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6520,7 +6760,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6548,19 +6789,19 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
-     *             .name(&#34;devops&#34;)
+     *             .name("devops")
      *             .build());
      * 
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
-     *         var exampleWTeam = new User(&#34;exampleWTeam&#34;, UserArgs.builder()        
-     *             .name(&#34;user-with-team&#34;)
-     *             .email(&#34;user-with-team@example.com&#34;)
+     *         var exampleWTeam = new User("exampleWTeam", UserArgs.builder()        
+     *             .name("user-with-team")
+     *             .email("user-with-team{@literal @}example.com")
      *             .build());
      * 
-     *         var example = new TeamMembership(&#34;example&#34;, TeamMembershipArgs.builder()        
+     *         var example = new TeamMembership("example", TeamMembershipArgs.builder()        
      *             .teamId(devopsPagerdutyTeam.id())
      *             .userId(exampleWTeam.id())
      *             .build());
@@ -6573,7 +6814,8 @@ public final class PagerdutyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6586,7 +6828,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6614,19 +6857,19 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
-     *             .name(&#34;devops&#34;)
+     *             .name("devops")
      *             .build());
      * 
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
-     *         var exampleWTeam = new User(&#34;exampleWTeam&#34;, UserArgs.builder()        
-     *             .name(&#34;user-with-team&#34;)
-     *             .email(&#34;user-with-team@example.com&#34;)
+     *         var exampleWTeam = new User("exampleWTeam", UserArgs.builder()        
+     *             .name("user-with-team")
+     *             .email("user-with-team{@literal @}example.com")
      *             .build());
      * 
-     *         var example = new TeamMembership(&#34;example&#34;, TeamMembershipArgs.builder()        
+     *         var example = new TeamMembership("example", TeamMembershipArgs.builder()        
      *             .teamId(devopsPagerdutyTeam.id())
      *             .userId(exampleWTeam.id())
      *             .build());
@@ -6639,7 +6882,8 @@ public final class PagerdutyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6652,7 +6896,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6680,19 +6925,19 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
-     *             .name(&#34;devops&#34;)
+     *             .name("devops")
      *             .build());
      * 
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
-     *         var exampleWTeam = new User(&#34;exampleWTeam&#34;, UserArgs.builder()        
-     *             .name(&#34;user-with-team&#34;)
-     *             .email(&#34;user-with-team@example.com&#34;)
+     *         var exampleWTeam = new User("exampleWTeam", UserArgs.builder()        
+     *             .name("user-with-team")
+     *             .email("user-with-team{@literal @}example.com")
      *             .build());
      * 
-     *         var example = new TeamMembership(&#34;example&#34;, TeamMembershipArgs.builder()        
+     *         var example = new TeamMembership("example", TeamMembershipArgs.builder()        
      *             .teamId(devopsPagerdutyTeam.id())
      *             .userId(exampleWTeam.id())
      *             .build());
@@ -6705,7 +6950,8 @@ public final class PagerdutyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6718,7 +6964,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6746,19 +6993,19 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
-     *             .name(&#34;devops&#34;)
+     *             .name("devops")
      *             .build());
      * 
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;me@example.com&#34;)
+     *             .email("me{@literal @}example.com")
      *             .build());
      * 
-     *         var exampleWTeam = new User(&#34;exampleWTeam&#34;, UserArgs.builder()        
-     *             .name(&#34;user-with-team&#34;)
-     *             .email(&#34;user-with-team@example.com&#34;)
+     *         var exampleWTeam = new User("exampleWTeam", UserArgs.builder()        
+     *             .name("user-with-team")
+     *             .email("user-with-team{@literal @}example.com")
      *             .build());
      * 
-     *         var example = new TeamMembership(&#34;example&#34;, TeamMembershipArgs.builder()        
+     *         var example = new TeamMembership("example", TeamMembershipArgs.builder()        
      *             .teamId(devopsPagerdutyTeam.id())
      *             .userId(exampleWTeam.id())
      *             .build());
@@ -6771,7 +7018,8 @@ public final class PagerdutyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6786,7 +7034,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6817,43 +7066,44 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var datadog = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
-     *             .name(&#34;Datadog&#34;)
+     *             .name("Datadog")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
      *             .teams(examplePagerdutyTeam.id())
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
+     *                     .type("user")
      *                     .id(example.id())
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;My Web App&#34;)
+     *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+     *             .name("My Web App")
      *             .autoResolveTimeout(14400)
      *             .acknowledgementTimeout(600)
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
-     *         var exampleServiceIntegration = new ServiceIntegration(&#34;exampleServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
-     *             .name(&#34;Datadog Integration&#34;)
-     *             .vendor(datadog.applyValue(getVendorResult -&gt; getVendorResult.id()))
+     *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()        
+     *             .name("Datadog Integration")
+     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
      *             .service(exampleService.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6868,7 +7118,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6899,43 +7150,44 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var datadog = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
-     *             .name(&#34;Datadog&#34;)
+     *             .name("Datadog")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
      *             .teams(examplePagerdutyTeam.id())
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
+     *                     .type("user")
      *                     .id(example.id())
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;My Web App&#34;)
+     *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+     *             .name("My Web App")
      *             .autoResolveTimeout(14400)
      *             .acknowledgementTimeout(600)
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
-     *         var exampleServiceIntegration = new ServiceIntegration(&#34;exampleServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
-     *             .name(&#34;Datadog Integration&#34;)
-     *             .vendor(datadog.applyValue(getVendorResult -&gt; getVendorResult.id()))
+     *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()        
+     *             .name("Datadog Integration")
+     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
      *             .service(exampleService.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6950,7 +7202,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6981,43 +7234,44 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var datadog = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
-     *             .name(&#34;Datadog&#34;)
+     *             .name("Datadog")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
      *             .teams(examplePagerdutyTeam.id())
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
+     *                     .type("user")
      *                     .id(example.id())
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;My Web App&#34;)
+     *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+     *             .name("My Web App")
      *             .autoResolveTimeout(14400)
      *             .acknowledgementTimeout(600)
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
-     *         var exampleServiceIntegration = new ServiceIntegration(&#34;exampleServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
-     *             .name(&#34;Datadog Integration&#34;)
-     *             .vendor(datadog.applyValue(getVendorResult -&gt; getVendorResult.id()))
+     *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()        
+     *             .name("Datadog Integration")
+     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
      *             .service(exampleService.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7032,7 +7286,8 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7063,43 +7318,44 @@ public final class PagerdutyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var datadog = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
-     *             .name(&#34;Datadog&#34;)
+     *             .name("Datadog")
      *             .build());
      * 
-     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
-     *             .name(&#34;Earline Greenholt&#34;)
-     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *         var example = new User("example", UserArgs.builder()        
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline{@literal @}graham.name")
      *             .teams(examplePagerdutyTeam.id())
      *             .build());
      * 
-     *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
-     *             .name(&#34;Engineering Escalation Policy&#34;)
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+     *             .name("Engineering Escalation Policy")
      *             .numLoops(2)
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
-     *                     .type(&#34;user&#34;)
+     *                     .type("user")
      *                     .id(example.id())
      *                     .build())
      *                 .build())
      *             .build());
      * 
-     *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;My Web App&#34;)
+     *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+     *             .name("My Web App")
      *             .autoResolveTimeout(14400)
      *             .acknowledgementTimeout(600)
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
-     *         var exampleServiceIntegration = new ServiceIntegration(&#34;exampleServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
-     *             .name(&#34;Datadog Integration&#34;)
-     *             .vendor(datadog.applyValue(getVendorResult -&gt; getVendorResult.id()))
+     *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()        
+     *             .name("Datadog Integration")
+     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
      *             .service(exampleService.id())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

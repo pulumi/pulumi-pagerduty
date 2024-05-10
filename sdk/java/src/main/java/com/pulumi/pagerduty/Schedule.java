@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,27 +51,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User(&#34;example&#34;, UserArgs.builder()        
- *             .name(&#34;Earline Greenholt&#34;)
- *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+ *         var example = new User("example", UserArgs.builder()        
+ *             .name("Earline Greenholt")
+ *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .build());
  * 
- *         var exampleTeam = new Team(&#34;exampleTeam&#34;, TeamArgs.builder()        
- *             .name(&#34;A Team&#34;)
+ *         var exampleTeam = new Team("exampleTeam", TeamArgs.builder()        
+ *             .name("A Team")
  *             .build());
  * 
- *         var foo = new Schedule(&#34;foo&#34;, ScheduleArgs.builder()        
- *             .name(&#34;Daily Engineering Rotation&#34;)
- *             .timeZone(&#34;America/New_York&#34;)
+ *         var foo = new Schedule("foo", ScheduleArgs.builder()        
+ *             .name("Daily Engineering Rotation")
+ *             .timeZone("America/New_York")
  *             .layers(ScheduleLayerArgs.builder()
- *                 .name(&#34;Night Shift&#34;)
- *                 .start(&#34;2015-11-06T20:00:00-05:00&#34;)
- *                 .rotationVirtualStart(&#34;2015-11-06T20:00:00-05:00&#34;)
+ *                 .name("Night Shift")
+ *                 .start("2015-11-06T20:00:00-05:00")
+ *                 .rotationVirtualStart("2015-11-06T20:00:00-05:00")
  *                 .rotationTurnLengthSeconds(86400)
  *                 .users(example.id())
  *                 .restrictions(ScheduleLayerRestrictionArgs.builder()
- *                     .type(&#34;daily_restriction&#34;)
- *                     .startTimeOfDay(&#34;08:00:00&#34;)
+ *                     .type("daily_restriction")
+ *                     .startTimeOfDay("08:00:00")
  *                     .durationSeconds(32400)
  *                     .build())
  *                 .build())
@@ -79,7 +80,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

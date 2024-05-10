@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,31 +42,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var csImpact = new IncidentCustomField(&#34;csImpact&#34;, IncidentCustomFieldArgs.builder()        
- *             .name(&#34;impact&#34;)
- *             .displayName(&#34;Customer Impact&#34;)
- *             .dataType(&#34;string&#34;)
- *             .fieldType(&#34;single_value&#34;)
+ *         var csImpact = new IncidentCustomField("csImpact", IncidentCustomFieldArgs.builder()        
+ *             .name("impact")
+ *             .displayName("Customer Impact")
+ *             .dataType("string")
+ *             .fieldType("single_value")
  *             .build());
  * 
- *         var sreEnvironment = new IncidentCustomField(&#34;sreEnvironment&#34;, IncidentCustomFieldArgs.builder()        
- *             .name(&#34;environment&#34;)
- *             .displayName(&#34;Environment&#34;)
- *             .dataType(&#34;string&#34;)
- *             .fieldType(&#34;single_value_fixed&#34;)
+ *         var sreEnvironment = new IncidentCustomField("sreEnvironment", IncidentCustomFieldArgs.builder()        
+ *             .name("environment")
+ *             .displayName("Environment")
+ *             .dataType("string")
+ *             .fieldType("single_value_fixed")
  *             .build());
  * 
- *         var falseAlarm = new IncidentCustomField(&#34;falseAlarm&#34;, IncidentCustomFieldArgs.builder()        
- *             .name(&#34;false_alarm&#34;)
- *             .displayName(&#34;False Alarm&#34;)
- *             .dataType(&#34;boolean&#34;)
- *             .fieldType(&#34;single_value&#34;)
- *             .defaultValue(&#34;false&#34;)
+ *         var falseAlarm = new IncidentCustomField("falseAlarm", IncidentCustomFieldArgs.builder()        
+ *             .name("false_alarm")
+ *             .displayName("False Alarm")
+ *             .dataType("boolean")
+ *             .fieldType("single_value")
+ *             .defaultValue("false")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

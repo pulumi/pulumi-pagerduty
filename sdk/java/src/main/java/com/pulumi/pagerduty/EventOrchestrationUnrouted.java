@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catch_all` block.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,34 +52,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var unrouted = new EventOrchestrationUnrouted(&#34;unrouted&#34;, EventOrchestrationUnroutedArgs.builder()        
+ *         var unrouted = new EventOrchestrationUnrouted("unrouted", EventOrchestrationUnroutedArgs.builder()        
  *             .eventOrchestration(myMonitor.id())
  *             .sets(EventOrchestrationUnroutedSetArgs.builder()
- *                 .id(&#34;start&#34;)
+ *                 .id("start")
  *                 .rules(EventOrchestrationUnroutedSetRuleArgs.builder()
- *                     .label(&#34;Update the summary of un-matched Critical alerts so they&#39;re easier to spot&#34;)
+ *                     .label("Update the summary of un-matched Critical alerts so they're easier to spot")
  *                     .conditions(EventOrchestrationUnroutedSetRuleConditionArgs.builder()
- *                         .expression(&#34;event.severity matches &#39;critical&#39;&#34;)
+ *                         .expression("event.severity matches 'critical'")
  *                         .build())
  *                     .actions(EventOrchestrationUnroutedSetRuleActionsArgs.builder()
- *                         .severity(&#34;critical&#34;)
+ *                         .severity("critical")
  *                         .extractions(EventOrchestrationUnroutedSetRuleActionsExtractionArgs.builder()
- *                             .target(&#34;event.summary&#34;)
- *                             .template(&#34;[Critical Unrouted] {{event.summary}}&#34;)
+ *                             .target("event.summary")
+ *                             .template("[Critical Unrouted] {{event.summary}}")
  *                             .build())
  *                         .build())
  *                     .build())
  *                 .build())
  *             .catchAll(EventOrchestrationUnroutedCatchAllArgs.builder()
  *                 .actions(EventOrchestrationUnroutedCatchAllActionsArgs.builder()
- *                     .severity(&#34;info&#34;)
+ *                     .severity("info")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

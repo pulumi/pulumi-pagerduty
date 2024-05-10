@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,67 +47,68 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User(&#34;example&#34;, UserArgs.builder()        
- *             .name(&#34;Earline Greenholt&#34;)
- *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+ *         var example = new User("example", UserArgs.builder()        
+ *             .name("Earline Greenholt")
+ *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .build());
  * 
- *         var email = new UserContactMethod(&#34;email&#34;, UserContactMethodArgs.builder()        
+ *         var email = new UserContactMethod("email", UserContactMethodArgs.builder()        
  *             .userId(example.id())
- *             .type(&#34;email_contact_method&#34;)
- *             .address(&#34;foo@bar.com&#34;)
- *             .label(&#34;Work&#34;)
+ *             .type("email_contact_method")
+ *             .address("foo{@literal @}bar.com")
+ *             .label("Work")
  *             .build());
  * 
- *         var phone = new UserContactMethod(&#34;phone&#34;, UserContactMethodArgs.builder()        
+ *         var phone = new UserContactMethod("phone", UserContactMethodArgs.builder()        
  *             .userId(example.id())
- *             .type(&#34;phone_contact_method&#34;)
- *             .countryCode(&#34;+1&#34;)
- *             .address(&#34;2025550199&#34;)
- *             .label(&#34;Work&#34;)
+ *             .type("phone_contact_method")
+ *             .countryCode("+1")
+ *             .address("2025550199")
+ *             .label("Work")
  *             .build());
  * 
- *         var sms = new UserContactMethod(&#34;sms&#34;, UserContactMethodArgs.builder()        
+ *         var sms = new UserContactMethod("sms", UserContactMethodArgs.builder()        
  *             .userId(example.id())
- *             .type(&#34;sms_contact_method&#34;)
- *             .countryCode(&#34;+1&#34;)
- *             .address(&#34;2025550199&#34;)
- *             .label(&#34;Work&#34;)
+ *             .type("sms_contact_method")
+ *             .countryCode("+1")
+ *             .address("2025550199")
+ *             .label("Work")
  *             .build());
  * 
- *         var highUrgencyPhone = new UserNotificationRule(&#34;highUrgencyPhone&#34;, UserNotificationRuleArgs.builder()        
+ *         var highUrgencyPhone = new UserNotificationRule("highUrgencyPhone", UserNotificationRuleArgs.builder()        
  *             .userId(example.id())
  *             .startDelayInMinutes(1)
- *             .urgency(&#34;high&#34;)
+ *             .urgency("high")
  *             .contactMethod(Map.ofEntries(
- *                 Map.entry(&#34;type&#34;, &#34;phone_contact_method&#34;),
- *                 Map.entry(&#34;id&#34;, phone.id())
+ *                 Map.entry("type", "phone_contact_method"),
+ *                 Map.entry("id", phone.id())
  *             ))
  *             .build());
  * 
- *         var lowUrgencyEmail = new UserNotificationRule(&#34;lowUrgencyEmail&#34;, UserNotificationRuleArgs.builder()        
+ *         var lowUrgencyEmail = new UserNotificationRule("lowUrgencyEmail", UserNotificationRuleArgs.builder()        
  *             .userId(example.id())
  *             .startDelayInMinutes(1)
- *             .urgency(&#34;low&#34;)
+ *             .urgency("low")
  *             .contactMethod(Map.ofEntries(
- *                 Map.entry(&#34;type&#34;, &#34;email_contact_method&#34;),
- *                 Map.entry(&#34;id&#34;, email.id())
+ *                 Map.entry("type", "email_contact_method"),
+ *                 Map.entry("id", email.id())
  *             ))
  *             .build());
  * 
- *         var lowUrgencySms = new UserNotificationRule(&#34;lowUrgencySms&#34;, UserNotificationRuleArgs.builder()        
+ *         var lowUrgencySms = new UserNotificationRule("lowUrgencySms", UserNotificationRuleArgs.builder()        
  *             .userId(example.id())
  *             .startDelayInMinutes(10)
- *             .urgency(&#34;low&#34;)
+ *             .urgency("low")
  *             .contactMethod(Map.ofEntries(
- *                 Map.entry(&#34;type&#34;, &#34;sms_contact_method&#34;),
- *                 Map.entry(&#34;id&#34;, sms.id())
+ *                 Map.entry("type", "sms_contact_method"),
+ *                 Map.entry("id", sms.id())
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

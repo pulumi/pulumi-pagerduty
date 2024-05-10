@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,77 +52,78 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
- *             .name(&#34;Checkout API Service&#34;)
+ *         var example = new Service("example", ServiceArgs.builder()        
+ *             .name("Checkout API Service")
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
  *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
- *             .alertCreation(&#34;create_alerts_and_incidents&#34;)
+ *             .alertCreation("create_alerts_and_incidents")
  *             .build());
  * 
- *         var foo = new ServiceEventRule(&#34;foo&#34;, ServiceEventRuleArgs.builder()        
+ *         var foo = new ServiceEventRule("foo", ServiceEventRuleArgs.builder()        
  *             .service(example.id())
  *             .position(0)
  *             .disabled(true)
  *             .conditions(ServiceEventRuleConditionsArgs.builder()
- *                 .operator(&#34;and&#34;)
+ *                 .operator("and")
  *                 .subconditions(ServiceEventRuleConditionsSubconditionArgs.builder()
- *                     .operator(&#34;contains&#34;)
+ *                     .operator("contains")
  *                     .parameters(ServiceEventRuleConditionsSubconditionParameterArgs.builder()
- *                         .value(&#34;disk space&#34;)
- *                         .path(&#34;summary&#34;)
+ *                         .value("disk space")
+ *                         .path("summary")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .variables(ServiceEventRuleVariableArgs.builder()
- *                 .type(&#34;regex&#34;)
- *                 .name(&#34;Src&#34;)
+ *                 .type("regex")
+ *                 .name("Src")
  *                 .parameters(ServiceEventRuleVariableParameterArgs.builder()
- *                     .value(&#34;(.*)&#34;)
- *                     .path(&#34;source&#34;)
+ *                     .value("(.*)")
+ *                     .path("source")
  *                     .build())
  *                 .build())
  *             .actions(ServiceEventRuleActionsArgs.builder()
  *                 .annotates(ServiceEventRuleActionsAnnotateArgs.builder()
- *                     .value(&#34;From Terraform&#34;)
+ *                     .value("From Terraform")
  *                     .build())
  *                 .extractions(                
  *                     ServiceEventRuleActionsExtractionArgs.builder()
- *                         .target(&#34;dedup_key&#34;)
- *                         .source(&#34;source&#34;)
- *                         .regex(&#34;(.*)&#34;)
+ *                         .target("dedup_key")
+ *                         .source("source")
+ *                         .regex("(.*)")
  *                         .build(),
  *                     ServiceEventRuleActionsExtractionArgs.builder()
- *                         .target(&#34;summary&#34;)
- *                         .template(&#34;Warning: Disk Space Low on {{Src}}&#34;)
+ *                         .target("summary")
+ *                         .template("Warning: Disk Space Low on {{Src}}")
  *                         .build())
  *                 .build())
  *             .build());
  * 
- *         var bar = new ServiceEventRule(&#34;bar&#34;, ServiceEventRuleArgs.builder()        
+ *         var bar = new ServiceEventRule("bar", ServiceEventRuleArgs.builder()        
  *             .service(fooPagerdutyService.id())
  *             .position(1)
  *             .disabled(true)
  *             .conditions(ServiceEventRuleConditionsArgs.builder()
- *                 .operator(&#34;and&#34;)
+ *                 .operator("and")
  *                 .subconditions(ServiceEventRuleConditionsSubconditionArgs.builder()
- *                     .operator(&#34;contains&#34;)
+ *                     .operator("contains")
  *                     .parameters(ServiceEventRuleConditionsSubconditionParameterArgs.builder()
- *                         .value(&#34;cpu spike&#34;)
- *                         .path(&#34;summary&#34;)
+ *                         .value("cpu spike")
+ *                         .path("summary")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .actions(ServiceEventRuleActionsArgs.builder()
  *                 .annotates(ServiceEventRuleActionsAnnotateArgs.builder()
- *                     .value(&#34;From Terraform&#34;)
+ *                     .value("From Terraform")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

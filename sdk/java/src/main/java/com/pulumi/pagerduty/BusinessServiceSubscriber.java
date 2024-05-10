@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,37 +47,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BusinessService(&#34;example&#34;, BusinessServiceArgs.builder()        
- *             .name(&#34;My Web App&#34;)
- *             .description(&#34;A very descriptive description of this business service&#34;)
- *             .pointOfContact(&#34;PagerDuty Admin&#34;)
- *             .team(&#34;P37RSRS&#34;)
+ *         var example = new BusinessService("example", BusinessServiceArgs.builder()        
+ *             .name("My Web App")
+ *             .description("A very descriptive description of this business service")
+ *             .pointOfContact("PagerDuty Admin")
+ *             .team("P37RSRS")
  *             .build());
  * 
- *         var engteam = new Team(&#34;engteam&#34;, TeamArgs.builder()        
- *             .name(&#34;Engineering&#34;)
+ *         var engteam = new Team("engteam", TeamArgs.builder()        
+ *             .name("Engineering")
  *             .build());
  * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .name(&#34;Earline Greenholt&#34;)
- *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *             .name("Earline Greenholt")
+ *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .build());
  * 
- *         var teamExample = new BusinessServiceSubscriber(&#34;teamExample&#34;, BusinessServiceSubscriberArgs.builder()        
+ *         var teamExample = new BusinessServiceSubscriber("teamExample", BusinessServiceSubscriberArgs.builder()        
  *             .subscriberId(engteam.id())
- *             .subscriberType(&#34;team&#34;)
+ *             .subscriberType("team")
  *             .businessServiceId(example.id())
  *             .build());
  * 
- *         var userExample = new BusinessServiceSubscriber(&#34;userExample&#34;, BusinessServiceSubscriberArgs.builder()        
+ *         var userExample = new BusinessServiceSubscriber("userExample", BusinessServiceSubscriberArgs.builder()        
  *             .subscriberId(exampleUser.id())
- *             .subscriberType(&#34;user&#34;)
+ *             .subscriberType("user")
  *             .businessServiceId(example.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

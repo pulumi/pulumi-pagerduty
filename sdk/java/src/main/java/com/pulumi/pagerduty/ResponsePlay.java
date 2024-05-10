@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,41 +50,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User(&#34;example&#34;, UserArgs.builder()        
- *             .name(&#34;Earline Greenholt&#34;)
- *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+ *         var example = new User("example", UserArgs.builder()        
+ *             .name("Earline Greenholt")
+ *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .teams(examplePagerdutyTeam.id())
  *             .build());
  * 
- *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
- *             .name(&#34;Engineering Escalation Policy&#34;)
+ *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()        
+ *             .name("Engineering Escalation Policy")
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
  *                 .escalationDelayInMinutes(10)
  *                 .targets(EscalationPolicyRuleTargetArgs.builder()
- *                     .type(&#34;user&#34;)
+ *                     .type("user")
  *                     .id(example.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleResponsePlay = new ResponsePlay(&#34;exampleResponsePlay&#34;, ResponsePlayArgs.builder()        
- *             .name(&#34;My Response Play&#34;)
+ *         var exampleResponsePlay = new ResponsePlay("exampleResponsePlay", ResponsePlayArgs.builder()        
+ *             .name("My Response Play")
  *             .from(example.email())
  *             .responders(ResponsePlayResponderArgs.builder()
- *                 .type(&#34;escalation_policy_reference&#34;)
+ *                 .type("escalation_policy_reference")
  *                 .id(exampleEscalationPolicy.id())
  *                 .build())
  *             .subscribers(ResponsePlaySubscriberArgs.builder()
- *                 .type(&#34;user_reference&#34;)
+ *                 .type("user_reference")
  *                 .id(example.id())
  *                 .build())
- *             .runnability(&#34;services&#34;)
+ *             .runnability("services")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -91,7 +93,7 @@ import javax.annotation.Nullable;
  * Response Plays can be imported using the `id.from(email)`, e.g.
  * 
  * ```sh
- * $ pulumi import pagerduty:index/responsePlay:ResponsePlay main 16208303-022b-f745-f2f5-560e537a2a74.user@email.com
+ * $ pulumi import pagerduty:index/responsePlay:ResponsePlay main 16208303-022b-f745-f2f5-560e537a2a74.user{@literal @}email.com
  * ```
  * 
  */

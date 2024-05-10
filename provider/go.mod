@@ -104,6 +104,7 @@ require (
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
+	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320 // indirect
 	github.com/hashicorp/go-getter v1.7.1 // indirect
@@ -129,17 +130,19 @@ require (
 	github.com/hashicorp/terraform-exec v0.20.0 // indirect
 	github.com/hashicorp/terraform-json v0.21.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework v1.8.0 // indirect
+	github.com/hashicorp/terraform-plugin-framework-jsontypes v0.1.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-validators v0.12.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.23.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
 	github.com/hashicorp/terraform-plugin-mux v0.16.0 // indirect
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.33.0 // indirect
+	github.com/hashicorp/terraform-plugin-testing v1.6.0 // indirect
 	github.com/hashicorp/terraform-registry-address v0.2.3 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/vault/api v1.8.2 // indirect
 	github.com/hashicorp/vault/sdk v0.6.1 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
-	github.com/heimweh/go-pagerduty v0.0.0-20240403153232-5876af2ce24a // indirect
+	github.com/heimweh/go-pagerduty v0.0.0-20240503143637-3459408ac715 // indirect
 	github.com/huandu/xstrings v1.4.0 // indirect
 	github.com/iancoleman/strcase v0.2.0 // indirect
 	github.com/imdario/mergo v0.3.15 // indirect

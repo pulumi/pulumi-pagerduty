@@ -116,10 +116,10 @@ import javax.annotation.Nullable;
 @ResourceType(type="pagerduty:index/extension:Extension")
 public class Extension extends com.pulumi.resources.CustomResource {
     @Export(name="config", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> config;
+    private Output<String> config;
 
-    public Output<Optional<String>> config() {
-        return Codegen.optional(this.config);
+    public Output<String> config() {
+        return this.config;
     }
     @Export(name="endpointUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endpointUrl;

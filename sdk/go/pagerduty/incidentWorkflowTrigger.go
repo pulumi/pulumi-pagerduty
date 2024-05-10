@@ -99,6 +99,8 @@ type IncidentWorkflowTrigger struct {
 
 	// A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
 	Condition pulumi.StringPtrOutput `pulumi:"condition"`
+	// Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+	Permissions IncidentWorkflowTriggerPermissionsOutput `pulumi:"permissions"`
 	// A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
 	Services pulumi.StringArrayOutput `pulumi:"services"`
 	// Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
@@ -150,6 +152,8 @@ func GetIncidentWorkflowTrigger(ctx *pulumi.Context,
 type incidentWorkflowTriggerState struct {
 	// A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
 	Condition *string `pulumi:"condition"`
+	// Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+	Permissions *IncidentWorkflowTriggerPermissions `pulumi:"permissions"`
 	// A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
 	Services []string `pulumi:"services"`
 	// Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
@@ -163,6 +167,8 @@ type incidentWorkflowTriggerState struct {
 type IncidentWorkflowTriggerState struct {
 	// A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
 	Condition pulumi.StringPtrInput
+	// Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+	Permissions IncidentWorkflowTriggerPermissionsPtrInput
 	// A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
 	Services pulumi.StringArrayInput
 	// Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
@@ -180,6 +186,8 @@ func (IncidentWorkflowTriggerState) ElementType() reflect.Type {
 type incidentWorkflowTriggerArgs struct {
 	// A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
 	Condition *string `pulumi:"condition"`
+	// Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+	Permissions *IncidentWorkflowTriggerPermissions `pulumi:"permissions"`
 	// A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
 	Services []string `pulumi:"services"`
 	// Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
@@ -194,6 +202,8 @@ type incidentWorkflowTriggerArgs struct {
 type IncidentWorkflowTriggerArgs struct {
 	// A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
 	Condition pulumi.StringPtrInput
+	// Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+	Permissions IncidentWorkflowTriggerPermissionsPtrInput
 	// A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
 	Services pulumi.StringArrayInput
 	// Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
@@ -294,6 +304,11 @@ func (o IncidentWorkflowTriggerOutput) ToIncidentWorkflowTriggerOutputWithContex
 // A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
 func (o IncidentWorkflowTriggerOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentWorkflowTrigger) pulumi.StringPtrOutput { return v.Condition }).(pulumi.StringPtrOutput)
+}
+
+// Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+func (o IncidentWorkflowTriggerOutput) Permissions() IncidentWorkflowTriggerPermissionsOutput {
+	return o.ApplyT(func(v *IncidentWorkflowTrigger) IncidentWorkflowTriggerPermissionsOutput { return v.Permissions }).(IncidentWorkflowTriggerPermissionsOutput)
 }
 
 // A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.

@@ -1170,6 +1170,17 @@ export interface IncidentWorkflowStepInput {
     value: pulumi.Input<string>;
 }
 
+export interface IncidentWorkflowTriggerPermissions {
+    /**
+     * If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+     */
+    restricted?: pulumi.Input<boolean>;
+    /**
+     * The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+     */
+    teamId?: pulumi.Input<string>;
+}
+
 export interface ProviderUseAppOauthScopedToken {
     pdClientId?: pulumi.Input<string>;
     pdClientSecret?: pulumi.Input<string>;

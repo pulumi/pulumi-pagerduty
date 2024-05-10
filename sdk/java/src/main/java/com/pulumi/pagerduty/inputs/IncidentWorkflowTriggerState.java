@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.pagerduty.inputs.IncidentWorkflowTriggerPermissionsArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -30,6 +31,21 @@ public final class IncidentWorkflowTriggerState extends com.pulumi.resources.Res
      */
     public Optional<Output<String>> condition() {
         return Optional.ofNullable(this.condition);
+    }
+
+    /**
+     * Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+     * 
+     */
+    @Import(name="permissions")
+    private @Nullable Output<IncidentWorkflowTriggerPermissionsArgs> permissions;
+
+    /**
+     * @return Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+     * 
+     */
+    public Optional<Output<IncidentWorkflowTriggerPermissionsArgs>> permissions() {
+        return Optional.ofNullable(this.permissions);
     }
 
     /**
@@ -96,6 +112,7 @@ public final class IncidentWorkflowTriggerState extends com.pulumi.resources.Res
 
     private IncidentWorkflowTriggerState(IncidentWorkflowTriggerState $) {
         this.condition = $.condition;
+        this.permissions = $.permissions;
         this.services = $.services;
         this.subscribedToAllServices = $.subscribedToAllServices;
         this.type = $.type;
@@ -139,6 +156,27 @@ public final class IncidentWorkflowTriggerState extends com.pulumi.resources.Res
          */
         public Builder condition(String condition) {
             return condition(Output.of(condition));
+        }
+
+        /**
+         * @param permissions Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder permissions(@Nullable Output<IncidentWorkflowTriggerPermissionsArgs> permissions) {
+            $.permissions = permissions;
+            return this;
+        }
+
+        /**
+         * @param permissions Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder permissions(IncidentWorkflowTriggerPermissionsArgs permissions) {
+            return permissions(Output.of(permissions));
         }
 
         /**

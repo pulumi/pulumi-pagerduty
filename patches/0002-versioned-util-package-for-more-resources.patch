@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: guineveresaenger <guinevere@pulumi.com>
 Date: Fri, 22 Mar 2024 10:23:37 -0700
-Subject: [PATCH 2/2] versioned util package for more resources
+Subject: [PATCH] versioned util package for more resources
 
 
 diff --git a/pagerduty/resource_pagerduty_schedule.go b/pagerduty/resource_pagerduty_schedule.go
@@ -18,7 +18,7 @@ index 11a75167..e3dedc0d 100644
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
 diff --git a/pagerduty/resource_pagerduty_service.go b/pagerduty/resource_pagerduty_service.go
-index 41b51a07..f89dd98f 100644
+index 17224545..608eee66 100644
 --- a/pagerduty/resource_pagerduty_service.go
 +++ b/pagerduty/resource_pagerduty_service.go
 @@ -8,7 +8,7 @@ import (

@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.pagerduty.IncidentWorkflowTriggerArgs;
 import com.pulumi.pagerduty.Utilities;
 import com.pulumi.pagerduty.inputs.IncidentWorkflowTriggerState;
+import com.pulumi.pagerduty.outputs.IncidentWorkflowTriggerPermissions;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -115,6 +116,20 @@ public class IncidentWorkflowTrigger extends com.pulumi.resources.CustomResource
      */
     public Output<Optional<String>> condition() {
         return Codegen.optional(this.condition);
+    }
+    /**
+     * Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+     * 
+     */
+    @Export(name="permissions", refs={IncidentWorkflowTriggerPermissions.class}, tree="[0]")
+    private Output<IncidentWorkflowTriggerPermissions> permissions;
+
+    /**
+     * @return Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+     * 
+     */
+    public Output<IncidentWorkflowTriggerPermissions> permissions() {
+        return this.permissions;
     }
     /**
      * A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.

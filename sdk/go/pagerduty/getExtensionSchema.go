@@ -104,7 +104,7 @@ type GetExtensionSchemaArgs struct {
 
 // A collection of values returned by getExtensionSchema.
 type GetExtensionSchemaResult struct {
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of the found extension vendor.
 	Id string `pulumi:"id"`
 	// The short name of the found extension vendor.
 	Name string `pulumi:"name"`
@@ -150,7 +150,7 @@ func (o GetExtensionSchemaResultOutput) ToGetExtensionSchemaResultOutputWithCont
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
+// The ID of the found extension vendor.
 func (o GetExtensionSchemaResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExtensionSchemaResult) string { return v.Id }).(pulumi.StringOutput)
 }

@@ -49,7 +49,7 @@ export interface GetTagArgs {
  */
 export interface GetTagResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * The ID of the found team.
      */
     readonly id: string;
     readonly label: string;

@@ -9295,6 +9295,162 @@ func (o IncidentWorkflowStepInputTypeArrayOutput) Index(i pulumi.IntInput) Incid
 	}).(IncidentWorkflowStepInputTypeOutput)
 }
 
+type IncidentWorkflowTriggerPermissions struct {
+	// If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+	Restricted *bool `pulumi:"restricted"`
+	// The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+	TeamId *string `pulumi:"teamId"`
+}
+
+// IncidentWorkflowTriggerPermissionsInput is an input type that accepts IncidentWorkflowTriggerPermissionsArgs and IncidentWorkflowTriggerPermissionsOutput values.
+// You can construct a concrete instance of `IncidentWorkflowTriggerPermissionsInput` via:
+//
+//	IncidentWorkflowTriggerPermissionsArgs{...}
+type IncidentWorkflowTriggerPermissionsInput interface {
+	pulumi.Input
+
+	ToIncidentWorkflowTriggerPermissionsOutput() IncidentWorkflowTriggerPermissionsOutput
+	ToIncidentWorkflowTriggerPermissionsOutputWithContext(context.Context) IncidentWorkflowTriggerPermissionsOutput
+}
+
+type IncidentWorkflowTriggerPermissionsArgs struct {
+	// If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+	Restricted pulumi.BoolPtrInput `pulumi:"restricted"`
+	// The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+	TeamId pulumi.StringPtrInput `pulumi:"teamId"`
+}
+
+func (IncidentWorkflowTriggerPermissionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentWorkflowTriggerPermissions)(nil)).Elem()
+}
+
+func (i IncidentWorkflowTriggerPermissionsArgs) ToIncidentWorkflowTriggerPermissionsOutput() IncidentWorkflowTriggerPermissionsOutput {
+	return i.ToIncidentWorkflowTriggerPermissionsOutputWithContext(context.Background())
+}
+
+func (i IncidentWorkflowTriggerPermissionsArgs) ToIncidentWorkflowTriggerPermissionsOutputWithContext(ctx context.Context) IncidentWorkflowTriggerPermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowTriggerPermissionsOutput)
+}
+
+func (i IncidentWorkflowTriggerPermissionsArgs) ToIncidentWorkflowTriggerPermissionsPtrOutput() IncidentWorkflowTriggerPermissionsPtrOutput {
+	return i.ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i IncidentWorkflowTriggerPermissionsArgs) ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(ctx context.Context) IncidentWorkflowTriggerPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowTriggerPermissionsOutput).ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(ctx)
+}
+
+// IncidentWorkflowTriggerPermissionsPtrInput is an input type that accepts IncidentWorkflowTriggerPermissionsArgs, IncidentWorkflowTriggerPermissionsPtr and IncidentWorkflowTriggerPermissionsPtrOutput values.
+// You can construct a concrete instance of `IncidentWorkflowTriggerPermissionsPtrInput` via:
+//
+//	        IncidentWorkflowTriggerPermissionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IncidentWorkflowTriggerPermissionsPtrInput interface {
+	pulumi.Input
+
+	ToIncidentWorkflowTriggerPermissionsPtrOutput() IncidentWorkflowTriggerPermissionsPtrOutput
+	ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(context.Context) IncidentWorkflowTriggerPermissionsPtrOutput
+}
+
+type incidentWorkflowTriggerPermissionsPtrType IncidentWorkflowTriggerPermissionsArgs
+
+func IncidentWorkflowTriggerPermissionsPtr(v *IncidentWorkflowTriggerPermissionsArgs) IncidentWorkflowTriggerPermissionsPtrInput {
+	return (*incidentWorkflowTriggerPermissionsPtrType)(v)
+}
+
+func (*incidentWorkflowTriggerPermissionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentWorkflowTriggerPermissions)(nil)).Elem()
+}
+
+func (i *incidentWorkflowTriggerPermissionsPtrType) ToIncidentWorkflowTriggerPermissionsPtrOutput() IncidentWorkflowTriggerPermissionsPtrOutput {
+	return i.ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i *incidentWorkflowTriggerPermissionsPtrType) ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(ctx context.Context) IncidentWorkflowTriggerPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowTriggerPermissionsPtrOutput)
+}
+
+type IncidentWorkflowTriggerPermissionsOutput struct{ *pulumi.OutputState }
+
+func (IncidentWorkflowTriggerPermissionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentWorkflowTriggerPermissions)(nil)).Elem()
+}
+
+func (o IncidentWorkflowTriggerPermissionsOutput) ToIncidentWorkflowTriggerPermissionsOutput() IncidentWorkflowTriggerPermissionsOutput {
+	return o
+}
+
+func (o IncidentWorkflowTriggerPermissionsOutput) ToIncidentWorkflowTriggerPermissionsOutputWithContext(ctx context.Context) IncidentWorkflowTriggerPermissionsOutput {
+	return o
+}
+
+func (o IncidentWorkflowTriggerPermissionsOutput) ToIncidentWorkflowTriggerPermissionsPtrOutput() IncidentWorkflowTriggerPermissionsPtrOutput {
+	return o.ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (o IncidentWorkflowTriggerPermissionsOutput) ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(ctx context.Context) IncidentWorkflowTriggerPermissionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentWorkflowTriggerPermissions) *IncidentWorkflowTriggerPermissions {
+		return &v
+	}).(IncidentWorkflowTriggerPermissionsPtrOutput)
+}
+
+// If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+func (o IncidentWorkflowTriggerPermissionsOutput) Restricted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IncidentWorkflowTriggerPermissions) *bool { return v.Restricted }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+func (o IncidentWorkflowTriggerPermissionsOutput) TeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentWorkflowTriggerPermissions) *string { return v.TeamId }).(pulumi.StringPtrOutput)
+}
+
+type IncidentWorkflowTriggerPermissionsPtrOutput struct{ *pulumi.OutputState }
+
+func (IncidentWorkflowTriggerPermissionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentWorkflowTriggerPermissions)(nil)).Elem()
+}
+
+func (o IncidentWorkflowTriggerPermissionsPtrOutput) ToIncidentWorkflowTriggerPermissionsPtrOutput() IncidentWorkflowTriggerPermissionsPtrOutput {
+	return o
+}
+
+func (o IncidentWorkflowTriggerPermissionsPtrOutput) ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(ctx context.Context) IncidentWorkflowTriggerPermissionsPtrOutput {
+	return o
+}
+
+func (o IncidentWorkflowTriggerPermissionsPtrOutput) Elem() IncidentWorkflowTriggerPermissionsOutput {
+	return o.ApplyT(func(v *IncidentWorkflowTriggerPermissions) IncidentWorkflowTriggerPermissions {
+		if v != nil {
+			return *v
+		}
+		var ret IncidentWorkflowTriggerPermissions
+		return ret
+	}).(IncidentWorkflowTriggerPermissionsOutput)
+}
+
+// If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+func (o IncidentWorkflowTriggerPermissionsPtrOutput) Restricted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IncidentWorkflowTriggerPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Restricted
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+func (o IncidentWorkflowTriggerPermissionsPtrOutput) TeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentWorkflowTriggerPermissions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TeamId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ProviderUseAppOauthScopedToken struct {
 	PdClientId     *string `pulumi:"pdClientId"`
 	PdClientSecret *string `pulumi:"pdClientSecret"`
@@ -20346,6 +20502,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInlineStepsInputStepInputTypeArrayInput)(nil)).Elem(), IncidentWorkflowStepInlineStepsInputStepInputTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInputTypeInput)(nil)).Elem(), IncidentWorkflowStepInputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInputTypeArrayInput)(nil)).Elem(), IncidentWorkflowStepInputTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowTriggerPermissionsInput)(nil)).Elem(), IncidentWorkflowTriggerPermissionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowTriggerPermissionsPtrInput)(nil)).Elem(), IncidentWorkflowTriggerPermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderUseAppOauthScopedTokenInput)(nil)).Elem(), ProviderUseAppOauthScopedTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderUseAppOauthScopedTokenPtrInput)(nil)).Elem(), ProviderUseAppOauthScopedTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderInput)(nil)).Elem(), ResponsePlayResponderArgs{})
@@ -20655,6 +20813,8 @@ func init() {
 	pulumi.RegisterOutputType(IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput{})
 	pulumi.RegisterOutputType(IncidentWorkflowStepInputTypeOutput{})
 	pulumi.RegisterOutputType(IncidentWorkflowStepInputTypeArrayOutput{})
+	pulumi.RegisterOutputType(IncidentWorkflowTriggerPermissionsOutput{})
+	pulumi.RegisterOutputType(IncidentWorkflowTriggerPermissionsPtrOutput{})
 	pulumi.RegisterOutputType(ProviderUseAppOauthScopedTokenOutput{})
 	pulumi.RegisterOutputType(ProviderUseAppOauthScopedTokenPtrOutput{})
 	pulumi.RegisterOutputType(ResponsePlayResponderOutput{})

@@ -118,7 +118,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetTagResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// The ID of the found team.
         /// </summary>
         public readonly string Id;
         public readonly string Label;

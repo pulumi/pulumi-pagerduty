@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn&#39;t have any `actions` so it&#39;ll leave events as-is.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -72,127 +73,127 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var engineering = new Team(&#34;engineering&#34;, TeamArgs.builder()        
- *             .name(&#34;Engineering&#34;)
+ *         var engineering = new Team("engineering", TeamArgs.builder()        
+ *             .name("Engineering")
  *             .build());
  * 
- *         var example = new User(&#34;example&#34;, UserArgs.builder()        
- *             .name(&#34;Earline Greenholt&#34;)
- *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+ *         var example = new User("example", UserArgs.builder()        
+ *             .name("Earline Greenholt")
+ *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .build());
  * 
- *         var foo = new TeamMembership(&#34;foo&#34;, TeamMembershipArgs.builder()        
+ *         var foo = new TeamMembership("foo", TeamMembershipArgs.builder()        
  *             .userId(example.id())
  *             .teamId(engineering.id())
- *             .role(&#34;manager&#34;)
+ *             .role("manager")
  *             .build());
  * 
- *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
- *             .name(&#34;Engineering Escalation Policy&#34;)
+ *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()        
+ *             .name("Engineering Escalation Policy")
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
  *                 .escalationDelayInMinutes(10)
  *                 .targets(EscalationPolicyRuleTargetArgs.builder()
- *                     .type(&#34;user_reference&#34;)
+ *                     .type("user_reference")
  *                     .id(example.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;My Web App&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("My Web App")
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
  *             .escalationPolicy(exampleEscalationPolicy.id())
- *             .alertCreation(&#34;create_alerts_and_incidents&#34;)
+ *             .alertCreation("create_alerts_and_incidents")
  *             .build());
  * 
- *         var csImpact = new IncidentCustomField(&#34;csImpact&#34;, IncidentCustomFieldArgs.builder()        
- *             .name(&#34;impact&#34;)
- *             .dataType(&#34;string&#34;)
- *             .fieldType(&#34;single_value&#34;)
+ *         var csImpact = new IncidentCustomField("csImpact", IncidentCustomFieldArgs.builder()        
+ *             .name("impact")
+ *             .dataType("string")
+ *             .fieldType("single_value")
  *             .build());
  * 
  *         final var p1 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()
- *             .name(&#34;P1&#34;)
+ *             .name("P1")
  *             .build());
  * 
- *         var www = new EventOrchestrationService(&#34;www&#34;, EventOrchestrationServiceArgs.builder()        
+ *         var www = new EventOrchestrationService("www", EventOrchestrationServiceArgs.builder()        
  *             .service(exampleService.id())
  *             .enableEventOrchestrationForService(true)
  *             .sets(            
  *                 EventOrchestrationServiceSetArgs.builder()
- *                     .id(&#34;start&#34;)
+ *                     .id("start")
  *                     .rules(EventOrchestrationServiceSetRuleArgs.builder()
- *                         .label(&#34;Always apply some consistent event transformations to all events&#34;)
+ *                         .label("Always apply some consistent event transformations to all events")
  *                         .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()
  *                             .variables(EventOrchestrationServiceSetRuleActionsVariableArgs.builder()
- *                                 .name(&#34;hostname&#34;)
- *                                 .path(&#34;event.component&#34;)
- *                                 .value(&#34;hostname: (.*)&#34;)
- *                                 .type(&#34;regex&#34;)
+ *                                 .name("hostname")
+ *                                 .path("event.component")
+ *                                 .value("hostname: (.*)")
+ *                                 .type("regex")
  *                                 .build())
  *                             .extractions(                            
  *                                 EventOrchestrationServiceSetRuleActionsExtractionArgs.builder()
- *                                     .template(&#34;{{variables.hostname}}&#34;)
- *                                     .target(&#34;event.custom_details.hostname&#34;)
+ *                                     .template("{{variables.hostname}}")
+ *                                     .target("event.custom_details.hostname")
  *                                     .build(),
  *                                 EventOrchestrationServiceSetRuleActionsExtractionArgs.builder()
- *                                     .source(&#34;event.source&#34;)
- *                                     .regex(&#34;www (.*) service&#34;)
- *                                     .target(&#34;event.source&#34;)
+ *                                     .source("event.source")
+ *                                     .regex("www (.*) service")
+ *                                     .target("event.source")
  *                                     .build())
- *                             .routeTo(&#34;step-two&#34;)
+ *                             .routeTo("step-two")
  *                             .build())
  *                         .build())
  *                     .build(),
  *                 EventOrchestrationServiceSetArgs.builder()
- *                     .id(&#34;step-two&#34;)
+ *                     .id("step-two")
  *                     .rules(                    
  *                         EventOrchestrationServiceSetRuleArgs.builder()
- *                             .label(&#34;All critical alerts should be treated as P1 incident&#34;)
+ *                             .label("All critical alerts should be treated as P1 incident")
  *                             .conditions(EventOrchestrationServiceSetRuleConditionArgs.builder()
- *                                 .expression(&#34;event.severity matches &#39;critical&#39;&#34;)
+ *                                 .expression("event.severity matches 'critical'")
  *                                 .build())
  *                             .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()
- *                                 .annotate(&#34;Please use our P1 runbook: https://docs.test/p1-runbook&#34;)
- *                                 .priority(p1.applyValue(getPriorityResult -&gt; getPriorityResult.id()))
+ *                                 .annotate("Please use our P1 runbook: https://docs.test/p1-runbook")
+ *                                 .priority(p1.applyValue(getPriorityResult -> getPriorityResult.id()))
  *                                 .incidentCustomFieldUpdates(EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs.builder()
  *                                     .id(csImpact.id())
- *                                     .value(&#34;High Impact&#34;)
+ *                                     .value("High Impact")
  *                                     .build())
  *                                 .build())
  *                             .build(),
  *                         EventOrchestrationServiceSetRuleArgs.builder()
- *                             .label(&#34;If there&#39;s something wrong on the canary let the team know about it in our deployments Slack channel&#34;)
+ *                             .label("If there's something wrong on the canary let the team know about it in our deployments Slack channel")
  *                             .conditions(EventOrchestrationServiceSetRuleConditionArgs.builder()
- *                                 .expression(&#34;event.custom_details.hostname matches part &#39;canary&#39;&#34;)
+ *                                 .expression("event.custom_details.hostname matches part 'canary'")
  *                                 .build())
  *                             .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()
  *                                 .automationAction(EventOrchestrationServiceSetRuleActionsAutomationActionArgs.builder()
- *                                     .name(&#34;Canary Slack Notification&#34;)
- *                                     .url(&#34;https://our-slack-listerner.test/canary-notification&#34;)
+ *                                     .name("Canary Slack Notification")
+ *                                     .url("https://our-slack-listerner.test/canary-notification")
  *                                     .autoSend(true)
  *                                     .parameters(                                    
  *                                         EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs.builder()
- *                                             .key(&#34;channel&#34;)
- *                                             .value(&#34;#my-team-channel&#34;)
+ *                                             .key("channel")
+ *                                             .value("#my-team-channel")
  *                                             .build(),
  *                                         EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs.builder()
- *                                             .key(&#34;message&#34;)
- *                                             .value(&#34;something is wrong with the canary deployment&#34;)
+ *                                             .key("message")
+ *                                             .value("something is wrong with the canary deployment")
  *                                             .build())
  *                                     .headers(EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs.builder()
- *                                         .key(&#34;X-Notification-Source&#34;)
- *                                         .value(&#34;PagerDuty Incident Webhook&#34;)
+ *                                         .key("X-Notification-Source")
+ *                                         .value("PagerDuty Incident Webhook")
  *                                         .build())
  *                                     .build())
  *                                 .build())
  *                             .build(),
  *                         EventOrchestrationServiceSetRuleArgs.builder()
- *                             .label(&#34;Never bother the on-call for info-level events outside of work hours&#34;)
+ *                             .label("Never bother the on-call for info-level events outside of work hours")
  *                             .conditions(EventOrchestrationServiceSetRuleConditionArgs.builder()
- *                                 .expression(&#34;event.severity matches &#39;info&#39; and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)&#34;)
+ *                                 .expression("event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)")
  *                                 .build())
  *                             .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()
  *                                 .suppress(true)
@@ -206,7 +207,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

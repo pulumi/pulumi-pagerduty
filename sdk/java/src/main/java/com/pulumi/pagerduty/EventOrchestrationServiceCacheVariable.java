@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * This example shows creating a service `Event Orchestration` and a `Cache Variable`. This Cache Variable will count and store the number of trigger events with &#39;database&#39; in its title. Then all alerts sent to this Event Orchestration will have its severity upped to &#39;critical&#39; if the count has reached at least 5 triggers within the last 1 minute.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -63,60 +64,60 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var databaseTeam = new Team(&#34;databaseTeam&#34;, TeamArgs.builder()        
- *             .name(&#34;Database Team&#34;)
+ *         var databaseTeam = new Team("databaseTeam", TeamArgs.builder()        
+ *             .name("Database Team")
  *             .build());
  * 
- *         var user1 = new User(&#34;user1&#34;, UserArgs.builder()        
- *             .name(&#34;Earline Greenholt&#34;)
- *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+ *         var user1 = new User("user1", UserArgs.builder()        
+ *             .name("Earline Greenholt")
+ *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .teams(databaseTeam.id())
  *             .build());
  * 
- *         var dbEp = new EscalationPolicy(&#34;dbEp&#34;, EscalationPolicyArgs.builder()        
- *             .name(&#34;Database Escalation Policy&#34;)
+ *         var dbEp = new EscalationPolicy("dbEp", EscalationPolicyArgs.builder()        
+ *             .name("Database Escalation Policy")
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
  *                 .escalationDelayInMinutes(10)
  *                 .targets(EscalationPolicyRuleTargetArgs.builder()
- *                     .type(&#34;user&#34;)
+ *                     .type("user")
  *                     .id(user1.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var svc = new Service(&#34;svc&#34;, ServiceArgs.builder()        
- *             .name(&#34;My Database Service&#34;)
+ *         var svc = new Service("svc", ServiceArgs.builder()        
+ *             .name("My Database Service")
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
  *             .escalationPolicy(dbEp.id())
- *             .alertCreation(&#34;create_alerts_and_incidents&#34;)
+ *             .alertCreation("create_alerts_and_incidents")
  *             .build());
  * 
- *         var numDbTriggers = new EventOrchestrationServiceCacheVariable(&#34;numDbTriggers&#34;, EventOrchestrationServiceCacheVariableArgs.builder()        
+ *         var numDbTriggers = new EventOrchestrationServiceCacheVariable("numDbTriggers", EventOrchestrationServiceCacheVariableArgs.builder()        
  *             .service(svc.id())
- *             .name(&#34;num_db_triggers&#34;)
+ *             .name("num_db_triggers")
  *             .conditions(EventOrchestrationServiceCacheVariableConditionArgs.builder()
- *                 .expression(&#34;event.summary matches part &#39;database&#39;&#34;)
+ *                 .expression("event.summary matches part 'database'")
  *                 .build())
  *             .configuration(EventOrchestrationServiceCacheVariableConfigurationArgs.builder()
- *                 .type(&#34;trigger_event_count&#34;)
+ *                 .type("trigger_event_count")
  *                 .ttlSeconds(60)
  *                 .build())
  *             .build());
  * 
- *         var eventOrchestration = new EventOrchestrationService(&#34;eventOrchestration&#34;, EventOrchestrationServiceArgs.builder()        
+ *         var eventOrchestration = new EventOrchestrationService("eventOrchestration", EventOrchestrationServiceArgs.builder()        
  *             .service(svc.id())
  *             .enableEventOrchestrationForService(true)
  *             .sets(EventOrchestrationServiceSetArgs.builder()
- *                 .id(&#34;start&#34;)
+ *                 .id("start")
  *                 .rules(EventOrchestrationServiceSetRuleArgs.builder()
- *                     .label(&#34;Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute&#34;)
+ *                     .label("Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute")
  *                     .conditions(EventOrchestrationServiceSetRuleConditionArgs.builder()
- *                         .expression(&#34;cache_var.num_db_triggers &gt;= 5&#34;)
+ *                         .expression("cache_var.num_db_triggers >= 5")
  *                         .build())
  *                     .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()
- *                         .severity(&#34;critical&#34;)
+ *                         .severity("critical")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -127,7 +128,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

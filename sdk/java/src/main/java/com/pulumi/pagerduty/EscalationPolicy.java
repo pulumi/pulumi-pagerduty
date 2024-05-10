@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,30 +50,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Team(&#34;example&#34;, TeamArgs.builder()        
- *             .name(&#34;Engineering&#34;)
- *             .description(&#34;All engineering&#34;)
+ *         var example = new Team("example", TeamArgs.builder()        
+ *             .name("Engineering")
+ *             .description("All engineering")
  *             .build());
  * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .name(&#34;Earline Greenholt&#34;)
- *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *             .name("Earline Greenholt")
+ *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .teams(example.id())
  *             .build());
  * 
- *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
- *             .name(&#34;Engineering Escalation Policy&#34;)
+ *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()        
+ *             .name("Engineering Escalation Policy")
  *             .numLoops(2)
  *             .teams(example.id())
  *             .rules(EscalationPolicyRuleArgs.builder()
  *                 .escalationDelayInMinutes(10)
  *                 .targets(                
  *                     EscalationPolicyRuleTargetArgs.builder()
- *                         .type(&#34;user_reference&#34;)
+ *                         .type("user_reference")
  *                         .id(exampleUser.id())
  *                         .build(),
  *                     EscalationPolicyRuleTargetArgs.builder()
- *                         .type(&#34;user_reference&#34;)
+ *                         .type("user_reference")
  *                         .id(example2.id())
  *                         .build())
  *                 .build())
@@ -80,7 +81,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

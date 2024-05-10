@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Team(&#34;foo&#34;, TeamArgs.builder()        
- *             .name(&#34;Engineering (Seattle)&#34;)
+ *         var foo = new Team("foo", TeamArgs.builder()        
+ *             .name("Engineering (Seattle)")
  *             .build());
  * 
- *         var fooRuleset = new Ruleset(&#34;fooRuleset&#34;, RulesetArgs.builder()        
- *             .name(&#34;Primary Ruleset&#34;)
+ *         var fooRuleset = new Ruleset("fooRuleset", RulesetArgs.builder()        
+ *             .name("Primary Ruleset")
  *             .team(RulesetTeamArgs.builder()
  *                 .id(foo.id())
  *                 .build())
@@ -57,7 +58,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

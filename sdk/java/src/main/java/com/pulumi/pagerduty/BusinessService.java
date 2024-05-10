@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,16 +42,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BusinessService(&#34;example&#34;, BusinessServiceArgs.builder()        
- *             .name(&#34;My Web App&#34;)
- *             .description(&#34;A very descriptive description of this business service&#34;)
- *             .pointOfContact(&#34;PagerDuty Admin&#34;)
- *             .team(&#34;P37RSRS&#34;)
+ *         var example = new BusinessService("example", BusinessServiceArgs.builder()        
+ *             .name("My Web App")
+ *             .description("A very descriptive description of this business service")
+ *             .pointOfContact("PagerDuty Admin")
+ *             .team("P37RSRS")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

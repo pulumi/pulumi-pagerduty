@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,23 +45,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Tag(&#34;example&#34;, TagArgs.builder()        
- *             .label(&#34;API&#34;)
+ *         var example = new Tag("example", TagArgs.builder()        
+ *             .label("API")
  *             .build());
  * 
- *         var engteam = new Team(&#34;engteam&#34;, TeamArgs.builder()        
- *             .name(&#34;Engineering&#34;)
+ *         var engteam = new Team("engteam", TeamArgs.builder()        
+ *             .name("Engineering")
  *             .build());
  * 
- *         var exampleTagAssignment = new TagAssignment(&#34;exampleTagAssignment&#34;, TagAssignmentArgs.builder()        
+ *         var exampleTagAssignment = new TagAssignment("exampleTagAssignment", TagAssignmentArgs.builder()        
  *             .tagId(example.id())
- *             .entityType(&#34;teams&#34;)
+ *             .entityType("teams")
  *             .entityId(engteam.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

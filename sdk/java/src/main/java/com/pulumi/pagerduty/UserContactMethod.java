@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,38 +44,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User(&#34;example&#34;, UserArgs.builder()        
- *             .name(&#34;Earline Greenholt&#34;)
- *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+ *         var example = new User("example", UserArgs.builder()        
+ *             .name("Earline Greenholt")
+ *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .teams(examplePagerdutyTeam.id())
  *             .build());
  * 
- *         var email = new UserContactMethod(&#34;email&#34;, UserContactMethodArgs.builder()        
+ *         var email = new UserContactMethod("email", UserContactMethodArgs.builder()        
  *             .userId(example.id())
- *             .type(&#34;email_contact_method&#34;)
- *             .address(&#34;foo@bar.com&#34;)
- *             .label(&#34;Work&#34;)
+ *             .type("email_contact_method")
+ *             .address("foo{@literal @}bar.com")
+ *             .label("Work")
  *             .build());
  * 
- *         var phone = new UserContactMethod(&#34;phone&#34;, UserContactMethodArgs.builder()        
+ *         var phone = new UserContactMethod("phone", UserContactMethodArgs.builder()        
  *             .userId(example.id())
- *             .type(&#34;phone_contact_method&#34;)
- *             .countryCode(&#34;+1&#34;)
- *             .address(&#34;2025550199&#34;)
- *             .label(&#34;Work&#34;)
+ *             .type("phone_contact_method")
+ *             .countryCode("+1")
+ *             .address("2025550199")
+ *             .label("Work")
  *             .build());
  * 
- *         var sms = new UserContactMethod(&#34;sms&#34;, UserContactMethodArgs.builder()        
+ *         var sms = new UserContactMethod("sms", UserContactMethodArgs.builder()        
  *             .userId(example.id())
- *             .type(&#34;sms_contact_method&#34;)
- *             .countryCode(&#34;+1&#34;)
- *             .address(&#34;2025550199&#34;)
- *             .label(&#34;Work&#34;)
+ *             .type("sms_contact_method")
+ *             .countryCode("+1")
+ *             .address("2025550199")
+ *             .label("Work")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

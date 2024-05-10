@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,27 +45,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var teamEntEng = new Team(&#34;teamEntEng&#34;, TeamArgs.builder()        
- *             .name(&#34;Enterprise Engineering&#34;)
- *             .description(&#34;Enterprise engineering&#34;)
+ *         var teamEntEng = new Team("teamEntEng", TeamArgs.builder()        
+ *             .name("Enterprise Engineering")
+ *             .description("Enterprise engineering")
  *             .build());
  * 
- *         var paRunbookRunner = new AutomationActionsRunner(&#34;paRunbookRunner&#34;, AutomationActionsRunnerArgs.builder()        
- *             .name(&#34;Runner created via TF&#34;)
- *             .description(&#34;Description of the Runner created via TF&#34;)
- *             .runnerType(&#34;runbook&#34;)
- *             .runbookBaseUri(&#34;cat-cat&#34;)
- *             .runbookApiKey(&#34;cat-secret&#34;)
+ *         var paRunbookRunner = new AutomationActionsRunner("paRunbookRunner", AutomationActionsRunnerArgs.builder()        
+ *             .name("Runner created via TF")
+ *             .description("Description of the Runner created via TF")
+ *             .runnerType("runbook")
+ *             .runbookBaseUri("cat-cat")
+ *             .runbookApiKey("cat-secret")
  *             .build());
  * 
- *         var paRunnerEntEngAssoc = new AutomationActionsRunnerTeamAssociation(&#34;paRunnerEntEngAssoc&#34;, AutomationActionsRunnerTeamAssociationArgs.builder()        
+ *         var paRunnerEntEngAssoc = new AutomationActionsRunnerTeamAssociation("paRunnerEntEngAssoc", AutomationActionsRunnerTeamAssociationArgs.builder()        
  *             .runnerId(paRunbookRunner.id())
  *             .teamId(teamEntEng.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

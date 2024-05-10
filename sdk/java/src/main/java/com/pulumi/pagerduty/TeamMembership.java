@@ -18,7 +18,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,25 +44,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new User(&#34;foo&#34;, UserArgs.builder()        
- *             .name(&#34;foo&#34;)
- *             .email(&#34;foo@bar.com&#34;)
+ *         var foo = new User("foo", UserArgs.builder()        
+ *             .name("foo")
+ *             .email("foo{@literal @}bar.com")
  *             .build());
  * 
- *         var fooTeam = new Team(&#34;fooTeam&#34;, TeamArgs.builder()        
- *             .name(&#34;foo&#34;)
- *             .description(&#34;foo&#34;)
+ *         var fooTeam = new Team("fooTeam", TeamArgs.builder()        
+ *             .name("foo")
+ *             .description("foo")
  *             .build());
  * 
- *         var fooTeamMembership = new TeamMembership(&#34;fooTeamMembership&#34;, TeamMembershipArgs.builder()        
+ *         var fooTeamMembership = new TeamMembership("fooTeamMembership", TeamMembershipArgs.builder()        
  *             .userId(foo.id())
  *             .teamId(fooTeam.id())
- *             .role(&#34;manager&#34;)
+ *             .role("manager")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

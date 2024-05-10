@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,18 +46,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var RUNBOOK_API_KEY = config.get(&#34;RUNBOOK_API_KEY&#34;);
- *         var example = new AutomationActionsRunner(&#34;example&#34;, AutomationActionsRunnerArgs.builder()        
- *             .name(&#34;Runner created via TF&#34;)
- *             .description(&#34;Description of the Runner created via TF&#34;)
- *             .runnerType(&#34;runbook&#34;)
- *             .runbookBaseUri(&#34;rdcat.stg&#34;)
+ *         final var RUNBOOK_API_KEY = config.get("RUNBOOK_API_KEY");
+ *         var example = new AutomationActionsRunner("example", AutomationActionsRunnerArgs.builder()        
+ *             .name("Runner created via TF")
+ *             .description("Description of the Runner created via TF")
+ *             .runnerType("runbook")
+ *             .runbookBaseUri("rdcat.stg")
  *             .runbookApiKey(RUNBOOK_API_KEY)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

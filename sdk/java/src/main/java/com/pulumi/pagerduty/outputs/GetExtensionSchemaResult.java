@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetExtensionSchemaResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found extension vendor.
      * 
      */
     private String id;
@@ -28,7 +28,7 @@ public final class GetExtensionSchemaResult {
 
     private GetExtensionSchemaResult() {}
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found extension vendor.
      * 
      */
     public String id() {

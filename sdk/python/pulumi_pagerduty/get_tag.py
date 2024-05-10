@@ -33,7 +33,7 @@ class GetTagResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The provider-assigned unique ID for this managed resource.
+        The ID of the found team.
         """
         return pulumi.get(self, "id")
 

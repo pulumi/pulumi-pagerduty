@@ -36,7 +36,7 @@ class GetExtensionSchemaResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The provider-assigned unique ID for this managed resource.
+        The ID of the found extension vendor.
         """
         return pulumi.get(self, "id")
 

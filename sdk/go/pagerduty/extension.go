@@ -107,7 +107,7 @@ import (
 type Extension struct {
 	pulumi.CustomResourceState
 
-	Config           pulumi.StringPtrOutput   `pulumi:"config"`
+	Config           pulumi.StringOutput      `pulumi:"config"`
 	EndpointUrl      pulumi.StringPtrOutput   `pulumi:"endpointUrl"`
 	ExtensionObjects pulumi.StringArrayOutput `pulumi:"extensionObjects"`
 	ExtensionSchema  pulumi.StringOutput      `pulumi:"extensionSchema"`
@@ -294,8 +294,8 @@ func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) Exten
 	return o
 }
 
-func (o ExtensionOutput) Config() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.Config }).(pulumi.StringPtrOutput)
+func (o ExtensionOutput) Config() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Config }).(pulumi.StringOutput)
 }
 
 func (o ExtensionOutput) EndpointUrl() pulumi.StringPtrOutput {

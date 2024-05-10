@@ -80,6 +80,7 @@ __all__ = [
     'IncidentWorkflowStepInlineStepsInputStep',
     'IncidentWorkflowStepInlineStepsInputStepInput',
     'IncidentWorkflowStepInput',
+    'IncidentWorkflowTriggerPermissions',
     'ResponsePlayResponder',
     'ResponsePlayResponderEscalationRule',
     'ResponsePlayResponderEscalationRuleTarget',
@@ -3601,6 +3602,54 @@ class IncidentWorkflowStepInput(dict):
     @pulumi.getter
     def generated(self) -> Optional[bool]:
         return pulumi.get(self, "generated")
+
+
+@pulumi.output_type
+class IncidentWorkflowTriggerPermissions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "teamId":
+            suggest = "team_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentWorkflowTriggerPermissions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentWorkflowTriggerPermissions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentWorkflowTriggerPermissions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 restricted: Optional[bool] = None,
+                 team_id: Optional[str] = None):
+        """
+        :param bool restricted: If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+        :param str team_id: The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+        """
+        if restricted is not None:
+            pulumi.set(__self__, "restricted", restricted)
+        if team_id is not None:
+            pulumi.set(__self__, "team_id", team_id)
+
+    @property
+    @pulumi.getter
+    def restricted(self) -> Optional[bool]:
+        """
+        If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+        """
+        return pulumi.get(self, "restricted")
+
+    @property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> Optional[str]:
+        """
+        The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+        """
+        return pulumi.get(self, "team_id")
 
 
 @pulumi.output_type

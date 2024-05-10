@@ -79,6 +79,7 @@ __all__ = [
     'IncidentWorkflowStepInlineStepsInputStepArgs',
     'IncidentWorkflowStepInlineStepsInputStepInputArgs',
     'IncidentWorkflowStepInputArgs',
+    'IncidentWorkflowTriggerPermissionsArgs',
     'ProviderUseAppOauthScopedTokenArgs',
     'ResponsePlayResponderArgs',
     'ResponsePlayResponderEscalationRuleArgs',
@@ -4131,6 +4132,45 @@ class IncidentWorkflowStepInputArgs:
     @generated.setter
     def generated(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "generated", value)
+
+
+@pulumi.input_type
+class IncidentWorkflowTriggerPermissionsArgs:
+    def __init__(__self__, *,
+                 restricted: Optional[pulumi.Input[bool]] = None,
+                 team_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] restricted: If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+        :param pulumi.Input[str] team_id: The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+        """
+        if restricted is not None:
+            pulumi.set(__self__, "restricted", restricted)
+        if team_id is not None:
+            pulumi.set(__self__, "team_id", team_id)
+
+    @property
+    @pulumi.getter
+    def restricted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+        """
+        return pulumi.get(self, "restricted")
+
+    @restricted.setter
+    def restricted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "restricted", value)
+
+    @property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+        """
+        return pulumi.get(self, "team_id")
+
+    @team_id.setter
+    def team_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "team_id", value)
 
 
 @pulumi.input_type

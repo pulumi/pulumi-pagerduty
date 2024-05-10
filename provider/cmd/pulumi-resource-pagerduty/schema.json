@@ -1777,6 +1777,26 @@
                 }
             }
         },
+        "pagerduty:index/IncidentWorkflowTriggerPermissions:IncidentWorkflowTriggerPermissions": {
+            "properties": {
+                "restricted": {
+                    "type": "boolean",
+                    "description": "If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.\n"
+                },
+                "teamId": {
+                    "type": "string",
+                    "description": "The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "restricted"
+                    ]
+                }
+            }
+        },
         "pagerduty:index/ProviderUseAppOauthScopedToken:ProviderUseAppOauthScopedToken": {
             "properties": {
                 "pdClientId": {
@@ -5193,6 +5213,7 @@
                 }
             },
             "required": [
+                "config",
                 "extensionObjects",
                 "extensionSchema",
                 "htmlUrl",
@@ -5212,12 +5233,10 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "willReplaceOnChanges": true
+                    }
                 },
                 "extensionSchema": {
-                    "type": "string",
-                    "willReplaceOnChanges": true
+                    "type": "string"
                 },
                 "name": {
                     "type": "string"
@@ -5244,12 +5263,10 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        },
-                        "willReplaceOnChanges": true
+                        }
                     },
                     "extensionSchema": {
-                        "type": "string",
-                        "willReplaceOnChanges": true
+                        "type": "string"
                     },
                     "htmlUrl": {
                         "type": "string",
@@ -5340,12 +5357,10 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "willReplaceOnChanges": true
+                    }
                 },
                 "extensionSchema": {
-                    "type": "string",
-                    "willReplaceOnChanges": true
+                    "type": "string"
                 },
                 "name": {
                     "type": "string"
@@ -5397,12 +5412,10 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        },
-                        "willReplaceOnChanges": true
+                        }
                     },
                     "extensionSchema": {
-                        "type": "string",
-                        "willReplaceOnChanges": true
+                        "type": "string"
                     },
                     "htmlUrl": {
                         "type": "string",
@@ -5658,6 +5671,10 @@
                     "type": "string",
                     "description": "A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.\n"
                 },
+                "permissions": {
+                    "$ref": "#/types/pagerduty:index/IncidentWorkflowTriggerPermissions:IncidentWorkflowTriggerPermissions",
+                    "description": "Indicates who can start this Trigger. Applicable only to `manual`-type triggers.\n"
+                },
                 "services": {
                     "type": "array",
                     "items": {
@@ -5679,6 +5696,7 @@
                 }
             },
             "required": [
+                "permissions",
                 "subscribedToAllServices",
                 "type",
                 "workflow"
@@ -5687,6 +5705,10 @@
                 "condition": {
                     "type": "string",
                     "description": "A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.\n"
+                },
+                "permissions": {
+                    "$ref": "#/types/pagerduty:index/IncidentWorkflowTriggerPermissions:IncidentWorkflowTriggerPermissions",
+                    "description": "Indicates who can start this Trigger. Applicable only to `manual`-type triggers.\n"
                 },
                 "services": {
                     "type": "array",
@@ -5720,6 +5742,10 @@
                     "condition": {
                         "type": "string",
                         "description": "A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.\n"
+                    },
+                    "permissions": {
+                        "$ref": "#/types/pagerduty:index/IncidentWorkflowTriggerPermissions:IncidentWorkflowTriggerPermissions",
+                        "description": "Indicates who can start this Trigger. Applicable only to `manual`-type triggers.\n"
                     },
                     "services": {
                         "type": "array",
@@ -6948,8 +6974,7 @@
             ],
             "inputProperties": {
                 "label": {
-                    "type": "string",
-                    "willReplaceOnChanges": true
+                    "type": "string"
                 }
             },
             "requiredInputs": [
@@ -6963,8 +6988,7 @@
                         "description": "URL at which the entity is uniquely displayed in the Web app.\n"
                     },
                     "label": {
-                        "type": "string",
-                        "willReplaceOnChanges": true
+                        "type": "string"
                     },
                     "summary": {
                         "type": "string",
@@ -6994,16 +7018,13 @@
             ],
             "inputProperties": {
                 "entityId": {
-                    "type": "string",
-                    "willReplaceOnChanges": true
+                    "type": "string"
                 },
                 "entityType": {
-                    "type": "string",
-                    "willReplaceOnChanges": true
+                    "type": "string"
                 },
                 "tagId": {
-                    "type": "string",
-                    "willReplaceOnChanges": true
+                    "type": "string"
                 }
             },
             "requiredInputs": [
@@ -7015,16 +7036,13 @@
                 "description": "Input properties used for looking up and filtering TagAssignment resources.\n",
                 "properties": {
                     "entityId": {
-                        "type": "string",
-                        "willReplaceOnChanges": true
+                        "type": "string"
                     },
                     "entityType": {
-                        "type": "string",
-                        "willReplaceOnChanges": true
+                        "type": "string"
                     },
                     "tagId": {
-                        "type": "string",
-                        "willReplaceOnChanges": true
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -8126,7 +8144,7 @@
                 "description": "A collection of values returned by getExtensionSchema.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The ID of the found extension vendor.\n",
                         "type": "string"
                     },
                     "name": {
@@ -8139,9 +8157,9 @@
                     }
                 },
                 "required": [
+                    "id",
                     "name",
-                    "type",
-                    "id"
+                    "type"
                 ],
                 "type": "object"
             }
@@ -8786,7 +8804,7 @@
                 "description": "A collection of values returned by getTag.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The ID of the found team.\n",
                         "type": "string"
                     },
                     "label": {
@@ -8794,8 +8812,8 @@
                     }
                 },
                 "required": [
-                    "label",
-                    "id"
+                    "id",
+                    "label"
                 ],
                 "type": "object"
             }

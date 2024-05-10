@@ -69,7 +69,7 @@ export interface GetExtensionSchemaArgs {
  */
 export interface GetExtensionSchemaResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * The ID of the found extension vendor.
      */
     readonly id: string;
     /**

@@ -91,7 +91,7 @@ export class Extension extends pulumi.CustomResource {
         return obj['__pulumiType'] === Extension.__pulumiType;
     }
 
-    public readonly config!: pulumi.Output<string | undefined>;
+    public readonly config!: pulumi.Output<string>;
     public readonly endpointUrl!: pulumi.Output<string | undefined>;
     public readonly extensionObjects!: pulumi.Output<string[]>;
     public readonly extensionSchema!: pulumi.Output<string>;

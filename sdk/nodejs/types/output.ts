@@ -1447,6 +1447,17 @@ export interface IncidentWorkflowStepInput {
     value: string;
 }
 
+export interface IncidentWorkflowTriggerPermissions {
+    /**
+     * If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+     */
+    restricted: boolean;
+    /**
+     * The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+     */
+    teamId?: string;
+}
+
 export interface ResponsePlayResponder {
     /**
      * Description of escalation policy

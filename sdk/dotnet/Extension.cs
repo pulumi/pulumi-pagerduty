@@ -98,7 +98,7 @@ namespace Pulumi.Pagerduty
     public partial class Extension : global::Pulumi.CustomResource
     {
         [Output("config")]
-        public Output<string?> Config { get; private set; } = null!;
+        public Output<string> Config { get; private set; } = null!;
 
         [Output("endpointUrl")]
         public Output<string?> EndpointUrl { get; private set; } = null!;

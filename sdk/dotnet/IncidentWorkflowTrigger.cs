@@ -97,6 +97,12 @@ namespace Pulumi.Pagerduty
         public Output<string?> Condition { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+        /// </summary>
+        [Output("permissions")]
+        public Output<Outputs.IncidentWorkflowTriggerPermissions> Permissions { get; private set; } = null!;
+
+        /// <summary>
         /// A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
         /// </summary>
         [Output("services")]
@@ -172,6 +178,12 @@ namespace Pulumi.Pagerduty
         [Input("condition")]
         public Input<string>? Condition { get; set; }
 
+        /// <summary>
+        /// Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+        /// </summary>
+        [Input("permissions")]
+        public Input<Inputs.IncidentWorkflowTriggerPermissionsArgs>? Permissions { get; set; }
+
         [Input("services")]
         private InputList<string>? _services;
 
@@ -215,6 +227,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
+
+        /// <summary>
+        /// Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+        /// </summary>
+        [Input("permissions")]
+        public Input<Inputs.IncidentWorkflowTriggerPermissionsGetArgs>? Permissions { get; set; }
 
         [Input("services")]
         private InputList<string>? _services;

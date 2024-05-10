@@ -411,7 +411,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def config(self) -> pulumi.Output[Optional[str]]:
+    def config(self) -> pulumi.Output[str]:
         return pulumi.get(self, "config")
 
     @property

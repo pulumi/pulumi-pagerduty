@@ -64,17 +64,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var databaseTeam = new Team("databaseTeam", TeamArgs.builder()        
+ *         var databaseTeam = new Team("databaseTeam", TeamArgs.builder()
  *             .name("Database Team")
  *             .build());
  * 
- *         var user1 = new User("user1", UserArgs.builder()        
+ *         var user1 = new User("user1", UserArgs.builder()
  *             .name("Earline Greenholt")
  *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .teams(databaseTeam.id())
  *             .build());
  * 
- *         var dbEp = new EscalationPolicy("dbEp", EscalationPolicyArgs.builder()        
+ *         var dbEp = new EscalationPolicy("dbEp", EscalationPolicyArgs.builder()
  *             .name("Database Escalation Policy")
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var svc = new Service("svc", ServiceArgs.builder()        
+ *         var svc = new Service("svc", ServiceArgs.builder()
  *             .name("My Database Service")
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *             .alertCreation("create_alerts_and_incidents")
  *             .build());
  * 
- *         var numDbTriggers = new EventOrchestrationServiceCacheVariable("numDbTriggers", EventOrchestrationServiceCacheVariableArgs.builder()        
+ *         var numDbTriggers = new EventOrchestrationServiceCacheVariable("numDbTriggers", EventOrchestrationServiceCacheVariableArgs.builder()
  *             .service(svc.id())
  *             .name("num_db_triggers")
  *             .conditions(EventOrchestrationServiceCacheVariableConditionArgs.builder()
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var eventOrchestration = new EventOrchestrationService("eventOrchestration", EventOrchestrationServiceArgs.builder()        
+ *         var eventOrchestration = new EventOrchestrationService("eventOrchestration", EventOrchestrationServiceArgs.builder()
  *             .service(svc.id())
  *             .enableEventOrchestrationForService(true)
  *             .sets(EventOrchestrationServiceSetArgs.builder()

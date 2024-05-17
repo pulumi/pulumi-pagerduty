@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myFirstWorkflow = new IncidentWorkflow("myFirstWorkflow", IncidentWorkflowArgs.builder()        
+ *         var myFirstWorkflow = new IncidentWorkflow("myFirstWorkflow", IncidentWorkflowArgs.builder()
  *             .name("Example Incident Workflow")
  *             .description("This Incident Workflow is an example")
  *             .steps(IncidentWorkflowStepArgs.builder()
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .name("My First Service")
  *             .build());
  * 
- *         var automaticTrigger = new IncidentWorkflowTrigger("automaticTrigger", IncidentWorkflowTriggerArgs.builder()        
+ *         var automaticTrigger = new IncidentWorkflowTrigger("automaticTrigger", IncidentWorkflowTriggerArgs.builder()
  *             .type("conditional")
  *             .workflow(myFirstWorkflow.id())
  *             .services(firstServicePagerdutyService.id())
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .name("devops")
  *             .build());
  * 
- *         var manualTrigger = new IncidentWorkflowTrigger("manualTrigger", IncidentWorkflowTriggerArgs.builder()        
+ *         var manualTrigger = new IncidentWorkflowTrigger("manualTrigger", IncidentWorkflowTriggerArgs.builder()
  *             .type("manual")
  *             .workflow(myFirstWorkflow.id())
  *             .services(firstServicePagerdutyService.id())

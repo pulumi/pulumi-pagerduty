@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Team("foo", TeamArgs.builder()        
+ *         var foo = new Team("foo", TeamArgs.builder()
  *             .name("Team Foo")
  *             .build());
  * 
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .name("P1")
  *             .build());
  * 
- *         var fooSlackConnection = new SlackConnection("fooSlackConnection", SlackConnectionArgs.builder()        
+ *         var fooSlackConnection = new SlackConnection("fooSlackConnection", SlackConnectionArgs.builder()
  *             .sourceId(foo.id())
  *             .sourceType("team_reference")
  *             .workspaceId("T02A123LV1A")

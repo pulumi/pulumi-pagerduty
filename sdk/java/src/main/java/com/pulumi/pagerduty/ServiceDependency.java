@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new ServiceDependency("foo", ServiceDependencyArgs.builder()        
+ *         var foo = new ServiceDependency("foo", ServiceDependencyArgs.builder()
  *             .dependency(ServiceDependencyDependencyArgs.builder()
  *                 .dependentServices(ServiceDependencyDependencyDependentServiceArgs.builder()
  *                     .id(fooPagerdutyBusinessService.id())
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var bar = new ServiceDependency("bar", ServiceDependencyArgs.builder()        
+ *         var bar = new ServiceDependency("bar", ServiceDependencyArgs.builder()
  *             .dependency(ServiceDependencyDependencyArgs.builder()
  *                 .dependentServices(ServiceDependencyDependencyDependentServiceArgs.builder()
  *                     .id(fooPagerdutyBusinessService.id())

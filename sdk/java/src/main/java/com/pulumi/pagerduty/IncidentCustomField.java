@@ -42,21 +42,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var csImpact = new IncidentCustomField("csImpact", IncidentCustomFieldArgs.builder()        
+ *         var csImpact = new IncidentCustomField("csImpact", IncidentCustomFieldArgs.builder()
  *             .name("impact")
  *             .displayName("Customer Impact")
  *             .dataType("string")
  *             .fieldType("single_value")
  *             .build());
  * 
- *         var sreEnvironment = new IncidentCustomField("sreEnvironment", IncidentCustomFieldArgs.builder()        
+ *         var sreEnvironment = new IncidentCustomField("sreEnvironment", IncidentCustomFieldArgs.builder()
  *             .name("environment")
  *             .displayName("Environment")
  *             .dataType("string")
  *             .fieldType("single_value_fixed")
  *             .build());
  * 
- *         var falseAlarm = new IncidentCustomField("falseAlarm", IncidentCustomFieldArgs.builder()        
+ *         var falseAlarm = new IncidentCustomField("falseAlarm", IncidentCustomFieldArgs.builder()
  *             .name("false_alarm")
  *             .displayName("False Alarm")
  *             .dataType("boolean")

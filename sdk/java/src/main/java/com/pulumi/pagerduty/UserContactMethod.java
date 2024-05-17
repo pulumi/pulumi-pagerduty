@@ -44,20 +44,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User("example", UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()
  *             .name("Earline Greenholt")
  *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .teams(examplePagerdutyTeam.id())
  *             .build());
  * 
- *         var email = new UserContactMethod("email", UserContactMethodArgs.builder()        
+ *         var email = new UserContactMethod("email", UserContactMethodArgs.builder()
  *             .userId(example.id())
  *             .type("email_contact_method")
  *             .address("foo{@literal @}bar.com")
  *             .label("Work")
  *             .build());
  * 
- *         var phone = new UserContactMethod("phone", UserContactMethodArgs.builder()        
+ *         var phone = new UserContactMethod("phone", UserContactMethodArgs.builder()
  *             .userId(example.id())
  *             .type("phone_contact_method")
  *             .countryCode("+1")
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .label("Work")
  *             .build());
  * 
- *         var sms = new UserContactMethod("sms", UserContactMethodArgs.builder()        
+ *         var sms = new UserContactMethod("sms", UserContactMethodArgs.builder()
  *             .userId(example.id())
  *             .type("sms_contact_method")
  *             .countryCode("+1")

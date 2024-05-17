@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var second = new EventRule("second", EventRuleArgs.builder()        
+ *         var second = new EventRule("second", EventRuleArgs.builder()
  *             .actionJson(serializeJson(
  *                 jsonArray(
  *                     jsonArray(
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *                 ))))
  *             .build());
  * 
- *         var third = new EventRule("third", EventRuleArgs.builder()        
+ *         var third = new EventRule("third", EventRuleArgs.builder()
  *             .actionJson(serializeJson(
  *                 jsonArray(
  *                     jsonArray(

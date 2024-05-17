@@ -45,11 +45,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Team("foo", TeamArgs.builder()        
+ *         var foo = new Team("foo", TeamArgs.builder()
  *             .name("Engineering (Seattle)")
  *             .build());
  * 
- *         var fooRuleset = new Ruleset("fooRuleset", RulesetArgs.builder()        
+ *         var fooRuleset = new Ruleset("fooRuleset", RulesetArgs.builder()
  *             .name("Primary Ruleset")
  *             .team(RulesetTeamArgs.builder()
  *                 .id(foo.id())

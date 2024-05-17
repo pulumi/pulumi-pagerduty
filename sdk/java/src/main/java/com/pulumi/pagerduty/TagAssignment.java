@@ -45,15 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Tag("example", TagArgs.builder()        
+ *         var example = new Tag("example", TagArgs.builder()
  *             .label("API")
  *             .build());
  * 
- *         var engteam = new Team("engteam", TeamArgs.builder()        
+ *         var engteam = new Team("engteam", TeamArgs.builder()
  *             .name("Engineering")
  *             .build());
  * 
- *         var exampleTagAssignment = new TagAssignment("exampleTagAssignment", TagAssignmentArgs.builder()        
+ *         var exampleTagAssignment = new TagAssignment("exampleTagAssignment", TagAssignmentArgs.builder()
  *             .tagId(example.id())
  *             .entityType("teams")
  *             .entityId(engteam.id())

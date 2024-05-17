@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var teamEntEng = new Team("teamEntEng", TeamArgs.builder()        
+ *         var teamEntEng = new Team("teamEntEng", TeamArgs.builder()
  *             .name("Enterprise Engineering")
  *             .description("Enterprise engineering")
  *             .build());
  * 
- *         var paRunbookRunner = new AutomationActionsRunner("paRunbookRunner", AutomationActionsRunnerArgs.builder()        
+ *         var paRunbookRunner = new AutomationActionsRunner("paRunbookRunner", AutomationActionsRunnerArgs.builder()
  *             .name("Runner created via TF")
  *             .description("Description of the Runner created via TF")
  *             .runnerType("runbook")
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .runbookApiKey("cat-secret")
  *             .build());
  * 
- *         var paRunnerEntEngAssoc = new AutomationActionsRunnerTeamAssociation("paRunnerEntEngAssoc", AutomationActionsRunnerTeamAssociationArgs.builder()        
+ *         var paRunnerEntEngAssoc = new AutomationActionsRunnerTeamAssociation("paRunnerEntEngAssoc", AutomationActionsRunnerTeamAssociationArgs.builder()
  *             .runnerId(paRunbookRunner.id())
  *             .teamId(teamEntEng.id())
  *             .build());

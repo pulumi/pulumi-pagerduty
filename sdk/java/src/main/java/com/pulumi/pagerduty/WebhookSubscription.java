@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .name("My Service")
  *             .build());
  * 
- *         var foo = new WebhookSubscription("foo", WebhookSubscriptionArgs.builder()        
+ *         var foo = new WebhookSubscription("foo", WebhookSubscriptionArgs.builder()
  *             .deliveryMethods(WebhookSubscriptionDeliveryMethodArgs.builder()
  *                 .type("http_delivery_method")
  *                 .url("https://example.com/receive_a_pagerduty_webhook")

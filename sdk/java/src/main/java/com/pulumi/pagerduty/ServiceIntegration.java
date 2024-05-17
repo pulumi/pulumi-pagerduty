@@ -57,13 +57,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User("example", UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()
  *             .name("Earline Greenholt")
  *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .teams(examplePagerdutyTeam.id())
  *             .build());
  * 
- *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+ *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
  *             .name("Engineering Escalation Policy")
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
@@ -75,26 +75,26 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("My Web App")
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
  *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
  *             .build());
  * 
- *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()        
+ *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
  *             .name("Generic API Service Integration")
  *             .type("generic_events_api_inbound_integration")
  *             .service(exampleService.id())
  *             .build());
  * 
- *         var apiv2 = new ServiceIntegration("apiv2", ServiceIntegrationArgs.builder()        
+ *         var apiv2 = new ServiceIntegration("apiv2", ServiceIntegrationArgs.builder()
  *             .name("API V2")
  *             .type("events_api_v2_inbound_integration")
  *             .service(exampleService.id())
  *             .build());
  * 
- *         var emailX = new ServiceIntegration("emailX", ServiceIntegrationArgs.builder()        
+ *         var emailX = new ServiceIntegration("emailX", ServiceIntegrationArgs.builder()
  *             .name("Email X")
  *             .type("generic_email_inbound_integration")
  *             .integrationEmail("ecommerce{@literal @}subdomain.pagerduty.com")
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *             .name("Datadog")
  *             .build());
  * 
- *         var datadogServiceIntegration = new ServiceIntegration("datadogServiceIntegration", ServiceIntegrationArgs.builder()        
+ *         var datadogServiceIntegration = new ServiceIntegration("datadogServiceIntegration", ServiceIntegrationArgs.builder()
  *             .name(datadog.applyValue(getVendorResult -> getVendorResult.name()))
  *             .service(exampleService.id())
  *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  *             .name("Cloudwatch")
  *             .build());
  * 
- *         var cloudwatchServiceIntegration = new ServiceIntegration("cloudwatchServiceIntegration", ServiceIntegrationArgs.builder()        
+ *         var cloudwatchServiceIntegration = new ServiceIntegration("cloudwatchServiceIntegration", ServiceIntegrationArgs.builder()
  *             .name(cloudwatch.applyValue(getVendorResult -> getVendorResult.name()))
  *             .service(exampleService.id())
  *             .vendor(cloudwatch.applyValue(getVendorResult -> getVendorResult.id()))
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *             .name("Email")
  *             .build());
  * 
- *         var emailServiceIntegration = new ServiceIntegration("emailServiceIntegration", ServiceIntegrationArgs.builder()        
+ *         var emailServiceIntegration = new ServiceIntegration("emailServiceIntegration", ServiceIntegrationArgs.builder()
  *             .name(email.applyValue(getVendorResult -> getVendorResult.name()))
  *             .service(exampleService.id())
  *             .vendor(email.applyValue(getVendorResult -> getVendorResult.id()))

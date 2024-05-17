@@ -47,29 +47,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BusinessService("example", BusinessServiceArgs.builder()        
+ *         var example = new BusinessService("example", BusinessServiceArgs.builder()
  *             .name("My Web App")
  *             .description("A very descriptive description of this business service")
  *             .pointOfContact("PagerDuty Admin")
  *             .team("P37RSRS")
  *             .build());
  * 
- *         var engteam = new Team("engteam", TeamArgs.builder()        
+ *         var engteam = new Team("engteam", TeamArgs.builder()
  *             .name("Engineering")
  *             .build());
  * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .name("Earline Greenholt")
  *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .build());
  * 
- *         var teamExample = new BusinessServiceSubscriber("teamExample", BusinessServiceSubscriberArgs.builder()        
+ *         var teamExample = new BusinessServiceSubscriber("teamExample", BusinessServiceSubscriberArgs.builder()
  *             .subscriberId(engteam.id())
  *             .subscriberType("team")
  *             .businessServiceId(example.id())
  *             .build());
  * 
- *         var userExample = new BusinessServiceSubscriber("userExample", BusinessServiceSubscriberArgs.builder()        
+ *         var userExample = new BusinessServiceSubscriber("userExample", BusinessServiceSubscriberArgs.builder()
  *             .subscriberId(exampleUser.id())
  *             .subscriberType("user")
  *             .businessServiceId(example.id())

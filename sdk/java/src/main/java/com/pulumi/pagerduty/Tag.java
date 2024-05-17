@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Tag("example", TagArgs.builder()        
+ *         var example = new Tag("example", TagArgs.builder()
  *             .label("Product")
  *             .build());
  * 

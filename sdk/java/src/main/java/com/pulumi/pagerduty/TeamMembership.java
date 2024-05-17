@@ -44,17 +44,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new User("foo", UserArgs.builder()        
+ *         var foo = new User("foo", UserArgs.builder()
  *             .name("foo")
  *             .email("foo{@literal @}bar.com")
  *             .build());
  * 
- *         var fooTeam = new Team("fooTeam", TeamArgs.builder()        
+ *         var fooTeam = new Team("fooTeam", TeamArgs.builder()
  *             .name("foo")
  *             .description("foo")
  *             .build());
  * 
- *         var fooTeamMembership = new TeamMembership("fooTeamMembership", TeamMembershipArgs.builder()        
+ *         var fooTeamMembership = new TeamMembership("fooTeamMembership", TeamMembershipArgs.builder()
  *             .userId(foo.id())
  *             .teamId(fooTeam.id())
  *             .role("manager")

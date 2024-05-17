@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new MaintenanceWindow("example", MaintenanceWindowArgs.builder()        
+ *         var example = new MaintenanceWindow("example", MaintenanceWindowArgs.builder()
  *             .startTime("2015-11-09T20:00:00-05:00")
  *             .endTime("2015-11-09T22:00:00-05:00")
  *             .services(examplePagerdutyService.id())

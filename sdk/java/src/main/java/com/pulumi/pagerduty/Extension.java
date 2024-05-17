@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  *             .name("Generic V2 Webhook")
  *             .build());
  * 
- *         var example = new User("example", UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()
  *             .name("Howard James")
  *             .email("howard.james{@literal @}example.domain")
  *             .build());
  * 
- *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()        
+ *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()
  *             .name("Engineering Escalation Policy")
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("My Web App")
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
  *             .escalationPolicy(exampleEscalationPolicy.id())
  *             .build());
  * 
- *         var slack = new Extension("slack", ExtensionArgs.builder()        
+ *         var slack = new Extension("slack", ExtensionArgs.builder()
  *             .name("My Web App Extension")
  *             .endpointUrl("https://generic_webhook_url/XXXXXX/BBBBBB")
  *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -> getExtensionSchemaResult.id()))

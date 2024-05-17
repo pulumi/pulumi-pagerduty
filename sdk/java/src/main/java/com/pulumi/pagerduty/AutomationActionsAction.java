@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var paActionExample = new AutomationActionsAction("paActionExample", AutomationActionsActionArgs.builder()        
+ *         var paActionExample = new AutomationActionsAction("paActionExample", AutomationActionsActionArgs.builder()
  *             .name("PA Action created via TF")
  *             .description("Description of the PA Action created via TF")
  *             .actionType("process_automation")
@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var scriptActionExample = new AutomationActionsAction("scriptActionExample", AutomationActionsActionArgs.builder()        
+ *         var scriptActionExample = new AutomationActionsAction("scriptActionExample", AutomationActionsActionArgs.builder()
  *             .name("Script Action created via TF")
  *             .description("Description of the Script Action created via TF")
  *             .actionType("script")

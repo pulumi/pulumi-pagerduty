@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Addon("example", AddonArgs.builder()        
+ *         var example = new Addon("example", AddonArgs.builder()
  *             .name("Internal Status Page")
  *             .src("https://intranet.example.com/status")
  *             .build());

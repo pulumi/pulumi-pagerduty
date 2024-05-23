@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User("example", UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()
  *             .name("Earline Greenholt")
  *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .build());
  * 
- *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()        
+ *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
  *             .name("Engineering Escalation Policy")
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("My Web App")
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var paActionExample = new AutomationActionsAction("paActionExample", AutomationActionsActionArgs.builder()        
+ *         var paActionExample = new AutomationActionsAction("paActionExample", AutomationActionsActionArgs.builder()
  *             .name("PA Action created via TF")
  *             .description("Description of the PA Action created via TF")
  *             .actionType("process_automation")
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var fooAutomationActionsActionServiceAssociation = new AutomationActionsActionServiceAssociation("fooAutomationActionsActionServiceAssociation", AutomationActionsActionServiceAssociationArgs.builder()        
+ *         var fooAutomationActionsActionServiceAssociation = new AutomationActionsActionServiceAssociation("fooAutomationActionsActionServiceAssociation", AutomationActionsActionServiceAssociationArgs.builder()
  *             .actionId(paActionExample.id())
  *             .serviceId(exampleService.id())
  *             .build());
@@ -112,15 +112,31 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation")
 public class AutomationActionsActionServiceAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * Id of the action.
+     * 
+     */
     @Export(name="actionId", refs={String.class}, tree="[0]")
     private Output<String> actionId;
 
+    /**
+     * @return Id of the action.
+     * 
+     */
     public Output<String> actionId() {
         return this.actionId;
     }
+    /**
+     * Id of the service associated to the action.
+     * 
+     */
     @Export(name="serviceId", refs={String.class}, tree="[0]")
     private Output<String> serviceId;
 
+    /**
+     * @return Id of the service associated to the action.
+     * 
+     */
     public Output<String> serviceId() {
         return this.serviceId;
     }

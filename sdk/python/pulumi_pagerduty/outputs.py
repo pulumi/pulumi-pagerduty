@@ -202,6 +202,13 @@ class AutomationActionsActionActionDataReference(dict):
                  process_automation_job_id: Optional[str] = None,
                  process_automation_node_filter: Optional[str] = None,
                  script: Optional[str] = None):
+        """
+        :param str invocation_command: The command to execute the script with.
+        :param str process_automation_job_arguments: The arguments to pass to the Process Automation job execution.
+        :param str process_automation_job_id: The ID of the Process Automation job to execute.
+        :param str process_automation_node_filter: The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+        :param str script: Body of the script to be executed on the Runner. Max length is 16777215 characters.
+        """
         if invocation_command is not None:
             pulumi.set(__self__, "invocation_command", invocation_command)
         if process_automation_job_arguments is not None:
@@ -216,26 +223,41 @@ class AutomationActionsActionActionDataReference(dict):
     @property
     @pulumi.getter(name="invocationCommand")
     def invocation_command(self) -> Optional[str]:
+        """
+        The command to execute the script with.
+        """
         return pulumi.get(self, "invocation_command")
 
     @property
     @pulumi.getter(name="processAutomationJobArguments")
     def process_automation_job_arguments(self) -> Optional[str]:
+        """
+        The arguments to pass to the Process Automation job execution.
+        """
         return pulumi.get(self, "process_automation_job_arguments")
 
     @property
     @pulumi.getter(name="processAutomationJobId")
     def process_automation_job_id(self) -> Optional[str]:
+        """
+        The ID of the Process Automation job to execute.
+        """
         return pulumi.get(self, "process_automation_job_id")
 
     @property
     @pulumi.getter(name="processAutomationNodeFilter")
     def process_automation_node_filter(self) -> Optional[str]:
+        """
+        The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+        """
         return pulumi.get(self, "process_automation_node_filter")
 
     @property
     @pulumi.getter
     def script(self) -> Optional[str]:
+        """
+        Body of the script to be executed on the Runner. Max length is 16777215 characters.
+        """
         return pulumi.get(self, "script")
 
 
@@ -266,6 +288,8 @@ class EscalationPolicyRule(dict):
                  escalation_rule_assignment_strategy: Optional['outputs.EscalationPolicyRuleEscalationRuleAssignmentStrategy'] = None,
                  id: Optional[str] = None):
         """
+        :param int escalation_delay_in_minutes: The number of minutes before an unacknowledged incident escalates away from this rule.
+        :param 'EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs' escalation_rule_assignment_strategy: The strategy used to assign the escalation rule to an incident. Documented below.
         :param str id: The ID of the escalation policy.
         """
         pulumi.set(__self__, "escalation_delay_in_minutes", escalation_delay_in_minutes)
@@ -278,6 +302,9 @@ class EscalationPolicyRule(dict):
     @property
     @pulumi.getter(name="escalationDelayInMinutes")
     def escalation_delay_in_minutes(self) -> int:
+        """
+        The number of minutes before an unacknowledged incident escalates away from this rule.
+        """
         return pulumi.get(self, "escalation_delay_in_minutes")
 
     @property
@@ -288,6 +315,9 @@ class EscalationPolicyRule(dict):
     @property
     @pulumi.getter(name="escalationRuleAssignmentStrategy")
     def escalation_rule_assignment_strategy(self) -> Optional['outputs.EscalationPolicyRuleEscalationRuleAssignmentStrategy']:
+        """
+        The strategy used to assign the escalation rule to an incident. Documented below.
+        """
         return pulumi.get(self, "escalation_rule_assignment_strategy")
 
     @property
@@ -324,7 +354,8 @@ class EscalationPolicyRuleTarget(dict):
                  id: str,
                  type: Optional[str] = None):
         """
-        :param str id: The ID of the escalation policy.
+        :param str id: A target ID
+        :param str type: Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
         """
         pulumi.set(__self__, "id", id)
         if type is not None:
@@ -334,13 +365,16 @@ class EscalationPolicyRuleTarget(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        The ID of the escalation policy.
+        A target ID
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+        """
         return pulumi.get(self, "type")
 
 
@@ -714,17 +748,27 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionHeader(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: Name to identify the header
+        :param str value: Value of this header
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name to identify the header
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of this header
+        """
         return pulumi.get(self, "value")
 
 
@@ -733,17 +777,27 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionParameter(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: Name to identify the parameter
+        :param str value: Value of this parameter
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name to identify the parameter
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of this parameter
+        """
         return pulumi.get(self, "value")
 
 
@@ -1240,17 +1294,27 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionHeader(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: Name to identify the header
+        :param str value: Value of this header
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name to identify the header
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of this header
+        """
         return pulumi.get(self, "value")
 
 
@@ -1259,17 +1323,27 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionParameter(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: Name to identify the parameter
+        :param str value: Value of this parameter
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name to identify the parameter
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of this parameter
+        """
         return pulumi.get(self, "value")
 
 
@@ -2080,17 +2154,27 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionHeader(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: Name to identify the header
+        :param str value: Value of this header
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name to identify the header
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of this header
+        """
         return pulumi.get(self, "value")
 
 
@@ -2099,17 +2183,27 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionParameter(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: Name to identify the parameter
+        :param str value: Value of this parameter
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name to identify the parameter
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of this parameter
+        """
         return pulumi.get(self, "value")
 
 
@@ -2641,17 +2735,27 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionHeader(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: Name to identify the header
+        :param str value: Value of this header
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name to identify the header
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of this header
+        """
         return pulumi.get(self, "value")
 
 
@@ -2660,17 +2764,27 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionParameter(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: Name to identify the parameter
+        :param str value: Value of this parameter
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Name to identify the parameter
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Value of this parameter
+        """
         return pulumi.get(self, "value")
 
 
@@ -3854,6 +3968,7 @@ class ResponsePlayResponderEscalationRuleTarget(dict):
                  type: Optional[str] = None):
         """
         :param str id: The ID of the response play.
+        :param str type: Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -3871,6 +3986,9 @@ class ResponsePlayResponderEscalationRuleTarget(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+        """
         return pulumi.get(self, "type")
 
 
@@ -3881,6 +3999,7 @@ class ResponsePlayResponderService(dict):
                  type: Optional[str] = None):
         """
         :param str id: The ID of the response play.
+        :param str type: A string that determines the schema of the object. If not set, the default value is "response_play".
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -3898,6 +4017,9 @@ class ResponsePlayResponderService(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
         return pulumi.get(self, "type")
 
 
@@ -3907,6 +4029,7 @@ class ResponsePlayResponderTeam(dict):
                  type: str,
                  id: Optional[str] = None):
         """
+        :param str type: A string that determines the schema of the object. If not set, the default value is "response_play".
         :param str id: The ID of the response play.
         """
         pulumi.set(__self__, "type", type)
@@ -3916,6 +4039,9 @@ class ResponsePlayResponderTeam(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -3934,6 +4060,7 @@ class ResponsePlaySubscriber(dict):
                  type: Optional[str] = None):
         """
         :param str id: The ID of the response play.
+        :param str type: A string that determines the schema of the object. If not set, the default value is "response_play".
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -3951,6 +4078,9 @@ class ResponsePlaySubscriber(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
         return pulumi.get(self, "type")
 
 
@@ -5019,6 +5149,8 @@ class ServiceDependencyDependency(dict):
                  supporting_services: Sequence['outputs.ServiceDependencyDependencySupportingService'],
                  type: Optional[str] = None):
         """
+        :param Sequence['ServiceDependencyDependencyDependentServiceArgs'] dependent_services: The service that dependents on the supporting service. Dependency dependent service documented below.
+        :param Sequence['ServiceDependencyDependencySupportingServiceArgs'] supporting_services: The service that supports the dependent service. Dependency supporting service documented below.
         :param str type: Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
         """
         pulumi.set(__self__, "dependent_services", dependent_services)
@@ -5029,11 +5161,17 @@ class ServiceDependencyDependency(dict):
     @property
     @pulumi.getter(name="dependentServices")
     def dependent_services(self) -> Sequence['outputs.ServiceDependencyDependencyDependentService']:
+        """
+        The service that dependents on the supporting service. Dependency dependent service documented below.
+        """
         return pulumi.get(self, "dependent_services")
 
     @property
     @pulumi.getter(name="supportingServices")
     def supporting_services(self) -> Sequence['outputs.ServiceDependencyDependencySupportingService']:
+        """
+        The service that supports the dependent service. Dependency supporting service documented below.
+        """
         return pulumi.get(self, "supporting_services")
 
     @property
@@ -5244,6 +5382,16 @@ class ServiceEventRuleActionsExtraction(dict):
                  source: Optional[str] = None,
                  target: Optional[str] = None,
                  template: Optional[str] = None):
+        """
+        :param str regex: The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+               
+               *- **OR** -*
+        :param str source: Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        :param str target: Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+               
+               *NOTE: A rule can have multiple `extraction` objects attributed to it.*
+        :param str template: A customized field message. This can also include variables extracted from the payload by using string interpolation.
+        """
         if regex is not None:
             pulumi.set(__self__, "regex", regex)
         if source is not None:
@@ -5256,21 +5404,37 @@ class ServiceEventRuleActionsExtraction(dict):
     @property
     @pulumi.getter
     def regex(self) -> Optional[str]:
+        """
+        The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+
+        *- **OR** -*
+        """
         return pulumi.get(self, "regex")
 
     @property
     @pulumi.getter
     def source(self) -> Optional[str]:
+        """
+        Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter
     def target(self) -> Optional[str]:
+        """
+        Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+
+        *NOTE: A rule can have multiple `extraction` objects attributed to it.*
+        """
         return pulumi.get(self, "target")
 
     @property
     @pulumi.getter
     def template(self) -> Optional[str]:
+        """
+        A customized field message. This can also include variables extracted from the payload by using string interpolation.
+        """
         return pulumi.get(self, "template")
 
 
@@ -5328,6 +5492,12 @@ class ServiceEventRuleActionsSuppress(dict):
                  threshold_time_unit: Optional[str] = None,
                  threshold_value: Optional[int] = None,
                  value: Optional[bool] = None):
+        """
+        :param int threshold_time_amount: The number value of the `threshold_time_unit` before an incident is created.
+        :param str threshold_time_unit: The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
+        :param int threshold_value: The number of alerts that should be suppressed.
+        :param bool value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         if threshold_time_amount is not None:
             pulumi.set(__self__, "threshold_time_amount", threshold_time_amount)
         if threshold_time_unit is not None:
@@ -5340,21 +5510,33 @@ class ServiceEventRuleActionsSuppress(dict):
     @property
     @pulumi.getter(name="thresholdTimeAmount")
     def threshold_time_amount(self) -> Optional[int]:
+        """
+        The number value of the `threshold_time_unit` before an incident is created.
+        """
         return pulumi.get(self, "threshold_time_amount")
 
     @property
     @pulumi.getter(name="thresholdTimeUnit")
     def threshold_time_unit(self) -> Optional[str]:
+        """
+        The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
+        """
         return pulumi.get(self, "threshold_time_unit")
 
     @property
     @pulumi.getter(name="thresholdValue")
     def threshold_value(self) -> Optional[int]:
+        """
+        The number of alerts that should be suppressed.
+        """
         return pulumi.get(self, "threshold_value")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[bool]:
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         return pulumi.get(self, "value")
 
 
@@ -5528,6 +5710,10 @@ class ServiceEventRuleTimeFrameActiveBetween(dict):
     def __init__(__self__, *,
                  end_time: Optional[int] = None,
                  start_time: Optional[int] = None):
+        """
+        :param int end_time: Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+        :param int start_time: Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+        """
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
         if start_time is not None:
@@ -5536,11 +5722,17 @@ class ServiceEventRuleTimeFrameActiveBetween(dict):
     @property
     @pulumi.getter(name="endTime")
     def end_time(self) -> Optional[int]:
+        """
+        Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+        """
         return pulumi.get(self, "end_time")
 
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[int]:
+        """
+        Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+        """
         return pulumi.get(self, "start_time")
 
 
@@ -5568,6 +5760,12 @@ class ServiceEventRuleTimeFrameScheduledWeekly(dict):
                  start_time: Optional[int] = None,
                  timezone: Optional[str] = None,
                  weekdays: Optional[Sequence[int]] = None):
+        """
+        :param int duration: Length of time the schedule will be active.  Unix timestamp in milliseconds.
+        :param int start_time: Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+        :param str timezone: Timezone for the given schedule.
+        :param Sequence[int] weekdays: An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
+        """
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
         if start_time is not None:
@@ -5580,21 +5778,33 @@ class ServiceEventRuleTimeFrameScheduledWeekly(dict):
     @property
     @pulumi.getter
     def duration(self) -> Optional[int]:
+        """
+        Length of time the schedule will be active.  Unix timestamp in milliseconds.
+        """
         return pulumi.get(self, "duration")
 
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[int]:
+        """
+        Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+        """
         return pulumi.get(self, "start_time")
 
     @property
     @pulumi.getter
     def timezone(self) -> Optional[str]:
+        """
+        Timezone for the given schedule.
+        """
         return pulumi.get(self, "timezone")
 
     @property
     @pulumi.getter
     def weekdays(self) -> Optional[Sequence[int]]:
+        """
+        An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
+        """
         return pulumi.get(self, "weekdays")
 
 
@@ -5801,7 +6011,13 @@ class ServiceIntegrationEmailFilter(dict):
                  subject_mode: Optional[str] = None,
                  subject_regex: Optional[str] = None):
         """
+        :param str body_mode: Can be `always` or `match`.
+        :param str body_regex: Should be a valid regex or `null`
+        :param str from_email_mode: Can be `always` or `match`.
+        :param str from_email_regex: Should be a valid regex or `null`
         :param str id: The ID of the service integration.
+        :param str subject_mode: Can be `always` or `match`.
+        :param str subject_regex: Should be a valid regex or `null`
         """
         if body_mode is not None:
             pulumi.set(__self__, "body_mode", body_mode)
@@ -5821,21 +6037,33 @@ class ServiceIntegrationEmailFilter(dict):
     @property
     @pulumi.getter(name="bodyMode")
     def body_mode(self) -> Optional[str]:
+        """
+        Can be `always` or `match`.
+        """
         return pulumi.get(self, "body_mode")
 
     @property
     @pulumi.getter(name="bodyRegex")
     def body_regex(self) -> Optional[str]:
+        """
+        Should be a valid regex or `null`
+        """
         return pulumi.get(self, "body_regex")
 
     @property
     @pulumi.getter(name="fromEmailMode")
     def from_email_mode(self) -> Optional[str]:
+        """
+        Can be `always` or `match`.
+        """
         return pulumi.get(self, "from_email_mode")
 
     @property
     @pulumi.getter(name="fromEmailRegex")
     def from_email_regex(self) -> Optional[str]:
+        """
+        Should be a valid regex or `null`
+        """
         return pulumi.get(self, "from_email_regex")
 
     @property
@@ -5849,11 +6077,17 @@ class ServiceIntegrationEmailFilter(dict):
     @property
     @pulumi.getter(name="subjectMode")
     def subject_mode(self) -> Optional[str]:
+        """
+        Can be `always` or `match`.
+        """
         return pulumi.get(self, "subject_mode")
 
     @property
     @pulumi.getter(name="subjectRegex")
     def subject_regex(self) -> Optional[str]:
+        """
+        Should be a valid regex or `null`
+        """
         return pulumi.get(self, "subject_regex")
 
 
@@ -5884,6 +6118,7 @@ class ServiceIntegrationEmailParser(dict):
                  id: Optional[int] = None,
                  value_extractors: Optional[Sequence['outputs.ServiceIntegrationEmailParserValueExtractor']] = None):
         """
+        :param str action: Can be `resolve` or `trigger`.
         :param int id: The ID of the service integration.
         """
         pulumi.set(__self__, "action", action)
@@ -5896,6 +6131,9 @@ class ServiceIntegrationEmailParser(dict):
     @property
     @pulumi.getter
     def action(self) -> str:
+        """
+        Can be `resolve` or `trigger`.
+        """
         return pulumi.get(self, "action")
 
     @property
@@ -5922,6 +6160,9 @@ class ServiceIntegrationEmailParserMatchPredicate(dict):
     def __init__(__self__, *,
                  type: str,
                  predicates: Optional[Sequence['outputs.ServiceIntegrationEmailParserMatchPredicatePredicate']] = None):
+        """
+        :param str type: Can be `any` or `all`.
+        """
         pulumi.set(__self__, "type", type)
         if predicates is not None:
             pulumi.set(__self__, "predicates", predicates)
@@ -5929,6 +6170,9 @@ class ServiceIntegrationEmailParserMatchPredicate(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Can be `any` or `all`.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -5944,6 +6188,11 @@ class ServiceIntegrationEmailParserMatchPredicatePredicate(dict):
                  matcher: Optional[str] = None,
                  part: Optional[str] = None,
                  predicates: Optional[Sequence['outputs.ServiceIntegrationEmailParserMatchPredicatePredicatePredicate']] = None):
+        """
+        :param str type: Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+        :param str matcher: Predicate value or valid regex.
+        :param str part: Can be `subject`, `body` or `from_addresses`.
+        """
         pulumi.set(__self__, "type", type)
         if matcher is not None:
             pulumi.set(__self__, "matcher", matcher)
@@ -5955,16 +6204,25 @@ class ServiceIntegrationEmailParserMatchPredicatePredicate(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def matcher(self) -> Optional[str]:
+        """
+        Predicate value or valid regex.
+        """
         return pulumi.get(self, "matcher")
 
     @property
     @pulumi.getter
     def part(self) -> Optional[str]:
+        """
+        Can be `subject`, `body` or `from_addresses`.
+        """
         return pulumi.get(self, "part")
 
     @property
@@ -5979,6 +6237,11 @@ class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate(dict):
                  matcher: str,
                  part: str,
                  type: str):
+        """
+        :param str matcher: Predicate value or valid regex.
+        :param str part: Can be `subject`, `body` or `from_addresses`.
+        :param str type: Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+        """
         pulumi.set(__self__, "matcher", matcher)
         pulumi.set(__self__, "part", part)
         pulumi.set(__self__, "type", type)
@@ -5986,16 +6249,25 @@ class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate(dict):
     @property
     @pulumi.getter
     def matcher(self) -> str:
+        """
+        Predicate value or valid regex.
+        """
         return pulumi.get(self, "matcher")
 
     @property
     @pulumi.getter
     def part(self) -> str:
+        """
+        Can be `subject`, `body` or `from_addresses`.
+        """
         return pulumi.get(self, "part")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+        """
         return pulumi.get(self, "type")
 
 
@@ -6029,6 +6301,14 @@ class ServiceIntegrationEmailParserValueExtractor(dict):
                  ends_before: Optional[str] = None,
                  regex: Optional[str] = None,
                  starts_after: Optional[str] = None):
+        """
+        :param str part: Can be `subject` or `body`.
+        :param str type: Can be `between`, `entire` or `regex`.
+        :param str value_name: First value extractor should have name `incident_key` other value extractors should contain custom names.
+        :param str regex: If `type` has value `regex` this value should contain valid regex.
+               
+               **Note:** You can use the `get_vendor` data source to locate the appropriate vendor ID.
+        """
         pulumi.set(__self__, "part", part)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value_name", value_name)
@@ -6042,16 +6322,25 @@ class ServiceIntegrationEmailParserValueExtractor(dict):
     @property
     @pulumi.getter
     def part(self) -> str:
+        """
+        Can be `subject` or `body`.
+        """
         return pulumi.get(self, "part")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Can be `between`, `entire` or `regex`.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="valueName")
     def value_name(self) -> str:
+        """
+        First value extractor should have name `incident_key` other value extractors should contain custom names.
+        """
         return pulumi.get(self, "value_name")
 
     @property
@@ -6062,6 +6351,11 @@ class ServiceIntegrationEmailParserValueExtractor(dict):
     @property
     @pulumi.getter
     def regex(self) -> Optional[str]:
+        """
+        If `type` has value `regex` this value should contain valid regex.
+
+        **Note:** You can use the `get_vendor` data source to locate the appropriate vendor ID.
+        """
         return pulumi.get(self, "regex")
 
     @property
@@ -6128,7 +6422,56 @@ class ServiceScheduledActionAt(dict):
                  name: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        :param str type: The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        :param str name: Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
+               
+               Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
+               
+               Below is an example for a `Service` resource with `incident_urgency_rules` with `type = "use_support_hours"`, `support_hours` and a default `scheduled_action` as well.
+               
+               ```python
+               import pulumi
+               import pulumi_pagerduty as pagerduty
+               
+               foo = pagerduty.Service("foo",
+                   name="bar",
+                   description="bar bar bar",
+                   auto_resolve_timeout="3600",
+                   acknowledgement_timeout="3600",
+                   escalation_policy=foo_pagerduty_escalation_policy["id"],
+                   incident_urgency_rule=pagerduty.ServiceIncidentUrgencyRuleArgs(
+                       type="use_support_hours",
+                       during_support_hours=pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs(
+                           type="constant",
+                           urgency="high",
+                       ),
+                       outside_support_hours=pagerduty.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs(
+                           type="constant",
+                           urgency="low",
+                       ),
+                   ),
+                   support_hours=pagerduty.ServiceSupportHoursArgs(
+                       type="fixed_time_per_day",
+                       time_zone="America/Lima",
+                       start_time="09:00:00",
+                       end_time="17:00:00",
+                       days_of_weeks=[
+                           1,
+                           2,
+                           3,
+                           4,
+                           5,
+                       ],
+                   ),
+                   scheduled_actions=[pagerduty.ServiceScheduledActionArgs(
+                       type="urgency_change",
+                       to_urgency="high",
+                       ats=[pagerduty.ServiceScheduledActionAtArgs(
+                           type="named_time",
+                           name="support_hours_start",
+                       )],
+                   )])
+               ```
+        :param str type: The type of time specification. Currently, this must be set to `named_time`.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -6138,13 +6481,64 @@ class ServiceScheduledActionAt(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
+
+        Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
+
+        Below is an example for a `Service` resource with `incident_urgency_rules` with `type = "use_support_hours"`, `support_hours` and a default `scheduled_action` as well.
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo = pagerduty.Service("foo",
+            name="bar",
+            description="bar bar bar",
+            auto_resolve_timeout="3600",
+            acknowledgement_timeout="3600",
+            escalation_policy=foo_pagerduty_escalation_policy["id"],
+            incident_urgency_rule=pagerduty.ServiceIncidentUrgencyRuleArgs(
+                type="use_support_hours",
+                during_support_hours=pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs(
+                    type="constant",
+                    urgency="high",
+                ),
+                outside_support_hours=pagerduty.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs(
+                    type="constant",
+                    urgency="low",
+                ),
+            ),
+            support_hours=pagerduty.ServiceSupportHoursArgs(
+                type="fixed_time_per_day",
+                time_zone="America/Lima",
+                start_time="09:00:00",
+                end_time="17:00:00",
+                days_of_weeks=[
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                ],
+            ),
+            scheduled_actions=[pagerduty.ServiceScheduledActionArgs(
+                type="urgency_change",
+                to_urgency="high",
+                ats=[pagerduty.ServiceScheduledActionAtArgs(
+                    type="named_time",
+                    name="support_hours_start",
+                )],
+            )])
+        ```
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        The type of time specification. Currently, this must be set to `named_time`.
         """
         return pulumi.get(self, "type")
 
@@ -6229,6 +6623,25 @@ class SlackConnectionConfig(dict):
                  events: Sequence[str],
                  priorities: Optional[Sequence[str]] = None,
                  urgency: Optional[str] = None):
+        """
+        :param Sequence[str] events: A list of strings to filter events by PagerDuty event type. `"incident.triggered"` is required. The follow event types are also possible:
+               - `incident.acknowledged`
+               - `incident.escalated`
+               - `incident.resolved`
+               - `incident.reassigned`
+               - `incident.annotated`
+               - `incident.unacknowledged`
+               - `incident.delegated`
+               - `incident.priority_updated`
+               - `incident.responder.added`
+               - `incident.responder.replied`
+               - `incident.status_update_published`
+               - `incident.reopened`
+        :param Sequence[str] priorities: Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through get_priority data source.
+               - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+               - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
+        :param str urgency: Allows you to filter events by urgency. Either `high` or `low`.
+        """
         pulumi.set(__self__, "events", events)
         if priorities is not None:
             pulumi.set(__self__, "priorities", priorities)
@@ -6238,16 +6651,39 @@ class SlackConnectionConfig(dict):
     @property
     @pulumi.getter
     def events(self) -> Sequence[str]:
+        """
+        A list of strings to filter events by PagerDuty event type. `"incident.triggered"` is required. The follow event types are also possible:
+        - `incident.acknowledged`
+        - `incident.escalated`
+        - `incident.resolved`
+        - `incident.reassigned`
+        - `incident.annotated`
+        - `incident.unacknowledged`
+        - `incident.delegated`
+        - `incident.priority_updated`
+        - `incident.responder.added`
+        - `incident.responder.replied`
+        - `incident.status_update_published`
+        - `incident.reopened`
+        """
         return pulumi.get(self, "events")
 
     @property
     @pulumi.getter
     def priorities(self) -> Optional[Sequence[str]]:
+        """
+        Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through get_priority data source.
+        - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+        - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
+        """
         return pulumi.get(self, "priorities")
 
     @property
     @pulumi.getter
     def urgency(self) -> Optional[str]:
+        """
+        Allows you to filter events by urgency. Either `high` or `low`.
+        """
         return pulumi.get(self, "urgency")
 
 

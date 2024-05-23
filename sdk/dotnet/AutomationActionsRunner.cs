@@ -69,6 +69,9 @@ namespace Pulumi.Pagerduty
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the runner. Max length is 1024 characters.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -78,15 +81,27 @@ namespace Pulumi.Pagerduty
         [Output("lastSeen")]
         public Output<string> LastSeen { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the runner. Max length is 255 characters.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique User API Token created in Runbook Automation.
+        /// </summary>
         [Output("runbookApiKey")]
         public Output<string?> RunbookApiKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The subdomain for your Runbook Automation Instance.
+        /// </summary>
         [Output("runbookBaseUri")]
         public Output<string?> RunbookBaseUri { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of runner. The only allowed values is `runbook`.
+        /// </summary>
         [Output("runnerType")]
         public Output<string> RunnerType { get; private set; } = null!;
 
@@ -146,6 +161,9 @@ namespace Pulumi.Pagerduty
 
     public sealed class AutomationActionsRunnerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the runner. Max length is 1024 characters.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -155,11 +173,18 @@ namespace Pulumi.Pagerduty
         [Input("lastSeen")]
         public Input<string>? LastSeen { get; set; }
 
+        /// <summary>
+        /// The name of the runner. Max length is 255 characters.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("runbookApiKey")]
         private Input<string>? _runbookApiKey;
+
+        /// <summary>
+        /// The unique User API Token created in Runbook Automation.
+        /// </summary>
         public Input<string>? RunbookApiKey
         {
             get => _runbookApiKey;
@@ -170,9 +195,15 @@ namespace Pulumi.Pagerduty
             }
         }
 
+        /// <summary>
+        /// The subdomain for your Runbook Automation Instance.
+        /// </summary>
         [Input("runbookBaseUri")]
         public Input<string>? RunbookBaseUri { get; set; }
 
+        /// <summary>
+        /// The type of runner. The only allowed values is `runbook`.
+        /// </summary>
         [Input("runnerType", required: true)]
         public Input<string> RunnerType { get; set; } = null!;
 
@@ -190,6 +221,9 @@ namespace Pulumi.Pagerduty
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
 
+        /// <summary>
+        /// The description of the runner. Max length is 1024 characters.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -199,11 +233,18 @@ namespace Pulumi.Pagerduty
         [Input("lastSeen")]
         public Input<string>? LastSeen { get; set; }
 
+        /// <summary>
+        /// The name of the runner. Max length is 255 characters.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("runbookApiKey")]
         private Input<string>? _runbookApiKey;
+
+        /// <summary>
+        /// The unique User API Token created in Runbook Automation.
+        /// </summary>
         public Input<string>? RunbookApiKey
         {
             get => _runbookApiKey;
@@ -214,9 +255,15 @@ namespace Pulumi.Pagerduty
             }
         }
 
+        /// <summary>
+        /// The subdomain for your Runbook Automation Instance.
+        /// </summary>
         [Input("runbookBaseUri")]
         public Input<string>? RunbookBaseUri { get; set; }
 
+        /// <summary>
+        /// The type of runner. The only allowed values is `runbook`.
+        /// </summary>
         [Input("runnerType")]
         public Input<string>? RunnerType { get; set; }
 

@@ -14,6 +14,22 @@ namespace Pulumi.Pagerduty.Inputs
     {
         [Input("events", required: true)]
         private InputList<string>? _events;
+
+        /// <summary>
+        /// A list of strings to filter events by PagerDuty event type. `"incident.triggered"` is required. The follow event types are also possible:
+        /// - `incident.acknowledged`
+        /// - `incident.escalated`
+        /// - `incident.resolved`
+        /// - `incident.reassigned`
+        /// - `incident.annotated`
+        /// - `incident.unacknowledged`
+        /// - `incident.delegated`
+        /// - `incident.priority_updated`
+        /// - `incident.responder.added`
+        /// - `incident.responder.replied`
+        /// - `incident.status_update_published`
+        /// - `incident.reopened`
+        /// </summary>
         public InputList<string> Events
         {
             get => _events ?? (_events = new InputList<string>());
@@ -22,12 +38,21 @@ namespace Pulumi.Pagerduty.Inputs
 
         [Input("priorities")]
         private InputList<string>? _priorities;
+
+        /// <summary>
+        /// Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.
+        /// - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+        /// - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
+        /// </summary>
         public InputList<string> Priorities
         {
             get => _priorities ?? (_priorities = new InputList<string>());
             set => _priorities = value;
         }
 
+        /// <summary>
+        /// Allows you to filter events by urgency. Either `high` or `low`.
+        /// </summary>
         [Input("urgency")]
         public Input<string>? Urgency { get; set; }
 

@@ -45,15 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Tag("example", TagArgs.builder()        
+ *         var example = new Tag("example", TagArgs.builder()
  *             .label("API")
  *             .build());
  * 
- *         var engteam = new Team("engteam", TeamArgs.builder()        
+ *         var engteam = new Team("engteam", TeamArgs.builder()
  *             .name("Engineering")
  *             .build());
  * 
- *         var exampleTagAssignment = new TagAssignment("exampleTagAssignment", TagAssignmentArgs.builder()        
+ *         var exampleTagAssignment = new TagAssignment("exampleTagAssignment", TagAssignmentArgs.builder()
  *             .tagId(example.id())
  *             .entityType("teams")
  *             .entityId(engteam.id())
@@ -76,21 +76,45 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/tagAssignment:TagAssignment")
 public class TagAssignment extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the entity.
+     * 
+     */
     @Export(name="entityId", refs={String.class}, tree="[0]")
     private Output<String> entityId;
 
+    /**
+     * @return The ID of the entity.
+     * 
+     */
     public Output<String> entityId() {
         return this.entityId;
     }
+    /**
+     * Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+     * 
+     */
     @Export(name="entityType", refs={String.class}, tree="[0]")
     private Output<String> entityType;
 
+    /**
+     * @return Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+     * 
+     */
     public Output<String> entityType() {
         return this.entityType;
     }
+    /**
+     * The ID of the tag.
+     * 
+     */
     @Export(name="tagId", refs={String.class}, tree="[0]")
     private Output<String> tagId;
 
+    /**
+     * @return The ID of the tag.
+     * 
+     */
     public Output<String> tagId() {
         return this.tagId;
     }

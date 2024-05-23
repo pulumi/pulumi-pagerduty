@@ -29,8 +29,27 @@ class ServiceIntegrationArgs:
                  vendor: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceIntegration resource.
+        :param pulumi.Input[str] service: The ID of the service the integration should belong to.
+        :param pulumi.Input[str] email_filter_mode: Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
+        :param pulumi.Input[str] email_incident_creation: Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
+        :param pulumi.Input[str] email_parsing_fallback: Can be `open_new_incident` or `discard`.
         :param pulumi.Input[str] integration_email: This is the unique fully-qualified email address used for routing emails to this integration for processing.
-        :param pulumi.Input[str] integration_key: This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        :param pulumi.Input[str] integration_key: (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        :param pulumi.Input[str] name: The name of the service integration.
+        :param pulumi.Input[str] type: The service type. Can be:
+               `aws_cloudwatch_inbound_integration`,
+               `cloudkick_inbound_integration`,
+               `event_transformer_api_inbound_integration`,
+               `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
+               `generic_email_inbound_integration`,
+               `generic_events_api_inbound_integration`,
+               `keynote_inbound_integration`,
+               `nagios_inbound_integration`,
+               `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+               
+               **Note:** This is meant for **generic** service integrations.
+               To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+        :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
         pulumi.set(__self__, "service", service)
         if email_filter_mode is not None:
@@ -57,6 +76,9 @@ class ServiceIntegrationArgs:
     @property
     @pulumi.getter
     def service(self) -> pulumi.Input[str]:
+        """
+        The ID of the service the integration should belong to.
+        """
         return pulumi.get(self, "service")
 
     @service.setter
@@ -66,6 +88,9 @@ class ServiceIntegrationArgs:
     @property
     @pulumi.getter(name="emailFilterMode")
     def email_filter_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
+        """
         return pulumi.get(self, "email_filter_mode")
 
     @email_filter_mode.setter
@@ -84,6 +109,9 @@ class ServiceIntegrationArgs:
     @property
     @pulumi.getter(name="emailIncidentCreation")
     def email_incident_creation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
+        """
         return pulumi.get(self, "email_incident_creation")
 
     @email_incident_creation.setter
@@ -102,6 +130,9 @@ class ServiceIntegrationArgs:
     @property
     @pulumi.getter(name="emailParsingFallback")
     def email_parsing_fallback(self) -> Optional[pulumi.Input[str]]:
+        """
+        Can be `open_new_incident` or `discard`.
+        """
         return pulumi.get(self, "email_parsing_fallback")
 
     @email_parsing_fallback.setter
@@ -124,7 +155,7 @@ class ServiceIntegrationArgs:
     @pulumi.getter(name="integrationKey")
     def integration_key(self) -> Optional[pulumi.Input[str]]:
         """
-        This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         """
         return pulumi.get(self, "integration_key")
 
@@ -135,6 +166,9 @@ class ServiceIntegrationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the service integration.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -144,6 +178,21 @@ class ServiceIntegrationArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service type. Can be:
+        `aws_cloudwatch_inbound_integration`,
+        `cloudkick_inbound_integration`,
+        `event_transformer_api_inbound_integration`,
+        `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
+        `generic_email_inbound_integration`,
+        `generic_events_api_inbound_integration`,
+        `keynote_inbound_integration`,
+        `nagios_inbound_integration`,
+        `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+
+        **Note:** This is meant for **generic** service integrations.
+        To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -153,6 +202,9 @@ class ServiceIntegrationArgs:
     @property
     @pulumi.getter
     def vendor(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
+        """
         return pulumi.get(self, "vendor")
 
     @vendor.setter
@@ -177,9 +229,28 @@ class _ServiceIntegrationState:
                  vendor: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceIntegration resources.
+        :param pulumi.Input[str] email_filter_mode: Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
+        :param pulumi.Input[str] email_incident_creation: Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
+        :param pulumi.Input[str] email_parsing_fallback: Can be `open_new_incident` or `discard`.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] integration_email: This is the unique fully-qualified email address used for routing emails to this integration for processing.
-        :param pulumi.Input[str] integration_key: This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        :param pulumi.Input[str] integration_key: (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        :param pulumi.Input[str] name: The name of the service integration.
+        :param pulumi.Input[str] service: The ID of the service the integration should belong to.
+        :param pulumi.Input[str] type: The service type. Can be:
+               `aws_cloudwatch_inbound_integration`,
+               `cloudkick_inbound_integration`,
+               `event_transformer_api_inbound_integration`,
+               `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
+               `generic_email_inbound_integration`,
+               `generic_events_api_inbound_integration`,
+               `keynote_inbound_integration`,
+               `nagios_inbound_integration`,
+               `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+               
+               **Note:** This is meant for **generic** service integrations.
+               To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+        :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
         if email_filter_mode is not None:
             pulumi.set(__self__, "email_filter_mode", email_filter_mode)
@@ -209,6 +280,9 @@ class _ServiceIntegrationState:
     @property
     @pulumi.getter(name="emailFilterMode")
     def email_filter_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
+        """
         return pulumi.get(self, "email_filter_mode")
 
     @email_filter_mode.setter
@@ -227,6 +301,9 @@ class _ServiceIntegrationState:
     @property
     @pulumi.getter(name="emailIncidentCreation")
     def email_incident_creation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
+        """
         return pulumi.get(self, "email_incident_creation")
 
     @email_incident_creation.setter
@@ -245,6 +322,9 @@ class _ServiceIntegrationState:
     @property
     @pulumi.getter(name="emailParsingFallback")
     def email_parsing_fallback(self) -> Optional[pulumi.Input[str]]:
+        """
+        Can be `open_new_incident` or `discard`.
+        """
         return pulumi.get(self, "email_parsing_fallback")
 
     @email_parsing_fallback.setter
@@ -279,7 +359,7 @@ class _ServiceIntegrationState:
     @pulumi.getter(name="integrationKey")
     def integration_key(self) -> Optional[pulumi.Input[str]]:
         """
-        This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         """
         return pulumi.get(self, "integration_key")
 
@@ -290,6 +370,9 @@ class _ServiceIntegrationState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the service integration.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -299,6 +382,9 @@ class _ServiceIntegrationState:
     @property
     @pulumi.getter
     def service(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the service the integration should belong to.
+        """
         return pulumi.get(self, "service")
 
     @service.setter
@@ -308,6 +394,21 @@ class _ServiceIntegrationState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service type. Can be:
+        `aws_cloudwatch_inbound_integration`,
+        `cloudkick_inbound_integration`,
+        `event_transformer_api_inbound_integration`,
+        `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
+        `generic_email_inbound_integration`,
+        `generic_events_api_inbound_integration`,
+        `keynote_inbound_integration`,
+        `nagios_inbound_integration`,
+        `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+
+        **Note:** This is meant for **generic** service integrations.
+        To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -317,6 +418,9 @@ class _ServiceIntegrationState:
     @property
     @pulumi.getter
     def vendor(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
+        """
         return pulumi.get(self, "vendor")
 
     @vendor.setter
@@ -467,8 +571,27 @@ class ServiceIntegration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] email_filter_mode: Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
+        :param pulumi.Input[str] email_incident_creation: Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
+        :param pulumi.Input[str] email_parsing_fallback: Can be `open_new_incident` or `discard`.
         :param pulumi.Input[str] integration_email: This is the unique fully-qualified email address used for routing emails to this integration for processing.
-        :param pulumi.Input[str] integration_key: This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        :param pulumi.Input[str] integration_key: (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        :param pulumi.Input[str] name: The name of the service integration.
+        :param pulumi.Input[str] service: The ID of the service the integration should belong to.
+        :param pulumi.Input[str] type: The service type. Can be:
+               `aws_cloudwatch_inbound_integration`,
+               `cloudkick_inbound_integration`,
+               `event_transformer_api_inbound_integration`,
+               `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
+               `generic_email_inbound_integration`,
+               `generic_events_api_inbound_integration`,
+               `keynote_inbound_integration`,
+               `nagios_inbound_integration`,
+               `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+               
+               **Note:** This is meant for **generic** service integrations.
+               To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+        :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
         ...
     @overload
@@ -678,9 +801,28 @@ class ServiceIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] email_filter_mode: Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
+        :param pulumi.Input[str] email_incident_creation: Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
+        :param pulumi.Input[str] email_parsing_fallback: Can be `open_new_incident` or `discard`.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] integration_email: This is the unique fully-qualified email address used for routing emails to this integration for processing.
-        :param pulumi.Input[str] integration_key: This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        :param pulumi.Input[str] integration_key: (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        :param pulumi.Input[str] name: The name of the service integration.
+        :param pulumi.Input[str] service: The ID of the service the integration should belong to.
+        :param pulumi.Input[str] type: The service type. Can be:
+               `aws_cloudwatch_inbound_integration`,
+               `cloudkick_inbound_integration`,
+               `event_transformer_api_inbound_integration`,
+               `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
+               `generic_email_inbound_integration`,
+               `generic_events_api_inbound_integration`,
+               `keynote_inbound_integration`,
+               `nagios_inbound_integration`,
+               `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+               
+               **Note:** This is meant for **generic** service integrations.
+               To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+        :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -703,6 +845,9 @@ class ServiceIntegration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="emailFilterMode")
     def email_filter_mode(self) -> pulumi.Output[str]:
+        """
+        Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
+        """
         return pulumi.get(self, "email_filter_mode")
 
     @property
@@ -713,6 +858,9 @@ class ServiceIntegration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="emailIncidentCreation")
     def email_incident_creation(self) -> pulumi.Output[str]:
+        """
+        Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
+        """
         return pulumi.get(self, "email_incident_creation")
 
     @property
@@ -723,6 +871,9 @@ class ServiceIntegration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="emailParsingFallback")
     def email_parsing_fallback(self) -> pulumi.Output[str]:
+        """
+        Can be `open_new_incident` or `discard`.
+        """
         return pulumi.get(self, "email_parsing_fallback")
 
     @property
@@ -745,27 +896,51 @@ class ServiceIntegration(pulumi.CustomResource):
     @pulumi.getter(name="integrationKey")
     def integration_key(self) -> pulumi.Output[str]:
         """
-        This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         """
         return pulumi.get(self, "integration_key")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the service integration.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def service(self) -> pulumi.Output[str]:
+        """
+        The ID of the service the integration should belong to.
+        """
         return pulumi.get(self, "service")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        The service type. Can be:
+        `aws_cloudwatch_inbound_integration`,
+        `cloudkick_inbound_integration`,
+        `event_transformer_api_inbound_integration`,
+        `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
+        `generic_email_inbound_integration`,
+        `generic_events_api_inbound_integration`,
+        `keynote_inbound_integration`,
+        `nagios_inbound_integration`,
+        `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+
+        **Note:** This is meant for **generic** service integrations.
+        To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def vendor(self) -> pulumi.Output[str]:
+        """
+        The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
+        """
         return pulumi.get(self, "vendor")
 

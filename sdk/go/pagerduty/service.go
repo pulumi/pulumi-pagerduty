@@ -83,27 +83,39 @@ import (
 type Service struct {
 	pulumi.CustomResourceState
 
+	// Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
 	AcknowledgementTimeout pulumi.StringPtrOutput `pulumi:"acknowledgementTimeout"`
-	AlertCreation          pulumi.StringPtrOutput `pulumi:"alertCreation"`
+	// (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
+	AlertCreation pulumi.StringPtrOutput `pulumi:"alertCreation"`
+	// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
+	//
 	// Deprecated: Use `alert_grouping_parameters.type`
-	AlertGrouping           pulumi.StringOutput                  `pulumi:"alertGrouping"`
+	AlertGrouping pulumi.StringOutput `pulumi:"alertGrouping"`
+	// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
 	AlertGroupingParameters ServiceAlertGroupingParametersOutput `pulumi:"alertGroupingParameters"`
+	// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
+	//
 	// Deprecated: Use `alert_grouping_parameters.config.timeout`
-	AlertGroupingTimeout             pulumi.StringOutput                           `pulumi:"alertGroupingTimeout"`
+	AlertGroupingTimeout pulumi.StringOutput `pulumi:"alertGroupingTimeout"`
+	// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
 	AutoPauseNotificationsParameters ServiceAutoPauseNotificationsParametersOutput `pulumi:"autoPauseNotificationsParameters"`
-	AutoResolveTimeout               pulumi.StringPtrOutput                        `pulumi:"autoResolveTimeout"`
+	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
+	AutoResolveTimeout pulumi.StringPtrOutput `pulumi:"autoResolveTimeout"`
 	// Creation timestamp of the service.
-	CreatedAt        pulumi.StringOutput `pulumi:"createdAt"`
-	Description      pulumi.StringOutput `pulumi:"description"`
+	CreatedAt   pulumi.StringOutput `pulumi:"createdAt"`
+	Description pulumi.StringOutput `pulumi:"description"`
+	// The escalation policy used by this service.
 	EscalationPolicy pulumi.StringOutput `pulumi:"escalationPolicy"`
 	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl             pulumi.StringOutput              `pulumi:"htmlUrl"`
 	IncidentUrgencyRule ServiceIncidentUrgencyRuleOutput `pulumi:"incidentUrgencyRule"`
 	// Last incident timestamp of the service.
-	LastIncidentTimestamp pulumi.StringOutput               `pulumi:"lastIncidentTimestamp"`
-	Name                  pulumi.StringOutput               `pulumi:"name"`
-	ResponsePlay          pulumi.StringOutput               `pulumi:"responsePlay"`
-	ScheduledActions      ServiceScheduledActionArrayOutput `pulumi:"scheduledActions"`
+	LastIncidentTimestamp pulumi.StringOutput `pulumi:"lastIncidentTimestamp"`
+	// The name of the service.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The response play used by this service.
+	ResponsePlay     pulumi.StringOutput               `pulumi:"responsePlay"`
+	ScheduledActions ServiceScheduledActionArrayOutput `pulumi:"scheduledActions"`
 	// The status of the service.
 	Status       pulumi.StringOutput          `pulumi:"status"`
 	SupportHours ServiceSupportHoursPtrOutput `pulumi:"supportHours"`
@@ -147,27 +159,39 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
+	// Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
 	AcknowledgementTimeout *string `pulumi:"acknowledgementTimeout"`
-	AlertCreation          *string `pulumi:"alertCreation"`
+	// (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
+	AlertCreation *string `pulumi:"alertCreation"`
+	// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
+	//
 	// Deprecated: Use `alert_grouping_parameters.type`
-	AlertGrouping           *string                         `pulumi:"alertGrouping"`
+	AlertGrouping *string `pulumi:"alertGrouping"`
+	// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
 	AlertGroupingParameters *ServiceAlertGroupingParameters `pulumi:"alertGroupingParameters"`
+	// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
+	//
 	// Deprecated: Use `alert_grouping_parameters.config.timeout`
-	AlertGroupingTimeout             *string                                  `pulumi:"alertGroupingTimeout"`
+	AlertGroupingTimeout *string `pulumi:"alertGroupingTimeout"`
+	// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
 	AutoPauseNotificationsParameters *ServiceAutoPauseNotificationsParameters `pulumi:"autoPauseNotificationsParameters"`
-	AutoResolveTimeout               *string                                  `pulumi:"autoResolveTimeout"`
+	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
+	AutoResolveTimeout *string `pulumi:"autoResolveTimeout"`
 	// Creation timestamp of the service.
-	CreatedAt        *string `pulumi:"createdAt"`
-	Description      *string `pulumi:"description"`
+	CreatedAt   *string `pulumi:"createdAt"`
+	Description *string `pulumi:"description"`
+	// The escalation policy used by this service.
 	EscalationPolicy *string `pulumi:"escalationPolicy"`
 	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl             *string                     `pulumi:"htmlUrl"`
 	IncidentUrgencyRule *ServiceIncidentUrgencyRule `pulumi:"incidentUrgencyRule"`
 	// Last incident timestamp of the service.
-	LastIncidentTimestamp *string                  `pulumi:"lastIncidentTimestamp"`
-	Name                  *string                  `pulumi:"name"`
-	ResponsePlay          *string                  `pulumi:"responsePlay"`
-	ScheduledActions      []ServiceScheduledAction `pulumi:"scheduledActions"`
+	LastIncidentTimestamp *string `pulumi:"lastIncidentTimestamp"`
+	// The name of the service.
+	Name *string `pulumi:"name"`
+	// The response play used by this service.
+	ResponsePlay     *string                  `pulumi:"responsePlay"`
+	ScheduledActions []ServiceScheduledAction `pulumi:"scheduledActions"`
 	// The status of the service.
 	Status       *string              `pulumi:"status"`
 	SupportHours *ServiceSupportHours `pulumi:"supportHours"`
@@ -176,27 +200,39 @@ type serviceState struct {
 }
 
 type ServiceState struct {
+	// Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
 	AcknowledgementTimeout pulumi.StringPtrInput
-	AlertCreation          pulumi.StringPtrInput
+	// (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
+	AlertCreation pulumi.StringPtrInput
+	// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
+	//
 	// Deprecated: Use `alert_grouping_parameters.type`
-	AlertGrouping           pulumi.StringPtrInput
+	AlertGrouping pulumi.StringPtrInput
+	// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
 	AlertGroupingParameters ServiceAlertGroupingParametersPtrInput
+	// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
+	//
 	// Deprecated: Use `alert_grouping_parameters.config.timeout`
-	AlertGroupingTimeout             pulumi.StringPtrInput
+	AlertGroupingTimeout pulumi.StringPtrInput
+	// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
 	AutoPauseNotificationsParameters ServiceAutoPauseNotificationsParametersPtrInput
-	AutoResolveTimeout               pulumi.StringPtrInput
+	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
+	AutoResolveTimeout pulumi.StringPtrInput
 	// Creation timestamp of the service.
-	CreatedAt        pulumi.StringPtrInput
-	Description      pulumi.StringPtrInput
+	CreatedAt   pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// The escalation policy used by this service.
 	EscalationPolicy pulumi.StringPtrInput
 	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl             pulumi.StringPtrInput
 	IncidentUrgencyRule ServiceIncidentUrgencyRulePtrInput
 	// Last incident timestamp of the service.
 	LastIncidentTimestamp pulumi.StringPtrInput
-	Name                  pulumi.StringPtrInput
-	ResponsePlay          pulumi.StringPtrInput
-	ScheduledActions      ServiceScheduledActionArrayInput
+	// The name of the service.
+	Name pulumi.StringPtrInput
+	// The response play used by this service.
+	ResponsePlay     pulumi.StringPtrInput
+	ScheduledActions ServiceScheduledActionArrayInput
 	// The status of the service.
 	Status       pulumi.StringPtrInput
 	SupportHours ServiceSupportHoursPtrInput
@@ -209,42 +245,66 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
+	// Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
 	AcknowledgementTimeout *string `pulumi:"acknowledgementTimeout"`
-	AlertCreation          *string `pulumi:"alertCreation"`
+	// (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
+	AlertCreation *string `pulumi:"alertCreation"`
+	// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
+	//
 	// Deprecated: Use `alert_grouping_parameters.type`
-	AlertGrouping           *string                         `pulumi:"alertGrouping"`
+	AlertGrouping *string `pulumi:"alertGrouping"`
+	// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
 	AlertGroupingParameters *ServiceAlertGroupingParameters `pulumi:"alertGroupingParameters"`
+	// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
+	//
 	// Deprecated: Use `alert_grouping_parameters.config.timeout`
-	AlertGroupingTimeout             *string                                  `pulumi:"alertGroupingTimeout"`
+	AlertGroupingTimeout *string `pulumi:"alertGroupingTimeout"`
+	// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
 	AutoPauseNotificationsParameters *ServiceAutoPauseNotificationsParameters `pulumi:"autoPauseNotificationsParameters"`
-	AutoResolveTimeout               *string                                  `pulumi:"autoResolveTimeout"`
-	Description                      *string                                  `pulumi:"description"`
-	EscalationPolicy                 string                                   `pulumi:"escalationPolicy"`
-	IncidentUrgencyRule              *ServiceIncidentUrgencyRule              `pulumi:"incidentUrgencyRule"`
-	Name                             *string                                  `pulumi:"name"`
-	ResponsePlay                     *string                                  `pulumi:"responsePlay"`
-	ScheduledActions                 []ServiceScheduledAction                 `pulumi:"scheduledActions"`
-	SupportHours                     *ServiceSupportHours                     `pulumi:"supportHours"`
+	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
+	AutoResolveTimeout *string `pulumi:"autoResolveTimeout"`
+	Description        *string `pulumi:"description"`
+	// The escalation policy used by this service.
+	EscalationPolicy    string                      `pulumi:"escalationPolicy"`
+	IncidentUrgencyRule *ServiceIncidentUrgencyRule `pulumi:"incidentUrgencyRule"`
+	// The name of the service.
+	Name *string `pulumi:"name"`
+	// The response play used by this service.
+	ResponsePlay     *string                  `pulumi:"responsePlay"`
+	ScheduledActions []ServiceScheduledAction `pulumi:"scheduledActions"`
+	SupportHours     *ServiceSupportHours     `pulumi:"supportHours"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
+	// Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
 	AcknowledgementTimeout pulumi.StringPtrInput
-	AlertCreation          pulumi.StringPtrInput
+	// (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
+	AlertCreation pulumi.StringPtrInput
+	// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
+	//
 	// Deprecated: Use `alert_grouping_parameters.type`
-	AlertGrouping           pulumi.StringPtrInput
+	AlertGrouping pulumi.StringPtrInput
+	// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
 	AlertGroupingParameters ServiceAlertGroupingParametersPtrInput
+	// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
+	//
 	// Deprecated: Use `alert_grouping_parameters.config.timeout`
-	AlertGroupingTimeout             pulumi.StringPtrInput
+	AlertGroupingTimeout pulumi.StringPtrInput
+	// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
 	AutoPauseNotificationsParameters ServiceAutoPauseNotificationsParametersPtrInput
-	AutoResolveTimeout               pulumi.StringPtrInput
-	Description                      pulumi.StringPtrInput
-	EscalationPolicy                 pulumi.StringInput
-	IncidentUrgencyRule              ServiceIncidentUrgencyRulePtrInput
-	Name                             pulumi.StringPtrInput
-	ResponsePlay                     pulumi.StringPtrInput
-	ScheduledActions                 ServiceScheduledActionArrayInput
-	SupportHours                     ServiceSupportHoursPtrInput
+	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
+	AutoResolveTimeout pulumi.StringPtrInput
+	Description        pulumi.StringPtrInput
+	// The escalation policy used by this service.
+	EscalationPolicy    pulumi.StringInput
+	IncidentUrgencyRule ServiceIncidentUrgencyRulePtrInput
+	// The name of the service.
+	Name pulumi.StringPtrInput
+	// The response play used by this service.
+	ResponsePlay     pulumi.StringPtrInput
+	ScheduledActions ServiceScheduledActionArrayInput
+	SupportHours     ServiceSupportHoursPtrInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -334,34 +394,43 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+// Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
 func (o ServiceOutput) AcknowledgementTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AcknowledgementTimeout }).(pulumi.StringPtrOutput)
 }
 
+// (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
 func (o ServiceOutput) AlertCreation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AlertCreation }).(pulumi.StringPtrOutput)
 }
 
+// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
+//
 // Deprecated: Use `alert_grouping_parameters.type`
 func (o ServiceOutput) AlertGrouping() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.AlertGrouping }).(pulumi.StringOutput)
 }
 
+// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
 func (o ServiceOutput) AlertGroupingParameters() ServiceAlertGroupingParametersOutput {
 	return o.ApplyT(func(v *Service) ServiceAlertGroupingParametersOutput { return v.AlertGroupingParameters }).(ServiceAlertGroupingParametersOutput)
 }
 
+// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
+//
 // Deprecated: Use `alert_grouping_parameters.config.timeout`
 func (o ServiceOutput) AlertGroupingTimeout() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.AlertGroupingTimeout }).(pulumi.StringOutput)
 }
 
+// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
 func (o ServiceOutput) AutoPauseNotificationsParameters() ServiceAutoPauseNotificationsParametersOutput {
 	return o.ApplyT(func(v *Service) ServiceAutoPauseNotificationsParametersOutput {
 		return v.AutoPauseNotificationsParameters
 	}).(ServiceAutoPauseNotificationsParametersOutput)
 }
 
+// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
 func (o ServiceOutput) AutoResolveTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AutoResolveTimeout }).(pulumi.StringPtrOutput)
 }
@@ -375,6 +444,7 @@ func (o ServiceOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// The escalation policy used by this service.
 func (o ServiceOutput) EscalationPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.EscalationPolicy }).(pulumi.StringOutput)
 }
@@ -393,10 +463,12 @@ func (o ServiceOutput) LastIncidentTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.LastIncidentTimestamp }).(pulumi.StringOutput)
 }
 
+// The name of the service.
 func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The response play used by this service.
 func (o ServiceOutput) ResponsePlay() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ResponsePlay }).(pulumi.StringOutput)
 }

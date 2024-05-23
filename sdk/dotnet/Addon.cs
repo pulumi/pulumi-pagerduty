@@ -42,9 +42,15 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/addon:Addon")]
     public partial class Addon : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the add-on.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
+        /// </summary>
         [Output("src")]
         public Output<string> Src { get; private set; } = null!;
 
@@ -94,9 +100,15 @@ namespace Pulumi.Pagerduty
 
     public sealed class AddonArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the add-on.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
+        /// </summary>
         [Input("src", required: true)]
         public Input<string> Src { get; set; } = null!;
 
@@ -108,9 +120,15 @@ namespace Pulumi.Pagerduty
 
     public sealed class AddonState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the add-on.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
+        /// </summary>
         [Input("src")]
         public Input<string>? Src { get; set; }
 

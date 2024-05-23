@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var engineering = new Team("engineering", TeamArgs.builder()        
+ *         var engineering = new Team("engineering", TeamArgs.builder()
  *             .name("Engineering")
  *             .build());
  * 
- *         var myMonitor = new EventOrchestration("myMonitor", EventOrchestrationArgs.builder()        
+ *         var myMonitor = new EventOrchestration("myMonitor", EventOrchestrationArgs.builder()
  *             .name("My Monitoring Orchestration")
  *             .description("Send events to a pair of services")
  *             .team(engineering.id())

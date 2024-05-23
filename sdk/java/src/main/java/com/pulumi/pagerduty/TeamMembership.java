@@ -44,17 +44,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new User("foo", UserArgs.builder()        
+ *         var foo = new User("foo", UserArgs.builder()
  *             .name("foo")
  *             .email("foo{@literal @}bar.com")
  *             .build());
  * 
- *         var fooTeam = new Team("fooTeam", TeamArgs.builder()        
+ *         var fooTeam = new Team("fooTeam", TeamArgs.builder()
  *             .name("foo")
  *             .description("foo")
  *             .build());
  * 
- *         var fooTeamMembership = new TeamMembership("fooTeamMembership", TeamMembershipArgs.builder()        
+ *         var fooTeamMembership = new TeamMembership("fooTeamMembership", TeamMembershipArgs.builder()
  *             .userId(foo.id())
  *             .teamId(fooTeam.id())
  *             .role("manager")
@@ -78,42 +78,48 @@ import javax.annotation.Nullable;
 @ResourceType(type="pagerduty:index/teamMembership:TeamMembership")
 public class TeamMembership extends com.pulumi.resources.CustomResource {
     /**
-     * The role of the user in the team.
+     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
+     * These roles match up to user roles in the following ways:
+     * * User role of `user` is a Team role of `manager`
+     * * User role of `limited_user` is a Team role of `responder`
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> role;
 
     /**
-     * @return The role of the user in the team.
+     * @return The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
+     * These roles match up to user roles in the following ways:
+     * * User role of `user` is a Team role of `manager`
+     * * User role of `limited_user` is a Team role of `responder`
      * 
      */
     public Output<Optional<String>> role() {
         return Codegen.optional(this.role);
     }
     /**
-     * The team ID the user belongs to.
+     * The ID of the team in which the user will belong.
      * 
      */
     @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
     /**
-     * @return The team ID the user belongs to.
+     * @return The ID of the team in which the user will belong.
      * 
      */
     public Output<String> teamId() {
         return this.teamId;
     }
     /**
-     * The ID of the user belonging to the team.
+     * The ID of the user to add to the team.
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
-     * @return The ID of the user belonging to the team.
+     * @return The ID of the user to add to the team.
      * 
      */
     public Output<String> userId() {

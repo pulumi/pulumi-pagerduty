@@ -30,23 +30,31 @@ public final class GetUserContactMethodArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * The type of the found contact method. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+     * The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of the found contact method. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+     * @return The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
      * 
      */
     public Output<String> type() {
         return this.type;
     }
 
+    /**
+     * The ID of the user.
+     * 
+     */
     @Import(name="userId", required=true)
     private Output<String> userId;
 
+    /**
+     * @return The ID of the user.
+     * 
+     */
     public Output<String> userId() {
         return this.userId;
     }
@@ -99,7 +107,7 @@ public final class GetUserContactMethodArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param type The type of the found contact method. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+         * @param type The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
          * 
          * @return builder
          * 
@@ -110,7 +118,7 @@ public final class GetUserContactMethodArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param type The type of the found contact method. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+         * @param type The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
          * 
          * @return builder
          * 
@@ -119,11 +127,23 @@ public final class GetUserContactMethodArgs extends com.pulumi.resources.InvokeA
             return type(Output.of(type));
         }
 
+        /**
+         * @param userId The ID of the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userId(Output<String> userId) {
             $.userId = userId;
             return this;
         }
 
+        /**
+         * @param userId The ID of the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userId(String userId) {
             return userId(Output.of(userId));
         }

@@ -70,11 +70,29 @@ export class IncidentCustomField extends pulumi.CustomResource {
         return obj['__pulumiType'] === IncidentCustomField.__pulumiType;
     }
 
+    /**
+     * The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+     */
     public readonly dataType!: pulumi.Output<string>;
+    /**
+     * The default value to set when new incidents are created. Always specified as a string.
+     */
     public readonly defaultValue!: pulumi.Output<string | undefined>;
+    /**
+     * The description of the field.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the field.
+     */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
+     */
     public readonly fieldType!: pulumi.Output<string>;
+    /**
+     * The name of the field.
+     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -123,11 +141,29 @@ export class IncidentCustomField extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IncidentCustomField resources.
  */
 export interface IncidentCustomFieldState {
+    /**
+     * The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+     */
     dataType?: pulumi.Input<string>;
+    /**
+     * The default value to set when new incidents are created. Always specified as a string.
+     */
     defaultValue?: pulumi.Input<string>;
+    /**
+     * The description of the field.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The display name of the field.
+     */
     displayName?: pulumi.Input<string>;
+    /**
+     * The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
+     */
     fieldType?: pulumi.Input<string>;
+    /**
+     * The name of the field.
+     */
     name?: pulumi.Input<string>;
 }
 
@@ -135,10 +171,28 @@ export interface IncidentCustomFieldState {
  * The set of arguments for constructing a IncidentCustomField resource.
  */
 export interface IncidentCustomFieldArgs {
+    /**
+     * The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+     */
     dataType: pulumi.Input<string>;
+    /**
+     * The default value to set when new incidents are created. Always specified as a string.
+     */
     defaultValue?: pulumi.Input<string>;
+    /**
+     * The description of the field.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The display name of the field.
+     */
     displayName: pulumi.Input<string>;
+    /**
+     * The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
+     */
     fieldType: pulumi.Input<string>;
+    /**
+     * The name of the field.
+     */
     name?: pulumi.Input<string>;
 }

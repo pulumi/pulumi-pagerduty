@@ -97,15 +97,28 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/extension:Extension")]
     public partial class Extension : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The configuration of the service extension as string containing plain JSON-encoded data.
+        /// </summary>
         [Output("config")]
         public Output<string> Config { get; private set; } = null!;
 
+        /// <summary>
+        /// The url of the extension.
+        /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+        /// </summary>
         [Output("endpointUrl")]
         public Output<string?> EndpointUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// This is the objects for which the extension applies (An array of service ids).
+        /// </summary>
         [Output("extensionObjects")]
         public Output<ImmutableArray<string>> ExtensionObjects { get; private set; } = null!;
 
+        /// <summary>
+        /// This is the schema for this extension.
+        /// </summary>
         [Output("extensionSchema")]
         public Output<string> ExtensionSchema { get; private set; } = null!;
 
@@ -115,9 +128,17 @@ namespace Pulumi.Pagerduty
         [Output("htmlUrl")]
         public Output<string> HtmlUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the service extension.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// 
+        /// **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
+        /// </summary>
         [Output("summary")]
         public Output<string> Summary { get; private set; } = null!;
 
@@ -174,11 +195,19 @@ namespace Pulumi.Pagerduty
 
     public sealed class ExtensionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of the service extension as string containing plain JSON-encoded data.
+        /// </summary>
         [Input("config")]
         public Input<string>? Config { get; set; }
 
         [Input("endpointUrl")]
         private Input<string>? _endpointUrl;
+
+        /// <summary>
+        /// The url of the extension.
+        /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+        /// </summary>
         public Input<string>? EndpointUrl
         {
             get => _endpointUrl;
@@ -191,15 +220,25 @@ namespace Pulumi.Pagerduty
 
         [Input("extensionObjects", required: true)]
         private InputList<string>? _extensionObjects;
+
+        /// <summary>
+        /// This is the objects for which the extension applies (An array of service ids).
+        /// </summary>
         public InputList<string> ExtensionObjects
         {
             get => _extensionObjects ?? (_extensionObjects = new InputList<string>());
             set => _extensionObjects = value;
         }
 
+        /// <summary>
+        /// This is the schema for this extension.
+        /// </summary>
         [Input("extensionSchema", required: true)]
         public Input<string> ExtensionSchema { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the service extension.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -214,11 +253,19 @@ namespace Pulumi.Pagerduty
 
     public sealed class ExtensionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of the service extension as string containing plain JSON-encoded data.
+        /// </summary>
         [Input("config")]
         public Input<string>? Config { get; set; }
 
         [Input("endpointUrl")]
         private Input<string>? _endpointUrl;
+
+        /// <summary>
+        /// The url of the extension.
+        /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+        /// </summary>
         public Input<string>? EndpointUrl
         {
             get => _endpointUrl;
@@ -231,12 +278,19 @@ namespace Pulumi.Pagerduty
 
         [Input("extensionObjects")]
         private InputList<string>? _extensionObjects;
+
+        /// <summary>
+        /// This is the objects for which the extension applies (An array of service ids).
+        /// </summary>
         public InputList<string> ExtensionObjects
         {
             get => _extensionObjects ?? (_extensionObjects = new InputList<string>());
             set => _extensionObjects = value;
         }
 
+        /// <summary>
+        /// This is the schema for this extension.
+        /// </summary>
         [Input("extensionSchema")]
         public Input<string>? ExtensionSchema { get; set; }
 
@@ -246,9 +300,17 @@ namespace Pulumi.Pagerduty
         [Input("htmlUrl")]
         public Input<string>? HtmlUrl { get; set; }
 
+        /// <summary>
+        /// The name of the service extension.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// 
+        /// **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
+        /// </summary>
         [Input("summary")]
         public Input<string>? Summary { get; set; }
 

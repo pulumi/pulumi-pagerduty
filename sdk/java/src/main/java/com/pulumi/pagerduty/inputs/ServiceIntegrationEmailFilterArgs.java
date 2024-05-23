@@ -15,30 +15,62 @@ public final class ServiceIntegrationEmailFilterArgs extends com.pulumi.resource
 
     public static final ServiceIntegrationEmailFilterArgs Empty = new ServiceIntegrationEmailFilterArgs();
 
+    /**
+     * Can be `always` or `match`.
+     * 
+     */
     @Import(name="bodyMode")
     private @Nullable Output<String> bodyMode;
 
+    /**
+     * @return Can be `always` or `match`.
+     * 
+     */
     public Optional<Output<String>> bodyMode() {
         return Optional.ofNullable(this.bodyMode);
     }
 
+    /**
+     * Should be a valid regex or `null`
+     * 
+     */
     @Import(name="bodyRegex")
     private @Nullable Output<String> bodyRegex;
 
+    /**
+     * @return Should be a valid regex or `null`
+     * 
+     */
     public Optional<Output<String>> bodyRegex() {
         return Optional.ofNullable(this.bodyRegex);
     }
 
+    /**
+     * Can be `always` or `match`.
+     * 
+     */
     @Import(name="fromEmailMode")
     private @Nullable Output<String> fromEmailMode;
 
+    /**
+     * @return Can be `always` or `match`.
+     * 
+     */
     public Optional<Output<String>> fromEmailMode() {
         return Optional.ofNullable(this.fromEmailMode);
     }
 
+    /**
+     * Should be a valid regex or `null`
+     * 
+     */
     @Import(name="fromEmailRegex")
     private @Nullable Output<String> fromEmailRegex;
 
+    /**
+     * @return Should be a valid regex or `null`
+     * 
+     */
     public Optional<Output<String>> fromEmailRegex() {
         return Optional.ofNullable(this.fromEmailRegex);
     }
@@ -58,16 +90,32 @@ public final class ServiceIntegrationEmailFilterArgs extends com.pulumi.resource
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * Can be `always` or `match`.
+     * 
+     */
     @Import(name="subjectMode")
     private @Nullable Output<String> subjectMode;
 
+    /**
+     * @return Can be `always` or `match`.
+     * 
+     */
     public Optional<Output<String>> subjectMode() {
         return Optional.ofNullable(this.subjectMode);
     }
 
+    /**
+     * Should be a valid regex or `null`
+     * 
+     */
     @Import(name="subjectRegex")
     private @Nullable Output<String> subjectRegex;
 
+    /**
+     * @return Should be a valid regex or `null`
+     * 
+     */
     public Optional<Output<String>> subjectRegex() {
         return Optional.ofNullable(this.subjectRegex);
     }
@@ -102,38 +150,86 @@ public final class ServiceIntegrationEmailFilterArgs extends com.pulumi.resource
             $ = new ServiceIntegrationEmailFilterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bodyMode Can be `always` or `match`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bodyMode(@Nullable Output<String> bodyMode) {
             $.bodyMode = bodyMode;
             return this;
         }
 
+        /**
+         * @param bodyMode Can be `always` or `match`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bodyMode(String bodyMode) {
             return bodyMode(Output.of(bodyMode));
         }
 
+        /**
+         * @param bodyRegex Should be a valid regex or `null`
+         * 
+         * @return builder
+         * 
+         */
         public Builder bodyRegex(@Nullable Output<String> bodyRegex) {
             $.bodyRegex = bodyRegex;
             return this;
         }
 
+        /**
+         * @param bodyRegex Should be a valid regex or `null`
+         * 
+         * @return builder
+         * 
+         */
         public Builder bodyRegex(String bodyRegex) {
             return bodyRegex(Output.of(bodyRegex));
         }
 
+        /**
+         * @param fromEmailMode Can be `always` or `match`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fromEmailMode(@Nullable Output<String> fromEmailMode) {
             $.fromEmailMode = fromEmailMode;
             return this;
         }
 
+        /**
+         * @param fromEmailMode Can be `always` or `match`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fromEmailMode(String fromEmailMode) {
             return fromEmailMode(Output.of(fromEmailMode));
         }
 
+        /**
+         * @param fromEmailRegex Should be a valid regex or `null`
+         * 
+         * @return builder
+         * 
+         */
         public Builder fromEmailRegex(@Nullable Output<String> fromEmailRegex) {
             $.fromEmailRegex = fromEmailRegex;
             return this;
         }
 
+        /**
+         * @param fromEmailRegex Should be a valid regex or `null`
+         * 
+         * @return builder
+         * 
+         */
         public Builder fromEmailRegex(String fromEmailRegex) {
             return fromEmailRegex(Output.of(fromEmailRegex));
         }
@@ -159,20 +255,44 @@ public final class ServiceIntegrationEmailFilterArgs extends com.pulumi.resource
             return id(Output.of(id));
         }
 
+        /**
+         * @param subjectMode Can be `always` or `match`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectMode(@Nullable Output<String> subjectMode) {
             $.subjectMode = subjectMode;
             return this;
         }
 
+        /**
+         * @param subjectMode Can be `always` or `match`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectMode(String subjectMode) {
             return subjectMode(Output.of(subjectMode));
         }
 
+        /**
+         * @param subjectRegex Should be a valid regex or `null`
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectRegex(@Nullable Output<String> subjectRegex) {
             $.subjectRegex = subjectRegex;
             return this;
         }
 
+        /**
+         * @param subjectRegex Should be a valid regex or `null`
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectRegex(String subjectRegex) {
             return subjectRegex(Output.of(subjectRegex));
         }

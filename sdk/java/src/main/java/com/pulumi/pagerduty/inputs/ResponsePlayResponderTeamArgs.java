@@ -31,9 +31,17 @@ public final class ResponsePlayResponderTeamArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -84,11 +92,23 @@ public final class ResponsePlayResponderTeamArgs extends com.pulumi.resources.Re
             return id(Output.of(id));
         }
 
+        /**
+         * @param type A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

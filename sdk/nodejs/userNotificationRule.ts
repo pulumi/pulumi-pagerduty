@@ -102,9 +102,21 @@ export class UserNotificationRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserNotificationRule.__pulumiType;
     }
 
+    /**
+     * A contact method block, configured as a block described below.
+     */
     public readonly contactMethod!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The delay before firing the rule, in minutes.
+     */
     public readonly startDelayInMinutes!: pulumi.Output<number>;
+    /**
+     * Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
+     */
     public readonly urgency!: pulumi.Output<string>;
+    /**
+     * The ID of the user.
+     */
     public readonly userId!: pulumi.Output<string>;
 
     /**
@@ -152,9 +164,21 @@ export class UserNotificationRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserNotificationRule resources.
  */
 export interface UserNotificationRuleState {
+    /**
+     * A contact method block, configured as a block described below.
+     */
     contactMethod?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The delay before firing the rule, in minutes.
+     */
     startDelayInMinutes?: pulumi.Input<number>;
+    /**
+     * Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
+     */
     urgency?: pulumi.Input<string>;
+    /**
+     * The ID of the user.
+     */
     userId?: pulumi.Input<string>;
 }
 
@@ -162,8 +186,20 @@ export interface UserNotificationRuleState {
  * The set of arguments for constructing a UserNotificationRule resource.
  */
 export interface UserNotificationRuleArgs {
+    /**
+     * A contact method block, configured as a block described below.
+     */
     contactMethod: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The delay before firing the rule, in minutes.
+     */
     startDelayInMinutes: pulumi.Input<number>;
+    /**
+     * Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
+     */
     urgency: pulumi.Input<string>;
+    /**
+     * The ID of the user.
+     */
     userId: pulumi.Input<string>;
 }

@@ -20,6 +20,10 @@ class MaintenanceWindowArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MaintenanceWindow resource.
+        :param pulumi.Input[str] end_time: The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs to include in the maintenance window.
+        :param pulumi.Input[str] start_time: The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
+        :param pulumi.Input[str] description: A description for the maintenance window.
         """
         pulumi.set(__self__, "end_time", end_time)
         pulumi.set(__self__, "services", services)
@@ -32,6 +36,9 @@ class MaintenanceWindowArgs:
     @property
     @pulumi.getter(name="endTime")
     def end_time(self) -> pulumi.Input[str]:
+        """
+        The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+        """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
@@ -41,6 +48,9 @@ class MaintenanceWindowArgs:
     @property
     @pulumi.getter
     def services(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of service IDs to include in the maintenance window.
+        """
         return pulumi.get(self, "services")
 
     @services.setter
@@ -50,6 +60,9 @@ class MaintenanceWindowArgs:
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> pulumi.Input[str]:
+        """
+        The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
+        """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
@@ -59,6 +72,9 @@ class MaintenanceWindowArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the maintenance window.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -75,6 +91,10 @@ class _MaintenanceWindowState:
                  start_time: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MaintenanceWindow resources.
+        :param pulumi.Input[str] description: A description for the maintenance window.
+        :param pulumi.Input[str] end_time: The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs to include in the maintenance window.
+        :param pulumi.Input[str] start_time: The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
         """
         if description is None:
             description = 'Managed by Pulumi'
@@ -90,6 +110,9 @@ class _MaintenanceWindowState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the maintenance window.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -99,6 +122,9 @@ class _MaintenanceWindowState:
     @property
     @pulumi.getter(name="endTime")
     def end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+        """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
@@ -108,6 +134,9 @@ class _MaintenanceWindowState:
     @property
     @pulumi.getter
     def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of service IDs to include in the maintenance window.
+        """
         return pulumi.get(self, "services")
 
     @services.setter
@@ -117,6 +146,9 @@ class _MaintenanceWindowState:
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
+        """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
@@ -161,6 +193,10 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description for the maintenance window.
+        :param pulumi.Input[str] end_time: The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs to include in the maintenance window.
+        :param pulumi.Input[str] start_time: The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
         """
         ...
     @overload
@@ -254,6 +290,10 @@ class MaintenanceWindow(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description for the maintenance window.
+        :param pulumi.Input[str] end_time: The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs to include in the maintenance window.
+        :param pulumi.Input[str] start_time: The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -268,20 +308,32 @@ class MaintenanceWindow(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        A description for the maintenance window.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="endTime")
     def end_time(self) -> pulumi.Output[str]:
+        """
+        The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+        """
         return pulumi.get(self, "end_time")
 
     @property
     @pulumi.getter
     def services(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of service IDs to include in the maintenance window.
+        """
         return pulumi.get(self, "services")
 
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> pulumi.Output[str]:
+        """
+        The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
+        """
         return pulumi.get(self, "start_time")
 

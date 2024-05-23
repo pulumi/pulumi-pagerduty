@@ -11,28 +11,68 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceIntegrationEmailFilter {
+    /**
+     * @return Can be `always` or `match`.
+     * 
+     */
     private @Nullable String bodyMode;
+    /**
+     * @return Should be a valid regex or `null`
+     * 
+     */
     private @Nullable String bodyRegex;
+    /**
+     * @return Can be `always` or `match`.
+     * 
+     */
     private @Nullable String fromEmailMode;
+    /**
+     * @return Should be a valid regex or `null`
+     * 
+     */
     private @Nullable String fromEmailRegex;
     /**
      * @return The ID of the service integration.
      * 
      */
     private @Nullable String id;
+    /**
+     * @return Can be `always` or `match`.
+     * 
+     */
     private @Nullable String subjectMode;
+    /**
+     * @return Should be a valid regex or `null`
+     * 
+     */
     private @Nullable String subjectRegex;
 
     private ServiceIntegrationEmailFilter() {}
+    /**
+     * @return Can be `always` or `match`.
+     * 
+     */
     public Optional<String> bodyMode() {
         return Optional.ofNullable(this.bodyMode);
     }
+    /**
+     * @return Should be a valid regex or `null`
+     * 
+     */
     public Optional<String> bodyRegex() {
         return Optional.ofNullable(this.bodyRegex);
     }
+    /**
+     * @return Can be `always` or `match`.
+     * 
+     */
     public Optional<String> fromEmailMode() {
         return Optional.ofNullable(this.fromEmailMode);
     }
+    /**
+     * @return Should be a valid regex or `null`
+     * 
+     */
     public Optional<String> fromEmailRegex() {
         return Optional.ofNullable(this.fromEmailRegex);
     }
@@ -43,9 +83,17 @@ public final class ServiceIntegrationEmailFilter {
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
+    /**
+     * @return Can be `always` or `match`.
+     * 
+     */
     public Optional<String> subjectMode() {
         return Optional.ofNullable(this.subjectMode);
     }
+    /**
+     * @return Should be a valid regex or `null`
+     * 
+     */
     public Optional<String> subjectRegex() {
         return Optional.ofNullable(this.subjectRegex);
     }

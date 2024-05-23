@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service("example", ServiceArgs.builder()        
+ *         var example = new Service("example", ServiceArgs.builder()
  *             .name("Checkout API Service")
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .alertCreation("create_alerts_and_incidents")
  *             .build());
  * 
- *         var foo = new ServiceEventRule("foo", ServiceEventRuleArgs.builder()        
+ *         var foo = new ServiceEventRule("foo", ServiceEventRuleArgs.builder()
  *             .service(example.id())
  *             .position(0)
  *             .disabled(true)
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var bar = new ServiceEventRule("bar", ServiceEventRuleArgs.builder()        
+ *         var bar = new ServiceEventRule("bar", ServiceEventRuleArgs.builder()
  *             .service(fooPagerdutyService.id())
  *             .position(1)
  *             .disabled(true)

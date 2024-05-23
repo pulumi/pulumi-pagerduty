@@ -67,16 +67,22 @@ import (
 type AutomationActionsAction struct {
 	pulumi.CustomResourceState
 
-	ActionClassification pulumi.StringPtrOutput                           `pulumi:"actionClassification"`
-	ActionDataReference  AutomationActionsActionActionDataReferenceOutput `pulumi:"actionDataReference"`
-	ActionType           pulumi.StringOutput                              `pulumi:"actionType"`
+	// The category of the action. The only allowed values are `diagnostic` and `remediation`.
+	ActionClassification pulumi.StringPtrOutput `pulumi:"actionClassification"`
+	// Action Data block. Action Data is documented below.
+	ActionDataReference AutomationActionsActionActionDataReferenceOutput `pulumi:"actionDataReference"`
+	// The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
+	ActionType pulumi.StringOutput `pulumi:"actionType"`
 	// The time action was created. Represented as an ISO 8601 timestamp.
-	CreationTime pulumi.StringOutput    `pulumi:"creationTime"`
-	Description  pulumi.StringPtrOutput `pulumi:"description"`
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The description of the action. Max length is 1024 characters.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
-	ModifyTime pulumi.StringOutput    `pulumi:"modifyTime"`
-	Name       pulumi.StringOutput    `pulumi:"name"`
-	RunnerId   pulumi.StringPtrOutput `pulumi:"runnerId"`
+	ModifyTime pulumi.StringOutput `pulumi:"modifyTime"`
+	// The name of the action. Max length is 255 characters.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
+	RunnerId pulumi.StringPtrOutput `pulumi:"runnerId"`
 	// (Optional) The type of the runner associated with the action.
 	RunnerType pulumi.StringOutput `pulumi:"runnerType"`
 	// The type of object. The value returned will be `action`.
@@ -119,16 +125,22 @@ func GetAutomationActionsAction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AutomationActionsAction resources.
 type automationActionsActionState struct {
-	ActionClassification *string                                     `pulumi:"actionClassification"`
-	ActionDataReference  *AutomationActionsActionActionDataReference `pulumi:"actionDataReference"`
-	ActionType           *string                                     `pulumi:"actionType"`
+	// The category of the action. The only allowed values are `diagnostic` and `remediation`.
+	ActionClassification *string `pulumi:"actionClassification"`
+	// Action Data block. Action Data is documented below.
+	ActionDataReference *AutomationActionsActionActionDataReference `pulumi:"actionDataReference"`
+	// The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
+	ActionType *string `pulumi:"actionType"`
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime *string `pulumi:"creationTime"`
-	Description  *string `pulumi:"description"`
+	// The description of the action. Max length is 1024 characters.
+	Description *string `pulumi:"description"`
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime *string `pulumi:"modifyTime"`
-	Name       *string `pulumi:"name"`
-	RunnerId   *string `pulumi:"runnerId"`
+	// The name of the action. Max length is 255 characters.
+	Name *string `pulumi:"name"`
+	// The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
+	RunnerId *string `pulumi:"runnerId"`
 	// (Optional) The type of the runner associated with the action.
 	RunnerType *string `pulumi:"runnerType"`
 	// The type of object. The value returned will be `action`.
@@ -136,16 +148,22 @@ type automationActionsActionState struct {
 }
 
 type AutomationActionsActionState struct {
+	// The category of the action. The only allowed values are `diagnostic` and `remediation`.
 	ActionClassification pulumi.StringPtrInput
-	ActionDataReference  AutomationActionsActionActionDataReferencePtrInput
-	ActionType           pulumi.StringPtrInput
+	// Action Data block. Action Data is documented below.
+	ActionDataReference AutomationActionsActionActionDataReferencePtrInput
+	// The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
+	ActionType pulumi.StringPtrInput
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime pulumi.StringPtrInput
-	Description  pulumi.StringPtrInput
+	// The description of the action. Max length is 1024 characters.
+	Description pulumi.StringPtrInput
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime pulumi.StringPtrInput
-	Name       pulumi.StringPtrInput
-	RunnerId   pulumi.StringPtrInput
+	// The name of the action. Max length is 255 characters.
+	Name pulumi.StringPtrInput
+	// The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
+	RunnerId pulumi.StringPtrInput
 	// (Optional) The type of the runner associated with the action.
 	RunnerType pulumi.StringPtrInput
 	// The type of object. The value returned will be `action`.
@@ -157,16 +175,22 @@ func (AutomationActionsActionState) ElementType() reflect.Type {
 }
 
 type automationActionsActionArgs struct {
-	ActionClassification *string                                    `pulumi:"actionClassification"`
-	ActionDataReference  AutomationActionsActionActionDataReference `pulumi:"actionDataReference"`
-	ActionType           string                                     `pulumi:"actionType"`
+	// The category of the action. The only allowed values are `diagnostic` and `remediation`.
+	ActionClassification *string `pulumi:"actionClassification"`
+	// Action Data block. Action Data is documented below.
+	ActionDataReference AutomationActionsActionActionDataReference `pulumi:"actionDataReference"`
+	// The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
+	ActionType string `pulumi:"actionType"`
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime *string `pulumi:"creationTime"`
-	Description  *string `pulumi:"description"`
+	// The description of the action. Max length is 1024 characters.
+	Description *string `pulumi:"description"`
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime *string `pulumi:"modifyTime"`
-	Name       *string `pulumi:"name"`
-	RunnerId   *string `pulumi:"runnerId"`
+	// The name of the action. Max length is 255 characters.
+	Name *string `pulumi:"name"`
+	// The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
+	RunnerId *string `pulumi:"runnerId"`
 	// (Optional) The type of the runner associated with the action.
 	RunnerType *string `pulumi:"runnerType"`
 	// The type of object. The value returned will be `action`.
@@ -175,16 +199,22 @@ type automationActionsActionArgs struct {
 
 // The set of arguments for constructing a AutomationActionsAction resource.
 type AutomationActionsActionArgs struct {
+	// The category of the action. The only allowed values are `diagnostic` and `remediation`.
 	ActionClassification pulumi.StringPtrInput
-	ActionDataReference  AutomationActionsActionActionDataReferenceInput
-	ActionType           pulumi.StringInput
+	// Action Data block. Action Data is documented below.
+	ActionDataReference AutomationActionsActionActionDataReferenceInput
+	// The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
+	ActionType pulumi.StringInput
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime pulumi.StringPtrInput
-	Description  pulumi.StringPtrInput
+	// The description of the action. Max length is 1024 characters.
+	Description pulumi.StringPtrInput
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime pulumi.StringPtrInput
-	Name       pulumi.StringPtrInput
-	RunnerId   pulumi.StringPtrInput
+	// The name of the action. Max length is 255 characters.
+	Name pulumi.StringPtrInput
+	// The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
+	RunnerId pulumi.StringPtrInput
 	// (Optional) The type of the runner associated with the action.
 	RunnerType pulumi.StringPtrInput
 	// The type of object. The value returned will be `action`.
@@ -278,16 +308,19 @@ func (o AutomationActionsActionOutput) ToAutomationActionsActionOutputWithContex
 	return o
 }
 
+// The category of the action. The only allowed values are `diagnostic` and `remediation`.
 func (o AutomationActionsActionOutput) ActionClassification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringPtrOutput { return v.ActionClassification }).(pulumi.StringPtrOutput)
 }
 
+// Action Data block. Action Data is documented below.
 func (o AutomationActionsActionOutput) ActionDataReference() AutomationActionsActionActionDataReferenceOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) AutomationActionsActionActionDataReferenceOutput {
 		return v.ActionDataReference
 	}).(AutomationActionsActionActionDataReferenceOutput)
 }
 
+// The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
 func (o AutomationActionsActionOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringOutput { return v.ActionType }).(pulumi.StringOutput)
 }
@@ -297,6 +330,7 @@ func (o AutomationActionsActionOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// The description of the action. Max length is 1024 characters.
 func (o AutomationActionsActionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -306,10 +340,12 @@ func (o AutomationActionsActionOutput) ModifyTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringOutput { return v.ModifyTime }).(pulumi.StringOutput)
 }
 
+// The name of the action. Max length is 255 characters.
 func (o AutomationActionsActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
 func (o AutomationActionsActionOutput) RunnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringPtrOutput { return v.RunnerId }).(pulumi.StringPtrOutput)
 }

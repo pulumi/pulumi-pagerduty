@@ -17,23 +17,31 @@ public final class EscalationPolicyRuleTargetArgs extends com.pulumi.resources.R
     public static final EscalationPolicyRuleTargetArgs Empty = new EscalationPolicyRuleTargetArgs();
 
     /**
-     * The ID of the escalation policy.
+     * A target ID
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the escalation policy.
+     * @return A target ID
      * 
      */
     public Output<String> id() {
         return this.id;
     }
 
+    /**
+     * Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -64,7 +72,7 @@ public final class EscalationPolicyRuleTargetArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param id The ID of the escalation policy.
+         * @param id A target ID
          * 
          * @return builder
          * 
@@ -75,7 +83,7 @@ public final class EscalationPolicyRuleTargetArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param id The ID of the escalation policy.
+         * @param id A target ID
          * 
          * @return builder
          * 
@@ -84,11 +92,23 @@ public final class EscalationPolicyRuleTargetArgs extends com.pulumi.resources.R
             return id(Output.of(id));
         }
 
+        /**
+         * @param type Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

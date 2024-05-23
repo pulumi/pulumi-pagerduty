@@ -12,9 +12,15 @@ namespace Pulumi.Pagerduty.Inputs
 
     public sealed class ServiceIntegrationEmailParserMatchPredicatePredicateGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Predicate value or valid regex.
+        /// </summary>
         [Input("matcher")]
         public Input<string>? Matcher { get; set; }
 
+        /// <summary>
+        /// Can be `subject`, `body` or `from_addresses`.
+        /// </summary>
         [Input("part")]
         public Input<string>? Part { get; set; }
 
@@ -26,6 +32,9 @@ namespace Pulumi.Pagerduty.Inputs
             set => _predicates = value;
         }
 
+        /// <summary>
+        /// Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

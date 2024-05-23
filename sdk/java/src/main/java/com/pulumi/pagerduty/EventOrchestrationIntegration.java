@@ -51,16 +51,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var databaseTeam = new Team("databaseTeam", TeamArgs.builder()        
+ *         var databaseTeam = new Team("databaseTeam", TeamArgs.builder()
  *             .name("Database Team")
  *             .build());
  * 
- *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()        
+ *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()
  *             .name("Example Orchestration")
  *             .team(databaseTeam.id())
  *             .build());
  * 
- *         var integration = new EventOrchestrationIntegration("integration", EventOrchestrationIntegrationArgs.builder()        
+ *         var integration = new EventOrchestrationIntegration("integration", EventOrchestrationIntegrationArgs.builder()
  *             .eventOrchestration(eventOrchestration.id())
  *             .label("Example integration")
  *             .build());

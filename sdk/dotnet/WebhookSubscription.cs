@@ -93,21 +93,52 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/webhookSubscription:WebhookSubscription")]
     public partial class WebhookSubscription : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Determines whether the subscription will produce webhook events.
+        /// </summary>
         [Output("active")]
         public Output<bool> Active { get; private set; } = null!;
 
+        /// <summary>
+        /// The object describing where to send the webhooks.
+        /// </summary>
         [Output("deliveryMethods")]
         public Output<ImmutableArray<Outputs.WebhookSubscriptionDeliveryMethod>> DeliveryMethods { get; private set; } = null!;
 
+        /// <summary>
+        /// A short description of the webhook subscription
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// A set of outbound event types the webhook will receive. The follow event types are possible: 
+        /// * `incident.acknowledged`
+        /// * `incident.annotated`
+        /// * `incident.delegated`
+        /// * `incident.escalated`
+        /// * `incident.priority_updated`
+        /// * `incident.reassigned`
+        /// * `incident.reopened`
+        /// * `incident.resolved`
+        /// * `incident.responder.added`
+        /// * `incident.responder.replied`
+        /// * `incident.status_update_published`
+        /// * `incident.triggered`
+        /// * `incident.unacknowledged`
+        /// </summary>
         [Output("events")]
         public Output<ImmutableArray<string>> Events { get; private set; } = null!;
 
+        /// <summary>
+        /// determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
+        /// </summary>
         [Output("filters")]
         public Output<ImmutableArray<Outputs.WebhookSubscriptionFilter>> Filters { get; private set; } = null!;
 
+        /// <summary>
+        /// The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
+        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
@@ -157,22 +188,49 @@ namespace Pulumi.Pagerduty
 
     public sealed class WebhookSubscriptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines whether the subscription will produce webhook events.
+        /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
         [Input("deliveryMethods", required: true)]
         private InputList<Inputs.WebhookSubscriptionDeliveryMethodArgs>? _deliveryMethods;
+
+        /// <summary>
+        /// The object describing where to send the webhooks.
+        /// </summary>
         public InputList<Inputs.WebhookSubscriptionDeliveryMethodArgs> DeliveryMethods
         {
             get => _deliveryMethods ?? (_deliveryMethods = new InputList<Inputs.WebhookSubscriptionDeliveryMethodArgs>());
             set => _deliveryMethods = value;
         }
 
+        /// <summary>
+        /// A short description of the webhook subscription
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("events", required: true)]
         private InputList<string>? _events;
+
+        /// <summary>
+        /// A set of outbound event types the webhook will receive. The follow event types are possible: 
+        /// * `incident.acknowledged`
+        /// * `incident.annotated`
+        /// * `incident.delegated`
+        /// * `incident.escalated`
+        /// * `incident.priority_updated`
+        /// * `incident.reassigned`
+        /// * `incident.reopened`
+        /// * `incident.resolved`
+        /// * `incident.responder.added`
+        /// * `incident.responder.replied`
+        /// * `incident.status_update_published`
+        /// * `incident.triggered`
+        /// * `incident.unacknowledged`
+        /// </summary>
         public InputList<string> Events
         {
             get => _events ?? (_events = new InputList<string>());
@@ -181,12 +239,19 @@ namespace Pulumi.Pagerduty
 
         [Input("filters", required: true)]
         private InputList<Inputs.WebhookSubscriptionFilterArgs>? _filters;
+
+        /// <summary>
+        /// determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
+        /// </summary>
         public InputList<Inputs.WebhookSubscriptionFilterArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.WebhookSubscriptionFilterArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -198,22 +263,49 @@ namespace Pulumi.Pagerduty
 
     public sealed class WebhookSubscriptionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines whether the subscription will produce webhook events.
+        /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
         [Input("deliveryMethods")]
         private InputList<Inputs.WebhookSubscriptionDeliveryMethodGetArgs>? _deliveryMethods;
+
+        /// <summary>
+        /// The object describing where to send the webhooks.
+        /// </summary>
         public InputList<Inputs.WebhookSubscriptionDeliveryMethodGetArgs> DeliveryMethods
         {
             get => _deliveryMethods ?? (_deliveryMethods = new InputList<Inputs.WebhookSubscriptionDeliveryMethodGetArgs>());
             set => _deliveryMethods = value;
         }
 
+        /// <summary>
+        /// A short description of the webhook subscription
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("events")]
         private InputList<string>? _events;
+
+        /// <summary>
+        /// A set of outbound event types the webhook will receive. The follow event types are possible: 
+        /// * `incident.acknowledged`
+        /// * `incident.annotated`
+        /// * `incident.delegated`
+        /// * `incident.escalated`
+        /// * `incident.priority_updated`
+        /// * `incident.reassigned`
+        /// * `incident.reopened`
+        /// * `incident.resolved`
+        /// * `incident.responder.added`
+        /// * `incident.responder.replied`
+        /// * `incident.status_update_published`
+        /// * `incident.triggered`
+        /// * `incident.unacknowledged`
+        /// </summary>
         public InputList<string> Events
         {
             get => _events ?? (_events = new InputList<string>());
@@ -222,12 +314,19 @@ namespace Pulumi.Pagerduty
 
         [Input("filters")]
         private InputList<Inputs.WebhookSubscriptionFilterGetArgs>? _filters;
+
+        /// <summary>
+        /// determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
+        /// </summary>
         public InputList<Inputs.WebhookSubscriptionFilterGetArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.WebhookSubscriptionFilterGetArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

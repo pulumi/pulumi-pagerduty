@@ -15,23 +15,47 @@ public final class TagAssignmentState extends com.pulumi.resources.ResourceArgs 
 
     public static final TagAssignmentState Empty = new TagAssignmentState();
 
+    /**
+     * The ID of the entity.
+     * 
+     */
     @Import(name="entityId")
     private @Nullable Output<String> entityId;
 
+    /**
+     * @return The ID of the entity.
+     * 
+     */
     public Optional<Output<String>> entityId() {
         return Optional.ofNullable(this.entityId);
     }
 
+    /**
+     * Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+     * 
+     */
     @Import(name="entityType")
     private @Nullable Output<String> entityType;
 
+    /**
+     * @return Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+     * 
+     */
     public Optional<Output<String>> entityType() {
         return Optional.ofNullable(this.entityType);
     }
 
+    /**
+     * The ID of the tag.
+     * 
+     */
     @Import(name="tagId")
     private @Nullable Output<String> tagId;
 
+    /**
+     * @return The ID of the tag.
+     * 
+     */
     public Optional<Output<String>> tagId() {
         return Optional.ofNullable(this.tagId);
     }
@@ -62,29 +86,65 @@ public final class TagAssignmentState extends com.pulumi.resources.ResourceArgs 
             $ = new TagAssignmentState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param entityId The ID of the entity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entityId(@Nullable Output<String> entityId) {
             $.entityId = entityId;
             return this;
         }
 
+        /**
+         * @param entityId The ID of the entity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entityId(String entityId) {
             return entityId(Output.of(entityId));
         }
 
+        /**
+         * @param entityType Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entityType(@Nullable Output<String> entityType) {
             $.entityType = entityType;
             return this;
         }
 
+        /**
+         * @param entityType Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entityType(String entityType) {
             return entityType(Output.of(entityType));
         }
 
+        /**
+         * @param tagId The ID of the tag.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagId(@Nullable Output<String> tagId) {
             $.tagId = tagId;
             return this;
         }
 
+        /**
+         * @param tagId The ID of the tag.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagId(String tagId) {
             return tagId(Output.of(tagId));
         }

@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Team("example", TeamArgs.builder()        
+ *         var example = new Team("example", TeamArgs.builder()
  *             .name("Engineering")
  *             .description("All engineering")
  *             .build());
  * 
- *         var paActionExample = new AutomationActionsAction("paActionExample", AutomationActionsActionArgs.builder()        
+ *         var paActionExample = new AutomationActionsAction("paActionExample", AutomationActionsActionArgs.builder()
  *             .name("PA Action created via TF")
  *             .description("Description of the PA Action created via TF")
  *             .actionType("process_automation")
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var foo = new AutomationActionsActionTeamAssociation("foo", AutomationActionsActionTeamAssociationArgs.builder()        
+ *         var foo = new AutomationActionsActionTeamAssociation("foo", AutomationActionsActionTeamAssociationArgs.builder()
  *             .actionId(paActionExample.id())
  *             .teamId(example.id())
  *             .build());
@@ -82,15 +82,31 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation")
 public class AutomationActionsActionTeamAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * Id of the action.
+     * 
+     */
     @Export(name="actionId", refs={String.class}, tree="[0]")
     private Output<String> actionId;
 
+    /**
+     * @return Id of the action.
+     * 
+     */
     public Output<String> actionId() {
         return this.actionId;
     }
+    /**
+     * Id of the team associated to the action.
+     * 
+     */
     @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
+    /**
+     * @return Id of the team associated to the action.
+     * 
+     */
     public Output<String> teamId() {
         return this.teamId;
     }

@@ -66,7 +66,13 @@ export class AutomationActionsRunnerTeamAssociation extends pulumi.CustomResourc
         return obj['__pulumiType'] === AutomationActionsRunnerTeamAssociation.__pulumiType;
     }
 
+    /**
+     * Id of the runner.
+     */
     public readonly runnerId!: pulumi.Output<string>;
+    /**
+     * Id of the team associated with the runner.
+     */
     public readonly teamId!: pulumi.Output<string>;
 
     /**
@@ -104,7 +110,13 @@ export class AutomationActionsRunnerTeamAssociation extends pulumi.CustomResourc
  * Input properties used for looking up and filtering AutomationActionsRunnerTeamAssociation resources.
  */
 export interface AutomationActionsRunnerTeamAssociationState {
+    /**
+     * Id of the runner.
+     */
     runnerId?: pulumi.Input<string>;
+    /**
+     * Id of the team associated with the runner.
+     */
     teamId?: pulumi.Input<string>;
 }
 
@@ -112,6 +124,12 @@ export interface AutomationActionsRunnerTeamAssociationState {
  * The set of arguments for constructing a AutomationActionsRunnerTeamAssociation resource.
  */
 export interface AutomationActionsRunnerTeamAssociationArgs {
+    /**
+     * Id of the runner.
+     */
     runnerId: pulumi.Input<string>;
+    /**
+     * Id of the team associated with the runner.
+     */
     teamId: pulumi.Input<string>;
 }

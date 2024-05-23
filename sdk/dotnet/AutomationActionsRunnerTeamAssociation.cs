@@ -57,9 +57,15 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation")]
     public partial class AutomationActionsRunnerTeamAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Id of the runner.
+        /// </summary>
         [Output("runnerId")]
         public Output<string> RunnerId { get; private set; } = null!;
 
+        /// <summary>
+        /// Id of the team associated with the runner.
+        /// </summary>
         [Output("teamId")]
         public Output<string> TeamId { get; private set; } = null!;
 
@@ -109,9 +115,15 @@ namespace Pulumi.Pagerduty
 
     public sealed class AutomationActionsRunnerTeamAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Id of the runner.
+        /// </summary>
         [Input("runnerId", required: true)]
         public Input<string> RunnerId { get; set; } = null!;
 
+        /// <summary>
+        /// Id of the team associated with the runner.
+        /// </summary>
         [Input("teamId", required: true)]
         public Input<string> TeamId { get; set; } = null!;
 
@@ -123,9 +135,15 @@ namespace Pulumi.Pagerduty
 
     public sealed class AutomationActionsRunnerTeamAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Id of the runner.
+        /// </summary>
         [Input("runnerId")]
         public Input<string>? RunnerId { get; set; }
 
+        /// <summary>
+        /// Id of the team associated with the runner.
+        /// </summary>
         [Input("teamId")]
         public Input<string>? TeamId { get; set; }
 

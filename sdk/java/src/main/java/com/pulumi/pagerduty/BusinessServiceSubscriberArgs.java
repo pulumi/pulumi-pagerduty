@@ -14,23 +14,47 @@ public final class BusinessServiceSubscriberArgs extends com.pulumi.resources.Re
 
     public static final BusinessServiceSubscriberArgs Empty = new BusinessServiceSubscriberArgs();
 
+    /**
+     * The ID of the business service to subscribe to.
+     * 
+     */
     @Import(name="businessServiceId", required=true)
     private Output<String> businessServiceId;
 
+    /**
+     * @return The ID of the business service to subscribe to.
+     * 
+     */
     public Output<String> businessServiceId() {
         return this.businessServiceId;
     }
 
+    /**
+     * The ID of the subscriber entity.
+     * 
+     */
     @Import(name="subscriberId", required=true)
     private Output<String> subscriberId;
 
+    /**
+     * @return The ID of the subscriber entity.
+     * 
+     */
     public Output<String> subscriberId() {
         return this.subscriberId;
     }
 
+    /**
+     * Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+     * 
+     */
     @Import(name="subscriberType", required=true)
     private Output<String> subscriberType;
 
+    /**
+     * @return Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+     * 
+     */
     public Output<String> subscriberType() {
         return this.subscriberType;
     }
@@ -61,29 +85,65 @@ public final class BusinessServiceSubscriberArgs extends com.pulumi.resources.Re
             $ = new BusinessServiceSubscriberArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param businessServiceId The ID of the business service to subscribe to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder businessServiceId(Output<String> businessServiceId) {
             $.businessServiceId = businessServiceId;
             return this;
         }
 
+        /**
+         * @param businessServiceId The ID of the business service to subscribe to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder businessServiceId(String businessServiceId) {
             return businessServiceId(Output.of(businessServiceId));
         }
 
+        /**
+         * @param subscriberId The ID of the subscriber entity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subscriberId(Output<String> subscriberId) {
             $.subscriberId = subscriberId;
             return this;
         }
 
+        /**
+         * @param subscriberId The ID of the subscriber entity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subscriberId(String subscriberId) {
             return subscriberId(Output.of(subscriberId));
         }
 
+        /**
+         * @param subscriberType Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subscriberType(Output<String> subscriberType) {
             $.subscriberType = subscriberType;
             return this;
         }
 
+        /**
+         * @param subscriberType Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subscriberType(String subscriberType) {
             return subscriberType(Output.of(subscriberType));
         }

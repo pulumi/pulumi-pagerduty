@@ -94,9 +94,15 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation")]
     public partial class AutomationActionsActionServiceAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Id of the action.
+        /// </summary>
         [Output("actionId")]
         public Output<string> ActionId { get; private set; } = null!;
 
+        /// <summary>
+        /// Id of the service associated to the action.
+        /// </summary>
         [Output("serviceId")]
         public Output<string> ServiceId { get; private set; } = null!;
 
@@ -146,9 +152,15 @@ namespace Pulumi.Pagerduty
 
     public sealed class AutomationActionsActionServiceAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Id of the action.
+        /// </summary>
         [Input("actionId", required: true)]
         public Input<string> ActionId { get; set; } = null!;
 
+        /// <summary>
+        /// Id of the service associated to the action.
+        /// </summary>
         [Input("serviceId", required: true)]
         public Input<string> ServiceId { get; set; } = null!;
 
@@ -160,9 +172,15 @@ namespace Pulumi.Pagerduty
 
     public sealed class AutomationActionsActionServiceAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Id of the action.
+        /// </summary>
         [Input("actionId")]
         public Input<string>? ActionId { get; set; }
 
+        /// <summary>
+        /// Id of the service associated to the action.
+        /// </summary>
         [Input("serviceId")]
         public Input<string>? ServiceId { get; set; }
 

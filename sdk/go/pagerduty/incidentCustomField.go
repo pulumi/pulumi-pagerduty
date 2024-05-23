@@ -72,12 +72,18 @@ import (
 type IncidentCustomField struct {
 	pulumi.CustomResourceState
 
-	DataType     pulumi.StringOutput    `pulumi:"dataType"`
+	// The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+	DataType pulumi.StringOutput `pulumi:"dataType"`
+	// The default value to set when new incidents are created. Always specified as a string.
 	DefaultValue pulumi.StringPtrOutput `pulumi:"defaultValue"`
-	Description  pulumi.StringPtrOutput `pulumi:"description"`
-	DisplayName  pulumi.StringOutput    `pulumi:"displayName"`
-	FieldType    pulumi.StringOutput    `pulumi:"fieldType"`
-	Name         pulumi.StringOutput    `pulumi:"name"`
+	// The description of the field.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The display name of the field.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
+	FieldType pulumi.StringOutput `pulumi:"fieldType"`
+	// The name of the field.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewIncidentCustomField registers a new resource with the given unique name, arguments, and options.
@@ -119,21 +125,33 @@ func GetIncidentCustomField(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IncidentCustomField resources.
 type incidentCustomFieldState struct {
-	DataType     *string `pulumi:"dataType"`
+	// The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+	DataType *string `pulumi:"dataType"`
+	// The default value to set when new incidents are created. Always specified as a string.
 	DefaultValue *string `pulumi:"defaultValue"`
-	Description  *string `pulumi:"description"`
-	DisplayName  *string `pulumi:"displayName"`
-	FieldType    *string `pulumi:"fieldType"`
-	Name         *string `pulumi:"name"`
+	// The description of the field.
+	Description *string `pulumi:"description"`
+	// The display name of the field.
+	DisplayName *string `pulumi:"displayName"`
+	// The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
+	FieldType *string `pulumi:"fieldType"`
+	// The name of the field.
+	Name *string `pulumi:"name"`
 }
 
 type IncidentCustomFieldState struct {
-	DataType     pulumi.StringPtrInput
+	// The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+	DataType pulumi.StringPtrInput
+	// The default value to set when new incidents are created. Always specified as a string.
 	DefaultValue pulumi.StringPtrInput
-	Description  pulumi.StringPtrInput
-	DisplayName  pulumi.StringPtrInput
-	FieldType    pulumi.StringPtrInput
-	Name         pulumi.StringPtrInput
+	// The description of the field.
+	Description pulumi.StringPtrInput
+	// The display name of the field.
+	DisplayName pulumi.StringPtrInput
+	// The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
+	FieldType pulumi.StringPtrInput
+	// The name of the field.
+	Name pulumi.StringPtrInput
 }
 
 func (IncidentCustomFieldState) ElementType() reflect.Type {
@@ -141,22 +159,34 @@ func (IncidentCustomFieldState) ElementType() reflect.Type {
 }
 
 type incidentCustomFieldArgs struct {
-	DataType     string  `pulumi:"dataType"`
+	// The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+	DataType string `pulumi:"dataType"`
+	// The default value to set when new incidents are created. Always specified as a string.
 	DefaultValue *string `pulumi:"defaultValue"`
-	Description  *string `pulumi:"description"`
-	DisplayName  string  `pulumi:"displayName"`
-	FieldType    string  `pulumi:"fieldType"`
-	Name         *string `pulumi:"name"`
+	// The description of the field.
+	Description *string `pulumi:"description"`
+	// The display name of the field.
+	DisplayName string `pulumi:"displayName"`
+	// The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
+	FieldType string `pulumi:"fieldType"`
+	// The name of the field.
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a IncidentCustomField resource.
 type IncidentCustomFieldArgs struct {
-	DataType     pulumi.StringInput
+	// The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+	DataType pulumi.StringInput
+	// The default value to set when new incidents are created. Always specified as a string.
 	DefaultValue pulumi.StringPtrInput
-	Description  pulumi.StringPtrInput
-	DisplayName  pulumi.StringInput
-	FieldType    pulumi.StringInput
-	Name         pulumi.StringPtrInput
+	// The description of the field.
+	Description pulumi.StringPtrInput
+	// The display name of the field.
+	DisplayName pulumi.StringInput
+	// The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
+	FieldType pulumi.StringInput
+	// The name of the field.
+	Name pulumi.StringPtrInput
 }
 
 func (IncidentCustomFieldArgs) ElementType() reflect.Type {
@@ -246,26 +276,32 @@ func (o IncidentCustomFieldOutput) ToIncidentCustomFieldOutputWithContext(ctx co
 	return o
 }
 
+// The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
 func (o IncidentCustomFieldOutput) DataType() pulumi.StringOutput {
 	return o.ApplyT(func(v *IncidentCustomField) pulumi.StringOutput { return v.DataType }).(pulumi.StringOutput)
 }
 
+// The default value to set when new incidents are created. Always specified as a string.
 func (o IncidentCustomFieldOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentCustomField) pulumi.StringPtrOutput { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
+// The description of the field.
 func (o IncidentCustomFieldOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentCustomField) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the field.
 func (o IncidentCustomFieldOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IncidentCustomField) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
 func (o IncidentCustomFieldOutput) FieldType() pulumi.StringOutput {
 	return o.ApplyT(func(v *IncidentCustomField) pulumi.StringOutput { return v.FieldType }).(pulumi.StringOutput)
 }
 
+// The name of the field.
 func (o IncidentCustomFieldOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IncidentCustomField) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

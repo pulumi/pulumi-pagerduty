@@ -20,6 +20,9 @@ class TeamArgs:
                  parent: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Team resource.
+        :param pulumi.Input[str] default_role: The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        :param pulumi.Input[str] name: The name of the group.
+        :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
         """
         if default_role is not None:
             pulumi.set(__self__, "default_role", default_role)
@@ -35,6 +38,9 @@ class TeamArgs:
     @property
     @pulumi.getter(name="defaultRole")
     def default_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        """
         return pulumi.get(self, "default_role")
 
     @default_role.setter
@@ -53,6 +59,9 @@ class TeamArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -62,6 +71,9 @@ class TeamArgs:
     @property
     @pulumi.getter
     def parent(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+        """
         return pulumi.get(self, "parent")
 
     @parent.setter
@@ -79,7 +91,10 @@ class _TeamState:
                  parent: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Team resources.
+        :param pulumi.Input[str] default_role: The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
+        :param pulumi.Input[str] name: The name of the group.
+        :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
         """
         if default_role is not None:
             pulumi.set(__self__, "default_role", default_role)
@@ -97,6 +112,9 @@ class _TeamState:
     @property
     @pulumi.getter(name="defaultRole")
     def default_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        """
         return pulumi.get(self, "default_role")
 
     @default_role.setter
@@ -127,6 +145,9 @@ class _TeamState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the group.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -136,6 +157,9 @@ class _TeamState:
     @property
     @pulumi.getter
     def parent(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+        """
         return pulumi.get(self, "parent")
 
     @parent.setter
@@ -183,6 +207,9 @@ class Team(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] default_role: The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        :param pulumi.Input[str] name: The name of the group.
+        :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
         """
         ...
     @overload
@@ -275,7 +302,10 @@ class Team(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] default_role: The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
+        :param pulumi.Input[str] name: The name of the group.
+        :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -291,6 +321,9 @@ class Team(pulumi.CustomResource):
     @property
     @pulumi.getter(name="defaultRole")
     def default_role(self) -> pulumi.Output[str]:
+        """
+        The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        """
         return pulumi.get(self, "default_role")
 
     @property
@@ -309,10 +342,16 @@ class Team(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the group.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def parent(self) -> pulumi.Output[Optional[str]]:
+        """
+        ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+        """
         return pulumi.get(self, "parent")
 

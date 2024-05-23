@@ -15,7 +15,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceDependencyDependency {
+    /**
+     * @return The service that dependents on the supporting service. Dependency dependent service documented below.
+     * 
+     */
     private List<ServiceDependencyDependencyDependentService> dependentServices;
+    /**
+     * @return The service that supports the dependent service. Dependency supporting service documented below.
+     * 
+     */
     private List<ServiceDependencyDependencySupportingService> supportingServices;
     /**
      * @return Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
@@ -24,9 +32,17 @@ public final class ServiceDependencyDependency {
     private @Nullable String type;
 
     private ServiceDependencyDependency() {}
+    /**
+     * @return The service that dependents on the supporting service. Dependency dependent service documented below.
+     * 
+     */
     public List<ServiceDependencyDependencyDependentService> dependentServices() {
         return this.dependentServices;
     }
+    /**
+     * @return The service that supports the dependent service. Dependency supporting service documented below.
+     * 
+     */
     public List<ServiceDependencyDependencySupportingService> supportingServices() {
         return this.supportingServices;
     }

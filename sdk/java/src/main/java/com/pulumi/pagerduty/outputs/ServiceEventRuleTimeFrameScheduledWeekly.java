@@ -13,21 +13,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceEventRuleTimeFrameScheduledWeekly {
+    /**
+     * @return Length of time the schedule will be active.  Unix timestamp in milliseconds.
+     * 
+     */
     private @Nullable Integer duration;
+    /**
+     * @return Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+     * 
+     */
     private @Nullable Integer startTime;
+    /**
+     * @return Timezone for the given schedule.
+     * 
+     */
     private @Nullable String timezone;
+    /**
+     * @return An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
+     * 
+     */
     private @Nullable List<Integer> weekdays;
 
     private ServiceEventRuleTimeFrameScheduledWeekly() {}
+    /**
+     * @return Length of time the schedule will be active.  Unix timestamp in milliseconds.
+     * 
+     */
     public Optional<Integer> duration() {
         return Optional.ofNullable(this.duration);
     }
+    /**
+     * @return Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+     * 
+     */
     public Optional<Integer> startTime() {
         return Optional.ofNullable(this.startTime);
     }
+    /**
+     * @return Timezone for the given schedule.
+     * 
+     */
     public Optional<String> timezone() {
         return Optional.ofNullable(this.timezone);
     }
+    /**
+     * @return An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
+     * 
+     */
     public List<Integer> weekdays() {
         return this.weekdays == null ? List.of() : this.weekdays;
     }

@@ -14,9 +14,12 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class EscalationPolicyRuleTarget
     {
         /// <summary>
-        /// The ID of the escalation policy.
+        /// A target ID
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

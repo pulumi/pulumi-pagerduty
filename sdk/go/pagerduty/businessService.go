@@ -54,14 +54,19 @@ type BusinessService struct {
 
 	Description pulumi.StringOutput `pulumi:"description"`
 	// A URL at which the entity is uniquely displayed in the Web app.
-	HtmlUrl        pulumi.StringOutput    `pulumi:"htmlUrl"`
-	Name           pulumi.StringOutput    `pulumi:"name"`
+	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
+	// The name of the business service.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The owner of the business service.
 	PointOfContact pulumi.StringPtrOutput `pulumi:"pointOfContact"`
 	// The API show URL at which the object is accessible.
 	Self pulumi.StringOutput `pulumi:"self"`
 	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-	Summary pulumi.StringOutput    `pulumi:"summary"`
-	Team    pulumi.StringPtrOutput `pulumi:"team"`
+	Summary pulumi.StringOutput `pulumi:"summary"`
+	// ID of the team that owns the business service.
+	Team pulumi.StringPtrOutput `pulumi:"team"`
+	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+	//
 	// Deprecated: This will become a computed attribute in the next major release.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -101,14 +106,19 @@ func GetBusinessService(ctx *pulumi.Context,
 type businessServiceState struct {
 	Description *string `pulumi:"description"`
 	// A URL at which the entity is uniquely displayed in the Web app.
-	HtmlUrl        *string `pulumi:"htmlUrl"`
-	Name           *string `pulumi:"name"`
+	HtmlUrl *string `pulumi:"htmlUrl"`
+	// The name of the business service.
+	Name *string `pulumi:"name"`
+	// The owner of the business service.
 	PointOfContact *string `pulumi:"pointOfContact"`
 	// The API show URL at which the object is accessible.
 	Self *string `pulumi:"self"`
 	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
 	Summary *string `pulumi:"summary"`
-	Team    *string `pulumi:"team"`
+	// ID of the team that owns the business service.
+	Team *string `pulumi:"team"`
+	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+	//
 	// Deprecated: This will become a computed attribute in the next major release.
 	Type *string `pulumi:"type"`
 }
@@ -116,14 +126,19 @@ type businessServiceState struct {
 type BusinessServiceState struct {
 	Description pulumi.StringPtrInput
 	// A URL at which the entity is uniquely displayed in the Web app.
-	HtmlUrl        pulumi.StringPtrInput
-	Name           pulumi.StringPtrInput
+	HtmlUrl pulumi.StringPtrInput
+	// The name of the business service.
+	Name pulumi.StringPtrInput
+	// The owner of the business service.
 	PointOfContact pulumi.StringPtrInput
 	// The API show URL at which the object is accessible.
 	Self pulumi.StringPtrInput
 	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
 	Summary pulumi.StringPtrInput
-	Team    pulumi.StringPtrInput
+	// ID of the team that owns the business service.
+	Team pulumi.StringPtrInput
+	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+	//
 	// Deprecated: This will become a computed attribute in the next major release.
 	Type pulumi.StringPtrInput
 }
@@ -133,20 +148,30 @@ func (BusinessServiceState) ElementType() reflect.Type {
 }
 
 type businessServiceArgs struct {
-	Description    *string `pulumi:"description"`
-	Name           *string `pulumi:"name"`
+	Description *string `pulumi:"description"`
+	// The name of the business service.
+	Name *string `pulumi:"name"`
+	// The owner of the business service.
 	PointOfContact *string `pulumi:"pointOfContact"`
-	Team           *string `pulumi:"team"`
+	// ID of the team that owns the business service.
+	Team *string `pulumi:"team"`
+	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+	//
 	// Deprecated: This will become a computed attribute in the next major release.
 	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a BusinessService resource.
 type BusinessServiceArgs struct {
-	Description    pulumi.StringPtrInput
-	Name           pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// The name of the business service.
+	Name pulumi.StringPtrInput
+	// The owner of the business service.
 	PointOfContact pulumi.StringPtrInput
-	Team           pulumi.StringPtrInput
+	// ID of the team that owns the business service.
+	Team pulumi.StringPtrInput
+	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+	//
 	// Deprecated: This will become a computed attribute in the next major release.
 	Type pulumi.StringPtrInput
 }
@@ -247,10 +272,12 @@ func (o BusinessServiceOutput) HtmlUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *BusinessService) pulumi.StringOutput { return v.HtmlUrl }).(pulumi.StringOutput)
 }
 
+// The name of the business service.
 func (o BusinessServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BusinessService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The owner of the business service.
 func (o BusinessServiceOutput) PointOfContact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BusinessService) pulumi.StringPtrOutput { return v.PointOfContact }).(pulumi.StringPtrOutput)
 }
@@ -265,10 +292,13 @@ func (o BusinessServiceOutput) Summary() pulumi.StringOutput {
 	return o.ApplyT(func(v *BusinessService) pulumi.StringOutput { return v.Summary }).(pulumi.StringOutput)
 }
 
+// ID of the team that owns the business service.
 func (o BusinessServiceOutput) Team() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BusinessService) pulumi.StringPtrOutput { return v.Team }).(pulumi.StringPtrOutput)
 }
 
+// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+//
 // Deprecated: This will become a computed attribute in the next major release.
 func (o BusinessServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *BusinessService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)

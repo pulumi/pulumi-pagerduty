@@ -14,9 +14,17 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TagArgs Empty = new TagArgs();
 
+    /**
+     * The label of the tag.
+     * 
+     */
     @Import(name="label", required=true)
     private Output<String> label;
 
+    /**
+     * @return The label of the tag.
+     * 
+     */
     public Output<String> label() {
         return this.label;
     }
@@ -45,11 +53,23 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TagArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param label The label of the tag.
+         * 
+         * @return builder
+         * 
+         */
         public Builder label(Output<String> label) {
             $.label = label;
             return this;
         }
 
+        /**
+         * @param label The label of the tag.
+         * 
+         * @return builder
+         * 
+         */
         public Builder label(String label) {
             return label(Output.of(label));
         }

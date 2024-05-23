@@ -47,6 +47,9 @@ namespace Pulumi.Pagerduty
         [Output("htmlUrl")]
         public Output<string> HtmlUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// The label of the tag.
+        /// </summary>
         [Output("label")]
         public Output<string> Label { get; private set; } = null!;
 
@@ -102,6 +105,9 @@ namespace Pulumi.Pagerduty
 
     public sealed class TagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The label of the tag.
+        /// </summary>
         [Input("label", required: true)]
         public Input<string> Label { get; set; } = null!;
 
@@ -119,6 +125,9 @@ namespace Pulumi.Pagerduty
         [Input("htmlUrl")]
         public Input<string>? HtmlUrl { get; set; }
 
+        /// <summary>
+        /// The label of the tag.
+        /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 

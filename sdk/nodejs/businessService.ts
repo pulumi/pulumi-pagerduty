@@ -62,7 +62,13 @@ export class BusinessService extends pulumi.CustomResource {
      * A URL at which the entity is uniquely displayed in the Web app.
      */
     public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
+    /**
+     * The name of the business service.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The owner of the business service.
+     */
     public readonly pointOfContact!: pulumi.Output<string | undefined>;
     /**
      * The API show URL at which the object is accessible.
@@ -72,8 +78,13 @@ export class BusinessService extends pulumi.CustomResource {
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
      */
     public /*out*/ readonly summary!: pulumi.Output<string>;
+    /**
+     * ID of the team that owns the business service.
+     */
     public readonly team!: pulumi.Output<string | undefined>;
     /**
+     * **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+     *
      * @deprecated This will become a computed attribute in the next major release.
      */
     public readonly type!: pulumi.Output<string>;
@@ -124,7 +135,13 @@ export interface BusinessServiceState {
      * A URL at which the entity is uniquely displayed in the Web app.
      */
     htmlUrl?: pulumi.Input<string>;
+    /**
+     * The name of the business service.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The owner of the business service.
+     */
     pointOfContact?: pulumi.Input<string>;
     /**
      * The API show URL at which the object is accessible.
@@ -134,8 +151,13 @@ export interface BusinessServiceState {
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
      */
     summary?: pulumi.Input<string>;
+    /**
+     * ID of the team that owns the business service.
+     */
     team?: pulumi.Input<string>;
     /**
+     * **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+     *
      * @deprecated This will become a computed attribute in the next major release.
      */
     type?: pulumi.Input<string>;
@@ -146,10 +168,21 @@ export interface BusinessServiceState {
  */
 export interface BusinessServiceArgs {
     description?: pulumi.Input<string>;
+    /**
+     * The name of the business service.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The owner of the business service.
+     */
     pointOfContact?: pulumi.Input<string>;
+    /**
+     * ID of the team that owns the business service.
+     */
     team?: pulumi.Input<string>;
     /**
+     * **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+     *
      * @deprecated This will become a computed attribute in the next major release.
      */
     type?: pulumi.Input<string>;

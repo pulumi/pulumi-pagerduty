@@ -18,6 +18,8 @@ class AddonArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Addon resource.
+        :param pulumi.Input[str] src: The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
+        :param pulumi.Input[str] name: The name of the add-on.
         """
         pulumi.set(__self__, "src", src)
         if name is not None:
@@ -26,6 +28,9 @@ class AddonArgs:
     @property
     @pulumi.getter
     def src(self) -> pulumi.Input[str]:
+        """
+        The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
+        """
         return pulumi.get(self, "src")
 
     @src.setter
@@ -35,6 +40,9 @@ class AddonArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the add-on.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -49,6 +57,8 @@ class _AddonState:
                  src: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Addon resources.
+        :param pulumi.Input[str] name: The name of the add-on.
+        :param pulumi.Input[str] src: The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -58,6 +68,9 @@ class _AddonState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the add-on.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -67,6 +80,9 @@ class _AddonState:
     @property
     @pulumi.getter
     def src(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
+        """
         return pulumi.get(self, "src")
 
     @src.setter
@@ -106,6 +122,8 @@ class Addon(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name of the add-on.
+        :param pulumi.Input[str] src: The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
         """
         ...
     @overload
@@ -184,6 +202,8 @@ class Addon(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name of the add-on.
+        :param pulumi.Input[str] src: The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -196,10 +216,16 @@ class Addon(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the add-on.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def src(self) -> pulumi.Output[str]:
+        """
+        The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
+        """
         return pulumi.get(self, "src")
 

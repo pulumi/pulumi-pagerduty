@@ -13,8 +13,17 @@ namespace Pulumi.Pagerduty.Outputs
     [OutputType]
     public sealed class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate
     {
+        /// <summary>
+        /// Predicate value or valid regex.
+        /// </summary>
         public readonly string Matcher;
+        /// <summary>
+        /// Can be `subject`, `body` or `from_addresses`.
+        /// </summary>
         public readonly string Part;
+        /// <summary>
+        /// Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

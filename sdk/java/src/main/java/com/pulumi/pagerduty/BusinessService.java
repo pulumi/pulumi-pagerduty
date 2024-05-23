@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BusinessService("example", BusinessServiceArgs.builder()        
+ *         var example = new BusinessService("example", BusinessServiceArgs.builder()
  *             .name("My Web App")
  *             .description("A very descriptive description of this business service")
  *             .pointOfContact("PagerDuty Admin")
@@ -86,15 +86,31 @@ public class BusinessService extends com.pulumi.resources.CustomResource {
     public Output<String> htmlUrl() {
         return this.htmlUrl;
     }
+    /**
+     * The name of the business service.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the business service.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The owner of the business service.
+     * 
+     */
     @Export(name="pointOfContact", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pointOfContact;
 
+    /**
+     * @return The owner of the business service.
+     * 
+     */
     public Output<Optional<String>> pointOfContact() {
         return Codegen.optional(this.pointOfContact);
     }
@@ -126,13 +142,23 @@ public class BusinessService extends com.pulumi.resources.CustomResource {
     public Output<String> summary() {
         return this.summary;
     }
+    /**
+     * ID of the team that owns the business service.
+     * 
+     */
     @Export(name="team", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> team;
 
+    /**
+     * @return ID of the team that owns the business service.
+     * 
+     */
     public Output<Optional<String>> team() {
         return Codegen.optional(this.team);
     }
     /**
+     * **Deprecated** (Optional) Default (and only supported) value is `business_service`.
+     * 
      * @deprecated
      * This will become a computed attribute in the next major release.
      * 
@@ -141,6 +167,10 @@ public class BusinessService extends com.pulumi.resources.CustomResource {
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
+    /**
+     * @return **Deprecated** (Optional) Default (and only supported) value is `business_service`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }

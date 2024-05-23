@@ -14,16 +14,32 @@ public final class AutomationActionsActionTeamAssociationArgs extends com.pulumi
 
     public static final AutomationActionsActionTeamAssociationArgs Empty = new AutomationActionsActionTeamAssociationArgs();
 
+    /**
+     * Id of the action.
+     * 
+     */
     @Import(name="actionId", required=true)
     private Output<String> actionId;
 
+    /**
+     * @return Id of the action.
+     * 
+     */
     public Output<String> actionId() {
         return this.actionId;
     }
 
+    /**
+     * Id of the team associated to the action.
+     * 
+     */
     @Import(name="teamId", required=true)
     private Output<String> teamId;
 
+    /**
+     * @return Id of the team associated to the action.
+     * 
+     */
     public Output<String> teamId() {
         return this.teamId;
     }
@@ -53,20 +69,44 @@ public final class AutomationActionsActionTeamAssociationArgs extends com.pulumi
             $ = new AutomationActionsActionTeamAssociationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param actionId Id of the action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actionId(Output<String> actionId) {
             $.actionId = actionId;
             return this;
         }
 
+        /**
+         * @param actionId Id of the action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actionId(String actionId) {
             return actionId(Output.of(actionId));
         }
 
+        /**
+         * @param teamId Id of the team associated to the action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder teamId(Output<String> teamId) {
             $.teamId = teamId;
             return this;
         }
 
+        /**
+         * @param teamId Id of the team associated to the action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder teamId(String teamId) {
             return teamId(Output.of(teamId));
         }

@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  *             .name("Generic V2 Webhook")
  *             .build());
  * 
- *         var example = new User("example", UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()
  *             .name("Howard James")
  *             .email("howard.james{@literal @}example.domain")
  *             .build());
  * 
- *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()        
+ *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()
  *             .name("Engineering Escalation Policy")
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("My Web App")
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
  *             .escalationPolicy(exampleEscalationPolicy.id())
  *             .build());
  * 
- *         var slack = new Extension("slack", ExtensionArgs.builder()        
+ *         var slack = new Extension("slack", ExtensionArgs.builder()
  *             .name("My Web App Extension")
  *             .endpointUrl("https://generic_webhook_url/XXXXXX/BBBBBB")
  *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -> getExtensionSchemaResult.id()))
@@ -115,27 +115,61 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/extension:Extension")
 public class Extension extends com.pulumi.resources.CustomResource {
+    /**
+     * The configuration of the service extension as string containing plain JSON-encoded data.
+     * 
+     */
     @Export(name="config", refs={String.class}, tree="[0]")
     private Output<String> config;
 
+    /**
+     * @return The configuration of the service extension as string containing plain JSON-encoded data.
+     * 
+     */
     public Output<String> config() {
         return this.config;
     }
+    /**
+     * The url of the extension.
+     * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn&#39;t accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+     * 
+     */
     @Export(name="endpointUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endpointUrl;
 
+    /**
+     * @return The url of the extension.
+     * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn&#39;t accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+     * 
+     */
     public Output<Optional<String>> endpointUrl() {
         return Codegen.optional(this.endpointUrl);
     }
+    /**
+     * This is the objects for which the extension applies (An array of service ids).
+     * 
+     */
     @Export(name="extensionObjects", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> extensionObjects;
 
+    /**
+     * @return This is the objects for which the extension applies (An array of service ids).
+     * 
+     */
     public Output<List<String>> extensionObjects() {
         return this.extensionObjects;
     }
+    /**
+     * This is the schema for this extension.
+     * 
+     */
     @Export(name="extensionSchema", refs={String.class}, tree="[0]")
     private Output<String> extensionSchema;
 
+    /**
+     * @return This is the schema for this extension.
+     * 
+     */
     public Output<String> extensionSchema() {
         return this.extensionSchema;
     }
@@ -153,15 +187,35 @@ public class Extension extends com.pulumi.resources.CustomResource {
     public Output<String> htmlUrl() {
         return this.htmlUrl;
     }
+    /**
+     * The name of the service extension.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the service extension.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+     * 
+     * **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
+     * 
+     */
     @Export(name="summary", refs={String.class}, tree="[0]")
     private Output<String> summary;
 
+    /**
+     * @return A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+     * 
+     * **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
+     * 
+     */
     public Output<String> summary() {
         return this.summary;
     }

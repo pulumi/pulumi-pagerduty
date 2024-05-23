@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var databaseTeam = new Team("databaseTeam", TeamArgs.builder()        
+ *         var databaseTeam = new Team("databaseTeam", TeamArgs.builder()
  *             .name("Database Team")
  *             .build());
  * 
- *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()        
+ *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()
  *             .name("Example Orchestration")
  *             .team(databaseTeam.id())
  *             .build());
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .name("P1")
  *             .build());
  * 
- *         var global = new EventOrchestrationGlobal("global", EventOrchestrationGlobalArgs.builder()        
+ *         var global = new EventOrchestrationGlobal("global", EventOrchestrationGlobalArgs.builder()
  *             .eventOrchestration(eventOrchestration.id())
  *             .sets(            
  *                 EventOrchestrationGlobalSetArgs.builder()

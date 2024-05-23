@@ -69,8 +69,10 @@ import (
 type AutomationActionsActionTeamAssociation struct {
 	pulumi.CustomResourceState
 
+	// Id of the action.
 	ActionId pulumi.StringOutput `pulumi:"actionId"`
-	TeamId   pulumi.StringOutput `pulumi:"teamId"`
+	// Id of the team associated to the action.
+	TeamId pulumi.StringOutput `pulumi:"teamId"`
 }
 
 // NewAutomationActionsActionTeamAssociation registers a new resource with the given unique name, arguments, and options.
@@ -109,13 +111,17 @@ func GetAutomationActionsActionTeamAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AutomationActionsActionTeamAssociation resources.
 type automationActionsActionTeamAssociationState struct {
+	// Id of the action.
 	ActionId *string `pulumi:"actionId"`
-	TeamId   *string `pulumi:"teamId"`
+	// Id of the team associated to the action.
+	TeamId *string `pulumi:"teamId"`
 }
 
 type AutomationActionsActionTeamAssociationState struct {
+	// Id of the action.
 	ActionId pulumi.StringPtrInput
-	TeamId   pulumi.StringPtrInput
+	// Id of the team associated to the action.
+	TeamId pulumi.StringPtrInput
 }
 
 func (AutomationActionsActionTeamAssociationState) ElementType() reflect.Type {
@@ -123,14 +129,18 @@ func (AutomationActionsActionTeamAssociationState) ElementType() reflect.Type {
 }
 
 type automationActionsActionTeamAssociationArgs struct {
+	// Id of the action.
 	ActionId string `pulumi:"actionId"`
-	TeamId   string `pulumi:"teamId"`
+	// Id of the team associated to the action.
+	TeamId string `pulumi:"teamId"`
 }
 
 // The set of arguments for constructing a AutomationActionsActionTeamAssociation resource.
 type AutomationActionsActionTeamAssociationArgs struct {
+	// Id of the action.
 	ActionId pulumi.StringInput
-	TeamId   pulumi.StringInput
+	// Id of the team associated to the action.
+	TeamId pulumi.StringInput
 }
 
 func (AutomationActionsActionTeamAssociationArgs) ElementType() reflect.Type {
@@ -220,10 +230,12 @@ func (o AutomationActionsActionTeamAssociationOutput) ToAutomationActionsActionT
 	return o
 }
 
+// Id of the action.
 func (o AutomationActionsActionTeamAssociationOutput) ActionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsActionTeamAssociation) pulumi.StringOutput { return v.ActionId }).(pulumi.StringOutput)
 }
 
+// Id of the team associated to the action.
 func (o AutomationActionsActionTeamAssociationOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsActionTeamAssociation) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
 }

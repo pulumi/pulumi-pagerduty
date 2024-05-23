@@ -94,11 +94,42 @@ export class WebhookSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebhookSubscription.__pulumiType;
     }
 
+    /**
+     * Determines whether the subscription will produce webhook events.
+     */
     public readonly active!: pulumi.Output<boolean>;
+    /**
+     * The object describing where to send the webhooks.
+     */
     public readonly deliveryMethods!: pulumi.Output<outputs.WebhookSubscriptionDeliveryMethod[]>;
+    /**
+     * A short description of the webhook subscription
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A set of outbound event types the webhook will receive. The follow event types are possible: 
+     * * `incident.acknowledged`
+     * * `incident.annotated`
+     * * `incident.delegated`
+     * * `incident.escalated`
+     * * `incident.priority_updated`
+     * * `incident.reassigned`
+     * * `incident.reopened`
+     * * `incident.resolved`
+     * * `incident.responder.added`
+     * * `incident.responder.replied`
+     * * `incident.status_update_published`
+     * * `incident.triggered`
+     * * `incident.unacknowledged`
+     */
     public readonly events!: pulumi.Output<string[]>;
+    /**
+     * determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `serviceReference`, `teamReference` and `accountReference`.
+     */
     public readonly filters!: pulumi.Output<outputs.WebhookSubscriptionFilter[]>;
+    /**
+     * The type indicating the schema of the object. The provider sets this as `webhookSubscription`, which is currently the only acceptable value.
+     */
     public readonly type!: pulumi.Output<string | undefined>;
 
     /**
@@ -147,11 +178,42 @@ export class WebhookSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WebhookSubscription resources.
  */
 export interface WebhookSubscriptionState {
+    /**
+     * Determines whether the subscription will produce webhook events.
+     */
     active?: pulumi.Input<boolean>;
+    /**
+     * The object describing where to send the webhooks.
+     */
     deliveryMethods?: pulumi.Input<pulumi.Input<inputs.WebhookSubscriptionDeliveryMethod>[]>;
+    /**
+     * A short description of the webhook subscription
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A set of outbound event types the webhook will receive. The follow event types are possible: 
+     * * `incident.acknowledged`
+     * * `incident.annotated`
+     * * `incident.delegated`
+     * * `incident.escalated`
+     * * `incident.priority_updated`
+     * * `incident.reassigned`
+     * * `incident.reopened`
+     * * `incident.resolved`
+     * * `incident.responder.added`
+     * * `incident.responder.replied`
+     * * `incident.status_update_published`
+     * * `incident.triggered`
+     * * `incident.unacknowledged`
+     */
     events?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `serviceReference`, `teamReference` and `accountReference`.
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.WebhookSubscriptionFilter>[]>;
+    /**
+     * The type indicating the schema of the object. The provider sets this as `webhookSubscription`, which is currently the only acceptable value.
+     */
     type?: pulumi.Input<string>;
 }
 
@@ -159,10 +221,41 @@ export interface WebhookSubscriptionState {
  * The set of arguments for constructing a WebhookSubscription resource.
  */
 export interface WebhookSubscriptionArgs {
+    /**
+     * Determines whether the subscription will produce webhook events.
+     */
     active?: pulumi.Input<boolean>;
+    /**
+     * The object describing where to send the webhooks.
+     */
     deliveryMethods: pulumi.Input<pulumi.Input<inputs.WebhookSubscriptionDeliveryMethod>[]>;
+    /**
+     * A short description of the webhook subscription
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A set of outbound event types the webhook will receive. The follow event types are possible: 
+     * * `incident.acknowledged`
+     * * `incident.annotated`
+     * * `incident.delegated`
+     * * `incident.escalated`
+     * * `incident.priority_updated`
+     * * `incident.reassigned`
+     * * `incident.reopened`
+     * * `incident.resolved`
+     * * `incident.responder.added`
+     * * `incident.responder.replied`
+     * * `incident.status_update_published`
+     * * `incident.triggered`
+     * * `incident.unacknowledged`
+     */
     events: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `serviceReference`, `teamReference` and `accountReference`.
+     */
     filters: pulumi.Input<pulumi.Input<inputs.WebhookSubscriptionFilter>[]>;
+    /**
+     * The type indicating the schema of the object. The provider sets this as `webhookSubscription`, which is currently the only acceptable value.
+     */
     type?: pulumi.Input<string>;
 }

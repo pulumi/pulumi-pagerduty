@@ -30,9 +30,17 @@ public final class ResponsePlaySubscriberArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -83,11 +91,23 @@ public final class ResponsePlaySubscriberArgs extends com.pulumi.resources.Resou
             return id(Output.of(id));
         }
 
+        /**
+         * @param type A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

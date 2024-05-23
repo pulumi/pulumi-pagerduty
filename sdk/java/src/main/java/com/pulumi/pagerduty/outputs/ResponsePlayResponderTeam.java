@@ -17,6 +17,10 @@ public final class ResponsePlayResponderTeam {
      * 
      */
     private @Nullable String id;
+    /**
+     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * 
+     */
     private String type;
 
     private ResponsePlayResponderTeam() {}
@@ -27,6 +31,10 @@ public final class ResponsePlayResponderTeam {
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
+    /**
+     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * 
+     */
     public String type() {
         return this.type;
     }

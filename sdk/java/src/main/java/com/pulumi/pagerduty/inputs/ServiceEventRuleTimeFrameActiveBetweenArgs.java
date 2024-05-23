@@ -15,16 +15,32 @@ public final class ServiceEventRuleTimeFrameActiveBetweenArgs extends com.pulumi
 
     public static final ServiceEventRuleTimeFrameActiveBetweenArgs Empty = new ServiceEventRuleTimeFrameActiveBetweenArgs();
 
+    /**
+     * Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+     * 
+     */
     @Import(name="endTime")
     private @Nullable Output<Integer> endTime;
 
+    /**
+     * @return Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+     * 
+     */
     public Optional<Output<Integer>> endTime() {
         return Optional.ofNullable(this.endTime);
     }
 
+    /**
+     * Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+     * 
+     */
     @Import(name="startTime")
     private @Nullable Output<Integer> startTime;
 
+    /**
+     * @return Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+     * 
+     */
     public Optional<Output<Integer>> startTime() {
         return Optional.ofNullable(this.startTime);
     }
@@ -54,20 +70,44 @@ public final class ServiceEventRuleTimeFrameActiveBetweenArgs extends com.pulumi
             $ = new ServiceEventRuleTimeFrameActiveBetweenArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param endTime Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endTime(@Nullable Output<Integer> endTime) {
             $.endTime = endTime;
             return this;
         }
 
+        /**
+         * @param endTime Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endTime(Integer endTime) {
             return endTime(Output.of(endTime));
         }
 
+        /**
+         * @param startTime Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder startTime(@Nullable Output<Integer> startTime) {
             $.startTime = startTime;
             return this;
         }
 
+        /**
+         * @param startTime Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder startTime(Integer startTime) {
             return startTime(Output.of(startTime));
         }

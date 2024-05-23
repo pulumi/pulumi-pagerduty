@@ -16,6 +16,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceIntegrationEmailParser {
+    /**
+     * @return Can be `resolve` or `trigger`.
+     * 
+     */
     private String action;
     /**
      * @return The ID of the service integration.
@@ -26,6 +30,10 @@ public final class ServiceIntegrationEmailParser {
     private @Nullable List<ServiceIntegrationEmailParserValueExtractor> valueExtractors;
 
     private ServiceIntegrationEmailParser() {}
+    /**
+     * @return Can be `resolve` or `trigger`.
+     * 
+     */
     public String action() {
         return this.action;
     }

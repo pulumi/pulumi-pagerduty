@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class EventOrchestrationServiceSetRuleActionsAutomationActionHeader {
+    /**
+     * @return Name to identify the header
+     * 
+     */
     private String key;
+    /**
+     * @return Value of this header
+     * 
+     */
     private String value;
 
     private EventOrchestrationServiceSetRuleActionsAutomationActionHeader() {}
+    /**
+     * @return Name to identify the header
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return Value of this header
+     * 
+     */
     public String value() {
         return this.value;
     }

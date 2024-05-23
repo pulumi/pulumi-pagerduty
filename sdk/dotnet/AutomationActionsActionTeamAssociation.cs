@@ -59,9 +59,15 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation")]
     public partial class AutomationActionsActionTeamAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Id of the action.
+        /// </summary>
         [Output("actionId")]
         public Output<string> ActionId { get; private set; } = null!;
 
+        /// <summary>
+        /// Id of the team associated to the action.
+        /// </summary>
         [Output("teamId")]
         public Output<string> TeamId { get; private set; } = null!;
 
@@ -111,9 +117,15 @@ namespace Pulumi.Pagerduty
 
     public sealed class AutomationActionsActionTeamAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Id of the action.
+        /// </summary>
         [Input("actionId", required: true)]
         public Input<string> ActionId { get; set; } = null!;
 
+        /// <summary>
+        /// Id of the team associated to the action.
+        /// </summary>
         [Input("teamId", required: true)]
         public Input<string> TeamId { get; set; } = null!;
 
@@ -125,9 +137,15 @@ namespace Pulumi.Pagerduty
 
     public sealed class AutomationActionsActionTeamAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Id of the action.
+        /// </summary>
         [Input("actionId")]
         public Input<string>? ActionId { get; set; }
 
+        /// <summary>
+        /// Id of the team associated to the action.
+        /// </summary>
         [Input("teamId")]
         public Input<string>? TeamId { get; set; }
 

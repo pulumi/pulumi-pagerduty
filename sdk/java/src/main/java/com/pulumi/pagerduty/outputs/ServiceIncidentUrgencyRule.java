@@ -14,29 +14,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceIncidentUrgencyRule {
+    /**
+     * @return Incidents&#39; urgency during support hours.
+     * 
+     */
     private @Nullable ServiceIncidentUrgencyRuleDuringSupportHours duringSupportHours;
+    /**
+     * @return Incidents&#39; urgency outside support hours.
+     * 
+     */
     private @Nullable ServiceIncidentUrgencyRuleOutsideSupportHours outsideSupportHours;
     /**
-     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+     * @return The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
      * 
      */
     private String type;
+    /**
+     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+     * 
+     */
     private @Nullable String urgency;
 
     private ServiceIncidentUrgencyRule() {}
+    /**
+     * @return Incidents&#39; urgency during support hours.
+     * 
+     */
     public Optional<ServiceIncidentUrgencyRuleDuringSupportHours> duringSupportHours() {
         return Optional.ofNullable(this.duringSupportHours);
     }
+    /**
+     * @return Incidents&#39; urgency outside support hours.
+     * 
+     */
     public Optional<ServiceIncidentUrgencyRuleOutsideSupportHours> outsideSupportHours() {
         return Optional.ofNullable(this.outsideSupportHours);
     }
     /**
-     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+     * @return The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
      * 
      */
     public String type() {
         return this.type;
     }
+    /**
+     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+     * 
+     */
     public Optional<String> urgency() {
         return Optional.ofNullable(this.urgency);
     }

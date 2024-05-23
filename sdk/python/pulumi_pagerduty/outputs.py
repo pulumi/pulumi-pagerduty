@@ -5090,11 +5090,6 @@ class ServiceAutoPauseNotificationsParameters(dict):
         """
         :param bool enabled: Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
         :param int timeout: Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
-               
-               
-               You may specify one optional `incident_urgency_rule` block configuring what urgencies to use.
-               Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-               The block contains the following arguments:
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -5114,11 +5109,6 @@ class ServiceAutoPauseNotificationsParameters(dict):
     def timeout(self) -> Optional[int]:
         """
         Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
-
-
-        You may specify one optional `incident_urgency_rule` block configuring what urgencies to use.
-        Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-        The block contains the following arguments:
         """
         return pulumi.get(self, "timeout")
 
@@ -5885,7 +5875,10 @@ class ServiceIncidentUrgencyRule(dict):
                  outside_support_hours: Optional['outputs.ServiceIncidentUrgencyRuleOutsideSupportHours'] = None,
                  urgency: Optional[str] = None):
         """
-        :param str type: The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        :param str type: The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
+        :param 'ServiceIncidentUrgencyRuleDuringSupportHoursArgs' during_support_hours: Incidents' urgency during support hours.
+        :param 'ServiceIncidentUrgencyRuleOutsideSupportHoursArgs' outside_support_hours: Incidents' urgency outside support hours.
+        :param str urgency: The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
         """
         pulumi.set(__self__, "type", type)
         if during_support_hours is not None:
@@ -5899,23 +5892,32 @@ class ServiceIncidentUrgencyRule(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
         """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="duringSupportHours")
     def during_support_hours(self) -> Optional['outputs.ServiceIncidentUrgencyRuleDuringSupportHours']:
+        """
+        Incidents' urgency during support hours.
+        """
         return pulumi.get(self, "during_support_hours")
 
     @property
     @pulumi.getter(name="outsideSupportHours")
     def outside_support_hours(self) -> Optional['outputs.ServiceIncidentUrgencyRuleOutsideSupportHours']:
+        """
+        Incidents' urgency outside support hours.
+        """
         return pulumi.get(self, "outside_support_hours")
 
     @property
     @pulumi.getter
     def urgency(self) -> Optional[str]:
+        """
+        The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+        """
         return pulumi.get(self, "urgency")
 
 
@@ -6388,7 +6390,9 @@ class ServiceScheduledAction(dict):
                  to_urgency: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        :param str type: The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        :param Sequence['ServiceScheduledActionAtArgs'] ats: A block representing when the scheduled action will occur.
+        :param str to_urgency: The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
+        :param str type: The type of scheduled action. Currently, this must be set to `urgency_change`.
         """
         if ats is not None:
             pulumi.set(__self__, "ats", ats)
@@ -6400,18 +6404,24 @@ class ServiceScheduledAction(dict):
     @property
     @pulumi.getter
     def ats(self) -> Optional[Sequence['outputs.ServiceScheduledActionAt']]:
+        """
+        A block representing when the scheduled action will occur.
+        """
         return pulumi.get(self, "ats")
 
     @property
     @pulumi.getter(name="toUrgency")
     def to_urgency(self) -> Optional[str]:
+        """
+        The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
+        """
         return pulumi.get(self, "to_urgency")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        The type of scheduled action. Currently, this must be set to `urgency_change`.
         """
         return pulumi.get(self, "type")
 
@@ -6575,7 +6585,12 @@ class ServiceSupportHours(dict):
                  time_zone: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        :param str type: The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        :param Sequence[int] days_of_weeks: Array of days of week as integers. `1` to `7`, `1` being
+               Monday and `7` being Sunday.
+        :param str end_time: The support hours' ending time of day.
+        :param str start_time: The support hours' starting time of day.
+        :param str time_zone: The time zone for the support hours.
+        :param str type: The type of support hours. Can be `fixed_time_per_day`.
         """
         if days_of_weeks is not None:
             pulumi.set(__self__, "days_of_weeks", days_of_weeks)
@@ -6591,28 +6606,41 @@ class ServiceSupportHours(dict):
     @property
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> Optional[Sequence[int]]:
+        """
+        Array of days of week as integers. `1` to `7`, `1` being
+        Monday and `7` being Sunday.
+        """
         return pulumi.get(self, "days_of_weeks")
 
     @property
     @pulumi.getter(name="endTime")
     def end_time(self) -> Optional[str]:
+        """
+        The support hours' ending time of day.
+        """
         return pulumi.get(self, "end_time")
 
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[str]:
+        """
+        The support hours' starting time of day.
+        """
         return pulumi.get(self, "start_time")
 
     @property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[str]:
+        """
+        The time zone for the support hours.
+        """
         return pulumi.get(self, "time_zone")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        The type of support hours. Can be `fixed_time_per_day`.
         """
         return pulumi.get(self, "type")
 

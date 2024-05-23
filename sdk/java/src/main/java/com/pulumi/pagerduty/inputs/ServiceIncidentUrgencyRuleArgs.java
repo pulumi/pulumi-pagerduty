@@ -18,38 +18,62 @@ public final class ServiceIncidentUrgencyRuleArgs extends com.pulumi.resources.R
 
     public static final ServiceIncidentUrgencyRuleArgs Empty = new ServiceIncidentUrgencyRuleArgs();
 
+    /**
+     * Incidents&#39; urgency during support hours.
+     * 
+     */
     @Import(name="duringSupportHours")
     private @Nullable Output<ServiceIncidentUrgencyRuleDuringSupportHoursArgs> duringSupportHours;
 
+    /**
+     * @return Incidents&#39; urgency during support hours.
+     * 
+     */
     public Optional<Output<ServiceIncidentUrgencyRuleDuringSupportHoursArgs>> duringSupportHours() {
         return Optional.ofNullable(this.duringSupportHours);
     }
 
+    /**
+     * Incidents&#39; urgency outside support hours.
+     * 
+     */
     @Import(name="outsideSupportHours")
     private @Nullable Output<ServiceIncidentUrgencyRuleOutsideSupportHoursArgs> outsideSupportHours;
 
+    /**
+     * @return Incidents&#39; urgency outside support hours.
+     * 
+     */
     public Optional<Output<ServiceIncidentUrgencyRuleOutsideSupportHoursArgs>> outsideSupportHours() {
         return Optional.ofNullable(this.outsideSupportHours);
     }
 
     /**
-     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+     * The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+     * @return The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
      * 
      */
     public Output<String> type() {
         return this.type;
     }
 
+    /**
+     * The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+     * 
+     */
     @Import(name="urgency")
     private @Nullable Output<String> urgency;
 
+    /**
+     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+     * 
+     */
     public Optional<Output<String>> urgency() {
         return Optional.ofNullable(this.urgency);
     }
@@ -81,26 +105,50 @@ public final class ServiceIncidentUrgencyRuleArgs extends com.pulumi.resources.R
             $ = new ServiceIncidentUrgencyRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param duringSupportHours Incidents&#39; urgency during support hours.
+         * 
+         * @return builder
+         * 
+         */
         public Builder duringSupportHours(@Nullable Output<ServiceIncidentUrgencyRuleDuringSupportHoursArgs> duringSupportHours) {
             $.duringSupportHours = duringSupportHours;
             return this;
         }
 
+        /**
+         * @param duringSupportHours Incidents&#39; urgency during support hours.
+         * 
+         * @return builder
+         * 
+         */
         public Builder duringSupportHours(ServiceIncidentUrgencyRuleDuringSupportHoursArgs duringSupportHours) {
             return duringSupportHours(Output.of(duringSupportHours));
         }
 
+        /**
+         * @param outsideSupportHours Incidents&#39; urgency outside support hours.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outsideSupportHours(@Nullable Output<ServiceIncidentUrgencyRuleOutsideSupportHoursArgs> outsideSupportHours) {
             $.outsideSupportHours = outsideSupportHours;
             return this;
         }
 
+        /**
+         * @param outsideSupportHours Incidents&#39; urgency outside support hours.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outsideSupportHours(ServiceIncidentUrgencyRuleOutsideSupportHoursArgs outsideSupportHours) {
             return outsideSupportHours(Output.of(outsideSupportHours));
         }
 
         /**
-         * @param type The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+         * @param type The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
          * 
          * @return builder
          * 
@@ -111,7 +159,7 @@ public final class ServiceIncidentUrgencyRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param type The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+         * @param type The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
          * 
          * @return builder
          * 
@@ -120,11 +168,23 @@ public final class ServiceIncidentUrgencyRuleArgs extends com.pulumi.resources.R
             return type(Output.of(type));
         }
 
+        /**
+         * @param urgency The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urgency(@Nullable Output<String> urgency) {
             $.urgency = urgency;
             return this;
         }
 
+        /**
+         * @param urgency The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urgency(String urgency) {
             return urgency(Output.of(urgency));
         }

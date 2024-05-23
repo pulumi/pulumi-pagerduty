@@ -13,31 +13,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceSupportHours {
+    /**
+     * @return Array of days of week as integers. `1` to `7`, `1` being
+     * Monday and `7` being Sunday.
+     * 
+     */
     private @Nullable List<Integer> daysOfWeeks;
+    /**
+     * @return The support hours&#39; ending time of day.
+     * 
+     */
     private @Nullable String endTime;
+    /**
+     * @return The support hours&#39; starting time of day.
+     * 
+     */
     private @Nullable String startTime;
+    /**
+     * @return The time zone for the support hours.
+     * 
+     */
     private @Nullable String timeZone;
     /**
-     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+     * @return The type of support hours. Can be `fixed_time_per_day`.
      * 
      */
     private @Nullable String type;
 
     private ServiceSupportHours() {}
+    /**
+     * @return Array of days of week as integers. `1` to `7`, `1` being
+     * Monday and `7` being Sunday.
+     * 
+     */
     public List<Integer> daysOfWeeks() {
         return this.daysOfWeeks == null ? List.of() : this.daysOfWeeks;
     }
+    /**
+     * @return The support hours&#39; ending time of day.
+     * 
+     */
     public Optional<String> endTime() {
         return Optional.ofNullable(this.endTime);
     }
+    /**
+     * @return The support hours&#39; starting time of day.
+     * 
+     */
     public Optional<String> startTime() {
         return Optional.ofNullable(this.startTime);
     }
+    /**
+     * @return The time zone for the support hours.
+     * 
+     */
     public Optional<String> timeZone() {
         return Optional.ofNullable(this.timeZone);
     }
     /**
-     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+     * @return The type of support hours. Can be `fixed_time_per_day`.
      * 
      */
     public Optional<String> type() {

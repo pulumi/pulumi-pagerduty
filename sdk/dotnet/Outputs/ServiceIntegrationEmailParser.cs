@@ -13,6 +13,9 @@ namespace Pulumi.Pagerduty.Outputs
     [OutputType]
     public sealed class ServiceIntegrationEmailParser
     {
+        /// <summary>
+        /// Can be `resolve` or `trigger`.
+        /// </summary>
         public readonly string Action;
         /// <summary>
         /// The ID of the service integration.

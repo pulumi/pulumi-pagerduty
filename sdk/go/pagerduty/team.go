@@ -60,12 +60,15 @@ import (
 type Team struct {
 	pulumi.CustomResourceState
 
+	// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
 	DefaultRole pulumi.StringOutput `pulumi:"defaultRole"`
 	Description pulumi.StringOutput `pulumi:"description"`
 	// URL at which the entity is uniquely displayed in the Web app
-	HtmlUrl pulumi.StringOutput    `pulumi:"htmlUrl"`
-	Name    pulumi.StringOutput    `pulumi:"name"`
-	Parent  pulumi.StringPtrOutput `pulumi:"parent"`
+	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
+	// The name of the group.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+	Parent pulumi.StringPtrOutput `pulumi:"parent"`
 }
 
 // NewTeam registers a new resource with the given unique name, arguments, and options.
@@ -101,21 +104,27 @@ func GetTeam(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Team resources.
 type teamState struct {
+	// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
 	DefaultRole *string `pulumi:"defaultRole"`
 	Description *string `pulumi:"description"`
 	// URL at which the entity is uniquely displayed in the Web app
 	HtmlUrl *string `pulumi:"htmlUrl"`
-	Name    *string `pulumi:"name"`
-	Parent  *string `pulumi:"parent"`
+	// The name of the group.
+	Name *string `pulumi:"name"`
+	// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+	Parent *string `pulumi:"parent"`
 }
 
 type TeamState struct {
+	// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
 	DefaultRole pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
 	// URL at which the entity is uniquely displayed in the Web app
 	HtmlUrl pulumi.StringPtrInput
-	Name    pulumi.StringPtrInput
-	Parent  pulumi.StringPtrInput
+	// The name of the group.
+	Name pulumi.StringPtrInput
+	// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+	Parent pulumi.StringPtrInput
 }
 
 func (TeamState) ElementType() reflect.Type {
@@ -123,18 +132,24 @@ func (TeamState) ElementType() reflect.Type {
 }
 
 type teamArgs struct {
+	// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
 	DefaultRole *string `pulumi:"defaultRole"`
 	Description *string `pulumi:"description"`
-	Name        *string `pulumi:"name"`
-	Parent      *string `pulumi:"parent"`
+	// The name of the group.
+	Name *string `pulumi:"name"`
+	// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+	Parent *string `pulumi:"parent"`
 }
 
 // The set of arguments for constructing a Team resource.
 type TeamArgs struct {
+	// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
 	DefaultRole pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Parent      pulumi.StringPtrInput
+	// The name of the group.
+	Name pulumi.StringPtrInput
+	// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+	Parent pulumi.StringPtrInput
 }
 
 func (TeamArgs) ElementType() reflect.Type {
@@ -224,6 +239,7 @@ func (o TeamOutput) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 	return o
 }
 
+// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
 func (o TeamOutput) DefaultRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.DefaultRole }).(pulumi.StringOutput)
 }
@@ -237,10 +253,12 @@ func (o TeamOutput) HtmlUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.HtmlUrl }).(pulumi.StringOutput)
 }
 
+// The name of the group.
 func (o TeamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
 func (o TeamOutput) Parent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringPtrOutput { return v.Parent }).(pulumi.StringPtrOutput)
 }

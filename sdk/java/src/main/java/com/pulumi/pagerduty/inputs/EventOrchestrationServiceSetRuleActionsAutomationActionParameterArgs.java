@@ -14,16 +14,32 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionParame
 
     public static final EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs Empty = new EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs();
 
+    /**
+     * Name to identify the parameter
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return Name to identify the parameter
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * Value of this parameter
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return Value of this parameter
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -53,20 +69,44 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionParame
             $ = new EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key Name to identify the parameter
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key Name to identify the parameter
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param value Value of this parameter
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Value of this parameter
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

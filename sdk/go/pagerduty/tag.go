@@ -52,7 +52,8 @@ type Tag struct {
 
 	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
-	Label   pulumi.StringOutput `pulumi:"label"`
+	// The label of the tag.
+	Label pulumi.StringOutput `pulumi:"label"`
 	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
 	Summary pulumi.StringOutput `pulumi:"summary"`
 }
@@ -92,7 +93,8 @@ func GetTag(ctx *pulumi.Context,
 type tagState struct {
 	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl *string `pulumi:"htmlUrl"`
-	Label   *string `pulumi:"label"`
+	// The label of the tag.
+	Label *string `pulumi:"label"`
 	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
 	Summary *string `pulumi:"summary"`
 }
@@ -100,7 +102,8 @@ type tagState struct {
 type TagState struct {
 	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl pulumi.StringPtrInput
-	Label   pulumi.StringPtrInput
+	// The label of the tag.
+	Label pulumi.StringPtrInput
 	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
 	Summary pulumi.StringPtrInput
 }
@@ -110,11 +113,13 @@ func (TagState) ElementType() reflect.Type {
 }
 
 type tagArgs struct {
+	// The label of the tag.
 	Label string `pulumi:"label"`
 }
 
 // The set of arguments for constructing a Tag resource.
 type TagArgs struct {
+	// The label of the tag.
 	Label pulumi.StringInput
 }
 
@@ -210,6 +215,7 @@ func (o TagOutput) HtmlUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.HtmlUrl }).(pulumi.StringOutput)
 }
 
+// The label of the tag.
 func (o TagOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
 }

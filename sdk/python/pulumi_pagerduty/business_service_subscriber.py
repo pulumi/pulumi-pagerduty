@@ -19,6 +19,9 @@ class BusinessServiceSubscriberArgs:
                  subscriber_type: pulumi.Input[str]):
         """
         The set of arguments for constructing a BusinessServiceSubscriber resource.
+        :param pulumi.Input[str] business_service_id: The ID of the business service to subscribe to.
+        :param pulumi.Input[str] subscriber_id: The ID of the subscriber entity.
+        :param pulumi.Input[str] subscriber_type: Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
         """
         pulumi.set(__self__, "business_service_id", business_service_id)
         pulumi.set(__self__, "subscriber_id", subscriber_id)
@@ -27,6 +30,9 @@ class BusinessServiceSubscriberArgs:
     @property
     @pulumi.getter(name="businessServiceId")
     def business_service_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the business service to subscribe to.
+        """
         return pulumi.get(self, "business_service_id")
 
     @business_service_id.setter
@@ -36,6 +42,9 @@ class BusinessServiceSubscriberArgs:
     @property
     @pulumi.getter(name="subscriberId")
     def subscriber_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the subscriber entity.
+        """
         return pulumi.get(self, "subscriber_id")
 
     @subscriber_id.setter
@@ -45,6 +54,9 @@ class BusinessServiceSubscriberArgs:
     @property
     @pulumi.getter(name="subscriberType")
     def subscriber_type(self) -> pulumi.Input[str]:
+        """
+        Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+        """
         return pulumi.get(self, "subscriber_type")
 
     @subscriber_type.setter
@@ -60,6 +72,9 @@ class _BusinessServiceSubscriberState:
                  subscriber_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BusinessServiceSubscriber resources.
+        :param pulumi.Input[str] business_service_id: The ID of the business service to subscribe to.
+        :param pulumi.Input[str] subscriber_id: The ID of the subscriber entity.
+        :param pulumi.Input[str] subscriber_type: Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
         """
         if business_service_id is not None:
             pulumi.set(__self__, "business_service_id", business_service_id)
@@ -71,6 +86,9 @@ class _BusinessServiceSubscriberState:
     @property
     @pulumi.getter(name="businessServiceId")
     def business_service_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the business service to subscribe to.
+        """
         return pulumi.get(self, "business_service_id")
 
     @business_service_id.setter
@@ -80,6 +98,9 @@ class _BusinessServiceSubscriberState:
     @property
     @pulumi.getter(name="subscriberId")
     def subscriber_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the subscriber entity.
+        """
         return pulumi.get(self, "subscriber_id")
 
     @subscriber_id.setter
@@ -89,6 +110,9 @@ class _BusinessServiceSubscriberState:
     @property
     @pulumi.getter(name="subscriberType")
     def subscriber_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+        """
         return pulumi.get(self, "subscriber_type")
 
     @subscriber_type.setter
@@ -143,6 +167,9 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] business_service_id: The ID of the business service to subscribe to.
+        :param pulumi.Input[str] subscriber_id: The ID of the subscriber entity.
+        :param pulumi.Input[str] subscriber_type: Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
         """
         ...
     @overload
@@ -242,6 +269,9 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] business_service_id: The ID of the business service to subscribe to.
+        :param pulumi.Input[str] subscriber_id: The ID of the subscriber entity.
+        :param pulumi.Input[str] subscriber_type: Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -255,15 +285,24 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
     @property
     @pulumi.getter(name="businessServiceId")
     def business_service_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the business service to subscribe to.
+        """
         return pulumi.get(self, "business_service_id")
 
     @property
     @pulumi.getter(name="subscriberId")
     def subscriber_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the subscriber entity.
+        """
         return pulumi.get(self, "subscriber_id")
 
     @property
     @pulumi.getter(name="subscriberType")
     def subscriber_type(self) -> pulumi.Output[str]:
+        """
+        Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+        """
         return pulumi.get(self, "subscriber_type")
 

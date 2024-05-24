@@ -59,12 +59,21 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/automationActionsAction:AutomationActionsAction")]
     public partial class AutomationActionsAction : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        /// </summary>
         [Output("actionClassification")]
         public Output<string?> ActionClassification { get; private set; } = null!;
 
+        /// <summary>
+        /// Action Data block. Action Data is documented below.
+        /// </summary>
         [Output("actionDataReference")]
         public Output<Outputs.AutomationActionsActionActionDataReference> ActionDataReference { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+        /// </summary>
         [Output("actionType")]
         public Output<string> ActionType { get; private set; } = null!;
 
@@ -74,6 +83,9 @@ namespace Pulumi.Pagerduty
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the action. Max length is 1024 characters.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -83,9 +95,15 @@ namespace Pulumi.Pagerduty
         [Output("modifyTime")]
         public Output<string> ModifyTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the action. Max length is 255 characters.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
+        /// </summary>
         [Output("runnerId")]
         public Output<string?> RunnerId { get; private set; } = null!;
 
@@ -147,12 +165,21 @@ namespace Pulumi.Pagerduty
 
     public sealed class AutomationActionsActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        /// </summary>
         [Input("actionClassification")]
         public Input<string>? ActionClassification { get; set; }
 
+        /// <summary>
+        /// Action Data block. Action Data is documented below.
+        /// </summary>
         [Input("actionDataReference", required: true)]
         public Input<Inputs.AutomationActionsActionActionDataReferenceArgs> ActionDataReference { get; set; } = null!;
 
+        /// <summary>
+        /// The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+        /// </summary>
         [Input("actionType", required: true)]
         public Input<string> ActionType { get; set; } = null!;
 
@@ -162,6 +189,9 @@ namespace Pulumi.Pagerduty
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
 
+        /// <summary>
+        /// The description of the action. Max length is 1024 characters.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -171,9 +201,15 @@ namespace Pulumi.Pagerduty
         [Input("modifyTime")]
         public Input<string>? ModifyTime { get; set; }
 
+        /// <summary>
+        /// The name of the action. Max length is 255 characters.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
+        /// </summary>
         [Input("runnerId")]
         public Input<string>? RunnerId { get; set; }
 
@@ -197,12 +233,21 @@ namespace Pulumi.Pagerduty
 
     public sealed class AutomationActionsActionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        /// </summary>
         [Input("actionClassification")]
         public Input<string>? ActionClassification { get; set; }
 
+        /// <summary>
+        /// Action Data block. Action Data is documented below.
+        /// </summary>
         [Input("actionDataReference")]
         public Input<Inputs.AutomationActionsActionActionDataReferenceGetArgs>? ActionDataReference { get; set; }
 
+        /// <summary>
+        /// The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+        /// </summary>
         [Input("actionType")]
         public Input<string>? ActionType { get; set; }
 
@@ -212,6 +257,9 @@ namespace Pulumi.Pagerduty
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
 
+        /// <summary>
+        /// The description of the action. Max length is 1024 characters.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -221,9 +269,15 @@ namespace Pulumi.Pagerduty
         [Input("modifyTime")]
         public Input<string>? ModifyTime { get; set; }
 
+        /// <summary>
+        /// The name of the action. Max length is 255 characters.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
+        /// </summary>
         [Input("runnerId")]
         public Input<string>? RunnerId { get; set; }
 

@@ -50,13 +50,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User("example", UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()
  *             .name("Earline Greenholt")
  *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .teams(examplePagerdutyTeam.id())
  *             .build());
  * 
- *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()        
+ *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()
  *             .name("Engineering Escalation Policy")
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleResponsePlay = new ResponsePlay("exampleResponsePlay", ResponsePlayArgs.builder()        
+ *         var exampleResponsePlay = new ResponsePlay("exampleResponsePlay", ResponsePlayArgs.builder()
  *             .name("My Response Play")
  *             .from(example.email())
  *             .responders(ResponsePlayResponderArgs.builder()
@@ -133,57 +133,129 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
     public Output<String> description() {
         return this.description;
     }
+    /**
+     * The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
+     * 
+     */
     @Export(name="from", refs={String.class}, tree="[0]")
     private Output<String> from;
 
+    /**
+     * @return The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
+     * 
+     */
     public Output<String> from() {
         return this.from;
     }
+    /**
+     * The name of the response play.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the response play.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
+     * 
+     */
     @Export(name="responders", refs={List.class,ResponsePlayResponder.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResponsePlayResponder>> responders;
 
+    /**
+     * @return A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
+     * 
+     */
     public Output<Optional<List<ResponsePlayResponder>>> responders() {
         return Codegen.optional(this.responders);
     }
+    /**
+     * The message body of the notification that will be sent to this response play&#39;s set of responders. If empty, a default response request notification will be sent.
+     * 
+     */
     @Export(name="respondersMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> respondersMessage;
 
+    /**
+     * @return The message body of the notification that will be sent to this response play&#39;s set of responders. If empty, a default response request notification will be sent.
+     * 
+     */
     public Output<Optional<String>> respondersMessage() {
         return Codegen.optional(this.respondersMessage);
     }
+    /**
+     * String representing how this response play is allowed to be run. Valid options are:
+     * 
+     */
     @Export(name="runnability", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runnability;
 
+    /**
+     * @return String representing how this response play is allowed to be run. Valid options are:
+     * 
+     */
     public Output<Optional<String>> runnability() {
         return Codegen.optional(this.runnability);
     }
+    /**
+     * A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
+     * 
+     */
     @Export(name="subscribers", refs={List.class,ResponsePlaySubscriber.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResponsePlaySubscriber>> subscribers;
 
+    /**
+     * @return A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
+     * 
+     */
     public Output<Optional<List<ResponsePlaySubscriber>>> subscribers() {
         return Codegen.optional(this.subscribers);
     }
+    /**
+     * The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
+     * 
+     */
     @Export(name="subscribersMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subscribersMessage;
 
+    /**
+     * @return The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
+     * 
+     */
     public Output<Optional<String>> subscribersMessage() {
         return Codegen.optional(this.subscribersMessage);
     }
+    /**
+     * The ID of the team associated with the response play.
+     * 
+     */
     @Export(name="team", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> team;
 
+    /**
+     * @return The ID of the team associated with the response play.
+     * 
+     */
     public Output<Optional<String>> team() {
         return Codegen.optional(this.team);
     }
+    /**
+     * A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
+    /**
+     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * 
+     */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }

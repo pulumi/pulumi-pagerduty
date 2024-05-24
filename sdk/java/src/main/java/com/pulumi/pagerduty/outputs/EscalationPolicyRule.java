@@ -16,7 +16,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EscalationPolicyRule {
+    /**
+     * @return The number of minutes before an unacknowledged incident escalates away from this rule.
+     * 
+     */
     private Integer escalationDelayInMinutes;
+    /**
+     * @return The strategy used to assign the escalation rule to an incident. Documented below.
+     * 
+     */
     private @Nullable EscalationPolicyRuleEscalationRuleAssignmentStrategy escalationRuleAssignmentStrategy;
     /**
      * @return The ID of the escalation policy.
@@ -26,9 +34,17 @@ public final class EscalationPolicyRule {
     private List<EscalationPolicyRuleTarget> targets;
 
     private EscalationPolicyRule() {}
+    /**
+     * @return The number of minutes before an unacknowledged incident escalates away from this rule.
+     * 
+     */
     public Integer escalationDelayInMinutes() {
         return this.escalationDelayInMinutes;
     }
+    /**
+     * @return The strategy used to assign the escalation rule to an incident. Documented below.
+     * 
+     */
     public Optional<EscalationPolicyRuleEscalationRuleAssignmentStrategy> escalationRuleAssignmentStrategy() {
         return Optional.ofNullable(this.escalationRuleAssignmentStrategy);
     }

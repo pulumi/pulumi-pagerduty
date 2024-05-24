@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class EventOrchestrationServiceCatchAllActionsAutomationActionParameter {
+    /**
+     * @return Name to identify the parameter
+     * 
+     */
     private String key;
+    /**
+     * @return Value of this parameter
+     * 
+     */
     private String value;
 
     private EventOrchestrationServiceCatchAllActionsAutomationActionParameter() {}
+    /**
+     * @return Name to identify the parameter
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return Value of this parameter
+     * 
+     */
     public String value() {
         return this.value;
     }

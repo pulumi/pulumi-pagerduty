@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var router = new EventOrchestrationRouter("router", EventOrchestrationRouterArgs.builder()        
+ *         var router = new EventOrchestrationRouter("router", EventOrchestrationRouterArgs.builder()
  *             .eventOrchestration(myMonitor.id())
  *             .set(EventOrchestrationRouterSetArgs.builder()
  *                 .id("start")

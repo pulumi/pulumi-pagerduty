@@ -82,9 +82,12 @@ import (
 type BusinessServiceSubscriber struct {
 	pulumi.CustomResourceState
 
+	// The ID of the business service to subscribe to.
 	BusinessServiceId pulumi.StringOutput `pulumi:"businessServiceId"`
-	SubscriberId      pulumi.StringOutput `pulumi:"subscriberId"`
-	SubscriberType    pulumi.StringOutput `pulumi:"subscriberType"`
+	// The ID of the subscriber entity.
+	SubscriberId pulumi.StringOutput `pulumi:"subscriberId"`
+	// Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+	SubscriberType pulumi.StringOutput `pulumi:"subscriberType"`
 }
 
 // NewBusinessServiceSubscriber registers a new resource with the given unique name, arguments, and options.
@@ -126,15 +129,21 @@ func GetBusinessServiceSubscriber(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BusinessServiceSubscriber resources.
 type businessServiceSubscriberState struct {
+	// The ID of the business service to subscribe to.
 	BusinessServiceId *string `pulumi:"businessServiceId"`
-	SubscriberId      *string `pulumi:"subscriberId"`
-	SubscriberType    *string `pulumi:"subscriberType"`
+	// The ID of the subscriber entity.
+	SubscriberId *string `pulumi:"subscriberId"`
+	// Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+	SubscriberType *string `pulumi:"subscriberType"`
 }
 
 type BusinessServiceSubscriberState struct {
+	// The ID of the business service to subscribe to.
 	BusinessServiceId pulumi.StringPtrInput
-	SubscriberId      pulumi.StringPtrInput
-	SubscriberType    pulumi.StringPtrInput
+	// The ID of the subscriber entity.
+	SubscriberId pulumi.StringPtrInput
+	// Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+	SubscriberType pulumi.StringPtrInput
 }
 
 func (BusinessServiceSubscriberState) ElementType() reflect.Type {
@@ -142,16 +151,22 @@ func (BusinessServiceSubscriberState) ElementType() reflect.Type {
 }
 
 type businessServiceSubscriberArgs struct {
+	// The ID of the business service to subscribe to.
 	BusinessServiceId string `pulumi:"businessServiceId"`
-	SubscriberId      string `pulumi:"subscriberId"`
-	SubscriberType    string `pulumi:"subscriberType"`
+	// The ID of the subscriber entity.
+	SubscriberId string `pulumi:"subscriberId"`
+	// Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+	SubscriberType string `pulumi:"subscriberType"`
 }
 
 // The set of arguments for constructing a BusinessServiceSubscriber resource.
 type BusinessServiceSubscriberArgs struct {
+	// The ID of the business service to subscribe to.
 	BusinessServiceId pulumi.StringInput
-	SubscriberId      pulumi.StringInput
-	SubscriberType    pulumi.StringInput
+	// The ID of the subscriber entity.
+	SubscriberId pulumi.StringInput
+	// Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+	SubscriberType pulumi.StringInput
 }
 
 func (BusinessServiceSubscriberArgs) ElementType() reflect.Type {
@@ -241,14 +256,17 @@ func (o BusinessServiceSubscriberOutput) ToBusinessServiceSubscriberOutputWithCo
 	return o
 }
 
+// The ID of the business service to subscribe to.
 func (o BusinessServiceSubscriberOutput) BusinessServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BusinessServiceSubscriber) pulumi.StringOutput { return v.BusinessServiceId }).(pulumi.StringOutput)
 }
 
+// The ID of the subscriber entity.
 func (o BusinessServiceSubscriberOutput) SubscriberId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BusinessServiceSubscriber) pulumi.StringOutput { return v.SubscriberId }).(pulumi.StringOutput)
 }
 
+// Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
 func (o BusinessServiceSubscriberOutput) SubscriberType() pulumi.StringOutput {
 	return o.ApplyT(func(v *BusinessServiceSubscriber) pulumi.StringOutput { return v.SubscriberType }).(pulumi.StringOutput)
 }

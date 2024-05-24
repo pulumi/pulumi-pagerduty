@@ -73,22 +73,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var engineering = new Team("engineering", TeamArgs.builder()        
+ *         var engineering = new Team("engineering", TeamArgs.builder()
  *             .name("Engineering")
  *             .build());
  * 
- *         var example = new User("example", UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()
  *             .name("Earline Greenholt")
  *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .build());
  * 
- *         var foo = new TeamMembership("foo", TeamMembershipArgs.builder()        
+ *         var foo = new TeamMembership("foo", TeamMembershipArgs.builder()
  *             .userId(example.id())
  *             .teamId(engineering.id())
  *             .role("manager")
  *             .build());
  * 
- *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()        
+ *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()
  *             .name("Engineering Escalation Policy")
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("My Web App")
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *             .alertCreation("create_alerts_and_incidents")
  *             .build());
  * 
- *         var csImpact = new IncidentCustomField("csImpact", IncidentCustomFieldArgs.builder()        
+ *         var csImpact = new IncidentCustomField("csImpact", IncidentCustomFieldArgs.builder()
  *             .name("impact")
  *             .dataType("string")
  *             .fieldType("single_value")
@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  *             .name("P1")
  *             .build());
  * 
- *         var www = new EventOrchestrationService("www", EventOrchestrationServiceArgs.builder()        
+ *         var www = new EventOrchestrationService("www", EventOrchestrationServiceArgs.builder()
  *             .service(exampleService.id())
  *             .enableEventOrchestrationForService(true)
  *             .sets(            

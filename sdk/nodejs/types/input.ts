@@ -6,15 +6,36 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface AutomationActionsActionActionDataReference {
+    /**
+     * The command to execute the script with.
+     */
     invocationCommand?: pulumi.Input<string>;
+    /**
+     * The arguments to pass to the Process Automation job execution.
+     */
     processAutomationJobArguments?: pulumi.Input<string>;
+    /**
+     * The ID of the Process Automation job to execute.
+     */
     processAutomationJobId?: pulumi.Input<string>;
+    /**
+     * The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+     */
     processAutomationNodeFilter?: pulumi.Input<string>;
+    /**
+     * Body of the script to be executed on the Runner. Max length is 16777215 characters.
+     */
     script?: pulumi.Input<string>;
 }
 
 export interface EscalationPolicyRule {
+    /**
+     * The number of minutes before an unacknowledged incident escalates away from this rule.
+     */
     escalationDelayInMinutes: pulumi.Input<number>;
+    /**
+     * The strategy used to assign the escalation rule to an incident. Documented below.
+     */
     escalationRuleAssignmentStrategy?: pulumi.Input<inputs.EscalationPolicyRuleEscalationRuleAssignmentStrategy>;
     /**
      * The ID of the escalation policy.
@@ -32,9 +53,12 @@ export interface EscalationPolicyRuleEscalationRuleAssignmentStrategy {
 
 export interface EscalationPolicyRuleTarget {
     /**
-     * The ID of the escalation policy.
+     * A target ID
      */
     id: pulumi.Input<string>;
+    /**
+     * Can be `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
+     */
     type?: pulumi.Input<string>;
 }
 
@@ -146,12 +170,24 @@ export interface EventOrchestrationGlobalCatchAllActionsAutomationAction {
 }
 
 export interface EventOrchestrationGlobalCatchAllActionsAutomationActionHeader {
+    /**
+     * Name to identify the header
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of this header
+     */
     value: pulumi.Input<string>;
 }
 
 export interface EventOrchestrationGlobalCatchAllActionsAutomationActionParameter {
+    /**
+     * Name to identify the parameter
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of this parameter
+     */
     value: pulumi.Input<string>;
 }
 
@@ -312,12 +348,24 @@ export interface EventOrchestrationGlobalSetRuleActionsAutomationAction {
 }
 
 export interface EventOrchestrationGlobalSetRuleActionsAutomationActionHeader {
+    /**
+     * Name to identify the header
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of this header
+     */
     value: pulumi.Input<string>;
 }
 
 export interface EventOrchestrationGlobalSetRuleActionsAutomationActionParameter {
+    /**
+     * Name to identify the parameter
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of this parameter
+     */
     value: pulumi.Input<string>;
 }
 
@@ -566,12 +614,24 @@ export interface EventOrchestrationServiceCatchAllActionsAutomationAction {
 }
 
 export interface EventOrchestrationServiceCatchAllActionsAutomationActionHeader {
+    /**
+     * Name to identify the header
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of this header
+     */
     value: pulumi.Input<string>;
 }
 
 export interface EventOrchestrationServiceCatchAllActionsAutomationActionParameter {
+    /**
+     * Name to identify the parameter
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of this parameter
+     */
     value: pulumi.Input<string>;
 }
 
@@ -739,12 +799,24 @@ export interface EventOrchestrationServiceSetRuleActionsAutomationAction {
 }
 
 export interface EventOrchestrationServiceSetRuleActionsAutomationActionHeader {
+    /**
+     * Name to identify the header
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of this header
+     */
     value: pulumi.Input<string>;
 }
 
 export interface EventOrchestrationServiceSetRuleActionsAutomationActionParameter {
+    /**
+     * Name to identify the parameter
+     */
     key: pulumi.Input<string>;
+    /**
+     * Value of this parameter
+     */
     value: pulumi.Input<string>;
 }
 
@@ -1246,6 +1318,9 @@ export interface ResponsePlayResponderEscalationRuleTarget {
      * The ID of the response play.
      */
     id?: pulumi.Input<string>;
+    /**
+     * Type of object of the target. Supported types are `userReference`, `scheduleReference`.
+     */
     type?: pulumi.Input<string>;
 }
 
@@ -1254,6 +1329,9 @@ export interface ResponsePlayResponderService {
      * The ID of the response play.
      */
     id?: pulumi.Input<string>;
+    /**
+     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
+     */
     type?: pulumi.Input<string>;
 }
 
@@ -1262,6 +1340,9 @@ export interface ResponsePlayResponderTeam {
      * The ID of the response play.
      */
     id?: pulumi.Input<string>;
+    /**
+     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
+     */
     type: pulumi.Input<string>;
 }
 
@@ -1270,6 +1351,9 @@ export interface ResponsePlaySubscriber {
      * The ID of the response play.
      */
     id?: pulumi.Input<string>;
+    /**
+     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
+     */
     type?: pulumi.Input<string>;
 }
 
@@ -1564,7 +1648,13 @@ export interface ServiceAutoPauseNotificationsParameters {
 }
 
 export interface ServiceDependencyDependency {
+    /**
+     * The service that dependents on the supporting service. Dependency dependent service documented below.
+     */
     dependentServices: pulumi.Input<pulumi.Input<inputs.ServiceDependencyDependencyDependentService>[]>;
+    /**
+     * The service that supports the dependent service. Dependency supporting service documented below.
+     */
     supportingServices: pulumi.Input<pulumi.Input<inputs.ServiceDependencyDependencySupportingService>[]>;
     /**
      * Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
@@ -1634,9 +1724,25 @@ export interface ServiceEventRuleActionsEventAction {
 }
 
 export interface ServiceEventRuleActionsExtraction {
+    /**
+     * The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+     *
+     * *- **OR** -*
+     */
     regex?: pulumi.Input<string>;
+    /**
+     * Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+     */
     source?: pulumi.Input<string>;
+    /**
+     * Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+     *
+     * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
+     */
     target?: pulumi.Input<string>;
+    /**
+     * A customized field message. This can also include variables extracted from the payload by using string interpolation.
+     */
     template?: pulumi.Input<string>;
 }
 
@@ -1649,9 +1755,21 @@ export interface ServiceEventRuleActionsSeverity {
 }
 
 export interface ServiceEventRuleActionsSuppress {
+    /**
+     * The number value of the `thresholdTimeUnit` before an incident is created.
+     */
     thresholdTimeAmount?: pulumi.Input<number>;
+    /**
+     * The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
+     */
     thresholdTimeUnit?: pulumi.Input<string>;
+    /**
+     * The number of alerts that should be suppressed.
+     */
     thresholdValue?: pulumi.Input<number>;
+    /**
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+     */
     value?: pulumi.Input<boolean>;
 }
 
@@ -1698,14 +1816,32 @@ export interface ServiceEventRuleTimeFrame {
 }
 
 export interface ServiceEventRuleTimeFrameActiveBetween {
+    /**
+     * Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+     */
     endTime?: pulumi.Input<number>;
+    /**
+     * Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+     */
     startTime?: pulumi.Input<number>;
 }
 
 export interface ServiceEventRuleTimeFrameScheduledWeekly {
+    /**
+     * Length of time the schedule will be active.  Unix timestamp in milliseconds.
+     */
     duration?: pulumi.Input<number>;
+    /**
+     * Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+     */
     startTime?: pulumi.Input<number>;
+    /**
+     * Timezone for the given schedule.
+     */
     timezone?: pulumi.Input<string>;
+    /**
+     * An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
+     */
     weekdays?: pulumi.Input<pulumi.Input<number>[]>;
 }
 
@@ -1747,19 +1883,40 @@ export interface ServiceIncidentUrgencyRuleOutsideSupportHours {
 }
 
 export interface ServiceIntegrationEmailFilter {
+    /**
+     * Can be `always` or `match`.
+     */
     bodyMode?: pulumi.Input<string>;
+    /**
+     * Should be a valid regex or `null`
+     */
     bodyRegex?: pulumi.Input<string>;
+    /**
+     * Can be `always` or `match`.
+     */
     fromEmailMode?: pulumi.Input<string>;
+    /**
+     * Should be a valid regex or `null`
+     */
     fromEmailRegex?: pulumi.Input<string>;
     /**
      * The ID of the service integration.
      */
     id?: pulumi.Input<string>;
+    /**
+     * Can be `always` or `match`.
+     */
     subjectMode?: pulumi.Input<string>;
+    /**
+     * Should be a valid regex or `null`
+     */
     subjectRegex?: pulumi.Input<string>;
 }
 
 export interface ServiceIntegrationEmailParser {
+    /**
+     * Can be `resolve` or `trigger`.
+     */
     action: pulumi.Input<string>;
     /**
      * The ID of the service integration.
@@ -1771,28 +1928,63 @@ export interface ServiceIntegrationEmailParser {
 
 export interface ServiceIntegrationEmailParserMatchPredicate {
     predicates?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParserMatchPredicatePredicate>[]>;
+    /**
+     * Can be `any` or `all`.
+     */
     type: pulumi.Input<string>;
 }
 
 export interface ServiceIntegrationEmailParserMatchPredicatePredicate {
+    /**
+     * Predicate value or valid regex.
+     */
     matcher?: pulumi.Input<string>;
+    /**
+     * Can be `subject`, `body` or `fromAddresses`.
+     */
     part?: pulumi.Input<string>;
     predicates?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParserMatchPredicatePredicatePredicate>[]>;
+    /**
+     * Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+     */
     type: pulumi.Input<string>;
 }
 
 export interface ServiceIntegrationEmailParserMatchPredicatePredicatePredicate {
+    /**
+     * Predicate value or valid regex.
+     */
     matcher: pulumi.Input<string>;
+    /**
+     * Can be `subject`, `body` or `fromAddresses`.
+     */
     part: pulumi.Input<string>;
+    /**
+     * Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+     */
     type: pulumi.Input<string>;
 }
 
 export interface ServiceIntegrationEmailParserValueExtractor {
     endsBefore?: pulumi.Input<string>;
+    /**
+     * Can be `subject` or `body`.
+     */
     part: pulumi.Input<string>;
+    /**
+     * If `type` has value `regex` this value should contain valid regex.
+     *
+     * **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
+     */
     regex?: pulumi.Input<string>;
     startsAfter?: pulumi.Input<string>;
+    /**
+     * Can be `between`, `entire` or `regex`.
+     */
     type: pulumi.Input<string>;
+    /**
+     * First value extractor should have name `incidentKey` other value extractors should contain custom names.
+     */
     valueName: pulumi.Input<string>;
 }
 
@@ -1806,9 +1998,61 @@ export interface ServiceScheduledAction {
 }
 
 export interface ServiceScheduledActionAt {
+    /**
+     * Designates either the start or the end of the scheduled action. Can be `supportHoursStart` or `supportHoursEnd`.
+     *
+     * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `duringSupportHours` and to `low`  for `outsideSupportHours` in `incidentUrgencyRule`.
+     *
+     * Below is an example for a `pagerduty.Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as pagerduty from "@pulumi/pagerduty";
+     *
+     * const foo = new pagerduty.Service("foo", {
+     *     name: "bar",
+     *     description: "bar bar bar",
+     *     autoResolveTimeout: "3600",
+     *     acknowledgementTimeout: "3600",
+     *     escalationPolicy: fooPagerdutyEscalationPolicy.id,
+     *     incidentUrgencyRule: {
+     *         type: "use_support_hours",
+     *         duringSupportHours: {
+     *             type: "constant",
+     *             urgency: "high",
+     *         },
+     *         outsideSupportHours: {
+     *             type: "constant",
+     *             urgency: "low",
+     *         },
+     *     },
+     *     supportHours: {
+     *         type: "fixed_time_per_day",
+     *         timeZone: "America/Lima",
+     *         startTime: "09:00:00",
+     *         endTime: "17:00:00",
+     *         daysOfWeeks: [
+     *             1,
+     *             2,
+     *             3,
+     *             4,
+     *             5,
+     *         ],
+     *     },
+     *     scheduledActions: [{
+     *         type: "urgency_change",
+     *         toUrgency: "high",
+     *         ats: [{
+     *             type: "named_time",
+     *             name: "support_hours_start",
+     *         }],
+     *     }],
+     * });
+     * ```
+     */
     name?: pulumi.Input<string>;
     /**
-     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+     * The type of time specification. Currently, this must be set to `namedTime`.
      */
     type?: pulumi.Input<string>;
 }
@@ -1825,8 +2069,31 @@ export interface ServiceSupportHours {
 }
 
 export interface SlackConnectionConfig {
+    /**
+     * A list of strings to filter events by PagerDuty event type. `"incident.triggered"` is required. The follow event types are also possible:
+     * - `incident.acknowledged`
+     * - `incident.escalated`
+     * - `incident.resolved`
+     * - `incident.reassigned`
+     * - `incident.annotated`
+     * - `incident.unacknowledged`
+     * - `incident.delegated`
+     * - `incident.priority_updated`
+     * - `incident.responder.added`
+     * - `incident.responder.replied`
+     * - `incident.status_update_published`
+     * - `incident.reopened`
+     */
     events: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.
+     * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+     * - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
+     */
     priorities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Allows you to filter events by urgency. Either `high` or `low`.
+     */
     urgency?: pulumi.Input<string>;
 }
 

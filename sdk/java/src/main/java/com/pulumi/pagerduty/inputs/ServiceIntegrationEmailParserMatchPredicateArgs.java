@@ -25,9 +25,17 @@ public final class ServiceIntegrationEmailParserMatchPredicateArgs extends com.p
         return Optional.ofNullable(this.predicates);
     }
 
+    /**
+     * Can be `any` or `all`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Can be `any` or `all`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -70,11 +78,23 @@ public final class ServiceIntegrationEmailParserMatchPredicateArgs extends com.p
             return predicates(List.of(predicates));
         }
 
+        /**
+         * @param type Can be `any` or `all`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Can be `any` or `all`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

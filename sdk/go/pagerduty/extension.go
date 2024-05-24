@@ -107,13 +107,22 @@ import (
 type Extension struct {
 	pulumi.CustomResourceState
 
-	Config           pulumi.StringOutput      `pulumi:"config"`
-	EndpointUrl      pulumi.StringPtrOutput   `pulumi:"endpointUrl"`
+	// The configuration of the service extension as string containing plain JSON-encoded data.
+	Config pulumi.StringOutput `pulumi:"config"`
+	// The url of the extension.
+	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpointUrl`, but one with named `Slack` accepts.
+	EndpointUrl pulumi.StringPtrOutput `pulumi:"endpointUrl"`
+	// This is the objects for which the extension applies (An array of service ids).
 	ExtensionObjects pulumi.StringArrayOutput `pulumi:"extensionObjects"`
-	ExtensionSchema  pulumi.StringOutput      `pulumi:"extensionSchema"`
+	// This is the schema for this extension.
+	ExtensionSchema pulumi.StringOutput `pulumi:"extensionSchema"`
 	// URL at which the entity is uniquely displayed in the Web app
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
-	Name    pulumi.StringOutput `pulumi:"name"`
+	// The name of the service extension.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	//
+	// **Note:** You can use the `getExtensionSchema` data source to locate the appropriate extension vendor ID.
 	Summary pulumi.StringOutput `pulumi:"summary"`
 	Type    pulumi.StringOutput `pulumi:"type"`
 }
@@ -161,25 +170,43 @@ func GetExtension(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Extension resources.
 type extensionState struct {
-	Config           *string  `pulumi:"config"`
-	EndpointUrl      *string  `pulumi:"endpointUrl"`
+	// The configuration of the service extension as string containing plain JSON-encoded data.
+	Config *string `pulumi:"config"`
+	// The url of the extension.
+	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpointUrl`, but one with named `Slack` accepts.
+	EndpointUrl *string `pulumi:"endpointUrl"`
+	// This is the objects for which the extension applies (An array of service ids).
 	ExtensionObjects []string `pulumi:"extensionObjects"`
-	ExtensionSchema  *string  `pulumi:"extensionSchema"`
+	// This is the schema for this extension.
+	ExtensionSchema *string `pulumi:"extensionSchema"`
 	// URL at which the entity is uniquely displayed in the Web app
 	HtmlUrl *string `pulumi:"htmlUrl"`
-	Name    *string `pulumi:"name"`
+	// The name of the service extension.
+	Name *string `pulumi:"name"`
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	//
+	// **Note:** You can use the `getExtensionSchema` data source to locate the appropriate extension vendor ID.
 	Summary *string `pulumi:"summary"`
 	Type    *string `pulumi:"type"`
 }
 
 type ExtensionState struct {
-	Config           pulumi.StringPtrInput
-	EndpointUrl      pulumi.StringPtrInput
+	// The configuration of the service extension as string containing plain JSON-encoded data.
+	Config pulumi.StringPtrInput
+	// The url of the extension.
+	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpointUrl`, but one with named `Slack` accepts.
+	EndpointUrl pulumi.StringPtrInput
+	// This is the objects for which the extension applies (An array of service ids).
 	ExtensionObjects pulumi.StringArrayInput
-	ExtensionSchema  pulumi.StringPtrInput
+	// This is the schema for this extension.
+	ExtensionSchema pulumi.StringPtrInput
 	// URL at which the entity is uniquely displayed in the Web app
 	HtmlUrl pulumi.StringPtrInput
-	Name    pulumi.StringPtrInput
+	// The name of the service extension.
+	Name pulumi.StringPtrInput
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	//
+	// **Note:** You can use the `getExtensionSchema` data source to locate the appropriate extension vendor ID.
 	Summary pulumi.StringPtrInput
 	Type    pulumi.StringPtrInput
 }
@@ -189,22 +216,34 @@ func (ExtensionState) ElementType() reflect.Type {
 }
 
 type extensionArgs struct {
-	Config           *string  `pulumi:"config"`
-	EndpointUrl      *string  `pulumi:"endpointUrl"`
+	// The configuration of the service extension as string containing plain JSON-encoded data.
+	Config *string `pulumi:"config"`
+	// The url of the extension.
+	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpointUrl`, but one with named `Slack` accepts.
+	EndpointUrl *string `pulumi:"endpointUrl"`
+	// This is the objects for which the extension applies (An array of service ids).
 	ExtensionObjects []string `pulumi:"extensionObjects"`
-	ExtensionSchema  string   `pulumi:"extensionSchema"`
-	Name             *string  `pulumi:"name"`
-	Type             *string  `pulumi:"type"`
+	// This is the schema for this extension.
+	ExtensionSchema string `pulumi:"extensionSchema"`
+	// The name of the service extension.
+	Name *string `pulumi:"name"`
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Extension resource.
 type ExtensionArgs struct {
-	Config           pulumi.StringPtrInput
-	EndpointUrl      pulumi.StringPtrInput
+	// The configuration of the service extension as string containing plain JSON-encoded data.
+	Config pulumi.StringPtrInput
+	// The url of the extension.
+	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpointUrl`, but one with named `Slack` accepts.
+	EndpointUrl pulumi.StringPtrInput
+	// This is the objects for which the extension applies (An array of service ids).
 	ExtensionObjects pulumi.StringArrayInput
-	ExtensionSchema  pulumi.StringInput
-	Name             pulumi.StringPtrInput
-	Type             pulumi.StringPtrInput
+	// This is the schema for this extension.
+	ExtensionSchema pulumi.StringInput
+	// The name of the service extension.
+	Name pulumi.StringPtrInput
+	Type pulumi.StringPtrInput
 }
 
 func (ExtensionArgs) ElementType() reflect.Type {
@@ -294,18 +333,23 @@ func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) Exten
 	return o
 }
 
+// The configuration of the service extension as string containing plain JSON-encoded data.
 func (o ExtensionOutput) Config() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Config }).(pulumi.StringOutput)
 }
 
+// The url of the extension.
+// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpointUrl`, but one with named `Slack` accepts.
 func (o ExtensionOutput) EndpointUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.EndpointUrl }).(pulumi.StringPtrOutput)
 }
 
+// This is the objects for which the extension applies (An array of service ids).
 func (o ExtensionOutput) ExtensionObjects() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringArrayOutput { return v.ExtensionObjects }).(pulumi.StringArrayOutput)
 }
 
+// This is the schema for this extension.
 func (o ExtensionOutput) ExtensionSchema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.ExtensionSchema }).(pulumi.StringOutput)
 }
@@ -315,10 +359,14 @@ func (o ExtensionOutput) HtmlUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.HtmlUrl }).(pulumi.StringOutput)
 }
 
+// The name of the service extension.
 func (o ExtensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+//
+// **Note:** You can use the `getExtensionSchema` data source to locate the appropriate extension vendor ID.
 func (o ExtensionOutput) Summary() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Summary }).(pulumi.StringOutput)
 }

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User("example", UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()
  *             .name("Earline Greenholt")
  *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .build());
@@ -80,9 +80,17 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<String> avatarUrl() {
         return this.avatarUrl;
     }
+    /**
+     * The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+     * 
+     */
     @Export(name="color", refs={String.class}, tree="[0]")
     private Output<String> color;
 
+    /**
+     * @return The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+     * 
+     */
     public Output<String> color() {
         return this.color;
     }
@@ -92,9 +100,17 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<String> description() {
         return this.description;
     }
+    /**
+     * The user&#39;s email address.
+     * 
+     */
     @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
+    /**
+     * @return The user&#39;s email address.
+     * 
+     */
     public Output<String> email() {
         return this.email;
     }
@@ -126,31 +142,73 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<Boolean> invitationSent() {
         return this.invitationSent;
     }
+    /**
+     * The user&#39;s title.
+     * 
+     */
     @Export(name="jobTitle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> jobTitle;
 
+    /**
+     * @return The user&#39;s title.
+     * 
+     */
     public Output<Optional<String>> jobTitle() {
         return Codegen.optional(this.jobTitle);
     }
+    /**
+     * The license id assigned to the user. If provided the user&#39;s role must exist in the assigned license&#39;s `valid_roles` list. To reference purchased licenses&#39; ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+     * 
+     */
     @Export(name="license", refs={String.class}, tree="[0]")
     private Output<String> license;
 
+    /**
+     * @return The license id assigned to the user. If provided the user&#39;s role must exist in the assigned license&#39;s `valid_roles` list. To reference purchased licenses&#39; ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+     * 
+     */
     public Output<String> license() {
         return this.license;
     }
+    /**
+     * The name of the user.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the user.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+     * Notes:
+     * * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+     * * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `pagerduty.TeamMembership` resource.
+     * * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
+     * 
+     */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> role;
 
+    /**
+     * @return The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+     * Notes:
+     * * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+     * * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `pagerduty.TeamMembership` resource.
+     * * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
+     * 
+     */
     public Output<Optional<String>> role() {
         return Codegen.optional(this.role);
     }
     /**
+     * A list of teams the user should belong to. Please use `pagerduty.TeamMembership` instead.
+     * 
      * @deprecated
      * Use the &#39;pagerduty_team_membership&#39; resource instead.
      * 
@@ -159,18 +217,22 @@ public class User extends com.pulumi.resources.CustomResource {
     @Export(name="teams", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> teams;
 
+    /**
+     * @return A list of teams the user should belong to. Please use `pagerduty.TeamMembership` instead.
+     * 
+     */
     public Output<List<String>> teams() {
         return this.teams;
     }
     /**
-     * The timezone of the user.
+     * The time zone of the user. Default is account default timezone.
      * 
      */
     @Export(name="timeZone", refs={String.class}, tree="[0]")
     private Output<String> timeZone;
 
     /**
-     * @return The timezone of the user.
+     * @return The time zone of the user. Default is account default timezone.
      * 
      */
     public Output<String> timeZone() {

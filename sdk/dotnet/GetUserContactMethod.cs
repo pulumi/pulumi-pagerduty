@@ -108,11 +108,14 @@ namespace Pulumi.Pagerduty
         public string Label { get; set; } = null!;
 
         /// <summary>
-        /// The type of the found contact method. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        /// The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
         /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the user.
+        /// </summary>
         [Input("userId", required: true)]
         public string UserId { get; set; } = null!;
 
@@ -131,11 +134,14 @@ namespace Pulumi.Pagerduty
         public Input<string> Label { get; set; } = null!;
 
         /// <summary>
-        /// The type of the found contact method. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        /// The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the user.
+        /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
 

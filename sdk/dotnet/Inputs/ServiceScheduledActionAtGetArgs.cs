@@ -12,11 +12,83 @@ namespace Pulumi.Pagerduty.Inputs
 
     public sealed class ServiceScheduledActionAtGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
+        /// 
+        /// Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
+        /// 
+        /// Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = "use_support_hours"`, `support_hours` and a default `scheduled_action` as well.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = new Pagerduty.Service("foo", new()
+        ///     {
+        ///         Name = "bar",
+        ///         Description = "bar bar bar",
+        ///         AutoResolveTimeout = "3600",
+        ///         AcknowledgementTimeout = "3600",
+        ///         EscalationPolicy = fooPagerdutyEscalationPolicy.Id,
+        ///         IncidentUrgencyRule = new Pagerduty.Inputs.ServiceIncidentUrgencyRuleArgs
+        ///         {
+        ///             Type = "use_support_hours",
+        ///             DuringSupportHours = new Pagerduty.Inputs.ServiceIncidentUrgencyRuleDuringSupportHoursArgs
+        ///             {
+        ///                 Type = "constant",
+        ///                 Urgency = "high",
+        ///             },
+        ///             OutsideSupportHours = new Pagerduty.Inputs.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs
+        ///             {
+        ///                 Type = "constant",
+        ///                 Urgency = "low",
+        ///             },
+        ///         },
+        ///         SupportHours = new Pagerduty.Inputs.ServiceSupportHoursArgs
+        ///         {
+        ///             Type = "fixed_time_per_day",
+        ///             TimeZone = "America/Lima",
+        ///             StartTime = "09:00:00",
+        ///             EndTime = "17:00:00",
+        ///             DaysOfWeeks = new[]
+        ///             {
+        ///                 1,
+        ///                 2,
+        ///                 3,
+        ///                 4,
+        ///                 5,
+        ///             },
+        ///         },
+        ///         ScheduledActions = new[]
+        ///         {
+        ///             new Pagerduty.Inputs.ServiceScheduledActionArgs
+        ///             {
+        ///                 Type = "urgency_change",
+        ///                 ToUrgency = "high",
+        ///                 Ats = new[]
+        ///                 {
+        ///                     new Pagerduty.Inputs.ServiceScheduledActionAtArgs
+        ///                     {
+        ///                         Type = "named_time",
+        ///                         Name = "support_hours_start",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        /// The type of time specification. Currently, this must be set to `named_time`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

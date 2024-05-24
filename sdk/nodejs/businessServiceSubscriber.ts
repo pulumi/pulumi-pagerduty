@@ -72,8 +72,17 @@ export class BusinessServiceSubscriber extends pulumi.CustomResource {
         return obj['__pulumiType'] === BusinessServiceSubscriber.__pulumiType;
     }
 
+    /**
+     * The ID of the business service to subscribe to.
+     */
     public readonly businessServiceId!: pulumi.Output<string>;
+    /**
+     * The ID of the subscriber entity.
+     */
     public readonly subscriberId!: pulumi.Output<string>;
+    /**
+     * Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+     */
     public readonly subscriberType!: pulumi.Output<string>;
 
     /**
@@ -116,8 +125,17 @@ export class BusinessServiceSubscriber extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BusinessServiceSubscriber resources.
  */
 export interface BusinessServiceSubscriberState {
+    /**
+     * The ID of the business service to subscribe to.
+     */
     businessServiceId?: pulumi.Input<string>;
+    /**
+     * The ID of the subscriber entity.
+     */
     subscriberId?: pulumi.Input<string>;
+    /**
+     * Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+     */
     subscriberType?: pulumi.Input<string>;
 }
 
@@ -125,7 +143,16 @@ export interface BusinessServiceSubscriberState {
  * The set of arguments for constructing a BusinessServiceSubscriber resource.
  */
 export interface BusinessServiceSubscriberArgs {
+    /**
+     * The ID of the business service to subscribe to.
+     */
     businessServiceId: pulumi.Input<string>;
+    /**
+     * The ID of the subscriber entity.
+     */
     subscriberId: pulumi.Input<string>;
+    /**
+     * Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+     */
     subscriberType: pulumi.Input<string>;
 }

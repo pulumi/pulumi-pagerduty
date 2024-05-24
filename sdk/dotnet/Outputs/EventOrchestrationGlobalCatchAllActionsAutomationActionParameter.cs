@@ -13,7 +13,13 @@ namespace Pulumi.Pagerduty.Outputs
     [OutputType]
     public sealed class EventOrchestrationGlobalCatchAllActionsAutomationActionParameter
     {
+        /// <summary>
+        /// Name to identify the parameter
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Value of this parameter
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

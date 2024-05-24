@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .name("My Service")
  *             .build());
  * 
- *         var foo = new WebhookSubscription("foo", WebhookSubscriptionArgs.builder()        
+ *         var foo = new WebhookSubscription("foo", WebhookSubscriptionArgs.builder()
  *             .deliveryMethods(WebhookSubscriptionDeliveryMethodArgs.builder()
  *                 .type("http_delivery_method")
  *                 .url("https://example.com/receive_a_pagerduty_webhook")
@@ -108,39 +108,113 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/webhookSubscription:WebhookSubscription")
 public class WebhookSubscription extends com.pulumi.resources.CustomResource {
+    /**
+     * Determines whether the subscription will produce webhook events.
+     * 
+     */
     @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> active;
 
+    /**
+     * @return Determines whether the subscription will produce webhook events.
+     * 
+     */
     public Output<Boolean> active() {
         return this.active;
     }
+    /**
+     * The object describing where to send the webhooks.
+     * 
+     */
     @Export(name="deliveryMethods", refs={List.class,WebhookSubscriptionDeliveryMethod.class}, tree="[0,1]")
     private Output<List<WebhookSubscriptionDeliveryMethod>> deliveryMethods;
 
+    /**
+     * @return The object describing where to send the webhooks.
+     * 
+     */
     public Output<List<WebhookSubscriptionDeliveryMethod>> deliveryMethods() {
         return this.deliveryMethods;
     }
+    /**
+     * A short description of the webhook subscription
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return A short description of the webhook subscription
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * A set of outbound event types the webhook will receive. The follow event types are possible:
+     * * `incident.acknowledged`
+     * * `incident.annotated`
+     * * `incident.delegated`
+     * * `incident.escalated`
+     * * `incident.priority_updated`
+     * * `incident.reassigned`
+     * * `incident.reopened`
+     * * `incident.resolved`
+     * * `incident.responder.added`
+     * * `incident.responder.replied`
+     * * `incident.status_update_published`
+     * * `incident.triggered`
+     * * `incident.unacknowledged`
+     * 
+     */
     @Export(name="events", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> events;
 
+    /**
+     * @return A set of outbound event types the webhook will receive. The follow event types are possible:
+     * * `incident.acknowledged`
+     * * `incident.annotated`
+     * * `incident.delegated`
+     * * `incident.escalated`
+     * * `incident.priority_updated`
+     * * `incident.reassigned`
+     * * `incident.reopened`
+     * * `incident.resolved`
+     * * `incident.responder.added`
+     * * `incident.responder.replied`
+     * * `incident.status_update_published`
+     * * `incident.triggered`
+     * * `incident.unacknowledged`
+     * 
+     */
     public Output<List<String>> events() {
         return this.events;
     }
+    /**
+     * determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
+     * 
+     */
     @Export(name="filters", refs={List.class,WebhookSubscriptionFilter.class}, tree="[0,1]")
     private Output<List<WebhookSubscriptionFilter>> filters;
 
+    /**
+     * @return determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
+     * 
+     */
     public Output<List<WebhookSubscriptionFilter>> filters() {
         return this.filters;
     }
+    /**
+     * The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
+    /**
+     * @return The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
+     * 
+     */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }

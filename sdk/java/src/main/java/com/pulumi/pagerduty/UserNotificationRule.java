@@ -47,19 +47,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User("example", UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()
  *             .name("Earline Greenholt")
  *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .build());
  * 
- *         var email = new UserContactMethod("email", UserContactMethodArgs.builder()        
+ *         var email = new UserContactMethod("email", UserContactMethodArgs.builder()
  *             .userId(example.id())
  *             .type("email_contact_method")
  *             .address("foo{@literal @}bar.com")
  *             .label("Work")
  *             .build());
  * 
- *         var phone = new UserContactMethod("phone", UserContactMethodArgs.builder()        
+ *         var phone = new UserContactMethod("phone", UserContactMethodArgs.builder()
  *             .userId(example.id())
  *             .type("phone_contact_method")
  *             .countryCode("+1")
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .label("Work")
  *             .build());
  * 
- *         var sms = new UserContactMethod("sms", UserContactMethodArgs.builder()        
+ *         var sms = new UserContactMethod("sms", UserContactMethodArgs.builder()
  *             .userId(example.id())
  *             .type("sms_contact_method")
  *             .countryCode("+1")
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *             .label("Work")
  *             .build());
  * 
- *         var highUrgencyPhone = new UserNotificationRule("highUrgencyPhone", UserNotificationRuleArgs.builder()        
+ *         var highUrgencyPhone = new UserNotificationRule("highUrgencyPhone", UserNotificationRuleArgs.builder()
  *             .userId(example.id())
  *             .startDelayInMinutes(1)
  *             .urgency("high")
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var lowUrgencyEmail = new UserNotificationRule("lowUrgencyEmail", UserNotificationRuleArgs.builder()        
+ *         var lowUrgencyEmail = new UserNotificationRule("lowUrgencyEmail", UserNotificationRuleArgs.builder()
  *             .userId(example.id())
  *             .startDelayInMinutes(1)
  *             .urgency("low")
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var lowUrgencySms = new UserNotificationRule("lowUrgencySms", UserNotificationRuleArgs.builder()        
+ *         var lowUrgencySms = new UserNotificationRule("lowUrgencySms", UserNotificationRuleArgs.builder()
  *             .userId(example.id())
  *             .startDelayInMinutes(10)
  *             .urgency("low")
@@ -122,27 +122,59 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/userNotificationRule:UserNotificationRule")
 public class UserNotificationRule extends com.pulumi.resources.CustomResource {
+    /**
+     * A contact method block, configured as a block described below.
+     * 
+     */
     @Export(name="contactMethod", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> contactMethod;
 
+    /**
+     * @return A contact method block, configured as a block described below.
+     * 
+     */
     public Output<Map<String,String>> contactMethod() {
         return this.contactMethod;
     }
+    /**
+     * The delay before firing the rule, in minutes.
+     * 
+     */
     @Export(name="startDelayInMinutes", refs={Integer.class}, tree="[0]")
     private Output<Integer> startDelayInMinutes;
 
+    /**
+     * @return The delay before firing the rule, in minutes.
+     * 
+     */
     public Output<Integer> startDelayInMinutes() {
         return this.startDelayInMinutes;
     }
+    /**
+     * Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
+     * 
+     */
     @Export(name="urgency", refs={String.class}, tree="[0]")
     private Output<String> urgency;
 
+    /**
+     * @return Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
+     * 
+     */
     public Output<String> urgency() {
         return this.urgency;
     }
+    /**
+     * The ID of the user.
+     * 
+     */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
+    /**
+     * @return The ID of the user.
+     * 
+     */
     public Output<String> userId() {
         return this.userId;
     }

@@ -14,12 +14,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceIntegrationEmailParserMatchPredicate {
     private @Nullable List<ServiceIntegrationEmailParserMatchPredicatePredicate> predicates;
+    /**
+     * @return Can be `any` or `all`.
+     * 
+     */
     private String type;
 
     private ServiceIntegrationEmailParserMatchPredicate() {}
     public List<ServiceIntegrationEmailParserMatchPredicatePredicate> predicates() {
         return this.predicates == null ? List.of() : this.predicates;
     }
+    /**
+     * @return Can be `any` or `all`.
+     * 
+     */
     public String type() {
         return this.type;
     }

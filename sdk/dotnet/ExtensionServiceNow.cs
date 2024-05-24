@@ -95,9 +95,15 @@ namespace Pulumi.Pagerduty
         [Output("endpointUrl")]
         public Output<string?> EndpointUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// This is the objects for which the extension applies (An array of service ids).
+        /// </summary>
         [Output("extensionObjects")]
         public Output<ImmutableArray<string>> ExtensionObjects { get; private set; } = null!;
 
+        /// <summary>
+        /// This is the schema for this extension.
+        /// </summary>
         [Output("extensionSchema")]
         public Output<string> ExtensionSchema { get; private set; } = null!;
 
@@ -107,27 +113,51 @@ namespace Pulumi.Pagerduty
         [Output("htmlUrl")]
         public Output<string> HtmlUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the service extension.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ServiceNow referer.
+        /// </summary>
         [Output("referer")]
         public Output<string> Referer { get; private set; } = null!;
 
+        /// <summary>
+        /// The ServiceNow password.
+        /// </summary>
         [Output("snowPassword")]
         public Output<string> SnowPassword { get; private set; } = null!;
 
+        /// <summary>
+        /// The ServiceNow username.
+        /// </summary>
         [Output("snowUser")]
         public Output<string> SnowUser { get; private set; } = null!;
 
+        /// <summary>
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// </summary>
         [Output("summary")]
         public Output<string> Summary { get; private set; } = null!;
 
+        /// <summary>
+        /// The ServiceNow sync option.
+        /// </summary>
         [Output("syncOptions")]
         public Output<string> SyncOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// Target Webhook URL.
+        /// </summary>
         [Output("target")]
         public Output<string> Target { get; private set; } = null!;
 
+        /// <summary>
+        /// The ServiceNow task type, typically `incident`.
+        /// </summary>
         [Output("taskType")]
         public Output<string> TaskType { get; private set; } = null!;
 
@@ -199,23 +229,40 @@ namespace Pulumi.Pagerduty
 
         [Input("extensionObjects", required: true)]
         private InputList<string>? _extensionObjects;
+
+        /// <summary>
+        /// This is the objects for which the extension applies (An array of service ids).
+        /// </summary>
         public InputList<string> ExtensionObjects
         {
             get => _extensionObjects ?? (_extensionObjects = new InputList<string>());
             set => _extensionObjects = value;
         }
 
+        /// <summary>
+        /// This is the schema for this extension.
+        /// </summary>
         [Input("extensionSchema", required: true)]
         public Input<string> ExtensionSchema { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the service extension.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ServiceNow referer.
+        /// </summary>
         [Input("referer", required: true)]
         public Input<string> Referer { get; set; } = null!;
 
         [Input("snowPassword", required: true)]
         private Input<string>? _snowPassword;
+
+        /// <summary>
+        /// The ServiceNow password.
+        /// </summary>
         public Input<string>? SnowPassword
         {
             get => _snowPassword;
@@ -226,18 +273,33 @@ namespace Pulumi.Pagerduty
             }
         }
 
+        /// <summary>
+        /// The ServiceNow username.
+        /// </summary>
         [Input("snowUser", required: true)]
         public Input<string> SnowUser { get; set; } = null!;
 
+        /// <summary>
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// </summary>
         [Input("summary")]
         public Input<string>? Summary { get; set; }
 
+        /// <summary>
+        /// The ServiceNow sync option.
+        /// </summary>
         [Input("syncOptions", required: true)]
         public Input<string> SyncOptions { get; set; } = null!;
 
+        /// <summary>
+        /// Target Webhook URL.
+        /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 
+        /// <summary>
+        /// The ServiceNow task type, typically `incident`.
+        /// </summary>
         [Input("taskType", required: true)]
         public Input<string> TaskType { get; set; } = null!;
 
@@ -266,12 +328,19 @@ namespace Pulumi.Pagerduty
 
         [Input("extensionObjects")]
         private InputList<string>? _extensionObjects;
+
+        /// <summary>
+        /// This is the objects for which the extension applies (An array of service ids).
+        /// </summary>
         public InputList<string> ExtensionObjects
         {
             get => _extensionObjects ?? (_extensionObjects = new InputList<string>());
             set => _extensionObjects = value;
         }
 
+        /// <summary>
+        /// This is the schema for this extension.
+        /// </summary>
         [Input("extensionSchema")]
         public Input<string>? ExtensionSchema { get; set; }
 
@@ -281,14 +350,24 @@ namespace Pulumi.Pagerduty
         [Input("htmlUrl")]
         public Input<string>? HtmlUrl { get; set; }
 
+        /// <summary>
+        /// The name of the service extension.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ServiceNow referer.
+        /// </summary>
         [Input("referer")]
         public Input<string>? Referer { get; set; }
 
         [Input("snowPassword")]
         private Input<string>? _snowPassword;
+
+        /// <summary>
+        /// The ServiceNow password.
+        /// </summary>
         public Input<string>? SnowPassword
         {
             get => _snowPassword;
@@ -299,18 +378,33 @@ namespace Pulumi.Pagerduty
             }
         }
 
+        /// <summary>
+        /// The ServiceNow username.
+        /// </summary>
         [Input("snowUser")]
         public Input<string>? SnowUser { get; set; }
 
+        /// <summary>
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// </summary>
         [Input("summary")]
         public Input<string>? Summary { get; set; }
 
+        /// <summary>
+        /// The ServiceNow sync option.
+        /// </summary>
         [Input("syncOptions")]
         public Input<string>? SyncOptions { get; set; }
 
+        /// <summary>
+        /// Target Webhook URL.
+        /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }
 
+        /// <summary>
+        /// The ServiceNow task type, typically `incident`.
+        /// </summary>
         [Input("taskType")]
         public Input<string>? TaskType { get; set; }
 

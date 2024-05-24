@@ -16,9 +16,17 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
 
     public static final TeamState Empty = new TeamState();
 
+    /**
+     * The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
+     * 
+     */
     @Import(name="defaultRole")
     private @Nullable Output<String> defaultRole;
 
+    /**
+     * @return The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
+     * 
+     */
     public Optional<Output<String>> defaultRole() {
         return Optional.ofNullable(this.defaultRole);
     }
@@ -45,16 +53,32 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.htmlUrl);
     }
 
+    /**
+     * The name of the group.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the group.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+     * 
+     */
     @Import(name="parent")
     private @Nullable Output<String> parent;
 
+    /**
+     * @return ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+     * 
+     */
     public Optional<Output<String>> parent() {
         return Optional.ofNullable(this.parent);
     }
@@ -87,11 +111,23 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
             $ = new TeamState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param defaultRole The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultRole(@Nullable Output<String> defaultRole) {
             $.defaultRole = defaultRole;
             return this;
         }
 
+        /**
+         * @param defaultRole The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultRole(String defaultRole) {
             return defaultRole(Output.of(defaultRole));
         }
@@ -126,20 +162,44 @@ public final class TeamState extends com.pulumi.resources.ResourceArgs {
             return htmlUrl(Output.of(htmlUrl));
         }
 
+        /**
+         * @param name The name of the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param parent ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parent(@Nullable Output<String> parent) {
             $.parent = parent;
             return this;
         }
 
+        /**
+         * @param parent ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parent(String parent) {
             return parent(Output.of(parent));
         }

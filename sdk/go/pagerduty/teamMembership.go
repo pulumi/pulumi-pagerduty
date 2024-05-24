@@ -64,11 +64,14 @@ import (
 type TeamMembership struct {
 	pulumi.CustomResourceState
 
-	// The role of the user in the team.
+	// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
+	// These roles match up to user roles in the following ways:
+	// * User role of `user` is a Team role of `manager`
+	// * User role of `limitedUser` is a Team role of `responder`
 	Role pulumi.StringPtrOutput `pulumi:"role"`
-	// The team ID the user belongs to.
+	// The ID of the team in which the user will belong.
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
-	// The ID of the user belonging to the team.
+	// The ID of the user to add to the team.
 	UserId pulumi.StringOutput `pulumi:"userId"`
 }
 
@@ -108,20 +111,26 @@ func GetTeamMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TeamMembership resources.
 type teamMembershipState struct {
-	// The role of the user in the team.
+	// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
+	// These roles match up to user roles in the following ways:
+	// * User role of `user` is a Team role of `manager`
+	// * User role of `limitedUser` is a Team role of `responder`
 	Role *string `pulumi:"role"`
-	// The team ID the user belongs to.
+	// The ID of the team in which the user will belong.
 	TeamId *string `pulumi:"teamId"`
-	// The ID of the user belonging to the team.
+	// The ID of the user to add to the team.
 	UserId *string `pulumi:"userId"`
 }
 
 type TeamMembershipState struct {
-	// The role of the user in the team.
+	// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
+	// These roles match up to user roles in the following ways:
+	// * User role of `user` is a Team role of `manager`
+	// * User role of `limitedUser` is a Team role of `responder`
 	Role pulumi.StringPtrInput
-	// The team ID the user belongs to.
+	// The ID of the team in which the user will belong.
 	TeamId pulumi.StringPtrInput
-	// The ID of the user belonging to the team.
+	// The ID of the user to add to the team.
 	UserId pulumi.StringPtrInput
 }
 
@@ -130,21 +139,27 @@ func (TeamMembershipState) ElementType() reflect.Type {
 }
 
 type teamMembershipArgs struct {
-	// The role of the user in the team.
+	// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
+	// These roles match up to user roles in the following ways:
+	// * User role of `user` is a Team role of `manager`
+	// * User role of `limitedUser` is a Team role of `responder`
 	Role *string `pulumi:"role"`
-	// The team ID the user belongs to.
+	// The ID of the team in which the user will belong.
 	TeamId string `pulumi:"teamId"`
-	// The ID of the user belonging to the team.
+	// The ID of the user to add to the team.
 	UserId string `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a TeamMembership resource.
 type TeamMembershipArgs struct {
-	// The role of the user in the team.
+	// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
+	// These roles match up to user roles in the following ways:
+	// * User role of `user` is a Team role of `manager`
+	// * User role of `limitedUser` is a Team role of `responder`
 	Role pulumi.StringPtrInput
-	// The team ID the user belongs to.
+	// The ID of the team in which the user will belong.
 	TeamId pulumi.StringInput
-	// The ID of the user belonging to the team.
+	// The ID of the user to add to the team.
 	UserId pulumi.StringInput
 }
 
@@ -235,17 +250,20 @@ func (o TeamMembershipOutput) ToTeamMembershipOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The role of the user in the team.
+// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
+// These roles match up to user roles in the following ways:
+// * User role of `user` is a Team role of `manager`
+// * User role of `limitedUser` is a Team role of `responder`
 func (o TeamMembershipOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TeamMembership) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// The team ID the user belongs to.
+// The ID of the team in which the user will belong.
 func (o TeamMembershipOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamMembership) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
 }
 
-// The ID of the user belonging to the team.
+// The ID of the user to add to the team.
 func (o TeamMembershipOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamMembership) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }

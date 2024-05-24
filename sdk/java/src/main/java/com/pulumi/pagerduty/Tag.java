@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Tag("example", TagArgs.builder()        
+ *         var example = new Tag("example", TagArgs.builder()
  *             .label("Product")
  *             .build());
  * 
@@ -76,9 +76,17 @@ public class Tag extends com.pulumi.resources.CustomResource {
     public Output<String> htmlUrl() {
         return this.htmlUrl;
     }
+    /**
+     * The label of the tag.
+     * 
+     */
     @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
+    /**
+     * @return The label of the tag.
+     * 
+     */
     public Output<String> label() {
         return this.label;
     }

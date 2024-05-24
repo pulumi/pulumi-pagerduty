@@ -70,6 +70,9 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/userContactMethod:UserContactMethod")]
     public partial class UserContactMethod : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
+        /// </summary>
         [Output("address")]
         public Output<string> Address { get; private set; } = null!;
 
@@ -79,6 +82,9 @@ namespace Pulumi.Pagerduty
         [Output("blacklisted")]
         public Output<bool> Blacklisted { get; private set; } = null!;
 
+        /// <summary>
+        /// The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+        /// </summary>
         [Output("countryCode")]
         public Output<int> CountryCode { get; private set; } = null!;
 
@@ -88,15 +94,27 @@ namespace Pulumi.Pagerduty
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The label (e.g., "Work", "Mobile", etc.).
+        /// </summary>
         [Output("label")]
         public Output<string> Label { get; private set; } = null!;
 
+        /// <summary>
+        /// Send an abbreviated email message instead of the standard email output.
+        /// </summary>
         [Output("sendShortEmail")]
         public Output<bool?> SendShortEmail { get; private set; } = null!;
 
+        /// <summary>
+        /// The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the user.
+        /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
 
@@ -146,21 +164,39 @@ namespace Pulumi.Pagerduty
 
     public sealed class UserContactMethodArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
+        /// </summary>
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
 
+        /// <summary>
+        /// The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+        /// </summary>
         [Input("countryCode")]
         public Input<int>? CountryCode { get; set; }
 
+        /// <summary>
+        /// The label (e.g., "Work", "Mobile", etc.).
+        /// </summary>
         [Input("label", required: true)]
         public Input<string> Label { get; set; } = null!;
 
+        /// <summary>
+        /// Send an abbreviated email message instead of the standard email output.
+        /// </summary>
         [Input("sendShortEmail")]
         public Input<bool>? SendShortEmail { get; set; }
 
+        /// <summary>
+        /// The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the user.
+        /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
 
@@ -172,6 +208,9 @@ namespace Pulumi.Pagerduty
 
     public sealed class UserContactMethodState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
+        /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
 
@@ -181,6 +220,9 @@ namespace Pulumi.Pagerduty
         [Input("blacklisted")]
         public Input<bool>? Blacklisted { get; set; }
 
+        /// <summary>
+        /// The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+        /// </summary>
         [Input("countryCode")]
         public Input<int>? CountryCode { get; set; }
 
@@ -190,15 +232,27 @@ namespace Pulumi.Pagerduty
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The label (e.g., "Work", "Mobile", etc.).
+        /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
+        /// <summary>
+        /// Send an abbreviated email message instead of the standard email output.
+        /// </summary>
         [Input("sendShortEmail")]
         public Input<bool>? SendShortEmail { get; set; }
 
+        /// <summary>
+        /// The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// The ID of the user.
+        /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
 

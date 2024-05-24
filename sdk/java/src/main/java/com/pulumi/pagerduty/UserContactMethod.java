@@ -44,20 +44,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User("example", UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()
  *             .name("Earline Greenholt")
  *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .teams(examplePagerdutyTeam.id())
  *             .build());
  * 
- *         var email = new UserContactMethod("email", UserContactMethodArgs.builder()        
+ *         var email = new UserContactMethod("email", UserContactMethodArgs.builder()
  *             .userId(example.id())
  *             .type("email_contact_method")
  *             .address("foo{@literal @}bar.com")
  *             .label("Work")
  *             .build());
  * 
- *         var phone = new UserContactMethod("phone", UserContactMethodArgs.builder()        
+ *         var phone = new UserContactMethod("phone", UserContactMethodArgs.builder()
  *             .userId(example.id())
  *             .type("phone_contact_method")
  *             .countryCode("+1")
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .label("Work")
  *             .build());
  * 
- *         var sms = new UserContactMethod("sms", UserContactMethodArgs.builder()        
+ *         var sms = new UserContactMethod("sms", UserContactMethodArgs.builder()
  *             .userId(example.id())
  *             .type("sms_contact_method")
  *             .countryCode("+1")
@@ -90,9 +90,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/userContactMethod:UserContactMethod")
 public class UserContactMethod extends com.pulumi.resources.CustomResource {
+    /**
+     * The &#34;address&#34; to deliver to: `email`, `phone number`, etc., depending on the type.
+     * 
+     */
     @Export(name="address", refs={String.class}, tree="[0]")
     private Output<String> address;
 
+    /**
+     * @return The &#34;address&#34; to deliver to: `email`, `phone number`, etc., depending on the type.
+     * 
+     */
     public Output<String> address() {
         return this.address;
     }
@@ -110,9 +118,17 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
     public Output<Boolean> blacklisted() {
         return this.blacklisted;
     }
+    /**
+     * The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+     * 
+     */
     @Export(name="countryCode", refs={Integer.class}, tree="[0]")
     private Output<Integer> countryCode;
 
+    /**
+     * @return The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+     * 
+     */
     public Output<Integer> countryCode() {
         return this.countryCode;
     }
@@ -130,27 +146,59 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
     public Output<Boolean> enabled() {
         return this.enabled;
     }
+    /**
+     * The label (e.g., &#34;Work&#34;, &#34;Mobile&#34;, etc.).
+     * 
+     */
     @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
+    /**
+     * @return The label (e.g., &#34;Work&#34;, &#34;Mobile&#34;, etc.).
+     * 
+     */
     public Output<String> label() {
         return this.label;
     }
+    /**
+     * Send an abbreviated email message instead of the standard email output.
+     * 
+     */
     @Export(name="sendShortEmail", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendShortEmail;
 
+    /**
+     * @return Send an abbreviated email message instead of the standard email output.
+     * 
+     */
     public Output<Optional<Boolean>> sendShortEmail() {
         return Codegen.optional(this.sendShortEmail);
     }
+    /**
+     * The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
+    /**
+     * @return The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
+    /**
+     * The ID of the user.
+     * 
+     */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
+    /**
+     * @return The ID of the user.
+     * 
+     */
     public Output<String> userId() {
         return this.userId;
     }

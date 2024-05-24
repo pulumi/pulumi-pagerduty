@@ -19,6 +19,9 @@ class TagAssignmentArgs:
                  tag_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a TagAssignment resource.
+        :param pulumi.Input[str] entity_id: The ID of the entity.
+        :param pulumi.Input[str] entity_type: Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+        :param pulumi.Input[str] tag_id: The ID of the tag.
         """
         pulumi.set(__self__, "entity_id", entity_id)
         pulumi.set(__self__, "entity_type", entity_type)
@@ -27,6 +30,9 @@ class TagAssignmentArgs:
     @property
     @pulumi.getter(name="entityId")
     def entity_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the entity.
+        """
         return pulumi.get(self, "entity_id")
 
     @entity_id.setter
@@ -36,6 +42,9 @@ class TagAssignmentArgs:
     @property
     @pulumi.getter(name="entityType")
     def entity_type(self) -> pulumi.Input[str]:
+        """
+        Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+        """
         return pulumi.get(self, "entity_type")
 
     @entity_type.setter
@@ -45,6 +54,9 @@ class TagAssignmentArgs:
     @property
     @pulumi.getter(name="tagId")
     def tag_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the tag.
+        """
         return pulumi.get(self, "tag_id")
 
     @tag_id.setter
@@ -60,6 +72,9 @@ class _TagAssignmentState:
                  tag_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TagAssignment resources.
+        :param pulumi.Input[str] entity_id: The ID of the entity.
+        :param pulumi.Input[str] entity_type: Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+        :param pulumi.Input[str] tag_id: The ID of the tag.
         """
         if entity_id is not None:
             pulumi.set(__self__, "entity_id", entity_id)
@@ -71,6 +86,9 @@ class _TagAssignmentState:
     @property
     @pulumi.getter(name="entityId")
     def entity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the entity.
+        """
         return pulumi.get(self, "entity_id")
 
     @entity_id.setter
@@ -80,6 +98,9 @@ class _TagAssignmentState:
     @property
     @pulumi.getter(name="entityType")
     def entity_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+        """
         return pulumi.get(self, "entity_type")
 
     @entity_type.setter
@@ -89,6 +110,9 @@ class _TagAssignmentState:
     @property
     @pulumi.getter(name="tagId")
     def tag_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the tag.
+        """
         return pulumi.get(self, "tag_id")
 
     @tag_id.setter
@@ -132,6 +156,9 @@ class TagAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] entity_id: The ID of the entity.
+        :param pulumi.Input[str] entity_type: Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+        :param pulumi.Input[str] tag_id: The ID of the tag.
         """
         ...
     @overload
@@ -220,6 +247,9 @@ class TagAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] entity_id: The ID of the entity.
+        :param pulumi.Input[str] entity_type: Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+        :param pulumi.Input[str] tag_id: The ID of the tag.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -233,15 +263,24 @@ class TagAssignment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="entityId")
     def entity_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the entity.
+        """
         return pulumi.get(self, "entity_id")
 
     @property
     @pulumi.getter(name="entityType")
     def entity_type(self) -> pulumi.Output[str]:
+        """
+        Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+        """
         return pulumi.get(self, "entity_type")
 
     @property
     @pulumi.getter(name="tagId")
     def tag_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the tag.
+        """
         return pulumi.get(self, "tag_id")
 

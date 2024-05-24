@@ -12,9 +12,15 @@ namespace Pulumi.Pagerduty.Inputs
 
     public sealed class EscalationPolicyRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of minutes before an unacknowledged incident escalates away from this rule.
+        /// </summary>
         [Input("escalationDelayInMinutes", required: true)]
         public Input<int> EscalationDelayInMinutes { get; set; } = null!;
 
+        /// <summary>
+        /// The strategy used to assign the escalation rule to an incident. Documented below.
+        /// </summary>
         [Input("escalationRuleAssignmentStrategy")]
         public Input<Inputs.EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs>? EscalationRuleAssignmentStrategy { get; set; }
 

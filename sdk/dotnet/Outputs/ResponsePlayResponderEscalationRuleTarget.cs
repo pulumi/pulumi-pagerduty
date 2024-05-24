@@ -17,6 +17,9 @@ namespace Pulumi.Pagerduty.Outputs
         /// The ID of the response play.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

@@ -42,21 +42,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var csImpact = new IncidentCustomField("csImpact", IncidentCustomFieldArgs.builder()        
+ *         var csImpact = new IncidentCustomField("csImpact", IncidentCustomFieldArgs.builder()
  *             .name("impact")
  *             .displayName("Customer Impact")
  *             .dataType("string")
  *             .fieldType("single_value")
  *             .build());
  * 
- *         var sreEnvironment = new IncidentCustomField("sreEnvironment", IncidentCustomFieldArgs.builder()        
+ *         var sreEnvironment = new IncidentCustomField("sreEnvironment", IncidentCustomFieldArgs.builder()
  *             .name("environment")
  *             .displayName("Environment")
  *             .dataType("string")
  *             .fieldType("single_value_fixed")
  *             .build());
  * 
- *         var falseAlarm = new IncidentCustomField("falseAlarm", IncidentCustomFieldArgs.builder()        
+ *         var falseAlarm = new IncidentCustomField("falseAlarm", IncidentCustomFieldArgs.builder()
  *             .name("false_alarm")
  *             .displayName("False Alarm")
  *             .dataType("boolean")
@@ -81,39 +81,87 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/incidentCustomField:IncidentCustomField")
 public class IncidentCustomField extends com.pulumi.resources.CustomResource {
+    /**
+     * The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+     * 
+     */
     @Export(name="dataType", refs={String.class}, tree="[0]")
     private Output<String> dataType;
 
+    /**
+     * @return The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+     * 
+     */
     public Output<String> dataType() {
         return this.dataType;
     }
+    /**
+     * The default value to set when new incidents are created. Always specified as a string.
+     * 
+     */
     @Export(name="defaultValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultValue;
 
+    /**
+     * @return The default value to set when new incidents are created. Always specified as a string.
+     * 
+     */
     public Output<Optional<String>> defaultValue() {
         return Codegen.optional(this.defaultValue);
     }
+    /**
+     * The description of the field.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The description of the field.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The display name of the field.
+     * 
+     */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
+    /**
+     * @return The display name of the field.
+     * 
+     */
     public Output<String> displayName() {
         return this.displayName;
     }
+    /**
+     * The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * 
+     */
     @Export(name="fieldType", refs={String.class}, tree="[0]")
     private Output<String> fieldType;
 
+    /**
+     * @return The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * 
+     */
     public Output<String> fieldType() {
         return this.fieldType;
     }
+    /**
+     * The name of the field.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the field.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }

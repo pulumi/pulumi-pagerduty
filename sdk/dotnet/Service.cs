@@ -77,24 +77,45 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/service:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
+        /// </summary>
         [Output("acknowledgementTimeout")]
         public Output<string?> AcknowledgementTimeout { get; private set; } = null!;
 
+        /// <summary>
+        /// (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
+        /// </summary>
         [Output("alertCreation")]
         public Output<string?> AlertCreation { get; private set; } = null!;
 
+        /// <summary>
+        /// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
+        /// </summary>
         [Output("alertGrouping")]
         public Output<string> AlertGrouping { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        /// </summary>
         [Output("alertGroupingParameters")]
         public Output<Outputs.ServiceAlertGroupingParameters> AlertGroupingParameters { get; private set; } = null!;
 
+        /// <summary>
+        /// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
+        /// </summary>
         [Output("alertGroupingTimeout")]
         public Output<string> AlertGroupingTimeout { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+        /// </summary>
         [Output("autoPauseNotificationsParameters")]
         public Output<Outputs.ServiceAutoPauseNotificationsParameters> AutoPauseNotificationsParameters { get; private set; } = null!;
 
+        /// <summary>
+        /// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
+        /// </summary>
         [Output("autoResolveTimeout")]
         public Output<string?> AutoResolveTimeout { get; private set; } = null!;
 
@@ -107,6 +128,9 @@ namespace Pulumi.Pagerduty
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The escalation policy used by this service.
+        /// </summary>
         [Output("escalationPolicy")]
         public Output<string> EscalationPolicy { get; private set; } = null!;
 
@@ -125,9 +149,15 @@ namespace Pulumi.Pagerduty
         [Output("lastIncidentTimestamp")]
         public Output<string> LastIncidentTimestamp { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the service.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The response play used by this service.
+        /// </summary>
         [Output("responsePlay")]
         public Output<string> ResponsePlay { get; private set; } = null!;
 
@@ -195,39 +225,69 @@ namespace Pulumi.Pagerduty
 
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
+        /// </summary>
         [Input("acknowledgementTimeout")]
         public Input<string>? AcknowledgementTimeout { get; set; }
 
+        /// <summary>
+        /// (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
+        /// </summary>
         [Input("alertCreation")]
         public Input<string>? AlertCreation { get; set; }
 
+        /// <summary>
+        /// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
+        /// </summary>
         [Input("alertGrouping")]
         public Input<string>? AlertGrouping { get; set; }
 
+        /// <summary>
+        /// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        /// </summary>
         [Input("alertGroupingParameters")]
         public Input<Inputs.ServiceAlertGroupingParametersArgs>? AlertGroupingParameters { get; set; }
 
+        /// <summary>
+        /// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
+        /// </summary>
         [Input("alertGroupingTimeout")]
         public Input<string>? AlertGroupingTimeout { get; set; }
 
+        /// <summary>
+        /// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+        /// </summary>
         [Input("autoPauseNotificationsParameters")]
         public Input<Inputs.ServiceAutoPauseNotificationsParametersArgs>? AutoPauseNotificationsParameters { get; set; }
 
+        /// <summary>
+        /// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
+        /// </summary>
         [Input("autoResolveTimeout")]
         public Input<string>? AutoResolveTimeout { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The escalation policy used by this service.
+        /// </summary>
         [Input("escalationPolicy", required: true)]
         public Input<string> EscalationPolicy { get; set; } = null!;
 
         [Input("incidentUrgencyRule")]
         public Input<Inputs.ServiceIncidentUrgencyRuleArgs>? IncidentUrgencyRule { get; set; }
 
+        /// <summary>
+        /// The name of the service.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The response play used by this service.
+        /// </summary>
         [Input("responsePlay")]
         public Input<string>? ResponsePlay { get; set; }
 
@@ -251,24 +311,45 @@ namespace Pulumi.Pagerduty
 
     public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
+        /// </summary>
         [Input("acknowledgementTimeout")]
         public Input<string>? AcknowledgementTimeout { get; set; }
 
+        /// <summary>
+        /// (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
+        /// </summary>
         [Input("alertCreation")]
         public Input<string>? AlertCreation { get; set; }
 
+        /// <summary>
+        /// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
+        /// </summary>
         [Input("alertGrouping")]
         public Input<string>? AlertGrouping { get; set; }
 
+        /// <summary>
+        /// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        /// </summary>
         [Input("alertGroupingParameters")]
         public Input<Inputs.ServiceAlertGroupingParametersGetArgs>? AlertGroupingParameters { get; set; }
 
+        /// <summary>
+        /// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
+        /// </summary>
         [Input("alertGroupingTimeout")]
         public Input<string>? AlertGroupingTimeout { get; set; }
 
+        /// <summary>
+        /// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+        /// </summary>
         [Input("autoPauseNotificationsParameters")]
         public Input<Inputs.ServiceAutoPauseNotificationsParametersGetArgs>? AutoPauseNotificationsParameters { get; set; }
 
+        /// <summary>
+        /// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
+        /// </summary>
         [Input("autoResolveTimeout")]
         public Input<string>? AutoResolveTimeout { get; set; }
 
@@ -281,6 +362,9 @@ namespace Pulumi.Pagerduty
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The escalation policy used by this service.
+        /// </summary>
         [Input("escalationPolicy")]
         public Input<string>? EscalationPolicy { get; set; }
 
@@ -299,9 +383,15 @@ namespace Pulumi.Pagerduty
         [Input("lastIncidentTimestamp")]
         public Input<string>? LastIncidentTimestamp { get; set; }
 
+        /// <summary>
+        /// The name of the service.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The response play used by this service.
+        /// </summary>
         [Input("responsePlay")]
         public Input<string>? ResponsePlay { get; set; }
 

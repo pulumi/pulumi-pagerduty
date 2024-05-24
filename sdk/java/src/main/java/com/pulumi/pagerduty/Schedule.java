@@ -51,16 +51,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User("example", UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()
  *             .name("Earline Greenholt")
  *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .build());
  * 
- *         var exampleTeam = new Team("exampleTeam", TeamArgs.builder()        
+ *         var exampleTeam = new Team("exampleTeam", TeamArgs.builder()
  *             .name("A Team")
  *             .build());
  * 
- *         var foo = new Schedule("foo", ScheduleArgs.builder()        
+ *         var foo = new Schedule("foo", ScheduleArgs.builder()
  *             .name("Daily Engineering Rotation")
  *             .timeZone("America/New_York")
  *             .layers(ScheduleLayerArgs.builder()

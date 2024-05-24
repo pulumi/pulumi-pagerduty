@@ -25,7 +25,18 @@ class UserArgs:
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
-        :param pulumi.Input[str] time_zone: The timezone of the user.
+        :param pulumi.Input[str] email: The user's email address.
+        :param pulumi.Input[str] color: The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+        :param pulumi.Input[str] job_title: The user's title.
+        :param pulumi.Input[str] license: The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `get_licenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+        :param pulumi.Input[str] name: The name of the user.
+        :param pulumi.Input[str] role: The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+               Notes:
+               * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+               * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
+               * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: A list of teams the user should belong to. Please use `TeamMembership` instead.
+        :param pulumi.Input[str] time_zone: The time zone of the user. Default is account default timezone.
         """
         pulumi.set(__self__, "email", email)
         if color is not None:
@@ -53,6 +64,9 @@ class UserArgs:
     @property
     @pulumi.getter
     def email(self) -> pulumi.Input[str]:
+        """
+        The user's email address.
+        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -62,6 +76,9 @@ class UserArgs:
     @property
     @pulumi.getter
     def color(self) -> Optional[pulumi.Input[str]]:
+        """
+        The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+        """
         return pulumi.get(self, "color")
 
     @color.setter
@@ -80,6 +97,9 @@ class UserArgs:
     @property
     @pulumi.getter(name="jobTitle")
     def job_title(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user's title.
+        """
         return pulumi.get(self, "job_title")
 
     @job_title.setter
@@ -89,6 +109,9 @@ class UserArgs:
     @property
     @pulumi.getter
     def license(self) -> Optional[pulumi.Input[str]]:
+        """
+        The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `get_licenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+        """
         return pulumi.get(self, "license")
 
     @license.setter
@@ -98,6 +121,9 @@ class UserArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the user.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -107,6 +133,13 @@ class UserArgs:
     @property
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+        Notes:
+        * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+        * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
+        * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
+        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -116,6 +149,9 @@ class UserArgs:
     @property
     @pulumi.getter
     def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of teams the user should belong to. Please use `TeamMembership` instead.
+        """
         warnings.warn("""Use the 'pagerduty_team_membership' resource instead.""", DeprecationWarning)
         pulumi.log.warn("""teams is deprecated: Use the 'pagerduty_team_membership' resource instead.""")
 
@@ -129,7 +165,7 @@ class UserArgs:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The timezone of the user.
+        The time zone of the user. Default is account default timezone.
         """
         return pulumi.get(self, "time_zone")
 
@@ -156,9 +192,20 @@ class _UserState:
         """
         Input properties used for looking up and filtering User resources.
         :param pulumi.Input[str] avatar_url: The URL of the user's avatar.
+        :param pulumi.Input[str] color: The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+        :param pulumi.Input[str] email: The user's email address.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[bool] invitation_sent: If true, the user has an outstanding invitation.
-        :param pulumi.Input[str] time_zone: The timezone of the user.
+        :param pulumi.Input[str] job_title: The user's title.
+        :param pulumi.Input[str] license: The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `get_licenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+        :param pulumi.Input[str] name: The name of the user.
+        :param pulumi.Input[str] role: The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+               Notes:
+               * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+               * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
+               * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: A list of teams the user should belong to. Please use `TeamMembership` instead.
+        :param pulumi.Input[str] time_zone: The time zone of the user. Default is account default timezone.
         """
         if avatar_url is not None:
             pulumi.set(__self__, "avatar_url", avatar_url)
@@ -205,6 +252,9 @@ class _UserState:
     @property
     @pulumi.getter
     def color(self) -> Optional[pulumi.Input[str]]:
+        """
+        The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+        """
         return pulumi.get(self, "color")
 
     @color.setter
@@ -223,6 +273,9 @@ class _UserState:
     @property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user's email address.
+        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -256,6 +309,9 @@ class _UserState:
     @property
     @pulumi.getter(name="jobTitle")
     def job_title(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user's title.
+        """
         return pulumi.get(self, "job_title")
 
     @job_title.setter
@@ -265,6 +321,9 @@ class _UserState:
     @property
     @pulumi.getter
     def license(self) -> Optional[pulumi.Input[str]]:
+        """
+        The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `get_licenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+        """
         return pulumi.get(self, "license")
 
     @license.setter
@@ -274,6 +333,9 @@ class _UserState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the user.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -283,6 +345,13 @@ class _UserState:
     @property
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+        Notes:
+        * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+        * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
+        * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
+        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -292,6 +361,9 @@ class _UserState:
     @property
     @pulumi.getter
     def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of teams the user should belong to. Please use `TeamMembership` instead.
+        """
         warnings.warn("""Use the 'pagerduty_team_membership' resource instead.""", DeprecationWarning)
         pulumi.log.warn("""teams is deprecated: Use the 'pagerduty_team_membership' resource instead.""")
 
@@ -305,7 +377,7 @@ class _UserState:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The timezone of the user.
+        The time zone of the user. Default is account default timezone.
         """
         return pulumi.get(self, "time_zone")
 
@@ -353,7 +425,18 @@ class User(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] time_zone: The timezone of the user.
+        :param pulumi.Input[str] color: The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+        :param pulumi.Input[str] email: The user's email address.
+        :param pulumi.Input[str] job_title: The user's title.
+        :param pulumi.Input[str] license: The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `get_licenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+        :param pulumi.Input[str] name: The name of the user.
+        :param pulumi.Input[str] role: The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+               Notes:
+               * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+               * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
+               * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: A list of teams the user should belong to. Please use `TeamMembership` instead.
+        :param pulumi.Input[str] time_zone: The time zone of the user. Default is account default timezone.
         """
         ...
     @overload
@@ -462,9 +545,20 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] avatar_url: The URL of the user's avatar.
+        :param pulumi.Input[str] color: The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+        :param pulumi.Input[str] email: The user's email address.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[bool] invitation_sent: If true, the user has an outstanding invitation.
-        :param pulumi.Input[str] time_zone: The timezone of the user.
+        :param pulumi.Input[str] job_title: The user's title.
+        :param pulumi.Input[str] license: The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `get_licenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+        :param pulumi.Input[str] name: The name of the user.
+        :param pulumi.Input[str] role: The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+               Notes:
+               * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+               * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
+               * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: A list of teams the user should belong to. Please use `TeamMembership` instead.
+        :param pulumi.Input[str] time_zone: The time zone of the user. Default is account default timezone.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -495,6 +589,9 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter
     def color(self) -> pulumi.Output[str]:
+        """
+        The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+        """
         return pulumi.get(self, "color")
 
     @property
@@ -505,6 +602,9 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter
     def email(self) -> pulumi.Output[str]:
+        """
+        The user's email address.
+        """
         return pulumi.get(self, "email")
 
     @property
@@ -526,26 +626,45 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter(name="jobTitle")
     def job_title(self) -> pulumi.Output[Optional[str]]:
+        """
+        The user's title.
+        """
         return pulumi.get(self, "job_title")
 
     @property
     @pulumi.getter
     def license(self) -> pulumi.Output[str]:
+        """
+        The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `get_licenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+        """
         return pulumi.get(self, "license")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the user.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional[str]]:
+        """
+        The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+        Notes:
+        * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+        * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
+        * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
+        """
         return pulumi.get(self, "role")
 
     @property
     @pulumi.getter
     def teams(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of teams the user should belong to. Please use `TeamMembership` instead.
+        """
         warnings.warn("""Use the 'pagerduty_team_membership' resource instead.""", DeprecationWarning)
         pulumi.log.warn("""teams is deprecated: Use the 'pagerduty_team_membership' resource instead.""")
 
@@ -555,7 +674,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> pulumi.Output[str]:
         """
-        The timezone of the user.
+        The time zone of the user. Default is account default timezone.
         """
         return pulumi.get(self, "time_zone")
 

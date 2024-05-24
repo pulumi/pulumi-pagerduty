@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new ServiceDependency("foo", ServiceDependencyArgs.builder()        
+ *         var foo = new ServiceDependency("foo", ServiceDependencyArgs.builder()
  *             .dependency(ServiceDependencyDependencyArgs.builder()
  *                 .dependentServices(ServiceDependencyDependencyDependentServiceArgs.builder()
  *                     .id(fooPagerdutyBusinessService.id())
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var bar = new ServiceDependency("bar", ServiceDependencyArgs.builder()        
+ *         var bar = new ServiceDependency("bar", ServiceDependencyArgs.builder()
  *             .dependency(ServiceDependencyDependencyArgs.builder()
  *                 .dependentServices(ServiceDependencyDependencyDependentServiceArgs.builder()
  *                     .id(fooPagerdutyBusinessService.id())
@@ -85,9 +85,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/serviceDependency:ServiceDependency")
 public class ServiceDependency extends com.pulumi.resources.CustomResource {
+    /**
+     * The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
+     * 
+     */
     @Export(name="dependency", refs={ServiceDependencyDependency.class}, tree="[0]")
     private Output<ServiceDependencyDependency> dependency;
 
+    /**
+     * @return The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
+     * 
+     */
     public Output<ServiceDependencyDependency> dependency() {
         return this.dependency;
     }

@@ -17,6 +17,9 @@ namespace Pulumi.Pagerduty.Outputs
         /// The ID of the response play.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// A string that determines the schema of the object. If not set, the default value is "response_play".
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

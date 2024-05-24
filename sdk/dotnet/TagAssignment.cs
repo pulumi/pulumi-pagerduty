@@ -53,12 +53,21 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/tagAssignment:TagAssignment")]
     public partial class TagAssignment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the entity.
+        /// </summary>
         [Output("entityId")]
         public Output<string> EntityId { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+        /// </summary>
         [Output("entityType")]
         public Output<string> EntityType { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the tag.
+        /// </summary>
         [Output("tagId")]
         public Output<string> TagId { get; private set; } = null!;
 
@@ -108,12 +117,21 @@ namespace Pulumi.Pagerduty
 
     public sealed class TagAssignmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the entity.
+        /// </summary>
         [Input("entityId", required: true)]
         public Input<string> EntityId { get; set; } = null!;
 
+        /// <summary>
+        /// Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+        /// </summary>
         [Input("entityType", required: true)]
         public Input<string> EntityType { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the tag.
+        /// </summary>
         [Input("tagId", required: true)]
         public Input<string> TagId { get; set; } = null!;
 
@@ -125,12 +143,21 @@ namespace Pulumi.Pagerduty
 
     public sealed class TagAssignmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the entity.
+        /// </summary>
         [Input("entityId")]
         public Input<string>? EntityId { get; set; }
 
+        /// <summary>
+        /// Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+        /// </summary>
         [Input("entityType")]
         public Input<string>? EntityType { get; set; }
 
+        /// <summary>
+        /// The ID of the tag.
+        /// </summary>
         [Input("tagId")]
         public Input<string>? TagId { get; set; }
 

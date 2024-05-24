@@ -82,6 +82,9 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/serviceDependency:ServiceDependency")]
     public partial class ServiceDependency : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
+        /// </summary>
         [Output("dependency")]
         public Output<Outputs.ServiceDependencyDependency> Dependency { get; private set; } = null!;
 
@@ -131,6 +134,9 @@ namespace Pulumi.Pagerduty
 
     public sealed class ServiceDependencyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
+        /// </summary>
         [Input("dependency", required: true)]
         public Input<Inputs.ServiceDependencyDependencyArgs> Dependency { get; set; } = null!;
 
@@ -142,6 +148,9 @@ namespace Pulumi.Pagerduty
 
     public sealed class ServiceDependencyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
+        /// </summary>
         [Input("dependency")]
         public Input<Inputs.ServiceDependencyDependencyGetArgs>? Dependency { get; set; }
 

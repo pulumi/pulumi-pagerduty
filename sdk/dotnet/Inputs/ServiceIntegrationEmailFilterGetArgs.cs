@@ -12,15 +12,27 @@ namespace Pulumi.Pagerduty.Inputs
 
     public sealed class ServiceIntegrationEmailFilterGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Can be `always` or `match`.
+        /// </summary>
         [Input("bodyMode")]
         public Input<string>? BodyMode { get; set; }
 
+        /// <summary>
+        /// Should be a valid regex or `null`
+        /// </summary>
         [Input("bodyRegex")]
         public Input<string>? BodyRegex { get; set; }
 
+        /// <summary>
+        /// Can be `always` or `match`.
+        /// </summary>
         [Input("fromEmailMode")]
         public Input<string>? FromEmailMode { get; set; }
 
+        /// <summary>
+        /// Should be a valid regex or `null`
+        /// </summary>
         [Input("fromEmailRegex")]
         public Input<string>? FromEmailRegex { get; set; }
 
@@ -30,9 +42,15 @@ namespace Pulumi.Pagerduty.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Can be `always` or `match`.
+        /// </summary>
         [Input("subjectMode")]
         public Input<string>? SubjectMode { get; set; }
 
+        /// <summary>
+        /// Should be a valid regex or `null`
+        /// </summary>
         [Input("subjectRegex")]
         public Input<string>? SubjectRegex { get; set; }
 

@@ -12,9 +12,15 @@ namespace Pulumi.Pagerduty.Inputs
 
     public sealed class EventOrchestrationServiceSetRuleActionsAutomationActionParameterGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name to identify the parameter
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// Value of this parameter
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

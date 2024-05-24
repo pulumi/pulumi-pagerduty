@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Team("foo", TeamArgs.builder()        
+ *         var foo = new Team("foo", TeamArgs.builder()
  *             .name("Engineering (Seattle)")
  *             .build());
  * 
- *         var fooRuleset = new Ruleset("fooRuleset", RulesetArgs.builder()        
+ *         var fooRuleset = new Ruleset("fooRuleset", RulesetArgs.builder()
  *             .name("Primary Ruleset")
  *             .team(RulesetTeamArgs.builder()
  *                 .id(foo.id())
@@ -73,11 +73,11 @@ import javax.annotation.Nullable;
  *         // repeats daily from 9:30am - 11:30am using the America/New_York timezone.
  *         // Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
  *         // April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&p1=179
- *         var easternTimeAt0930 = new Static("easternTimeAt0930", StaticArgs.builder()        
+ *         var easternTimeAt0930 = new Static("easternTimeAt0930", StaticArgs.builder()
  *             .rfc3339("2019-04-11T09:30:00-04:00")
  *             .build());
  * 
- *         var fooRulesetRule = new RulesetRule("fooRulesetRule", RulesetRuleArgs.builder()        
+ *         var fooRulesetRule = new RulesetRule("fooRulesetRule", RulesetRuleArgs.builder()
  *             .ruleset(fooRuleset.id())
  *             .position(0)
  *             .disabled("false")
@@ -141,7 +141,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var catchAll = new RulesetRule("catchAll", RulesetRuleArgs.builder()        
+ *         var catchAll = new RulesetRule("catchAll", RulesetRuleArgs.builder()
  *             .ruleset(fooRuleset.id())
  *             .position(1)
  *             .catchAll(true)

@@ -15,16 +15,32 @@ public final class AutomationActionsActionTeamAssociationState extends com.pulum
 
     public static final AutomationActionsActionTeamAssociationState Empty = new AutomationActionsActionTeamAssociationState();
 
+    /**
+     * Id of the action.
+     * 
+     */
     @Import(name="actionId")
     private @Nullable Output<String> actionId;
 
+    /**
+     * @return Id of the action.
+     * 
+     */
     public Optional<Output<String>> actionId() {
         return Optional.ofNullable(this.actionId);
     }
 
+    /**
+     * Id of the team associated to the action.
+     * 
+     */
     @Import(name="teamId")
     private @Nullable Output<String> teamId;
 
+    /**
+     * @return Id of the team associated to the action.
+     * 
+     */
     public Optional<Output<String>> teamId() {
         return Optional.ofNullable(this.teamId);
     }
@@ -54,20 +70,44 @@ public final class AutomationActionsActionTeamAssociationState extends com.pulum
             $ = new AutomationActionsActionTeamAssociationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param actionId Id of the action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actionId(@Nullable Output<String> actionId) {
             $.actionId = actionId;
             return this;
         }
 
+        /**
+         * @param actionId Id of the action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actionId(String actionId) {
             return actionId(Output.of(actionId));
         }
 
+        /**
+         * @param teamId Id of the team associated to the action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder teamId(@Nullable Output<String> teamId) {
             $.teamId = teamId;
             return this;
         }
 
+        /**
+         * @param teamId Id of the team associated to the action.
+         * 
+         * @return builder
+         * 
+         */
         public Builder teamId(String teamId) {
             return teamId(Output.of(teamId));
         }

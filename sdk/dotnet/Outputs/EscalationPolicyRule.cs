@@ -13,7 +13,13 @@ namespace Pulumi.Pagerduty.Outputs
     [OutputType]
     public sealed class EscalationPolicyRule
     {
+        /// <summary>
+        /// The number of minutes before an unacknowledged incident escalates away from this rule.
+        /// </summary>
         public readonly int EscalationDelayInMinutes;
+        /// <summary>
+        /// The strategy used to assign the escalation rule to an incident. Documented below.
+        /// </summary>
         public readonly Outputs.EscalationPolicyRuleEscalationRuleAssignmentStrategy? EscalationRuleAssignmentStrategy;
         /// <summary>
         /// The ID of the escalation policy.

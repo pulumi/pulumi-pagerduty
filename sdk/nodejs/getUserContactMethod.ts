@@ -51,9 +51,12 @@ export interface GetUserContactMethodArgs {
      */
     label: string;
     /**
-     * The type of the found contact method. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      */
     type: string;
+    /**
+     * The ID of the user.
+     */
     userId: string;
 }
 
@@ -140,8 +143,11 @@ export interface GetUserContactMethodOutputArgs {
      */
     label: pulumi.Input<string>;
     /**
-     * The type of the found contact method. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      */
     type: pulumi.Input<string>;
+    /**
+     * The ID of the user.
+     */
     userId: pulumi.Input<string>;
 }

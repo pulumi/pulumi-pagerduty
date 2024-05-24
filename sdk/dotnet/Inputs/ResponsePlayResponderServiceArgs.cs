@@ -18,6 +18,9 @@ namespace Pulumi.Pagerduty.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// A string that determines the schema of the object. If not set, the default value is "response_play".
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

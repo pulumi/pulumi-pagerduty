@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Addon("example", AddonArgs.builder()        
+ *         var example = new Addon("example", AddonArgs.builder()
  *             .name("Internal Status Page")
  *             .src("https://intranet.example.com/status")
  *             .build());
@@ -63,15 +63,31 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/addon:Addon")
 public class Addon extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the add-on.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the add-on.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
+     * 
+     */
     @Export(name="src", refs={String.class}, tree="[0]")
     private Output<String> src;
 
+    /**
+     * @return The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
+     * 
+     */
     public Output<String> src() {
         return this.src;
     }

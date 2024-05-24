@@ -103,30 +103,57 @@ namespace Pulumi.Pagerduty
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
+        /// </summary>
         [Output("from")]
         public Output<string> From { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the response play.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
+        /// </summary>
         [Output("responders")]
         public Output<ImmutableArray<Outputs.ResponsePlayResponder>> Responders { get; private set; } = null!;
 
+        /// <summary>
+        /// The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
+        /// </summary>
         [Output("respondersMessage")]
         public Output<string?> RespondersMessage { get; private set; } = null!;
 
+        /// <summary>
+        /// String representing how this response play is allowed to be run. Valid options are:
+        /// </summary>
         [Output("runnability")]
         public Output<string?> Runnability { get; private set; } = null!;
 
+        /// <summary>
+        /// A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
+        /// </summary>
         [Output("subscribers")]
         public Output<ImmutableArray<Outputs.ResponsePlaySubscriber>> Subscribers { get; private set; } = null!;
 
+        /// <summary>
+        /// The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
+        /// </summary>
         [Output("subscribersMessage")]
         public Output<string?> SubscribersMessage { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the team associated with the response play.
+        /// </summary>
         [Output("team")]
         public Output<string?> Team { get; private set; } = null!;
 
+        /// <summary>
+        /// A string that determines the schema of the object. If not set, the default value is "response_play".
+        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
@@ -191,40 +218,69 @@ namespace Pulumi.Pagerduty
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
+        /// </summary>
         [Input("from", required: true)]
         public Input<string> From { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the response play.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("responders")]
         private InputList<Inputs.ResponsePlayResponderArgs>? _responders;
+
+        /// <summary>
+        /// A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
+        /// </summary>
         public InputList<Inputs.ResponsePlayResponderArgs> Responders
         {
             get => _responders ?? (_responders = new InputList<Inputs.ResponsePlayResponderArgs>());
             set => _responders = value;
         }
 
+        /// <summary>
+        /// The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
+        /// </summary>
         [Input("respondersMessage")]
         public Input<string>? RespondersMessage { get; set; }
 
+        /// <summary>
+        /// String representing how this response play is allowed to be run. Valid options are:
+        /// </summary>
         [Input("runnability")]
         public Input<string>? Runnability { get; set; }
 
         [Input("subscribers")]
         private InputList<Inputs.ResponsePlaySubscriberArgs>? _subscribers;
+
+        /// <summary>
+        /// A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
+        /// </summary>
         public InputList<Inputs.ResponsePlaySubscriberArgs> Subscribers
         {
             get => _subscribers ?? (_subscribers = new InputList<Inputs.ResponsePlaySubscriberArgs>());
             set => _subscribers = value;
         }
 
+        /// <summary>
+        /// The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
+        /// </summary>
         [Input("subscribersMessage")]
         public Input<string>? SubscribersMessage { get; set; }
 
+        /// <summary>
+        /// The ID of the team associated with the response play.
+        /// </summary>
         [Input("team")]
         public Input<string>? Team { get; set; }
 
+        /// <summary>
+        /// A string that determines the schema of the object. If not set, the default value is "response_play".
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -252,40 +308,69 @@ namespace Pulumi.Pagerduty
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
+        /// </summary>
         [Input("from")]
         public Input<string>? From { get; set; }
 
+        /// <summary>
+        /// The name of the response play.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("responders")]
         private InputList<Inputs.ResponsePlayResponderGetArgs>? _responders;
+
+        /// <summary>
+        /// A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
+        /// </summary>
         public InputList<Inputs.ResponsePlayResponderGetArgs> Responders
         {
             get => _responders ?? (_responders = new InputList<Inputs.ResponsePlayResponderGetArgs>());
             set => _responders = value;
         }
 
+        /// <summary>
+        /// The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
+        /// </summary>
         [Input("respondersMessage")]
         public Input<string>? RespondersMessage { get; set; }
 
+        /// <summary>
+        /// String representing how this response play is allowed to be run. Valid options are:
+        /// </summary>
         [Input("runnability")]
         public Input<string>? Runnability { get; set; }
 
         [Input("subscribers")]
         private InputList<Inputs.ResponsePlaySubscriberGetArgs>? _subscribers;
+
+        /// <summary>
+        /// A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
+        /// </summary>
         public InputList<Inputs.ResponsePlaySubscriberGetArgs> Subscribers
         {
             get => _subscribers ?? (_subscribers = new InputList<Inputs.ResponsePlaySubscriberGetArgs>());
             set => _subscribers = value;
         }
 
+        /// <summary>
+        /// The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
+        /// </summary>
         [Input("subscribersMessage")]
         public Input<string>? SubscribersMessage { get; set; }
 
+        /// <summary>
+        /// The ID of the team associated with the response play.
+        /// </summary>
         [Input("team")]
         public Input<string>? Team { get; set; }
 
+        /// <summary>
+        /// A string that determines the schema of the object. If not set, the default value is "response_play".
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

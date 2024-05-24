@@ -16,44 +16,92 @@ public final class IncidentCustomFieldArgs extends com.pulumi.resources.Resource
 
     public static final IncidentCustomFieldArgs Empty = new IncidentCustomFieldArgs();
 
+    /**
+     * The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+     * 
+     */
     @Import(name="dataType", required=true)
     private Output<String> dataType;
 
+    /**
+     * @return The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+     * 
+     */
     public Output<String> dataType() {
         return this.dataType;
     }
 
+    /**
+     * The default value to set when new incidents are created. Always specified as a string.
+     * 
+     */
     @Import(name="defaultValue")
     private @Nullable Output<String> defaultValue;
 
+    /**
+     * @return The default value to set when new incidents are created. Always specified as a string.
+     * 
+     */
     public Optional<Output<String>> defaultValue() {
         return Optional.ofNullable(this.defaultValue);
     }
 
+    /**
+     * The description of the field.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return The description of the field.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The display name of the field.
+     * 
+     */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
+    /**
+     * @return The display name of the field.
+     * 
+     */
     public Output<String> displayName() {
         return this.displayName;
     }
 
+    /**
+     * The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * 
+     */
     @Import(name="fieldType", required=true)
     private Output<String> fieldType;
 
+    /**
+     * @return The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * 
+     */
     public Output<String> fieldType() {
         return this.fieldType;
     }
 
+    /**
+     * The name of the field.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the field.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -87,56 +135,128 @@ public final class IncidentCustomFieldArgs extends com.pulumi.resources.Resource
             $ = new IncidentCustomFieldArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dataType The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataType(Output<String> dataType) {
             $.dataType = dataType;
             return this;
         }
 
+        /**
+         * @param dataType The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataType(String dataType) {
             return dataType(Output.of(dataType));
         }
 
+        /**
+         * @param defaultValue The default value to set when new incidents are created. Always specified as a string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultValue(@Nullable Output<String> defaultValue) {
             $.defaultValue = defaultValue;
             return this;
         }
 
+        /**
+         * @param defaultValue The default value to set when new incidents are created. Always specified as a string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultValue(String defaultValue) {
             return defaultValue(Output.of(defaultValue));
         }
 
+        /**
+         * @param description The description of the field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description The description of the field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param displayName The display name of the field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
+        /**
+         * @param displayName The display name of the field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }
 
+        /**
+         * @param fieldType The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fieldType(Output<String> fieldType) {
             $.fieldType = fieldType;
             return this;
         }
 
+        /**
+         * @param fieldType The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fieldType(String fieldType) {
             return fieldType(Output.of(fieldType));
         }
 
+        /**
+         * @param name The name of the field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

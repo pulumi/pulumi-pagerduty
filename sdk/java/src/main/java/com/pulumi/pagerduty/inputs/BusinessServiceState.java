@@ -38,16 +38,32 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.htmlUrl);
     }
 
+    /**
+     * The name of the business service.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the business service.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The owner of the business service.
+     * 
+     */
     @Import(name="pointOfContact")
     private @Nullable Output<String> pointOfContact;
 
+    /**
+     * @return The owner of the business service.
+     * 
+     */
     public Optional<Output<String>> pointOfContact() {
         return Optional.ofNullable(this.pointOfContact);
     }
@@ -82,14 +98,24 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.summary);
     }
 
+    /**
+     * ID of the team that owns the business service.
+     * 
+     */
     @Import(name="team")
     private @Nullable Output<String> team;
 
+    /**
+     * @return ID of the team that owns the business service.
+     * 
+     */
     public Optional<Output<String>> team() {
         return Optional.ofNullable(this.team);
     }
 
     /**
+     * **Deprecated** (Optional) Default (and only supported) value is `business_service`.
+     * 
      * @deprecated
      * This will become a computed attribute in the next major release.
      * 
@@ -99,6 +125,8 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
     private @Nullable Output<String> type;
 
     /**
+     * @return **Deprecated** (Optional) Default (and only supported) value is `business_service`.
+     * 
      * @deprecated
      * This will become a computed attribute in the next major release.
      * 
@@ -169,20 +197,44 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
             return htmlUrl(Output.of(htmlUrl));
         }
 
+        /**
+         * @param name The name of the business service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the business service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param pointOfContact The owner of the business service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pointOfContact(@Nullable Output<String> pointOfContact) {
             $.pointOfContact = pointOfContact;
             return this;
         }
 
+        /**
+         * @param pointOfContact The owner of the business service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pointOfContact(String pointOfContact) {
             return pointOfContact(Output.of(pointOfContact));
         }
@@ -229,16 +281,30 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
             return summary(Output.of(summary));
         }
 
+        /**
+         * @param team ID of the team that owns the business service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder team(@Nullable Output<String> team) {
             $.team = team;
             return this;
         }
 
+        /**
+         * @param team ID of the team that owns the business service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder team(String team) {
             return team(Output.of(team));
         }
 
         /**
+         * @param type **Deprecated** (Optional) Default (and only supported) value is `business_service`.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -252,6 +318,8 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param type **Deprecated** (Optional) Default (and only supported) value is `business_service`.
+         * 
          * @return builder
          * 
          * @deprecated

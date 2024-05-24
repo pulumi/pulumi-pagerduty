@@ -44,26 +44,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sreEnvironment = new IncidentCustomField("sreEnvironment", IncidentCustomFieldArgs.builder()        
+ *         var sreEnvironment = new IncidentCustomField("sreEnvironment", IncidentCustomFieldArgs.builder()
  *             .name("environment")
  *             .displayName("Environment")
  *             .dataType("string")
  *             .fieldType("single_value_fixed")
  *             .build());
  * 
- *         var devEnvironment = new IncidentCustomFieldOption("devEnvironment", IncidentCustomFieldOptionArgs.builder()        
+ *         var devEnvironment = new IncidentCustomFieldOption("devEnvironment", IncidentCustomFieldOptionArgs.builder()
  *             .field(sreEnvironment.id())
  *             .dataType("string")
  *             .value("dev")
  *             .build());
  * 
- *         var stageEnvironment = new IncidentCustomFieldOption("stageEnvironment", IncidentCustomFieldOptionArgs.builder()        
+ *         var stageEnvironment = new IncidentCustomFieldOption("stageEnvironment", IncidentCustomFieldOptionArgs.builder()
  *             .field(sreEnvironment.id())
  *             .dataType("string")
  *             .value("stage")
  *             .build());
  * 
- *         var prodEnvironment = new IncidentCustomFieldOption("prodEnvironment", IncidentCustomFieldOptionArgs.builder()        
+ *         var prodEnvironment = new IncidentCustomFieldOption("prodEnvironment", IncidentCustomFieldOptionArgs.builder()
  *             .field(sreEnvironment.id())
  *             .dataType("string")
  *             .value("prod")

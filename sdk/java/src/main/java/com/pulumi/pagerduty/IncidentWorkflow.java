@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myFirstWorkflow = new IncidentWorkflow("myFirstWorkflow", IncidentWorkflowArgs.builder()        
+ *         var myFirstWorkflow = new IncidentWorkflow("myFirstWorkflow", IncidentWorkflowArgs.builder()
  *             .name("Example Incident Workflow")
  *             .description("This Incident Workflow is an example")
  *             .steps(IncidentWorkflowStepArgs.builder()

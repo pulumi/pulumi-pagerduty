@@ -30,9 +30,17 @@ public final class ResponsePlayResponderEscalationRuleTargetArgs extends com.pul
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -83,11 +91,23 @@ public final class ResponsePlayResponderEscalationRuleTargetArgs extends com.pul
             return id(Output.of(id));
         }
 
+        /**
+         * @param type Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

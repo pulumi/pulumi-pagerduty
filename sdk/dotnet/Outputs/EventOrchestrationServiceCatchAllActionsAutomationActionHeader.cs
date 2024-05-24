@@ -13,7 +13,13 @@ namespace Pulumi.Pagerduty.Outputs
     [OutputType]
     public sealed class EventOrchestrationServiceCatchAllActionsAutomationActionHeader
     {
+        /// <summary>
+        /// Name to identify the header
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Value of this header
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

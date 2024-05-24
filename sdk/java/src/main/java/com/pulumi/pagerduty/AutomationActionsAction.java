@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var paActionExample = new AutomationActionsAction("paActionExample", AutomationActionsActionArgs.builder()        
+ *         var paActionExample = new AutomationActionsAction("paActionExample", AutomationActionsActionArgs.builder()
  *             .name("PA Action created via TF")
  *             .description("Description of the PA Action created via TF")
  *             .actionType("process_automation")
@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var scriptActionExample = new AutomationActionsAction("scriptActionExample", AutomationActionsActionArgs.builder()        
+ *         var scriptActionExample = new AutomationActionsAction("scriptActionExample", AutomationActionsActionArgs.builder()
  *             .name("Script Action created via TF")
  *             .description("Description of the Script Action created via TF")
  *             .actionType("script")
@@ -80,21 +80,45 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/automationActionsAction:AutomationActionsAction")
 public class AutomationActionsAction extends com.pulumi.resources.CustomResource {
+    /**
+     * The category of the action. The only allowed values are `diagnostic` and `remediation`.
+     * 
+     */
     @Export(name="actionClassification", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> actionClassification;
 
+    /**
+     * @return The category of the action. The only allowed values are `diagnostic` and `remediation`.
+     * 
+     */
     public Output<Optional<String>> actionClassification() {
         return Codegen.optional(this.actionClassification);
     }
+    /**
+     * Action Data block. Action Data is documented below.
+     * 
+     */
     @Export(name="actionDataReference", refs={AutomationActionsActionActionDataReference.class}, tree="[0]")
     private Output<AutomationActionsActionActionDataReference> actionDataReference;
 
+    /**
+     * @return Action Data block. Action Data is documented below.
+     * 
+     */
     public Output<AutomationActionsActionActionDataReference> actionDataReference() {
         return this.actionDataReference;
     }
+    /**
+     * The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+     * 
+     */
     @Export(name="actionType", refs={String.class}, tree="[0]")
     private Output<String> actionType;
 
+    /**
+     * @return The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+     * 
+     */
     public Output<String> actionType() {
         return this.actionType;
     }
@@ -112,9 +136,17 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
     public Output<String> creationTime() {
         return this.creationTime;
     }
+    /**
+     * The description of the action. Max length is 1024 characters.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The description of the action. Max length is 1024 characters.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
@@ -132,15 +164,31 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
     public Output<String> modifyTime() {
         return this.modifyTime;
     }
+    /**
+     * The name of the action. Max length is 255 characters.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the action. Max length is 255 characters.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
+     * 
+     */
     @Export(name="runnerId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runnerId;
 
+    /**
+     * @return The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
+     * 
+     */
     public Output<Optional<String>> runnerId() {
         return Codegen.optional(this.runnerId);
     }

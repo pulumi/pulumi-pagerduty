@@ -14,16 +14,32 @@ public final class AutomationActionsRunnerTeamAssociationArgs extends com.pulumi
 
     public static final AutomationActionsRunnerTeamAssociationArgs Empty = new AutomationActionsRunnerTeamAssociationArgs();
 
+    /**
+     * Id of the runner.
+     * 
+     */
     @Import(name="runnerId", required=true)
     private Output<String> runnerId;
 
+    /**
+     * @return Id of the runner.
+     * 
+     */
     public Output<String> runnerId() {
         return this.runnerId;
     }
 
+    /**
+     * Id of the team associated with the runner.
+     * 
+     */
     @Import(name="teamId", required=true)
     private Output<String> teamId;
 
+    /**
+     * @return Id of the team associated with the runner.
+     * 
+     */
     public Output<String> teamId() {
         return this.teamId;
     }
@@ -53,20 +69,44 @@ public final class AutomationActionsRunnerTeamAssociationArgs extends com.pulumi
             $ = new AutomationActionsRunnerTeamAssociationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param runnerId Id of the runner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder runnerId(Output<String> runnerId) {
             $.runnerId = runnerId;
             return this;
         }
 
+        /**
+         * @param runnerId Id of the runner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder runnerId(String runnerId) {
             return runnerId(Output.of(runnerId));
         }
 
+        /**
+         * @param teamId Id of the team associated with the runner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder teamId(Output<String> teamId) {
             $.teamId = teamId;
             return this;
         }
 
+        /**
+         * @param teamId Id of the team associated with the runner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder teamId(String teamId) {
             return teamId(Output.of(teamId));
         }

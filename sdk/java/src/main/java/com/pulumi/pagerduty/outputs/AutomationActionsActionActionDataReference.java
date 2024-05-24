@@ -11,25 +11,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AutomationActionsActionActionDataReference {
+    /**
+     * @return The command to execute the script with.
+     * 
+     */
     private @Nullable String invocationCommand;
+    /**
+     * @return The arguments to pass to the Process Automation job execution.
+     * 
+     */
     private @Nullable String processAutomationJobArguments;
+    /**
+     * @return The ID of the Process Automation job to execute.
+     * 
+     */
     private @Nullable String processAutomationJobId;
+    /**
+     * @return The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+     * 
+     */
     private @Nullable String processAutomationNodeFilter;
+    /**
+     * @return Body of the script to be executed on the Runner. Max length is 16777215 characters.
+     * 
+     */
     private @Nullable String script;
 
     private AutomationActionsActionActionDataReference() {}
+    /**
+     * @return The command to execute the script with.
+     * 
+     */
     public Optional<String> invocationCommand() {
         return Optional.ofNullable(this.invocationCommand);
     }
+    /**
+     * @return The arguments to pass to the Process Automation job execution.
+     * 
+     */
     public Optional<String> processAutomationJobArguments() {
         return Optional.ofNullable(this.processAutomationJobArguments);
     }
+    /**
+     * @return The ID of the Process Automation job to execute.
+     * 
+     */
     public Optional<String> processAutomationJobId() {
         return Optional.ofNullable(this.processAutomationJobId);
     }
+    /**
+     * @return The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+     * 
+     */
     public Optional<String> processAutomationNodeFilter() {
         return Optional.ofNullable(this.processAutomationNodeFilter);
     }
+    /**
+     * @return Body of the script to be executed on the Runner. Max length is 16777215 characters.
+     * 
+     */
     public Optional<String> script() {
         return Optional.ofNullable(this.script);
     }

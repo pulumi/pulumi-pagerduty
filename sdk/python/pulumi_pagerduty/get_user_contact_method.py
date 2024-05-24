@@ -178,7 +178,8 @@ def get_user_contact_method(label: Optional[str] = None,
 
 
     :param str label: The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).
-    :param str type: The type of the found contact method. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+    :param str type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+    :param str user_id: The ID of the user.
     """
     __args__ = dict()
     __args__['label'] = label
@@ -230,6 +231,7 @@ def get_user_contact_method_output(label: Optional[pulumi.Input[str]] = None,
 
 
     :param str label: The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).
-    :param str type: The type of the found contact method. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+    :param str type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+    :param str user_id: The ID of the user.
     """
     ...

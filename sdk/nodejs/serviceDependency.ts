@@ -73,6 +73,9 @@ export class ServiceDependency extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceDependency.__pulumiType;
     }
 
+    /**
+     * The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
+     */
     public readonly dependency!: pulumi.Output<outputs.ServiceDependencyDependency>;
 
     /**
@@ -105,6 +108,9 @@ export class ServiceDependency extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceDependency resources.
  */
 export interface ServiceDependencyState {
+    /**
+     * The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
+     */
     dependency?: pulumi.Input<inputs.ServiceDependencyDependency>;
 }
 
@@ -112,5 +118,8 @@ export interface ServiceDependencyState {
  * The set of arguments for constructing a ServiceDependency resource.
  */
 export interface ServiceDependencyArgs {
+    /**
+     * The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
+     */
     dependency: pulumi.Input<inputs.ServiceDependencyDependency>;
 }

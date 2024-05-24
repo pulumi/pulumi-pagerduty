@@ -47,29 +47,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BusinessService("example", BusinessServiceArgs.builder()        
+ *         var example = new BusinessService("example", BusinessServiceArgs.builder()
  *             .name("My Web App")
  *             .description("A very descriptive description of this business service")
  *             .pointOfContact("PagerDuty Admin")
  *             .team("P37RSRS")
  *             .build());
  * 
- *         var engteam = new Team("engteam", TeamArgs.builder()        
+ *         var engteam = new Team("engteam", TeamArgs.builder()
  *             .name("Engineering")
  *             .build());
  * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .name("Earline Greenholt")
  *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .build());
  * 
- *         var teamExample = new BusinessServiceSubscriber("teamExample", BusinessServiceSubscriberArgs.builder()        
+ *         var teamExample = new BusinessServiceSubscriber("teamExample", BusinessServiceSubscriberArgs.builder()
  *             .subscriberId(engteam.id())
  *             .subscriberType("team")
  *             .businessServiceId(example.id())
  *             .build());
  * 
- *         var userExample = new BusinessServiceSubscriber("userExample", BusinessServiceSubscriberArgs.builder()        
+ *         var userExample = new BusinessServiceSubscriber("userExample", BusinessServiceSubscriberArgs.builder()
  *             .subscriberId(exampleUser.id())
  *             .subscriberType("user")
  *             .businessServiceId(example.id())
@@ -92,21 +92,45 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber")
 public class BusinessServiceSubscriber extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the business service to subscribe to.
+     * 
+     */
     @Export(name="businessServiceId", refs={String.class}, tree="[0]")
     private Output<String> businessServiceId;
 
+    /**
+     * @return The ID of the business service to subscribe to.
+     * 
+     */
     public Output<String> businessServiceId() {
         return this.businessServiceId;
     }
+    /**
+     * The ID of the subscriber entity.
+     * 
+     */
     @Export(name="subscriberId", refs={String.class}, tree="[0]")
     private Output<String> subscriberId;
 
+    /**
+     * @return The ID of the subscriber entity.
+     * 
+     */
     public Output<String> subscriberId() {
         return this.subscriberId;
     }
+    /**
+     * Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+     * 
+     */
     @Export(name="subscriberType", refs={String.class}, tree="[0]")
     private Output<String> subscriberType;
 
+    /**
+     * @return Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+     * 
+     */
     public Output<String> subscriberType() {
         return this.subscriberType;
     }

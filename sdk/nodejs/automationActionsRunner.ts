@@ -80,14 +80,29 @@ export class AutomationActionsRunner extends pulumi.CustomResource {
      * The time runner was created. Represented as an ISO 8601 timestamp.
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The description of the runner. Max length is 1024 characters.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
      */
     public readonly lastSeen!: pulumi.Output<string>;
+    /**
+     * The name of the runner. Max length is 255 characters.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The unique User API Token created in Runbook Automation.
+     */
     public readonly runbookApiKey!: pulumi.Output<string | undefined>;
+    /**
+     * The subdomain for your Runbook Automation Instance.
+     */
     public readonly runbookBaseUri!: pulumi.Output<string | undefined>;
+    /**
+     * The type of runner. The only allowed values is `runbook`.
+     */
     public readonly runnerType!: pulumi.Output<string>;
     /**
      * The type of object. The value returned will be `runner`.
@@ -144,14 +159,29 @@ export interface AutomationActionsRunnerState {
      * The time runner was created. Represented as an ISO 8601 timestamp.
      */
     creationTime?: pulumi.Input<string>;
+    /**
+     * The description of the runner. Max length is 1024 characters.
+     */
     description?: pulumi.Input<string>;
     /**
      * (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
      */
     lastSeen?: pulumi.Input<string>;
+    /**
+     * The name of the runner. Max length is 255 characters.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The unique User API Token created in Runbook Automation.
+     */
     runbookApiKey?: pulumi.Input<string>;
+    /**
+     * The subdomain for your Runbook Automation Instance.
+     */
     runbookBaseUri?: pulumi.Input<string>;
+    /**
+     * The type of runner. The only allowed values is `runbook`.
+     */
     runnerType?: pulumi.Input<string>;
     /**
      * The type of object. The value returned will be `runner`.
@@ -163,13 +193,28 @@ export interface AutomationActionsRunnerState {
  * The set of arguments for constructing a AutomationActionsRunner resource.
  */
 export interface AutomationActionsRunnerArgs {
+    /**
+     * The description of the runner. Max length is 1024 characters.
+     */
     description?: pulumi.Input<string>;
     /**
      * (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
      */
     lastSeen?: pulumi.Input<string>;
+    /**
+     * The name of the runner. Max length is 255 characters.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The unique User API Token created in Runbook Automation.
+     */
     runbookApiKey?: pulumi.Input<string>;
+    /**
+     * The subdomain for your Runbook Automation Instance.
+     */
     runbookBaseUri?: pulumi.Input<string>;
+    /**
+     * The type of runner. The only allowed values is `runbook`.
+     */
     runnerType: pulumi.Input<string>;
 }

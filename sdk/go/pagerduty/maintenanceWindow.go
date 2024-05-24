@@ -56,10 +56,14 @@ import (
 type MaintenanceWindow struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringOutput      `pulumi:"description"`
-	EndTime     pulumi.StringOutput      `pulumi:"endTime"`
-	Services    pulumi.StringArrayOutput `pulumi:"services"`
-	StartTime   pulumi.StringOutput      `pulumi:"startTime"`
+	// A description for the maintenance window.
+	Description pulumi.StringOutput `pulumi:"description"`
+	// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
+	EndTime pulumi.StringOutput `pulumi:"endTime"`
+	// A list of service IDs to include in the maintenance window.
+	Services pulumi.StringArrayOutput `pulumi:"services"`
+	// The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
+	StartTime pulumi.StringOutput `pulumi:"startTime"`
 }
 
 // NewMaintenanceWindow registers a new resource with the given unique name, arguments, and options.
@@ -104,17 +108,25 @@ func GetMaintenanceWindow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MaintenanceWindow resources.
 type maintenanceWindowState struct {
-	Description *string  `pulumi:"description"`
-	EndTime     *string  `pulumi:"endTime"`
-	Services    []string `pulumi:"services"`
-	StartTime   *string  `pulumi:"startTime"`
+	// A description for the maintenance window.
+	Description *string `pulumi:"description"`
+	// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
+	EndTime *string `pulumi:"endTime"`
+	// A list of service IDs to include in the maintenance window.
+	Services []string `pulumi:"services"`
+	// The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
+	StartTime *string `pulumi:"startTime"`
 }
 
 type MaintenanceWindowState struct {
+	// A description for the maintenance window.
 	Description pulumi.StringPtrInput
-	EndTime     pulumi.StringPtrInput
-	Services    pulumi.StringArrayInput
-	StartTime   pulumi.StringPtrInput
+	// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
+	EndTime pulumi.StringPtrInput
+	// A list of service IDs to include in the maintenance window.
+	Services pulumi.StringArrayInput
+	// The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
+	StartTime pulumi.StringPtrInput
 }
 
 func (MaintenanceWindowState) ElementType() reflect.Type {
@@ -122,18 +134,26 @@ func (MaintenanceWindowState) ElementType() reflect.Type {
 }
 
 type maintenanceWindowArgs struct {
-	Description *string  `pulumi:"description"`
-	EndTime     string   `pulumi:"endTime"`
-	Services    []string `pulumi:"services"`
-	StartTime   string   `pulumi:"startTime"`
+	// A description for the maintenance window.
+	Description *string `pulumi:"description"`
+	// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
+	EndTime string `pulumi:"endTime"`
+	// A list of service IDs to include in the maintenance window.
+	Services []string `pulumi:"services"`
+	// The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
+	StartTime string `pulumi:"startTime"`
 }
 
 // The set of arguments for constructing a MaintenanceWindow resource.
 type MaintenanceWindowArgs struct {
+	// A description for the maintenance window.
 	Description pulumi.StringPtrInput
-	EndTime     pulumi.StringInput
-	Services    pulumi.StringArrayInput
-	StartTime   pulumi.StringInput
+	// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
+	EndTime pulumi.StringInput
+	// A list of service IDs to include in the maintenance window.
+	Services pulumi.StringArrayInput
+	// The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
+	StartTime pulumi.StringInput
 }
 
 func (MaintenanceWindowArgs) ElementType() reflect.Type {
@@ -223,18 +243,22 @@ func (o MaintenanceWindowOutput) ToMaintenanceWindowOutputWithContext(ctx contex
 	return o
 }
 
+// A description for the maintenance window.
 func (o MaintenanceWindowOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
 func (o MaintenanceWindowOutput) EndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.EndTime }).(pulumi.StringOutput)
 }
 
+// A list of service IDs to include in the maintenance window.
 func (o MaintenanceWindowOutput) Services() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringArrayOutput { return v.Services }).(pulumi.StringArrayOutput)
 }
 
+// The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
 func (o MaintenanceWindowOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.StartTime }).(pulumi.StringOutput)
 }

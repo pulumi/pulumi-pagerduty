@@ -64,9 +64,12 @@ import (
 type TagAssignment struct {
 	pulumi.CustomResourceState
 
-	EntityId   pulumi.StringOutput `pulumi:"entityId"`
+	// The ID of the entity.
+	EntityId pulumi.StringOutput `pulumi:"entityId"`
+	// Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
 	EntityType pulumi.StringOutput `pulumi:"entityType"`
-	TagId      pulumi.StringOutput `pulumi:"tagId"`
+	// The ID of the tag.
+	TagId pulumi.StringOutput `pulumi:"tagId"`
 }
 
 // NewTagAssignment registers a new resource with the given unique name, arguments, and options.
@@ -108,15 +111,21 @@ func GetTagAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagAssignment resources.
 type tagAssignmentState struct {
-	EntityId   *string `pulumi:"entityId"`
+	// The ID of the entity.
+	EntityId *string `pulumi:"entityId"`
+	// Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
 	EntityType *string `pulumi:"entityType"`
-	TagId      *string `pulumi:"tagId"`
+	// The ID of the tag.
+	TagId *string `pulumi:"tagId"`
 }
 
 type TagAssignmentState struct {
-	EntityId   pulumi.StringPtrInput
+	// The ID of the entity.
+	EntityId pulumi.StringPtrInput
+	// Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
 	EntityType pulumi.StringPtrInput
-	TagId      pulumi.StringPtrInput
+	// The ID of the tag.
+	TagId pulumi.StringPtrInput
 }
 
 func (TagAssignmentState) ElementType() reflect.Type {
@@ -124,16 +133,22 @@ func (TagAssignmentState) ElementType() reflect.Type {
 }
 
 type tagAssignmentArgs struct {
-	EntityId   string `pulumi:"entityId"`
+	// The ID of the entity.
+	EntityId string `pulumi:"entityId"`
+	// Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
 	EntityType string `pulumi:"entityType"`
-	TagId      string `pulumi:"tagId"`
+	// The ID of the tag.
+	TagId string `pulumi:"tagId"`
 }
 
 // The set of arguments for constructing a TagAssignment resource.
 type TagAssignmentArgs struct {
-	EntityId   pulumi.StringInput
+	// The ID of the entity.
+	EntityId pulumi.StringInput
+	// Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
 	EntityType pulumi.StringInput
-	TagId      pulumi.StringInput
+	// The ID of the tag.
+	TagId pulumi.StringInput
 }
 
 func (TagAssignmentArgs) ElementType() reflect.Type {
@@ -223,14 +238,17 @@ func (o TagAssignmentOutput) ToTagAssignmentOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The ID of the entity.
 func (o TagAssignmentOutput) EntityId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagAssignment) pulumi.StringOutput { return v.EntityId }).(pulumi.StringOutput)
 }
 
+// Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
 func (o TagAssignmentOutput) EntityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagAssignment) pulumi.StringOutput { return v.EntityType }).(pulumi.StringOutput)
 }
 
+// The ID of the tag.
 func (o TagAssignmentOutput) TagId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagAssignment) pulumi.StringOutput { return v.TagId }).(pulumi.StringOutput)
 }

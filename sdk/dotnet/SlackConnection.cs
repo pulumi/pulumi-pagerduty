@@ -85,6 +85,9 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/slackConnection:SlackConnection")]
     public partial class SlackConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of a Slack channel in the workspace.
+        /// </summary>
         [Output("channelId")]
         public Output<string> ChannelId { get; private set; } = null!;
 
@@ -94,12 +97,21 @@ namespace Pulumi.Pagerduty
         [Output("channelName")]
         public Output<string> ChannelName { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration options for the Slack connection that provide options to filter events.
+        /// </summary>
         [Output("configs")]
         public Output<ImmutableArray<Outputs.SlackConnectionConfig>> Configs { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of notification. Either `responder` or `stakeholder`.
+        /// </summary>
         [Output("notificationType")]
         public Output<string> NotificationType { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the source in PagerDuty. Valid sources are services or teams.
+        /// </summary>
         [Output("sourceId")]
         public Output<string> SourceId { get; private set; } = null!;
 
@@ -109,9 +121,15 @@ namespace Pulumi.Pagerduty
         [Output("sourceName")]
         public Output<string> SourceName { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the source. Either `team_reference` or `service_reference`.
+        /// </summary>
         [Output("sourceType")]
         public Output<string> SourceType { get; private set; } = null!;
 
+        /// <summary>
+        /// The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+        /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
 
@@ -161,26 +179,45 @@ namespace Pulumi.Pagerduty
 
     public sealed class SlackConnectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of a Slack channel in the workspace.
+        /// </summary>
         [Input("channelId", required: true)]
         public Input<string> ChannelId { get; set; } = null!;
 
         [Input("configs", required: true)]
         private InputList<Inputs.SlackConnectionConfigArgs>? _configs;
+
+        /// <summary>
+        /// Configuration options for the Slack connection that provide options to filter events.
+        /// </summary>
         public InputList<Inputs.SlackConnectionConfigArgs> Configs
         {
             get => _configs ?? (_configs = new InputList<Inputs.SlackConnectionConfigArgs>());
             set => _configs = value;
         }
 
+        /// <summary>
+        /// Type of notification. Either `responder` or `stakeholder`.
+        /// </summary>
         [Input("notificationType", required: true)]
         public Input<string> NotificationType { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the source in PagerDuty. Valid sources are services or teams.
+        /// </summary>
         [Input("sourceId", required: true)]
         public Input<string> SourceId { get; set; } = null!;
 
+        /// <summary>
+        /// The type of the source. Either `team_reference` or `service_reference`.
+        /// </summary>
         [Input("sourceType", required: true)]
         public Input<string> SourceType { get; set; } = null!;
 
+        /// <summary>
+        /// The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+        /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
 
@@ -192,6 +229,9 @@ namespace Pulumi.Pagerduty
 
     public sealed class SlackConnectionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of a Slack channel in the workspace.
+        /// </summary>
         [Input("channelId")]
         public Input<string>? ChannelId { get; set; }
 
@@ -203,15 +243,25 @@ namespace Pulumi.Pagerduty
 
         [Input("configs")]
         private InputList<Inputs.SlackConnectionConfigGetArgs>? _configs;
+
+        /// <summary>
+        /// Configuration options for the Slack connection that provide options to filter events.
+        /// </summary>
         public InputList<Inputs.SlackConnectionConfigGetArgs> Configs
         {
             get => _configs ?? (_configs = new InputList<Inputs.SlackConnectionConfigGetArgs>());
             set => _configs = value;
         }
 
+        /// <summary>
+        /// Type of notification. Either `responder` or `stakeholder`.
+        /// </summary>
         [Input("notificationType")]
         public Input<string>? NotificationType { get; set; }
 
+        /// <summary>
+        /// The ID of the source in PagerDuty. Valid sources are services or teams.
+        /// </summary>
         [Input("sourceId")]
         public Input<string>? SourceId { get; set; }
 
@@ -221,9 +271,15 @@ namespace Pulumi.Pagerduty
         [Input("sourceName")]
         public Input<string>? SourceName { get; set; }
 
+        /// <summary>
+        /// The type of the source. Either `team_reference` or `service_reference`.
+        /// </summary>
         [Input("sourceType")]
         public Input<string>? SourceType { get; set; }
 
+        /// <summary>
+        /// The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+        /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
 

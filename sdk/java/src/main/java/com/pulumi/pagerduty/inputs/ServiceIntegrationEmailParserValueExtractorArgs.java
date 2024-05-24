@@ -23,16 +23,36 @@ public final class ServiceIntegrationEmailParserValueExtractorArgs extends com.p
         return Optional.ofNullable(this.endsBefore);
     }
 
+    /**
+     * Can be `subject` or `body`.
+     * 
+     */
     @Import(name="part", required=true)
     private Output<String> part;
 
+    /**
+     * @return Can be `subject` or `body`.
+     * 
+     */
     public Output<String> part() {
         return this.part;
     }
 
+    /**
+     * If `type` has value `regex` this value should contain valid regex.
+     * 
+     * **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
+     * 
+     */
     @Import(name="regex")
     private @Nullable Output<String> regex;
 
+    /**
+     * @return If `type` has value `regex` this value should contain valid regex.
+     * 
+     * **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
+     * 
+     */
     public Optional<Output<String>> regex() {
         return Optional.ofNullable(this.regex);
     }
@@ -44,16 +64,32 @@ public final class ServiceIntegrationEmailParserValueExtractorArgs extends com.p
         return Optional.ofNullable(this.startsAfter);
     }
 
+    /**
+     * Can be `between`, `entire` or `regex`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Can be `between`, `entire` or `regex`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
 
+    /**
+     * First value extractor should have name `incident_key` other value extractors should contain custom names.
+     * 
+     */
     @Import(name="valueName", required=true)
     private Output<String> valueName;
 
+    /**
+     * @return First value extractor should have name `incident_key` other value extractors should contain custom names.
+     * 
+     */
     public Output<String> valueName() {
         return this.valueName;
     }
@@ -96,20 +132,48 @@ public final class ServiceIntegrationEmailParserValueExtractorArgs extends com.p
             return endsBefore(Output.of(endsBefore));
         }
 
+        /**
+         * @param part Can be `subject` or `body`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder part(Output<String> part) {
             $.part = part;
             return this;
         }
 
+        /**
+         * @param part Can be `subject` or `body`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder part(String part) {
             return part(Output.of(part));
         }
 
+        /**
+         * @param regex If `type` has value `regex` this value should contain valid regex.
+         * 
+         * **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regex(@Nullable Output<String> regex) {
             $.regex = regex;
             return this;
         }
 
+        /**
+         * @param regex If `type` has value `regex` this value should contain valid regex.
+         * 
+         * **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regex(String regex) {
             return regex(Output.of(regex));
         }
@@ -123,20 +187,44 @@ public final class ServiceIntegrationEmailParserValueExtractorArgs extends com.p
             return startsAfter(Output.of(startsAfter));
         }
 
+        /**
+         * @param type Can be `between`, `entire` or `regex`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Can be `between`, `entire` or `regex`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
+        /**
+         * @param valueName First value extractor should have name `incident_key` other value extractors should contain custom names.
+         * 
+         * @return builder
+         * 
+         */
         public Builder valueName(Output<String> valueName) {
             $.valueName = valueName;
             return this;
         }
 
+        /**
+         * @param valueName First value extractor should have name `incident_key` other value extractors should contain custom names.
+         * 
+         * @return builder
+         * 
+         */
         public Builder valueName(String valueName) {
             return valueName(Output.of(valueName));
         }

@@ -19,9 +19,17 @@ public final class ServiceIntegrationArgs extends com.pulumi.resources.ResourceA
 
     public static final ServiceIntegrationArgs Empty = new ServiceIntegrationArgs();
 
+    /**
+     * Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
+     * 
+     */
     @Import(name="emailFilterMode")
     private @Nullable Output<String> emailFilterMode;
 
+    /**
+     * @return Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
+     * 
+     */
     public Optional<Output<String>> emailFilterMode() {
         return Optional.ofNullable(this.emailFilterMode);
     }
@@ -33,9 +41,17 @@ public final class ServiceIntegrationArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.emailFilters);
     }
 
+    /**
+     * Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
+     * 
+     */
     @Import(name="emailIncidentCreation")
     private @Nullable Output<String> emailIncidentCreation;
 
+    /**
+     * @return Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
+     * 
+     */
     public Optional<Output<String>> emailIncidentCreation() {
         return Optional.ofNullable(this.emailIncidentCreation);
     }
@@ -47,9 +63,17 @@ public final class ServiceIntegrationArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.emailParsers);
     }
 
+    /**
+     * Can be `open_new_incident` or `discard`.
+     * 
+     */
     @Import(name="emailParsingFallback")
     private @Nullable Output<String> emailParsingFallback;
 
+    /**
+     * @return Can be `open_new_incident` or `discard`.
+     * 
+     */
     public Optional<Output<String>> emailParsingFallback() {
         return Optional.ofNullable(this.emailParsingFallback);
     }
@@ -70,44 +94,100 @@ public final class ServiceIntegrationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+     * (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
      * 
      */
     @Import(name="integrationKey")
     private @Nullable Output<String> integrationKey;
 
     /**
-     * @return This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+     * @return (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
      * 
      */
     public Optional<Output<String>> integrationKey() {
         return Optional.ofNullable(this.integrationKey);
     }
 
+    /**
+     * The name of the service integration.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the service integration.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The ID of the service the integration should belong to.
+     * 
+     */
     @Import(name="service", required=true)
     private Output<String> service;
 
+    /**
+     * @return The ID of the service the integration should belong to.
+     * 
+     */
     public Output<String> service() {
         return this.service;
     }
 
+    /**
+     * The service type. Can be:
+     * `aws_cloudwatch_inbound_integration`,
+     * `cloudkick_inbound_integration`,
+     * `event_transformer_api_inbound_integration`,
+     * `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
+     * `generic_email_inbound_integration`,
+     * `generic_events_api_inbound_integration`,
+     * `keynote_inbound_integration`,
+     * `nagios_inbound_integration`,
+     * `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+     * 
+     * **Note:** This is meant for **generic** service integrations.
+     * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return The service type. Can be:
+     * `aws_cloudwatch_inbound_integration`,
+     * `cloudkick_inbound_integration`,
+     * `event_transformer_api_inbound_integration`,
+     * `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
+     * `generic_email_inbound_integration`,
+     * `generic_events_api_inbound_integration`,
+     * `keynote_inbound_integration`,
+     * `nagios_inbound_integration`,
+     * `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+     * 
+     * **Note:** This is meant for **generic** service integrations.
+     * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
+    /**
+     * The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
+     * 
+     */
     @Import(name="vendor")
     private @Nullable Output<String> vendor;
 
+    /**
+     * @return The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
+     * 
+     */
     public Optional<Output<String>> vendor() {
         return Optional.ofNullable(this.vendor);
     }
@@ -146,11 +226,23 @@ public final class ServiceIntegrationArgs extends com.pulumi.resources.ResourceA
             $ = new ServiceIntegrationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param emailFilterMode Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder emailFilterMode(@Nullable Output<String> emailFilterMode) {
             $.emailFilterMode = emailFilterMode;
             return this;
         }
 
+        /**
+         * @param emailFilterMode Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder emailFilterMode(String emailFilterMode) {
             return emailFilterMode(Output.of(emailFilterMode));
         }
@@ -168,11 +260,23 @@ public final class ServiceIntegrationArgs extends com.pulumi.resources.ResourceA
             return emailFilters(List.of(emailFilters));
         }
 
+        /**
+         * @param emailIncidentCreation Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder emailIncidentCreation(@Nullable Output<String> emailIncidentCreation) {
             $.emailIncidentCreation = emailIncidentCreation;
             return this;
         }
 
+        /**
+         * @param emailIncidentCreation Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder emailIncidentCreation(String emailIncidentCreation) {
             return emailIncidentCreation(Output.of(emailIncidentCreation));
         }
@@ -190,11 +294,23 @@ public final class ServiceIntegrationArgs extends com.pulumi.resources.ResourceA
             return emailParsers(List.of(emailParsers));
         }
 
+        /**
+         * @param emailParsingFallback Can be `open_new_incident` or `discard`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder emailParsingFallback(@Nullable Output<String> emailParsingFallback) {
             $.emailParsingFallback = emailParsingFallback;
             return this;
         }
 
+        /**
+         * @param emailParsingFallback Can be `open_new_incident` or `discard`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder emailParsingFallback(String emailParsingFallback) {
             return emailParsingFallback(Output.of(emailParsingFallback));
         }
@@ -221,7 +337,7 @@ public final class ServiceIntegrationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param integrationKey This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+         * @param integrationKey (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
          * 
          * @return builder
          * 
@@ -232,7 +348,7 @@ public final class ServiceIntegrationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param integrationKey This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+         * @param integrationKey (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
          * 
          * @return builder
          * 
@@ -241,38 +357,110 @@ public final class ServiceIntegrationArgs extends com.pulumi.resources.ResourceA
             return integrationKey(Output.of(integrationKey));
         }
 
+        /**
+         * @param name The name of the service integration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the service integration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param service The ID of the service the integration should belong to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder service(Output<String> service) {
             $.service = service;
             return this;
         }
 
+        /**
+         * @param service The ID of the service the integration should belong to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder service(String service) {
             return service(Output.of(service));
         }
 
+        /**
+         * @param type The service type. Can be:
+         * `aws_cloudwatch_inbound_integration`,
+         * `cloudkick_inbound_integration`,
+         * `event_transformer_api_inbound_integration`,
+         * `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
+         * `generic_email_inbound_integration`,
+         * `generic_events_api_inbound_integration`,
+         * `keynote_inbound_integration`,
+         * `nagios_inbound_integration`,
+         * `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+         * 
+         * **Note:** This is meant for **generic** service integrations.
+         * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The service type. Can be:
+         * `aws_cloudwatch_inbound_integration`,
+         * `cloudkick_inbound_integration`,
+         * `event_transformer_api_inbound_integration`,
+         * `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
+         * `generic_email_inbound_integration`,
+         * `generic_events_api_inbound_integration`,
+         * `keynote_inbound_integration`,
+         * `nagios_inbound_integration`,
+         * `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+         * 
+         * **Note:** This is meant for **generic** service integrations.
+         * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
+        /**
+         * @param vendor The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
+         * 
+         * @return builder
+         * 
+         */
         public Builder vendor(@Nullable Output<String> vendor) {
             $.vendor = vendor;
             return this;
         }
 
+        /**
+         * @param vendor The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
+         * 
+         * @return builder
+         * 
+         */
         public Builder vendor(String vendor) {
             return vendor(Output.of(vendor));
         }

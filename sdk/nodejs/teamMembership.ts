@@ -63,15 +63,18 @@ export class TeamMembership extends pulumi.CustomResource {
     }
 
     /**
-     * The role of the user in the team.
+     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+     * These roles match up to user roles in the following ways:
+     * * User role of `user` is a Team role of `manager`
+     * * User role of `limitedUser` is a Team role of `responder`
      */
     public readonly role!: pulumi.Output<string | undefined>;
     /**
-     * The team ID the user belongs to.
+     * The ID of the team in which the user will belong.
      */
     public readonly teamId!: pulumi.Output<string>;
     /**
-     * The ID of the user belonging to the team.
+     * The ID of the user to add to the team.
      */
     public readonly userId!: pulumi.Output<string>;
 
@@ -113,15 +116,18 @@ export class TeamMembership extends pulumi.CustomResource {
  */
 export interface TeamMembershipState {
     /**
-     * The role of the user in the team.
+     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+     * These roles match up to user roles in the following ways:
+     * * User role of `user` is a Team role of `manager`
+     * * User role of `limitedUser` is a Team role of `responder`
      */
     role?: pulumi.Input<string>;
     /**
-     * The team ID the user belongs to.
+     * The ID of the team in which the user will belong.
      */
     teamId?: pulumi.Input<string>;
     /**
-     * The ID of the user belonging to the team.
+     * The ID of the user to add to the team.
      */
     userId?: pulumi.Input<string>;
 }
@@ -131,15 +137,18 @@ export interface TeamMembershipState {
  */
 export interface TeamMembershipArgs {
     /**
-     * The role of the user in the team.
+     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+     * These roles match up to user roles in the following ways:
+     * * User role of `user` is a Team role of `manager`
+     * * User role of `limitedUser` is a Team role of `responder`
      */
     role?: pulumi.Input<string>;
     /**
-     * The team ID the user belongs to.
+     * The ID of the team in which the user will belong.
      */
     teamId: pulumi.Input<string>;
     /**
-     * The ID of the user belonging to the team.
+     * The ID of the user to add to the team.
      */
     userId: pulumi.Input<string>;
 }

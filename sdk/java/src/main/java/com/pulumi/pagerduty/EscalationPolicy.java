@@ -50,18 +50,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Team("example", TeamArgs.builder()        
+ *         var example = new Team("example", TeamArgs.builder()
  *             .name("Engineering")
  *             .description("All engineering")
  *             .build());
  * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .name("Earline Greenholt")
  *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .teams(example.id())
  *             .build());
  * 
- *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()        
+ *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()
  *             .name("Engineering Escalation Policy")
  *             .numLoops(2)
  *             .teams(example.id())

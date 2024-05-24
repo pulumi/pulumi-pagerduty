@@ -20,9 +20,17 @@ public final class ServiceIntegrationEmailParserArgs extends com.pulumi.resource
 
     public static final ServiceIntegrationEmailParserArgs Empty = new ServiceIntegrationEmailParserArgs();
 
+    /**
+     * Can be `resolve` or `trigger`.
+     * 
+     */
     @Import(name="action", required=true)
     private Output<String> action;
 
+    /**
+     * @return Can be `resolve` or `trigger`.
+     * 
+     */
     public Output<String> action() {
         return this.action;
     }
@@ -83,11 +91,23 @@ public final class ServiceIntegrationEmailParserArgs extends com.pulumi.resource
             $ = new ServiceIntegrationEmailParserArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param action Can be `resolve` or `trigger`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(Output<String> action) {
             $.action = action;
             return this;
         }
 
+        /**
+         * @param action Can be `resolve` or `trigger`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(String action) {
             return action(Output.of(action));
         }

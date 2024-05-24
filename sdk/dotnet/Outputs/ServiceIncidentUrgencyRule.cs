@@ -13,12 +13,21 @@ namespace Pulumi.Pagerduty.Outputs
     [OutputType]
     public sealed class ServiceIncidentUrgencyRule
     {
+        /// <summary>
+        /// Incidents' urgency during support hours.
+        /// </summary>
         public readonly Outputs.ServiceIncidentUrgencyRuleDuringSupportHours? DuringSupportHours;
+        /// <summary>
+        /// Incidents' urgency outside support hours.
+        /// </summary>
         public readonly Outputs.ServiceIncidentUrgencyRuleOutsideSupportHours? OutsideSupportHours;
         /// <summary>
-        /// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        /// The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+        /// </summary>
         public readonly string? Urgency;
 
         [OutputConstructor]

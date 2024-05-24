@@ -15,6 +15,7 @@
 package pagerduty
 
 import (
+	"bytes"
 	"context"
 	"fmt"
 	"path/filepath"
@@ -84,6 +85,7 @@ func Provider() tfbridge.ProviderInfo {
 		GitHubOrg:   "PagerDuty",
 		Repository:  "https://github.com/pulumi/pulumi-pagerduty",
 		Version:     version.Version,
+		DocRules:    &tfbridge.DocRuleInfo{EditRules: docEditRules},
 		Config: map[string]*tfbridge.SchemaInfo{
 			"skip_credentials_validation": {
 				Type: "boolean",
@@ -217,6 +219,33 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	return prov
+}
+
+func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
+	return append(defaults, tfbridge.DocsEdit{
+		Path: "service.html.markdown",
+		Edit: func(_ string, content []byte) ([]byte, error) {
+
+			content = bytes.Replace(content,
+				[]byte("You may specify one optional `incident_urgency_rule` block configuring what urgencies to "+
+					"use.\nYour PagerDuty account must have the `urgencies` ability to assign an incident urgency "+
+					"rule.\nThe block contains the following arguments:"),
+				[]byte("The `incident_urgency_rule` block contains the following arguments:"),
+				1)
+			content = bytes.Replace(content,
+				[]byte("When using `type = \"use_support_hours\"` in `incident_urgency_rule` you must specify "+
+					"exactly one (otherwise optional) `support_hours` block.\nYour PagerDuty account must have the "+
+					"`service_support_hours` ability to assign support hours."),
+				[]byte("The `support_hours` block contains the following arguments:"),
+				1)
+			content = bytes.Replace(content,
+				[]byte("A `scheduled_actions` block is required when using `type = \"use_support_hours\"` in "+
+					"`incident_urgency_rule`.\n\nThe block contains the following arguments:"),
+				[]byte("The `scheduled_actions` block contains the following arguments:"),
+				1)
+			return content, nil
+		},
+	})
 }
 
 //go:embed cmd/pulumi-resource-pagerduty/bridge-metadata.json

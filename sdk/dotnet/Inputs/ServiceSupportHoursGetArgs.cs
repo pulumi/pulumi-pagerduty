@@ -14,23 +14,37 @@ namespace Pulumi.Pagerduty.Inputs
     {
         [Input("daysOfWeeks")]
         private InputList<int>? _daysOfWeeks;
+
+        /// <summary>
+        /// Array of days of week as integers. `1` to `7`, `1` being
+        /// Monday and `7` being Sunday.
+        /// </summary>
         public InputList<int> DaysOfWeeks
         {
             get => _daysOfWeeks ?? (_daysOfWeeks = new InputList<int>());
             set => _daysOfWeeks = value;
         }
 
+        /// <summary>
+        /// The support hours' ending time of day.
+        /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
 
+        /// <summary>
+        /// The support hours' starting time of day.
+        /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
+        /// <summary>
+        /// The time zone for the support hours.
+        /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }
 
         /// <summary>
-        /// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        /// The type of support hours. Can be `fixed_time_per_day`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

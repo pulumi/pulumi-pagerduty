@@ -1638,11 +1638,6 @@ export interface ServiceAutoPauseNotificationsParameters {
     enabled?: pulumi.Input<boolean>;
     /**
      * Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
-     *
-     *
-     * You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
-     * Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-     * The block contains the following arguments:
      */
     timeout?: pulumi.Input<number>;
 }
@@ -1857,12 +1852,21 @@ export interface ServiceEventRuleVariableParameter {
 }
 
 export interface ServiceIncidentUrgencyRule {
+    /**
+     * Incidents' urgency during support hours.
+     */
     duringSupportHours?: pulumi.Input<inputs.ServiceIncidentUrgencyRuleDuringSupportHours>;
+    /**
+     * Incidents' urgency outside support hours.
+     */
     outsideSupportHours?: pulumi.Input<inputs.ServiceIncidentUrgencyRuleOutsideSupportHours>;
     /**
-     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+     * The type of incident urgency: `constant` or `useSupportHours` (when depending on specific support hours; see `supportHours`).
      */
     type: pulumi.Input<string>;
+    /**
+     * The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+     */
     urgency?: pulumi.Input<string>;
 }
 
@@ -1989,10 +1993,16 @@ export interface ServiceIntegrationEmailParserValueExtractor {
 }
 
 export interface ServiceScheduledAction {
+    /**
+     * A block representing when the scheduled action will occur.
+     */
     ats?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledActionAt>[]>;
+    /**
+     * The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
+     */
     toUrgency?: pulumi.Input<string>;
     /**
-     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
      */
     type?: pulumi.Input<string>;
 }
@@ -2058,12 +2068,25 @@ export interface ServiceScheduledActionAt {
 }
 
 export interface ServiceSupportHours {
+    /**
+     * Array of days of week as integers. `1` to `7`, `1` being
+     * Monday and `7` being Sunday.
+     */
     daysOfWeeks?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The support hours' ending time of day.
+     */
     endTime?: pulumi.Input<string>;
+    /**
+     * The support hours' starting time of day.
+     */
     startTime?: pulumi.Input<string>;
+    /**
+     * The time zone for the support hours.
+     */
     timeZone?: pulumi.Input<string>;
     /**
-     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+     * The type of support hours. Can be `fixedTimePerDay`.
      */
     type?: pulumi.Input<string>;
 }

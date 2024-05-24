@@ -13329,10 +13329,6 @@ type ServiceAutoPauseNotificationsParameters struct {
 	// Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
 	Enabled *bool `pulumi:"enabled"`
 	// Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
-	//
-	// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
-	// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-	// The block contains the following arguments:
 	Timeout *int `pulumi:"timeout"`
 }
 
@@ -13351,10 +13347,6 @@ type ServiceAutoPauseNotificationsParametersArgs struct {
 	// Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
-	//
-	// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
-	// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-	// The block contains the following arguments:
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
 
@@ -13441,10 +13433,6 @@ func (o ServiceAutoPauseNotificationsParametersOutput) Enabled() pulumi.BoolPtrO
 }
 
 // Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
-//
-// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
-// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-// The block contains the following arguments:
 func (o ServiceAutoPauseNotificationsParametersOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceAutoPauseNotificationsParameters) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -13484,10 +13472,6 @@ func (o ServiceAutoPauseNotificationsParametersPtrOutput) Enabled() pulumi.BoolP
 }
 
 // Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
-//
-// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
-// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-// The block contains the following arguments:
 func (o ServiceAutoPauseNotificationsParametersPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceAutoPauseNotificationsParameters) *int {
 		if v == nil {
@@ -15828,10 +15812,13 @@ func (o ServiceEventRuleVariableParameterArrayOutput) Index(i pulumi.IntInput) S
 }
 
 type ServiceIncidentUrgencyRule struct {
-	DuringSupportHours  *ServiceIncidentUrgencyRuleDuringSupportHours  `pulumi:"duringSupportHours"`
+	// Incidents' urgency during support hours.
+	DuringSupportHours *ServiceIncidentUrgencyRuleDuringSupportHours `pulumi:"duringSupportHours"`
+	// Incidents' urgency outside support hours.
 	OutsideSupportHours *ServiceIncidentUrgencyRuleOutsideSupportHours `pulumi:"outsideSupportHours"`
-	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
-	Type    string  `pulumi:"type"`
+	// The type of incident urgency: `constant` or `useSupportHours` (when depending on specific support hours; see `supportHours`).
+	Type string `pulumi:"type"`
+	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 	Urgency *string `pulumi:"urgency"`
 }
 
@@ -15847,10 +15834,13 @@ type ServiceIncidentUrgencyRuleInput interface {
 }
 
 type ServiceIncidentUrgencyRuleArgs struct {
-	DuringSupportHours  ServiceIncidentUrgencyRuleDuringSupportHoursPtrInput  `pulumi:"duringSupportHours"`
+	// Incidents' urgency during support hours.
+	DuringSupportHours ServiceIncidentUrgencyRuleDuringSupportHoursPtrInput `pulumi:"duringSupportHours"`
+	// Incidents' urgency outside support hours.
 	OutsideSupportHours ServiceIncidentUrgencyRuleOutsideSupportHoursPtrInput `pulumi:"outsideSupportHours"`
-	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
-	Type    pulumi.StringInput    `pulumi:"type"`
+	// The type of incident urgency: `constant` or `useSupportHours` (when depending on specific support hours; see `supportHours`).
+	Type pulumi.StringInput `pulumi:"type"`
+	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 	Urgency pulumi.StringPtrInput `pulumi:"urgency"`
 }
 
@@ -15931,23 +15921,26 @@ func (o ServiceIncidentUrgencyRuleOutput) ToServiceIncidentUrgencyRulePtrOutputW
 	}).(ServiceIncidentUrgencyRulePtrOutput)
 }
 
+// Incidents' urgency during support hours.
 func (o ServiceIncidentUrgencyRuleOutput) DuringSupportHours() ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRuleDuringSupportHours {
 		return v.DuringSupportHours
 	}).(ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput)
 }
 
+// Incidents' urgency outside support hours.
 func (o ServiceIncidentUrgencyRuleOutput) OutsideSupportHours() ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRuleOutsideSupportHours {
 		return v.OutsideSupportHours
 	}).(ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput)
 }
 
-// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+// The type of incident urgency: `constant` or `useSupportHours` (when depending on specific support hours; see `supportHours`).
 func (o ServiceIncidentUrgencyRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRule) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 func (o ServiceIncidentUrgencyRuleOutput) Urgency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRule) *string { return v.Urgency }).(pulumi.StringPtrOutput)
 }
@@ -15976,6 +15969,7 @@ func (o ServiceIncidentUrgencyRulePtrOutput) Elem() ServiceIncidentUrgencyRuleOu
 	}).(ServiceIncidentUrgencyRuleOutput)
 }
 
+// Incidents' urgency during support hours.
 func (o ServiceIncidentUrgencyRulePtrOutput) DuringSupportHours() ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRuleDuringSupportHours {
 		if v == nil {
@@ -15985,6 +15979,7 @@ func (o ServiceIncidentUrgencyRulePtrOutput) DuringSupportHours() ServiceInciden
 	}).(ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput)
 }
 
+// Incidents' urgency outside support hours.
 func (o ServiceIncidentUrgencyRulePtrOutput) OutsideSupportHours() ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRuleOutsideSupportHours {
 		if v == nil {
@@ -15994,7 +15989,7 @@ func (o ServiceIncidentUrgencyRulePtrOutput) OutsideSupportHours() ServiceIncide
 	}).(ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput)
 }
 
-// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+// The type of incident urgency: `constant` or `useSupportHours` (when depending on specific support hours; see `supportHours`).
 func (o ServiceIncidentUrgencyRulePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRule) *string {
 		if v == nil {
@@ -16004,6 +15999,7 @@ func (o ServiceIncidentUrgencyRulePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 func (o ServiceIncidentUrgencyRulePtrOutput) Urgency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRule) *string {
 		if v == nil {
@@ -17031,9 +17027,11 @@ func (o ServiceIntegrationEmailParserValueExtractorArrayOutput) Index(i pulumi.I
 }
 
 type ServiceScheduledAction struct {
-	Ats       []ServiceScheduledActionAt `pulumi:"ats"`
-	ToUrgency *string                    `pulumi:"toUrgency"`
-	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+	// A block representing when the scheduled action will occur.
+	Ats []ServiceScheduledActionAt `pulumi:"ats"`
+	// The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
+	ToUrgency *string `pulumi:"toUrgency"`
+	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
 	Type *string `pulumi:"type"`
 }
 
@@ -17049,9 +17047,11 @@ type ServiceScheduledActionInput interface {
 }
 
 type ServiceScheduledActionArgs struct {
-	Ats       ServiceScheduledActionAtArrayInput `pulumi:"ats"`
-	ToUrgency pulumi.StringPtrInput              `pulumi:"toUrgency"`
-	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+	// A block representing when the scheduled action will occur.
+	Ats ServiceScheduledActionAtArrayInput `pulumi:"ats"`
+	// The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
+	ToUrgency pulumi.StringPtrInput `pulumi:"toUrgency"`
+	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -17106,15 +17106,17 @@ func (o ServiceScheduledActionOutput) ToServiceScheduledActionOutputWithContext(
 	return o
 }
 
+// A block representing when the scheduled action will occur.
 func (o ServiceScheduledActionOutput) Ats() ServiceScheduledActionAtArrayOutput {
 	return o.ApplyT(func(v ServiceScheduledAction) []ServiceScheduledActionAt { return v.Ats }).(ServiceScheduledActionAtArrayOutput)
 }
 
+// The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
 func (o ServiceScheduledActionOutput) ToUrgency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceScheduledAction) *string { return v.ToUrgency }).(pulumi.StringPtrOutput)
 }
 
-// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+// The type of scheduled action. Currently, this must be set to `urgencyChange`.
 func (o ServiceScheduledActionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceScheduledAction) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -17444,11 +17446,16 @@ func (o ServiceScheduledActionAtArrayOutput) Index(i pulumi.IntInput) ServiceSch
 }
 
 type ServiceSupportHours struct {
-	DaysOfWeeks []int   `pulumi:"daysOfWeeks"`
-	EndTime     *string `pulumi:"endTime"`
-	StartTime   *string `pulumi:"startTime"`
-	TimeZone    *string `pulumi:"timeZone"`
-	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+	// Array of days of week as integers. `1` to `7`, `1` being
+	// Monday and `7` being Sunday.
+	DaysOfWeeks []int `pulumi:"daysOfWeeks"`
+	// The support hours' ending time of day.
+	EndTime *string `pulumi:"endTime"`
+	// The support hours' starting time of day.
+	StartTime *string `pulumi:"startTime"`
+	// The time zone for the support hours.
+	TimeZone *string `pulumi:"timeZone"`
+	// The type of support hours. Can be `fixedTimePerDay`.
 	Type *string `pulumi:"type"`
 }
 
@@ -17464,11 +17471,16 @@ type ServiceSupportHoursInput interface {
 }
 
 type ServiceSupportHoursArgs struct {
-	DaysOfWeeks pulumi.IntArrayInput  `pulumi:"daysOfWeeks"`
-	EndTime     pulumi.StringPtrInput `pulumi:"endTime"`
-	StartTime   pulumi.StringPtrInput `pulumi:"startTime"`
-	TimeZone    pulumi.StringPtrInput `pulumi:"timeZone"`
-	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+	// Array of days of week as integers. `1` to `7`, `1` being
+	// Monday and `7` being Sunday.
+	DaysOfWeeks pulumi.IntArrayInput `pulumi:"daysOfWeeks"`
+	// The support hours' ending time of day.
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// The support hours' starting time of day.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// The time zone for the support hours.
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+	// The type of support hours. Can be `fixedTimePerDay`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -17549,23 +17561,28 @@ func (o ServiceSupportHoursOutput) ToServiceSupportHoursPtrOutputWithContext(ctx
 	}).(ServiceSupportHoursPtrOutput)
 }
 
+// Array of days of week as integers. `1` to `7`, `1` being
+// Monday and `7` being Sunday.
 func (o ServiceSupportHoursOutput) DaysOfWeeks() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v ServiceSupportHours) []int { return v.DaysOfWeeks }).(pulumi.IntArrayOutput)
 }
 
+// The support hours' ending time of day.
 func (o ServiceSupportHoursOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSupportHours) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
+// The support hours' starting time of day.
 func (o ServiceSupportHoursOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSupportHours) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
+// The time zone for the support hours.
 func (o ServiceSupportHoursOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSupportHours) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
-// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+// The type of support hours. Can be `fixedTimePerDay`.
 func (o ServiceSupportHoursOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSupportHours) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -17594,6 +17611,8 @@ func (o ServiceSupportHoursPtrOutput) Elem() ServiceSupportHoursOutput {
 	}).(ServiceSupportHoursOutput)
 }
 
+// Array of days of week as integers. `1` to `7`, `1` being
+// Monday and `7` being Sunday.
 func (o ServiceSupportHoursPtrOutput) DaysOfWeeks() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ServiceSupportHours) []int {
 		if v == nil {
@@ -17603,6 +17622,7 @@ func (o ServiceSupportHoursPtrOutput) DaysOfWeeks() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
+// The support hours' ending time of day.
 func (o ServiceSupportHoursPtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSupportHours) *string {
 		if v == nil {
@@ -17612,6 +17632,7 @@ func (o ServiceSupportHoursPtrOutput) EndTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The support hours' starting time of day.
 func (o ServiceSupportHoursPtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSupportHours) *string {
 		if v == nil {
@@ -17621,6 +17642,7 @@ func (o ServiceSupportHoursPtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The time zone for the support hours.
 func (o ServiceSupportHoursPtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSupportHours) *string {
 		if v == nil {
@@ -17630,7 +17652,7 @@ func (o ServiceSupportHoursPtrOutput) TimeZone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+// The type of support hours. Can be `fixedTimePerDay`.
 func (o ServiceSupportHoursPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSupportHours) *string {
 		if v == nil {

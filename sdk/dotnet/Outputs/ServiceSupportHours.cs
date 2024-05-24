@@ -13,12 +13,25 @@ namespace Pulumi.Pagerduty.Outputs
     [OutputType]
     public sealed class ServiceSupportHours
     {
+        /// <summary>
+        /// Array of days of week as integers. `1` to `7`, `1` being
+        /// Monday and `7` being Sunday.
+        /// </summary>
         public readonly ImmutableArray<int> DaysOfWeeks;
+        /// <summary>
+        /// The support hours' ending time of day.
+        /// </summary>
         public readonly string? EndTime;
+        /// <summary>
+        /// The support hours' starting time of day.
+        /// </summary>
         public readonly string? StartTime;
+        /// <summary>
+        /// The time zone for the support hours.
+        /// </summary>
         public readonly string? TimeZone;
         /// <summary>
-        /// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        /// The type of support hours. Can be `fixed_time_per_day`.
         /// </summary>
         public readonly string? Type;
 

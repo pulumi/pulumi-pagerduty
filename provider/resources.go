@@ -225,7 +225,6 @@ func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 	return append(defaults, tfbridge.DocsEdit{
 		Path: "service.html.markdown",
 		Edit: func(_ string, content []byte) ([]byte, error) {
-
 			content = bytes.Replace(content,
 				[]byte("You may specify one optional `incident_urgency_rule` block configuring what urgencies to "+
 					"use.\nYour PagerDuty account must have the `urgencies` ability to assign an incident urgency "+

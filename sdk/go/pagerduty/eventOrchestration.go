@@ -15,7 +15,6 @@ import (
 //
 // ## Example of configuring an Event Orchestration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,11 +27,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			engineering, err := pagerduty.NewTeam(ctx, "engineering", nil)
+//			engineering, err := pagerduty.NewTeam(ctx, "engineering", &pagerduty.TeamArgs{
+//				Name: pulumi.String("Engineering"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewEventOrchestration(ctx, "myMonitor", &pagerduty.EventOrchestrationArgs{
+//			_, err = pagerduty.NewEventOrchestration(ctx, "my_monitor", &pagerduty.EventOrchestrationArgs{
+//				Name:        pulumi.String("My Monitoring Orchestration"),
 //				Description: pulumi.String("Send events to a pair of services"),
 //				Team:        engineering.ID(),
 //			})
@@ -44,7 +46,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

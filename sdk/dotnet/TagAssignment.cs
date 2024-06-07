@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,23 +22,25 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTag = new Pagerduty.Tag("exampleTag", new()
+    ///     var example = new Pagerduty.Tag("example", new()
     ///     {
     ///         Label = "API",
     ///     });
     /// 
-    ///     var engteam = new Pagerduty.Team("engteam");
-    /// 
-    ///     var exampleTagAssignment = new Pagerduty.TagAssignment("exampleTagAssignment", new()
+    ///     var engteam = new Pagerduty.Team("engteam", new()
     ///     {
-    ///         TagId = exampleTag.Id,
+    ///         Name = "Engineering",
+    ///     });
+    /// 
+    ///     var exampleTagAssignment = new Pagerduty.TagAssignment("example", new()
+    ///     {
+    ///         TagId = example.Id,
     ///         EntityType = "teams",
     ///         EntityId = engteam.Id,
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

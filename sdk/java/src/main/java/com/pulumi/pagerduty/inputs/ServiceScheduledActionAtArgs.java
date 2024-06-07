@@ -23,7 +23,8 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
      * Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = &#34;use_support_hours&#34;`, `support_hours` and a default `scheduled_action` as well.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -49,27 +50,28 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var foo = new Service(&#34;foo&#34;, ServiceArgs.builder()        
-     *             .description(&#34;bar bar bar&#34;)
+     *         var foo = new Service("foo", ServiceArgs.builder()
+     *             .name("bar")
+     *             .description("bar bar bar")
      *             .autoResolveTimeout(3600)
      *             .acknowledgementTimeout(3600)
-     *             .escalationPolicy(pagerduty_escalation_policy.foo().id())
+     *             .escalationPolicy(fooPagerdutyEscalationPolicy.id())
      *             .incidentUrgencyRule(ServiceIncidentUrgencyRuleArgs.builder()
-     *                 .type(&#34;use_support_hours&#34;)
+     *                 .type("use_support_hours")
      *                 .duringSupportHours(ServiceIncidentUrgencyRuleDuringSupportHoursArgs.builder()
-     *                     .type(&#34;constant&#34;)
-     *                     .urgency(&#34;high&#34;)
+     *                     .type("constant")
+     *                     .urgency("high")
      *                     .build())
      *                 .outsideSupportHours(ServiceIncidentUrgencyRuleOutsideSupportHoursArgs.builder()
-     *                     .type(&#34;constant&#34;)
-     *                     .urgency(&#34;low&#34;)
+     *                     .type("constant")
+     *                     .urgency("low")
      *                     .build())
      *                 .build())
      *             .supportHours(ServiceSupportHoursArgs.builder()
-     *                 .type(&#34;fixed_time_per_day&#34;)
-     *                 .timeZone(&#34;America/Lima&#34;)
-     *                 .startTime(&#34;09:00:00&#34;)
-     *                 .endTime(&#34;17:00:00&#34;)
+     *                 .type("fixed_time_per_day")
+     *                 .timeZone("America/Lima")
+     *                 .startTime("09:00:00")
+     *                 .endTime("17:00:00")
      *                 .daysOfWeeks(                
      *                     1,
      *                     2,
@@ -78,18 +80,19 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
      *                     5)
      *                 .build())
      *             .scheduledActions(ServiceScheduledActionArgs.builder()
-     *                 .type(&#34;urgency_change&#34;)
-     *                 .toUrgency(&#34;high&#34;)
+     *                 .type("urgency_change")
+     *                 .toUrgency("high")
      *                 .ats(ServiceScheduledActionAtArgs.builder()
-     *                     .type(&#34;named_time&#34;)
-     *                     .name(&#34;support_hours_start&#34;)
+     *                     .type("named_time")
+     *                     .name("support_hours_start")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +107,8 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
      * Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = &#34;use_support_hours&#34;`, `support_hours` and a default `scheduled_action` as well.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -130,27 +134,28 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var foo = new Service(&#34;foo&#34;, ServiceArgs.builder()        
-     *             .description(&#34;bar bar bar&#34;)
+     *         var foo = new Service("foo", ServiceArgs.builder()
+     *             .name("bar")
+     *             .description("bar bar bar")
      *             .autoResolveTimeout(3600)
      *             .acknowledgementTimeout(3600)
-     *             .escalationPolicy(pagerduty_escalation_policy.foo().id())
+     *             .escalationPolicy(fooPagerdutyEscalationPolicy.id())
      *             .incidentUrgencyRule(ServiceIncidentUrgencyRuleArgs.builder()
-     *                 .type(&#34;use_support_hours&#34;)
+     *                 .type("use_support_hours")
      *                 .duringSupportHours(ServiceIncidentUrgencyRuleDuringSupportHoursArgs.builder()
-     *                     .type(&#34;constant&#34;)
-     *                     .urgency(&#34;high&#34;)
+     *                     .type("constant")
+     *                     .urgency("high")
      *                     .build())
      *                 .outsideSupportHours(ServiceIncidentUrgencyRuleOutsideSupportHoursArgs.builder()
-     *                     .type(&#34;constant&#34;)
-     *                     .urgency(&#34;low&#34;)
+     *                     .type("constant")
+     *                     .urgency("low")
      *                     .build())
      *                 .build())
      *             .supportHours(ServiceSupportHoursArgs.builder()
-     *                 .type(&#34;fixed_time_per_day&#34;)
-     *                 .timeZone(&#34;America/Lima&#34;)
-     *                 .startTime(&#34;09:00:00&#34;)
-     *                 .endTime(&#34;17:00:00&#34;)
+     *                 .type("fixed_time_per_day")
+     *                 .timeZone("America/Lima")
+     *                 .startTime("09:00:00")
+     *                 .endTime("17:00:00")
      *                 .daysOfWeeks(                
      *                     1,
      *                     2,
@@ -159,18 +164,19 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
      *                     5)
      *                 .build())
      *             .scheduledActions(ServiceScheduledActionArgs.builder()
-     *                 .type(&#34;urgency_change&#34;)
-     *                 .toUrgency(&#34;high&#34;)
+     *                 .type("urgency_change")
+     *                 .toUrgency("high")
      *                 .ats(ServiceScheduledActionAtArgs.builder()
-     *                     .type(&#34;named_time&#34;)
-     *                     .name(&#34;support_hours_start&#34;)
+     *                     .type("named_time")
+     *                     .name("support_hours_start")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -226,7 +232,8 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
          * Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = &#34;use_support_hours&#34;`, `support_hours` and a default `scheduled_action` as well.
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * <pre>
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -252,27 +259,28 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var foo = new Service(&#34;foo&#34;, ServiceArgs.builder()        
-         *             .description(&#34;bar bar bar&#34;)
+         *         var foo = new Service("foo", ServiceArgs.builder()
+         *             .name("bar")
+         *             .description("bar bar bar")
          *             .autoResolveTimeout(3600)
          *             .acknowledgementTimeout(3600)
-         *             .escalationPolicy(pagerduty_escalation_policy.foo().id())
+         *             .escalationPolicy(fooPagerdutyEscalationPolicy.id())
          *             .incidentUrgencyRule(ServiceIncidentUrgencyRuleArgs.builder()
-         *                 .type(&#34;use_support_hours&#34;)
+         *                 .type("use_support_hours")
          *                 .duringSupportHours(ServiceIncidentUrgencyRuleDuringSupportHoursArgs.builder()
-         *                     .type(&#34;constant&#34;)
-         *                     .urgency(&#34;high&#34;)
+         *                     .type("constant")
+         *                     .urgency("high")
          *                     .build())
          *                 .outsideSupportHours(ServiceIncidentUrgencyRuleOutsideSupportHoursArgs.builder()
-         *                     .type(&#34;constant&#34;)
-         *                     .urgency(&#34;low&#34;)
+         *                     .type("constant")
+         *                     .urgency("low")
          *                     .build())
          *                 .build())
          *             .supportHours(ServiceSupportHoursArgs.builder()
-         *                 .type(&#34;fixed_time_per_day&#34;)
-         *                 .timeZone(&#34;America/Lima&#34;)
-         *                 .startTime(&#34;09:00:00&#34;)
-         *                 .endTime(&#34;17:00:00&#34;)
+         *                 .type("fixed_time_per_day")
+         *                 .timeZone("America/Lima")
+         *                 .startTime("09:00:00")
+         *                 .endTime("17:00:00")
          *                 .daysOfWeeks(                
          *                     1,
          *                     2,
@@ -281,18 +289,19 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
          *                     5)
          *                 .build())
          *             .scheduledActions(ServiceScheduledActionArgs.builder()
-         *                 .type(&#34;urgency_change&#34;)
-         *                 .toUrgency(&#34;high&#34;)
+         *                 .type("urgency_change")
+         *                 .toUrgency("high")
          *                 .ats(ServiceScheduledActionAtArgs.builder()
-         *                     .type(&#34;named_time&#34;)
-         *                     .name(&#34;support_hours_start&#34;)
+         *                     .type("named_time")
+         *                     .name("support_hours_start")
          *                     .build())
          *                 .build())
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
@@ -311,7 +320,8 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
          * Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = &#34;use_support_hours&#34;`, `support_hours` and a default `scheduled_action` as well.
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * <pre>
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -337,27 +347,28 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var foo = new Service(&#34;foo&#34;, ServiceArgs.builder()        
-         *             .description(&#34;bar bar bar&#34;)
+         *         var foo = new Service("foo", ServiceArgs.builder()
+         *             .name("bar")
+         *             .description("bar bar bar")
          *             .autoResolveTimeout(3600)
          *             .acknowledgementTimeout(3600)
-         *             .escalationPolicy(pagerduty_escalation_policy.foo().id())
+         *             .escalationPolicy(fooPagerdutyEscalationPolicy.id())
          *             .incidentUrgencyRule(ServiceIncidentUrgencyRuleArgs.builder()
-         *                 .type(&#34;use_support_hours&#34;)
+         *                 .type("use_support_hours")
          *                 .duringSupportHours(ServiceIncidentUrgencyRuleDuringSupportHoursArgs.builder()
-         *                     .type(&#34;constant&#34;)
-         *                     .urgency(&#34;high&#34;)
+         *                     .type("constant")
+         *                     .urgency("high")
          *                     .build())
          *                 .outsideSupportHours(ServiceIncidentUrgencyRuleOutsideSupportHoursArgs.builder()
-         *                     .type(&#34;constant&#34;)
-         *                     .urgency(&#34;low&#34;)
+         *                     .type("constant")
+         *                     .urgency("low")
          *                     .build())
          *                 .build())
          *             .supportHours(ServiceSupportHoursArgs.builder()
-         *                 .type(&#34;fixed_time_per_day&#34;)
-         *                 .timeZone(&#34;America/Lima&#34;)
-         *                 .startTime(&#34;09:00:00&#34;)
-         *                 .endTime(&#34;17:00:00&#34;)
+         *                 .type("fixed_time_per_day")
+         *                 .timeZone("America/Lima")
+         *                 .startTime("09:00:00")
+         *                 .endTime("17:00:00")
          *                 .daysOfWeeks(                
          *                     1,
          *                     2,
@@ -366,18 +377,19 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
          *                     5)
          *                 .build())
          *             .scheduledActions(ServiceScheduledActionArgs.builder()
-         *                 .type(&#34;urgency_change&#34;)
-         *                 .toUrgency(&#34;high&#34;)
+         *                 .type("urgency_change")
+         *                 .toUrgency("high")
          *                 .ats(ServiceScheduledActionAtArgs.builder()
-         *                     .type(&#34;named_time&#34;)
-         *                     .name(&#34;support_hours_start&#34;)
+         *                     .type("named_time")
+         *                     .name("support_hours_start")
          *                     .build())
          *                 .build())
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder

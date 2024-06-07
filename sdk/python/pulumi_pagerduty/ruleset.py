@@ -136,17 +136,17 @@ class Ruleset(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        foo_team = pagerduty.Team("fooTeam")
-        foo_ruleset = pagerduty.Ruleset("fooRuleset", team=pagerduty.RulesetTeamArgs(
-            id=foo_team.id,
-        ))
+        foo = pagerduty.Team("foo", name="Engineering (Seattle)")
+        foo_ruleset = pagerduty.Ruleset("foo",
+            name="Primary Ruleset",
+            team=pagerduty.RulesetTeamArgs(
+                id=foo.id,
+            ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -170,17 +170,17 @@ class Ruleset(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        foo_team = pagerduty.Team("fooTeam")
-        foo_ruleset = pagerduty.Ruleset("fooRuleset", team=pagerduty.RulesetTeamArgs(
-            id=foo_team.id,
-        ))
+        foo = pagerduty.Team("foo", name="Engineering (Seattle)")
+        foo_ruleset = pagerduty.Ruleset("foo",
+            name="Primary Ruleset",
+            team=pagerduty.RulesetTeamArgs(
+                id=foo.id,
+            ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

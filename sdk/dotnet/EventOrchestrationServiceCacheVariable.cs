@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// This example shows creating a service `Event Orchestration` and a `Cache Variable`. This Cache Variable will count and store the number of trigger events with 'database' in its title. Then all alerts sent to this Event Orchestration will have its severity upped to 'critical' if the count has reached at least 5 triggers within the last 1 minute.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,10 +24,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var databaseTeam = new Pagerduty.Team("databaseTeam");
-    /// 
-    ///     var user1 = new Pagerduty.User("user1", new()
+    ///     var databaseTeam = new Pagerduty.Team("database_team", new()
     ///     {
+    ///         Name = "Database Team",
+    ///     });
+    /// 
+    ///     var user1 = new Pagerduty.User("user_1", new()
+    ///     {
+    ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///         Teams = new[]
     ///         {
@@ -36,8 +39,9 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var dbEp = new Pagerduty.EscalationPolicy("dbEp", new()
+    ///     var dbEp = new Pagerduty.EscalationPolicy("db_ep", new()
     ///     {
+    ///         Name = "Database Escalation Policy",
     ///         NumLoops = 2,
     ///         Rules = new[]
     ///         {
@@ -58,15 +62,17 @@ namespace Pulumi.Pagerduty
     /// 
     ///     var svc = new Pagerduty.Service("svc", new()
     ///     {
+    ///         Name = "My Database Service",
     ///         AutoResolveTimeout = "14400",
     ///         AcknowledgementTimeout = "600",
     ///         EscalationPolicy = dbEp.Id,
     ///         AlertCreation = "create_alerts_and_incidents",
     ///     });
     /// 
-    ///     var numDbTriggers = new Pagerduty.EventOrchestrationServiceCacheVariable("numDbTriggers", new()
+    ///     var numDbTriggers = new Pagerduty.EventOrchestrationServiceCacheVariable("num_db_triggers", new()
     ///     {
     ///         Service = svc.Id,
+    ///         Name = "num_db_triggers",
     ///         Conditions = new[]
     ///         {
     ///             new Pagerduty.Inputs.EventOrchestrationServiceCacheVariableConditionArgs
@@ -81,7 +87,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var eventOrchestration = new Pagerduty.EventOrchestrationService("eventOrchestration", new()
+    ///     var eventOrchestration = new Pagerduty.EventOrchestrationService("event_orchestration", new()
     ///     {
     ///         Service = svc.Id,
     ///         EnableEventOrchestrationForService = true,
@@ -118,7 +124,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

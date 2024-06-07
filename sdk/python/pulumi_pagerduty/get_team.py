@@ -99,6 +99,27 @@ def get_team(default_role: Optional[str] = None,
     """
     Use this data source to get information about a specific [team](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIyMw-list-teams) that you can use for other PagerDuty resources.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    me = pagerduty.get_user(email="me@example.com")
+    devops = pagerduty.get_team(name="devops")
+    foo = pagerduty.EscalationPolicy("foo",
+        name="DevOps Escalation Policy",
+        num_loops=2,
+        teams=devops.id,
+        rules=[pagerduty.EscalationPolicyRuleArgs(
+            escalation_delay_in_minutes=10,
+            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                type="user",
+                id=me.id,
+            )],
+        )])
+    ```
+
 
     :param str default_role: (Optional) The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
     :param str name: The name of the team to find in the PagerDuty API.
@@ -126,6 +147,27 @@ def get_team_output(default_role: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamResult]:
     """
     Use this data source to get information about a specific [team](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIyMw-list-teams) that you can use for other PagerDuty resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    me = pagerduty.get_user(email="me@example.com")
+    devops = pagerduty.get_team(name="devops")
+    foo = pagerduty.EscalationPolicy("foo",
+        name="DevOps Escalation Policy",
+        num_loops=2,
+        teams=devops.id,
+        rules=[pagerduty.EscalationPolicyRuleArgs(
+            escalation_delay_in_minutes=10,
+            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                type="user",
+                id=me.id,
+            )],
+        )])
+    ```
 
 
     :param str default_role: (Optional) The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").

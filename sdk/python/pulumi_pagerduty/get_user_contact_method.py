@@ -158,7 +158,6 @@ def get_user_contact_method(label: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -167,7 +166,7 @@ def get_user_contact_method(label: Optional[str] = None,
     phone_push = pagerduty.get_user_contact_method(user_id=me.id,
         type="push_notification_contact_method",
         label="iPhone (John)")
-    low_urgency_sms = pagerduty.UserNotificationRule("lowUrgencySms",
+    low_urgency_sms = pagerduty.UserNotificationRule("low_urgency_sms",
         user_id=me.id,
         start_delay_in_minutes=5,
         urgency="high",
@@ -176,7 +175,6 @@ def get_user_contact_method(label: Optional[str] = None,
             "id": phone_push.id,
         })
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str label: The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).
@@ -213,7 +211,6 @@ def get_user_contact_method_output(label: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -222,7 +219,7 @@ def get_user_contact_method_output(label: Optional[pulumi.Input[str]] = None,
     phone_push = pagerduty.get_user_contact_method(user_id=me.id,
         type="push_notification_contact_method",
         label="iPhone (John)")
-    low_urgency_sms = pagerduty.UserNotificationRule("lowUrgencySms",
+    low_urgency_sms = pagerduty.UserNotificationRule("low_urgency_sms",
         user_id=me.id,
         start_delay_in_minutes=5,
         urgency="high",
@@ -231,7 +228,6 @@ def get_user_contact_method_output(label: Optional[pulumi.Input[str]] = None,
             "id": phone_push.id,
         })
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str label: The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).

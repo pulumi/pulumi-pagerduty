@@ -12,15 +12,9 @@ namespace Pulumi.Pagerduty.Inputs
 
     public sealed class ServiceEventRuleConditionsSubconditionParameterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
-        /// <summary>
-        /// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

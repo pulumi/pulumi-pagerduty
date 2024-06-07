@@ -26,13 +26,15 @@ import javax.annotation.Nullable;
  * This example shows creating a global `Event Orchestration` and a `Cache Variable`. All events that have the `event.source` field will have its `source` value stored in this Cache Variable, and appended as a note for the subsequent incident created by this Event Orchestration.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.TeamArgs;
  * import com.pulumi.pagerduty.EventOrchestration;
  * import com.pulumi.pagerduty.EventOrchestrationArgs;
  * import com.pulumi.pagerduty.EventOrchestrationGlobalCacheVariable;
@@ -57,32 +59,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var databaseTeam = new Team(&#34;databaseTeam&#34;);
+ *         var databaseTeam = new Team("databaseTeam", TeamArgs.builder()
+ *             .name("Database Team")
+ *             .build());
  * 
- *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;, EventOrchestrationArgs.builder()        
+ *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()
+ *             .name("Example Orchestration")
  *             .team(databaseTeam.id())
  *             .build());
  * 
- *         var cacheVar = new EventOrchestrationGlobalCacheVariable(&#34;cacheVar&#34;, EventOrchestrationGlobalCacheVariableArgs.builder()        
+ *         var cacheVar = new EventOrchestrationGlobalCacheVariable("cacheVar", EventOrchestrationGlobalCacheVariableArgs.builder()
  *             .eventOrchestration(eventOrchestration.id())
+ *             .name("recent_host")
  *             .conditions(EventOrchestrationGlobalCacheVariableConditionArgs.builder()
- *                 .expression(&#34;event.source exists&#34;)
+ *                 .expression("event.source exists")
  *                 .build())
  *             .configuration(EventOrchestrationGlobalCacheVariableConfigurationArgs.builder()
- *                 .type(&#34;recent_value&#34;)
- *                 .source(&#34;event.source&#34;)
- *                 .regex(&#34;.*&#34;)
+ *                 .type("recent_value")
+ *                 .source("event.source")
+ *                 .regex(".*")
  *                 .build())
  *             .build());
  * 
- *         var global = new EventOrchestrationGlobal(&#34;global&#34;, EventOrchestrationGlobalArgs.builder()        
+ *         var global = new EventOrchestrationGlobal("global", EventOrchestrationGlobalArgs.builder()
  *             .eventOrchestration(eventOrchestration.id())
  *             .sets(EventOrchestrationGlobalSetArgs.builder()
- *                 .id(&#34;start&#34;)
+ *                 .id("start")
  *                 .rules(EventOrchestrationGlobalSetRuleArgs.builder()
- *                     .label(&#34;Always annotate the incident with the event source for all events&#34;)
+ *                     .label("Always annotate the incident with the event source for all events")
  *                     .actions(EventOrchestrationGlobalSetRuleActionsArgs.builder()
- *                         .annotate(&#34;Last time, we saw this incident occur on host: {{cache_var.recent_host}}&#34;)
+ *                         .annotate("Last time, we saw this incident occur on host: {{cache_var.recent_host}}")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -93,7 +99,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

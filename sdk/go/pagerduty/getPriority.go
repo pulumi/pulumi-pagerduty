@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,12 +33,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fooRuleset, err := pagerduty.NewRuleset(ctx, "fooRuleset", nil)
+//			foo, err := pagerduty.NewRuleset(ctx, "foo", &pagerduty.RulesetArgs{
+//				Name: pulumi.String("Primary Ruleset"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewRulesetRule(ctx, "fooRulesetRule", &pagerduty.RulesetRuleArgs{
-//				Ruleset:  fooRuleset.ID(),
+//			_, err = pagerduty.NewRulesetRule(ctx, "foo", &pagerduty.RulesetRuleArgs{
+//				Ruleset:  foo.ID(),
 //				Position: pulumi.Int(0),
 //				Disabled: pulumi.Bool(false),
 //				Conditions: &pagerduty.RulesetRuleConditionsArgs{
@@ -86,7 +87,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetPriority(ctx *pulumi.Context, args *GetPriorityArgs, opts ...pulumi.InvokeOption) (*GetPriorityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPriorityResult

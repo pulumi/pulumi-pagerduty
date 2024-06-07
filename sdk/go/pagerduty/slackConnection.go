@@ -20,7 +20,6 @@ import (
 // * This resource is for configuring Slack V2 Next Generation connections. If you configured your Slack integration (V1 or V2) prior to August 10, 2021, you may migrate to the Slack V2 Next Generation update using this [migration instructions](https://support.pagerduty.com/docs/slack-integration-guide#migrate-to-slack-v2-next-generation), but if you configured your Slack integration after that date, you will have access to the update out of the box.
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,7 +32,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooTeam, err := pagerduty.NewTeam(ctx, "fooTeam", nil)
+//			foo, err := pagerduty.NewTeam(ctx, "foo", &pagerduty.TeamArgs{
+//				Name: pulumi.String("Team Foo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -43,8 +44,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewSlackConnection(ctx, "fooSlackConnection", &pagerduty.SlackConnectionArgs{
-//				SourceId:         fooTeam.ID(),
+//			_, err = pagerduty.NewSlackConnection(ctx, "foo", &pagerduty.SlackConnectionArgs{
+//				SourceId:         foo.ID(),
 //				SourceType:       pulumi.String("team_reference"),
 //				WorkspaceId:      pulumi.String("T02A123LV1A"),
 //				ChannelId:        pulumi.String("C02CABCDAC9"),
@@ -80,7 +81,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

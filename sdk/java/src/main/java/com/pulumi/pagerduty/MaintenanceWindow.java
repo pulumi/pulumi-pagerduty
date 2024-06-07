@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,15 +44,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new MaintenanceWindow(&#34;example&#34;, MaintenanceWindowArgs.builder()        
- *             .startTime(&#34;2015-11-09T20:00:00-05:00&#34;)
- *             .endTime(&#34;2015-11-09T22:00:00-05:00&#34;)
- *             .services(pagerduty_service.example().id())
+ *         var example = new MaintenanceWindow("example", MaintenanceWindowArgs.builder()
+ *             .startTime("2015-11-09T20:00:00-05:00")
+ *             .endTime("2015-11-09T22:00:00-05:00")
+ *             .services(examplePagerdutyService.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

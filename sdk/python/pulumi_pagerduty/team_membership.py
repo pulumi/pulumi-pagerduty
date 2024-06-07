@@ -145,19 +145,21 @@ class TeamMembership(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        foo_user = pagerduty.User("fooUser", email="foo@bar.com")
-        foo_team = pagerduty.Team("fooTeam", description="foo")
-        foo_team_membership = pagerduty.TeamMembership("fooTeamMembership",
-            user_id=foo_user.id,
+        foo = pagerduty.User("foo",
+            name="foo",
+            email="foo@bar.com")
+        foo_team = pagerduty.Team("foo",
+            name="foo",
+            description="foo")
+        foo_team_membership = pagerduty.TeamMembership("foo",
+            user_id=foo.id,
             team_id=foo_team.id,
             role="manager")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -185,19 +187,21 @@ class TeamMembership(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        foo_user = pagerduty.User("fooUser", email="foo@bar.com")
-        foo_team = pagerduty.Team("fooTeam", description="foo")
-        foo_team_membership = pagerduty.TeamMembership("fooTeamMembership",
-            user_id=foo_user.id,
+        foo = pagerduty.User("foo",
+            name="foo",
+            email="foo@bar.com")
+        foo_team = pagerduty.Team("foo",
+            name="foo",
+            description="foo")
+        foo_team_membership = pagerduty.TeamMembership("foo",
+            user_id=foo.id,
             team_id=foo_team.id,
             role="manager")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

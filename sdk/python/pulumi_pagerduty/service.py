@@ -280,7 +280,7 @@ class _ServiceState:
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[str] response_play: The response play used by this service.
         :param pulumi.Input[str] status: The status of the service.
-        :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        :param pulumi.Input[str] type: The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         """
         if acknowledgement_timeout is not None:
             pulumi.set(__self__, "acknowledgement_timeout", acknowledgement_timeout)
@@ -543,7 +543,7 @@ class _ServiceState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         """
         return pulumi.get(self, "type")
 
@@ -577,22 +577,25 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
+        example = pagerduty.User("example",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
         foo = pagerduty.EscalationPolicy("foo",
+            name="Engineering Escalation Policy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                     type="user_reference",
-                    id=example_user.id,
+                    id=example.id,
                 )],
             )])
-        example_service = pagerduty.Service("exampleService",
+        example_service = pagerduty.Service("example",
+            name="My Web App",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
             escalation_policy=foo.id,
@@ -602,7 +605,6 @@ class Service(pulumi.CustomResource):
                 timeout=300,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -636,22 +638,25 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
+        example = pagerduty.User("example",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
         foo = pagerduty.EscalationPolicy("foo",
+            name="Engineering Escalation Policy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                     type="user_reference",
-                    id=example_user.id,
+                    id=example.id,
                 )],
             )])
-        example_service = pagerduty.Service("exampleService",
+        example_service = pagerduty.Service("example",
+            name="My Web App",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
             escalation_policy=foo.id,
@@ -661,7 +666,6 @@ class Service(pulumi.CustomResource):
                 timeout=300,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -782,7 +786,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[str] response_play: The response play used by this service.
         :param pulumi.Input[str] status: The status of the service.
-        :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        :param pulumi.Input[str] type: The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -951,7 +955,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         """
         return pulumi.get(self, "type")
 

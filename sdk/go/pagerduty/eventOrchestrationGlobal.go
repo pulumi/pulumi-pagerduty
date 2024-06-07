@@ -24,7 +24,6 @@ import (
 //
 // The `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catchAll` doesn't have any `actions` so it'll leave events as-is.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,11 +36,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			databaseTeam, err := pagerduty.NewTeam(ctx, "databaseTeam", nil)
+//			databaseTeam, err := pagerduty.NewTeam(ctx, "database_team", &pagerduty.TeamArgs{
+//				Name: pulumi.String("Database Team"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			eventOrchestration, err := pagerduty.NewEventOrchestration(ctx, "eventOrchestration", &pagerduty.EventOrchestrationArgs{
+//			eventOrchestration, err := pagerduty.NewEventOrchestration(ctx, "event_orchestration", &pagerduty.EventOrchestrationArgs{
+//				Name: pulumi.String("Example Orchestration"),
 //				Team: databaseTeam.ID(),
 //			})
 //			if err != nil {
@@ -119,7 +121,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -11,18 +11,16 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const eventOrchestration = new pagerduty.EventOrchestration("eventOrchestration", {});
+ * const eventOrchestration = new pagerduty.EventOrchestration("event_orchestration", {name: "Test Event Orchestration"});
  * const integration = pagerduty.getEventOrchestrationIntegrationOutput({
  *     eventOrchestration: eventOrchestration.id,
  *     label: "Test Event Orchestration Default Integration",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEventOrchestrationIntegration(args: GetEventOrchestrationIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetEventOrchestrationIntegrationResult> {
 
@@ -66,18 +64,16 @@ export interface GetEventOrchestrationIntegrationResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const eventOrchestration = new pagerduty.EventOrchestration("eventOrchestration", {});
+ * const eventOrchestration = new pagerduty.EventOrchestration("event_orchestration", {name: "Test Event Orchestration"});
  * const integration = pagerduty.getEventOrchestrationIntegrationOutput({
  *     eventOrchestration: eventOrchestration.id,
  *     label: "Test Event Orchestration Default Integration",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEventOrchestrationIntegrationOutput(args: GetEventOrchestrationIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventOrchestrationIntegrationResult> {
     return pulumi.output(args).apply((a: any) => getEventOrchestrationIntegration(a, opts))

@@ -266,42 +266,45 @@ class Extension(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         webhook = pagerduty.get_extension_schema(name="Generic V2 Webhook")
-        example_user = pagerduty.User("exampleUser", email="howard.james@example.domain")
-        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+        example = pagerduty.User("example",
+            name="Howard James",
+            email="howard.james@example.domain")
+        example_escalation_policy = pagerduty.EscalationPolicy("example",
+            name="Engineering Escalation Policy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                     type="user",
-                    id=example_user.id,
+                    id=example.id,
                 )],
             )])
-        example_service = pagerduty.Service("exampleService",
+        example_service = pagerduty.Service("example",
+            name="My Web App",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
             escalation_policy=example_escalation_policy.id)
         slack = pagerduty.Extension("slack",
+            name="My Web App Extension",
             endpoint_url="https://generic_webhook_url/XXXXXX/BBBBBB",
             extension_schema=webhook.id,
             extension_objects=[example_service.id],
             config=\"\"\"{
-        	"restrict": "any",
-        	"notify_types": {
-        			"resolve": false,
-        			"acknowledge": false,
-        			"assignments": false
-        	},
-        	"access_token": "XXX"
+        \\x09"restrict": "any",
+        \\x09"notify_types": {
+        \\x09\\x09\\x09"resolve": false,
+        \\x09\\x09\\x09"acknowledge": false,
+        \\x09\\x09\\x09"assignments": false
+        \\x09},
+        \\x09"access_token": "XXX"
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -331,42 +334,45 @@ class Extension(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         webhook = pagerduty.get_extension_schema(name="Generic V2 Webhook")
-        example_user = pagerduty.User("exampleUser", email="howard.james@example.domain")
-        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+        example = pagerduty.User("example",
+            name="Howard James",
+            email="howard.james@example.domain")
+        example_escalation_policy = pagerduty.EscalationPolicy("example",
+            name="Engineering Escalation Policy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                     type="user",
-                    id=example_user.id,
+                    id=example.id,
                 )],
             )])
-        example_service = pagerduty.Service("exampleService",
+        example_service = pagerduty.Service("example",
+            name="My Web App",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
             escalation_policy=example_escalation_policy.id)
         slack = pagerduty.Extension("slack",
+            name="My Web App Extension",
             endpoint_url="https://generic_webhook_url/XXXXXX/BBBBBB",
             extension_schema=webhook.id,
             extension_objects=[example_service.id],
             config=\"\"\"{
-        	"restrict": "any",
-        	"notify_types": {
-        			"resolve": false,
-        			"acknowledge": false,
-        			"assignments": false
-        	},
-        	"access_token": "XXX"
+        \\x09"restrict": "any",
+        \\x09"notify_types": {
+        \\x09\\x09\\x09"resolve": false,
+        \\x09\\x09\\x09"acknowledge": false,
+        \\x09\\x09\\x09"assignments": false
+        \\x09},
+        \\x09"access_token": "XXX"
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -472,7 +478,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def config(self) -> pulumi.Output[Optional[str]]:
+    def config(self) -> pulumi.Output[str]:
         """
         The configuration of the service extension as string containing plain JSON-encoded data.
         """

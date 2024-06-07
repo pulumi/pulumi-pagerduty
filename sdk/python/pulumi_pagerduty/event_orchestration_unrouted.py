@@ -141,13 +141,12 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
         In this example of an Unrouted Orchestration, the rule matches only if the condition is matched.
         Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catch_all` block.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         unrouted = pagerduty.EventOrchestrationUnrouted("unrouted",
-            event_orchestration=pagerduty_event_orchestration["my_monitor"]["id"],
+            event_orchestration=my_monitor["id"],
             sets=[pagerduty.EventOrchestrationUnroutedSetArgs(
                 id="start",
                 rules=[pagerduty.EventOrchestrationUnroutedSetRuleArgs(
@@ -170,7 +169,6 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -202,13 +200,12 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
         In this example of an Unrouted Orchestration, the rule matches only if the condition is matched.
         Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catch_all` block.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         unrouted = pagerduty.EventOrchestrationUnrouted("unrouted",
-            event_orchestration=pagerduty_event_orchestration["my_monitor"]["id"],
+            event_orchestration=my_monitor["id"],
             sets=[pagerduty.EventOrchestrationUnroutedSetArgs(
                 id="start",
                 rules=[pagerduty.EventOrchestrationUnroutedSetRuleArgs(
@@ -231,7 +228,6 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

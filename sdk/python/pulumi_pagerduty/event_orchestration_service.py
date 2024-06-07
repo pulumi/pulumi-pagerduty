@@ -179,32 +179,36 @@ class EventOrchestrationService(pulumi.CustomResource):
 
         The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        engineering = pagerduty.Team("engineering")
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
+        engineering = pagerduty.Team("engineering", name="Engineering")
+        example = pagerduty.User("example",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
         foo = pagerduty.TeamMembership("foo",
-            user_id=example_user.id,
+            user_id=example.id,
             team_id=engineering.id,
             role="manager")
-        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+        example_escalation_policy = pagerduty.EscalationPolicy("example",
+            name="Engineering Escalation Policy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                     type="user_reference",
-                    id=example_user.id,
+                    id=example.id,
                 )],
             )])
-        example_service = pagerduty.Service("exampleService",
+        example_service = pagerduty.Service("example",
+            name="My Web App",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
             escalation_policy=example_escalation_policy.id,
             alert_creation="create_alerts_and_incidents")
-        cs_impact = pagerduty.IncidentCustomField("csImpact",
+        cs_impact = pagerduty.IncidentCustomField("cs_impact",
+            name="impact",
             data_type="string",
             field_type="single_value")
         p1 = pagerduty.get_priority(name="P1")
@@ -298,7 +302,6 @@ class EventOrchestrationService(pulumi.CustomResource):
                 actions=pagerduty.EventOrchestrationServiceCatchAllActionsArgs(),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -336,32 +339,36 @@ class EventOrchestrationService(pulumi.CustomResource):
 
         The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        engineering = pagerduty.Team("engineering")
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
+        engineering = pagerduty.Team("engineering", name="Engineering")
+        example = pagerduty.User("example",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
         foo = pagerduty.TeamMembership("foo",
-            user_id=example_user.id,
+            user_id=example.id,
             team_id=engineering.id,
             role="manager")
-        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+        example_escalation_policy = pagerduty.EscalationPolicy("example",
+            name="Engineering Escalation Policy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                     type="user_reference",
-                    id=example_user.id,
+                    id=example.id,
                 )],
             )])
-        example_service = pagerduty.Service("exampleService",
+        example_service = pagerduty.Service("example",
+            name="My Web App",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
             escalation_policy=example_escalation_policy.id,
             alert_creation="create_alerts_and_incidents")
-        cs_impact = pagerduty.IncidentCustomField("csImpact",
+        cs_impact = pagerduty.IncidentCustomField("cs_impact",
+            name="impact",
             data_type="string",
             field_type="single_value")
         p1 = pagerduty.get_priority(name="P1")
@@ -455,7 +462,6 @@ class EventOrchestrationService(pulumi.CustomResource):
                 actions=pagerduty.EventOrchestrationServiceCatchAllActionsArgs(),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

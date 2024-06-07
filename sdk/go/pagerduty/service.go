@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,13 +28,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//			example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Name:  pulumi.String("Earline Greenholt"),
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			foo, err := pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+//				Name:     pulumi.String("Engineering Escalation Policy"),
 //				NumLoops: pulumi.Int(2),
 //				Rules: pagerduty.EscalationPolicyRuleArray{
 //					&pagerduty.EscalationPolicyRuleArgs{
@@ -43,7 +44,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user_reference"),
-//								Id:   exampleUser.ID(),
+//								Id:   example.ID(),
 //							},
 //						},
 //					},
@@ -52,7 +53,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+//			_, err = pagerduty.NewService(ctx, "example", &pagerduty.ServiceArgs{
+//				Name:                   pulumi.String("My Web App"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
 //				EscalationPolicy:       foo.ID(),
@@ -70,7 +72,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -118,7 +119,7 @@ type Service struct {
 	// The status of the service.
 	Status       pulumi.StringOutput          `pulumi:"status"`
 	SupportHours ServiceSupportHoursPtrOutput `pulumi:"supportHours"`
-	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -194,7 +195,7 @@ type serviceState struct {
 	// The status of the service.
 	Status       *string              `pulumi:"status"`
 	SupportHours *ServiceSupportHours `pulumi:"supportHours"`
-	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
 	Type *string `pulumi:"type"`
 }
 
@@ -235,7 +236,7 @@ type ServiceState struct {
 	// The status of the service.
 	Status       pulumi.StringPtrInput
 	SupportHours ServiceSupportHoursPtrInput
-	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
 	Type pulumi.StringPtrInput
 }
 
@@ -485,7 +486,7 @@ func (o ServiceOutput) SupportHours() ServiceSupportHoursPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceSupportHoursPtrOutput { return v.SupportHours }).(ServiceSupportHoursPtrOutput)
 }
 
-// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
 func (o ServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

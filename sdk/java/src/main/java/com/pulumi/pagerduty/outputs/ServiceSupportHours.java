@@ -22,10 +22,6 @@ public final class ServiceSupportHours {
     /**
      * @return The support hours&#39; ending time of day.
      * 
-     * A `scheduled_actions` block is required when using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule`.
-     * 
-     * The block contains the following arguments:
-     * 
      */
     private @Nullable String endTime;
     /**
@@ -39,7 +35,7 @@ public final class ServiceSupportHours {
      */
     private @Nullable String timeZone;
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of support hours. Can be `fixed_time_per_day`.
      * 
      */
     private @Nullable String type;
@@ -55,10 +51,6 @@ public final class ServiceSupportHours {
     }
     /**
      * @return The support hours&#39; ending time of day.
-     * 
-     * A `scheduled_actions` block is required when using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule`.
-     * 
-     * The block contains the following arguments:
      * 
      */
     public Optional<String> endTime() {
@@ -79,7 +71,7 @@ public final class ServiceSupportHours {
         return Optional.ofNullable(this.timeZone);
     }
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of support hours. Can be `fixed_time_per_day`.
      * 
      */
     public Optional<String> type() {

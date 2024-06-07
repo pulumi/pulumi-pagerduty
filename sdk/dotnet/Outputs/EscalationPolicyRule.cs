@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly Outputs.EscalationPolicyRuleEscalationRuleAssignmentStrategy? EscalationRuleAssignmentStrategy;
         /// <summary>
-        /// A target ID
+        /// The ID of the escalation policy.
         /// </summary>
         public readonly string? Id;
         public readonly ImmutableArray<Outputs.EscalationPolicyRuleTarget> Targets;

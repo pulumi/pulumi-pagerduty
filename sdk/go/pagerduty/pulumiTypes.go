@@ -231,7 +231,7 @@ type EscalationPolicyRule struct {
 	EscalationDelayInMinutes int `pulumi:"escalationDelayInMinutes"`
 	// The strategy used to assign the escalation rule to an incident. Documented below.
 	EscalationRuleAssignmentStrategy *EscalationPolicyRuleEscalationRuleAssignmentStrategy `pulumi:"escalationRuleAssignmentStrategy"`
-	// A target ID
+	// The ID of the escalation policy.
 	Id      *string                      `pulumi:"id"`
 	Targets []EscalationPolicyRuleTarget `pulumi:"targets"`
 }
@@ -252,7 +252,7 @@ type EscalationPolicyRuleArgs struct {
 	EscalationDelayInMinutes pulumi.IntInput `pulumi:"escalationDelayInMinutes"`
 	// The strategy used to assign the escalation rule to an incident. Documented below.
 	EscalationRuleAssignmentStrategy EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrInput `pulumi:"escalationRuleAssignmentStrategy"`
-	// A target ID
+	// The ID of the escalation policy.
 	Id      pulumi.StringPtrInput                `pulumi:"id"`
 	Targets EscalationPolicyRuleTargetArrayInput `pulumi:"targets"`
 }
@@ -320,7 +320,7 @@ func (o EscalationPolicyRuleOutput) EscalationRuleAssignmentStrategy() Escalatio
 	}).(EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput)
 }
 
-// A target ID
+// The ID of the escalation policy.
 func (o EscalationPolicyRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EscalationPolicyRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -1379,7 +1379,7 @@ type EventOrchestrationGlobalCatchAllActionsAutomationAction struct {
 	AutoSend *bool `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers []EventOrchestrationGlobalCatchAllActionsAutomationActionHeader `pulumi:"headers"`
-	// The name of the variable
+	// Name of this Webhook.
 	Name string `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters []EventOrchestrationGlobalCatchAllActionsAutomationActionParameter `pulumi:"parameters"`
@@ -1403,7 +1403,7 @@ type EventOrchestrationGlobalCatchAllActionsAutomationActionArgs struct {
 	AutoSend pulumi.BoolPtrInput `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayInput `pulumi:"headers"`
-	// The name of the variable
+	// Name of this Webhook.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayInput `pulumi:"parameters"`
@@ -1500,7 +1500,7 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionOutput) Headers()
 	}).(EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayOutput)
 }
 
-// The name of the variable
+// Name of this Webhook.
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsAutomationAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1561,7 +1561,7 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput) Header
 	}).(EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayOutput)
 }
 
-// The name of the variable
+// Name of this Webhook.
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationGlobalCatchAllActionsAutomationAction) *string {
 		if v == nil {
@@ -1592,9 +1592,9 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput) Url() 
 }
 
 type EventOrchestrationGlobalCatchAllActionsAutomationActionHeader struct {
-	// Name to identify the parameter
+	// Name to identify the header
 	Key string `pulumi:"key"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// Value of this header
 	Value string `pulumi:"value"`
 }
 
@@ -1610,9 +1610,9 @@ type EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderInput interfac
 }
 
 type EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs struct {
-	// Name to identify the parameter
+	// Name to identify the header
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// Value of this header
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1667,12 +1667,12 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderOutput) ToE
 	return o
 }
 
-// Name to identify the parameter
+// Name to identify the header
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsAutomationActionHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+// Value of this header
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsAutomationActionHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1700,7 +1700,7 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayOutput
 type EventOrchestrationGlobalCatchAllActionsAutomationActionParameter struct {
 	// Name to identify the parameter
 	Key string `pulumi:"key"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// Value of this parameter
 	Value string `pulumi:"value"`
 }
 
@@ -1718,7 +1718,7 @@ type EventOrchestrationGlobalCatchAllActionsAutomationActionParameterInput inter
 type EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs struct {
 	// Name to identify the parameter
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// Value of this parameter
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1778,7 +1778,7 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionParameterOutput) 
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsAutomationActionParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+// Value of this parameter
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsAutomationActionParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1936,7 +1936,7 @@ func (o EventOrchestrationGlobalCatchAllActionsExtractionArrayOutput) Index(i pu
 type EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate struct {
 	// The custom field id
 	Id string `pulumi:"id"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// The value to assign to this custom field
 	Value string `pulumi:"value"`
 }
 
@@ -1954,7 +1954,7 @@ type EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateInput inter
 type EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs struct {
 	// The custom field id
 	Id pulumi.StringInput `pulumi:"id"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// The value to assign to this custom field
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2014,7 +2014,7 @@ func (o EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput) 
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+// The value to assign to this custom field
 func (o EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2273,7 +2273,7 @@ type EventOrchestrationGlobalSetRule struct {
 	Conditions []EventOrchestrationGlobalSetRuleCondition `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled *bool `pulumi:"disabled"`
-	// The custom field id
+	// The ID of the rule within the set.
 	Id *string `pulumi:"id"`
 	// A description of this rule's purpose.
 	Label *string `pulumi:"label"`
@@ -2297,7 +2297,7 @@ type EventOrchestrationGlobalSetRuleArgs struct {
 	Conditions EventOrchestrationGlobalSetRuleConditionArrayInput `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
-	// The custom field id
+	// The ID of the rule within the set.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// A description of this rule's purpose.
 	Label pulumi.StringPtrInput `pulumi:"label"`
@@ -2371,7 +2371,7 @@ func (o EventOrchestrationGlobalSetRuleOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// The custom field id
+// The ID of the rule within the set.
 func (o EventOrchestrationGlobalSetRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -2565,7 +2565,7 @@ type EventOrchestrationGlobalSetRuleActionsAutomationAction struct {
 	AutoSend *bool `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers []EventOrchestrationGlobalSetRuleActionsAutomationActionHeader `pulumi:"headers"`
-	// The name of the variable
+	// Name of this Webhook.
 	Name string `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters []EventOrchestrationGlobalSetRuleActionsAutomationActionParameter `pulumi:"parameters"`
@@ -2589,7 +2589,7 @@ type EventOrchestrationGlobalSetRuleActionsAutomationActionArgs struct {
 	AutoSend pulumi.BoolPtrInput `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayInput `pulumi:"headers"`
-	// The name of the variable
+	// Name of this Webhook.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayInput `pulumi:"parameters"`
@@ -2686,7 +2686,7 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionOutput) Headers() 
 	}).(EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayOutput)
 }
 
-// The name of the variable
+// Name of this Webhook.
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsAutomationAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2747,7 +2747,7 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput) Headers
 	}).(EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayOutput)
 }
 
-// The name of the variable
+// Name of this Webhook.
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationGlobalSetRuleActionsAutomationAction) *string {
 		if v == nil {
@@ -2778,9 +2778,9 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput) Url() p
 }
 
 type EventOrchestrationGlobalSetRuleActionsAutomationActionHeader struct {
-	// Name to identify the parameter
+	// Name to identify the header
 	Key string `pulumi:"key"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// Value of this header
 	Value string `pulumi:"value"`
 }
 
@@ -2796,9 +2796,9 @@ type EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderInput interface
 }
 
 type EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs struct {
-	// Name to identify the parameter
+	// Name to identify the header
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// Value of this header
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2853,12 +2853,12 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderOutput) ToEv
 	return o
 }
 
-// Name to identify the parameter
+// Name to identify the header
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsAutomationActionHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+// Value of this header
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsAutomationActionHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2886,7 +2886,7 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayOutput)
 type EventOrchestrationGlobalSetRuleActionsAutomationActionParameter struct {
 	// Name to identify the parameter
 	Key string `pulumi:"key"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// Value of this parameter
 	Value string `pulumi:"value"`
 }
 
@@ -2904,7 +2904,7 @@ type EventOrchestrationGlobalSetRuleActionsAutomationActionParameterInput interf
 type EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs struct {
 	// Name to identify the parameter
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// Value of this parameter
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2964,7 +2964,7 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionParameterOutput) K
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsAutomationActionParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+// Value of this parameter
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsAutomationActionParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3122,7 +3122,7 @@ func (o EventOrchestrationGlobalSetRuleActionsExtractionArrayOutput) Index(i pul
 type EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate struct {
 	// The custom field id
 	Id string `pulumi:"id"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// The value to assign to this custom field
 	Value string `pulumi:"value"`
 }
 
@@ -3140,7 +3140,7 @@ type EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateInput interf
 type EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs struct {
 	// The custom field id
 	Id pulumi.StringInput `pulumi:"id"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// The value to assign to this custom field
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3200,7 +3200,7 @@ func (o EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput) I
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+// The value to assign to this custom field
 func (o EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3801,7 +3801,7 @@ func (o EventOrchestrationRouterCatchAllPtrOutput) Actions() EventOrchestrationR
 }
 
 type EventOrchestrationRouterCatchAllActions struct {
-	// The ID of the target Service for the resulting alert.
+	// Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service _or_ the string `"unrouted"` to send events to the Unrouted Orchestration.
 	RouteTo string `pulumi:"routeTo"`
 }
 
@@ -3817,7 +3817,7 @@ type EventOrchestrationRouterCatchAllActionsInput interface {
 }
 
 type EventOrchestrationRouterCatchAllActionsArgs struct {
-	// The ID of the target Service for the resulting alert.
+	// Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service _or_ the string `"unrouted"` to send events to the Unrouted Orchestration.
 	RouteTo pulumi.StringInput `pulumi:"routeTo"`
 }
 
@@ -3898,7 +3898,7 @@ func (o EventOrchestrationRouterCatchAllActionsOutput) ToEventOrchestrationRoute
 	}).(EventOrchestrationRouterCatchAllActionsPtrOutput)
 }
 
-// The ID of the target Service for the resulting alert.
+// Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service _or_ the string `"unrouted"` to send events to the Unrouted Orchestration.
 func (o EventOrchestrationRouterCatchAllActionsOutput) RouteTo() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationRouterCatchAllActions) string { return v.RouteTo }).(pulumi.StringOutput)
 }
@@ -3927,7 +3927,7 @@ func (o EventOrchestrationRouterCatchAllActionsPtrOutput) Elem() EventOrchestrat
 	}).(EventOrchestrationRouterCatchAllActionsOutput)
 }
 
-// The ID of the target Service for the resulting alert.
+// Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service _or_ the string `"unrouted"` to send events to the Unrouted Orchestration.
 func (o EventOrchestrationRouterCatchAllActionsPtrOutput) RouteTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationRouterCatchAllActions) *string {
 		if v == nil {
@@ -4096,7 +4096,7 @@ type EventOrchestrationRouterSetRule struct {
 	Conditions []EventOrchestrationRouterSetRuleCondition `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled *bool `pulumi:"disabled"`
-	// ID of the `start` set. Router supports only one set and it's id has to be `start`
+	// The ID of the rule within the `start` set.
 	Id *string `pulumi:"id"`
 	// A description of this rule's purpose.
 	Label *string `pulumi:"label"`
@@ -4120,7 +4120,7 @@ type EventOrchestrationRouterSetRuleArgs struct {
 	Conditions EventOrchestrationRouterSetRuleConditionArrayInput `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
-	// ID of the `start` set. Router supports only one set and it's id has to be `start`
+	// The ID of the rule within the `start` set.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// A description of this rule's purpose.
 	Label pulumi.StringPtrInput `pulumi:"label"`
@@ -4194,7 +4194,7 @@ func (o EventOrchestrationRouterSetRuleOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationRouterSetRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// ID of the `start` set. Router supports only one set and it's id has to be `start`
+// The ID of the rule within the `start` set.
 func (o EventOrchestrationRouterSetRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationRouterSetRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -5162,7 +5162,7 @@ type EventOrchestrationServiceCatchAllActionsAutomationAction struct {
 	AutoSend *bool `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers []EventOrchestrationServiceCatchAllActionsAutomationActionHeader `pulumi:"headers"`
-	// The name of the variable
+	// Name of this Webhook.
 	Name string `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters []EventOrchestrationServiceCatchAllActionsAutomationActionParameter `pulumi:"parameters"`
@@ -5186,7 +5186,7 @@ type EventOrchestrationServiceCatchAllActionsAutomationActionArgs struct {
 	AutoSend pulumi.BoolPtrInput `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayInput `pulumi:"headers"`
-	// The name of the variable
+	// Name of this Webhook.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayInput `pulumi:"parameters"`
@@ -5283,7 +5283,7 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) Headers(
 	}).(EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput)
 }
 
-// The name of the variable
+// Name of this Webhook.
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5344,7 +5344,7 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) Heade
 	}).(EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput)
 }
 
-// The name of the variable
+// Name of this Webhook.
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActionsAutomationAction) *string {
 		if v == nil {
@@ -5375,9 +5375,9 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) Url()
 }
 
 type EventOrchestrationServiceCatchAllActionsAutomationActionHeader struct {
-	// Name to identify the parameter
+	// Name to identify the header
 	Key string `pulumi:"key"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// Value of this header
 	Value string `pulumi:"value"`
 }
 
@@ -5393,9 +5393,9 @@ type EventOrchestrationServiceCatchAllActionsAutomationActionHeaderInput interfa
 }
 
 type EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs struct {
-	// Name to identify the parameter
+	// Name to identify the header
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// Value of this header
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5450,12 +5450,12 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput) To
 	return o
 }
 
-// Name to identify the parameter
+// Name to identify the header
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationActionHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+// Value of this header
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationActionHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5483,7 +5483,7 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutpu
 type EventOrchestrationServiceCatchAllActionsAutomationActionParameter struct {
 	// Name to identify the parameter
 	Key string `pulumi:"key"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// Value of this parameter
 	Value string `pulumi:"value"`
 }
 
@@ -5501,7 +5501,7 @@ type EventOrchestrationServiceCatchAllActionsAutomationActionParameterInput inte
 type EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs struct {
 	// Name to identify the parameter
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// Value of this parameter
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5561,7 +5561,7 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput)
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationActionParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+// Value of this parameter
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationActionParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5719,7 +5719,7 @@ func (o EventOrchestrationServiceCatchAllActionsExtractionArrayOutput) Index(i p
 type EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate struct {
 	// The custom field id
 	Id string `pulumi:"id"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// The value to assign to this custom field
 	Value string `pulumi:"value"`
 }
 
@@ -5737,7 +5737,7 @@ type EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateInput inte
 type EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs struct {
 	// The custom field id
 	Id pulumi.StringInput `pulumi:"id"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// The value to assign to this custom field
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5797,7 +5797,7 @@ func (o EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput)
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+// The value to assign to this custom field
 func (o EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6193,7 +6193,7 @@ type EventOrchestrationServiceSetRule struct {
 	Conditions []EventOrchestrationServiceSetRuleCondition `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled *bool `pulumi:"disabled"`
-	// The custom field id
+	// The ID of the rule within the set.
 	Id *string `pulumi:"id"`
 	// A description of this rule's purpose.
 	Label *string `pulumi:"label"`
@@ -6217,7 +6217,7 @@ type EventOrchestrationServiceSetRuleArgs struct {
 	Conditions EventOrchestrationServiceSetRuleConditionArrayInput `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
-	// The custom field id
+	// The ID of the rule within the set.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// A description of this rule's purpose.
 	Label pulumi.StringPtrInput `pulumi:"label"`
@@ -6291,7 +6291,7 @@ func (o EventOrchestrationServiceSetRuleOutput) Disabled() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v EventOrchestrationServiceSetRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// The custom field id
+// The ID of the rule within the set.
 func (o EventOrchestrationServiceSetRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -6487,7 +6487,7 @@ type EventOrchestrationServiceSetRuleActionsAutomationAction struct {
 	AutoSend *bool `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers []EventOrchestrationServiceSetRuleActionsAutomationActionHeader `pulumi:"headers"`
-	// The name of the variable
+	// Name of this Webhook.
 	Name string `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters []EventOrchestrationServiceSetRuleActionsAutomationActionParameter `pulumi:"parameters"`
@@ -6511,7 +6511,7 @@ type EventOrchestrationServiceSetRuleActionsAutomationActionArgs struct {
 	AutoSend pulumi.BoolPtrInput `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayInput `pulumi:"headers"`
-	// The name of the variable
+	// Name of this Webhook.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayInput `pulumi:"parameters"`
@@ -6608,7 +6608,7 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) Headers()
 	}).(EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput)
 }
 
-// The name of the variable
+// Name of this Webhook.
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6669,7 +6669,7 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) Header
 	}).(EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput)
 }
 
-// The name of the variable
+// Name of this Webhook.
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationServiceSetRuleActionsAutomationAction) *string {
 		if v == nil {
@@ -6700,9 +6700,9 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) Url() 
 }
 
 type EventOrchestrationServiceSetRuleActionsAutomationActionHeader struct {
-	// Name to identify the parameter
+	// Name to identify the header
 	Key string `pulumi:"key"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// Value of this header
 	Value string `pulumi:"value"`
 }
 
@@ -6718,9 +6718,9 @@ type EventOrchestrationServiceSetRuleActionsAutomationActionHeaderInput interfac
 }
 
 type EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs struct {
-	// Name to identify the parameter
+	// Name to identify the header
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// Value of this header
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -6775,12 +6775,12 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput) ToE
 	return o
 }
 
-// Name to identify the parameter
+// Name to identify the header
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationActionHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+// Value of this header
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationActionHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6808,7 +6808,7 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput
 type EventOrchestrationServiceSetRuleActionsAutomationActionParameter struct {
 	// Name to identify the parameter
 	Key string `pulumi:"key"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// Value of this parameter
 	Value string `pulumi:"value"`
 }
 
@@ -6826,7 +6826,7 @@ type EventOrchestrationServiceSetRuleActionsAutomationActionParameterInput inter
 type EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs struct {
 	// Name to identify the parameter
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// Value of this parameter
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -6886,7 +6886,7 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput) 
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationActionParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+// Value of this parameter
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationActionParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -7044,7 +7044,7 @@ func (o EventOrchestrationServiceSetRuleActionsExtractionArrayOutput) Index(i pu
 type EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate struct {
 	// The custom field id
 	Id string `pulumi:"id"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// The value to assign to this custom field
 	Value string `pulumi:"value"`
 }
 
@@ -7062,7 +7062,7 @@ type EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateInput inter
 type EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs struct {
 	// The custom field id
 	Id pulumi.StringInput `pulumi:"id"`
-	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	// The value to assign to this custom field
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -7122,7 +7122,7 @@ func (o EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput) 
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+// The value to assign to this custom field
 func (o EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -8219,7 +8219,7 @@ type EventOrchestrationUnroutedSetRule struct {
 	Conditions []EventOrchestrationUnroutedSetRuleCondition `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled *bool `pulumi:"disabled"`
-	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+	// The ID of the rule within the set.
 	Id *string `pulumi:"id"`
 	// A description of this rule's purpose.
 	Label *string `pulumi:"label"`
@@ -8243,7 +8243,7 @@ type EventOrchestrationUnroutedSetRuleArgs struct {
 	Conditions EventOrchestrationUnroutedSetRuleConditionArrayInput `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
-	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+	// The ID of the rule within the set.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// A description of this rule's purpose.
 	Label pulumi.StringPtrInput `pulumi:"label"`
@@ -8317,7 +8317,7 @@ func (o EventOrchestrationUnroutedSetRuleOutput) Disabled() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v EventOrchestrationUnroutedSetRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+// The ID of the rule within the set.
 func (o EventOrchestrationUnroutedSetRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationUnroutedSetRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -9372,6 +9372,162 @@ func (o IncidentWorkflowStepInputTypeArrayOutput) Index(i pulumi.IntInput) Incid
 	}).(IncidentWorkflowStepInputTypeOutput)
 }
 
+type IncidentWorkflowTriggerPermissions struct {
+	// If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+	Restricted *bool `pulumi:"restricted"`
+	// The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+	TeamId *string `pulumi:"teamId"`
+}
+
+// IncidentWorkflowTriggerPermissionsInput is an input type that accepts IncidentWorkflowTriggerPermissionsArgs and IncidentWorkflowTriggerPermissionsOutput values.
+// You can construct a concrete instance of `IncidentWorkflowTriggerPermissionsInput` via:
+//
+//	IncidentWorkflowTriggerPermissionsArgs{...}
+type IncidentWorkflowTriggerPermissionsInput interface {
+	pulumi.Input
+
+	ToIncidentWorkflowTriggerPermissionsOutput() IncidentWorkflowTriggerPermissionsOutput
+	ToIncidentWorkflowTriggerPermissionsOutputWithContext(context.Context) IncidentWorkflowTriggerPermissionsOutput
+}
+
+type IncidentWorkflowTriggerPermissionsArgs struct {
+	// If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+	Restricted pulumi.BoolPtrInput `pulumi:"restricted"`
+	// The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+	TeamId pulumi.StringPtrInput `pulumi:"teamId"`
+}
+
+func (IncidentWorkflowTriggerPermissionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentWorkflowTriggerPermissions)(nil)).Elem()
+}
+
+func (i IncidentWorkflowTriggerPermissionsArgs) ToIncidentWorkflowTriggerPermissionsOutput() IncidentWorkflowTriggerPermissionsOutput {
+	return i.ToIncidentWorkflowTriggerPermissionsOutputWithContext(context.Background())
+}
+
+func (i IncidentWorkflowTriggerPermissionsArgs) ToIncidentWorkflowTriggerPermissionsOutputWithContext(ctx context.Context) IncidentWorkflowTriggerPermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowTriggerPermissionsOutput)
+}
+
+func (i IncidentWorkflowTriggerPermissionsArgs) ToIncidentWorkflowTriggerPermissionsPtrOutput() IncidentWorkflowTriggerPermissionsPtrOutput {
+	return i.ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i IncidentWorkflowTriggerPermissionsArgs) ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(ctx context.Context) IncidentWorkflowTriggerPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowTriggerPermissionsOutput).ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(ctx)
+}
+
+// IncidentWorkflowTriggerPermissionsPtrInput is an input type that accepts IncidentWorkflowTriggerPermissionsArgs, IncidentWorkflowTriggerPermissionsPtr and IncidentWorkflowTriggerPermissionsPtrOutput values.
+// You can construct a concrete instance of `IncidentWorkflowTriggerPermissionsPtrInput` via:
+//
+//	        IncidentWorkflowTriggerPermissionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IncidentWorkflowTriggerPermissionsPtrInput interface {
+	pulumi.Input
+
+	ToIncidentWorkflowTriggerPermissionsPtrOutput() IncidentWorkflowTriggerPermissionsPtrOutput
+	ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(context.Context) IncidentWorkflowTriggerPermissionsPtrOutput
+}
+
+type incidentWorkflowTriggerPermissionsPtrType IncidentWorkflowTriggerPermissionsArgs
+
+func IncidentWorkflowTriggerPermissionsPtr(v *IncidentWorkflowTriggerPermissionsArgs) IncidentWorkflowTriggerPermissionsPtrInput {
+	return (*incidentWorkflowTriggerPermissionsPtrType)(v)
+}
+
+func (*incidentWorkflowTriggerPermissionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentWorkflowTriggerPermissions)(nil)).Elem()
+}
+
+func (i *incidentWorkflowTriggerPermissionsPtrType) ToIncidentWorkflowTriggerPermissionsPtrOutput() IncidentWorkflowTriggerPermissionsPtrOutput {
+	return i.ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i *incidentWorkflowTriggerPermissionsPtrType) ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(ctx context.Context) IncidentWorkflowTriggerPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowTriggerPermissionsPtrOutput)
+}
+
+type IncidentWorkflowTriggerPermissionsOutput struct{ *pulumi.OutputState }
+
+func (IncidentWorkflowTriggerPermissionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentWorkflowTriggerPermissions)(nil)).Elem()
+}
+
+func (o IncidentWorkflowTriggerPermissionsOutput) ToIncidentWorkflowTriggerPermissionsOutput() IncidentWorkflowTriggerPermissionsOutput {
+	return o
+}
+
+func (o IncidentWorkflowTriggerPermissionsOutput) ToIncidentWorkflowTriggerPermissionsOutputWithContext(ctx context.Context) IncidentWorkflowTriggerPermissionsOutput {
+	return o
+}
+
+func (o IncidentWorkflowTriggerPermissionsOutput) ToIncidentWorkflowTriggerPermissionsPtrOutput() IncidentWorkflowTriggerPermissionsPtrOutput {
+	return o.ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (o IncidentWorkflowTriggerPermissionsOutput) ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(ctx context.Context) IncidentWorkflowTriggerPermissionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentWorkflowTriggerPermissions) *IncidentWorkflowTriggerPermissions {
+		return &v
+	}).(IncidentWorkflowTriggerPermissionsPtrOutput)
+}
+
+// If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+func (o IncidentWorkflowTriggerPermissionsOutput) Restricted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IncidentWorkflowTriggerPermissions) *bool { return v.Restricted }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+func (o IncidentWorkflowTriggerPermissionsOutput) TeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentWorkflowTriggerPermissions) *string { return v.TeamId }).(pulumi.StringPtrOutput)
+}
+
+type IncidentWorkflowTriggerPermissionsPtrOutput struct{ *pulumi.OutputState }
+
+func (IncidentWorkflowTriggerPermissionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentWorkflowTriggerPermissions)(nil)).Elem()
+}
+
+func (o IncidentWorkflowTriggerPermissionsPtrOutput) ToIncidentWorkflowTriggerPermissionsPtrOutput() IncidentWorkflowTriggerPermissionsPtrOutput {
+	return o
+}
+
+func (o IncidentWorkflowTriggerPermissionsPtrOutput) ToIncidentWorkflowTriggerPermissionsPtrOutputWithContext(ctx context.Context) IncidentWorkflowTriggerPermissionsPtrOutput {
+	return o
+}
+
+func (o IncidentWorkflowTriggerPermissionsPtrOutput) Elem() IncidentWorkflowTriggerPermissionsOutput {
+	return o.ApplyT(func(v *IncidentWorkflowTriggerPermissions) IncidentWorkflowTriggerPermissions {
+		if v != nil {
+			return *v
+		}
+		var ret IncidentWorkflowTriggerPermissions
+		return ret
+	}).(IncidentWorkflowTriggerPermissionsOutput)
+}
+
+// If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+func (o IncidentWorkflowTriggerPermissionsPtrOutput) Restricted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IncidentWorkflowTriggerPermissions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Restricted
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+func (o IncidentWorkflowTriggerPermissionsPtrOutput) TeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentWorkflowTriggerPermissions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TeamId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ProviderUseAppOauthScopedToken struct {
 	PdClientId     *string `pulumi:"pdClientId"`
 	PdClientSecret *string `pulumi:"pdClientSecret"`
@@ -9552,7 +9708,7 @@ type ResponsePlayResponder struct {
 	Services []ResponsePlayResponderService `pulumi:"services"`
 	// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
 	Teams []ResponsePlayResponderTeam `pulumi:"teams"`
-	// Type of object of the target. Supported types are `userReference`, `scheduleReference`.
+	// Should be set as `escalationPolicy` for escalation policy responders.
 	Type *string `pulumi:"type"`
 }
 
@@ -9584,7 +9740,7 @@ type ResponsePlayResponderArgs struct {
 	Services ResponsePlayResponderServiceArrayInput `pulumi:"services"`
 	// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
 	Teams ResponsePlayResponderTeamArrayInput `pulumi:"teams"`
-	// Type of object of the target. Supported types are `userReference`, `scheduleReference`.
+	// Should be set as `escalationPolicy` for escalation policy responders.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -9679,7 +9835,7 @@ func (o ResponsePlayResponderOutput) Teams() ResponsePlayResponderTeamArrayOutpu
 	return o.ApplyT(func(v ResponsePlayResponder) []ResponsePlayResponderTeam { return v.Teams }).(ResponsePlayResponderTeamArrayOutput)
 }
 
-// Type of object of the target. Supported types are `userReference`, `scheduleReference`.
+// Should be set as `escalationPolicy` for escalation policy responders.
 func (o ResponsePlayResponderOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlayResponder) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -9707,7 +9863,7 @@ func (o ResponsePlayResponderArrayOutput) Index(i pulumi.IntInput) ResponsePlayR
 type ResponsePlayResponderEscalationRule struct {
 	// The number of minutes before an unacknowledged incident escalates away from this rule.
 	EscalationDelayInMinutes *int `pulumi:"escalationDelayInMinutes"`
-	// ID of the user defined as the responder
+	// The ID of the response play.
 	Id *string `pulumi:"id"`
 	// The targets an incident should be assigned to upon reaching this rule.
 	Targets []ResponsePlayResponderEscalationRuleTarget `pulumi:"targets"`
@@ -9727,7 +9883,7 @@ type ResponsePlayResponderEscalationRuleInput interface {
 type ResponsePlayResponderEscalationRuleArgs struct {
 	// The number of minutes before an unacknowledged incident escalates away from this rule.
 	EscalationDelayInMinutes pulumi.IntPtrInput `pulumi:"escalationDelayInMinutes"`
-	// ID of the user defined as the responder
+	// The ID of the response play.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The targets an incident should be assigned to upon reaching this rule.
 	Targets ResponsePlayResponderEscalationRuleTargetArrayInput `pulumi:"targets"`
@@ -9789,7 +9945,7 @@ func (o ResponsePlayResponderEscalationRuleOutput) EscalationDelayInMinutes() pu
 	return o.ApplyT(func(v ResponsePlayResponderEscalationRule) *int { return v.EscalationDelayInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// ID of the user defined as the responder
+// The ID of the response play.
 func (o ResponsePlayResponderEscalationRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlayResponderEscalationRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -9822,9 +9978,9 @@ func (o ResponsePlayResponderEscalationRuleArrayOutput) Index(i pulumi.IntInput)
 }
 
 type ResponsePlayResponderEscalationRuleTarget struct {
-	// ID of the user defined as the responder
+	// The ID of the response play.
 	Id *string `pulumi:"id"`
-	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+	// Type of object of the target. Supported types are `userReference`, `scheduleReference`.
 	Type *string `pulumi:"type"`
 }
 
@@ -9840,9 +9996,9 @@ type ResponsePlayResponderEscalationRuleTargetInput interface {
 }
 
 type ResponsePlayResponderEscalationRuleTargetArgs struct {
-	// ID of the user defined as the responder
+	// The ID of the response play.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+	// Type of object of the target. Supported types are `userReference`, `scheduleReference`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -9897,12 +10053,12 @@ func (o ResponsePlayResponderEscalationRuleTargetOutput) ToResponsePlayResponder
 	return o
 }
 
-// ID of the user defined as the responder
+// The ID of the response play.
 func (o ResponsePlayResponderEscalationRuleTargetOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlayResponderEscalationRuleTarget) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+// Type of object of the target. Supported types are `userReference`, `scheduleReference`.
 func (o ResponsePlayResponderEscalationRuleTargetOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlayResponderEscalationRuleTarget) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -9928,7 +10084,7 @@ func (o ResponsePlayResponderEscalationRuleTargetArrayOutput) Index(i pulumi.Int
 }
 
 type ResponsePlayResponderService struct {
-	// ID of the user defined as the responder
+	// The ID of the response play.
 	Id *string `pulumi:"id"`
 	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
 	Type *string `pulumi:"type"`
@@ -9946,7 +10102,7 @@ type ResponsePlayResponderServiceInput interface {
 }
 
 type ResponsePlayResponderServiceArgs struct {
-	// ID of the user defined as the responder
+	// The ID of the response play.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -10003,7 +10159,7 @@ func (o ResponsePlayResponderServiceOutput) ToResponsePlayResponderServiceOutput
 	return o
 }
 
-// ID of the user defined as the responder
+// The ID of the response play.
 func (o ResponsePlayResponderServiceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlayResponderService) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -10034,7 +10190,7 @@ func (o ResponsePlayResponderServiceArrayOutput) Index(i pulumi.IntInput) Respon
 }
 
 type ResponsePlayResponderTeam struct {
-	// ID of the user defined as the responder
+	// The ID of the response play.
 	Id *string `pulumi:"id"`
 	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
 	Type string `pulumi:"type"`
@@ -10052,7 +10208,7 @@ type ResponsePlayResponderTeamInput interface {
 }
 
 type ResponsePlayResponderTeamArgs struct {
-	// ID of the user defined as the responder
+	// The ID of the response play.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
 	Type pulumi.StringInput `pulumi:"type"`
@@ -10109,7 +10265,7 @@ func (o ResponsePlayResponderTeamOutput) ToResponsePlayResponderTeamOutputWithCo
 	return o
 }
 
-// ID of the user defined as the responder
+// The ID of the response play.
 func (o ResponsePlayResponderTeamOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlayResponderTeam) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -10140,7 +10296,7 @@ func (o ResponsePlayResponderTeamArrayOutput) Index(i pulumi.IntInput) ResponseP
 }
 
 type ResponsePlaySubscriber struct {
-	// ID of the user defined as the responder
+	// The ID of the response play.
 	Id *string `pulumi:"id"`
 	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
 	Type *string `pulumi:"type"`
@@ -10158,7 +10314,7 @@ type ResponsePlaySubscriberInput interface {
 }
 
 type ResponsePlaySubscriberArgs struct {
-	// ID of the user defined as the responder
+	// The ID of the response play.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -10215,7 +10371,7 @@ func (o ResponsePlaySubscriberOutput) ToResponsePlaySubscriberOutputWithContext(
 	return o
 }
 
-// ID of the user defined as the responder
+// The ID of the response play.
 func (o ResponsePlaySubscriberOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlaySubscriber) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -10516,7 +10672,6 @@ func (o RulesetRuleActionsPtrOutput) Suspends() RulesetRuleActionsSuspendArrayOu
 }
 
 type RulesetRuleActionsAnnotate struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -10532,7 +10687,6 @@ type RulesetRuleActionsAnnotateInput interface {
 }
 
 type RulesetRuleActionsAnnotateArgs struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -10587,7 +10741,6 @@ func (o RulesetRuleActionsAnnotateOutput) ToRulesetRuleActionsAnnotateOutputWith
 	return o
 }
 
-// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o RulesetRuleActionsAnnotateOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsAnnotate) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -10613,7 +10766,6 @@ func (o RulesetRuleActionsAnnotateArrayOutput) Index(i pulumi.IntInput) RulesetR
 }
 
 type RulesetRuleActionsEventAction struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -10629,7 +10781,6 @@ type RulesetRuleActionsEventActionInput interface {
 }
 
 type RulesetRuleActionsEventActionArgs struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -10684,7 +10835,6 @@ func (o RulesetRuleActionsEventActionOutput) ToRulesetRuleActionsEventActionOutp
 	return o
 }
 
-// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o RulesetRuleActionsEventActionOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsEventAction) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -10846,7 +10996,6 @@ func (o RulesetRuleActionsExtractionArrayOutput) Index(i pulumi.IntInput) Rulese
 }
 
 type RulesetRuleActionsPriority struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -10862,7 +11011,6 @@ type RulesetRuleActionsPriorityInput interface {
 }
 
 type RulesetRuleActionsPriorityArgs struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -10917,7 +11065,6 @@ func (o RulesetRuleActionsPriorityOutput) ToRulesetRuleActionsPriorityOutputWith
 	return o
 }
 
-// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o RulesetRuleActionsPriorityOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsPriority) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -10943,7 +11090,6 @@ func (o RulesetRuleActionsPriorityArrayOutput) Index(i pulumi.IntInput) RulesetR
 }
 
 type RulesetRuleActionsRoute struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -10959,7 +11105,6 @@ type RulesetRuleActionsRouteInput interface {
 }
 
 type RulesetRuleActionsRouteArgs struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -11014,7 +11159,6 @@ func (o RulesetRuleActionsRouteOutput) ToRulesetRuleActionsRouteOutputWithContex
 	return o
 }
 
-// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o RulesetRuleActionsRouteOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsRoute) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -11040,7 +11184,6 @@ func (o RulesetRuleActionsRouteArrayOutput) Index(i pulumi.IntInput) RulesetRule
 }
 
 type RulesetRuleActionsSeverity struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -11056,7 +11199,6 @@ type RulesetRuleActionsSeverityInput interface {
 }
 
 type RulesetRuleActionsSeverityArgs struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -11111,7 +11253,6 @@ func (o RulesetRuleActionsSeverityOutput) ToRulesetRuleActionsSeverityOutputWith
 	return o
 }
 
-// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o RulesetRuleActionsSeverityOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsSeverity) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -11261,7 +11402,6 @@ func (o RulesetRuleActionsSuppressArrayOutput) Index(i pulumi.IntInput) RulesetR
 }
 
 type RulesetRuleActionsSuspend struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *int `pulumi:"value"`
 }
 
@@ -11277,7 +11417,6 @@ type RulesetRuleActionsSuspendInput interface {
 }
 
 type RulesetRuleActionsSuspendArgs struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
@@ -11332,7 +11471,6 @@ func (o RulesetRuleActionsSuspendOutput) ToRulesetRuleActionsSuspendOutputWithCo
 	return o
 }
 
-// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o RulesetRuleActionsSuspendOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsSuspend) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -11622,8 +11760,7 @@ func (o RulesetRuleConditionsSubconditionArrayOutput) Index(i pulumi.IntInput) R
 }
 
 type RulesetRuleConditionsSubconditionParameter struct {
-	Path *string `pulumi:"path"`
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+	Path  *string `pulumi:"path"`
 	Value *string `pulumi:"value"`
 }
 
@@ -11639,8 +11776,7 @@ type RulesetRuleConditionsSubconditionParameterInput interface {
 }
 
 type RulesetRuleConditionsSubconditionParameterArgs struct {
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+	Path  pulumi.StringPtrInput `pulumi:"path"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -11699,7 +11835,6 @@ func (o RulesetRuleConditionsSubconditionParameterOutput) Path() pulumi.StringPt
 	return o.ApplyT(func(v RulesetRuleConditionsSubconditionParameter) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o RulesetRuleConditionsSubconditionParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleConditionsSubconditionParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -11881,8 +12016,7 @@ func (o RulesetRuleTimeFramePtrOutput) ScheduledWeeklies() RulesetRuleTimeFrameS
 }
 
 type RulesetRuleTimeFrameActiveBetween struct {
-	EndTime *int `pulumi:"endTime"`
-	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](<https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York>).
+	EndTime   *int `pulumi:"endTime"`
 	StartTime *int `pulumi:"startTime"`
 }
 
@@ -11898,8 +12032,7 @@ type RulesetRuleTimeFrameActiveBetweenInput interface {
 }
 
 type RulesetRuleTimeFrameActiveBetweenArgs struct {
-	EndTime pulumi.IntPtrInput `pulumi:"endTime"`
-	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](<https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York>).
+	EndTime   pulumi.IntPtrInput `pulumi:"endTime"`
 	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
 }
 
@@ -11958,7 +12091,6 @@ func (o RulesetRuleTimeFrameActiveBetweenOutput) EndTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameActiveBetween) *int { return v.EndTime }).(pulumi.IntPtrOutput)
 }
 
-// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](<https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York>).
 func (o RulesetRuleTimeFrameActiveBetweenOutput) StartTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameActiveBetween) *int { return v.StartTime }).(pulumi.IntPtrOutput)
 }
@@ -11986,7 +12118,7 @@ func (o RulesetRuleTimeFrameActiveBetweenArrayOutput) Index(i pulumi.IntInput) R
 type RulesetRuleTimeFrameScheduledWeekly struct {
 	// Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `startTime`.
 	Duration *int `pulumi:"duration"`
-	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](<https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York>).
+	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 	StartTime *int `pulumi:"startTime"`
 	// [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
 	Timezone *string `pulumi:"timezone"`
@@ -12008,7 +12140,7 @@ type RulesetRuleTimeFrameScheduledWeeklyInput interface {
 type RulesetRuleTimeFrameScheduledWeeklyArgs struct {
 	// Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `startTime`.
 	Duration pulumi.IntPtrInput `pulumi:"duration"`
-	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](<https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York>).
+	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
 	// [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
@@ -12072,7 +12204,7 @@ func (o RulesetRuleTimeFrameScheduledWeeklyOutput) Duration() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v RulesetRuleTimeFrameScheduledWeekly) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
-// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](<https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York>).
+// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 func (o RulesetRuleTimeFrameScheduledWeeklyOutput) StartTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameScheduledWeekly) *int { return v.StartTime }).(pulumi.IntPtrOutput)
 }
@@ -12214,8 +12346,7 @@ func (o RulesetRuleVariableArrayOutput) Index(i pulumi.IntInput) RulesetRuleVari
 }
 
 type RulesetRuleVariableParameter struct {
-	Path *string `pulumi:"path"`
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+	Path  *string `pulumi:"path"`
 	Value *string `pulumi:"value"`
 }
 
@@ -12231,8 +12362,7 @@ type RulesetRuleVariableParameterInput interface {
 }
 
 type RulesetRuleVariableParameterArgs struct {
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+	Path  pulumi.StringPtrInput `pulumi:"path"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -12291,7 +12421,6 @@ func (o RulesetRuleVariableParameterOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleVariableParameter) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o RulesetRuleVariableParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleVariableParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -13200,10 +13329,6 @@ type ServiceAutoPauseNotificationsParameters struct {
 	// Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
 	Enabled *bool `pulumi:"enabled"`
 	// Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
-	//
-	// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
-	// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-	// The block contains the following arguments:
 	Timeout *int `pulumi:"timeout"`
 }
 
@@ -13222,10 +13347,6 @@ type ServiceAutoPauseNotificationsParametersArgs struct {
 	// Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
-	//
-	// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
-	// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-	// The block contains the following arguments:
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
 
@@ -13312,10 +13433,6 @@ func (o ServiceAutoPauseNotificationsParametersOutput) Enabled() pulumi.BoolPtrO
 }
 
 // Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
-//
-// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
-// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-// The block contains the following arguments:
 func (o ServiceAutoPauseNotificationsParametersOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceAutoPauseNotificationsParameters) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -13355,10 +13472,6 @@ func (o ServiceAutoPauseNotificationsParametersPtrOutput) Enabled() pulumi.BoolP
 }
 
 // Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
-//
-// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
-// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-// The block contains the following arguments:
 func (o ServiceAutoPauseNotificationsParametersPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceAutoPauseNotificationsParameters) *int {
 		if v == nil {
@@ -14011,7 +14124,6 @@ func (o ServiceEventRuleActionsPtrOutput) Suspends() ServiceEventRuleActionsSusp
 }
 
 type ServiceEventRuleActionsAnnotate struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -14027,7 +14139,6 @@ type ServiceEventRuleActionsAnnotateInput interface {
 }
 
 type ServiceEventRuleActionsAnnotateArgs struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -14082,7 +14193,6 @@ func (o ServiceEventRuleActionsAnnotateOutput) ToServiceEventRuleActionsAnnotate
 	return o
 }
 
-// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o ServiceEventRuleActionsAnnotateOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleActionsAnnotate) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -14108,7 +14218,6 @@ func (o ServiceEventRuleActionsAnnotateArrayOutput) Index(i pulumi.IntInput) Ser
 }
 
 type ServiceEventRuleActionsEventAction struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -14124,7 +14233,6 @@ type ServiceEventRuleActionsEventActionInput interface {
 }
 
 type ServiceEventRuleActionsEventActionArgs struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -14179,7 +14287,6 @@ func (o ServiceEventRuleActionsEventActionOutput) ToServiceEventRuleActionsEvent
 	return o
 }
 
-// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o ServiceEventRuleActionsEventActionOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleActionsEventAction) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -14341,7 +14448,6 @@ func (o ServiceEventRuleActionsExtractionArrayOutput) Index(i pulumi.IntInput) S
 }
 
 type ServiceEventRuleActionsPriority struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -14357,7 +14463,6 @@ type ServiceEventRuleActionsPriorityInput interface {
 }
 
 type ServiceEventRuleActionsPriorityArgs struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -14412,7 +14517,6 @@ func (o ServiceEventRuleActionsPriorityOutput) ToServiceEventRuleActionsPriority
 	return o
 }
 
-// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o ServiceEventRuleActionsPriorityOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleActionsPriority) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -14438,7 +14542,6 @@ func (o ServiceEventRuleActionsPriorityArrayOutput) Index(i pulumi.IntInput) Ser
 }
 
 type ServiceEventRuleActionsSeverity struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -14454,7 +14557,6 @@ type ServiceEventRuleActionsSeverityInput interface {
 }
 
 type ServiceEventRuleActionsSeverityArgs struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -14509,7 +14611,6 @@ func (o ServiceEventRuleActionsSeverityOutput) ToServiceEventRuleActionsSeverity
 	return o
 }
 
-// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o ServiceEventRuleActionsSeverityOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleActionsSeverity) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -14659,7 +14760,6 @@ func (o ServiceEventRuleActionsSuppressArrayOutput) Index(i pulumi.IntInput) Ser
 }
 
 type ServiceEventRuleActionsSuspend struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *int `pulumi:"value"`
 }
 
@@ -14675,7 +14775,6 @@ type ServiceEventRuleActionsSuspendInput interface {
 }
 
 type ServiceEventRuleActionsSuspendArgs struct {
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
@@ -14730,7 +14829,6 @@ func (o ServiceEventRuleActionsSuspendOutput) ToServiceEventRuleActionsSuspendOu
 	return o
 }
 
-// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o ServiceEventRuleActionsSuspendOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleActionsSuspend) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -15020,9 +15118,7 @@ func (o ServiceEventRuleConditionsSubconditionArrayOutput) Index(i pulumi.IntInp
 }
 
 type ServiceEventRuleConditionsSubconditionParameter struct {
-	// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
-	Path *string `pulumi:"path"`
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+	Path  *string `pulumi:"path"`
 	Value *string `pulumi:"value"`
 }
 
@@ -15038,9 +15134,7 @@ type ServiceEventRuleConditionsSubconditionParameterInput interface {
 }
 
 type ServiceEventRuleConditionsSubconditionParameterArgs struct {
-	// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+	Path  pulumi.StringPtrInput `pulumi:"path"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -15095,12 +15189,10 @@ func (o ServiceEventRuleConditionsSubconditionParameterOutput) ToServiceEventRul
 	return o
 }
 
-// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
 func (o ServiceEventRuleConditionsSubconditionParameterOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleConditionsSubconditionParameter) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o ServiceEventRuleConditionsSubconditionParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleConditionsSubconditionParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -15392,7 +15484,7 @@ func (o ServiceEventRuleTimeFrameActiveBetweenArrayOutput) Index(i pulumi.IntInp
 type ServiceEventRuleTimeFrameScheduledWeekly struct {
 	// Length of time the schedule will be active.  Unix timestamp in milliseconds.
 	Duration *int `pulumi:"duration"`
-	// Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+	// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
 	StartTime *int `pulumi:"startTime"`
 	// Timezone for the given schedule.
 	Timezone *string `pulumi:"timezone"`
@@ -15414,7 +15506,7 @@ type ServiceEventRuleTimeFrameScheduledWeeklyInput interface {
 type ServiceEventRuleTimeFrameScheduledWeeklyArgs struct {
 	// Length of time the schedule will be active.  Unix timestamp in milliseconds.
 	Duration pulumi.IntPtrInput `pulumi:"duration"`
-	// Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+	// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
 	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
 	// Timezone for the given schedule.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
@@ -15478,7 +15570,7 @@ func (o ServiceEventRuleTimeFrameScheduledWeeklyOutput) Duration() pulumi.IntPtr
 	return o.ApplyT(func(v ServiceEventRuleTimeFrameScheduledWeekly) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
-// Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
 func (o ServiceEventRuleTimeFrameScheduledWeeklyOutput) StartTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleTimeFrameScheduledWeekly) *int { return v.StartTime }).(pulumi.IntPtrOutput)
 }
@@ -15514,12 +15606,9 @@ func (o ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput) Index(i pulumi.IntI
 }
 
 type ServiceEventRuleVariable struct {
-	// The name of the variable.
-	Name *string `pulumi:"name"`
-	// The parameters for performing the operation to populate the variable.
+	Name       *string                             `pulumi:"name"`
 	Parameters []ServiceEventRuleVariableParameter `pulumi:"parameters"`
-	// Type of operation to populate the variable. Usually `regex`.
-	Type *string `pulumi:"type"`
+	Type       *string                             `pulumi:"type"`
 }
 
 // ServiceEventRuleVariableInput is an input type that accepts ServiceEventRuleVariableArgs and ServiceEventRuleVariableOutput values.
@@ -15534,12 +15623,9 @@ type ServiceEventRuleVariableInput interface {
 }
 
 type ServiceEventRuleVariableArgs struct {
-	// The name of the variable.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The parameters for performing the operation to populate the variable.
+	Name       pulumi.StringPtrInput                       `pulumi:"name"`
 	Parameters ServiceEventRuleVariableParameterArrayInput `pulumi:"parameters"`
-	// Type of operation to populate the variable. Usually `regex`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type       pulumi.StringPtrInput                       `pulumi:"type"`
 }
 
 func (ServiceEventRuleVariableArgs) ElementType() reflect.Type {
@@ -15593,17 +15679,14 @@ func (o ServiceEventRuleVariableOutput) ToServiceEventRuleVariableOutputWithCont
 	return o
 }
 
-// The name of the variable.
 func (o ServiceEventRuleVariableOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleVariable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The parameters for performing the operation to populate the variable.
 func (o ServiceEventRuleVariableOutput) Parameters() ServiceEventRuleVariableParameterArrayOutput {
 	return o.ApplyT(func(v ServiceEventRuleVariable) []ServiceEventRuleVariableParameter { return v.Parameters }).(ServiceEventRuleVariableParameterArrayOutput)
 }
 
-// Type of operation to populate the variable. Usually `regex`.
 func (o ServiceEventRuleVariableOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleVariable) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -15629,9 +15712,7 @@ func (o ServiceEventRuleVariableArrayOutput) Index(i pulumi.IntInput) ServiceEve
 }
 
 type ServiceEventRuleVariableParameter struct {
-	// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
-	Path *string `pulumi:"path"`
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+	Path  *string `pulumi:"path"`
 	Value *string `pulumi:"value"`
 }
 
@@ -15647,9 +15728,7 @@ type ServiceEventRuleVariableParameterInput interface {
 }
 
 type ServiceEventRuleVariableParameterArgs struct {
-	// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+	Path  pulumi.StringPtrInput `pulumi:"path"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -15704,12 +15783,10 @@ func (o ServiceEventRuleVariableParameterOutput) ToServiceEventRuleVariableParam
 	return o
 }
 
-// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
 func (o ServiceEventRuleVariableParameterOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleVariableParameter) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o ServiceEventRuleVariableParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleVariableParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -15738,12 +15815,8 @@ type ServiceIncidentUrgencyRule struct {
 	// Incidents' urgency during support hours.
 	DuringSupportHours *ServiceIncidentUrgencyRuleDuringSupportHours `pulumi:"duringSupportHours"`
 	// Incidents' urgency outside support hours.
-	//
-	// When using `type = "useSupportHours"` in `incidentUrgencyRule` you must specify exactly one (otherwise optional) `supportHours` block.
-	// Your PagerDuty account must have the `serviceSupportHours` ability to assign support hours.
-	// The block contains the following arguments:
 	OutsideSupportHours *ServiceIncidentUrgencyRuleOutsideSupportHours `pulumi:"outsideSupportHours"`
-	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+	// The type of incident urgency: `constant` or `useSupportHours` (when depending on specific support hours; see `supportHours`).
 	Type string `pulumi:"type"`
 	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 	Urgency *string `pulumi:"urgency"`
@@ -15764,12 +15837,8 @@ type ServiceIncidentUrgencyRuleArgs struct {
 	// Incidents' urgency during support hours.
 	DuringSupportHours ServiceIncidentUrgencyRuleDuringSupportHoursPtrInput `pulumi:"duringSupportHours"`
 	// Incidents' urgency outside support hours.
-	//
-	// When using `type = "useSupportHours"` in `incidentUrgencyRule` you must specify exactly one (otherwise optional) `supportHours` block.
-	// Your PagerDuty account must have the `serviceSupportHours` ability to assign support hours.
-	// The block contains the following arguments:
 	OutsideSupportHours ServiceIncidentUrgencyRuleOutsideSupportHoursPtrInput `pulumi:"outsideSupportHours"`
-	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+	// The type of incident urgency: `constant` or `useSupportHours` (when depending on specific support hours; see `supportHours`).
 	Type pulumi.StringInput `pulumi:"type"`
 	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 	Urgency pulumi.StringPtrInput `pulumi:"urgency"`
@@ -15860,17 +15929,13 @@ func (o ServiceIncidentUrgencyRuleOutput) DuringSupportHours() ServiceIncidentUr
 }
 
 // Incidents' urgency outside support hours.
-//
-// When using `type = "useSupportHours"` in `incidentUrgencyRule` you must specify exactly one (otherwise optional) `supportHours` block.
-// Your PagerDuty account must have the `serviceSupportHours` ability to assign support hours.
-// The block contains the following arguments:
 func (o ServiceIncidentUrgencyRuleOutput) OutsideSupportHours() ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRuleOutsideSupportHours {
 		return v.OutsideSupportHours
 	}).(ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput)
 }
 
-// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+// The type of incident urgency: `constant` or `useSupportHours` (when depending on specific support hours; see `supportHours`).
 func (o ServiceIncidentUrgencyRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRule) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -15915,10 +15980,6 @@ func (o ServiceIncidentUrgencyRulePtrOutput) DuringSupportHours() ServiceInciden
 }
 
 // Incidents' urgency outside support hours.
-//
-// When using `type = "useSupportHours"` in `incidentUrgencyRule` you must specify exactly one (otherwise optional) `supportHours` block.
-// Your PagerDuty account must have the `serviceSupportHours` ability to assign support hours.
-// The block contains the following arguments:
 func (o ServiceIncidentUrgencyRulePtrOutput) OutsideSupportHours() ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRuleOutsideSupportHours {
 		if v == nil {
@@ -15928,7 +15989,7 @@ func (o ServiceIncidentUrgencyRulePtrOutput) OutsideSupportHours() ServiceIncide
 	}).(ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput)
 }
 
-// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+// The type of incident urgency: `constant` or `useSupportHours` (when depending on specific support hours; see `supportHours`).
 func (o ServiceIncidentUrgencyRulePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRule) *string {
 		if v == nil {
@@ -15949,9 +16010,8 @@ func (o ServiceIncidentUrgencyRulePtrOutput) Urgency() pulumi.StringPtrOutput {
 }
 
 type ServiceIncidentUrgencyRuleDuringSupportHours struct {
-	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
-	Type *string `pulumi:"type"`
-	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+	Type    *string `pulumi:"type"`
 	Urgency *string `pulumi:"urgency"`
 }
 
@@ -15967,9 +16027,8 @@ type ServiceIncidentUrgencyRuleDuringSupportHoursInput interface {
 }
 
 type ServiceIncidentUrgencyRuleDuringSupportHoursArgs struct {
-	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+	Type    pulumi.StringPtrInput `pulumi:"type"`
 	Urgency pulumi.StringPtrInput `pulumi:"urgency"`
 }
 
@@ -16050,12 +16109,11 @@ func (o ServiceIncidentUrgencyRuleDuringSupportHoursOutput) ToServiceIncidentUrg
 	}).(ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput)
 }
 
-// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
 func (o ServiceIncidentUrgencyRuleDuringSupportHoursOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRuleDuringSupportHours) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 func (o ServiceIncidentUrgencyRuleDuringSupportHoursOutput) Urgency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRuleDuringSupportHours) *string { return v.Urgency }).(pulumi.StringPtrOutput)
 }
@@ -16084,7 +16142,7 @@ func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) Elem() ServiceInc
 	}).(ServiceIncidentUrgencyRuleDuringSupportHoursOutput)
 }
 
-// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
 func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRuleDuringSupportHours) *string {
 		if v == nil {
@@ -16094,7 +16152,6 @@ func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) Type() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) Urgency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRuleDuringSupportHours) *string {
 		if v == nil {
@@ -16105,9 +16162,8 @@ func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) Urgency() pulumi.
 }
 
 type ServiceIncidentUrgencyRuleOutsideSupportHours struct {
-	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
-	Type *string `pulumi:"type"`
-	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+	Type    *string `pulumi:"type"`
 	Urgency *string `pulumi:"urgency"`
 }
 
@@ -16123,9 +16179,8 @@ type ServiceIncidentUrgencyRuleOutsideSupportHoursInput interface {
 }
 
 type ServiceIncidentUrgencyRuleOutsideSupportHoursArgs struct {
-	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+	Type    pulumi.StringPtrInput `pulumi:"type"`
 	Urgency pulumi.StringPtrInput `pulumi:"urgency"`
 }
 
@@ -16206,12 +16261,11 @@ func (o ServiceIncidentUrgencyRuleOutsideSupportHoursOutput) ToServiceIncidentUr
 	}).(ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput)
 }
 
-// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
 func (o ServiceIncidentUrgencyRuleOutsideSupportHoursOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRuleOutsideSupportHours) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 func (o ServiceIncidentUrgencyRuleOutsideSupportHoursOutput) Urgency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRuleOutsideSupportHours) *string { return v.Urgency }).(pulumi.StringPtrOutput)
 }
@@ -16240,7 +16294,7 @@ func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) Elem() ServiceIn
 	}).(ServiceIncidentUrgencyRuleOutsideSupportHoursOutput)
 }
 
-// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
 func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRuleOutsideSupportHours) *string {
 		if v == nil {
@@ -16250,7 +16304,6 @@ func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) Type() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) Urgency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRuleOutsideSupportHours) *string {
 		if v == nil {
@@ -16978,7 +17031,7 @@ type ServiceScheduledAction struct {
 	Ats []ServiceScheduledActionAt `pulumi:"ats"`
 	// The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
 	ToUrgency *string `pulumi:"toUrgency"`
-	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
 	Type *string `pulumi:"type"`
 }
 
@@ -16998,7 +17051,7 @@ type ServiceScheduledActionArgs struct {
 	Ats ServiceScheduledActionAtArrayInput `pulumi:"ats"`
 	// The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
 	ToUrgency pulumi.StringPtrInput `pulumi:"toUrgency"`
-	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -17063,7 +17116,7 @@ func (o ServiceScheduledActionOutput) ToUrgency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceScheduledAction) *string { return v.ToUrgency }).(pulumi.StringPtrOutput)
 }
 
-// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+// The type of scheduled action. Currently, this must be set to `urgencyChange`.
 func (o ServiceScheduledActionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceScheduledAction) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -17095,7 +17148,6 @@ type ServiceScheduledActionAt struct {
 	//
 	// Below is an example for a `Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -17107,10 +17159,11 @@ type ServiceScheduledActionAt struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
+	// 			Name:                   pulumi.String("bar"),
 	// 			Description:            pulumi.String("bar bar bar"),
 	// 			AutoResolveTimeout:     pulumi.String("3600"),
 	// 			AcknowledgementTimeout: pulumi.String("3600"),
-	// 			EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Foo.Id),
+	// 			EscalationPolicy:       pulumi.Any(fooPagerdutyEscalationPolicy.Id),
 	// 			IncidentUrgencyRule: &pagerduty.ServiceIncidentUrgencyRuleArgs{
 	// 				Type: pulumi.String("use_support_hours"),
 	// 				DuringSupportHours: &pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs{
@@ -17155,7 +17208,6 @@ type ServiceScheduledActionAt struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	Name *string `pulumi:"name"`
 	// The type of time specification. Currently, this must be set to `namedTime`.
 	Type *string `pulumi:"type"`
@@ -17179,7 +17231,6 @@ type ServiceScheduledActionAtArgs struct {
 	//
 	// Below is an example for a `Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -17191,10 +17242,11 @@ type ServiceScheduledActionAtArgs struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
+	// 			Name:                   pulumi.String("bar"),
 	// 			Description:            pulumi.String("bar bar bar"),
 	// 			AutoResolveTimeout:     pulumi.String("3600"),
 	// 			AcknowledgementTimeout: pulumi.String("3600"),
-	// 			EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Foo.Id),
+	// 			EscalationPolicy:       pulumi.Any(fooPagerdutyEscalationPolicy.Id),
 	// 			IncidentUrgencyRule: &pagerduty.ServiceIncidentUrgencyRuleArgs{
 	// 				Type: pulumi.String("use_support_hours"),
 	// 				DuringSupportHours: &pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs{
@@ -17239,7 +17291,6 @@ type ServiceScheduledActionAtArgs struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The type of time specification. Currently, this must be set to `namedTime`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -17302,7 +17353,6 @@ func (o ServiceScheduledActionAtOutput) ToServiceScheduledActionAtOutputWithCont
 //
 // Below is an example for a `Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -17316,10 +17366,11 @@ func (o ServiceScheduledActionAtOutput) ToServiceScheduledActionAtOutputWithCont
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
+//				Name:                   pulumi.String("bar"),
 //				Description:            pulumi.String("bar bar bar"),
 //				AutoResolveTimeout:     pulumi.String("3600"),
 //				AcknowledgementTimeout: pulumi.String("3600"),
-//				EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Foo.Id),
+//				EscalationPolicy:       pulumi.Any(fooPagerdutyEscalationPolicy.Id),
 //				IncidentUrgencyRule: &pagerduty.ServiceIncidentUrgencyRuleArgs{
 //					Type: pulumi.String("use_support_hours"),
 //					DuringSupportHours: &pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs{
@@ -17365,7 +17416,6 @@ func (o ServiceScheduledActionAtOutput) ToServiceScheduledActionAtOutputWithCont
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func (o ServiceScheduledActionAtOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceScheduledActionAt) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -17400,16 +17450,12 @@ type ServiceSupportHours struct {
 	// Monday and `7` being Sunday.
 	DaysOfWeeks []int `pulumi:"daysOfWeeks"`
 	// The support hours' ending time of day.
-	//
-	// A `scheduledActions` block is required when using `type = "useSupportHours"` in `incidentUrgencyRule`.
-	//
-	// The block contains the following arguments:
 	EndTime *string `pulumi:"endTime"`
 	// The support hours' starting time of day.
 	StartTime *string `pulumi:"startTime"`
 	// The time zone for the support hours.
 	TimeZone *string `pulumi:"timeZone"`
-	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+	// The type of support hours. Can be `fixedTimePerDay`.
 	Type *string `pulumi:"type"`
 }
 
@@ -17429,16 +17475,12 @@ type ServiceSupportHoursArgs struct {
 	// Monday and `7` being Sunday.
 	DaysOfWeeks pulumi.IntArrayInput `pulumi:"daysOfWeeks"`
 	// The support hours' ending time of day.
-	//
-	// A `scheduledActions` block is required when using `type = "useSupportHours"` in `incidentUrgencyRule`.
-	//
-	// The block contains the following arguments:
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
 	// The support hours' starting time of day.
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 	// The time zone for the support hours.
 	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
-	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+	// The type of support hours. Can be `fixedTimePerDay`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -17526,10 +17568,6 @@ func (o ServiceSupportHoursOutput) DaysOfWeeks() pulumi.IntArrayOutput {
 }
 
 // The support hours' ending time of day.
-//
-// A `scheduledActions` block is required when using `type = "useSupportHours"` in `incidentUrgencyRule`.
-//
-// The block contains the following arguments:
 func (o ServiceSupportHoursOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSupportHours) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
@@ -17544,7 +17582,7 @@ func (o ServiceSupportHoursOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSupportHours) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
-// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+// The type of support hours. Can be `fixedTimePerDay`.
 func (o ServiceSupportHoursOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSupportHours) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -17585,10 +17623,6 @@ func (o ServiceSupportHoursPtrOutput) DaysOfWeeks() pulumi.IntArrayOutput {
 }
 
 // The support hours' ending time of day.
-//
-// A `scheduledActions` block is required when using `type = "useSupportHours"` in `incidentUrgencyRule`.
-//
-// The block contains the following arguments:
 func (o ServiceSupportHoursPtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSupportHours) *string {
 		if v == nil {
@@ -17618,7 +17652,7 @@ func (o ServiceSupportHoursPtrOutput) TimeZone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+// The type of support hours. Can be `fixedTimePerDay`.
 func (o ServiceSupportHoursPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSupportHours) *string {
 		if v == nil {
@@ -20953,6 +20987,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInlineStepsInputStepInputTypeArrayInput)(nil)).Elem(), IncidentWorkflowStepInlineStepsInputStepInputTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInputTypeInput)(nil)).Elem(), IncidentWorkflowStepInputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInputTypeArrayInput)(nil)).Elem(), IncidentWorkflowStepInputTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowTriggerPermissionsInput)(nil)).Elem(), IncidentWorkflowTriggerPermissionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowTriggerPermissionsPtrInput)(nil)).Elem(), IncidentWorkflowTriggerPermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderUseAppOauthScopedTokenInput)(nil)).Elem(), ProviderUseAppOauthScopedTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderUseAppOauthScopedTokenPtrInput)(nil)).Elem(), ProviderUseAppOauthScopedTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderInput)(nil)).Elem(), ResponsePlayResponderArgs{})
@@ -21262,6 +21298,8 @@ func init() {
 	pulumi.RegisterOutputType(IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput{})
 	pulumi.RegisterOutputType(IncidentWorkflowStepInputTypeOutput{})
 	pulumi.RegisterOutputType(IncidentWorkflowStepInputTypeArrayOutput{})
+	pulumi.RegisterOutputType(IncidentWorkflowTriggerPermissionsOutput{})
+	pulumi.RegisterOutputType(IncidentWorkflowTriggerPermissionsPtrOutput{})
 	pulumi.RegisterOutputType(ProviderUseAppOauthScopedTokenOutput{})
 	pulumi.RegisterOutputType(ProviderUseAppOauthScopedTokenPtrOutput{})
 	pulumi.RegisterOutputType(ResponsePlayResponderOutput{})

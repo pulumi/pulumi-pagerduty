@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['IncidentWorkflowTriggerArgs', 'IncidentWorkflowTrigger']
 
@@ -18,6 +20,7 @@ class IncidentWorkflowTriggerArgs:
                  type: pulumi.Input[str],
                  workflow: pulumi.Input[str],
                  condition: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input['IncidentWorkflowTriggerPermissionsArgs']] = None,
                  services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IncidentWorkflowTrigger resource.
@@ -25,6 +28,7 @@ class IncidentWorkflowTriggerArgs:
         :param pulumi.Input[str] type: [Updating causes resource replacement] May be either `manual` or `conditional`.
         :param pulumi.Input[str] workflow: The workflow ID for the workflow to trigger.
         :param pulumi.Input[str] condition: A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
+        :param pulumi.Input['IncidentWorkflowTriggerPermissionsArgs'] permissions: Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
         """
         pulumi.set(__self__, "subscribed_to_all_services", subscribed_to_all_services)
@@ -32,6 +36,8 @@ class IncidentWorkflowTriggerArgs:
         pulumi.set(__self__, "workflow", workflow)
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
         if services is not None:
             pulumi.set(__self__, "services", services)
 
@@ -85,6 +91,18 @@ class IncidentWorkflowTriggerArgs:
 
     @property
     @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input['IncidentWorkflowTriggerPermissionsArgs']]:
+        """
+        Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input['IncidentWorkflowTriggerPermissionsArgs']]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
     def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
@@ -100,6 +118,7 @@ class IncidentWorkflowTriggerArgs:
 class _IncidentWorkflowTriggerState:
     def __init__(__self__, *,
                  condition: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input['IncidentWorkflowTriggerPermissionsArgs']] = None,
                  services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subscribed_to_all_services: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -107,6 +126,7 @@ class _IncidentWorkflowTriggerState:
         """
         Input properties used for looking up and filtering IncidentWorkflowTrigger resources.
         :param pulumi.Input[str] condition: A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
+        :param pulumi.Input['IncidentWorkflowTriggerPermissionsArgs'] permissions: Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
         :param pulumi.Input[bool] subscribed_to_all_services: Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
         :param pulumi.Input[str] type: [Updating causes resource replacement] May be either `manual` or `conditional`.
@@ -114,6 +134,8 @@ class _IncidentWorkflowTriggerState:
         """
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
         if services is not None:
             pulumi.set(__self__, "services", services)
         if subscribed_to_all_services is not None:
@@ -134,6 +156,18 @@ class _IncidentWorkflowTriggerState:
     @condition.setter
     def condition(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input['IncidentWorkflowTriggerPermissionsArgs']]:
+        """
+        Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input['IncidentWorkflowTriggerPermissionsArgs']]):
+        pulumi.set(self, "permissions", value)
 
     @property
     @pulumi.getter
@@ -190,6 +224,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  condition: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[pulumi.InputType['IncidentWorkflowTriggerPermissionsArgs']]] = None,
                  services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subscribed_to_all_services: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -200,12 +235,12 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        my_first_workflow = pagerduty.IncidentWorkflow("myFirstWorkflow",
+        my_first_workflow = pagerduty.IncidentWorkflow("my_first_workflow",
+            name="Example Incident Workflow",
             description="This Incident Workflow is an example",
             steps=[pagerduty.IncidentWorkflowStepArgs(
                 name="Send Status Update",
@@ -216,19 +251,18 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
                 )],
             )])
         first_service = pagerduty.get_service(name="My First Service")
-        automatic_trigger = pagerduty.IncidentWorkflowTrigger("automaticTrigger",
+        automatic_trigger = pagerduty.IncidentWorkflowTrigger("automatic_trigger",
             type="conditional",
             workflow=my_first_workflow.id,
-            services=[pagerduty_service["first_service"]["id"]],
+            services=[first_service_pagerduty_service["id"]],
             condition="incident.priority matches 'P1'",
             subscribed_to_all_services=False)
         devops = pagerduty.get_team(name="devops")
-        manual_trigger = pagerduty.IncidentWorkflowTrigger("manualTrigger",
+        manual_trigger = pagerduty.IncidentWorkflowTrigger("manual_trigger",
             type="manual",
             workflow=my_first_workflow.id,
-            services=[pagerduty_service["first_service"]["id"]])
+            services=[first_service_pagerduty_service["id"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -241,6 +275,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] condition: A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
+        :param pulumi.Input[pulumi.InputType['IncidentWorkflowTriggerPermissionsArgs']] permissions: Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
         :param pulumi.Input[bool] subscribed_to_all_services: Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
         :param pulumi.Input[str] type: [Updating causes resource replacement] May be either `manual` or `conditional`.
@@ -257,12 +292,12 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        my_first_workflow = pagerduty.IncidentWorkflow("myFirstWorkflow",
+        my_first_workflow = pagerduty.IncidentWorkflow("my_first_workflow",
+            name="Example Incident Workflow",
             description="This Incident Workflow is an example",
             steps=[pagerduty.IncidentWorkflowStepArgs(
                 name="Send Status Update",
@@ -273,19 +308,18 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
                 )],
             )])
         first_service = pagerduty.get_service(name="My First Service")
-        automatic_trigger = pagerduty.IncidentWorkflowTrigger("automaticTrigger",
+        automatic_trigger = pagerduty.IncidentWorkflowTrigger("automatic_trigger",
             type="conditional",
             workflow=my_first_workflow.id,
-            services=[pagerduty_service["first_service"]["id"]],
+            services=[first_service_pagerduty_service["id"]],
             condition="incident.priority matches 'P1'",
             subscribed_to_all_services=False)
         devops = pagerduty.get_team(name="devops")
-        manual_trigger = pagerduty.IncidentWorkflowTrigger("manualTrigger",
+        manual_trigger = pagerduty.IncidentWorkflowTrigger("manual_trigger",
             type="manual",
             workflow=my_first_workflow.id,
-            services=[pagerduty_service["first_service"]["id"]])
+            services=[first_service_pagerduty_service["id"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -311,6 +345,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  condition: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[pulumi.InputType['IncidentWorkflowTriggerPermissionsArgs']]] = None,
                  services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subscribed_to_all_services: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -325,6 +360,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
             __props__ = IncidentWorkflowTriggerArgs.__new__(IncidentWorkflowTriggerArgs)
 
             __props__.__dict__["condition"] = condition
+            __props__.__dict__["permissions"] = permissions
             __props__.__dict__["services"] = services
             if subscribed_to_all_services is None and not opts.urn:
                 raise TypeError("Missing required property 'subscribed_to_all_services'")
@@ -346,6 +382,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             condition: Optional[pulumi.Input[str]] = None,
+            permissions: Optional[pulumi.Input[pulumi.InputType['IncidentWorkflowTriggerPermissionsArgs']]] = None,
             services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             subscribed_to_all_services: Optional[pulumi.Input[bool]] = None,
             type: Optional[pulumi.Input[str]] = None,
@@ -358,6 +395,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] condition: A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
+        :param pulumi.Input[pulumi.InputType['IncidentWorkflowTriggerPermissionsArgs']] permissions: Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
         :param pulumi.Input[bool] subscribed_to_all_services: Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
         :param pulumi.Input[str] type: [Updating causes resource replacement] May be either `manual` or `conditional`.
@@ -368,6 +406,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
         __props__ = _IncidentWorkflowTriggerState.__new__(_IncidentWorkflowTriggerState)
 
         __props__.__dict__["condition"] = condition
+        __props__.__dict__["permissions"] = permissions
         __props__.__dict__["services"] = services
         __props__.__dict__["subscribed_to_all_services"] = subscribed_to_all_services
         __props__.__dict__["type"] = type
@@ -381,6 +420,14 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
         A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
         """
         return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> pulumi.Output['outputs.IncidentWorkflowTriggerPermissions']:
+        """
+        Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+        """
+        return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter

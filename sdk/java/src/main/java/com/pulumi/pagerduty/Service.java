@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,26 +54,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+ *         var example = new User("example", UserArgs.builder()
+ *             .name("Earline Greenholt")
+ *             .email("125.greenholt.earline{@literal @}graham.name")
  *             .build());
  * 
- *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
+ *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
+ *             .name("Engineering Escalation Policy")
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
  *                 .escalationDelayInMinutes(10)
  *                 .targets(EscalationPolicyRuleTargetArgs.builder()
- *                     .type(&#34;user_reference&#34;)
- *                     .id(exampleUser.id())
+ *                     .type("user_reference")
+ *                     .id(example.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
+ *             .name("My Web App")
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
  *             .escalationPolicy(foo.id())
- *             .alertCreation(&#34;create_alerts_and_incidents&#34;)
+ *             .alertCreation("create_alerts_and_incidents")
  *             .autoPauseNotificationsParameters(ServiceAutoPauseNotificationsParametersArgs.builder()
  *                 .enabled(true)
  *                 .timeout(300)
@@ -81,7 +85,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -324,14 +329,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.supportHours);
     }
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     public Output<String> type() {

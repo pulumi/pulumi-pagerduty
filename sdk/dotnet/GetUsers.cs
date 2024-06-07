@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,14 +34,15 @@ namespace Pulumi.Pagerduty
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var exampleWTeam = new Pagerduty.User("exampleWTeam", new()
+        ///     var exampleWTeam = new Pagerduty.User("example_w_team", new()
         ///     {
+        ///         Name = "user-with-team",
         ///         Email = "user-with-team@example.com",
         ///     });
         /// 
         ///     var example = new Pagerduty.TeamMembership("example", new()
         ///     {
-        ///         TeamId = pagerduty_team.Devops.Id,
+        ///         TeamId = devopsPagerdutyTeam.Id,
         ///         UserId = exampleWTeam.Id,
         ///     });
         /// 
@@ -52,13 +52,12 @@ namespace Pulumi.Pagerduty
         ///     {
         ///         TeamIds = new[]
         ///         {
-        ///             pagerduty_team.Devops.Id,
+        ///             devopsPagerdutyTeam.Id,
         ///         },
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("pagerduty:index/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithDefaults());
@@ -68,7 +67,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -87,14 +85,15 @@ namespace Pulumi.Pagerduty
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var exampleWTeam = new Pagerduty.User("exampleWTeam", new()
+        ///     var exampleWTeam = new Pagerduty.User("example_w_team", new()
         ///     {
+        ///         Name = "user-with-team",
         ///         Email = "user-with-team@example.com",
         ///     });
         /// 
         ///     var example = new Pagerduty.TeamMembership("example", new()
         ///     {
-        ///         TeamId = pagerduty_team.Devops.Id,
+        ///         TeamId = devopsPagerdutyTeam.Id,
         ///         UserId = exampleWTeam.Id,
         ///     });
         /// 
@@ -104,13 +103,12 @@ namespace Pulumi.Pagerduty
         ///     {
         ///         TeamIds = new[]
         ///         {
-        ///             pagerduty_team.Devops.Id,
+        ///             devopsPagerdutyTeam.Id,
         ///         },
         ///     });
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsersResult>("pagerduty:index/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());

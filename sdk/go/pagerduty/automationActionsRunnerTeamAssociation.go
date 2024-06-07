@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,13 +28,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			teamEntEng, err := pagerduty.NewTeam(ctx, "teamEntEng", &pagerduty.TeamArgs{
+//			teamEntEng, err := pagerduty.NewTeam(ctx, "team_ent_eng", &pagerduty.TeamArgs{
+//				Name:        pulumi.String("Enterprise Engineering"),
 //				Description: pulumi.String("Enterprise engineering"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			paRunbookRunner, err := pagerduty.NewAutomationActionsRunner(ctx, "paRunbookRunner", &pagerduty.AutomationActionsRunnerArgs{
+//			paRunbookRunner, err := pagerduty.NewAutomationActionsRunner(ctx, "pa_runbook_runner", &pagerduty.AutomationActionsRunnerArgs{
+//				Name:           pulumi.String("Runner created via TF"),
 //				Description:    pulumi.String("Description of the Runner created via TF"),
 //				RunnerType:     pulumi.String("runbook"),
 //				RunbookBaseUri: pulumi.String("cat-cat"),
@@ -44,7 +45,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewAutomationActionsRunnerTeamAssociation(ctx, "paRunnerEntEngAssoc", &pagerduty.AutomationActionsRunnerTeamAssociationArgs{
+//			_, err = pagerduty.NewAutomationActionsRunnerTeamAssociation(ctx, "pa_runner_ent_eng_assoc", &pagerduty.AutomationActionsRunnerTeamAssociationArgs{
 //				RunnerId: paRunbookRunner.ID(),
 //				TeamId:   teamEntEng.ID(),
 //			})
@@ -56,7 +57,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

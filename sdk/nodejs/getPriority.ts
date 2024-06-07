@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -17,9 +16,9 @@ import * as utilities from "./utilities";
  * const p1 = pagerduty.getPriority({
  *     name: "P1",
  * });
- * const fooRuleset = new pagerduty.Ruleset("fooRuleset", {});
- * const fooRulesetRule = new pagerduty.RulesetRule("fooRulesetRule", {
- *     ruleset: fooRuleset.id,
+ * const foo = new pagerduty.Ruleset("foo", {name: "Primary Ruleset"});
+ * const fooRulesetRule = new pagerduty.RulesetRule("foo", {
+ *     ruleset: foo.id,
  *     position: 0,
  *     disabled: false,
  *     conditions: {
@@ -51,7 +50,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPriority(args: GetPriorityArgs, opts?: pulumi.InvokeOptions): Promise<GetPriorityResult> {
 
@@ -93,7 +91,6 @@ export interface GetPriorityResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -101,9 +98,9 @@ export interface GetPriorityResult {
  * const p1 = pagerduty.getPriority({
  *     name: "P1",
  * });
- * const fooRuleset = new pagerduty.Ruleset("fooRuleset", {});
- * const fooRulesetRule = new pagerduty.RulesetRule("fooRulesetRule", {
- *     ruleset: fooRuleset.id,
+ * const foo = new pagerduty.Ruleset("foo", {name: "Primary Ruleset"});
+ * const fooRulesetRule = new pagerduty.RulesetRule("foo", {
+ *     ruleset: foo.id,
  *     position: 0,
  *     disabled: false,
  *     conditions: {
@@ -135,7 +132,6 @@ export interface GetPriorityResult {
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPriorityOutput(args: GetPriorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPriorityResult> {
     return pulumi.output(args).apply((a: any) => getPriority(a, opts))

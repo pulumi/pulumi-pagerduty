@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -22,7 +21,7 @@ import * as utilities from "./utilities";
  *     type: "push_notification_contact_method",
  *     label: "iPhone (John)",
  * }));
- * const lowUrgencySms = new pagerduty.UserNotificationRule("lowUrgencySms", {
+ * const lowUrgencySms = new pagerduty.UserNotificationRule("low_urgency_sms", {
  *     userId: me.then(me => me.id),
  *     startDelayInMinutes: 5,
  *     urgency: "high",
@@ -32,7 +31,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserContactMethod(args: GetUserContactMethodArgs, opts?: pulumi.InvokeOptions): Promise<GetUserContactMethodResult> {
 
@@ -109,7 +107,6 @@ export interface GetUserContactMethodResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -122,7 +119,7 @@ export interface GetUserContactMethodResult {
  *     type: "push_notification_contact_method",
  *     label: "iPhone (John)",
  * }));
- * const lowUrgencySms = new pagerduty.UserNotificationRule("lowUrgencySms", {
+ * const lowUrgencySms = new pagerduty.UserNotificationRule("low_urgency_sms", {
  *     userId: me.then(me => me.id),
  *     startDelayInMinutes: 5,
  *     urgency: "high",
@@ -132,7 +129,6 @@ export interface GetUserContactMethodResult {
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserContactMethodOutput(args: GetUserContactMethodOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserContactMethodResult> {
     return pulumi.output(args).apply((a: any) => getUserContactMethod(a, opts))

@@ -30,14 +30,14 @@ public final class EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUp
     }
 
     /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * The value to assign to this custom field
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * @return The value to assign to this custom field
      * 
      */
     public Output<String> value() {
@@ -91,7 +91,7 @@ public final class EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUp
         }
 
         /**
-         * @param value The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+         * @param value The value to assign to this custom field
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUp
         }
 
         /**
-         * @param value The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+         * @param value The value to assign to this custom field
          * 
          * @return builder
          * 

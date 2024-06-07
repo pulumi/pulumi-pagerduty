@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class ResponsePlayResponderTeamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the user defined as the responder
+        /// The ID of the response play.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

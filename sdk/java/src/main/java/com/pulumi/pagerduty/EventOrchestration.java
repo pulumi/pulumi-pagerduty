@@ -23,13 +23,15 @@ import javax.annotation.Nullable;
  * ## Example of configuring an Event Orchestration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.TeamArgs;
  * import com.pulumi.pagerduty.EventOrchestration;
  * import com.pulumi.pagerduty.EventOrchestrationArgs;
  * import java.util.List;
@@ -45,16 +47,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var engineering = new Team(&#34;engineering&#34;);
+ *         var engineering = new Team("engineering", TeamArgs.builder()
+ *             .name("Engineering")
+ *             .build());
  * 
- *         var myMonitor = new EventOrchestration(&#34;myMonitor&#34;, EventOrchestrationArgs.builder()        
- *             .description(&#34;Send events to a pair of services&#34;)
+ *         var myMonitor = new EventOrchestration("myMonitor", EventOrchestrationArgs.builder()
+ *             .name("My Monitoring Orchestration")
+ *             .description("Send events to a pair of services")
  *             .team(engineering.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

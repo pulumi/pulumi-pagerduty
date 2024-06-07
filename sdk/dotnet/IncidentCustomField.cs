@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,31 +22,33 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var csImpact = new Pagerduty.IncidentCustomField("csImpact", new()
+    ///     var csImpact = new Pagerduty.IncidentCustomField("cs_impact", new()
     ///     {
-    ///         DataType = "string",
+    ///         Name = "impact",
     ///         DisplayName = "Customer Impact",
+    ///         DataType = "string",
     ///         FieldType = "single_value",
     ///     });
     /// 
-    ///     var sreEnvironment = new Pagerduty.IncidentCustomField("sreEnvironment", new()
+    ///     var sreEnvironment = new Pagerduty.IncidentCustomField("sre_environment", new()
     ///     {
-    ///         DataType = "string",
+    ///         Name = "environment",
     ///         DisplayName = "Environment",
+    ///         DataType = "string",
     ///         FieldType = "single_value_fixed",
     ///     });
     /// 
-    ///     var falseAlarm = new Pagerduty.IncidentCustomField("falseAlarm", new()
+    ///     var falseAlarm = new Pagerduty.IncidentCustomField("false_alarm", new()
     ///     {
-    ///         DataType = "boolean",
-    ///         DefaultValue = "false",
+    ///         Name = "false_alarm",
     ///         DisplayName = "False Alarm",
+    ///         DataType = "boolean",
     ///         FieldType = "single_value",
+    ///         DefaultValue = "false",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -11,18 +11,20 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const parent = new pagerduty.Team("parent", {description: "Product and Engineering"});
+ * const parent = new pagerduty.Team("parent", {
+ *     name: "Product Development",
+ *     description: "Product and Engineering",
+ * });
  * const example = new pagerduty.Team("example", {
+ *     name: "Engineering",
  *     description: "All engineering",
  *     parent: parent.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

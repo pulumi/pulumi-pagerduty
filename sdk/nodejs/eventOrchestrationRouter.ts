@@ -15,13 +15,12 @@ import * as utilities from "./utilities";
  *
  * This example assumes services used in the `routeTo` configuration already exists. So it does not show creation of service resource.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const router = new pagerduty.EventOrchestrationRouter("router", {
- *     eventOrchestration: pagerduty_event_orchestration.my_monitor.id,
+ *     eventOrchestration: myMonitor.id,
  *     set: {
  *         id: "start",
  *         rules: [
@@ -36,7 +35,7 @@ import * as utilities from "./utilities";
  *                     },
  *                 ],
  *                 actions: {
- *                     routeTo: pagerduty_service.database.id,
+ *                     routeTo: database.id,
  *                 },
  *             },
  *             {
@@ -44,7 +43,7 @@ import * as utilities from "./utilities";
  *                     expression: "event.summary matches part 'www'",
  *                 }],
  *                 actions: {
- *                     routeTo: pagerduty_service.www.id,
+ *                     routeTo: www.id,
  *                 },
  *             },
  *         ],
@@ -56,7 +55,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

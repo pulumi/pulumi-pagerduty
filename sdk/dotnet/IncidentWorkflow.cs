@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,13 +22,15 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myFirstWorkflow = new Pagerduty.IncidentWorkflow("myFirstWorkflow", new()
+    ///     var myFirstWorkflow = new Pagerduty.IncidentWorkflow("my_first_workflow", new()
     ///     {
+    ///         Name = "Example Incident Workflow",
     ///         Description = "This Incident Workflow is an example",
     ///         Steps = new[]
     ///         {
     ///             new Pagerduty.Inputs.IncidentWorkflowStepArgs
     ///             {
+    ///                 Name = "Send Status Update",
     ///                 Action = "pagerduty.com:incident-workflows:send-status-update:1",
     ///                 Inputs = new[]
     ///                 {
@@ -39,14 +40,12 @@ namespace Pulumi.Pagerduty
     ///                         Value = "Example status message sent on {{current_date}}",
     ///                     },
     ///                 },
-    ///                 Name = "Send Status Update",
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

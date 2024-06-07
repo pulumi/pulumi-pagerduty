@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,16 +33,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//			example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Name:  pulumi.String("Howard James"),
 //				Email: pulumi.String("howard.james@example.domain"),
 //				Teams: pulumi.StringArray{
-//					pagerduty_team.Example.Id,
+//					examplePagerdutyTeam.Id,
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+//				Name:     pulumi.String("Engineering Escalation Policy"),
 //				NumLoops: pulumi.Int(2),
 //				Rules: pagerduty.EscalationPolicyRuleArray{
 //					&pagerduty.EscalationPolicyRuleArgs{
@@ -51,7 +52,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
-//								Id:   exampleUser.ID(),
+//								Id:   example.ID(),
 //							},
 //						},
 //					},
@@ -60,15 +61,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+//			exampleService, err := pagerduty.NewService(ctx, "example", &pagerduty.ServiceArgs{
+//				Name:                   pulumi.String("My Web App"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),
+//				EscalationPolicy:       pulumi.Any(examplePagerdutyEscalationPolicy.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = pagerduty.NewExtension(ctx, "slack", &pagerduty.ExtensionArgs{
+//				Name:            pulumi.String("My Web App Extension"),
 //				EndpointUrl:     pulumi.String("https://generic_webhook_url/XXXXXX/BBBBBB"),
 //				ExtensionSchema: pulumi.String(webhook.Id),
 //				ExtensionObjects: pulumi.StringArray{
@@ -83,7 +86,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetExtensionSchema(ctx *pulumi.Context, args *GetExtensionSchemaArgs, opts ...pulumi.InvokeOption) (*GetExtensionSchemaResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExtensionSchemaResult
@@ -102,7 +104,7 @@ type GetExtensionSchemaArgs struct {
 
 // A collection of values returned by getExtensionSchema.
 type GetExtensionSchemaResult struct {
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of the found extension vendor.
 	Id string `pulumi:"id"`
 	// The short name of the found extension vendor.
 	Name string `pulumi:"name"`
@@ -148,7 +150,7 @@ func (o GetExtensionSchemaResultOutput) ToGetExtensionSchemaResultOutputWithCont
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
+// The ID of the found extension vendor.
 func (o GetExtensionSchemaResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExtensionSchemaResult) string { return v.Id }).(pulumi.StringOutput)
 }

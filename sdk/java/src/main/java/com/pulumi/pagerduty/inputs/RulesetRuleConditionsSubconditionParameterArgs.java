@@ -22,17 +22,9 @@ public final class RulesetRuleConditionsSubconditionParameterArgs extends com.pu
         return Optional.ofNullable(this.path);
     }
 
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
-    /**
-     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     * 
-     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -71,23 +63,11 @@ public final class RulesetRuleConditionsSubconditionParameterArgs extends com.pu
             return path(Output.of(path));
         }
 
-        /**
-         * @param value Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

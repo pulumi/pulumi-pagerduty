@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetTagResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found team.
      * 
      */
     private String id;
@@ -19,7 +19,7 @@ public final class GetTagResult {
 
     private GetTagResult() {}
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found team.
      * 
      */
     public String id() {

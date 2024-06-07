@@ -9,22 +9,24 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  * import * as time from "@pulumiverse/time";
  *
- * const fooTeam = new pagerduty.Team("fooTeam", {});
- * const fooRuleset = new pagerduty.Ruleset("fooRuleset", {team: {
- *     id: fooTeam.id,
- * }});
+ * const foo = new pagerduty.Team("foo", {name: "Engineering (Seattle)"});
+ * const fooRuleset = new pagerduty.Ruleset("foo", {
+ *     name: "Primary Ruleset",
+ *     team: {
+ *         id: foo.id,
+ *     },
+ * });
  * // The pagerduty_ruleset_rule.foo rule defined below
  * // repeats daily from 9:30am - 11:30am using the America/New_York timezone.
  * // Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
  * // April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&p1=179
- * const easternTimeAt0930 = new time.Static("easternTimeAt0930", {rfc3339: "2019-04-11T09:30:00-04:00"});
- * const fooRulesetRule = new pagerduty.RulesetRule("fooRulesetRule", {
+ * const easternTimeAt0930 = new time.Static("eastern_time_at_0930", {rfc3339: "2019-04-11T09:30:00-04:00"});
+ * const fooRulesetRule = new pagerduty.RulesetRule("foo", {
  *     ruleset: fooRuleset.id,
  *     position: 0,
  *     disabled: false,
@@ -69,7 +71,7 @@ import * as utilities from "./utilities";
  *     }],
  *     actions: {
  *         routes: [{
- *             value: pagerduty_service.foo.id,
+ *             value: fooPagerdutyService.id,
  *         }],
  *         severities: [{
  *             value: "warning",
@@ -90,7 +92,7 @@ import * as utilities from "./utilities";
  *         ],
  *     },
  * });
- * const catchAll = new pagerduty.RulesetRule("catchAll", {
+ * const catchAll = new pagerduty.RulesetRule("catch_all", {
  *     ruleset: fooRuleset.id,
  *     position: 1,
  *     catchAll: true,
@@ -104,7 +106,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

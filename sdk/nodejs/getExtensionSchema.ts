@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -17,32 +16,35 @@ import * as utilities from "./utilities";
  * const webhook = pagerduty.getExtensionSchema({
  *     name: "Generic V2 Webhook",
  * });
- * const exampleUser = new pagerduty.User("exampleUser", {
+ * const example = new pagerduty.User("example", {
+ *     name: "Howard James",
  *     email: "howard.james@example.domain",
- *     teams: [pagerduty_team.example.id],
+ *     teams: [examplePagerdutyTeam.id],
  * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
  *             type: "user",
- *             id: exampleUser.id,
+ *             id: example.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("exampleService", {
+ * const exampleService = new pagerduty.Service("example", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
- *     escalationPolicy: pagerduty_escalation_policy.example.id,
+ *     escalationPolicy: examplePagerdutyEscalationPolicy.id,
  * });
  * const slack = new pagerduty.Extension("slack", {
+ *     name: "My Web App Extension",
  *     endpointUrl: "https://generic_webhook_url/XXXXXX/BBBBBB",
  *     extensionSchema: webhook.then(webhook => webhook.id),
  *     extensionObjects: [exampleService.id],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getExtensionSchema(args: GetExtensionSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionSchemaResult> {
 
@@ -67,7 +69,7 @@ export interface GetExtensionSchemaArgs {
  */
 export interface GetExtensionSchemaResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * The ID of the found extension vendor.
      */
     readonly id: string;
     /**
@@ -84,7 +86,6 @@ export interface GetExtensionSchemaResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -92,32 +93,35 @@ export interface GetExtensionSchemaResult {
  * const webhook = pagerduty.getExtensionSchema({
  *     name: "Generic V2 Webhook",
  * });
- * const exampleUser = new pagerduty.User("exampleUser", {
+ * const example = new pagerduty.User("example", {
+ *     name: "Howard James",
  *     email: "howard.james@example.domain",
- *     teams: [pagerduty_team.example.id],
+ *     teams: [examplePagerdutyTeam.id],
  * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
  *             type: "user",
- *             id: exampleUser.id,
+ *             id: example.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("exampleService", {
+ * const exampleService = new pagerduty.Service("example", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
- *     escalationPolicy: pagerduty_escalation_policy.example.id,
+ *     escalationPolicy: examplePagerdutyEscalationPolicy.id,
  * });
  * const slack = new pagerduty.Extension("slack", {
+ *     name: "My Web App Extension",
  *     endpointUrl: "https://generic_webhook_url/XXXXXX/BBBBBB",
  *     extensionSchema: webhook.then(webhook => webhook.id),
  *     extensionObjects: [exampleService.id],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getExtensionSchemaOutput(args: GetExtensionSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionSchemaResult> {
     return pulumi.output(args).apply((a: any) => getExtensionSchema(a, opts))

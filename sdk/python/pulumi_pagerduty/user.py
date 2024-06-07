@@ -406,14 +406,14 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example = pagerduty.User("example", email="125.greenholt.earline@graham.name")
+        example = pagerduty.User("example",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -449,14 +449,14 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example = pagerduty.User("example", email="125.greenholt.earline@graham.name")
+        example = pagerduty.User("example",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

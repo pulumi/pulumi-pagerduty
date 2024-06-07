@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,12 +24,12 @@ namespace Pulumi.Pagerduty
     /// {
     ///     var example = new Pagerduty.Addon("example", new()
     ///     {
+    ///         Name = "Internal Status Page",
     ///         Src = "https://intranet.example.com/status",
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

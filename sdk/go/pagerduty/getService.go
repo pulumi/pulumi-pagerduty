@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := pagerduty.LookupService(ctx, &pagerduty.LookupServiceArgs{
+//			example, err := pagerduty.LookupService(ctx, &pagerduty.LookupServiceArgs{
 //				Name: "My Service",
 //			}, nil)
 //			if err != nil {
@@ -40,9 +39,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewServiceIntegration(ctx, "exampleServiceIntegration", &pagerduty.ServiceIntegrationArgs{
+//			_, err = pagerduty.NewServiceIntegration(ctx, "example", &pagerduty.ServiceIntegrationArgs{
+//				Name:    pulumi.String("Datadog Integration"),
 //				Vendor:  pulumi.String(datadog.Id),
-//				Service: pulumi.String(exampleService.Id),
+//				Service: pulumi.String(example.Id),
 //				Type:    pulumi.String("generic_events_api_inbound_integration"),
 //			})
 //			if err != nil {
@@ -53,7 +53,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceResult

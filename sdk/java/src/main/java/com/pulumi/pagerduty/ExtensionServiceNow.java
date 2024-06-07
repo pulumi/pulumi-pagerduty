@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,44 +53,49 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var servicenow = PagerdutyFunctions.getExtensionSchema(GetExtensionSchemaArgs.builder()
- *             .name(&#34;ServiceNow (v7)&#34;)
+ *             .name("ServiceNow (v7)")
  *             .build());
  * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .email(&#34;howard.james@example.domain&#34;)
+ *         var example = new User("example", UserArgs.builder()
+ *             .name("Howard James")
+ *             .email("howard.james{@literal @}example.domain")
  *             .build());
  * 
- *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
+ *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()
+ *             .name("Engineering Escalation Policy")
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
  *                 .escalationDelayInMinutes(10)
  *                 .targets(EscalationPolicyRuleTargetArgs.builder()
- *                     .type(&#34;user&#34;)
- *                     .id(exampleUser.id())
+ *                     .type("user")
+ *                     .id(example.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
+ *             .name("My Web App")
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
  *             .escalationPolicy(exampleEscalationPolicy.id())
  *             .build());
  * 
- *         var snow = new ExtensionServiceNow(&#34;snow&#34;, ExtensionServiceNowArgs.builder()        
- *             .extensionSchema(servicenow.applyValue(getExtensionSchemaResult -&gt; getExtensionSchemaResult.id()))
+ *         var snow = new ExtensionServiceNow("snow", ExtensionServiceNowArgs.builder()
+ *             .name("My Web App Extension")
+ *             .extensionSchema(servicenow.applyValue(getExtensionSchemaResult -> getExtensionSchemaResult.id()))
  *             .extensionObjects(exampleService.id())
- *             .snowUser(&#34;meeps&#34;)
- *             .snowPassword(&#34;zorz&#34;)
- *             .syncOptions(&#34;manual_sync&#34;)
- *             .target(&#34;https://foo.servicenow.com/webhook_foo&#34;)
- *             .taskType(&#34;incident&#34;)
- *             .referer(&#34;None&#34;)
+ *             .snowUser("meeps")
+ *             .snowPassword("zorz")
+ *             .syncOptions("manual_sync")
+ *             .target("https://foo.servicenow.com/webhook_foo")
+ *             .taskType("incident")
+ *             .referer("None")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

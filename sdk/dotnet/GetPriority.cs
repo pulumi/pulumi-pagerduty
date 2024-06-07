@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,11 +29,14 @@ namespace Pulumi.Pagerduty
         ///         Name = "P1",
         ///     });
         /// 
-        ///     var fooRuleset = new Pagerduty.Ruleset("fooRuleset");
-        /// 
-        ///     var fooRulesetRule = new Pagerduty.RulesetRule("fooRulesetRule", new()
+        ///     var foo = new Pagerduty.Ruleset("foo", new()
         ///     {
-        ///         Ruleset = fooRuleset.Id,
+        ///         Name = "Primary Ruleset",
+        ///     });
+        /// 
+        ///     var fooRulesetRule = new Pagerduty.RulesetRule("foo", new()
+        ///     {
+        ///         Ruleset = foo.Id,
         ///         Position = 0,
         ///         Disabled = false,
         ///         Conditions = new Pagerduty.Inputs.RulesetRuleConditionsArgs
@@ -89,7 +91,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPriorityResult> InvokeAsync(GetPriorityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPriorityResult>("pagerduty:index/getPriority:getPriority", args ?? new GetPriorityArgs(), options.WithDefaults());
@@ -99,7 +100,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -113,11 +113,14 @@ namespace Pulumi.Pagerduty
         ///         Name = "P1",
         ///     });
         /// 
-        ///     var fooRuleset = new Pagerduty.Ruleset("fooRuleset");
-        /// 
-        ///     var fooRulesetRule = new Pagerduty.RulesetRule("fooRulesetRule", new()
+        ///     var foo = new Pagerduty.Ruleset("foo", new()
         ///     {
-        ///         Ruleset = fooRuleset.Id,
+        ///         Name = "Primary Ruleset",
+        ///     });
+        /// 
+        ///     var fooRulesetRule = new Pagerduty.RulesetRule("foo", new()
+        ///     {
+        ///         Ruleset = foo.Id,
         ///         Position = 0,
         ///         Disabled = false,
         ///         Conditions = new Pagerduty.Inputs.RulesetRuleConditionsArgs
@@ -172,7 +175,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPriorityResult> Invoke(GetPriorityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPriorityResult>("pagerduty:index/getPriority:getPriority", args ?? new GetPriorityInvokeArgs(), options.WithDefaults());

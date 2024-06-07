@@ -6,6 +6,32 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific [team](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIyMw-list-teams) that you can use for other PagerDuty resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const me = pagerduty.getUser({
+ *     email: "me@example.com",
+ * });
+ * const devops = pagerduty.getTeam({
+ *     name: "devops",
+ * });
+ * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     name: "DevOps Escalation Policy",
+ *     numLoops: 2,
+ *     teams: devops.then(devops => devops.id),
+ *     rules: [{
+ *         escalationDelayInMinutes: 10,
+ *         targets: [{
+ *             type: "user",
+ *             id: me.then(me => me.id),
+ *         }],
+ *     }],
+ * });
+ * ```
  */
 export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamResult> {
 
@@ -62,6 +88,32 @@ export interface GetTeamResult {
 }
 /**
  * Use this data source to get information about a specific [team](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIyMw-list-teams) that you can use for other PagerDuty resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const me = pagerduty.getUser({
+ *     email: "me@example.com",
+ * });
+ * const devops = pagerduty.getTeam({
+ *     name: "devops",
+ * });
+ * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     name: "DevOps Escalation Policy",
+ *     numLoops: 2,
+ *     teams: devops.then(devops => devops.id),
+ *     rules: [{
+ *         escalationDelayInMinutes: 10,
+ *         targets: [{
+ *             type: "user",
+ *             id: me.then(me => me.id),
+ *         }],
+ *     }],
+ * });
+ * ```
  */
 export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamResult> {
     return pulumi.output(args).apply((a: any) => getTeam(a, opts))

@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,16 +26,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//			example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Name:  pulumi.String("Earline Greenholt"),
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //				Teams: pulumi.StringArray{
-//					pagerduty_team.Example.Id,
+//					examplePagerdutyTeam.Id,
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
+//			exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "example", &pagerduty.EscalationPolicyArgs{
+//				Name:     pulumi.String("Engineering Escalation Policy"),
 //				NumLoops: pulumi.Int(2),
 //				Rules: pagerduty.EscalationPolicyRuleArray{
 //					&pagerduty.EscalationPolicyRuleArgs{
@@ -44,7 +45,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
-//								Id:   exampleUser.ID(),
+//								Id:   example.ID(),
 //							},
 //						},
 //					},
@@ -53,8 +54,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewResponsePlay(ctx, "exampleResponsePlay", &pagerduty.ResponsePlayArgs{
-//				From: exampleUser.Email,
+//			_, err = pagerduty.NewResponsePlay(ctx, "example", &pagerduty.ResponsePlayArgs{
+//				Name: pulumi.String("My Response Play"),
+//				From: example.Email,
 //				Responders: pagerduty.ResponsePlayResponderArray{
 //					&pagerduty.ResponsePlayResponderArgs{
 //						Type: pulumi.String("escalation_policy_reference"),
@@ -64,7 +66,7 @@ import (
 //				Subscribers: pagerduty.ResponsePlaySubscriberArray{
 //					&pagerduty.ResponsePlaySubscriberArgs{
 //						Type: pulumi.String("user_reference"),
-//						Id:   exampleUser.ID(),
+//						Id:   example.ID(),
 //					},
 //				},
 //				Runnability: pulumi.String("services"),
@@ -77,7 +79,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

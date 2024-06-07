@@ -16,7 +16,7 @@ public final class EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpd
      */
     private String id;
     /**
-     * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * @return The value to assign to this custom field
      * 
      */
     private String value;
@@ -30,7 +30,7 @@ public final class EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpd
         return this.id;
     }
     /**
-     * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * @return The value to assign to this custom field
      * 
      */
     public String value() {

@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBusinessService, err := pagerduty.NewBusinessService(ctx, "exampleBusinessService", &pagerduty.BusinessServiceArgs{
+//			example, err := pagerduty.NewBusinessService(ctx, "example", &pagerduty.BusinessServiceArgs{
+//				Name:           pulumi.String("My Web App"),
 //				Description:    pulumi.String("A very descriptive description of this business service"),
 //				PointOfContact: pulumi.String("PagerDuty Admin"),
 //				Team:           pulumi.String("P37RSRS"),
@@ -37,28 +37,31 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			engteam, err := pagerduty.NewTeam(ctx, "engteam", nil)
+//			engteam, err := pagerduty.NewTeam(ctx, "engteam", &pagerduty.TeamArgs{
+//				Name: pulumi.String("Engineering"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//			exampleUser, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Name:  pulumi.String("Earline Greenholt"),
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewBusinessServiceSubscriber(ctx, "teamExample", &pagerduty.BusinessServiceSubscriberArgs{
+//			_, err = pagerduty.NewBusinessServiceSubscriber(ctx, "team_example", &pagerduty.BusinessServiceSubscriberArgs{
 //				SubscriberId:      engteam.ID(),
 //				SubscriberType:    pulumi.String("team"),
-//				BusinessServiceId: exampleBusinessService.ID(),
+//				BusinessServiceId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewBusinessServiceSubscriber(ctx, "userExample", &pagerduty.BusinessServiceSubscriberArgs{
+//			_, err = pagerduty.NewBusinessServiceSubscriber(ctx, "user_example", &pagerduty.BusinessServiceSubscriberArgs{
 //				SubscriberId:      exampleUser.ID(),
 //				SubscriberType:    pulumi.String("user"),
-//				BusinessServiceId: exampleBusinessService.ID(),
+//				BusinessServiceId: example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -68,7 +71,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

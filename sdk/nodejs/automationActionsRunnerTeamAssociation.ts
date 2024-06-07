@@ -9,24 +9,26 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const teamEntEng = new pagerduty.Team("teamEntEng", {description: "Enterprise engineering"});
- * const paRunbookRunner = new pagerduty.AutomationActionsRunner("paRunbookRunner", {
+ * const teamEntEng = new pagerduty.Team("team_ent_eng", {
+ *     name: "Enterprise Engineering",
+ *     description: "Enterprise engineering",
+ * });
+ * const paRunbookRunner = new pagerduty.AutomationActionsRunner("pa_runbook_runner", {
+ *     name: "Runner created via TF",
  *     description: "Description of the Runner created via TF",
  *     runnerType: "runbook",
  *     runbookBaseUri: "cat-cat",
  *     runbookApiKey: "cat-secret",
  * });
- * const paRunnerEntEngAssoc = new pagerduty.AutomationActionsRunnerTeamAssociation("paRunnerEntEngAssoc", {
+ * const paRunnerEntEngAssoc = new pagerduty.AutomationActionsRunnerTeamAssociation("pa_runner_ent_eng_assoc", {
  *     runnerId: paRunbookRunner.id,
  *     teamId: teamEntEng.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

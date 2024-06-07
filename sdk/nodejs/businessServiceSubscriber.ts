@@ -9,30 +9,32 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const exampleBusinessService = new pagerduty.BusinessService("exampleBusinessService", {
+ * const example = new pagerduty.BusinessService("example", {
+ *     name: "My Web App",
  *     description: "A very descriptive description of this business service",
  *     pointOfContact: "PagerDuty Admin",
  *     team: "P37RSRS",
  * });
- * const engteam = new pagerduty.Team("engteam", {});
- * const exampleUser = new pagerduty.User("exampleUser", {email: "125.greenholt.earline@graham.name"});
- * const teamExample = new pagerduty.BusinessServiceSubscriber("teamExample", {
+ * const engteam = new pagerduty.Team("engteam", {name: "Engineering"});
+ * const exampleUser = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
+ *     email: "125.greenholt.earline@graham.name",
+ * });
+ * const teamExample = new pagerduty.BusinessServiceSubscriber("team_example", {
  *     subscriberId: engteam.id,
  *     subscriberType: "team",
- *     businessServiceId: exampleBusinessService.id,
+ *     businessServiceId: example.id,
  * });
- * const userExample = new pagerduty.BusinessServiceSubscriber("userExample", {
+ * const userExample = new pagerduty.BusinessServiceSubscriber("user_example", {
  *     subscriberId: exampleUser.id,
  *     subscriberType: "user",
- *     businessServiceId: exampleBusinessService.id,
+ *     businessServiceId: example.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

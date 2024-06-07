@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			eventOrchestration, err := pagerduty.NewEventOrchestration(ctx, "eventOrchestration", nil)
+//			eventOrchestration, err := pagerduty.NewEventOrchestration(ctx, "event_orchestration", &pagerduty.EventOrchestrationArgs{
+//				Name: pulumi.String("Test Event Orchestration"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -41,7 +42,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupEventOrchestrationIntegration(ctx *pulumi.Context, args *LookupEventOrchestrationIntegrationArgs, opts ...pulumi.InvokeOption) (*LookupEventOrchestrationIntegrationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventOrchestrationIntegrationResult

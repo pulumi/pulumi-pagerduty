@@ -75,14 +75,12 @@ def get_business_service(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
 
     example = pagerduty.get_business_service(name="My Service")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The business service name to use to find a business service in the PagerDuty API.
@@ -106,14 +104,12 @@ def get_business_service_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
 
     example = pagerduty.get_business_service(name="My Service")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The business service name to use to find a business service in the PagerDuty API.

@@ -78,16 +78,14 @@ def get_event_orchestration_integration(event_orchestration: Optional[str] = Non
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
 
-    event_orchestration = pagerduty.EventOrchestration("eventOrchestration")
+    event_orchestration = pagerduty.EventOrchestration("event_orchestration", name="Test Event Orchestration")
     integration = pagerduty.get_event_orchestration_integration_output(event_orchestration=event_orchestration.id,
         label="Test Event Orchestration Default Integration")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str event_orchestration: ID of the Event Orchestration to which this Integration belongs.
@@ -118,16 +116,14 @@ def get_event_orchestration_integration_output(event_orchestration: Optional[pul
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
 
-    event_orchestration = pagerduty.EventOrchestration("eventOrchestration")
+    event_orchestration = pagerduty.EventOrchestration("event_orchestration", name="Test Event Orchestration")
     integration = pagerduty.get_event_orchestration_integration_output(event_orchestration=event_orchestration.id,
         label="Test Event Orchestration Default Integration")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str event_orchestration: ID of the Event Orchestration to which this Integration belongs.

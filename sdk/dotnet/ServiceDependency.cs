@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,16 +30,16 @@ namespace Pulumi.Pagerduty
     ///             {
     ///                 new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
     ///                 {
-    ///                     Id = pagerduty_business_service.Foo.Id,
-    ///                     Type = pagerduty_business_service.Foo.Type,
+    ///                     Id = fooPagerdutyBusinessService.Id,
+    ///                     Type = fooPagerdutyBusinessService.Type,
     ///                 },
     ///             },
     ///             SupportingServices = new[]
     ///             {
     ///                 new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
     ///                 {
-    ///                     Id = pagerduty_service.Foo.Id,
-    ///                     Type = pagerduty_service.Foo.Type,
+    ///                     Id = fooPagerdutyService.Id,
+    ///                     Type = fooPagerdutyService.Type,
     ///                 },
     ///             },
     ///         },
@@ -54,16 +53,16 @@ namespace Pulumi.Pagerduty
     ///             {
     ///                 new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
     ///                 {
-    ///                     Id = pagerduty_business_service.Foo.Id,
-    ///                     Type = pagerduty_business_service.Foo.Type,
+    ///                     Id = fooPagerdutyBusinessService.Id,
+    ///                     Type = fooPagerdutyBusinessService.Type,
     ///                 },
     ///             },
     ///             SupportingServices = new[]
     ///             {
     ///                 new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
     ///                 {
-    ///                     Id = pagerduty_service.Two.Id,
-    ///                     Type = pagerduty_service.Two.Type,
+    ///                     Id = two.Id,
+    ///                     Type = two.Type,
     ///                 },
     ///             },
     ///         },
@@ -71,7 +70,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

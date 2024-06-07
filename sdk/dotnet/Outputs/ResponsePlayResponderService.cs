@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class ResponsePlayResponderService
     {
         /// <summary>
-        /// ID of the user defined as the responder
+        /// The ID of the response play.
         /// </summary>
         public readonly string? Id;
         /// <summary>

@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -17,13 +16,12 @@ import * as utilities from "./utilities";
  * const environment = pagerduty.getIncidentCustomField({
  *     name: "environment",
  * });
- * const devEnvironment = new pagerduty.IncidentCustomFieldOption("devEnvironment", {
+ * const devEnvironment = new pagerduty.IncidentCustomFieldOption("dev_environment", {
  *     field: environment.then(environment => environment.id),
  *     datatype: "string",
  *     value: "dev",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIncidentCustomField(args: GetIncidentCustomFieldArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentCustomFieldResult> {
 
@@ -62,7 +60,6 @@ export interface GetIncidentCustomFieldResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -70,13 +67,12 @@ export interface GetIncidentCustomFieldResult {
  * const environment = pagerduty.getIncidentCustomField({
  *     name: "environment",
  * });
- * const devEnvironment = new pagerduty.IncidentCustomFieldOption("devEnvironment", {
+ * const devEnvironment = new pagerduty.IncidentCustomFieldOption("dev_environment", {
  *     field: environment.then(environment => environment.id),
  *     datatype: "string",
  *     value: "dev",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIncidentCustomFieldOutput(args: GetIncidentCustomFieldOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentCustomFieldResult> {
     return pulumi.output(args).apply((a: any) => getIncidentCustomField(a, opts))

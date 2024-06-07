@@ -301,22 +301,23 @@ class RulesetRule(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
         import pulumiverse_time as time
 
-        foo_team = pagerduty.Team("fooTeam")
-        foo_ruleset = pagerduty.Ruleset("fooRuleset", team=pagerduty.RulesetTeamArgs(
-            id=foo_team.id,
-        ))
+        foo = pagerduty.Team("foo", name="Engineering (Seattle)")
+        foo_ruleset = pagerduty.Ruleset("foo",
+            name="Primary Ruleset",
+            team=pagerduty.RulesetTeamArgs(
+                id=foo.id,
+            ))
         # The pagerduty_ruleset_rule.foo rule defined below
         # repeats daily from 9:30am - 11:30am using the America/New_York timezone.
         # Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
         # April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&p1=179
-        eastern_time_at0930 = time.Static("easternTimeAt0930", rfc3339="2019-04-11T09:30:00-04:00")
-        foo_ruleset_rule = pagerduty.RulesetRule("fooRulesetRule",
+        eastern_time_at0930 = time.Static("eastern_time_at_0930", rfc3339="2019-04-11T09:30:00-04:00")
+        foo_ruleset_rule = pagerduty.RulesetRule("foo",
             ruleset=foo_ruleset.id,
             position=0,
             disabled=False,
@@ -361,7 +362,7 @@ class RulesetRule(pulumi.CustomResource):
             )],
             actions=pagerduty.RulesetRuleActionsArgs(
                 routes=[pagerduty.RulesetRuleActionsRouteArgs(
-                    value=pagerduty_service["foo"]["id"],
+                    value=foo_pagerduty_service["id"],
                 )],
                 severities=[pagerduty.RulesetRuleActionsSeverityArgs(
                     value="warning",
@@ -381,7 +382,7 @@ class RulesetRule(pulumi.CustomResource):
                     ),
                 ],
             ))
-        catch_all = pagerduty.RulesetRule("catchAll",
+        catch_all = pagerduty.RulesetRule("catch_all",
             ruleset=foo_ruleset.id,
             position=1,
             catch_all=True,
@@ -394,7 +395,6 @@ class RulesetRule(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -424,22 +424,23 @@ class RulesetRule(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
         import pulumiverse_time as time
 
-        foo_team = pagerduty.Team("fooTeam")
-        foo_ruleset = pagerduty.Ruleset("fooRuleset", team=pagerduty.RulesetTeamArgs(
-            id=foo_team.id,
-        ))
+        foo = pagerduty.Team("foo", name="Engineering (Seattle)")
+        foo_ruleset = pagerduty.Ruleset("foo",
+            name="Primary Ruleset",
+            team=pagerduty.RulesetTeamArgs(
+                id=foo.id,
+            ))
         # The pagerduty_ruleset_rule.foo rule defined below
         # repeats daily from 9:30am - 11:30am using the America/New_York timezone.
         # Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
         # April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&p1=179
-        eastern_time_at0930 = time.Static("easternTimeAt0930", rfc3339="2019-04-11T09:30:00-04:00")
-        foo_ruleset_rule = pagerduty.RulesetRule("fooRulesetRule",
+        eastern_time_at0930 = time.Static("eastern_time_at_0930", rfc3339="2019-04-11T09:30:00-04:00")
+        foo_ruleset_rule = pagerduty.RulesetRule("foo",
             ruleset=foo_ruleset.id,
             position=0,
             disabled=False,
@@ -484,7 +485,7 @@ class RulesetRule(pulumi.CustomResource):
             )],
             actions=pagerduty.RulesetRuleActionsArgs(
                 routes=[pagerduty.RulesetRuleActionsRouteArgs(
-                    value=pagerduty_service["foo"]["id"],
+                    value=foo_pagerduty_service["id"],
                 )],
                 severities=[pagerduty.RulesetRuleActionsSeverityArgs(
                     value="warning",
@@ -504,7 +505,7 @@ class RulesetRule(pulumi.CustomResource):
                     ),
                 ],
             ))
-        catch_all = pagerduty.RulesetRule("catchAll",
+        catch_all = pagerduty.RulesetRule("catch_all",
             ruleset=foo_ruleset.id,
             position=1,
             catch_all=True,
@@ -517,7 +518,6 @@ class RulesetRule(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

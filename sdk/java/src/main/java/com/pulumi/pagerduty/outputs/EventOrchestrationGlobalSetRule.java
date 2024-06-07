@@ -32,7 +32,7 @@ public final class EventOrchestrationGlobalSetRule {
      */
     private @Nullable Boolean disabled;
     /**
-     * @return The custom field id
+     * @return The ID of the rule within the set.
      * 
      */
     private @Nullable String id;
@@ -65,7 +65,7 @@ public final class EventOrchestrationGlobalSetRule {
         return Optional.ofNullable(this.disabled);
     }
     /**
-     * @return The custom field id
+     * @return The ID of the rule within the set.
      * 
      */
     public Optional<String> id() {

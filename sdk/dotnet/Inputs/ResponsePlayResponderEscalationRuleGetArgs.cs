@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<int>? EscalationDelayInMinutes { get; set; }
 
         /// <summary>
-        /// ID of the user defined as the responder
+        /// The ID of the response play.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

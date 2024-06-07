@@ -14,7 +14,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,9 +27,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := pagerduty.NewService(ctx, "example", &pagerduty.ServiceArgs{
+//				Name:                   pulumi.String("Checkout API Service"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),
+//				EscalationPolicy:       pulumi.Any(examplePagerdutyEscalationPolicy.Id),
 //				AlertCreation:          pulumi.String("create_alerts_and_incidents"),
 //			})
 //			if err != nil {
@@ -89,7 +89,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewServiceEventRule(ctx, "bar", &pagerduty.ServiceEventRuleArgs{
-//				Service:  pulumi.Any(pagerduty_service.Foo.Id),
+//				Service:  pulumi.Any(fooPagerdutyService.Id),
 //				Position: pulumi.Int(1),
 //				Disabled: pulumi.Bool(true),
 //				Conditions: &pagerduty.ServiceEventRuleConditionsArgs{
@@ -122,7 +122,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

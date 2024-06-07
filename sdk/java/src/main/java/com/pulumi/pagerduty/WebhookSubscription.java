@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,49 +51,50 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = PagerdutyFunctions.getService(GetServiceArgs.builder()
- *             .name(&#34;My Service&#34;)
+ *             .name("My Service")
  *             .build());
  * 
- *         var foo = new WebhookSubscription(&#34;foo&#34;, WebhookSubscriptionArgs.builder()        
+ *         var foo = new WebhookSubscription("foo", WebhookSubscriptionArgs.builder()
  *             .deliveryMethods(WebhookSubscriptionDeliveryMethodArgs.builder()
- *                 .type(&#34;http_delivery_method&#34;)
- *                 .url(&#34;https://example.com/receive_a_pagerduty_webhook&#34;)
+ *                 .type("http_delivery_method")
+ *                 .url("https://example.com/receive_a_pagerduty_webhook")
  *                 .customHeaders(                
  *                     WebhookSubscriptionDeliveryMethodCustomHeaderArgs.builder()
- *                         .name(&#34;X-Foo&#34;)
- *                         .value(&#34;foo&#34;)
+ *                         .name("X-Foo")
+ *                         .value("foo")
  *                         .build(),
  *                     WebhookSubscriptionDeliveryMethodCustomHeaderArgs.builder()
- *                         .name(&#34;X-Bar&#34;)
- *                         .value(&#34;bar&#34;)
+ *                         .name("X-Bar")
+ *                         .value("bar")
  *                         .build())
  *                 .build())
- *             .description(&#34;%s&#34;)
+ *             .description("%s")
  *             .events(            
- *                 &#34;incident.acknowledged&#34;,
- *                 &#34;incident.annotated&#34;,
- *                 &#34;incident.delegated&#34;,
- *                 &#34;incident.escalated&#34;,
- *                 &#34;incident.priority_updated&#34;,
- *                 &#34;incident.reassigned&#34;,
- *                 &#34;incident.reopened&#34;,
- *                 &#34;incident.resolved&#34;,
- *                 &#34;incident.responder.added&#34;,
- *                 &#34;incident.responder.replied&#34;,
- *                 &#34;incident.status_update_published&#34;,
- *                 &#34;incident.triggered&#34;,
- *                 &#34;incident.unacknowledged&#34;)
+ *                 "incident.acknowledged",
+ *                 "incident.annotated",
+ *                 "incident.delegated",
+ *                 "incident.escalated",
+ *                 "incident.priority_updated",
+ *                 "incident.reassigned",
+ *                 "incident.reopened",
+ *                 "incident.resolved",
+ *                 "incident.responder.added",
+ *                 "incident.responder.replied",
+ *                 "incident.status_update_published",
+ *                 "incident.triggered",
+ *                 "incident.unacknowledged")
  *             .active(true)
  *             .filters(WebhookSubscriptionFilterArgs.builder()
- *                 .id(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
- *                 .type(&#34;service_reference&#34;)
+ *                 .id(example.applyValue(getServiceResult -> getServiceResult.id()))
+ *                 .type("service_reference")
  *                 .build())
- *             .type(&#34;webhook_subscription&#34;)
+ *             .type("webhook_subscription")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

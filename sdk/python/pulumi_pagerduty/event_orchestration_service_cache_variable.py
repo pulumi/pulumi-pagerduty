@@ -205,16 +205,17 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
 
         This example shows creating a service `Event Orchestration` and a `Cache Variable`. This Cache Variable will count and store the number of trigger events with 'database' in its title. Then all alerts sent to this Event Orchestration will have its severity upped to 'critical' if the count has reached at least 5 triggers within the last 1 minute.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        database_team = pagerduty.Team("databaseTeam")
-        user1 = pagerduty.User("user1",
+        database_team = pagerduty.Team("database_team", name="Database Team")
+        user1 = pagerduty.User("user_1",
+            name="Earline Greenholt",
             email="125.greenholt.earline@graham.name",
             teams=[database_team.id])
-        db_ep = pagerduty.EscalationPolicy("dbEp",
+        db_ep = pagerduty.EscalationPolicy("db_ep",
+            name="Database Escalation Policy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
@@ -224,12 +225,14 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
                 )],
             )])
         svc = pagerduty.Service("svc",
+            name="My Database Service",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
             escalation_policy=db_ep.id,
             alert_creation="create_alerts_and_incidents")
-        num_db_triggers = pagerduty.EventOrchestrationServiceCacheVariable("numDbTriggers",
+        num_db_triggers = pagerduty.EventOrchestrationServiceCacheVariable("num_db_triggers",
             service=svc.id,
+            name="num_db_triggers",
             conditions=[pagerduty.EventOrchestrationServiceCacheVariableConditionArgs(
                 expression="event.summary matches part 'database'",
             )],
@@ -237,7 +240,7 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
                 type="trigger_event_count",
                 ttl_seconds=60,
             ))
-        event_orchestration = pagerduty.EventOrchestrationService("eventOrchestration",
+        event_orchestration = pagerduty.EventOrchestrationService("event_orchestration",
             service=svc.id,
             enable_event_orchestration_for_service=True,
             sets=[pagerduty.EventOrchestrationServiceSetArgs(
@@ -256,7 +259,6 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
                 actions=pagerduty.EventOrchestrationServiceCatchAllActionsArgs(),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -287,16 +289,17 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
 
         This example shows creating a service `Event Orchestration` and a `Cache Variable`. This Cache Variable will count and store the number of trigger events with 'database' in its title. Then all alerts sent to this Event Orchestration will have its severity upped to 'critical' if the count has reached at least 5 triggers within the last 1 minute.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        database_team = pagerduty.Team("databaseTeam")
-        user1 = pagerduty.User("user1",
+        database_team = pagerduty.Team("database_team", name="Database Team")
+        user1 = pagerduty.User("user_1",
+            name="Earline Greenholt",
             email="125.greenholt.earline@graham.name",
             teams=[database_team.id])
-        db_ep = pagerduty.EscalationPolicy("dbEp",
+        db_ep = pagerduty.EscalationPolicy("db_ep",
+            name="Database Escalation Policy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
@@ -306,12 +309,14 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
                 )],
             )])
         svc = pagerduty.Service("svc",
+            name="My Database Service",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
             escalation_policy=db_ep.id,
             alert_creation="create_alerts_and_incidents")
-        num_db_triggers = pagerduty.EventOrchestrationServiceCacheVariable("numDbTriggers",
+        num_db_triggers = pagerduty.EventOrchestrationServiceCacheVariable("num_db_triggers",
             service=svc.id,
+            name="num_db_triggers",
             conditions=[pagerduty.EventOrchestrationServiceCacheVariableConditionArgs(
                 expression="event.summary matches part 'database'",
             )],
@@ -319,7 +324,7 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
                 type="trigger_event_count",
                 ttl_seconds=60,
             ))
-        event_orchestration = pagerduty.EventOrchestrationService("eventOrchestration",
+        event_orchestration = pagerduty.EventOrchestrationService("event_orchestration",
             service=svc.id,
             enable_event_orchestration_for_service=True,
             sets=[pagerduty.EventOrchestrationServiceSetArgs(
@@ -338,7 +343,6 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
                 actions=pagerduty.EventOrchestrationServiceCatchAllActionsArgs(),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

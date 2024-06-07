@@ -18,7 +18,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// This example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,7 +28,7 @@ namespace Pulumi.Pagerduty
     /// {
     ///     var router = new Pagerduty.EventOrchestrationRouter("router", new()
     ///     {
-    ///         EventOrchestration = pagerduty_event_orchestration.My_monitor.Id,
+    ///         EventOrchestration = myMonitor.Id,
     ///         Set = new Pagerduty.Inputs.EventOrchestrationRouterSetArgs
     ///         {
     ///             Id = "start",
@@ -51,7 +50,7 @@ namespace Pulumi.Pagerduty
     ///                     },
     ///                     Actions = new Pagerduty.Inputs.EventOrchestrationRouterSetRuleActionsArgs
     ///                     {
-    ///                         RouteTo = pagerduty_service.Database.Id,
+    ///                         RouteTo = database.Id,
     ///                     },
     ///                 },
     ///                 new Pagerduty.Inputs.EventOrchestrationRouterSetRuleArgs
@@ -65,7 +64,7 @@ namespace Pulumi.Pagerduty
     ///                     },
     ///                     Actions = new Pagerduty.Inputs.EventOrchestrationRouterSetRuleActionsArgs
     ///                     {
-    ///                         RouteTo = pagerduty_service.Www.Id,
+    ///                         RouteTo = www.Id,
     ///                     },
     ///                 },
     ///             },
@@ -81,7 +80,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

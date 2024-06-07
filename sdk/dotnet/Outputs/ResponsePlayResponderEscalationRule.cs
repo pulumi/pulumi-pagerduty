@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly int? EscalationDelayInMinutes;
         /// <summary>
-        /// ID of the user defined as the responder
+        /// The ID of the response play.
         /// </summary>
         public readonly string? Id;
         /// <summary>

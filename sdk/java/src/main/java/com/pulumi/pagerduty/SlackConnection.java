@@ -25,13 +25,15 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.TeamArgs;
  * import com.pulumi.pagerduty.PagerdutyFunctions;
  * import com.pulumi.pagerduty.inputs.GetPriorityArgs;
  * import com.pulumi.pagerduty.SlackConnection;
@@ -50,40 +52,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooTeam = new Team(&#34;fooTeam&#34;);
- * 
- *         final var p1 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()
- *             .name(&#34;P1&#34;)
+ *         var foo = new Team("foo", TeamArgs.builder()
+ *             .name("Team Foo")
  *             .build());
  * 
- *         var fooSlackConnection = new SlackConnection(&#34;fooSlackConnection&#34;, SlackConnectionArgs.builder()        
- *             .sourceId(fooTeam.id())
- *             .sourceType(&#34;team_reference&#34;)
- *             .workspaceId(&#34;T02A123LV1A&#34;)
- *             .channelId(&#34;C02CABCDAC9&#34;)
- *             .notificationType(&#34;responder&#34;)
+ *         final var p1 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()
+ *             .name("P1")
+ *             .build());
+ * 
+ *         var fooSlackConnection = new SlackConnection("fooSlackConnection", SlackConnectionArgs.builder()
+ *             .sourceId(foo.id())
+ *             .sourceType("team_reference")
+ *             .workspaceId("T02A123LV1A")
+ *             .channelId("C02CABCDAC9")
+ *             .notificationType("responder")
  *             .configs(SlackConnectionConfigArgs.builder()
  *                 .events(                
- *                     &#34;incident.triggered&#34;,
- *                     &#34;incident.acknowledged&#34;,
- *                     &#34;incident.escalated&#34;,
- *                     &#34;incident.resolved&#34;,
- *                     &#34;incident.reassigned&#34;,
- *                     &#34;incident.annotated&#34;,
- *                     &#34;incident.unacknowledged&#34;,
- *                     &#34;incident.delegated&#34;,
- *                     &#34;incident.priority_updated&#34;,
- *                     &#34;incident.responder.added&#34;,
- *                     &#34;incident.responder.replied&#34;,
- *                     &#34;incident.status_update_published&#34;,
- *                     &#34;incident.reopened&#34;)
- *                 .priorities(p1.applyValue(getPriorityResult -&gt; getPriorityResult.id()))
+ *                     "incident.triggered",
+ *                     "incident.acknowledged",
+ *                     "incident.escalated",
+ *                     "incident.resolved",
+ *                     "incident.reassigned",
+ *                     "incident.annotated",
+ *                     "incident.unacknowledged",
+ *                     "incident.delegated",
+ *                     "incident.priority_updated",
+ *                     "incident.responder.added",
+ *                     "incident.responder.replied",
+ *                     "incident.status_update_published",
+ *                     "incident.reopened")
+ *                 .priorities(p1.applyValue(getPriorityResult -> getPriorityResult.id()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

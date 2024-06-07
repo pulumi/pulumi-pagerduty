@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,13 +34,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//			example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Name:  pulumi.String("Howard James"),
 //				Email: pulumi.String("howard.james@example.domain"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
+//			exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "example", &pagerduty.EscalationPolicyArgs{
+//				Name:     pulumi.String("Engineering Escalation Policy"),
 //				NumLoops: pulumi.Int(2),
 //				Rules: pagerduty.EscalationPolicyRuleArray{
 //					&pagerduty.EscalationPolicyRuleArgs{
@@ -49,7 +50,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
-//								Id:   exampleUser.ID(),
+//								Id:   example.ID(),
 //							},
 //						},
 //					},
@@ -58,7 +59,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+//			exampleService, err := pagerduty.NewService(ctx, "example", &pagerduty.ServiceArgs{
+//				Name:                   pulumi.String("My Web App"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
 //				EscalationPolicy:       exampleEscalationPolicy.ID(),
@@ -67,6 +69,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewExtension(ctx, "slack", &pagerduty.ExtensionArgs{
+//				Name:            pulumi.String("My Web App Extension"),
 //				EndpointUrl:     pulumi.String("https://generic_webhook_url/XXXXXX/BBBBBB"),
 //				ExtensionSchema: pulumi.String(webhook.Id),
 //				ExtensionObjects: pulumi.StringArray{
@@ -93,7 +96,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -106,7 +108,7 @@ type Extension struct {
 	pulumi.CustomResourceState
 
 	// The configuration of the service extension as string containing plain JSON-encoded data.
-	Config pulumi.StringPtrOutput `pulumi:"config"`
+	Config pulumi.StringOutput `pulumi:"config"`
 	// The url of the extension.
 	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpointUrl`, but one with named `Slack` accepts.
 	EndpointUrl pulumi.StringPtrOutput `pulumi:"endpointUrl"`
@@ -332,8 +334,8 @@ func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) Exten
 }
 
 // The configuration of the service extension as string containing plain JSON-encoded data.
-func (o ExtensionOutput) Config() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.Config }).(pulumi.StringPtrOutput)
+func (o ExtensionOutput) Config() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Config }).(pulumi.StringOutput)
 }
 
 // The url of the extension.

@@ -25,7 +25,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<Inputs.EscalationPolicyRuleEscalationRuleAssignmentStrategyGetArgs>? EscalationRuleAssignmentStrategy { get; set; }
 
         /// <summary>
-        /// A target ID
+        /// The ID of the escalation policy.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

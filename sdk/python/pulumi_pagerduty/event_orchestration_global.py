@@ -144,13 +144,14 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
 
         The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        database_team = pagerduty.Team("databaseTeam")
-        event_orchestration = pagerduty.EventOrchestration("eventOrchestration", team=database_team.id)
+        database_team = pagerduty.Team("database_team", name="Database Team")
+        event_orchestration = pagerduty.EventOrchestration("event_orchestration",
+            name="Example Orchestration",
+            team=database_team.id)
         p1 = pagerduty.get_priority(name="P1")
         global_ = pagerduty.EventOrchestrationGlobal("global",
             event_orchestration=event_orchestration.id,
@@ -204,7 +205,6 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
                 actions=pagerduty.EventOrchestrationGlobalCatchAllActionsArgs(),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -239,13 +239,14 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
 
         The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        database_team = pagerduty.Team("databaseTeam")
-        event_orchestration = pagerduty.EventOrchestration("eventOrchestration", team=database_team.id)
+        database_team = pagerduty.Team("database_team", name="Database Team")
+        event_orchestration = pagerduty.EventOrchestration("event_orchestration",
+            name="Example Orchestration",
+            team=database_team.id)
         p1 = pagerduty.get_priority(name="P1")
         global_ = pagerduty.EventOrchestrationGlobal("global",
             event_orchestration=event_orchestration.id,
@@ -299,7 +300,6 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
                 actions=pagerduty.EventOrchestrationGlobalCatchAllActionsArgs(),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

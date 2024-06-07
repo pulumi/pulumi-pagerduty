@@ -165,7 +165,6 @@ def get_license(allocations_available: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -174,11 +173,11 @@ def get_license(allocations_available: Optional[int] = None,
     full_user = pagerduty.get_license(name="Full User",
         description="")
     example = pagerduty.User("example",
+        name="Earline Greenholt",
         email="125.greenholt.earline@graham.name",
         license=full_user.id,
         role="user")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int allocations_available: Available allocations to assign to users
@@ -239,7 +238,6 @@ def get_license_output(allocations_available: Optional[pulumi.Input[Optional[int
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -248,11 +246,11 @@ def get_license_output(allocations_available: Optional[pulumi.Input[Optional[int
     full_user = pagerduty.get_license(name="Full User",
         description="")
     example = pagerduty.User("example",
+        name="Earline Greenholt",
         email="125.greenholt.earline@graham.name",
         license=full_user.id,
         role="user")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int allocations_available: Available allocations to assign to users

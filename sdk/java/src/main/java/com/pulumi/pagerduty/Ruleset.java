@@ -20,13 +20,15 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.TeamArgs;
  * import com.pulumi.pagerduty.Ruleset;
  * import com.pulumi.pagerduty.RulesetArgs;
  * import com.pulumi.pagerduty.inputs.RulesetTeamArgs;
@@ -43,17 +45,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooTeam = new Team(&#34;fooTeam&#34;);
+ *         var foo = new Team("foo", TeamArgs.builder()
+ *             .name("Engineering (Seattle)")
+ *             .build());
  * 
- *         var fooRuleset = new Ruleset(&#34;fooRuleset&#34;, RulesetArgs.builder()        
+ *         var fooRuleset = new Ruleset("fooRuleset", RulesetArgs.builder()
+ *             .name("Primary Ruleset")
  *             .team(RulesetTeamArgs.builder()
- *                 .id(fooTeam.id())
+ *                 .id(foo.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

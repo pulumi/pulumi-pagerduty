@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +24,7 @@ namespace Pulumi.Pagerduty
     /// {
     ///     var example = new Pagerduty.User("example", new()
     ///     {
+    ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///     });
     /// 
@@ -54,7 +54,7 @@ namespace Pulumi.Pagerduty
     ///         Label = "Work",
     ///     });
     /// 
-    ///     var highUrgencyPhone = new Pagerduty.UserNotificationRule("highUrgencyPhone", new()
+    ///     var highUrgencyPhone = new Pagerduty.UserNotificationRule("high_urgency_phone", new()
     ///     {
     ///         UserId = example.Id,
     ///         StartDelayInMinutes = 1,
@@ -66,7 +66,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var lowUrgencyEmail = new Pagerduty.UserNotificationRule("lowUrgencyEmail", new()
+    ///     var lowUrgencyEmail = new Pagerduty.UserNotificationRule("low_urgency_email", new()
     ///     {
     ///         UserId = example.Id,
     ///         StartDelayInMinutes = 1,
@@ -78,7 +78,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var lowUrgencySms = new Pagerduty.UserNotificationRule("lowUrgencySms", new()
+    ///     var lowUrgencySms = new Pagerduty.UserNotificationRule("low_urgency_sms", new()
     ///     {
     ///         UserId = example.Id,
     ///         StartDelayInMinutes = 10,
@@ -92,7 +92,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

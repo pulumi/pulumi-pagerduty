@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,13 +28,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//			example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Name:  pulumi.String("Earline Greenholt"),
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			fooEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "fooEscalationPolicy", &pagerduty.EscalationPolicyArgs{
+//			foo, err := pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+//				Name:     pulumi.String("Engineering Escalation Policy"),
 //				NumLoops: pulumi.Int(2),
 //				Rules: pagerduty.EscalationPolicyRuleArray{
 //					&pagerduty.EscalationPolicyRuleArgs{
@@ -43,7 +44,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user_reference"),
-//								Id:   exampleUser.ID(),
+//								Id:   example.ID(),
 //							},
 //						},
 //					},
@@ -52,10 +53,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+//			exampleService, err := pagerduty.NewService(ctx, "example", &pagerduty.ServiceArgs{
+//				Name:                   pulumi.String("My Web App"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       fooEscalationPolicy.ID(),
+//				EscalationPolicy:       foo.ID(),
 //				AlertCreation:          pulumi.String("create_alerts_and_incidents"),
 //				AutoPauseNotificationsParameters: &pagerduty.ServiceAutoPauseNotificationsParametersArgs{
 //					Enabled: pulumi.Bool(true),
@@ -65,7 +67,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			paActionExample, err := pagerduty.NewAutomationActionsAction(ctx, "paActionExample", &pagerduty.AutomationActionsActionArgs{
+//			paActionExample, err := pagerduty.NewAutomationActionsAction(ctx, "pa_action_example", &pagerduty.AutomationActionsActionArgs{
+//				Name:        pulumi.String("PA Action created via TF"),
 //				Description: pulumi.String("Description of the PA Action created via TF"),
 //				ActionType:  pulumi.String("process_automation"),
 //				ActionDataReference: &pagerduty.AutomationActionsActionActionDataReferenceArgs{
@@ -75,7 +78,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewAutomationActionsActionServiceAssociation(ctx, "fooAutomationActionsActionServiceAssociation", &pagerduty.AutomationActionsActionServiceAssociationArgs{
+//			_, err = pagerduty.NewAutomationActionsActionServiceAssociation(ctx, "foo", &pagerduty.AutomationActionsActionServiceAssociationArgs{
 //				ActionId:  paActionExample.ID(),
 //				ServiceId: exampleService.ID(),
 //			})
@@ -87,7 +90,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

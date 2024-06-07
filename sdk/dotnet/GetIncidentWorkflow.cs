@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,7 @@ namespace Pulumi.Pagerduty
         ///         Name = "My First Service",
         ///     });
         /// 
-        ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automaticTrigger", new()
+        ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automatic_trigger", new()
         ///     {
         ///         Type = "conditional",
         ///         Workflow = myWorkflow.Apply(getIncidentWorkflowResult =&gt; getIncidentWorkflowResult.Id),
@@ -48,7 +47,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetIncidentWorkflowResult> InvokeAsync(GetIncidentWorkflowArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIncidentWorkflowResult>("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", args ?? new GetIncidentWorkflowArgs(), options.WithDefaults());
@@ -58,7 +56,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -77,7 +74,7 @@ namespace Pulumi.Pagerduty
         ///         Name = "My First Service",
         ///     });
         /// 
-        ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automaticTrigger", new()
+        ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automatic_trigger", new()
         ///     {
         ///         Type = "conditional",
         ///         Workflow = myWorkflow.Apply(getIncidentWorkflowResult =&gt; getIncidentWorkflowResult.Id),
@@ -90,7 +87,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetIncidentWorkflowResult> Invoke(GetIncidentWorkflowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentWorkflowResult>("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", args ?? new GetIncidentWorkflowInvokeArgs(), options.WithDefaults());

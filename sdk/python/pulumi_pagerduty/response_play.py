@@ -429,36 +429,37 @@ class ResponsePlay(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example_user = pagerduty.User("exampleUser",
+        example = pagerduty.User("example",
+            name="Earline Greenholt",
             email="125.greenholt.earline@graham.name",
-            teams=[pagerduty_team["example"]["id"]])
-        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+            teams=[example_pagerduty_team["id"]])
+        example_escalation_policy = pagerduty.EscalationPolicy("example",
+            name="Engineering Escalation Policy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                     type="user",
-                    id=example_user.id,
+                    id=example.id,
                 )],
             )])
-        example_response_play = pagerduty.ResponsePlay("exampleResponsePlay",
-            from_=example_user.email,
+        example_response_play = pagerduty.ResponsePlay("example",
+            name="My Response Play",
+            from_=example.email,
             responders=[pagerduty.ResponsePlayResponderArgs(
                 type="escalation_policy_reference",
                 id=example_escalation_policy.id,
             )],
             subscribers=[pagerduty.ResponsePlaySubscriberArgs(
                 type="user_reference",
-                id=example_user.id,
+                id=example.id,
             )],
             runnability="services")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -491,36 +492,37 @@ class ResponsePlay(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example_user = pagerduty.User("exampleUser",
+        example = pagerduty.User("example",
+            name="Earline Greenholt",
             email="125.greenholt.earline@graham.name",
-            teams=[pagerduty_team["example"]["id"]])
-        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+            teams=[example_pagerduty_team["id"]])
+        example_escalation_policy = pagerduty.EscalationPolicy("example",
+            name="Engineering Escalation Policy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                     type="user",
-                    id=example_user.id,
+                    id=example.id,
                 )],
             )])
-        example_response_play = pagerduty.ResponsePlay("exampleResponsePlay",
-            from_=example_user.email,
+        example_response_play = pagerduty.ResponsePlay("example",
+            name="My Response Play",
+            from_=example.email,
             responders=[pagerduty.ResponsePlayResponderArgs(
                 type="escalation_policy_reference",
                 id=example_escalation_policy.id,
             )],
             subscribers=[pagerduty.ResponsePlaySubscriberArgs(
                 type="user_reference",
-                id=example_user.id,
+                id=example.id,
             )],
             runnability="services")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

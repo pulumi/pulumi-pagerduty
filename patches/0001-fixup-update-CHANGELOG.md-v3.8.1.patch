@@ -1,11 +1,11 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: Ian Wahbe <ian@wahbe.com>
-Date: Wed, 21 Feb 2024 20:32:54 +0100
-Subject: [PATCH 1/2] fixup! update CHANGELOG.md v3.8.1
+From: Venelin <venelin@pulumi.com>
+Date: Fri, 10 May 2024 18:03:03 +0100
+Subject: [PATCH] fixup! update CHANGELOG.md v3.8.1
 
 
 diff --git a/go.mod b/go.mod
-index 967b43a7..5e116702 100644
+index f30298c2..7d3d0c2e 100644
 --- a/go.mod
 +++ b/go.mod
 @@ -1,4 +1,4 @@
@@ -45,7 +45,7 @@ index 4b0dcc1e..923000cd 100644
  
  func timeToUTC(v string) (time.Time, error) {
 diff --git a/pagerdutyplugin/config.go b/pagerdutyplugin/config.go
-index 5b9fee0e..d4963b1f 100644
+index 48b05a47..7cb7f247 100644
 --- a/pagerdutyplugin/config.go
 +++ b/pagerdutyplugin/config.go
 @@ -11,9 +11,10 @@ import (
@@ -61,14 +61,21 @@ index 5b9fee0e..d4963b1f 100644
  
  // Config defines the configuration options for the PagerDuty client
 diff --git a/pagerdutyplugin/provider_test.go b/pagerdutyplugin/provider_test.go
-index 66e63338..23c6b8ff 100644
+index ea839e2b..7c589313 100644
 --- a/pagerdutyplugin/provider_test.go
 +++ b/pagerdutyplugin/provider_test.go
-@@ -11,7 +11,7 @@ import (
- 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
- 	"github.com/hashicorp/terraform-plugin-testing/terraform"
+@@ -6,13 +6,14 @@ import (
+ 	"testing"
+ 	"time"
  
 -	pd "github.com/PagerDuty/terraform-provider-pagerduty/pagerduty"
+ 	"github.com/PagerDuty/terraform-provider-pagerduty/util"
+ 	"github.com/hashicorp/terraform-plugin-framework/providerserver"
+ 	"github.com/hashicorp/terraform-plugin-go/tfprotov5"
+ 	"github.com/hashicorp/terraform-plugin-mux/tf5muxserver"
+ 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
+ 	"github.com/hashicorp/terraform-plugin-testing/terraform"
++
 +	pd "github.com/PagerDuty/terraform-provider-pagerduty/v3/pagerduty"
  )
  

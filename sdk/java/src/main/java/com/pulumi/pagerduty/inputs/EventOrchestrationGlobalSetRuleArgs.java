@@ -66,14 +66,14 @@ public final class EventOrchestrationGlobalSetRuleArgs extends com.pulumi.resour
     }
 
     /**
-     * The custom field id
+     * The ID of the rule within the set.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The custom field id
+     * @return The ID of the rule within the set.
      * 
      */
     public Optional<Output<String>> id() {
@@ -197,7 +197,7 @@ public final class EventOrchestrationGlobalSetRuleArgs extends com.pulumi.resour
         }
 
         /**
-         * @param id The custom field id
+         * @param id The ID of the rule within the set.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class EventOrchestrationGlobalSetRuleArgs extends com.pulumi.resour
         }
 
         /**
-         * @param id The custom field id
+         * @param id The ID of the rule within the set.
          * 
          * @return builder
          * 

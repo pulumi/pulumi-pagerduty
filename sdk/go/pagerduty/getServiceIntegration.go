@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pagerduty.LookupServiceIntegration(ctx, &pagerduty.LookupServiceIntegrationArgs{
-//				IntegrationSummary: "Datadog",
 //				ServiceName:        "My Service",
+//				IntegrationSummary: "Datadog",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupServiceIntegration(ctx *pulumi.Context, args *LookupServiceIntegrationArgs, opts ...pulumi.InvokeOption) (*LookupServiceIntegrationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceIntegrationResult

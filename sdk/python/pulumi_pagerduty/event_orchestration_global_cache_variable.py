@@ -205,15 +205,17 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
 
         This example shows creating a global `Event Orchestration` and a `Cache Variable`. All events that have the `event.source` field will have its `source` value stored in this Cache Variable, and appended as a note for the subsequent incident created by this Event Orchestration.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        database_team = pagerduty.Team("databaseTeam")
-        event_orchestration = pagerduty.EventOrchestration("eventOrchestration", team=database_team.id)
-        cache_var = pagerduty.EventOrchestrationGlobalCacheVariable("cacheVar",
+        database_team = pagerduty.Team("database_team", name="Database Team")
+        event_orchestration = pagerduty.EventOrchestration("event_orchestration",
+            name="Example Orchestration",
+            team=database_team.id)
+        cache_var = pagerduty.EventOrchestrationGlobalCacheVariable("cache_var",
             event_orchestration=event_orchestration.id,
+            name="recent_host",
             conditions=[pagerduty.EventOrchestrationGlobalCacheVariableConditionArgs(
                 expression="event.source exists",
             )],
@@ -237,7 +239,6 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
                 actions=pagerduty.EventOrchestrationGlobalCatchAllActionsArgs(),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -268,15 +269,17 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
 
         This example shows creating a global `Event Orchestration` and a `Cache Variable`. All events that have the `event.source` field will have its `source` value stored in this Cache Variable, and appended as a note for the subsequent incident created by this Event Orchestration.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        database_team = pagerduty.Team("databaseTeam")
-        event_orchestration = pagerduty.EventOrchestration("eventOrchestration", team=database_team.id)
-        cache_var = pagerduty.EventOrchestrationGlobalCacheVariable("cacheVar",
+        database_team = pagerduty.Team("database_team", name="Database Team")
+        event_orchestration = pagerduty.EventOrchestration("event_orchestration",
+            name="Example Orchestration",
+            team=database_team.id)
+        cache_var = pagerduty.EventOrchestrationGlobalCacheVariable("cache_var",
             event_orchestration=event_orchestration.id,
+            name="recent_host",
             conditions=[pagerduty.EventOrchestrationGlobalCacheVariableConditionArgs(
                 expression="event.source exists",
             )],
@@ -300,7 +303,6 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
                 actions=pagerduty.EventOrchestrationGlobalCatchAllActionsArgs(),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

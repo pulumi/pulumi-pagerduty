@@ -268,15 +268,14 @@ class SlackConnection(pulumi.CustomResource):
         * This resource is for configuring Slack V2 Next Generation connections. If you configured your Slack integration (V1 or V2) prior to August 10, 2021, you may migrate to the Slack V2 Next Generation update using this [migration instructions](https://support.pagerduty.com/docs/slack-integration-guide#migrate-to-slack-v2-next-generation), but if you configured your Slack integration after that date, you will have access to the update out of the box.
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        foo_team = pagerduty.Team("fooTeam")
+        foo = pagerduty.Team("foo", name="Team Foo")
         p1 = pagerduty.get_priority(name="P1")
-        foo_slack_connection = pagerduty.SlackConnection("fooSlackConnection",
-            source_id=foo_team.id,
+        foo_slack_connection = pagerduty.SlackConnection("foo",
+            source_id=foo.id,
             source_type="team_reference",
             workspace_id="T02A123LV1A",
             channel_id="C02CABCDAC9",
@@ -300,7 +299,6 @@ class SlackConnection(pulumi.CustomResource):
                 priorities=[p1.id],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -334,15 +332,14 @@ class SlackConnection(pulumi.CustomResource):
         * This resource is for configuring Slack V2 Next Generation connections. If you configured your Slack integration (V1 or V2) prior to August 10, 2021, you may migrate to the Slack V2 Next Generation update using this [migration instructions](https://support.pagerduty.com/docs/slack-integration-guide#migrate-to-slack-v2-next-generation), but if you configured your Slack integration after that date, you will have access to the update out of the box.
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        foo_team = pagerduty.Team("fooTeam")
+        foo = pagerduty.Team("foo", name="Team Foo")
         p1 = pagerduty.get_priority(name="P1")
-        foo_slack_connection = pagerduty.SlackConnection("fooSlackConnection",
-            source_id=foo_team.id,
+        foo_slack_connection = pagerduty.SlackConnection("foo",
+            source_id=foo.id,
             source_type="team_reference",
             workspace_id="T02A123LV1A",
             channel_id="C02CABCDAC9",
@@ -366,7 +363,6 @@ class SlackConnection(pulumi.CustomResource):
                 priorities=[p1.id],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

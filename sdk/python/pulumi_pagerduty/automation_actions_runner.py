@@ -269,20 +269,19 @@ class AutomationActionsRunner(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         config = pulumi.Config()
-        r_unbookapikey = config.require("rUNBOOKAPIKEY")
+        runboo_k__ap_i__key = config.require("RUNBOOK_API_KEY")
         example = pagerduty.AutomationActionsRunner("example",
+            name="Runner created via TF",
             description="Description of the Runner created via TF",
             runner_type="runbook",
             runbook_base_uri="rdcat.stg",
-            runbook_api_key=r_unbookapikey)
+            runbook_api_key=runboo_k__ap_i__key)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -328,20 +327,19 @@ class AutomationActionsRunner(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         config = pulumi.Config()
-        r_unbookapikey = config.require("rUNBOOKAPIKEY")
+        runboo_k__ap_i__key = config.require("RUNBOOK_API_KEY")
         example = pagerduty.AutomationActionsRunner("example",
+            name="Runner created via TF",
             description="Description of the Runner created via TF",
             runner_type="runbook",
             runbook_base_uri="rdcat.stg",
-            runbook_api_key=r_unbookapikey)
+            runbook_api_key=runboo_k__ap_i__key)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

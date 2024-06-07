@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,12 +30,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			parent, err := pagerduty.NewTeam(ctx, "parent", &pagerduty.TeamArgs{
+//				Name:        pulumi.String("Product Development"),
 //				Description: pulumi.String("Product and Engineering"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = pagerduty.NewTeam(ctx, "example", &pagerduty.TeamArgs{
+//				Name:        pulumi.String("Engineering"),
 //				Description: pulumi.String("All engineering"),
 //				Parent:      parent.ID(),
 //			})
@@ -48,7 +49,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

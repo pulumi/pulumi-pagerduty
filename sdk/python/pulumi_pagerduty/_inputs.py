@@ -79,6 +79,7 @@ __all__ = [
     'IncidentWorkflowStepInlineStepsInputStepArgs',
     'IncidentWorkflowStepInlineStepsInputStepInputArgs',
     'IncidentWorkflowStepInputArgs',
+    'IncidentWorkflowTriggerPermissionsArgs',
     'ProviderUseAppOauthScopedTokenArgs',
     'ResponsePlayResponderArgs',
     'ResponsePlayResponderEscalationRuleArgs',
@@ -247,7 +248,7 @@ class EscalationPolicyRuleArgs:
         """
         :param pulumi.Input[int] escalation_delay_in_minutes: The number of minutes before an unacknowledged incident escalates away from this rule.
         :param pulumi.Input['EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs'] escalation_rule_assignment_strategy: The strategy used to assign the escalation rule to an incident. Documented below.
-        :param pulumi.Input[str] id: A target ID
+        :param pulumi.Input[str] id: The ID of the escalation policy.
         """
         pulumi.set(__self__, "escalation_delay_in_minutes", escalation_delay_in_minutes)
         pulumi.set(__self__, "targets", targets)
@@ -293,7 +294,7 @@ class EscalationPolicyRuleArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        A target ID
+        The ID of the escalation policy.
         """
         return pulumi.get(self, "id")
 
@@ -685,7 +686,7 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionArgs:
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs']]]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs']]]] = None):
         """
-        :param pulumi.Input[str] name: The name of the variable
+        :param pulumi.Input[str] name: Name of this Webhook.
         :param pulumi.Input[str] url: The API endpoint where PagerDuty's servers will send the webhook request.
         :param pulumi.Input[bool] auto_send: When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs']]] headers: Specify custom key/value pairs that'll be sent with the webhook request as request headers.
@@ -704,7 +705,7 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the variable
+        Name of this Webhook.
         """
         return pulumi.get(self, "name")
 
@@ -767,8 +768,8 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: Name to identify the parameter
-        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        :param pulumi.Input[str] key: Name to identify the header
+        :param pulumi.Input[str] value: Value of this header
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -777,7 +778,7 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        Name to identify the parameter
+        Name to identify the header
         """
         return pulumi.get(self, "key")
 
@@ -789,7 +790,7 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        Value of this header
         """
         return pulumi.get(self, "value")
 
@@ -805,7 +806,7 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] key: Name to identify the parameter
-        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        :param pulumi.Input[str] value: Value of this parameter
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -826,7 +827,7 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        Value of this parameter
         """
         return pulumi.get(self, "value")
 
@@ -916,7 +917,7 @@ class EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] id: The custom field id
-        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        :param pulumi.Input[str] value: The value to assign to this custom field
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "value", value)
@@ -937,7 +938,7 @@ class EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        The value to assign to this custom field
         """
         return pulumi.get(self, "value")
 
@@ -1059,7 +1060,7 @@ class EventOrchestrationGlobalSetRuleArgs:
         :param pulumi.Input['EventOrchestrationGlobalSetRuleActionsArgs'] actions: Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleConditionArgs']]] conditions: Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
-        :param pulumi.Input[str] id: The custom field id
+        :param pulumi.Input[str] id: The ID of the rule within the set.
         :param pulumi.Input[str] label: A description of this rule's purpose.
         """
         pulumi.set(__self__, "actions", actions)
@@ -1112,7 +1113,7 @@ class EventOrchestrationGlobalSetRuleArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        The custom field id
+        The ID of the rule within the set.
         """
         return pulumi.get(self, "id")
 
@@ -1341,7 +1342,7 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionArgs:
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs']]]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs']]]] = None):
         """
-        :param pulumi.Input[str] name: The name of the variable
+        :param pulumi.Input[str] name: Name of this Webhook.
         :param pulumi.Input[str] url: The API endpoint where PagerDuty's servers will send the webhook request.
         :param pulumi.Input[bool] auto_send: When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs']]] headers: Specify custom key/value pairs that'll be sent with the webhook request as request headers.
@@ -1360,7 +1361,7 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the variable
+        Name of this Webhook.
         """
         return pulumi.get(self, "name")
 
@@ -1423,8 +1424,8 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: Name to identify the parameter
-        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        :param pulumi.Input[str] key: Name to identify the header
+        :param pulumi.Input[str] value: Value of this header
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1433,7 +1434,7 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        Name to identify the parameter
+        Name to identify the header
         """
         return pulumi.get(self, "key")
 
@@ -1445,7 +1446,7 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        Value of this header
         """
         return pulumi.get(self, "value")
 
@@ -1461,7 +1462,7 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] key: Name to identify the parameter
-        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        :param pulumi.Input[str] value: Value of this parameter
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1482,7 +1483,7 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        Value of this parameter
         """
         return pulumi.get(self, "value")
 
@@ -1572,7 +1573,7 @@ class EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] id: The custom field id
-        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        :param pulumi.Input[str] value: The value to assign to this custom field
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "value", value)
@@ -1593,7 +1594,7 @@ class EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        The value to assign to this custom field
         """
         return pulumi.get(self, "value")
 
@@ -1804,7 +1805,7 @@ class EventOrchestrationRouterCatchAllActionsArgs:
     def __init__(__self__, *,
                  route_to: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] route_to: The ID of the target Service for the resulting alert.
+        :param pulumi.Input[str] route_to: Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service _or_ the string `"unrouted"` to send events to the Unrouted Orchestration.
         """
         pulumi.set(__self__, "route_to", route_to)
 
@@ -1812,7 +1813,7 @@ class EventOrchestrationRouterCatchAllActionsArgs:
     @pulumi.getter(name="routeTo")
     def route_to(self) -> pulumi.Input[str]:
         """
-        The ID of the target Service for the resulting alert.
+        Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service _or_ the string `"unrouted"` to send events to the Unrouted Orchestration.
         """
         return pulumi.get(self, "route_to")
 
@@ -1867,7 +1868,7 @@ class EventOrchestrationRouterSetRuleArgs:
         :param pulumi.Input['EventOrchestrationRouterSetRuleActionsArgs'] actions: Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleConditionArgs']]] conditions: Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
-        :param pulumi.Input[str] id: ID of the `start` set. Router supports only one set and it's id has to be `start`
+        :param pulumi.Input[str] id: The ID of the rule within the `start` set.
         :param pulumi.Input[str] label: A description of this rule's purpose.
         """
         pulumi.set(__self__, "actions", actions)
@@ -1920,7 +1921,7 @@ class EventOrchestrationRouterSetRuleArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the `start` set. Router supports only one set and it's id has to be `start`
+        The ID of the rule within the `start` set.
         """
         return pulumi.get(self, "id")
 
@@ -2307,7 +2308,7 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionArgs:
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs']]]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs']]]] = None):
         """
-        :param pulumi.Input[str] name: The name of the variable
+        :param pulumi.Input[str] name: Name of this Webhook.
         :param pulumi.Input[str] url: The API endpoint where PagerDuty's servers will send the webhook request.
         :param pulumi.Input[bool] auto_send: When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs']]] headers: Specify custom key/value pairs that'll be sent with the webhook request as request headers.
@@ -2326,7 +2327,7 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the variable
+        Name of this Webhook.
         """
         return pulumi.get(self, "name")
 
@@ -2389,8 +2390,8 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: Name to identify the parameter
-        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        :param pulumi.Input[str] key: Name to identify the header
+        :param pulumi.Input[str] value: Value of this header
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -2399,7 +2400,7 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        Name to identify the parameter
+        Name to identify the header
         """
         return pulumi.get(self, "key")
 
@@ -2411,7 +2412,7 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        Value of this header
         """
         return pulumi.get(self, "value")
 
@@ -2427,7 +2428,7 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] key: Name to identify the parameter
-        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        :param pulumi.Input[str] value: Value of this parameter
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -2448,7 +2449,7 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        Value of this parameter
         """
         return pulumi.get(self, "value")
 
@@ -2538,7 +2539,7 @@ class EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] id: The custom field id
-        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        :param pulumi.Input[str] value: The value to assign to this custom field
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "value", value)
@@ -2559,7 +2560,7 @@ class EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        The value to assign to this custom field
         """
         return pulumi.get(self, "value")
 
@@ -2703,7 +2704,7 @@ class EventOrchestrationServiceSetRuleArgs:
         :param pulumi.Input['EventOrchestrationServiceSetRuleActionsArgs'] actions: Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleConditionArgs']]] conditions: Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
-        :param pulumi.Input[str] id: The custom field id
+        :param pulumi.Input[str] id: The ID of the rule within the set.
         :param pulumi.Input[str] label: A description of this rule's purpose.
         """
         pulumi.set(__self__, "actions", actions)
@@ -2756,7 +2757,7 @@ class EventOrchestrationServiceSetRuleArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        The custom field id
+        The ID of the rule within the set.
         """
         return pulumi.get(self, "id")
 
@@ -2985,7 +2986,7 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionArgs:
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs']]]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs']]]] = None):
         """
-        :param pulumi.Input[str] name: The name of the variable
+        :param pulumi.Input[str] name: Name of this Webhook.
         :param pulumi.Input[str] url: The API endpoint where PagerDuty's servers will send the webhook request.
         :param pulumi.Input[bool] auto_send: When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs']]] headers: Specify custom key/value pairs that'll be sent with the webhook request as request headers.
@@ -3004,7 +3005,7 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the variable
+        Name of this Webhook.
         """
         return pulumi.get(self, "name")
 
@@ -3067,8 +3068,8 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: Name to identify the parameter
-        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        :param pulumi.Input[str] key: Name to identify the header
+        :param pulumi.Input[str] value: Value of this header
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -3077,7 +3078,7 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        Name to identify the parameter
+        Name to identify the header
         """
         return pulumi.get(self, "key")
 
@@ -3089,7 +3090,7 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        Value of this header
         """
         return pulumi.get(self, "value")
 
@@ -3105,7 +3106,7 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] key: Name to identify the parameter
-        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        :param pulumi.Input[str] value: Value of this parameter
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -3126,7 +3127,7 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        Value of this parameter
         """
         return pulumi.get(self, "value")
 
@@ -3216,7 +3217,7 @@ class EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] id: The custom field id
-        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        :param pulumi.Input[str] value: The value to assign to this custom field
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "value", value)
@@ -3237,7 +3238,7 @@ class EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        The value to assign to this custom field
         """
         return pulumi.get(self, "value")
 
@@ -3649,7 +3650,7 @@ class EventOrchestrationUnroutedSetRuleArgs:
         :param pulumi.Input['EventOrchestrationUnroutedSetRuleActionsArgs'] actions: Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleConditionArgs']]] conditions: Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
-        :param pulumi.Input[str] id: The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        :param pulumi.Input[str] id: The ID of the rule within the set.
         :param pulumi.Input[str] label: A description of this rule's purpose.
         """
         pulumi.set(__self__, "actions", actions)
@@ -3702,7 +3703,7 @@ class EventOrchestrationUnroutedSetRuleArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        The ID of the rule within the set.
         """
         return pulumi.get(self, "id")
 
@@ -4248,6 +4249,45 @@ class IncidentWorkflowStepInputArgs:
 
 
 @pulumi.input_type
+class IncidentWorkflowTriggerPermissionsArgs:
+    def __init__(__self__, *,
+                 restricted: Optional[pulumi.Input[bool]] = None,
+                 team_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] restricted: If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+        :param pulumi.Input[str] team_id: The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+        """
+        if restricted is not None:
+            pulumi.set(__self__, "restricted", restricted)
+        if team_id is not None:
+            pulumi.set(__self__, "team_id", team_id)
+
+    @property
+    @pulumi.getter
+    def restricted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+        """
+        return pulumi.get(self, "restricted")
+
+    @restricted.setter
+    def restricted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "restricted", value)
+
+    @property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+        """
+        return pulumi.get(self, "team_id")
+
+    @team_id.setter
+    def team_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "team_id", value)
+
+
+@pulumi.input_type
 class ProviderUseAppOauthScopedTokenArgs:
     def __init__(__self__, *,
                  pd_client_id: Optional[pulumi.Input[str]] = None,
@@ -4309,7 +4349,7 @@ class ResponsePlayResponderArgs:
         :param pulumi.Input[str] on_call_handoff_notifications: Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "if_has_services". Could be "if_has_services", "always
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderServiceArgs']]] services: There can be multiple services associated with a policy.
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderTeamArgs']]] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
-        :param pulumi.Input[str] type: Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+        :param pulumi.Input[str] type: Should be set as `escalation_policy` for escalation policy responders.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -4430,7 +4470,7 @@ class ResponsePlayResponderArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+        Should be set as `escalation_policy` for escalation policy responders.
         """
         return pulumi.get(self, "type")
 
@@ -4448,7 +4488,7 @@ class ResponsePlayResponderEscalationRuleArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderEscalationRuleTargetArgs']]] targets: The targets an incident should be assigned to upon reaching this rule.
         :param pulumi.Input[int] escalation_delay_in_minutes: The number of minutes before an unacknowledged incident escalates away from this rule.
-        :param pulumi.Input[str] id: ID of the user defined as the responder
+        :param pulumi.Input[str] id: The ID of the response play.
         """
         pulumi.set(__self__, "targets", targets)
         if escalation_delay_in_minutes is not None:
@@ -4484,7 +4524,7 @@ class ResponsePlayResponderEscalationRuleArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the user defined as the responder
+        The ID of the response play.
         """
         return pulumi.get(self, "id")
 
@@ -4499,8 +4539,8 @@ class ResponsePlayResponderEscalationRuleTargetArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] id: ID of the user defined as the responder
-        :param pulumi.Input[str] type: A string that determines the schema of the object. If not set, the default value is "response_play".
+        :param pulumi.Input[str] id: The ID of the response play.
+        :param pulumi.Input[str] type: Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -4511,7 +4551,7 @@ class ResponsePlayResponderEscalationRuleTargetArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the user defined as the responder
+        The ID of the response play.
         """
         return pulumi.get(self, "id")
 
@@ -4523,7 +4563,7 @@ class ResponsePlayResponderEscalationRuleTargetArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        A string that determines the schema of the object. If not set, the default value is "response_play".
+        Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
         """
         return pulumi.get(self, "type")
 
@@ -4538,7 +4578,7 @@ class ResponsePlayResponderServiceArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] id: ID of the user defined as the responder
+        :param pulumi.Input[str] id: The ID of the response play.
         :param pulumi.Input[str] type: A string that determines the schema of the object. If not set, the default value is "response_play".
         """
         if id is not None:
@@ -4550,7 +4590,7 @@ class ResponsePlayResponderServiceArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the user defined as the responder
+        The ID of the response play.
         """
         return pulumi.get(self, "id")
 
@@ -4578,7 +4618,7 @@ class ResponsePlayResponderTeamArgs:
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: A string that determines the schema of the object. If not set, the default value is "response_play".
-        :param pulumi.Input[str] id: ID of the user defined as the responder
+        :param pulumi.Input[str] id: The ID of the response play.
         """
         pulumi.set(__self__, "type", type)
         if id is not None:
@@ -4600,7 +4640,7 @@ class ResponsePlayResponderTeamArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the user defined as the responder
+        The ID of the response play.
         """
         return pulumi.get(self, "id")
 
@@ -4615,7 +4655,7 @@ class ResponsePlaySubscriberArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] id: ID of the user defined as the responder
+        :param pulumi.Input[str] id: The ID of the response play.
         :param pulumi.Input[str] type: A string that determines the schema of the object. If not set, the default value is "response_play".
         """
         if id is not None:
@@ -4627,7 +4667,7 @@ class ResponsePlaySubscriberArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the user defined as the responder
+        The ID of the response play.
         """
         return pulumi.get(self, "id")
 
@@ -4787,18 +4827,12 @@ class RulesetRuleActionsArgs:
 class RulesetRuleActionsAnnotateArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -4810,18 +4844,12 @@ class RulesetRuleActionsAnnotateArgs:
 class RulesetRuleActionsEventActionArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -4912,18 +4940,12 @@ class RulesetRuleActionsExtractionArgs:
 class RulesetRuleActionsPriorityArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -4935,18 +4957,12 @@ class RulesetRuleActionsPriorityArgs:
 class RulesetRuleActionsRouteArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -4958,18 +4974,12 @@ class RulesetRuleActionsRouteArgs:
 class RulesetRuleActionsSeverityArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -5052,18 +5062,12 @@ class RulesetRuleActionsSuppressArgs:
 class RulesetRuleActionsSuspendArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[int]]:
-        """
-        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -5154,9 +5158,6 @@ class RulesetRuleConditionsSubconditionParameterArgs:
     def __init__(__self__, *,
                  path: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         if path is not None:
             pulumi.set(__self__, "path", path)
         if value is not None:
@@ -5174,9 +5175,6 @@ class RulesetRuleConditionsSubconditionParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -5228,9 +5226,6 @@ class RulesetRuleTimeFrameActiveBetweenArgs:
     def __init__(__self__, *,
                  end_time: Optional[pulumi.Input[int]] = None,
                  start_time: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] start_time: A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York).
-        """
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
         if start_time is not None:
@@ -5248,9 +5243,6 @@ class RulesetRuleTimeFrameActiveBetweenArgs:
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[int]]:
-        """
-        A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York).
-        """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
@@ -5267,7 +5259,7 @@ class RulesetRuleTimeFrameScheduledWeeklyArgs:
                  weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[int] duration: Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `start_time`.
-        :param pulumi.Input[int] start_time: A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York).
+        :param pulumi.Input[int] start_time: A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
         :param pulumi.Input[str] timezone: [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
         :param pulumi.Input[Sequence[pulumi.Input[int]]] weekdays: An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
         """
@@ -5296,7 +5288,7 @@ class RulesetRuleTimeFrameScheduledWeeklyArgs:
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[int]]:
         """
-        A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York).
+        A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
         """
         return pulumi.get(self, "start_time")
 
@@ -5375,9 +5367,6 @@ class RulesetRuleVariableParameterArgs:
     def __init__(__self__, *,
                  path: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         if path is not None:
             pulumi.set(__self__, "path", path)
         if value is not None:
@@ -5395,9 +5384,6 @@ class RulesetRuleVariableParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -5791,11 +5777,6 @@ class ServiceAutoPauseNotificationsParametersArgs:
         """
         :param pulumi.Input[bool] enabled: Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
         :param pulumi.Input[int] timeout: Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
-               
-               
-               You may specify one optional `incident_urgency_rule` block configuring what urgencies to use.
-               Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-               The block contains the following arguments:
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -5819,11 +5800,6 @@ class ServiceAutoPauseNotificationsParametersArgs:
     def timeout(self) -> Optional[pulumi.Input[int]]:
         """
         Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
-
-
-        You may specify one optional `incident_urgency_rule` block configuring what urgencies to use.
-        Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-        The block contains the following arguments:
         """
         return pulumi.get(self, "timeout")
 
@@ -6082,18 +6058,12 @@ class ServiceEventRuleActionsArgs:
 class ServiceEventRuleActionsAnnotateArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6105,18 +6075,12 @@ class ServiceEventRuleActionsAnnotateArgs:
 class ServiceEventRuleActionsEventActionArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6207,18 +6171,12 @@ class ServiceEventRuleActionsExtractionArgs:
 class ServiceEventRuleActionsPriorityArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6230,18 +6188,12 @@ class ServiceEventRuleActionsPriorityArgs:
 class ServiceEventRuleActionsSeverityArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6324,18 +6276,12 @@ class ServiceEventRuleActionsSuppressArgs:
 class ServiceEventRuleActionsSuspendArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[int]]:
-        """
-        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6426,10 +6372,6 @@ class ServiceEventRuleConditionsSubconditionParameterArgs:
     def __init__(__self__, *,
                  path: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] path: Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
-        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         if path is not None:
             pulumi.set(__self__, "path", path)
         if value is not None:
@@ -6438,9 +6380,6 @@ class ServiceEventRuleConditionsSubconditionParameterArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -6450,9 +6389,6 @@ class ServiceEventRuleConditionsSubconditionParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6547,7 +6483,7 @@ class ServiceEventRuleTimeFrameScheduledWeeklyArgs:
                  weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[int] duration: Length of time the schedule will be active.  Unix timestamp in milliseconds.
-        :param pulumi.Input[int] start_time: Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+        :param pulumi.Input[int] start_time: Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
         :param pulumi.Input[str] timezone: Timezone for the given schedule.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] weekdays: An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
         """
@@ -6576,7 +6512,7 @@ class ServiceEventRuleTimeFrameScheduledWeeklyArgs:
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[int]]:
         """
-        Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+        Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
         """
         return pulumi.get(self, "start_time")
 
@@ -6615,11 +6551,6 @@ class ServiceEventRuleVariableArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableParameterArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: The name of the variable.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableParameterArgs']]] parameters: The parameters for performing the operation to populate the variable.
-        :param pulumi.Input[str] type: Type of operation to populate the variable. Usually `regex`.
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
@@ -6630,9 +6561,6 @@ class ServiceEventRuleVariableArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the variable.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -6642,9 +6570,6 @@ class ServiceEventRuleVariableArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableParameterArgs']]]]:
-        """
-        The parameters for performing the operation to populate the variable.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -6654,9 +6579,6 @@ class ServiceEventRuleVariableArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of operation to populate the variable. Usually `regex`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -6669,10 +6591,6 @@ class ServiceEventRuleVariableParameterArgs:
     def __init__(__self__, *,
                  path: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] path: Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
-        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         if path is not None:
             pulumi.set(__self__, "path", path)
         if value is not None:
@@ -6681,9 +6599,6 @@ class ServiceEventRuleVariableParameterArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -6693,9 +6608,6 @@ class ServiceEventRuleVariableParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6711,13 +6623,9 @@ class ServiceIncidentUrgencyRuleArgs:
                  outside_support_hours: Optional[pulumi.Input['ServiceIncidentUrgencyRuleOutsideSupportHoursArgs']] = None,
                  urgency: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        :param pulumi.Input[str] type: The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
         :param pulumi.Input['ServiceIncidentUrgencyRuleDuringSupportHoursArgs'] during_support_hours: Incidents' urgency during support hours.
         :param pulumi.Input['ServiceIncidentUrgencyRuleOutsideSupportHoursArgs'] outside_support_hours: Incidents' urgency outside support hours.
-               
-               When using `type = "use_support_hours"` in `incident_urgency_rule` you must specify exactly one (otherwise optional) `support_hours` block.
-               Your PagerDuty account must have the `service_support_hours` ability to assign support hours.
-               The block contains the following arguments:
         :param pulumi.Input[str] urgency: The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
         """
         pulumi.set(__self__, "type", type)
@@ -6732,7 +6640,7 @@ class ServiceIncidentUrgencyRuleArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
         """
         return pulumi.get(self, "type")
 
@@ -6757,10 +6665,6 @@ class ServiceIncidentUrgencyRuleArgs:
     def outside_support_hours(self) -> Optional[pulumi.Input['ServiceIncidentUrgencyRuleOutsideSupportHoursArgs']]:
         """
         Incidents' urgency outside support hours.
-
-        When using `type = "use_support_hours"` in `incident_urgency_rule` you must specify exactly one (otherwise optional) `support_hours` block.
-        Your PagerDuty account must have the `service_support_hours` ability to assign support hours.
-        The block contains the following arguments:
         """
         return pulumi.get(self, "outside_support_hours")
 
@@ -6787,8 +6691,7 @@ class ServiceIncidentUrgencyRuleDuringSupportHoursArgs:
                  type: Optional[pulumi.Input[str]] = None,
                  urgency: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
-        :param pulumi.Input[str] urgency: The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+        :param pulumi.Input[str] type: The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -6799,7 +6702,7 @@ class ServiceIncidentUrgencyRuleDuringSupportHoursArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         """
         return pulumi.get(self, "type")
 
@@ -6810,9 +6713,6 @@ class ServiceIncidentUrgencyRuleDuringSupportHoursArgs:
     @property
     @pulumi.getter
     def urgency(self) -> Optional[pulumi.Input[str]]:
-        """
-        The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
-        """
         return pulumi.get(self, "urgency")
 
     @urgency.setter
@@ -6826,8 +6726,7 @@ class ServiceIncidentUrgencyRuleOutsideSupportHoursArgs:
                  type: Optional[pulumi.Input[str]] = None,
                  urgency: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
-        :param pulumi.Input[str] urgency: The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+        :param pulumi.Input[str] type: The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -6838,7 +6737,7 @@ class ServiceIncidentUrgencyRuleOutsideSupportHoursArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         """
         return pulumi.get(self, "type")
 
@@ -6849,9 +6748,6 @@ class ServiceIncidentUrgencyRuleOutsideSupportHoursArgs:
     @property
     @pulumi.getter
     def urgency(self) -> Optional[pulumi.Input[str]]:
-        """
-        The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
-        """
         return pulumi.get(self, "urgency")
 
     @urgency.setter
@@ -7296,7 +7192,7 @@ class ServiceScheduledActionArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionAtArgs']]] ats: A block representing when the scheduled action will occur.
         :param pulumi.Input[str] to_urgency: The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
-        :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        :param pulumi.Input[str] type: The type of scheduled action. Currently, this must be set to `urgency_change`.
         """
         if ats is not None:
             pulumi.set(__self__, "ats", ats)
@@ -7333,7 +7229,7 @@ class ServiceScheduledActionArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        The type of scheduled action. Currently, this must be set to `urgency_change`.
         """
         return pulumi.get(self, "type")
 
@@ -7354,16 +7250,16 @@ class ServiceScheduledActionAtArgs:
                
                Below is an example for a `Service` resource with `incident_urgency_rules` with `type = "use_support_hours"`, `support_hours` and a default `scheduled_action` as well.
                
-               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_pagerduty as pagerduty
                
                foo = pagerduty.Service("foo",
+                   name="bar",
                    description="bar bar bar",
                    auto_resolve_timeout="3600",
                    acknowledgement_timeout="3600",
-                   escalation_policy=pagerduty_escalation_policy["foo"]["id"],
+                   escalation_policy=foo_pagerduty_escalation_policy["id"],
                    incident_urgency_rule=pagerduty.ServiceIncidentUrgencyRuleArgs(
                        type="use_support_hours",
                        during_support_hours=pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs(
@@ -7397,7 +7293,6 @@ class ServiceScheduledActionAtArgs:
                        )],
                    )])
                ```
-               <!--End PulumiCodeChooser -->
         :param pulumi.Input[str] type: The type of time specification. Currently, this must be set to `named_time`.
         """
         if name is not None:
@@ -7415,16 +7310,16 @@ class ServiceScheduledActionAtArgs:
 
         Below is an example for a `Service` resource with `incident_urgency_rules` with `type = "use_support_hours"`, `support_hours` and a default `scheduled_action` as well.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         foo = pagerduty.Service("foo",
+            name="bar",
             description="bar bar bar",
             auto_resolve_timeout="3600",
             acknowledgement_timeout="3600",
-            escalation_policy=pagerduty_escalation_policy["foo"]["id"],
+            escalation_policy=foo_pagerduty_escalation_policy["id"],
             incident_urgency_rule=pagerduty.ServiceIncidentUrgencyRuleArgs(
                 type="use_support_hours",
                 during_support_hours=pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs(
@@ -7458,7 +7353,6 @@ class ServiceScheduledActionAtArgs:
                 )],
             )])
         ```
-        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "name")
 
@@ -7491,13 +7385,9 @@ class ServiceSupportHoursArgs:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] days_of_weeks: Array of days of week as integers. `1` to `7`, `1` being
                Monday and `7` being Sunday.
         :param pulumi.Input[str] end_time: The support hours' ending time of day.
-               
-               A `scheduled_actions` block is required when using `type = "use_support_hours"` in `incident_urgency_rule`.
-               
-               The block contains the following arguments:
         :param pulumi.Input[str] start_time: The support hours' starting time of day.
         :param pulumi.Input[str] time_zone: The time zone for the support hours.
-        :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        :param pulumi.Input[str] type: The type of support hours. Can be `fixed_time_per_day`.
         """
         if days_of_weeks is not None:
             pulumi.set(__self__, "days_of_weeks", days_of_weeks)
@@ -7528,10 +7418,6 @@ class ServiceSupportHoursArgs:
     def end_time(self) -> Optional[pulumi.Input[str]]:
         """
         The support hours' ending time of day.
-
-        A `scheduled_actions` block is required when using `type = "use_support_hours"` in `incident_urgency_rule`.
-
-        The block contains the following arguments:
         """
         return pulumi.get(self, "end_time")
 
@@ -7567,7 +7453,7 @@ class ServiceSupportHoursArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        The type of support hours. Can be `fixed_time_per_day`.
         """
         return pulumi.get(self, "type")
 

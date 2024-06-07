@@ -26,7 +26,6 @@ import (
 //
 // The `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catchAll` doesn't have any `actions` so it'll leave events as-is.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,25 +38,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			engineering, err := pagerduty.NewTeam(ctx, "engineering", nil)
+//			engineering, err := pagerduty.NewTeam(ctx, "engineering", &pagerduty.TeamArgs{
+//				Name: pulumi.String("Engineering"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//			example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Name:  pulumi.String("Earline Greenholt"),
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = pagerduty.NewTeamMembership(ctx, "foo", &pagerduty.TeamMembershipArgs{
-//				UserId: exampleUser.ID(),
+//				UserId: example.ID(),
 //				TeamId: engineering.ID(),
 //				Role:   pulumi.String("manager"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
+//			exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "example", &pagerduty.EscalationPolicyArgs{
+//				Name:     pulumi.String("Engineering Escalation Policy"),
 //				NumLoops: pulumi.Int(2),
 //				Rules: pagerduty.EscalationPolicyRuleArray{
 //					&pagerduty.EscalationPolicyRuleArgs{
@@ -65,7 +68,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user_reference"),
-//								Id:   exampleUser.ID(),
+//								Id:   example.ID(),
 //							},
 //						},
 //					},
@@ -74,7 +77,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+//			exampleService, err := pagerduty.NewService(ctx, "example", &pagerduty.ServiceArgs{
+//				Name:                   pulumi.String("My Web App"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
 //				EscalationPolicy:       exampleEscalationPolicy.ID(),
@@ -83,7 +87,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			csImpact, err := pagerduty.NewIncidentCustomField(ctx, "csImpact", &pagerduty.IncidentCustomFieldArgs{
+//			csImpact, err := pagerduty.NewIncidentCustomField(ctx, "cs_impact", &pagerduty.IncidentCustomFieldArgs{
+//				Name:      pulumi.String("impact"),
 //				DataType:  pulumi.String("string"),
 //				FieldType: pulumi.String("single_value"),
 //			})
@@ -208,7 +213,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

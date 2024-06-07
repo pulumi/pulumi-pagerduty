@@ -20,10 +20,6 @@ namespace Pulumi.Pagerduty.Outputs
         public readonly ImmutableArray<int> DaysOfWeeks;
         /// <summary>
         /// The support hours' ending time of day.
-        /// 
-        /// A `scheduled_actions` block is required when using `type = "use_support_hours"` in `incident_urgency_rule`.
-        /// 
-        /// The block contains the following arguments:
         /// </summary>
         public readonly string? EndTime;
         /// <summary>
@@ -35,7 +31,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string? TimeZone;
         /// <summary>
-        /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        /// The type of support hours. Can be `fixed_time_per_day`.
         /// </summary>
         public readonly string? Type;
 

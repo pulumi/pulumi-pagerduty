@@ -10,11 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
-    /// A [service integration](&lt;https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%!B(MISSING)id%!D(MISSING)~1integrations/post&gt;) is an integration that belongs to a service.
+    /// A [service integration](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%7Bid%7D~1integrations/post) is an integration that belongs to a service.
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,17 +22,19 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+    ///     var example = new Pagerduty.User("example", new()
     ///     {
+    ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///         Teams = new[]
     ///         {
-    ///             pagerduty_team.Example.Id,
+    ///             examplePagerdutyTeam.Id,
     ///         },
     ///     });
     /// 
     ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
     ///     {
+    ///         Name = "Engineering Escalation Policy",
     ///         NumLoops = 2,
     ///         Rules = new[]
     ///         {
@@ -45,70 +46,77 @@ namespace Pulumi.Pagerduty
     ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
     ///                     {
     ///                         Type = "user",
-    ///                         Id = exampleUser.Id,
+    ///                         Id = example.Id,
     ///                     },
     ///                 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleService = new Pagerduty.Service("exampleService", new()
+    ///     var exampleService = new Pagerduty.Service("example", new()
     ///     {
+    ///         Name = "My Web App",
     ///         AutoResolveTimeout = "14400",
     ///         AcknowledgementTimeout = "600",
-    ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+    ///         EscalationPolicy = examplePagerdutyEscalationPolicy.Id,
     ///     });
     /// 
-    ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new()
+    ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("example", new()
     ///     {
+    ///         Name = "Generic API Service Integration",
     ///         Type = "generic_events_api_inbound_integration",
     ///         Service = exampleService.Id,
     ///     });
     /// 
     ///     var apiv2 = new Pagerduty.ServiceIntegration("apiv2", new()
     ///     {
+    ///         Name = "API V2",
     ///         Type = "events_api_v2_inbound_integration",
     ///         Service = exampleService.Id,
     ///     });
     /// 
-    ///     var emailX = new Pagerduty.ServiceIntegration("emailX", new()
+    ///     var emailX = new Pagerduty.ServiceIntegration("email_x", new()
     ///     {
+    ///         Name = "Email X",
     ///         Type = "generic_email_inbound_integration",
     ///         IntegrationEmail = "ecommerce@subdomain.pagerduty.com",
     ///         Service = exampleService.Id,
     ///     });
     /// 
-    ///     var datadogVendor = Pagerduty.GetVendor.Invoke(new()
+    ///     var datadog = Pagerduty.GetVendor.Invoke(new()
     ///     {
     ///         Name = "Datadog",
     ///     });
     /// 
-    ///     var datadogServiceIntegration = new Pagerduty.ServiceIntegration("datadogServiceIntegration", new()
+    ///     var datadogServiceIntegration = new Pagerduty.ServiceIntegration("datadog", new()
     ///     {
+    ///         Name = datadog.Apply(getVendorResult =&gt; getVendorResult.Name),
     ///         Service = exampleService.Id,
-    ///         Vendor = datadogVendor.Apply(getVendorResult =&gt; getVendorResult.Id),
+    ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),
     ///     });
     /// 
-    ///     var cloudwatchVendor = Pagerduty.GetVendor.Invoke(new()
+    ///     var cloudwatch = Pagerduty.GetVendor.Invoke(new()
     ///     {
     ///         Name = "Cloudwatch",
     ///     });
     /// 
-    ///     var cloudwatchServiceIntegration = new Pagerduty.ServiceIntegration("cloudwatchServiceIntegration", new()
+    ///     var cloudwatchServiceIntegration = new Pagerduty.ServiceIntegration("cloudwatch", new()
     ///     {
+    ///         Name = cloudwatch.Apply(getVendorResult =&gt; getVendorResult.Name),
     ///         Service = exampleService.Id,
-    ///         Vendor = cloudwatchVendor.Apply(getVendorResult =&gt; getVendorResult.Id),
+    ///         Vendor = cloudwatch.Apply(getVendorResult =&gt; getVendorResult.Id),
     ///     });
     /// 
-    ///     var emailVendor = Pagerduty.GetVendor.Invoke(new()
+    ///     var email = Pagerduty.GetVendor.Invoke(new()
     ///     {
     ///         Name = "Email",
     ///     });
     /// 
-    ///     var emailServiceIntegration = new Pagerduty.ServiceIntegration("emailServiceIntegration", new()
+    ///     var emailServiceIntegration = new Pagerduty.ServiceIntegration("email", new()
     ///     {
+    ///         Name = email.Apply(getVendorResult =&gt; getVendorResult.Name),
     ///         Service = exampleService.Id,
-    ///         Vendor = emailVendor.Apply(getVendorResult =&gt; getVendorResult.Id),
+    ///         Vendor = email.Apply(getVendorResult =&gt; getVendorResult.Id),
     ///         IntegrationEmail = "s1@your_account.pagerduty.com",
     ///         EmailIncidentCreation = "use_rules",
     ///         EmailFilterMode = "and-rules-email",
@@ -189,7 +197,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -450,6 +450,9 @@
                 "current": "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger",
                 "majorVersion": 4,
                 "fields": {
+                    "permissions": {
+                        "maxItemsOne": true
+                    },
                     "services": {
                         "maxItemsOne": false
                     }
@@ -1159,8 +1162,8 @@
             "pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable": 0,
             "pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted": 0,
             "pagerduty:index/eventRule:EventRule": 0,
-            "pagerduty:index/extension:Extension": 0,
-            "pagerduty:index/extensionServiceNow:ExtensionServiceNow": 0,
+            "pagerduty:index/extension:Extension": 1,
+            "pagerduty:index/extensionServiceNow:ExtensionServiceNow": 1,
             "pagerduty:index/incidentCustomField:IncidentCustomField": 0,
             "pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption": 0,
             "pagerduty:index/incidentWorkflow:IncidentWorkflow": 0,
@@ -1175,8 +1178,8 @@
             "pagerduty:index/serviceEventRule:ServiceEventRule": 0,
             "pagerduty:index/serviceIntegration:ServiceIntegration": 0,
             "pagerduty:index/slackConnection:SlackConnection": 0,
-            "pagerduty:index/tag:Tag": 0,
-            "pagerduty:index/tagAssignment:TagAssignment": 0,
+            "pagerduty:index/tag:Tag": 1,
+            "pagerduty:index/tagAssignment:TagAssignment": 1,
             "pagerduty:index/team:Team": 0,
             "pagerduty:index/teamMembership:TeamMembership": 0,
             "pagerduty:index/user:User": 0,
@@ -1194,7 +1197,7 @@
             "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration": 0,
             "pagerduty:index/getEventOrchestrationServiceCacheVariable:getEventOrchestrationServiceCacheVariable": 0,
             "pagerduty:index/getEventOrchestrations:getEventOrchestrations": 0,
-            "pagerduty:index/getExtensionSchema:getExtensionSchema": 0,
+            "pagerduty:index/getExtensionSchema:getExtensionSchema": 1,
             "pagerduty:index/getIncidentCustomField:getIncidentCustomField": 0,
             "pagerduty:index/getIncidentWorkflow:getIncidentWorkflow": 0,
             "pagerduty:index/getLicense:getLicense": 0,
@@ -1207,7 +1210,7 @@
             "pagerduty:index/getStandards:getStandards": 1,
             "pagerduty:index/getStandardsResourceScores:getStandardsResourceScores": 1,
             "pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores": 1,
-            "pagerduty:index/getTag:getTag": 0,
+            "pagerduty:index/getTag:getTag": 1,
             "pagerduty:index/getTeam:getTeam": 0,
             "pagerduty:index/getTeamMembers:getTeamMembers": 0,
             "pagerduty:index/getUser:getUser": 0,

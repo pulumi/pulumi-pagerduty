@@ -277,14 +277,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     public Optional<Output<String>> type() {
@@ -684,7 +684,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+         * @param type The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
          * 
          * @return builder
          * 
@@ -695,7 +695,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+         * @param type The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
          * 
          * @return builder
          * 

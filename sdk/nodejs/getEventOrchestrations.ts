@@ -11,18 +11,16 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const tfOrchA = new pagerduty.EventOrchestration("tfOrchA", {});
- * const tfOrchB = new pagerduty.EventOrchestration("tfOrchB", {});
+ * const tfOrchA = new pagerduty.EventOrchestration("tf_orch_a", {name: "Test Event A Orchestration"});
+ * const tfOrchB = new pagerduty.EventOrchestration("tf_orch_b", {name: "Test Event B Orchestration"});
  * const tfMyMonitor = pagerduty.getEventOrchestrations({
  *     nameFilter: ".*Orchestration$",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEventOrchestrations(args: GetEventOrchestrationsArgs, opts?: pulumi.InvokeOptions): Promise<GetEventOrchestrationsResult> {
 
@@ -61,18 +59,16 @@ export interface GetEventOrchestrationsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const tfOrchA = new pagerduty.EventOrchestration("tfOrchA", {});
- * const tfOrchB = new pagerduty.EventOrchestration("tfOrchB", {});
+ * const tfOrchA = new pagerduty.EventOrchestration("tf_orch_a", {name: "Test Event A Orchestration"});
+ * const tfOrchB = new pagerduty.EventOrchestration("tf_orch_b", {name: "Test Event B Orchestration"});
  * const tfMyMonitor = pagerduty.getEventOrchestrations({
  *     nameFilter: ".*Orchestration$",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEventOrchestrationsOutput(args: GetEventOrchestrationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventOrchestrationsResult> {
     return pulumi.output(args).apply((a: any) => getEventOrchestrations(a, opts))

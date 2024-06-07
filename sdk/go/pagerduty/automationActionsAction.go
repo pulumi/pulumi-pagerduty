@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,23 +28,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pagerduty.NewAutomationActionsAction(ctx, "paActionExample", &pagerduty.AutomationActionsActionArgs{
+//			_, err := pagerduty.NewAutomationActionsAction(ctx, "pa_action_example", &pagerduty.AutomationActionsActionArgs{
+//				Name:        pulumi.String("PA Action created via TF"),
+//				Description: pulumi.String("Description of the PA Action created via TF"),
+//				ActionType:  pulumi.String("process_automation"),
 //				ActionDataReference: &pagerduty.AutomationActionsActionActionDataReferenceArgs{
 //					ProcessAutomationJobId: pulumi.String("P123456"),
 //				},
-//				ActionType:  pulumi.String("process_automation"),
-//				Description: pulumi.String("Description of the PA Action created via TF"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewAutomationActionsAction(ctx, "scriptActionExample", &pagerduty.AutomationActionsActionArgs{
-//				ActionDataReference: &pagerduty.AutomationActionsActionActionDataReferenceArgs{
-//					InvocationCommand: pulumi.String("/usr/local/bin/python3"),
-//					Script:            pulumi.String("print(\"Hello from a Python script!\")"),
-//				},
-//				ActionType:  pulumi.String("script"),
+//			_, err = pagerduty.NewAutomationActionsAction(ctx, "script_action_example", &pagerduty.AutomationActionsActionArgs{
+//				Name:        pulumi.String("Script Action created via TF"),
 //				Description: pulumi.String("Description of the Script Action created via TF"),
+//				ActionType:  pulumi.String("script"),
+//				ActionDataReference: &pagerduty.AutomationActionsActionActionDataReferenceArgs{
+//					Script:            pulumi.String("print(\"Hello from a Python script!\")"),
+//					InvocationCommand: pulumi.String("/usr/local/bin/python3"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -55,7 +56,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

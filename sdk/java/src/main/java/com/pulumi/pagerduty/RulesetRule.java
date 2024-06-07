@@ -25,13 +25,15 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.TeamArgs;
  * import com.pulumi.pagerduty.Ruleset;
  * import com.pulumi.pagerduty.RulesetArgs;
  * import com.pulumi.pagerduty.inputs.RulesetTeamArgs;
@@ -56,93 +58,96 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooTeam = new Team(&#34;fooTeam&#34;);
+ *         var foo = new Team("foo", TeamArgs.builder()
+ *             .name("Engineering (Seattle)")
+ *             .build());
  * 
- *         var fooRuleset = new Ruleset(&#34;fooRuleset&#34;, RulesetArgs.builder()        
+ *         var fooRuleset = new Ruleset("fooRuleset", RulesetArgs.builder()
+ *             .name("Primary Ruleset")
  *             .team(RulesetTeamArgs.builder()
- *                 .id(fooTeam.id())
+ *                 .id(foo.id())
  *                 .build())
  *             .build());
  * 
  *         // The pagerduty_ruleset_rule.foo rule defined below
  *         // repeats daily from 9:30am - 11:30am using the America/New_York timezone.
  *         // Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
- *         // April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&amp;p1=179
- *         var easternTimeAt0930 = new Static(&#34;easternTimeAt0930&#34;, StaticArgs.builder()        
- *             .rfc3339(&#34;2019-04-11T09:30:00-04:00&#34;)
+ *         // April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&p1=179
+ *         var easternTimeAt0930 = new Static("easternTimeAt0930", StaticArgs.builder()
+ *             .rfc3339("2019-04-11T09:30:00-04:00")
  *             .build());
  * 
- *         var fooRulesetRule = new RulesetRule(&#34;fooRulesetRule&#34;, RulesetRuleArgs.builder()        
+ *         var fooRulesetRule = new RulesetRule("fooRulesetRule", RulesetRuleArgs.builder()
  *             .ruleset(fooRuleset.id())
  *             .position(0)
- *             .disabled(&#34;false&#34;)
+ *             .disabled("false")
  *             .timeFrame(RulesetRuleTimeFrameArgs.builder()
  *                 .scheduledWeeklies(RulesetRuleTimeFrameScheduledWeeklyArgs.builder()
  *                     .weekdays(                    
  *                         2,
  *                         4,
  *                         6)
- *                     .startTime(easternTimeAt0930.unix().applyValue(unix -&gt; unix * 1000))
+ *                     .startTime(easternTimeAt0930.unix().applyValue(unix -> unix * 1000))
  *                     .duration(2 * 60 * 60 * 1000)
- *                     .timezone(&#34;America/New_York&#34;)
+ *                     .timezone("America/New_York")
  *                     .build())
  *                 .build())
  *             .conditions(RulesetRuleConditionsArgs.builder()
- *                 .operator(&#34;and&#34;)
+ *                 .operator("and")
  *                 .subconditions(                
  *                     RulesetRuleConditionsSubconditionArgs.builder()
- *                         .operator(&#34;contains&#34;)
+ *                         .operator("contains")
  *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
- *                             .value(&#34;disk space&#34;)
- *                             .path(&#34;payload.summary&#34;)
+ *                             .value("disk space")
+ *                             .path("payload.summary")
  *                             .build())
  *                         .build(),
  *                     RulesetRuleConditionsSubconditionArgs.builder()
- *                         .operator(&#34;contains&#34;)
+ *                         .operator("contains")
  *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
- *                             .value(&#34;db&#34;)
- *                             .path(&#34;payload.source&#34;)
+ *                             .value("db")
+ *                             .path("payload.source")
  *                             .build())
  *                         .build())
  *                 .build())
  *             .variables(RulesetRuleVariableArgs.builder()
- *                 .type(&#34;regex&#34;)
- *                 .name(&#34;Src&#34;)
+ *                 .type("regex")
+ *                 .name("Src")
  *                 .parameters(RulesetRuleVariableParameterArgs.builder()
- *                     .value(&#34;(.*)&#34;)
- *                     .path(&#34;payload.source&#34;)
+ *                     .value("(.*)")
+ *                     .path("payload.source")
  *                     .build())
  *                 .build())
  *             .actions(RulesetRuleActionsArgs.builder()
  *                 .routes(RulesetRuleActionsRouteArgs.builder()
- *                     .value(pagerduty_service.foo().id())
+ *                     .value(fooPagerdutyService.id())
  *                     .build())
  *                 .severities(RulesetRuleActionsSeverityArgs.builder()
- *                     .value(&#34;warning&#34;)
+ *                     .value("warning")
  *                     .build())
  *                 .annotates(RulesetRuleActionsAnnotateArgs.builder()
- *                     .value(&#34;From Terraform&#34;)
+ *                     .value("From Terraform")
  *                     .build())
  *                 .extractions(                
  *                     RulesetRuleActionsExtractionArgs.builder()
- *                         .target(&#34;dedup_key&#34;)
- *                         .source(&#34;details.host&#34;)
- *                         .regex(&#34;(.*)&#34;)
+ *                         .target("dedup_key")
+ *                         .source("details.host")
+ *                         .regex("(.*)")
  *                         .build(),
  *                     RulesetRuleActionsExtractionArgs.builder()
- *                         .target(&#34;summary&#34;)
- *                         .template(&#34;Warning: Disk Space Low on {{Src}}&#34;)
+ *                         .target("summary")
+ *                         .template("Warning: Disk Space Low on {{Src}}")
  *                         .build())
  *                 .build())
  *             .build());
  * 
- *         var catchAll = new RulesetRule(&#34;catchAll&#34;, RulesetRuleArgs.builder()        
+ *         var catchAll = new RulesetRule("catchAll", RulesetRuleArgs.builder()
  *             .ruleset(fooRuleset.id())
  *             .position(1)
  *             .catchAll(true)
  *             .actions(RulesetRuleActionsArgs.builder()
  *                 .annotates(RulesetRuleActionsAnnotateArgs.builder()
- *                     .value(&#34;From Terraform&#34;)
+ *                     .value("From Terraform")
  *                     .build())
  *                 .suppresses(RulesetRuleActionsSuppressArgs.builder()
  *                     .value(true)
@@ -152,7 +157,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

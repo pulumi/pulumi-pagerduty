@@ -37,7 +37,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<bool>? Disabled { get; set; }
 
         /// <summary>
-        /// ID of the `start` set. Router supports only one set and it's id has to be `start`
+        /// The ID of the rule within the `start` set.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

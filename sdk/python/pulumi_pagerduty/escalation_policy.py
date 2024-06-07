@@ -198,6 +198,38 @@ class EscalationPolicy(pulumi.CustomResource):
         """
         An [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNQ-create-an-escalation-policy) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.Team("example",
+            name="Engineering",
+            description="All engineering")
+        example_user = pagerduty.User("example",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name",
+            teams=[example.id])
+        example_escalation_policy = pagerduty.EscalationPolicy("example",
+            name="Engineering Escalation Policy",
+            num_loops=2,
+            teams=example.id,
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[
+                    pagerduty.EscalationPolicyRuleTargetArgs(
+                        type="user_reference",
+                        id=example_user.id,
+                    ),
+                    pagerduty.EscalationPolicyRuleTargetArgs(
+                        type="user_reference",
+                        id=example2["id"],
+                    ),
+                ],
+            )])
+        ```
+
         ## Import
 
         Escalation policies can be imported using the `id`, e.g.
@@ -221,6 +253,38 @@ class EscalationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNQ-create-an-escalation-policy) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.Team("example",
+            name="Engineering",
+            description="All engineering")
+        example_user = pagerduty.User("example",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name",
+            teams=[example.id])
+        example_escalation_policy = pagerduty.EscalationPolicy("example",
+            name="Engineering Escalation Policy",
+            num_loops=2,
+            teams=example.id,
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[
+                    pagerduty.EscalationPolicyRuleTargetArgs(
+                        type="user_reference",
+                        id=example_user.id,
+                    ),
+                    pagerduty.EscalationPolicyRuleTargetArgs(
+                        type="user_reference",
+                        id=example2["id"],
+                    ),
+                ],
+            )])
+        ```
 
         ## Import
 

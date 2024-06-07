@@ -9,21 +9,20 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const testEscalationPolicy = pagerduty.getEscalationPolicy({
+ * const test = pagerduty.getEscalationPolicy({
  *     name: "Engineering Escalation Policy",
  * });
- * const testService = new pagerduty.Service("testService", {
+ * const testService = new pagerduty.Service("test", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
- *     escalationPolicy: testEscalationPolicy.then(testEscalationPolicy => testEscalationPolicy.id),
+ *     escalationPolicy: test.then(test => test.id),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEscalationPolicy(args: GetEscalationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetEscalationPolicyResult> {
 
@@ -61,21 +60,20 @@ export interface GetEscalationPolicyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const testEscalationPolicy = pagerduty.getEscalationPolicy({
+ * const test = pagerduty.getEscalationPolicy({
  *     name: "Engineering Escalation Policy",
  * });
- * const testService = new pagerduty.Service("testService", {
+ * const testService = new pagerduty.Service("test", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
- *     escalationPolicy: testEscalationPolicy.then(testEscalationPolicy => testEscalationPolicy.id),
+ *     escalationPolicy: test.then(test => test.id),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEscalationPolicyOutput(args: GetEscalationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEscalationPolicyResult> {
     return pulumi.output(args).apply((a: any) => getEscalationPolicy(a, opts))

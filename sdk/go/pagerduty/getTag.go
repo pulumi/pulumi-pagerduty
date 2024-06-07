@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,7 +52,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupTag(ctx *pulumi.Context, args *LookupTagArgs, opts ...pulumi.InvokeOption) (*LookupTagResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTagResult
@@ -72,7 +70,7 @@ type LookupTagArgs struct {
 
 // A collection of values returned by getTag.
 type LookupTagResult struct {
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of the found team.
 	Id    string `pulumi:"id"`
 	Label string `pulumi:"label"`
 }
@@ -115,7 +113,7 @@ func (o LookupTagResultOutput) ToLookupTagResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
+// The ID of the found team.
 func (o LookupTagResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTagResult) string { return v.Id }).(pulumi.StringOutput)
 }

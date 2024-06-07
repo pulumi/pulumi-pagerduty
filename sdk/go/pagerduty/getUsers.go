@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,14 +38,15 @@ import (
 // if err != nil {
 // return err
 // }
-// exampleWTeam, err := pagerduty.NewUser(ctx, "exampleWTeam", &pagerduty.UserArgs{
+// exampleWTeam, err := pagerduty.NewUser(ctx, "example_w_team", &pagerduty.UserArgs{
+// Name: pulumi.String("user-with-team"),
 // Email: pulumi.String("user-with-team@example.com"),
 // })
 // if err != nil {
 // return err
 // }
 // _, err = pagerduty.NewTeamMembership(ctx, "example", &pagerduty.TeamMembershipArgs{
-// TeamId: pulumi.Any(pagerduty_team.Devops.Id),
+// TeamId: pulumi.Any(devopsPagerdutyTeam.Id),
 // UserId: exampleWTeam.ID(),
 // })
 // if err != nil {
@@ -58,7 +58,7 @@ import (
 // }
 // _, err = pagerduty.GetUsers(ctx, &pagerduty.GetUsersArgs{
 // TeamIds: interface{}{
-// pagerduty_team.Devops.Id,
+// devopsPagerdutyTeam.Id,
 // },
 // }, nil);
 // if err != nil {
@@ -68,7 +68,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUsersResult

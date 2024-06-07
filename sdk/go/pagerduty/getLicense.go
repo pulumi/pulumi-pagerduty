@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Name:    pulumi.String("Earline Greenholt"),
 //				Email:   pulumi.String("125.greenholt.earline@graham.name"),
 //				License: pulumi.String(fullUser.Id),
 //				Role:    pulumi.String("user"),
@@ -53,7 +53,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetLicense(ctx *pulumi.Context, args *GetLicenseArgs, opts ...pulumi.InvokeOption) (*GetLicenseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLicenseResult

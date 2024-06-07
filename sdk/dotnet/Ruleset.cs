@@ -12,7 +12,6 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -21,19 +20,22 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooTeam = new Pagerduty.Team("fooTeam");
-    /// 
-    ///     var fooRuleset = new Pagerduty.Ruleset("fooRuleset", new()
+    ///     var foo = new Pagerduty.Team("foo", new()
     ///     {
+    ///         Name = "Engineering (Seattle)",
+    ///     });
+    /// 
+    ///     var fooRuleset = new Pagerduty.Ruleset("foo", new()
+    ///     {
+    ///         Name = "Primary Ruleset",
     ///         Team = new Pagerduty.Inputs.RulesetTeamArgs
     ///         {
-    ///             Id = fooTeam.Id,
+    ///             Id = foo.Id,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

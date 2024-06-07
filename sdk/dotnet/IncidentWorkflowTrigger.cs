@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,8 +22,9 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myFirstWorkflow = new Pagerduty.IncidentWorkflow("myFirstWorkflow", new()
+    ///     var myFirstWorkflow = new Pagerduty.IncidentWorkflow("my_first_workflow", new()
     ///     {
+    ///         Name = "Example Incident Workflow",
     ///         Description = "This Incident Workflow is an example",
     ///         Steps = new[]
     ///         {
@@ -49,13 +49,13 @@ namespace Pulumi.Pagerduty
     ///         Name = "My First Service",
     ///     });
     /// 
-    ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automaticTrigger", new()
+    ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automatic_trigger", new()
     ///     {
     ///         Type = "conditional",
     ///         Workflow = myFirstWorkflow.Id,
     ///         Services = new[]
     ///         {
-    ///             pagerduty_service.First_service.Id,
+    ///             firstServicePagerdutyService.Id,
     ///         },
     ///         Condition = "incident.priority matches 'P1'",
     ///         SubscribedToAllServices = false,
@@ -66,19 +66,18 @@ namespace Pulumi.Pagerduty
     ///         Name = "devops",
     ///     });
     /// 
-    ///     var manualTrigger = new Pagerduty.IncidentWorkflowTrigger("manualTrigger", new()
+    ///     var manualTrigger = new Pagerduty.IncidentWorkflowTrigger("manual_trigger", new()
     ///     {
     ///         Type = "manual",
     ///         Workflow = myFirstWorkflow.Id,
     ///         Services = new[]
     ///         {
-    ///             pagerduty_service.First_service.Id,
+    ///             firstServicePagerdutyService.Id,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -96,6 +95,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Output("condition")]
         public Output<string?> Condition { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+        /// </summary>
+        [Output("permissions")]
+        public Output<Outputs.IncidentWorkflowTriggerPermissions> Permissions { get; private set; } = null!;
 
         /// <summary>
         /// A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
@@ -173,6 +178,12 @@ namespace Pulumi.Pagerduty
         [Input("condition")]
         public Input<string>? Condition { get; set; }
 
+        /// <summary>
+        /// Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+        /// </summary>
+        [Input("permissions")]
+        public Input<Inputs.IncidentWorkflowTriggerPermissionsArgs>? Permissions { get; set; }
+
         [Input("services")]
         private InputList<string>? _services;
 
@@ -216,6 +227,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
+
+        /// <summary>
+        /// Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+        /// </summary>
+        [Input("permissions")]
+        public Input<Inputs.IncidentWorkflowTriggerPermissionsGetArgs>? Permissions { get; set; }
 
         [Input("services")]
         private InputList<string>? _services;

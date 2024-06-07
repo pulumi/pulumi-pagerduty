@@ -15,7 +15,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,28 +23,29 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sreEnvironment = new Pagerduty.IncidentCustomField("sreEnvironment", new()
+    ///     var sreEnvironment = new Pagerduty.IncidentCustomField("sre_environment", new()
     ///     {
+    ///         Name = "environment",
     ///         DisplayName = "Environment",
     ///         DataType = "string",
     ///         FieldType = "single_value_fixed",
     ///     });
     /// 
-    ///     var devEnvironment = new Pagerduty.IncidentCustomFieldOption("devEnvironment", new()
+    ///     var devEnvironment = new Pagerduty.IncidentCustomFieldOption("dev_environment", new()
     ///     {
     ///         Field = sreEnvironment.Id,
     ///         DataType = "string",
     ///         Value = "dev",
     ///     });
     /// 
-    ///     var stageEnvironment = new Pagerduty.IncidentCustomFieldOption("stageEnvironment", new()
+    ///     var stageEnvironment = new Pagerduty.IncidentCustomFieldOption("stage_environment", new()
     ///     {
     ///         Field = sreEnvironment.Id,
     ///         DataType = "string",
     ///         Value = "stage",
     ///     });
     /// 
-    ///     var prodEnvironment = new Pagerduty.IncidentCustomFieldOption("prodEnvironment", new()
+    ///     var prodEnvironment = new Pagerduty.IncidentCustomFieldOption("prod_environment", new()
     ///     {
     ///         Field = sreEnvironment.Id,
     ///         DataType = "string",
@@ -54,7 +54,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption")]
     public partial class IncidentCustomFieldOption : global::Pulumi.CustomResource

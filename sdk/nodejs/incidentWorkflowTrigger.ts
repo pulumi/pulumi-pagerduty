@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -9,12 +11,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const myFirstWorkflow = new pagerduty.IncidentWorkflow("myFirstWorkflow", {
+ * const myFirstWorkflow = new pagerduty.IncidentWorkflow("my_first_workflow", {
+ *     name: "Example Incident Workflow",
  *     description: "This Incident Workflow is an example",
  *     steps: [{
  *         name: "Send Status Update",
@@ -28,23 +30,22 @@ import * as utilities from "./utilities";
  * const firstService = pagerduty.getService({
  *     name: "My First Service",
  * });
- * const automaticTrigger = new pagerduty.IncidentWorkflowTrigger("automaticTrigger", {
+ * const automaticTrigger = new pagerduty.IncidentWorkflowTrigger("automatic_trigger", {
  *     type: "conditional",
  *     workflow: myFirstWorkflow.id,
- *     services: [pagerduty_service.first_service.id],
+ *     services: [firstServicePagerdutyService.id],
  *     condition: "incident.priority matches 'P1'",
  *     subscribedToAllServices: false,
  * });
  * const devops = pagerduty.getTeam({
  *     name: "devops",
  * });
- * const manualTrigger = new pagerduty.IncidentWorkflowTrigger("manualTrigger", {
+ * const manualTrigger = new pagerduty.IncidentWorkflowTrigger("manual_trigger", {
  *     type: "manual",
  *     workflow: myFirstWorkflow.id,
- *     services: [pagerduty_service.first_service.id],
+ *     services: [firstServicePagerdutyService.id],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -87,6 +88,10 @@ export class IncidentWorkflowTrigger extends pulumi.CustomResource {
      */
     public readonly condition!: pulumi.Output<string | undefined>;
     /**
+     * Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+     */
+    public readonly permissions!: pulumi.Output<outputs.IncidentWorkflowTriggerPermissions>;
+    /**
      * A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
      */
     public readonly services!: pulumi.Output<string[] | undefined>;
@@ -117,6 +122,7 @@ export class IncidentWorkflowTrigger extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as IncidentWorkflowTriggerState | undefined;
             resourceInputs["condition"] = state ? state.condition : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
             resourceInputs["services"] = state ? state.services : undefined;
             resourceInputs["subscribedToAllServices"] = state ? state.subscribedToAllServices : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -133,6 +139,7 @@ export class IncidentWorkflowTrigger extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workflow'");
             }
             resourceInputs["condition"] = args ? args.condition : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["services"] = args ? args.services : undefined;
             resourceInputs["subscribedToAllServices"] = args ? args.subscribedToAllServices : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -151,6 +158,10 @@ export interface IncidentWorkflowTriggerState {
      * A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
      */
     condition?: pulumi.Input<string>;
+    /**
+     * Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+     */
+    permissions?: pulumi.Input<inputs.IncidentWorkflowTriggerPermissions>;
     /**
      * A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
      */
@@ -177,6 +188,10 @@ export interface IncidentWorkflowTriggerArgs {
      * A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
      */
     condition?: pulumi.Input<string>;
+    /**
+     * Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+     */
+    permissions?: pulumi.Input<inputs.IncidentWorkflowTriggerPermissions>;
     /**
      * A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
      */

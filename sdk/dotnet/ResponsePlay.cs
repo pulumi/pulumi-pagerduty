@@ -12,7 +12,6 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -21,17 +20,19 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+    ///     var example = new Pagerduty.User("example", new()
     ///     {
+    ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///         Teams = new[]
     ///         {
-    ///             pagerduty_team.Example.Id,
+    ///             examplePagerdutyTeam.Id,
     ///         },
     ///     });
     /// 
-    ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("exampleEscalationPolicy", new()
+    ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("example", new()
     ///     {
+    ///         Name = "Engineering Escalation Policy",
     ///         NumLoops = 2,
     ///         Rules = new[]
     ///         {
@@ -43,16 +44,17 @@ namespace Pulumi.Pagerduty
     ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
     ///                     {
     ///                         Type = "user",
-    ///                         Id = exampleUser.Id,
+    ///                         Id = example.Id,
     ///                     },
     ///                 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleResponsePlay = new Pagerduty.ResponsePlay("exampleResponsePlay", new()
+    ///     var exampleResponsePlay = new Pagerduty.ResponsePlay("example", new()
     ///     {
-    ///         From = exampleUser.Email,
+    ///         Name = "My Response Play",
+    ///         From = example.Email,
     ///         Responders = new[]
     ///         {
     ///             new Pagerduty.Inputs.ResponsePlayResponderArgs
@@ -66,7 +68,7 @@ namespace Pulumi.Pagerduty
     ///             new Pagerduty.Inputs.ResponsePlaySubscriberArgs
     ///             {
     ///                 Type = "user_reference",
-    ///                 Id = exampleUser.Id,
+    ///                 Id = example.Id,
     ///             },
     ///         },
     ///         Runnability = "services",
@@ -74,7 +76,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

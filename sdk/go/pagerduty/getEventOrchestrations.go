@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,11 +27,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pagerduty.NewEventOrchestration(ctx, "tfOrchA", nil)
+//			_, err := pagerduty.NewEventOrchestration(ctx, "tf_orch_a", &pagerduty.EventOrchestrationArgs{
+//				Name: pulumi.String("Test Event A Orchestration"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewEventOrchestration(ctx, "tfOrchB", nil)
+//			_, err = pagerduty.NewEventOrchestration(ctx, "tf_orch_b", &pagerduty.EventOrchestrationArgs{
+//				Name: pulumi.String("Test Event B Orchestration"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -47,7 +50,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetEventOrchestrations(ctx *pulumi.Context, args *GetEventOrchestrationsArgs, opts ...pulumi.InvokeOption) (*GetEventOrchestrationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEventOrchestrationsResult

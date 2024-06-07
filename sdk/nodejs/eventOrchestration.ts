@@ -11,18 +11,17 @@ import * as utilities from "./utilities";
  *
  * ## Example of configuring an Event Orchestration
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const engineering = new pagerduty.Team("engineering", {});
- * const myMonitor = new pagerduty.EventOrchestration("myMonitor", {
+ * const engineering = new pagerduty.Team("engineering", {name: "Engineering"});
+ * const myMonitor = new pagerduty.EventOrchestration("my_monitor", {
+ *     name: "My Monitoring Orchestration",
  *     description: "Send events to a pair of services",
  *     team: engineering.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

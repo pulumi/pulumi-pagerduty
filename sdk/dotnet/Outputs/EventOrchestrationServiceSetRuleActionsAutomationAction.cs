@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.EventOrchestrationServiceSetRuleActionsAutomationActionHeader> Headers;
         /// <summary>
-        /// The name of the variable
+        /// Name of this Webhook.
         /// </summary>
         public readonly string Name;
         /// <summary>

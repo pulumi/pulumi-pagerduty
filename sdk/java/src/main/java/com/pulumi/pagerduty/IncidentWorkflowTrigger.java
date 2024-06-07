@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.pagerduty.IncidentWorkflowTriggerArgs;
 import com.pulumi.pagerduty.Utilities;
 import com.pulumi.pagerduty.inputs.IncidentWorkflowTriggerState;
+import com.pulumi.pagerduty.outputs.IncidentWorkflowTriggerPermissions;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -22,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,43 +51,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myFirstWorkflow = new IncidentWorkflow(&#34;myFirstWorkflow&#34;, IncidentWorkflowArgs.builder()        
- *             .description(&#34;This Incident Workflow is an example&#34;)
+ *         var myFirstWorkflow = new IncidentWorkflow("myFirstWorkflow", IncidentWorkflowArgs.builder()
+ *             .name("Example Incident Workflow")
+ *             .description("This Incident Workflow is an example")
  *             .steps(IncidentWorkflowStepArgs.builder()
- *                 .name(&#34;Send Status Update&#34;)
- *                 .action(&#34;pagerduty.com:incident-workflows:send-status-update:1&#34;)
+ *                 .name("Send Status Update")
+ *                 .action("pagerduty.com:incident-workflows:send-status-update:1")
  *                 .inputs(IncidentWorkflowStepInputArgs.builder()
- *                     .name(&#34;Message&#34;)
- *                     .value(&#34;Example status message sent on {{current_date}}&#34;)
+ *                     .name("Message")
+ *                     .value("Example status message sent on {{current_date}}")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()
- *             .name(&#34;My First Service&#34;)
+ *             .name("My First Service")
  *             .build());
  * 
- *         var automaticTrigger = new IncidentWorkflowTrigger(&#34;automaticTrigger&#34;, IncidentWorkflowTriggerArgs.builder()        
- *             .type(&#34;conditional&#34;)
+ *         var automaticTrigger = new IncidentWorkflowTrigger("automaticTrigger", IncidentWorkflowTriggerArgs.builder()
+ *             .type("conditional")
  *             .workflow(myFirstWorkflow.id())
- *             .services(pagerduty_service.first_service().id())
- *             .condition(&#34;incident.priority matches &#39;P1&#39;&#34;)
+ *             .services(firstServicePagerdutyService.id())
+ *             .condition("incident.priority matches 'P1'")
  *             .subscribedToAllServices(false)
  *             .build());
  * 
  *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
- *             .name(&#34;devops&#34;)
+ *             .name("devops")
  *             .build());
  * 
- *         var manualTrigger = new IncidentWorkflowTrigger(&#34;manualTrigger&#34;, IncidentWorkflowTriggerArgs.builder()        
- *             .type(&#34;manual&#34;)
+ *         var manualTrigger = new IncidentWorkflowTrigger("manualTrigger", IncidentWorkflowTriggerArgs.builder()
+ *             .type("manual")
  *             .workflow(myFirstWorkflow.id())
- *             .services(pagerduty_service.first_service().id())
+ *             .services(firstServicePagerdutyService.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -112,6 +116,20 @@ public class IncidentWorkflowTrigger extends com.pulumi.resources.CustomResource
      */
     public Output<Optional<String>> condition() {
         return Codegen.optional(this.condition);
+    }
+    /**
+     * Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+     * 
+     */
+    @Export(name="permissions", refs={IncidentWorkflowTriggerPermissions.class}, tree="[0]")
+    private Output<IncidentWorkflowTriggerPermissions> permissions;
+
+    /**
+     * @return Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+     * 
+     */
+    public Output<IncidentWorkflowTriggerPermissions> permissions() {
+        return this.permissions;
     }
     /**
      * A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.

@@ -77,33 +77,35 @@ def get_vendor(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
 
     datadog = pagerduty.get_vendor(name="Datadog")
-    example_user = pagerduty.User("exampleUser",
+    example = pagerduty.User("example",
+        name="Earline Greenholt",
         email="125.greenholt.earline@graham.name",
-        teams=[pagerduty_team["example"]["id"]])
+        teams=[example_pagerduty_team["id"]])
     foo = pagerduty.EscalationPolicy("foo",
+        name="Engineering Escalation Policy",
         num_loops=2,
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,
             targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                 type="user",
-                id=example_user.id,
+                id=example.id,
             )],
         )])
-    example_service = pagerduty.Service("exampleService",
+    example_service = pagerduty.Service("example",
+        name="My Web App",
         auto_resolve_timeout="14400",
         acknowledgement_timeout="600",
-        escalation_policy=pagerduty_escalation_policy["example"]["id"])
-    example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
+        escalation_policy=example_pagerduty_escalation_policy["id"])
+    example_service_integration = pagerduty.ServiceIntegration("example",
+        name="Datadog Integration",
         vendor=datadog.id,
         service=example_service.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The vendor name to use to find a vendor in the PagerDuty API.
@@ -129,33 +131,35 @@ def get_vendor_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
 
     datadog = pagerduty.get_vendor(name="Datadog")
-    example_user = pagerduty.User("exampleUser",
+    example = pagerduty.User("example",
+        name="Earline Greenholt",
         email="125.greenholt.earline@graham.name",
-        teams=[pagerduty_team["example"]["id"]])
+        teams=[example_pagerduty_team["id"]])
     foo = pagerduty.EscalationPolicy("foo",
+        name="Engineering Escalation Policy",
         num_loops=2,
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,
             targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                 type="user",
-                id=example_user.id,
+                id=example.id,
             )],
         )])
-    example_service = pagerduty.Service("exampleService",
+    example_service = pagerduty.Service("example",
+        name="My Web App",
         auto_resolve_timeout="14400",
         acknowledgement_timeout="600",
-        escalation_policy=pagerduty_escalation_policy["example"]["id"])
-    example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
+        escalation_policy=example_pagerduty_escalation_policy["id"])
+    example_service_integration = pagerduty.ServiceIntegration("example",
+        name="Datadog Integration",
         vendor=datadog.id,
         service=example_service.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The vendor name to use to find a vendor in the PagerDuty API.

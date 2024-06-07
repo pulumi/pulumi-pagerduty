@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,7 +41,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewUserNotificationRule(ctx, "lowUrgencySms", &pagerduty.UserNotificationRuleArgs{
+//			_, err = pagerduty.NewUserNotificationRule(ctx, "low_urgency_sms", &pagerduty.UserNotificationRuleArgs{
 //				UserId:              pulumi.String(me.Id),
 //				StartDelayInMinutes: pulumi.Int(5),
 //				Urgency:             pulumi.String("high"),
@@ -59,7 +58,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupUserContactMethod(ctx *pulumi.Context, args *LookupUserContactMethodArgs, opts ...pulumi.InvokeOption) (*LookupUserContactMethodResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserContactMethodResult

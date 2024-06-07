@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example of configuring an Event Orchestration
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,17 +22,20 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var engineering = new Pagerduty.Team("engineering");
-    /// 
-    ///     var myMonitor = new Pagerduty.EventOrchestration("myMonitor", new()
+    ///     var engineering = new Pagerduty.Team("engineering", new()
     ///     {
+    ///         Name = "Engineering",
+    ///     });
+    /// 
+    ///     var myMonitor = new Pagerduty.EventOrchestration("my_monitor", new()
+    ///     {
+    ///         Name = "My Monitoring Orchestration",
     ///         Description = "Send events to a pair of services",
     ///         Team = engineering.Id,
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -17,39 +16,44 @@ import * as utilities from "./utilities";
  * const webhook = pagerduty.getExtensionSchema({
  *     name: "Generic V2 Webhook",
  * });
- * const exampleUser = new pagerduty.User("exampleUser", {email: "howard.james@example.domain"});
- * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("exampleEscalationPolicy", {
+ * const example = new pagerduty.User("example", {
+ *     name: "Howard James",
+ *     email: "howard.james@example.domain",
+ * });
+ * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("example", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
  *             type: "user",
- *             id: exampleUser.id,
+ *             id: example.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("exampleService", {
+ * const exampleService = new pagerduty.Service("example", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
  *     escalationPolicy: exampleEscalationPolicy.id,
  * });
  * const slack = new pagerduty.Extension("slack", {
+ *     name: "My Web App Extension",
  *     endpointUrl: "https://generic_webhook_url/XXXXXX/BBBBBB",
  *     extensionSchema: webhook.then(webhook => webhook.id),
  *     extensionObjects: [exampleService.id],
  *     config: `{
- * 	"restrict": "any",
- * 	"notify_types": {
- * 			"resolve": false,
- * 			"acknowledge": false,
- * 			"assignments": false
- * 	},
- * 	"access_token": "XXX"
+ * \x09"restrict": "any",
+ * \x09"notify_types": {
+ * \x09\x09\x09"resolve": false,
+ * \x09\x09\x09"acknowledge": false,
+ * \x09\x09\x09"assignments": false
+ * \x09},
+ * \x09"access_token": "XXX"
  * }
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -90,7 +94,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * The configuration of the service extension as string containing plain JSON-encoded data.
      */
-    public readonly config!: pulumi.Output<string | undefined>;
+    public readonly config!: pulumi.Output<string>;
     /**
      * The url of the extension.
      * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpointUrl`, but one with named `Slack` accepts.

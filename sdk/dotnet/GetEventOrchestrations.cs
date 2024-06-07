@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -25,9 +24,15 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tfOrchA = new Pagerduty.EventOrchestration("tfOrchA");
+        ///     var tfOrchA = new Pagerduty.EventOrchestration("tf_orch_a", new()
+        ///     {
+        ///         Name = "Test Event A Orchestration",
+        ///     });
         /// 
-        ///     var tfOrchB = new Pagerduty.EventOrchestration("tfOrchB");
+        ///     var tfOrchB = new Pagerduty.EventOrchestration("tf_orch_b", new()
+        ///     {
+        ///         Name = "Test Event B Orchestration",
+        ///     });
         /// 
         ///     var tfMyMonitor = Pagerduty.GetEventOrchestrations.Invoke(new()
         ///     {
@@ -36,7 +41,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEventOrchestrationsResult> InvokeAsync(GetEventOrchestrationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventOrchestrationsResult>("pagerduty:index/getEventOrchestrations:getEventOrchestrations", args ?? new GetEventOrchestrationsArgs(), options.WithDefaults());
@@ -46,7 +50,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,9 +58,15 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tfOrchA = new Pagerduty.EventOrchestration("tfOrchA");
+        ///     var tfOrchA = new Pagerduty.EventOrchestration("tf_orch_a", new()
+        ///     {
+        ///         Name = "Test Event A Orchestration",
+        ///     });
         /// 
-        ///     var tfOrchB = new Pagerduty.EventOrchestration("tfOrchB");
+        ///     var tfOrchB = new Pagerduty.EventOrchestration("tf_orch_b", new()
+        ///     {
+        ///         Name = "Test Event B Orchestration",
+        ///     });
         /// 
         ///     var tfMyMonitor = Pagerduty.GetEventOrchestrations.Invoke(new()
         ///     {
@@ -66,7 +75,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEventOrchestrationsResult> Invoke(GetEventOrchestrationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationsResult>("pagerduty:index/getEventOrchestrations:getEventOrchestrations", args ?? new GetEventOrchestrationsInvokeArgs(), options.WithDefaults());

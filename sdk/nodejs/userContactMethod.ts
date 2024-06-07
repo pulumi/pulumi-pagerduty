@@ -7,14 +7,14 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
  *     email: "125.greenholt.earline@graham.name",
- *     teams: [pagerduty_team.example.id],
+ *     teams: [examplePagerdutyTeam.id],
  * });
  * const email = new pagerduty.UserContactMethod("email", {
  *     userId: example.id,
@@ -37,7 +37,6 @@ import * as utilities from "./utilities";
  *     label: "Work",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

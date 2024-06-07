@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,26 +44,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var paActionExample = new AutomationActionsAction(&#34;paActionExample&#34;, AutomationActionsActionArgs.builder()        
+ *         var paActionExample = new AutomationActionsAction("paActionExample", AutomationActionsActionArgs.builder()
+ *             .name("PA Action created via TF")
+ *             .description("Description of the PA Action created via TF")
+ *             .actionType("process_automation")
  *             .actionDataReference(AutomationActionsActionActionDataReferenceArgs.builder()
- *                 .processAutomationJobId(&#34;P123456&#34;)
+ *                 .processAutomationJobId("P123456")
  *                 .build())
- *             .actionType(&#34;process_automation&#34;)
- *             .description(&#34;Description of the PA Action created via TF&#34;)
  *             .build());
  * 
- *         var scriptActionExample = new AutomationActionsAction(&#34;scriptActionExample&#34;, AutomationActionsActionArgs.builder()        
+ *         var scriptActionExample = new AutomationActionsAction("scriptActionExample", AutomationActionsActionArgs.builder()
+ *             .name("Script Action created via TF")
+ *             .description("Description of the Script Action created via TF")
+ *             .actionType("script")
  *             .actionDataReference(AutomationActionsActionActionDataReferenceArgs.builder()
- *                 .invocationCommand(&#34;/usr/local/bin/python3&#34;)
- *                 .script(&#34;print(\&#34;Hello from a Python script!\&#34;)&#34;)
+ *                 .script("print(\"Hello from a Python script!\")")
+ *                 .invocationCommand("/usr/local/bin/python3")
  *                 .build())
- *             .actionType(&#34;script&#34;)
- *             .description(&#34;Description of the Script Action created via TF&#34;)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

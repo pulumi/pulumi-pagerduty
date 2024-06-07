@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResponsePlayResponderEscalationRuleTarget {
     /**
-     * @return ID of the user defined as the responder
+     * @return The ID of the response play.
      * 
      */
     private @Nullable String id;
     /**
-     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * @return Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
      * 
      */
     private @Nullable String type;
 
     private ResponsePlayResponderEscalationRuleTarget() {}
     /**
-     * @return ID of the user defined as the responder
+     * @return The ID of the response play.
      * 
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * @return Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
      * 
      */
     public Optional<String> type() {

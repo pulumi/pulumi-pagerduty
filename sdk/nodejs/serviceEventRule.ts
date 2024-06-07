@@ -9,15 +9,15 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const example = new pagerduty.Service("example", {
+ *     name: "Checkout API Service",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
- *     escalationPolicy: pagerduty_escalation_policy.example.id,
+ *     escalationPolicy: examplePagerdutyEscalationPolicy.id,
  *     alertCreation: "create_alerts_and_incidents",
  * });
  * const foo = new pagerduty.ServiceEventRule("foo", {
@@ -60,7 +60,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * const bar = new pagerduty.ServiceEventRule("bar", {
- *     service: pagerduty_service.foo.id,
+ *     service: fooPagerdutyService.id,
  *     position: 1,
  *     disabled: true,
  *     conditions: {
@@ -80,7 +80,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

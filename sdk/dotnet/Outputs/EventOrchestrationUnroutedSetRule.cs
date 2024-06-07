@@ -26,7 +26,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly bool? Disabled;
         /// <summary>
-        /// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        /// The ID of the rule within the set.
         /// </summary>
         public readonly string? Id;
         /// <summary>

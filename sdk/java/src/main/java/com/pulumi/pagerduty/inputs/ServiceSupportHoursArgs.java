@@ -37,20 +37,12 @@ public final class ServiceSupportHoursArgs extends com.pulumi.resources.Resource
     /**
      * The support hours&#39; ending time of day.
      * 
-     * A `scheduled_actions` block is required when using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule`.
-     * 
-     * The block contains the following arguments:
-     * 
      */
     @Import(name="endTime")
     private @Nullable Output<String> endTime;
 
     /**
      * @return The support hours&#39; ending time of day.
-     * 
-     * A `scheduled_actions` block is required when using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule`.
-     * 
-     * The block contains the following arguments:
      * 
      */
     public Optional<Output<String>> endTime() {
@@ -88,14 +80,14 @@ public final class ServiceSupportHoursArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * The type of support hours. Can be `fixed_time_per_day`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of support hours. Can be `fixed_time_per_day`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -167,10 +159,6 @@ public final class ServiceSupportHoursArgs extends com.pulumi.resources.Resource
         /**
          * @param endTime The support hours&#39; ending time of day.
          * 
-         * A `scheduled_actions` block is required when using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule`.
-         * 
-         * The block contains the following arguments:
-         * 
          * @return builder
          * 
          */
@@ -181,10 +169,6 @@ public final class ServiceSupportHoursArgs extends com.pulumi.resources.Resource
 
         /**
          * @param endTime The support hours&#39; ending time of day.
-         * 
-         * A `scheduled_actions` block is required when using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule`.
-         * 
-         * The block contains the following arguments:
          * 
          * @return builder
          * 
@@ -236,7 +220,7 @@ public final class ServiceSupportHoursArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+         * @param type The type of support hours. Can be `fixed_time_per_day`.
          * 
          * @return builder
          * 
@@ -247,7 +231,7 @@ public final class ServiceSupportHoursArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+         * @param type The type of support hours. Can be `fixed_time_per_day`.
          * 
          * @return builder
          * 

@@ -11,24 +11,23 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const exampleService = pagerduty.getService({
+ * const example = pagerduty.getService({
  *     name: "My Service",
  * });
  * const datadog = pagerduty.getVendor({
  *     name: "Datadog",
  * });
- * const exampleServiceIntegration = new pagerduty.ServiceIntegration("exampleServiceIntegration", {
+ * const exampleServiceIntegration = new pagerduty.ServiceIntegration("example", {
+ *     name: "Datadog Integration",
  *     vendor: datadog.then(datadog => datadog.id),
- *     service: exampleService.then(exampleService => exampleService.id),
+ *     service: example.then(example => example.id),
  *     type: "generic_events_api_inbound_integration",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -94,24 +93,23 @@ export interface GetServiceResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const exampleService = pagerduty.getService({
+ * const example = pagerduty.getService({
  *     name: "My Service",
  * });
  * const datadog = pagerduty.getVendor({
  *     name: "Datadog",
  * });
- * const exampleServiceIntegration = new pagerduty.ServiceIntegration("exampleServiceIntegration", {
+ * const exampleServiceIntegration = new pagerduty.ServiceIntegration("example", {
+ *     name: "Datadog Integration",
  *     vendor: datadog.then(datadog => datadog.id),
- *     service: exampleService.then(exampleService => exampleService.id),
+ *     service: example.then(example => example.id),
  *     type: "generic_events_api_inbound_integration",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

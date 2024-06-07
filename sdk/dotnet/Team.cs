@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,18 +26,19 @@ namespace Pulumi.Pagerduty
     /// {
     ///     var parent = new Pagerduty.Team("parent", new()
     ///     {
+    ///         Name = "Product Development",
     ///         Description = "Product and Engineering",
     ///     });
     /// 
     ///     var example = new Pagerduty.Team("example", new()
     ///     {
+    ///         Name = "Engineering",
     ///         Description = "All engineering",
     ///         Parent = parent.Id,
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -135,29 +135,28 @@ class IncidentCustomFieldOption(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
+        sre_environment = pagerduty.IncidentCustomField("sre_environment",
+            name="environment",
             display_name="Environment",
             data_type="string",
             field_type="single_value_fixed")
-        dev_environment = pagerduty.IncidentCustomFieldOption("devEnvironment",
+        dev_environment = pagerduty.IncidentCustomFieldOption("dev_environment",
             field=sre_environment.id,
             data_type="string",
             value="dev")
-        stage_environment = pagerduty.IncidentCustomFieldOption("stageEnvironment",
+        stage_environment = pagerduty.IncidentCustomFieldOption("stage_environment",
             field=sre_environment.id,
             data_type="string",
             value="stage")
-        prod_environment = pagerduty.IncidentCustomFieldOption("prodEnvironment",
+        prod_environment = pagerduty.IncidentCustomFieldOption("prod_environment",
             field=sre_environment.id,
             data_type="string",
             value="prod")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,29 +176,28 @@ class IncidentCustomFieldOption(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
+        sre_environment = pagerduty.IncidentCustomField("sre_environment",
+            name="environment",
             display_name="Environment",
             data_type="string",
             field_type="single_value_fixed")
-        dev_environment = pagerduty.IncidentCustomFieldOption("devEnvironment",
+        dev_environment = pagerduty.IncidentCustomFieldOption("dev_environment",
             field=sre_environment.id,
             data_type="string",
             value="dev")
-        stage_environment = pagerduty.IncidentCustomFieldOption("stageEnvironment",
+        stage_environment = pagerduty.IncidentCustomFieldOption("stage_environment",
             field=sre_environment.id,
             data_type="string",
             value="stage")
-        prod_environment = pagerduty.IncidentCustomFieldOption("prodEnvironment",
+        prod_environment = pagerduty.IncidentCustomFieldOption("prod_environment",
             field=sre_environment.id,
             data_type="string",
             value="prod")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param IncidentCustomFieldOptionArgs args: The arguments to use to populate this resource's properties.

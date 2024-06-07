@@ -14,9 +14,6 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class RulesetRuleConditionsSubconditionParameter
     {
         public readonly string? Path;
-        /// <summary>
-        /// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

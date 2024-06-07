@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,7 +46,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetStandardsResourceScores(ctx *pulumi.Context, args *GetStandardsResourceScoresArgs, opts ...pulumi.InvokeOption) (*GetStandardsResourceScoresResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStandardsResourceScoresResult

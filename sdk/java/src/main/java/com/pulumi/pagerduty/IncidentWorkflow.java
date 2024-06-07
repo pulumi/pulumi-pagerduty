@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,21 +45,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myFirstWorkflow = new IncidentWorkflow(&#34;myFirstWorkflow&#34;, IncidentWorkflowArgs.builder()        
- *             .description(&#34;This Incident Workflow is an example&#34;)
+ *         var myFirstWorkflow = new IncidentWorkflow("myFirstWorkflow", IncidentWorkflowArgs.builder()
+ *             .name("Example Incident Workflow")
+ *             .description("This Incident Workflow is an example")
  *             .steps(IncidentWorkflowStepArgs.builder()
- *                 .action(&#34;pagerduty.com:incident-workflows:send-status-update:1&#34;)
+ *                 .name("Send Status Update")
+ *                 .action("pagerduty.com:incident-workflows:send-status-update:1")
  *                 .inputs(IncidentWorkflowStepInputArgs.builder()
- *                     .name(&#34;Message&#34;)
- *                     .value(&#34;Example status message sent on {{current_date}}&#34;)
+ *                     .name("Message")
+ *                     .value("Example status message sent on {{current_date}}")
  *                     .build())
- *                 .name(&#34;Send Status Update&#34;)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

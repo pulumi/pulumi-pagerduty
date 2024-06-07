@@ -22,14 +22,10 @@ public final class ServiceIncidentUrgencyRule {
     /**
      * @return Incidents&#39; urgency outside support hours.
      * 
-     * When using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule` you must specify exactly one (otherwise optional) `support_hours` block.
-     * Your PagerDuty account must have the `service_support_hours` ability to assign support hours.
-     * The block contains the following arguments:
-     * 
      */
     private @Nullable ServiceIncidentUrgencyRuleOutsideSupportHours outsideSupportHours;
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
      * 
      */
     private String type;
@@ -50,16 +46,12 @@ public final class ServiceIncidentUrgencyRule {
     /**
      * @return Incidents&#39; urgency outside support hours.
      * 
-     * When using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule` you must specify exactly one (otherwise optional) `support_hours` block.
-     * Your PagerDuty account must have the `service_support_hours` ability to assign support hours.
-     * The block contains the following arguments:
-     * 
      */
     public Optional<ServiceIncidentUrgencyRuleOutsideSupportHours> outsideSupportHours() {
         return Optional.ofNullable(this.outsideSupportHours);
     }
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
      * 
      */
     public String type() {

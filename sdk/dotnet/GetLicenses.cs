@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,6 +33,7 @@ namespace Pulumi.Pagerduty
         /// 
         ///     var example = new Pagerduty.User("example", new()
         ///     {
+        ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",
         ///         License = licenses.Apply(getLicensesResult =&gt; getLicensesResult.Licenses[0]?.Id),
         ///         Role = "user",
@@ -41,7 +41,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLicensesResult> InvokeAsync(GetLicensesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLicensesResult>("pagerduty:index/getLicenses:getLicenses", args ?? new GetLicensesArgs(), options.WithDefaults());
@@ -51,7 +50,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -69,6 +67,7 @@ namespace Pulumi.Pagerduty
         /// 
         ///     var example = new Pagerduty.User("example", new()
         ///     {
+        ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",
         ///         License = licenses.Apply(getLicensesResult =&gt; getLicensesResult.Licenses[0]?.Id),
         ///         Role = "user",
@@ -76,7 +75,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLicensesResult> Invoke(GetLicensesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicensesResult>("pagerduty:index/getLicenses:getLicenses", args ?? new GetLicensesInvokeArgs(), options.WithDefaults());

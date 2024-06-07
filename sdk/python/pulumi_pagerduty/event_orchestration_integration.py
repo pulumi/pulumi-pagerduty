@@ -120,18 +120,18 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
 
         > When a new Event Orchestration is created there will be one Integration (and Routing Key) included by default. Example below shows how to create an extra Integration associated with this Event Orchestration.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        database_team = pagerduty.Team("databaseTeam")
-        event_orchestration = pagerduty.EventOrchestration("eventOrchestration", team=database_team.id)
+        database_team = pagerduty.Team("database_team", name="Database Team")
+        event_orchestration = pagerduty.EventOrchestration("event_orchestration",
+            name="Example Orchestration",
+            team=database_team.id)
         integration = pagerduty.EventOrchestrationIntegration("integration",
             event_orchestration=event_orchestration.id,
             label="Example integration")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -161,18 +161,18 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
 
         > When a new Event Orchestration is created there will be one Integration (and Routing Key) included by default. Example below shows how to create an extra Integration associated with this Event Orchestration.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        database_team = pagerduty.Team("databaseTeam")
-        event_orchestration = pagerduty.EventOrchestration("eventOrchestration", team=database_team.id)
+        database_team = pagerduty.Team("database_team", name="Database Team")
+        event_orchestration = pagerduty.EventOrchestration("event_orchestration",
+            name="Example Orchestration",
+            team=database_team.id)
         integration = pagerduty.EventOrchestrationIntegration("integration",
             event_orchestration=event_orchestration.id,
             label="Example integration")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

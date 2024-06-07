@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -162,7 +161,7 @@ import (
 //				ActionJson:    pulumi.String(json3),
 //				ConditionJson: pulumi.String(json4),
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				pagerduty_event_rule.Two,
+//				two,
 //			}))
 //			if err != nil {
 //				return err
@@ -172,7 +171,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

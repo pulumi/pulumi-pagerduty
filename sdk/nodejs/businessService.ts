@@ -9,18 +9,17 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const example = new pagerduty.BusinessService("example", {
+ *     name: "My Web App",
  *     description: "A very descriptive description of this business service",
  *     pointOfContact: "PagerDuty Admin",
  *     team: "P37RSRS",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

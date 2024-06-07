@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -19,31 +18,34 @@ import * as utilities from "./utilities";
  * const datadog = pagerduty.getVendor({
  *     name: "Datadog",
  * });
- * const exampleUser = new pagerduty.User("exampleUser", {
+ * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
  *     email: "125.greenholt.earline@graham.name",
- *     teams: [pagerduty_team.example.id],
+ *     teams: [examplePagerdutyTeam.id],
  * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
  *             type: "user",
- *             id: exampleUser.id,
+ *             id: example.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("exampleService", {
+ * const exampleService = new pagerduty.Service("example", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
- *     escalationPolicy: pagerduty_escalation_policy.example.id,
+ *     escalationPolicy: examplePagerdutyEscalationPolicy.id,
  * });
- * const exampleServiceIntegration = new pagerduty.ServiceIntegration("exampleServiceIntegration", {
+ * const exampleServiceIntegration = new pagerduty.ServiceIntegration("example", {
+ *     name: "Datadog Integration",
  *     vendor: datadog.then(datadog => datadog.id),
  *     service: exampleService.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorResult> {
 
@@ -87,7 +89,6 @@ export interface GetVendorResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -95,31 +96,34 @@ export interface GetVendorResult {
  * const datadog = pagerduty.getVendor({
  *     name: "Datadog",
  * });
- * const exampleUser = new pagerduty.User("exampleUser", {
+ * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
  *     email: "125.greenholt.earline@graham.name",
- *     teams: [pagerduty_team.example.id],
+ *     teams: [examplePagerdutyTeam.id],
  * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
  *             type: "user",
- *             id: exampleUser.id,
+ *             id: example.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("exampleService", {
+ * const exampleService = new pagerduty.Service("example", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
- *     escalationPolicy: pagerduty_escalation_policy.example.id,
+ *     escalationPolicy: examplePagerdutyEscalationPolicy.id,
  * });
- * const exampleServiceIntegration = new pagerduty.ServiceIntegration("exampleServiceIntegration", {
+ * const exampleServiceIntegration = new pagerduty.ServiceIntegration("example", {
+ *     name: "Datadog Integration",
  *     vendor: datadog.then(datadog => datadog.id),
  *     service: exampleService.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorResult> {
     return pulumi.output(args).apply((a: any) => getVendor(a, opts))

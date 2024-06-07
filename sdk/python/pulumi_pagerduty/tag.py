@@ -102,14 +102,12 @@ class Tag(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.Tag("example", label="Product")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -134,14 +132,12 @@ class Tag(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.Tag("example", label="Product")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

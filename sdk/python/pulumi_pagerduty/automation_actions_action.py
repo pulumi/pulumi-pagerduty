@@ -368,26 +368,26 @@ class AutomationActionsAction(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
+        pa_action_example = pagerduty.AutomationActionsAction("pa_action_example",
+            name="PA Action created via TF",
+            description="Description of the PA Action created via TF",
+            action_type="process_automation",
             action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
                 process_automation_job_id="P123456",
-            ),
-            action_type="process_automation",
-            description="Description of the PA Action created via TF")
-        script_action_example = pagerduty.AutomationActionsAction("scriptActionExample",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                invocation_command="/usr/local/bin/python3",
-                script="print(\\"Hello from a Python script!\\")",
-            ),
+            ))
+        script_action_example = pagerduty.AutomationActionsAction("script_action_example",
+            name="Script Action created via TF",
+            description="Description of the Script Action created via TF",
             action_type="script",
-            description="Description of the Script Action created via TF")
+            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
+                script="print(\\"Hello from a Python script!\\")",
+                invocation_command="/usr/local/bin/python3",
+            ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -421,26 +421,26 @@ class AutomationActionsAction(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
+        pa_action_example = pagerduty.AutomationActionsAction("pa_action_example",
+            name="PA Action created via TF",
+            description="Description of the PA Action created via TF",
+            action_type="process_automation",
             action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
                 process_automation_job_id="P123456",
-            ),
-            action_type="process_automation",
-            description="Description of the PA Action created via TF")
-        script_action_example = pagerduty.AutomationActionsAction("scriptActionExample",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                invocation_command="/usr/local/bin/python3",
-                script="print(\\"Hello from a Python script!\\")",
-            ),
+            ))
+        script_action_example = pagerduty.AutomationActionsAction("script_action_example",
+            name="Script Action created via TF",
+            description="Description of the Script Action created via TF",
             action_type="script",
-            description="Description of the Script Action created via TF")
+            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
+                script="print(\\"Hello from a Python script!\\")",
+                invocation_command="/usr/local/bin/python3",
+            ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

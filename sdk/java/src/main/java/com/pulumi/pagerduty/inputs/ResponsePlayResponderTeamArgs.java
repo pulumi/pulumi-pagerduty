@@ -17,14 +17,14 @@ public final class ResponsePlayResponderTeamArgs extends com.pulumi.resources.Re
     public static final ResponsePlayResponderTeamArgs Empty = new ResponsePlayResponderTeamArgs();
 
     /**
-     * ID of the user defined as the responder
+     * The ID of the response play.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return ID of the user defined as the responder
+     * @return The ID of the response play.
      * 
      */
     public Optional<Output<String>> id() {
@@ -72,7 +72,7 @@ public final class ResponsePlayResponderTeamArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param id ID of the user defined as the responder
+         * @param id The ID of the response play.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ResponsePlayResponderTeamArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param id ID of the user defined as the responder
+         * @param id The ID of the response play.
          * 
          * @return builder
          * 

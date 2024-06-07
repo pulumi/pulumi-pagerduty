@@ -36,10 +36,6 @@ public final class ServiceIncidentUrgencyRuleArgs extends com.pulumi.resources.R
     /**
      * Incidents&#39; urgency outside support hours.
      * 
-     * When using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule` you must specify exactly one (otherwise optional) `support_hours` block.
-     * Your PagerDuty account must have the `service_support_hours` ability to assign support hours.
-     * The block contains the following arguments:
-     * 
      */
     @Import(name="outsideSupportHours")
     private @Nullable Output<ServiceIncidentUrgencyRuleOutsideSupportHoursArgs> outsideSupportHours;
@@ -47,24 +43,20 @@ public final class ServiceIncidentUrgencyRuleArgs extends com.pulumi.resources.R
     /**
      * @return Incidents&#39; urgency outside support hours.
      * 
-     * When using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule` you must specify exactly one (otherwise optional) `support_hours` block.
-     * Your PagerDuty account must have the `service_support_hours` ability to assign support hours.
-     * The block contains the following arguments:
-     * 
      */
     public Optional<Output<ServiceIncidentUrgencyRuleOutsideSupportHoursArgs>> outsideSupportHours() {
         return Optional.ofNullable(this.outsideSupportHours);
     }
 
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
      * 
      */
     public Output<String> type() {
@@ -137,10 +129,6 @@ public final class ServiceIncidentUrgencyRuleArgs extends com.pulumi.resources.R
         /**
          * @param outsideSupportHours Incidents&#39; urgency outside support hours.
          * 
-         * When using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule` you must specify exactly one (otherwise optional) `support_hours` block.
-         * Your PagerDuty account must have the `service_support_hours` ability to assign support hours.
-         * The block contains the following arguments:
-         * 
          * @return builder
          * 
          */
@@ -152,10 +140,6 @@ public final class ServiceIncidentUrgencyRuleArgs extends com.pulumi.resources.R
         /**
          * @param outsideSupportHours Incidents&#39; urgency outside support hours.
          * 
-         * When using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule` you must specify exactly one (otherwise optional) `support_hours` block.
-         * Your PagerDuty account must have the `service_support_hours` ability to assign support hours.
-         * The block contains the following arguments:
-         * 
          * @return builder
          * 
          */
@@ -164,7 +148,7 @@ public final class ServiceIncidentUrgencyRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param type The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+         * @param type The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
          * 
          * @return builder
          * 
@@ -175,7 +159,7 @@ public final class ServiceIncidentUrgencyRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param type The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+         * @param type The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
          * 
          * @return builder
          * 

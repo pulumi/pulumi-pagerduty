@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,12 +32,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
-//			rUNBOOKAPIKEY := cfg.Require("rUNBOOKAPIKEY")
+//			RUNBOOK_API_KEY := cfg.Require("RUNBOOK_API_KEY")
 //			_, err := pagerduty.NewAutomationActionsRunner(ctx, "example", &pagerduty.AutomationActionsRunnerArgs{
+//				Name:           pulumi.String("Runner created via TF"),
 //				Description:    pulumi.String("Description of the Runner created via TF"),
 //				RunnerType:     pulumi.String("runbook"),
 //				RunbookBaseUri: pulumi.String("rdcat.stg"),
-//				RunbookApiKey:  pulumi.String(rUNBOOKAPIKEY),
+//				RunbookApiKey:  pulumi.String(RUNBOOK_API_KEY),
 //			})
 //			if err != nil {
 //				return err
@@ -48,7 +48,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

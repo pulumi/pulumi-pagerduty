@@ -9,13 +9,16 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const example = new pagerduty.Team("example", {description: "All engineering"});
- * const paActionExample = new pagerduty.AutomationActionsAction("paActionExample", {
+ * const example = new pagerduty.Team("example", {
+ *     name: "Engineering",
+ *     description: "All engineering",
+ * });
+ * const paActionExample = new pagerduty.AutomationActionsAction("pa_action_example", {
+ *     name: "PA Action created via TF",
  *     description: "Description of the PA Action created via TF",
  *     actionType: "process_automation",
  *     actionDataReference: {
@@ -27,7 +30,6 @@ import * as utilities from "./utilities";
  *     teamId: example.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

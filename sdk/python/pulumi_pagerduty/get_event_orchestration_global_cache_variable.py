@@ -105,16 +105,14 @@ def get_event_orchestration_global_cache_variable(event_orchestration: Optional[
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
 
-    event_orchestration = pagerduty.EventOrchestration("eventOrchestration")
+    event_orchestration = pagerduty.EventOrchestration("event_orchestration", name="Test Event Orchestration")
     cache_variable = pagerduty.get_event_orchestration_global_cache_variable_output(event_orchestration=event_orchestration.id,
         name="example_cache_variable")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str event_orchestration: ID of the Global Event Orchestration to which this Cache Variable belongs.
@@ -147,16 +145,14 @@ def get_event_orchestration_global_cache_variable_output(event_orchestration: Op
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
 
-    event_orchestration = pagerduty.EventOrchestration("eventOrchestration")
+    event_orchestration = pagerduty.EventOrchestration("event_orchestration", name="Test Event Orchestration")
     cache_variable = pagerduty.get_event_orchestration_global_cache_variable_output(event_orchestration=event_orchestration.id,
         name="example_cache_variable")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str event_orchestration: ID of the Global Event Orchestration to which this Cache Variable belongs.

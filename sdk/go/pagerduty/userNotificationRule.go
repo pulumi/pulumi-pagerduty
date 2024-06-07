@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Name:  pulumi.String("Earline Greenholt"),
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //			})
 //			if err != nil {
@@ -64,7 +64,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewUserNotificationRule(ctx, "highUrgencyPhone", &pagerduty.UserNotificationRuleArgs{
+//			_, err = pagerduty.NewUserNotificationRule(ctx, "high_urgency_phone", &pagerduty.UserNotificationRuleArgs{
 //				UserId:              example.ID(),
 //				StartDelayInMinutes: pulumi.Int(1),
 //				Urgency:             pulumi.String("high"),
@@ -76,7 +76,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewUserNotificationRule(ctx, "lowUrgencyEmail", &pagerduty.UserNotificationRuleArgs{
+//			_, err = pagerduty.NewUserNotificationRule(ctx, "low_urgency_email", &pagerduty.UserNotificationRuleArgs{
 //				UserId:              example.ID(),
 //				StartDelayInMinutes: pulumi.Int(1),
 //				Urgency:             pulumi.String("low"),
@@ -88,7 +88,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewUserNotificationRule(ctx, "lowUrgencySms", &pagerduty.UserNotificationRuleArgs{
+//			_, err = pagerduty.NewUserNotificationRule(ctx, "low_urgency_sms", &pagerduty.UserNotificationRuleArgs{
 //				UserId:              example.ID(),
 //				StartDelayInMinutes: pulumi.Int(10),
 //				Urgency:             pulumi.String("low"),
@@ -105,7 +105,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

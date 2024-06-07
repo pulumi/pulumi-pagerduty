@@ -11,24 +11,23 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const myFirstWorkflow = new pagerduty.IncidentWorkflow("myFirstWorkflow", {
+ * const myFirstWorkflow = new pagerduty.IncidentWorkflow("my_first_workflow", {
+ *     name: "Example Incident Workflow",
  *     description: "This Incident Workflow is an example",
  *     steps: [{
+ *         name: "Send Status Update",
  *         action: "pagerduty.com:incident-workflows:send-status-update:1",
  *         inputs: [{
  *             name: "Message",
  *             value: "Example status message sent on {{current_date}}",
  *         }],
- *         name: "Send Status Update",
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

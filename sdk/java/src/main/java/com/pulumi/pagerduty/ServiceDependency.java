@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,35 +42,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new ServiceDependency(&#34;foo&#34;, ServiceDependencyArgs.builder()        
+ *         var foo = new ServiceDependency("foo", ServiceDependencyArgs.builder()
  *             .dependency(ServiceDependencyDependencyArgs.builder()
  *                 .dependentServices(ServiceDependencyDependencyDependentServiceArgs.builder()
- *                     .id(pagerduty_business_service.foo().id())
- *                     .type(pagerduty_business_service.foo().type())
+ *                     .id(fooPagerdutyBusinessService.id())
+ *                     .type(fooPagerdutyBusinessService.type())
  *                     .build())
  *                 .supportingServices(ServiceDependencyDependencySupportingServiceArgs.builder()
- *                     .id(pagerduty_service.foo().id())
- *                     .type(pagerduty_service.foo().type())
+ *                     .id(fooPagerdutyService.id())
+ *                     .type(fooPagerdutyService.type())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var bar = new ServiceDependency(&#34;bar&#34;, ServiceDependencyArgs.builder()        
+ *         var bar = new ServiceDependency("bar", ServiceDependencyArgs.builder()
  *             .dependency(ServiceDependencyDependencyArgs.builder()
  *                 .dependentServices(ServiceDependencyDependencyDependentServiceArgs.builder()
- *                     .id(pagerduty_business_service.foo().id())
- *                     .type(pagerduty_business_service.foo().type())
+ *                     .id(fooPagerdutyBusinessService.id())
+ *                     .type(fooPagerdutyBusinessService.type())
  *                     .build())
  *                 .supportingServices(ServiceDependencyDependencySupportingServiceArgs.builder()
- *                     .id(pagerduty_service.two().id())
- *                     .type(pagerduty_service.two().type())
+ *                     .id(two.id())
+ *                     .type(two.type())
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

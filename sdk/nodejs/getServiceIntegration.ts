@@ -9,17 +9,15 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const example = pagerduty.getServiceIntegration({
- *     integrationSummary: "Datadog",
  *     serviceName: "My Service",
+ *     integrationSummary: "Datadog",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServiceIntegration(args: GetServiceIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceIntegrationResult> {
 
@@ -64,17 +62,15 @@ export interface GetServiceIntegrationResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const example = pagerduty.getServiceIntegration({
- *     integrationSummary: "Datadog",
  *     serviceName: "My Service",
+ *     integrationSummary: "Datadog",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServiceIntegrationOutput(args: GetServiceIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceIntegrationResult> {
     return pulumi.output(args).apply((a: any) => getServiceIntegration(a, opts))

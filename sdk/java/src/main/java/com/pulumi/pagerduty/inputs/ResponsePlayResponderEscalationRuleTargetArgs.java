@@ -16,14 +16,14 @@ public final class ResponsePlayResponderEscalationRuleTargetArgs extends com.pul
     public static final ResponsePlayResponderEscalationRuleTargetArgs Empty = new ResponsePlayResponderEscalationRuleTargetArgs();
 
     /**
-     * ID of the user defined as the responder
+     * The ID of the response play.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return ID of the user defined as the responder
+     * @return The ID of the response play.
      * 
      */
     public Optional<Output<String>> id() {
@@ -31,14 +31,14 @@ public final class ResponsePlayResponderEscalationRuleTargetArgs extends com.pul
     }
 
     /**
-     * A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * @return Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -71,7 +71,7 @@ public final class ResponsePlayResponderEscalationRuleTargetArgs extends com.pul
         }
 
         /**
-         * @param id ID of the user defined as the responder
+         * @param id The ID of the response play.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ResponsePlayResponderEscalationRuleTargetArgs extends com.pul
         }
 
         /**
-         * @param id ID of the user defined as the responder
+         * @param id The ID of the response play.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ResponsePlayResponderEscalationRuleTargetArgs extends com.pul
         }
 
         /**
-         * @param type A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+         * @param type Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ResponsePlayResponderEscalationRuleTargetArgs extends com.pul
         }
 
         /**
-         * @param type A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+         * @param type Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
          * 
          * @return builder
          * 

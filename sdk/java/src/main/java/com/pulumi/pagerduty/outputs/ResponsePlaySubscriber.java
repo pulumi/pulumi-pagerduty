@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResponsePlaySubscriber {
     /**
-     * @return ID of the user defined as the responder
+     * @return The ID of the response play.
      * 
      */
     private @Nullable String id;
@@ -24,7 +24,7 @@ public final class ResponsePlaySubscriber {
 
     private ResponsePlaySubscriber() {}
     /**
-     * @return ID of the user defined as the responder
+     * @return The ID of the response play.
      * 
      */
     public Optional<String> id() {

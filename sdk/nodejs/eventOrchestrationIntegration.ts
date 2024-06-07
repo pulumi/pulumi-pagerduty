@@ -15,19 +15,20 @@ import * as utilities from "./utilities";
  *
  * > When a new Event Orchestration is created there will be one Integration (and Routing Key) included by default. Example below shows how to create an extra Integration associated with this Event Orchestration.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const databaseTeam = new pagerduty.Team("databaseTeam", {});
- * const eventOrchestration = new pagerduty.EventOrchestration("eventOrchestration", {team: databaseTeam.id});
+ * const databaseTeam = new pagerduty.Team("database_team", {name: "Database Team"});
+ * const eventOrchestration = new pagerduty.EventOrchestration("event_orchestration", {
+ *     name: "Example Orchestration",
+ *     team: databaseTeam.id,
+ * });
  * const integration = new pagerduty.EventOrchestrationIntegration("integration", {
  *     eventOrchestration: eventOrchestration.id,
  *     label: "Example integration",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

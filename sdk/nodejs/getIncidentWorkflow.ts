@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -20,14 +19,13 @@ import * as utilities from "./utilities";
  * const firstService = pagerduty.getService({
  *     name: "My First Service",
  * });
- * const automaticTrigger = new pagerduty.IncidentWorkflowTrigger("automaticTrigger", {
+ * const automaticTrigger = new pagerduty.IncidentWorkflowTrigger("automatic_trigger", {
  *     type: "conditional",
  *     workflow: myWorkflow.then(myWorkflow => myWorkflow.id),
  *     services: [firstService.then(firstService => firstService.id)],
  *     condition: "incident.priority matches 'P1'",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIncidentWorkflow(args: GetIncidentWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentWorkflowResult> {
 
@@ -63,7 +61,6 @@ export interface GetIncidentWorkflowResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -74,14 +71,13 @@ export interface GetIncidentWorkflowResult {
  * const firstService = pagerduty.getService({
  *     name: "My First Service",
  * });
- * const automaticTrigger = new pagerduty.IncidentWorkflowTrigger("automaticTrigger", {
+ * const automaticTrigger = new pagerduty.IncidentWorkflowTrigger("automatic_trigger", {
  *     type: "conditional",
  *     workflow: myWorkflow.then(myWorkflow => myWorkflow.id),
  *     services: [firstService.then(firstService => firstService.id)],
  *     condition: "incident.priority matches 'P1'",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIncidentWorkflowOutput(args: GetIncidentWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentWorkflowResult> {
     return pulumi.output(args).apply((a: any) => getIncidentWorkflow(a, opts))

@@ -259,17 +259,16 @@ class BusinessService(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.BusinessService("example",
+            name="My Web App",
             description="A very descriptive description of this business service",
             point_of_contact="PagerDuty Admin",
             team="P37RSRS")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -297,17 +296,16 @@ class BusinessService(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.BusinessService("example",
+            name="My Web App",
             description="A very descriptive description of this business service",
             point_of_contact="PagerDuty Admin",
             team="P37RSRS")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

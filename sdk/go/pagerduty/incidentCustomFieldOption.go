@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			sreEnvironment, err := pagerduty.NewIncidentCustomField(ctx, "sreEnvironment", &pagerduty.IncidentCustomFieldArgs{
+//			sreEnvironment, err := pagerduty.NewIncidentCustomField(ctx, "sre_environment", &pagerduty.IncidentCustomFieldArgs{
+//				Name:        pulumi.String("environment"),
 //				DisplayName: pulumi.String("Environment"),
 //				DataType:    pulumi.String("string"),
 //				FieldType:   pulumi.String("single_value_fixed"),
@@ -38,7 +38,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewIncidentCustomFieldOption(ctx, "devEnvironment", &pagerduty.IncidentCustomFieldOptionArgs{
+//			_, err = pagerduty.NewIncidentCustomFieldOption(ctx, "dev_environment", &pagerduty.IncidentCustomFieldOptionArgs{
 //				Field:    sreEnvironment.ID(),
 //				DataType: pulumi.String("string"),
 //				Value:    pulumi.String("dev"),
@@ -46,7 +46,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewIncidentCustomFieldOption(ctx, "stageEnvironment", &pagerduty.IncidentCustomFieldOptionArgs{
+//			_, err = pagerduty.NewIncidentCustomFieldOption(ctx, "stage_environment", &pagerduty.IncidentCustomFieldOptionArgs{
 //				Field:    sreEnvironment.ID(),
 //				DataType: pulumi.String("string"),
 //				Value:    pulumi.String("stage"),
@@ -54,7 +54,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewIncidentCustomFieldOption(ctx, "prodEnvironment", &pagerduty.IncidentCustomFieldOptionArgs{
+//			_, err = pagerduty.NewIncidentCustomFieldOption(ctx, "prod_environment", &pagerduty.IncidentCustomFieldOptionArgs{
 //				Field:    sreEnvironment.ID(),
 //				DataType: pulumi.String("string"),
 //				Value:    pulumi.String("prod"),
@@ -67,7 +67,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type IncidentCustomFieldOption struct {
 	pulumi.CustomResourceState
 

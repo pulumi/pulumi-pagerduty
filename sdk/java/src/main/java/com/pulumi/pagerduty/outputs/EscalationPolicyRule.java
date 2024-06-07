@@ -27,7 +27,7 @@ public final class EscalationPolicyRule {
      */
     private @Nullable EscalationPolicyRuleEscalationRuleAssignmentStrategy escalationRuleAssignmentStrategy;
     /**
-     * @return A target ID
+     * @return The ID of the escalation policy.
      * 
      */
     private @Nullable String id;
@@ -49,7 +49,7 @@ public final class EscalationPolicyRule {
         return Optional.ofNullable(this.escalationRuleAssignmentStrategy);
     }
     /**
-     * @return A target ID
+     * @return The ID of the escalation policy.
      * 
      */
     public Optional<String> id() {

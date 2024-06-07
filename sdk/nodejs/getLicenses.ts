@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -19,12 +18,12 @@ import * as utilities from "./utilities";
  * const invalidRoles = ["owner"];
  * const licenses = pagerduty.getLicenses({});
  * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
  *     email: "125.greenholt.earline@graham.name",
  *     license: licenses.then(licenses => licenses.licenses?.[0]?.id),
  *     role: "user",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLicenses(args?: GetLicensesArgs, opts?: pulumi.InvokeOptions): Promise<GetLicensesResult> {
     args = args || {};
@@ -68,7 +67,6 @@ export interface GetLicensesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -76,12 +74,12 @@ export interface GetLicensesResult {
  * const invalidRoles = ["owner"];
  * const licenses = pagerduty.getLicenses({});
  * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
  *     email: "125.greenholt.earline@graham.name",
  *     license: licenses.then(licenses => licenses.licenses?.[0]?.id),
  *     role: "user",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLicensesOutput(args?: GetLicensesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicensesResult> {
     return pulumi.output(args).apply((a: any) => getLicenses(a, opts))

@@ -134,27 +134,28 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example_business_service = pagerduty.BusinessService("exampleBusinessService",
+        example = pagerduty.BusinessService("example",
+            name="My Web App",
             description="A very descriptive description of this business service",
             point_of_contact="PagerDuty Admin",
             team="P37RSRS")
-        engteam = pagerduty.Team("engteam")
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
-        team_example = pagerduty.BusinessServiceSubscriber("teamExample",
+        engteam = pagerduty.Team("engteam", name="Engineering")
+        example_user = pagerduty.User("example",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
+        team_example = pagerduty.BusinessServiceSubscriber("team_example",
             subscriber_id=engteam.id,
             subscriber_type="team",
-            business_service_id=example_business_service.id)
-        user_example = pagerduty.BusinessServiceSubscriber("userExample",
+            business_service_id=example.id)
+        user_example = pagerduty.BusinessServiceSubscriber("user_example",
             subscriber_id=example_user.id,
             subscriber_type="user",
-            business_service_id=example_business_service.id)
+            business_service_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -181,27 +182,28 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example_business_service = pagerduty.BusinessService("exampleBusinessService",
+        example = pagerduty.BusinessService("example",
+            name="My Web App",
             description="A very descriptive description of this business service",
             point_of_contact="PagerDuty Admin",
             team="P37RSRS")
-        engteam = pagerduty.Team("engteam")
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
-        team_example = pagerduty.BusinessServiceSubscriber("teamExample",
+        engteam = pagerduty.Team("engteam", name="Engineering")
+        example_user = pagerduty.User("example",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
+        team_example = pagerduty.BusinessServiceSubscriber("team_example",
             subscriber_id=engteam.id,
             subscriber_type="team",
-            business_service_id=example_business_service.id)
-        user_example = pagerduty.BusinessServiceSubscriber("userExample",
+            business_service_id=example.id)
+        user_example = pagerduty.BusinessServiceSubscriber("user_example",
             subscriber_id=example_user.id,
             subscriber_type="user",
-            business_service_id=example_business_service.id)
+            business_service_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

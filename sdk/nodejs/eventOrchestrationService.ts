@@ -21,35 +21,40 @@ import * as utilities from "./utilities";
  *
  * The `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catchAll` doesn't have any `actions` so it'll leave events as-is.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const engineering = new pagerduty.Team("engineering", {});
- * const exampleUser = new pagerduty.User("exampleUser", {email: "125.greenholt.earline@graham.name"});
+ * const engineering = new pagerduty.Team("engineering", {name: "Engineering"});
+ * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
+ *     email: "125.greenholt.earline@graham.name",
+ * });
  * const foo = new pagerduty.TeamMembership("foo", {
- *     userId: exampleUser.id,
+ *     userId: example.id,
  *     teamId: engineering.id,
  *     role: "manager",
  * });
- * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("exampleEscalationPolicy", {
+ * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("example", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
  *             type: "user_reference",
- *             id: exampleUser.id,
+ *             id: example.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("exampleService", {
+ * const exampleService = new pagerduty.Service("example", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
  *     escalationPolicy: exampleEscalationPolicy.id,
  *     alertCreation: "create_alerts_and_incidents",
  * });
- * const csImpact = new pagerduty.IncidentCustomField("csImpact", {
+ * const csImpact = new pagerduty.IncidentCustomField("cs_impact", {
+ *     name: "impact",
  *     dataType: "string",
  *     fieldType: "single_value",
  * });
@@ -147,7 +152,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,33 +44,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sreEnvironment = new IncidentCustomField(&#34;sreEnvironment&#34;, IncidentCustomFieldArgs.builder()        
- *             .displayName(&#34;Environment&#34;)
- *             .dataType(&#34;string&#34;)
- *             .fieldType(&#34;single_value_fixed&#34;)
+ *         var sreEnvironment = new IncidentCustomField("sreEnvironment", IncidentCustomFieldArgs.builder()
+ *             .name("environment")
+ *             .displayName("Environment")
+ *             .dataType("string")
+ *             .fieldType("single_value_fixed")
  *             .build());
  * 
- *         var devEnvironment = new IncidentCustomFieldOption(&#34;devEnvironment&#34;, IncidentCustomFieldOptionArgs.builder()        
+ *         var devEnvironment = new IncidentCustomFieldOption("devEnvironment", IncidentCustomFieldOptionArgs.builder()
  *             .field(sreEnvironment.id())
- *             .dataType(&#34;string&#34;)
- *             .value(&#34;dev&#34;)
+ *             .dataType("string")
+ *             .value("dev")
  *             .build());
  * 
- *         var stageEnvironment = new IncidentCustomFieldOption(&#34;stageEnvironment&#34;, IncidentCustomFieldOptionArgs.builder()        
+ *         var stageEnvironment = new IncidentCustomFieldOption("stageEnvironment", IncidentCustomFieldOptionArgs.builder()
  *             .field(sreEnvironment.id())
- *             .dataType(&#34;string&#34;)
- *             .value(&#34;stage&#34;)
+ *             .dataType("string")
+ *             .value("stage")
  *             .build());
  * 
- *         var prodEnvironment = new IncidentCustomFieldOption(&#34;prodEnvironment&#34;, IncidentCustomFieldOptionArgs.builder()        
+ *         var prodEnvironment = new IncidentCustomFieldOption("prodEnvironment", IncidentCustomFieldOptionArgs.builder()
  *             .field(sreEnvironment.id())
- *             .dataType(&#34;string&#34;)
- *             .value(&#34;prod&#34;)
+ *             .dataType("string")
+ *             .value("prod")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

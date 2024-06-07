@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -22,17 +21,19 @@ import * as utilities from "./utilities";
  * const me = pagerduty.getUser({
  *     email: "me@example.com",
  * });
- * const exampleWTeam = new pagerduty.User("exampleWTeam", {email: "user-with-team@example.com"});
+ * const exampleWTeam = new pagerduty.User("example_w_team", {
+ *     name: "user-with-team",
+ *     email: "user-with-team@example.com",
+ * });
  * const example = new pagerduty.TeamMembership("example", {
- *     teamId: pagerduty_team.devops.id,
+ *     teamId: devopsPagerdutyTeam.id,
  *     userId: exampleWTeam.id,
  * });
  * const allUsers = pagerduty.getUsers({});
  * const fromDevopsTeam = pagerduty.getUsers({
- *     teamIds: [pagerduty_team.devops.id],
+ *     teamIds: [devopsPagerdutyTeam.id],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
@@ -72,7 +73,6 @@ export interface GetUsersResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -83,17 +83,19 @@ export interface GetUsersResult {
  * const me = pagerduty.getUser({
  *     email: "me@example.com",
  * });
- * const exampleWTeam = new pagerduty.User("exampleWTeam", {email: "user-with-team@example.com"});
+ * const exampleWTeam = new pagerduty.User("example_w_team", {
+ *     name: "user-with-team",
+ *     email: "user-with-team@example.com",
+ * });
  * const example = new pagerduty.TeamMembership("example", {
- *     teamId: pagerduty_team.devops.id,
+ *     teamId: devopsPagerdutyTeam.id,
  *     userId: exampleWTeam.id,
  * });
  * const allUsers = pagerduty.getUsers({});
  * const fromDevopsTeam = pagerduty.getUsers({
- *     teamIds: [pagerduty_team.devops.id],
+ *     teamIds: [devopsPagerdutyTeam.id],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
     return pulumi.output(args).apply((a: any) => getUsers(a, opts))

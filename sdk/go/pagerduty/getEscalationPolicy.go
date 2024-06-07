@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,16 +27,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testEscalationPolicy, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
+//			test, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
 //				Name: "Engineering Escalation Policy",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewService(ctx, "testService", &pagerduty.ServiceArgs{
+//			_, err = pagerduty.NewService(ctx, "test", &pagerduty.ServiceArgs{
+//				Name:                   pulumi.String("My Web App"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       pulumi.String(testEscalationPolicy.Id),
+//				EscalationPolicy:       pulumi.String(test.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -47,7 +47,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupEscalationPolicy(ctx *pulumi.Context, args *LookupEscalationPolicyArgs, opts ...pulumi.InvokeOption) (*LookupEscalationPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEscalationPolicyResult

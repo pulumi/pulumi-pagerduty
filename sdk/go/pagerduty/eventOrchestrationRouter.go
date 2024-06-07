@@ -20,7 +20,6 @@ import (
 //
 // This example assumes services used in the `routeTo` configuration already exists. So it does not show creation of service resource.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,7 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pagerduty.NewEventOrchestrationRouter(ctx, "router", &pagerduty.EventOrchestrationRouterArgs{
-//				EventOrchestration: pulumi.Any(pagerduty_event_orchestration.My_monitor.Id),
+//				EventOrchestration: pulumi.Any(myMonitor.Id),
 //				Set: &pagerduty.EventOrchestrationRouterSetArgs{
 //					Id: pulumi.String("start"),
 //					Rules: pagerduty.EventOrchestrationRouterSetRuleArray{
@@ -49,7 +48,7 @@ import (
 //								},
 //							},
 //							Actions: &pagerduty.EventOrchestrationRouterSetRuleActionsArgs{
-//								RouteTo: pulumi.Any(pagerduty_service.Database.Id),
+//								RouteTo: pulumi.Any(database.Id),
 //							},
 //						},
 //						&pagerduty.EventOrchestrationRouterSetRuleArgs{
@@ -59,7 +58,7 @@ import (
 //								},
 //							},
 //							Actions: &pagerduty.EventOrchestrationRouterSetRuleActionsArgs{
-//								RouteTo: pulumi.Any(pagerduty_service.Www.Id),
+//								RouteTo: pulumi.Any(www.Id),
 //							},
 //						},
 //					},
@@ -78,7 +77,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

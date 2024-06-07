@@ -184,17 +184,16 @@ class EventOrchestration(pulumi.CustomResource):
 
         ## Example of configuring an Event Orchestration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        engineering = pagerduty.Team("engineering")
-        my_monitor = pagerduty.EventOrchestration("myMonitor",
+        engineering = pagerduty.Team("engineering", name="Engineering")
+        my_monitor = pagerduty.EventOrchestration("my_monitor",
+            name="My Monitoring Orchestration",
             description="Send events to a pair of services",
             team=engineering.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -222,17 +221,16 @@ class EventOrchestration(pulumi.CustomResource):
 
         ## Example of configuring an Event Orchestration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        engineering = pagerduty.Team("engineering")
-        my_monitor = pagerduty.EventOrchestration("myMonitor",
+        engineering = pagerduty.Team("engineering", name="Engineering")
+        my_monitor = pagerduty.EventOrchestration("my_monitor",
+            name="My Monitoring Orchestration",
             description="Send events to a pair of services",
             team=engineering.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

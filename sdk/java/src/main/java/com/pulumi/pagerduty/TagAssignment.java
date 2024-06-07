@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -28,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.Tag;
  * import com.pulumi.pagerduty.TagArgs;
  * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.TeamArgs;
  * import com.pulumi.pagerduty.TagAssignment;
  * import com.pulumi.pagerduty.TagAssignmentArgs;
  * import java.util.List;
@@ -43,21 +45,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleTag = new Tag(&#34;exampleTag&#34;, TagArgs.builder()        
- *             .label(&#34;API&#34;)
+ *         var example = new Tag("example", TagArgs.builder()
+ *             .label("API")
  *             .build());
  * 
- *         var engteam = new Team(&#34;engteam&#34;);
+ *         var engteam = new Team("engteam", TeamArgs.builder()
+ *             .name("Engineering")
+ *             .build());
  * 
- *         var exampleTagAssignment = new TagAssignment(&#34;exampleTagAssignment&#34;, TagAssignmentArgs.builder()        
- *             .tagId(exampleTag.id())
- *             .entityType(&#34;teams&#34;)
+ *         var exampleTagAssignment = new TagAssignment("exampleTagAssignment", TagAssignmentArgs.builder()
+ *             .tagId(example.id())
+ *             .entityType("teams")
  *             .entityId(engteam.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

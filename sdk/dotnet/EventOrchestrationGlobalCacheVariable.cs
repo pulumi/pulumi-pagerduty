@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// This example shows creating a global `Event Orchestration` and a `Cache Variable`. All events that have the `event.source` field will have its `source` value stored in this Cache Variable, and appended as a note for the subsequent incident created by this Event Orchestration.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,16 +24,21 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var databaseTeam = new Pagerduty.Team("databaseTeam");
-    /// 
-    ///     var eventOrchestration = new Pagerduty.EventOrchestration("eventOrchestration", new()
+    ///     var databaseTeam = new Pagerduty.Team("database_team", new()
     ///     {
+    ///         Name = "Database Team",
+    ///     });
+    /// 
+    ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
+    ///     {
+    ///         Name = "Example Orchestration",
     ///         Team = databaseTeam.Id,
     ///     });
     /// 
-    ///     var cacheVar = new Pagerduty.EventOrchestrationGlobalCacheVariable("cacheVar", new()
+    ///     var cacheVar = new Pagerduty.EventOrchestrationGlobalCacheVariable("cache_var", new()
     ///     {
     ///         EventOrchestration = eventOrchestration.Id,
+    ///         Name = "recent_host",
     ///         Conditions = new[]
     ///         {
     ///             new Pagerduty.Inputs.EventOrchestrationGlobalCacheVariableConditionArgs
@@ -79,7 +83,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

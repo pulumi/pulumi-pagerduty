@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,15 +22,20 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+    ///     var example = new Pagerduty.User("example", new()
     ///     {
+    ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///     });
     /// 
-    ///     var exampleTeam = new Pagerduty.Team("exampleTeam");
+    ///     var exampleTeam = new Pagerduty.Team("example", new()
+    ///     {
+    ///         Name = "A Team",
+    ///     });
     /// 
     ///     var foo = new Pagerduty.Schedule("foo", new()
     ///     {
+    ///         Name = "Daily Engineering Rotation",
     ///         TimeZone = "America/New_York",
     ///         Layers = new[]
     ///         {
@@ -43,7 +47,7 @@ namespace Pulumi.Pagerduty
     ///                 RotationTurnLengthSeconds = 86400,
     ///                 Users = new[]
     ///                 {
-    ///                     exampleUser.Id,
+    ///                     example.Id,
     ///                 },
     ///                 Restrictions = new[]
     ///                 {
@@ -64,7 +68,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

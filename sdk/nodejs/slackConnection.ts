@@ -15,17 +15,16 @@ import * as utilities from "./utilities";
  * * This resource is for configuring Slack V2 Next Generation connections. If you configured your Slack integration (V1 or V2) prior to August 10, 2021, you may migrate to the Slack V2 Next Generation update using this [migration instructions](https://support.pagerduty.com/docs/slack-integration-guide#migrate-to-slack-v2-next-generation), but if you configured your Slack integration after that date, you will have access to the update out of the box.
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const fooTeam = new pagerduty.Team("fooTeam", {});
+ * const foo = new pagerduty.Team("foo", {name: "Team Foo"});
  * const p1 = pagerduty.getPriority({
  *     name: "P1",
  * });
- * const fooSlackConnection = new pagerduty.SlackConnection("fooSlackConnection", {
- *     sourceId: fooTeam.id,
+ * const fooSlackConnection = new pagerduty.SlackConnection("foo", {
+ *     sourceId: foo.id,
  *     sourceType: "team_reference",
  *     workspaceId: "T02A123LV1A",
  *     channelId: "C02CABCDAC9",
@@ -50,7 +49,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

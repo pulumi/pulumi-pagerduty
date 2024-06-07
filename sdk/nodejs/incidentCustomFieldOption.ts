@@ -10,33 +10,32 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const sreEnvironment = new pagerduty.IncidentCustomField("sreEnvironment", {
+ * const sreEnvironment = new pagerduty.IncidentCustomField("sre_environment", {
+ *     name: "environment",
  *     displayName: "Environment",
  *     dataType: "string",
  *     fieldType: "single_value_fixed",
  * });
- * const devEnvironment = new pagerduty.IncidentCustomFieldOption("devEnvironment", {
+ * const devEnvironment = new pagerduty.IncidentCustomFieldOption("dev_environment", {
  *     field: sreEnvironment.id,
  *     dataType: "string",
  *     value: "dev",
  * });
- * const stageEnvironment = new pagerduty.IncidentCustomFieldOption("stageEnvironment", {
+ * const stageEnvironment = new pagerduty.IncidentCustomFieldOption("stage_environment", {
  *     field: sreEnvironment.id,
  *     dataType: "string",
  *     value: "stage",
  * });
- * const prodEnvironment = new pagerduty.IncidentCustomFieldOption("prodEnvironment", {
+ * const prodEnvironment = new pagerduty.IncidentCustomFieldOption("prod_environment", {
  *     field: sreEnvironment.id,
  *     dataType: "string",
  *     value: "prod",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class IncidentCustomFieldOption extends pulumi.CustomResource {
     /**

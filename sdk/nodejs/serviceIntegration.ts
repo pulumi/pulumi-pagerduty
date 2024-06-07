@@ -7,67 +7,75 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * A [service integration](<https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%!B(MISSING)id%!D(MISSING)~1integrations/post>) is an integration that belongs to a service.
+ * A [service integration](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%7Bid%7D~1integrations/post) is an integration that belongs to a service.
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const exampleUser = new pagerduty.User("exampleUser", {
+ * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
  *     email: "125.greenholt.earline@graham.name",
- *     teams: [pagerduty_team.example.id],
+ *     teams: [examplePagerdutyTeam.id],
  * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
  *             type: "user",
- *             id: exampleUser.id,
+ *             id: example.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("exampleService", {
+ * const exampleService = new pagerduty.Service("example", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
- *     escalationPolicy: pagerduty_escalation_policy.example.id,
+ *     escalationPolicy: examplePagerdutyEscalationPolicy.id,
  * });
- * const exampleServiceIntegration = new pagerduty.ServiceIntegration("exampleServiceIntegration", {
+ * const exampleServiceIntegration = new pagerduty.ServiceIntegration("example", {
+ *     name: "Generic API Service Integration",
  *     type: "generic_events_api_inbound_integration",
  *     service: exampleService.id,
  * });
  * const apiv2 = new pagerduty.ServiceIntegration("apiv2", {
+ *     name: "API V2",
  *     type: "events_api_v2_inbound_integration",
  *     service: exampleService.id,
  * });
- * const emailX = new pagerduty.ServiceIntegration("emailX", {
+ * const emailX = new pagerduty.ServiceIntegration("email_x", {
+ *     name: "Email X",
  *     type: "generic_email_inbound_integration",
  *     integrationEmail: "ecommerce@subdomain.pagerduty.com",
  *     service: exampleService.id,
  * });
- * const datadogVendor = pagerduty.getVendor({
+ * const datadog = pagerduty.getVendor({
  *     name: "Datadog",
  * });
- * const datadogServiceIntegration = new pagerduty.ServiceIntegration("datadogServiceIntegration", {
+ * const datadogServiceIntegration = new pagerduty.ServiceIntegration("datadog", {
+ *     name: datadog.then(datadog => datadog.name),
  *     service: exampleService.id,
- *     vendor: datadogVendor.then(datadogVendor => datadogVendor.id),
+ *     vendor: datadog.then(datadog => datadog.id),
  * });
- * const cloudwatchVendor = pagerduty.getVendor({
+ * const cloudwatch = pagerduty.getVendor({
  *     name: "Cloudwatch",
  * });
- * const cloudwatchServiceIntegration = new pagerduty.ServiceIntegration("cloudwatchServiceIntegration", {
+ * const cloudwatchServiceIntegration = new pagerduty.ServiceIntegration("cloudwatch", {
+ *     name: cloudwatch.then(cloudwatch => cloudwatch.name),
  *     service: exampleService.id,
- *     vendor: cloudwatchVendor.then(cloudwatchVendor => cloudwatchVendor.id),
+ *     vendor: cloudwatch.then(cloudwatch => cloudwatch.id),
  * });
- * const emailVendor = pagerduty.getVendor({
+ * const email = pagerduty.getVendor({
  *     name: "Email",
  * });
- * const emailServiceIntegration = new pagerduty.ServiceIntegration("emailServiceIntegration", {
+ * const emailServiceIntegration = new pagerduty.ServiceIntegration("email", {
+ *     name: email.then(email => email.name),
  *     service: exampleService.id,
- *     vendor: emailVendor.then(emailVendor => emailVendor.id),
+ *     vendor: email.then(email => email.id),
  *     integrationEmail: "s1@your_account.pagerduty.com",
  *     emailIncidentCreation: "use_rules",
  *     emailFilterMode: "and-rules-email",
@@ -128,7 +136,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

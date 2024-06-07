@@ -51,14 +51,14 @@ public final class EscalationPolicyRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A target ID
+     * The ID of the escalation policy.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return A target ID
+     * @return The ID of the escalation policy.
      * 
      */
     public Optional<Output<String>> id() {
@@ -142,7 +142,7 @@ public final class EscalationPolicyRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param id A target ID
+         * @param id The ID of the escalation policy.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class EscalationPolicyRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param id A target ID
+         * @param id The ID of the escalation policy.
          * 
          * @return builder
          * 

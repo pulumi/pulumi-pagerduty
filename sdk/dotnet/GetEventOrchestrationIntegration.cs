@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -25,7 +24,10 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var eventOrchestration = new Pagerduty.EventOrchestration("eventOrchestration");
+        ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
+        ///     {
+        ///         Name = "Test Event Orchestration",
+        ///     });
         /// 
         ///     var integration = Pagerduty.GetEventOrchestrationIntegration.Invoke(new()
         ///     {
@@ -35,7 +37,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEventOrchestrationIntegrationResult> InvokeAsync(GetEventOrchestrationIntegrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventOrchestrationIntegrationResult>("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", args ?? new GetEventOrchestrationIntegrationArgs(), options.WithDefaults());
@@ -45,7 +46,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -54,7 +54,10 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var eventOrchestration = new Pagerduty.EventOrchestration("eventOrchestration");
+        ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
+        ///     {
+        ///         Name = "Test Event Orchestration",
+        ///     });
         /// 
         ///     var integration = Pagerduty.GetEventOrchestrationIntegration.Invoke(new()
         ///     {
@@ -64,7 +67,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEventOrchestrationIntegrationResult> Invoke(GetEventOrchestrationIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationIntegrationResult>("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", args ?? new GetEventOrchestrationIntegrationInvokeArgs(), options.WithDefaults());

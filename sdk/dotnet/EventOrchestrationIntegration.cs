@@ -18,7 +18,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// &gt; When a new Event Orchestration is created there will be one Integration (and Routing Key) included by default. Example below shows how to create an extra Integration associated with this Event Orchestration.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,10 +26,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var databaseTeam = new Pagerduty.Team("databaseTeam");
-    /// 
-    ///     var eventOrchestration = new Pagerduty.EventOrchestration("eventOrchestration", new()
+    ///     var databaseTeam = new Pagerduty.Team("database_team", new()
     ///     {
+    ///         Name = "Database Team",
+    ///     });
+    /// 
+    ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
+    ///     {
+    ///         Name = "Example Orchestration",
     ///         Team = databaseTeam.Id,
     ///     });
     /// 
@@ -42,7 +45,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

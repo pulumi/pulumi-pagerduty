@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,17 +29,19 @@ namespace Pulumi.Pagerduty
         ///         Name = "Generic V2 Webhook",
         ///     });
         /// 
-        ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+        ///     var example = new Pagerduty.User("example", new()
         ///     {
+        ///         Name = "Howard James",
         ///         Email = "howard.james@example.domain",
         ///         Teams = new[]
         ///         {
-        ///             pagerduty_team.Example.Id,
+        ///             examplePagerdutyTeam.Id,
         ///         },
         ///     });
         /// 
         ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
         ///     {
+        ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,
         ///         Rules = new[]
         ///         {
@@ -52,22 +53,24 @@ namespace Pulumi.Pagerduty
         ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                     {
         ///                         Type = "user",
-        ///                         Id = exampleUser.Id,
+        ///                         Id = example.Id,
         ///                     },
         ///                 },
         ///             },
         ///         },
         ///     });
         /// 
-        ///     var exampleService = new Pagerduty.Service("exampleService", new()
+        ///     var exampleService = new Pagerduty.Service("example", new()
         ///     {
+        ///         Name = "My Web App",
         ///         AutoResolveTimeout = "14400",
         ///         AcknowledgementTimeout = "600",
-        ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+        ///         EscalationPolicy = examplePagerdutyEscalationPolicy.Id,
         ///     });
         /// 
         ///     var slack = new Pagerduty.Extension("slack", new()
         ///     {
+        ///         Name = "My Web App Extension",
         ///         EndpointUrl = "https://generic_webhook_url/XXXXXX/BBBBBB",
         ///         ExtensionSchema = webhook.Apply(getExtensionSchemaResult =&gt; getExtensionSchemaResult.Id),
         ///         ExtensionObjects = new[]
@@ -78,7 +81,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetExtensionSchemaResult> InvokeAsync(GetExtensionSchemaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtensionSchemaResult>("pagerduty:index/getExtensionSchema:getExtensionSchema", args ?? new GetExtensionSchemaArgs(), options.WithDefaults());
@@ -88,7 +90,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -102,17 +103,19 @@ namespace Pulumi.Pagerduty
         ///         Name = "Generic V2 Webhook",
         ///     });
         /// 
-        ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+        ///     var example = new Pagerduty.User("example", new()
         ///     {
+        ///         Name = "Howard James",
         ///         Email = "howard.james@example.domain",
         ///         Teams = new[]
         ///         {
-        ///             pagerduty_team.Example.Id,
+        ///             examplePagerdutyTeam.Id,
         ///         },
         ///     });
         /// 
         ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
         ///     {
+        ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,
         ///         Rules = new[]
         ///         {
@@ -124,22 +127,24 @@ namespace Pulumi.Pagerduty
         ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                     {
         ///                         Type = "user",
-        ///                         Id = exampleUser.Id,
+        ///                         Id = example.Id,
         ///                     },
         ///                 },
         ///             },
         ///         },
         ///     });
         /// 
-        ///     var exampleService = new Pagerduty.Service("exampleService", new()
+        ///     var exampleService = new Pagerduty.Service("example", new()
         ///     {
+        ///         Name = "My Web App",
         ///         AutoResolveTimeout = "14400",
         ///         AcknowledgementTimeout = "600",
-        ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+        ///         EscalationPolicy = examplePagerdutyEscalationPolicy.Id,
         ///     });
         /// 
         ///     var slack = new Pagerduty.Extension("slack", new()
         ///     {
+        ///         Name = "My Web App Extension",
         ///         EndpointUrl = "https://generic_webhook_url/XXXXXX/BBBBBB",
         ///         ExtensionSchema = webhook.Apply(getExtensionSchemaResult =&gt; getExtensionSchemaResult.Id),
         ///         ExtensionObjects = new[]
@@ -150,7 +155,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetExtensionSchemaResult> Invoke(GetExtensionSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionSchemaResult>("pagerduty:index/getExtensionSchema:getExtensionSchema", args ?? new GetExtensionSchemaInvokeArgs(), options.WithDefaults());
@@ -190,7 +194,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetExtensionSchemaResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// The ID of the found extension vendor.
         /// </summary>
         public readonly string Id;
         /// <summary>

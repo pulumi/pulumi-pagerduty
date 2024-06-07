@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,37 +22,41 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBusinessService = new Pagerduty.BusinessService("exampleBusinessService", new()
+    ///     var example = new Pagerduty.BusinessService("example", new()
     ///     {
+    ///         Name = "My Web App",
     ///         Description = "A very descriptive description of this business service",
     ///         PointOfContact = "PagerDuty Admin",
     ///         Team = "P37RSRS",
     ///     });
     /// 
-    ///     var engteam = new Pagerduty.Team("engteam");
-    /// 
-    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+    ///     var engteam = new Pagerduty.Team("engteam", new()
     ///     {
+    ///         Name = "Engineering",
+    ///     });
+    /// 
+    ///     var exampleUser = new Pagerduty.User("example", new()
+    ///     {
+    ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///     });
     /// 
-    ///     var teamExample = new Pagerduty.BusinessServiceSubscriber("teamExample", new()
+    ///     var teamExample = new Pagerduty.BusinessServiceSubscriber("team_example", new()
     ///     {
     ///         SubscriberId = engteam.Id,
     ///         SubscriberType = "team",
-    ///         BusinessServiceId = exampleBusinessService.Id,
+    ///         BusinessServiceId = example.Id,
     ///     });
     /// 
-    ///     var userExample = new Pagerduty.BusinessServiceSubscriber("userExample", new()
+    ///     var userExample = new Pagerduty.BusinessServiceSubscriber("user_example", new()
     ///     {
     ///         SubscriberId = exampleUser.Id,
     ///         SubscriberType = "user",
-    ///         BusinessServiceId = exampleBusinessService.Id,
+    ///         BusinessServiceId = example.Id,
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

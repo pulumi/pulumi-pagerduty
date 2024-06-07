@@ -19,13 +19,15 @@ import * as utilities from "./utilities";
  *
  * The `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catchAll` doesn't have any `actions` so it'll leave events as-is.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const databaseTeam = new pagerduty.Team("databaseTeam", {});
- * const eventOrchestration = new pagerduty.EventOrchestration("eventOrchestration", {team: databaseTeam.id});
+ * const databaseTeam = new pagerduty.Team("database_team", {name: "Database Team"});
+ * const eventOrchestration = new pagerduty.EventOrchestration("event_orchestration", {
+ *     name: "Example Orchestration",
+ *     team: databaseTeam.id,
+ * });
  * const p1 = pagerduty.getPriority({
  *     name: "P1",
  * });
@@ -82,7 +84,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

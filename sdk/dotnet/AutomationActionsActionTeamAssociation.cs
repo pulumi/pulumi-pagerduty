@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,11 +24,13 @@ namespace Pulumi.Pagerduty
     /// {
     ///     var example = new Pagerduty.Team("example", new()
     ///     {
+    ///         Name = "Engineering",
     ///         Description = "All engineering",
     ///     });
     /// 
-    ///     var paActionExample = new Pagerduty.AutomationActionsAction("paActionExample", new()
+    ///     var paActionExample = new Pagerduty.AutomationActionsAction("pa_action_example", new()
     ///     {
+    ///         Name = "PA Action created via TF",
     ///         Description = "Description of the PA Action created via TF",
     ///         ActionType = "process_automation",
     ///         ActionDataReference = new Pagerduty.Inputs.AutomationActionsActionActionDataReferenceArgs
@@ -46,7 +47,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

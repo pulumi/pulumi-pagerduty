@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,18 +44,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var parent = new Team(&#34;parent&#34;, TeamArgs.builder()        
- *             .description(&#34;Product and Engineering&#34;)
+ *         var parent = new Team("parent", TeamArgs.builder()
+ *             .name("Product Development")
+ *             .description("Product and Engineering")
  *             .build());
  * 
- *         var example = new Team(&#34;example&#34;, TeamArgs.builder()        
- *             .description(&#34;All engineering&#34;)
+ *         var example = new Team("example", TeamArgs.builder()
+ *             .name("Engineering")
+ *             .description("All engineering")
  *             .parent(parent.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

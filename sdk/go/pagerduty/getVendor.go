@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,16 +35,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//			example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Name:  pulumi.String("Earline Greenholt"),
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //				Teams: pulumi.StringArray{
-//					pagerduty_team.Example.Id,
+//					examplePagerdutyTeam.Id,
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+//				Name:     pulumi.String("Engineering Escalation Policy"),
 //				NumLoops: pulumi.Int(2),
 //				Rules: pagerduty.EscalationPolicyRuleArray{
 //					&pagerduty.EscalationPolicyRuleArgs{
@@ -53,7 +54,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
-//								Id:   exampleUser.ID(),
+//								Id:   example.ID(),
 //							},
 //						},
 //					},
@@ -62,15 +63,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+//			exampleService, err := pagerduty.NewService(ctx, "example", &pagerduty.ServiceArgs{
+//				Name:                   pulumi.String("My Web App"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),
+//				EscalationPolicy:       pulumi.Any(examplePagerdutyEscalationPolicy.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewServiceIntegration(ctx, "exampleServiceIntegration", &pagerduty.ServiceIntegrationArgs{
+//			_, err = pagerduty.NewServiceIntegration(ctx, "example", &pagerduty.ServiceIntegrationArgs{
+//				Name:    pulumi.String("Datadog Integration"),
 //				Vendor:  pulumi.String(datadog.Id),
 //				Service: exampleService.ID(),
 //			})
@@ -82,7 +85,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetVendor(ctx *pulumi.Context, args *GetVendorArgs, opts ...pulumi.InvokeOption) (*GetVendorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVendorResult

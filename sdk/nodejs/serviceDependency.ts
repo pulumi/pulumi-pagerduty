@@ -11,33 +11,31 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const foo = new pagerduty.ServiceDependency("foo", {dependency: {
  *     dependentServices: [{
- *         id: pagerduty_business_service.foo.id,
- *         type: pagerduty_business_service.foo.type,
+ *         id: fooPagerdutyBusinessService.id,
+ *         type: fooPagerdutyBusinessService.type,
  *     }],
  *     supportingServices: [{
- *         id: pagerduty_service.foo.id,
- *         type: pagerduty_service.foo.type,
+ *         id: fooPagerdutyService.id,
+ *         type: fooPagerdutyService.type,
  *     }],
  * }});
  * const bar = new pagerduty.ServiceDependency("bar", {dependency: {
  *     dependentServices: [{
- *         id: pagerduty_business_service.foo.id,
- *         type: pagerduty_business_service.foo.type,
+ *         id: fooPagerdutyBusinessService.id,
+ *         type: fooPagerdutyBusinessService.type,
  *     }],
  *     supportingServices: [{
- *         id: pagerduty_service.two.id,
- *         type: pagerduty_service.two.type,
+ *         id: two.id,
+ *         type: two.type,
  *     }],
  * }});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

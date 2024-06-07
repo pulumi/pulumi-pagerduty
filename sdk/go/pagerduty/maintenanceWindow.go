@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,7 +34,7 @@ import (
 //				StartTime: pulumi.String("2015-11-09T20:00:00-05:00"),
 //				EndTime:   pulumi.String("2015-11-09T22:00:00-05:00"),
 //				Services: pulumi.StringArray{
-//					pagerduty_service.Example.Id,
+//					examplePagerdutyService.Id,
 //				},
 //			})
 //			if err != nil {
@@ -46,7 +45,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

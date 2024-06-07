@@ -21,7 +21,6 @@ import (
 // In this example of an Unrouted Orchestration, the rule matches only if the condition is matched.
 // Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catchAll` block.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,7 +34,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pagerduty.NewEventOrchestrationUnrouted(ctx, "unrouted", &pagerduty.EventOrchestrationUnroutedArgs{
-//				EventOrchestration: pulumi.Any(pagerduty_event_orchestration.My_monitor.Id),
+//				EventOrchestration: pulumi.Any(myMonitor.Id),
 //				Sets: pagerduty.EventOrchestrationUnroutedSetArray{
 //					&pagerduty.EventOrchestrationUnroutedSetArgs{
 //						Id: pulumi.String("start"),
@@ -74,7 +73,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

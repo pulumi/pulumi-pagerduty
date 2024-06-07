@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -156,13 +155,12 @@ namespace Pulumi.Pagerduty
     ///     {
     ///         DependsOn =
     ///         {
-    ///             pagerduty_event_rule.Two, 
+    ///             two,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

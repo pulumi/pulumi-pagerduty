@@ -16,14 +16,14 @@ public final class ResponsePlayResponderServiceArgs extends com.pulumi.resources
     public static final ResponsePlayResponderServiceArgs Empty = new ResponsePlayResponderServiceArgs();
 
     /**
-     * ID of the user defined as the responder
+     * The ID of the response play.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return ID of the user defined as the responder
+     * @return The ID of the response play.
      * 
      */
     public Optional<Output<String>> id() {
@@ -71,7 +71,7 @@ public final class ResponsePlayResponderServiceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param id ID of the user defined as the responder
+         * @param id The ID of the response play.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ResponsePlayResponderServiceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param id ID of the user defined as the responder
+         * @param id The ID of the response play.
          * 
          * @return builder
          * 

@@ -141,14 +141,14 @@ public final class ResponsePlayResponderArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+     * Should be set as `escalation_policy` for escalation policy responders.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+     * @return Should be set as `escalation_policy` for escalation policy responders.
      * 
      */
     public Optional<Output<String>> type() {
@@ -386,7 +386,7 @@ public final class ResponsePlayResponderArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+         * @param type Should be set as `escalation_policy` for escalation policy responders.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class ResponsePlayResponderArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+         * @param type Should be set as `escalation_policy` for escalation policy responders.
          * 
          * @return builder
          * 

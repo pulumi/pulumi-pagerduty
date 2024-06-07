@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * This example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,43 +50,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var router = new EventOrchestrationRouter(&#34;router&#34;, EventOrchestrationRouterArgs.builder()        
- *             .eventOrchestration(pagerduty_event_orchestration.my_monitor().id())
+ *         var router = new EventOrchestrationRouter("router", EventOrchestrationRouterArgs.builder()
+ *             .eventOrchestration(myMonitor.id())
  *             .set(EventOrchestrationRouterSetArgs.builder()
- *                 .id(&#34;start&#34;)
+ *                 .id("start")
  *                 .rules(                
  *                     EventOrchestrationRouterSetRuleArgs.builder()
- *                         .label(&#34;Events relating to our relational database&#34;)
+ *                         .label("Events relating to our relational database")
  *                         .conditions(                        
  *                             EventOrchestrationRouterSetRuleConditionArgs.builder()
- *                                 .expression(&#34;event.summary matches part &#39;database&#39;&#34;)
+ *                                 .expression("event.summary matches part 'database'")
  *                                 .build(),
  *                             EventOrchestrationRouterSetRuleConditionArgs.builder()
- *                                 .expression(&#34;event.source matches regex &#39;db[0-9]+-server&#39;&#34;)
+ *                                 .expression("event.source matches regex 'db[0-9]+-server'")
  *                                 .build())
  *                         .actions(EventOrchestrationRouterSetRuleActionsArgs.builder()
- *                             .routeTo(pagerduty_service.database().id())
+ *                             .routeTo(database.id())
  *                             .build())
  *                         .build(),
  *                     EventOrchestrationRouterSetRuleArgs.builder()
  *                         .conditions(EventOrchestrationRouterSetRuleConditionArgs.builder()
- *                             .expression(&#34;event.summary matches part &#39;www&#39;&#34;)
+ *                             .expression("event.summary matches part 'www'")
  *                             .build())
  *                         .actions(EventOrchestrationRouterSetRuleActionsArgs.builder()
- *                             .routeTo(pagerduty_service.www().id())
+ *                             .routeTo(www.id())
  *                             .build())
  *                         .build())
  *                 .build())
  *             .catchAll(EventOrchestrationRouterCatchAllArgs.builder()
  *                 .actions(EventOrchestrationRouterCatchAllActionsArgs.builder()
- *                     .routeTo(&#34;unrouted&#34;)
+ *                     .routeTo("unrouted")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

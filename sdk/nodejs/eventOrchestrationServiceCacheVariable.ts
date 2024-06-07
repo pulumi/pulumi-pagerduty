@@ -13,17 +13,18 @@ import * as utilities from "./utilities";
  *
  * This example shows creating a service `Event Orchestration` and a `Cache Variable`. This Cache Variable will count and store the number of trigger events with 'database' in its title. Then all alerts sent to this Event Orchestration will have its severity upped to 'critical' if the count has reached at least 5 triggers within the last 1 minute.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const databaseTeam = new pagerduty.Team("databaseTeam", {});
- * const user1 = new pagerduty.User("user1", {
+ * const databaseTeam = new pagerduty.Team("database_team", {name: "Database Team"});
+ * const user1 = new pagerduty.User("user_1", {
+ *     name: "Earline Greenholt",
  *     email: "125.greenholt.earline@graham.name",
  *     teams: [databaseTeam.id],
  * });
- * const dbEp = new pagerduty.EscalationPolicy("dbEp", {
+ * const dbEp = new pagerduty.EscalationPolicy("db_ep", {
+ *     name: "Database Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
@@ -34,13 +35,15 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * const svc = new pagerduty.Service("svc", {
+ *     name: "My Database Service",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
  *     escalationPolicy: dbEp.id,
  *     alertCreation: "create_alerts_and_incidents",
  * });
- * const numDbTriggers = new pagerduty.EventOrchestrationServiceCacheVariable("numDbTriggers", {
+ * const numDbTriggers = new pagerduty.EventOrchestrationServiceCacheVariable("num_db_triggers", {
  *     service: svc.id,
+ *     name: "num_db_triggers",
  *     conditions: [{
  *         expression: "event.summary matches part 'database'",
  *     }],
@@ -49,7 +52,7 @@ import * as utilities from "./utilities";
  *         ttlSeconds: 60,
  *     },
  * });
- * const eventOrchestration = new pagerduty.EventOrchestrationService("eventOrchestration", {
+ * const eventOrchestration = new pagerduty.EventOrchestrationService("event_orchestration", {
  *     service: svc.id,
  *     enableEventOrchestrationForService: true,
  *     sets: [{
@@ -69,7 +72,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

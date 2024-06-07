@@ -27,10 +27,6 @@ namespace Pulumi.Pagerduty.Inputs
 
         /// <summary>
         /// The support hours' ending time of day.
-        /// 
-        /// A `scheduled_actions` block is required when using `type = "use_support_hours"` in `incident_urgency_rule`.
-        /// 
-        /// The block contains the following arguments:
         /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
@@ -48,7 +44,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? TimeZone { get; set; }
 
         /// <summary>
-        /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        /// The type of support hours. Can be `fixed_time_per_day`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

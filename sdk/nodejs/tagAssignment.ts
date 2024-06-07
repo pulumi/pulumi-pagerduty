@@ -9,20 +9,18 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const exampleTag = new pagerduty.Tag("exampleTag", {label: "API"});
- * const engteam = new pagerduty.Team("engteam", {});
- * const exampleTagAssignment = new pagerduty.TagAssignment("exampleTagAssignment", {
- *     tagId: exampleTag.id,
+ * const example = new pagerduty.Tag("example", {label: "API"});
+ * const engteam = new pagerduty.Team("engteam", {name: "Engineering"});
+ * const exampleTagAssignment = new pagerduty.TagAssignment("example", {
+ *     tagId: example.id,
  *     entityType: "teams",
  *     entityId: engteam.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

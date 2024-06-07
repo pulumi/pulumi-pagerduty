@@ -260,21 +260,23 @@ class Schedule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
-        example_team = pagerduty.Team("exampleTeam")
+        example = pagerduty.User("example",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
+        example_team = pagerduty.Team("example", name="A Team")
         foo = pagerduty.Schedule("foo",
+            name="Daily Engineering Rotation",
             time_zone="America/New_York",
             layers=[pagerduty.ScheduleLayerArgs(
                 name="Night Shift",
                 start="2015-11-06T20:00:00-05:00",
                 rotation_virtual_start="2015-11-06T20:00:00-05:00",
                 rotation_turn_length_seconds=86400,
-                users=[example_user.id],
+                users=[example.id],
                 restrictions=[pagerduty.ScheduleLayerRestrictionArgs(
                     type="daily_restriction",
                     start_time_of_day="08:00:00",
@@ -283,7 +285,6 @@ class Schedule(pulumi.CustomResource):
             )],
             teams=[example_team.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -315,21 +316,23 @@ class Schedule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
-        example_team = pagerduty.Team("exampleTeam")
+        example = pagerduty.User("example",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
+        example_team = pagerduty.Team("example", name="A Team")
         foo = pagerduty.Schedule("foo",
+            name="Daily Engineering Rotation",
             time_zone="America/New_York",
             layers=[pagerduty.ScheduleLayerArgs(
                 name="Night Shift",
                 start="2015-11-06T20:00:00-05:00",
                 rotation_virtual_start="2015-11-06T20:00:00-05:00",
                 rotation_turn_length_seconds=86400,
-                users=[example_user.id],
+                users=[example.id],
                 restrictions=[pagerduty.ScheduleLayerRestrictionArgs(
                     type="daily_restriction",
                     start_time_of_day="08:00:00",
@@ -338,7 +341,6 @@ class Schedule(pulumi.CustomResource):
             )],
             teams=[example_team.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

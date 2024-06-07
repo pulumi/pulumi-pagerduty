@@ -172,23 +172,22 @@ class IncidentWorkflow(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        my_first_workflow = pagerduty.IncidentWorkflow("myFirstWorkflow",
+        my_first_workflow = pagerduty.IncidentWorkflow("my_first_workflow",
+            name="Example Incident Workflow",
             description="This Incident Workflow is an example",
             steps=[pagerduty.IncidentWorkflowStepArgs(
+                name="Send Status Update",
                 action="pagerduty.com:incident-workflows:send-status-update:1",
                 inputs=[pagerduty.IncidentWorkflowStepInputArgs(
                     name="Message",
                     value="Example status message sent on {{current_date}}",
                 )],
-                name="Send Status Update",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -216,23 +215,22 @@ class IncidentWorkflow(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        my_first_workflow = pagerduty.IncidentWorkflow("myFirstWorkflow",
+        my_first_workflow = pagerduty.IncidentWorkflow("my_first_workflow",
+            name="Example Incident Workflow",
             description="This Incident Workflow is an example",
             steps=[pagerduty.IncidentWorkflowStepArgs(
+                name="Send Status Update",
                 action="pagerduty.com:incident-workflows:send-status-update:1",
                 inputs=[pagerduty.IncidentWorkflowStepInputArgs(
                     name="Message",
                     value="Example status message sent on {{current_date}}",
                 )],
-                name="Send Status Update",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

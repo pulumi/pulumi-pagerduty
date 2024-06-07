@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,13 +22,15 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+    ///     var example = new Pagerduty.User("example", new()
     ///     {
+    ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///     });
     /// 
     ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
     ///     {
+    ///         Name = "Engineering Escalation Policy",
     ///         NumLoops = 2,
     ///         Rules = new[]
     ///         {
@@ -41,15 +42,16 @@ namespace Pulumi.Pagerduty
     ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
     ///                     {
     ///                         Type = "user_reference",
-    ///                         Id = exampleUser.Id,
+    ///                         Id = example.Id,
     ///                     },
     ///                 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleService = new Pagerduty.Service("exampleService", new()
+    ///     var exampleService = new Pagerduty.Service("example", new()
     ///     {
+    ///         Name = "My Web App",
     ///         AutoResolveTimeout = "14400",
     ///         AcknowledgementTimeout = "600",
     ///         EscalationPolicy = foo.Id,
@@ -63,7 +65,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -173,7 +174,7 @@ namespace Pulumi.Pagerduty
         public Output<Outputs.ServiceSupportHours?> SupportHours { get; private set; } = null!;
 
         /// <summary>
-        /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        /// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -412,7 +413,7 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.ServiceSupportHoursGetArgs>? SupportHours { get; set; }
 
         /// <summary>
-        /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        /// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

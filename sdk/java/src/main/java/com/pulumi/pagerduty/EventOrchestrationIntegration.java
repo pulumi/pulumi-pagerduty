@@ -25,13 +25,15 @@ import javax.annotation.Nullable;
  * &gt; When a new Event Orchestration is created there will be one Integration (and Routing Key) included by default. Example below shows how to create an extra Integration associated with this Event Orchestration.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.TeamArgs;
  * import com.pulumi.pagerduty.EventOrchestration;
  * import com.pulumi.pagerduty.EventOrchestrationArgs;
  * import com.pulumi.pagerduty.EventOrchestrationIntegration;
@@ -49,20 +51,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var databaseTeam = new Team(&#34;databaseTeam&#34;);
+ *         var databaseTeam = new Team("databaseTeam", TeamArgs.builder()
+ *             .name("Database Team")
+ *             .build());
  * 
- *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;, EventOrchestrationArgs.builder()        
+ *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()
+ *             .name("Example Orchestration")
  *             .team(databaseTeam.id())
  *             .build());
  * 
- *         var integration = new EventOrchestrationIntegration(&#34;integration&#34;, EventOrchestrationIntegrationArgs.builder()        
+ *         var integration = new EventOrchestrationIntegration("integration", EventOrchestrationIntegrationArgs.builder()
  *             .eventOrchestration(eventOrchestration.id())
- *             .label(&#34;Example integration&#34;)
+ *             .label("Example integration")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

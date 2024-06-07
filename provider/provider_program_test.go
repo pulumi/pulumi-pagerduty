@@ -23,7 +23,6 @@ const defaultBaselineVersion = "4.11.1"
 
 var programs = []string{
 	"test-programs/index_usercontactmethod",
-	"test-programs/.DS_Store",
 	"test-programs/index_service",
 	"test-programs/index_schedule",
 	"test-programs/index_usernotificationrule",

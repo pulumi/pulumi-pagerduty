@@ -1,0 +1,25 @@
+name: index_escalationpolicysK7bMhDAM60j
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/88dfe9b5-adc5-469e-86c7-f05bfd196dac.zip
+resources:
+  escalation_policy:
+    properties:
+      description: Escalation policy for the engineering team.
+
+      rules:
+        - escalationDelayInMinutes: 30
+          targets:
+            - id: ${myPagerDutyUser.id}
+              type: user_reference
+    type: pagerduty:EscalationPolicy
+  myPagerDutyUser:
+    properties:
+      color: green
+      description: Managed by Pulumi
+      email: example-user@pulumi.com
+      role: admin
+    type: pagerduty:User

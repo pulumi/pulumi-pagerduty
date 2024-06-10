@@ -5,10 +5,17 @@ config:
   pulumi:tags:
     value:
       pulumi:template: https://www.pulumi.com/ai/api/project/d1fa4539-6408-419f-aaf8-01c05371167c.zip
+
 resources:
+  scheduled_user:
+    type: random:RandomString
+    properties:
+      length: 6
+      special: false
+      upper: false
   pagerduty_contact_method:
     properties:
-      address: user@pulumi.com
+      address: ${pagerduty_user.email}
       label: Work Email
       type: email_contact_method
       userId: ${pagerduty_user.id}
@@ -26,7 +33,7 @@ resources:
     properties:
       color: red
       description: Managed by Pulumi
-      email: user@pulumi.com
+      email: ${scheduled_user.result}.test@pulumi.com
       role: admin
       timeZone: America/Los_Angeles
     type: pagerduty:User

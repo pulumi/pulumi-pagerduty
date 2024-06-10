@@ -1,6 +1,5 @@
 name: index_scheduleH0YN8AIQu29L
 runtime: yaml
-description: ""
 config:
   pulumi:tags:
     value:
@@ -18,10 +17,16 @@ resources:
             - ${pagerdutyUser.id}
       timeZone: Etc/UTC
     type: pagerduty:Schedule
+  scheduled_user:
+    type: random:RandomString
+    properties:
+      length: 6
+      special: false
+      upper: false
   pagerdutyUser:
     properties:
       color: green
-      email: scheduled_user@pulumi.com
+      email: ${scheduled_user.result}.scheduled_user@pulumi.com
       role: admin
       teams: []
     type: pagerduty:User

@@ -79,6 +79,7 @@ func testProviderUpgradeWithOpts(
 	test := pulumitest.NewPulumiTest(t, dir,
 		opttest.DownloadProviderVersion(providerName, baselineVersion),
 		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+		opttest.DownloadProviderVersion("random", "4.16.0"),
 	)
 	for k, v := range config {
 		test.SetConfig(k, v)
@@ -100,6 +101,7 @@ func testProgram(t *testing.T, dir string) {
 	test := pulumitest.NewPulumiTest(t, dir,
 		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
 		opttest.SkipInstall(),
+		opttest.DownloadProviderVersion("random", "4.16.0"),
 	)
 	test.Up()
 }
@@ -113,7 +115,6 @@ func TestPrograms(t *testing.T) {
 }
 
 func TestProgramsUpgrade(t *testing.T) {
-	t.Skipf("skip upgrade tests for now as we have not recorded them.")
 	for _, p := range programs {
 		t.Run(p, func(t *testing.T) {
 			testProviderUpgrade(t, p)

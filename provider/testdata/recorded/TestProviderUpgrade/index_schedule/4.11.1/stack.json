@@ -1,0 +1,198 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-06-14T12:05:28.909268+01:00",
+      "magic": "26455f4e783faab27da6c6ee2e252716b1c84e7f67777a274faa7d2452f68cf7",
+      "version": "v3.120.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:ZV6MmzqlFKM=:v1:vnlM3bZlfAmJ68+T:otjZMMETVT5wy6Pq2aGDbXCx5nL3Eg=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_scheduleH0YN8AIQu29L::pulumi:pulumi:Stack::index_scheduleH0YN8AIQu29L-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-06-14T11:05:24.742535Z",
+        "modified": "2024-06-14T11:05:24.742535Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_scheduleH0YN8AIQu29L::pulumi:providers:random::default",
+        "custom": true,
+        "id": "392bf3cc-8cf0-4d91-b932-8e1471ec4439",
+        "type": "pulumi:providers:random",
+        "created": "2024-06-14T11:05:24.822591Z",
+        "modified": "2024-06-14T11:05:24.822591Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_scheduleH0YN8AIQu29L::random:index/randomString:RandomString::scheduled_user",
+        "custom": true,
+        "id": "9mnxvh",
+        "type": "random:index/randomString:RandomString",
+        "inputs": {
+          "length": 6,
+          "special": false,
+          "upper": false
+        },
+        "outputs": {
+          "__meta": "{\"schema_version\":\"2\"}",
+          "id": "9mnxvh",
+          "length": 6,
+          "lower": true,
+          "minLower": 0,
+          "minNumeric": 0,
+          "minSpecial": 0,
+          "minUpper": 0,
+          "number": true,
+          "numeric": true,
+          "result": "9mnxvh",
+          "special": false,
+          "upper": false
+        },
+        "parent": "urn:pulumi:test::index_scheduleH0YN8AIQu29L::pulumi:pulumi:Stack::index_scheduleH0YN8AIQu29L-test",
+        "provider": "urn:pulumi:test::index_scheduleH0YN8AIQu29L::pulumi:providers:random::default::392bf3cc-8cf0-4d91-b932-8e1471ec4439",
+        "propertyDependencies": {
+          "length": [],
+          "special": [],
+          "upper": []
+        },
+        "created": "2024-06-14T11:05:24.825978Z",
+        "modified": "2024-06-14T11:05:24.825978Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_scheduleH0YN8AIQu29L::pulumi:providers:pagerduty::default",
+        "custom": true,
+        "id": "08e7aac1-b0ad-4dba-af09-a1dcc2e28014",
+        "type": "pulumi:providers:pagerduty",
+        "inputs": {
+          "skipCredentialsValidation": "false"
+        },
+        "outputs": {
+          "skipCredentialsValidation": "false"
+        },
+        "created": "2024-06-14T11:05:24.857305Z",
+        "modified": "2024-06-14T11:05:24.857305Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_scheduleH0YN8AIQu29L::pagerduty:index/user:User::pagerdutyUser",
+        "custom": true,
+        "id": "PFNJQ5U",
+        "type": "pagerduty:index/user:User",
+        "inputs": {
+          "__defaults": [
+            "description",
+            "name"
+          ],
+          "color": "green",
+          "description": "Managed by Pulumi",
+          "email": "9mnxvh.scheduled_user@pulumi.com",
+          "name": "pagerdutyUser-d2c2319",
+          "role": "admin",
+          "teams": []
+        },
+        "outputs": {
+          "avatarUrl": "https://secure.gravatar.com/avatar/decce9a604394cf4ed117e7b35b9c6e9.png?d=mm\u0026r=PG",
+          "color": "green",
+          "description": "Managed by Pulumi",
+          "email": "9mnxvh.scheduled_user@pulumi.com",
+          "htmlUrl": "https://pulumibot.pagerduty.com/users/PFNJQ5U",
+          "id": "PFNJQ5U",
+          "invitationSent": true,
+          "jobTitle": "",
+          "license": "P6LVYR1",
+          "name": "pagerdutyUser-d2c2319",
+          "role": "admin",
+          "teams": [],
+          "timeZone": "Europe/London"
+        },
+        "parent": "urn:pulumi:test::index_scheduleH0YN8AIQu29L::pulumi:pulumi:Stack::index_scheduleH0YN8AIQu29L-test",
+        "dependencies": [
+          "urn:pulumi:test::index_scheduleH0YN8AIQu29L::random:index/randomString:RandomString::scheduled_user"
+        ],
+        "provider": "urn:pulumi:test::index_scheduleH0YN8AIQu29L::pulumi:providers:pagerduty::default::08e7aac1-b0ad-4dba-af09-a1dcc2e28014",
+        "propertyDependencies": {
+          "color": [],
+          "email": [
+            "urn:pulumi:test::index_scheduleH0YN8AIQu29L::random:index/randomString:RandomString::scheduled_user"
+          ],
+          "role": [],
+          "teams": []
+        },
+        "created": "2024-06-14T11:05:28.217875Z",
+        "modified": "2024-06-14T11:05:28.217875Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_scheduleH0YN8AIQu29L::pagerduty:index/schedule:Schedule::pagerdutySchedule",
+        "custom": true,
+        "id": "PEZZCSF",
+        "type": "pagerduty:index/schedule:Schedule",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "description": "This is an example schedule managed by Pulumi",
+          "layers": [
+            {
+              "__defaults": [],
+              "restrictions": [],
+              "rotationTurnLengthSeconds": 604800,
+              "rotationVirtualStart": "2023-01-01T00:00:00Z",
+              "start": "2023-01-01T00:00:00Z",
+              "users": [
+                "PFNJQ5U"
+              ]
+            }
+          ],
+          "name": "pagerdutySchedule-2ea4e5c",
+          "timeZone": "Etc/UTC"
+        },
+        "outputs": {
+          "description": "This is an example schedule managed by Pulumi",
+          "finalSchedules": [
+            {
+              "name": "Final Schedule",
+              "renderedCoveragePercentage": "0.00"
+            }
+          ],
+          "id": "PEZZCSF",
+          "layers": [
+            {
+              "end": "",
+              "id": "PHXYV18",
+              "name": "Schedule Layer 2",
+              "renderedCoveragePercentage": "0.00",
+              "restrictions": [],
+              "rotationTurnLengthSeconds": 604800,
+              "rotationVirtualStart": "2023-01-01T00:00:00Z",
+              "start": "2024-06-14T11:05:28Z",
+              "users": [
+                "PFNJQ5U"
+              ]
+            }
+          ],
+          "name": "pagerdutySchedule-2ea4e5c",
+          "teams": [],
+          "timeZone": "Etc/UTC"
+        },
+        "parent": "urn:pulumi:test::index_scheduleH0YN8AIQu29L::pulumi:pulumi:Stack::index_scheduleH0YN8AIQu29L-test",
+        "dependencies": [
+          "urn:pulumi:test::index_scheduleH0YN8AIQu29L::pagerduty:index/user:User::pagerdutyUser"
+        ],
+        "provider": "urn:pulumi:test::index_scheduleH0YN8AIQu29L::pulumi:providers:pagerduty::default::08e7aac1-b0ad-4dba-af09-a1dcc2e28014",
+        "propertyDependencies": {
+          "description": [],
+          "layers": [
+            "urn:pulumi:test::index_scheduleH0YN8AIQu29L::pagerduty:index/user:User::pagerdutyUser"
+          ],
+          "timeZone": []
+        },
+        "created": "2024-06-14T11:05:28.903231Z",
+        "modified": "2024-06-14T11:05:28.903231Z"
+      }
+    ]
+  }
+}

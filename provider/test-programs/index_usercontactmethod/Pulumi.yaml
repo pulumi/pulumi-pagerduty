@@ -6,11 +6,17 @@ config:
     value:
       pulumi:template: https://www.pulumi.com/ai/api/project/703fa8ab-5fb1-4ce6-8b67-5a4a0bd325a5.zip
 resources:
+  randomString:
+    properties:
+      length: 8
+      upper: false
+      special: false
+    type: random:RandomString
   user:
     properties:
       color: green
       description: User managed by Pulumi
-      email: test-user@pulumi.com
+      email: test-user${randomString.result}@pulumi.com
       role: admin
       timeZone: America/Los_Angeles
     type: pagerduty:User

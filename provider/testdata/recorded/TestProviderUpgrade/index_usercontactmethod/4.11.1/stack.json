@@ -1,0 +1,172 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-06-14T12:05:02.34009+01:00",
+      "magic": "26455f4e783faab27da6c6ee2e252716b1c84e7f67777a274faa7d2452f68cf7",
+      "version": "v3.120.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:eitvaCOV2Sk=:v1:2G6soe6fkzXYvOGz:+j0AIIUpFlRixfgH3jvSDX4dzbcTyg=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_usercontactmethodGfbktY8mE4T9::pulumi:pulumi:Stack::index_usercontactmethodGfbktY8mE4T9-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-06-14T11:04:58.734681Z",
+        "modified": "2024-06-14T11:04:58.734681Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_usercontactmethodGfbktY8mE4T9::pulumi:providers:random::default",
+        "custom": true,
+        "id": "7893a301-50f8-40b0-a68a-626ec6f005e1",
+        "type": "pulumi:providers:random",
+        "created": "2024-06-14T11:04:59.033916Z",
+        "modified": "2024-06-14T11:04:59.033916Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_usercontactmethodGfbktY8mE4T9::random:index/randomString:RandomString::randomString",
+        "custom": true,
+        "id": "wdr8rxq0",
+        "type": "random:index/randomString:RandomString",
+        "inputs": {
+          "length": 8,
+          "special": false,
+          "upper": false
+        },
+        "outputs": {
+          "__meta": "{\"schema_version\":\"2\"}",
+          "id": "wdr8rxq0",
+          "length": 8,
+          "lower": true,
+          "minLower": 0,
+          "minNumeric": 0,
+          "minSpecial": 0,
+          "minUpper": 0,
+          "number": true,
+          "numeric": true,
+          "result": "wdr8rxq0",
+          "special": false,
+          "upper": false
+        },
+        "parent": "urn:pulumi:test::index_usercontactmethodGfbktY8mE4T9::pulumi:pulumi:Stack::index_usercontactmethodGfbktY8mE4T9-test",
+        "provider": "urn:pulumi:test::index_usercontactmethodGfbktY8mE4T9::pulumi:providers:random::default::7893a301-50f8-40b0-a68a-626ec6f005e1",
+        "propertyDependencies": {
+          "length": [],
+          "special": [],
+          "upper": []
+        },
+        "created": "2024-06-14T11:04:59.040837Z",
+        "modified": "2024-06-14T11:04:59.040837Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_usercontactmethodGfbktY8mE4T9::pulumi:providers:pagerduty::default",
+        "custom": true,
+        "id": "c9a52d07-2fbf-4b1b-bf5c-30b664a6b4db",
+        "type": "pulumi:providers:pagerduty",
+        "inputs": {
+          "skipCredentialsValidation": "false"
+        },
+        "outputs": {
+          "skipCredentialsValidation": "false"
+        },
+        "created": "2024-06-14T11:04:59.073737Z",
+        "modified": "2024-06-14T11:04:59.073737Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_usercontactmethodGfbktY8mE4T9::pagerduty:index/user:User::user",
+        "custom": true,
+        "id": "P00LQXA",
+        "type": "pagerduty:index/user:User",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "color": "green",
+          "description": "User managed by Pulumi",
+          "email": "test-userwdr8rxq0@pulumi.com",
+          "name": "user-1345b5d",
+          "role": "admin",
+          "timeZone": "America/Los_Angeles"
+        },
+        "outputs": {
+          "avatarUrl": "https://secure.gravatar.com/avatar/64a05c62a03ff1c8d9f7eed981809936.png?d=mm\u0026r=PG",
+          "color": "green",
+          "description": "User managed by Pulumi",
+          "email": "test-userwdr8rxq0@pulumi.com",
+          "htmlUrl": "https://pulumibot.pagerduty.com/users/P00LQXA",
+          "id": "P00LQXA",
+          "invitationSent": true,
+          "jobTitle": "",
+          "license": "P6LVYR1",
+          "name": "user-1345b5d",
+          "role": "admin",
+          "teams": [],
+          "timeZone": "America/Los_Angeles"
+        },
+        "parent": "urn:pulumi:test::index_usercontactmethodGfbktY8mE4T9::pulumi:pulumi:Stack::index_usercontactmethodGfbktY8mE4T9-test",
+        "dependencies": [
+          "urn:pulumi:test::index_usercontactmethodGfbktY8mE4T9::random:index/randomString:RandomString::randomString"
+        ],
+        "provider": "urn:pulumi:test::index_usercontactmethodGfbktY8mE4T9::pulumi:providers:pagerduty::default::c9a52d07-2fbf-4b1b-bf5c-30b664a6b4db",
+        "propertyDependencies": {
+          "color": [],
+          "description": [],
+          "email": [
+            "urn:pulumi:test::index_usercontactmethodGfbktY8mE4T9::random:index/randomString:RandomString::randomString"
+          ],
+          "role": [],
+          "timeZone": []
+        },
+        "created": "2024-06-14T11:05:01.858884Z",
+        "modified": "2024-06-14T11:05:01.858884Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_usercontactmethodGfbktY8mE4T9::pagerduty:index/userContactMethod:UserContactMethod::userContactMethod",
+        "custom": true,
+        "id": "PXMC6H9",
+        "type": "pagerduty:index/userContactMethod:UserContactMethod",
+        "inputs": {
+          "__defaults": [
+            "sendShortEmail"
+          ],
+          "address": "work-email@pulumi.com",
+          "label": "Work",
+          "sendShortEmail": false,
+          "type": "email_contact_method",
+          "userId": "P00LQXA"
+        },
+        "outputs": {
+          "address": "work-email@pulumi.com",
+          "blacklisted": false,
+          "countryCode": 0,
+          "enabled": false,
+          "id": "PXMC6H9",
+          "label": "Work",
+          "sendShortEmail": false,
+          "type": "email_contact_method",
+          "userId": "P00LQXA"
+        },
+        "parent": "urn:pulumi:test::index_usercontactmethodGfbktY8mE4T9::pulumi:pulumi:Stack::index_usercontactmethodGfbktY8mE4T9-test",
+        "dependencies": [
+          "urn:pulumi:test::index_usercontactmethodGfbktY8mE4T9::pagerduty:index/user:User::user"
+        ],
+        "provider": "urn:pulumi:test::index_usercontactmethodGfbktY8mE4T9::pulumi:providers:pagerduty::default::c9a52d07-2fbf-4b1b-bf5c-30b664a6b4db",
+        "propertyDependencies": {
+          "address": [],
+          "label": [],
+          "type": [],
+          "userId": [
+            "urn:pulumi:test::index_usercontactmethodGfbktY8mE4T9::pagerduty:index/user:User::user"
+          ]
+        },
+        "created": "2024-06-14T11:05:02.333153Z",
+        "modified": "2024-06-14T11:05:02.333153Z"
+      }
+    ]
+  }
+}

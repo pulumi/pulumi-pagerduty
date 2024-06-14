@@ -16,10 +16,16 @@ resources:
             - id: ${myPagerDutyUser.id}
               type: user_reference
     type: pagerduty:EscalationPolicy
+  randomString:
+    properties:
+      length: 8
+      upper: false
+      special: false
+    type: random:RandomString
   myPagerDutyUser:
     properties:
       color: green
       description: Managed by Pulumi
-      email: example-user@pulumi.com
+      email: example-user${randomString.result}@pulumi.com
       role: admin
     type: pagerduty:User

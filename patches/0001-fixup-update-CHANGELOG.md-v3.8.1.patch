@@ -5,7 +5,7 @@ Subject: [PATCH] fixup! update CHANGELOG.md v3.8.1
 
 
 diff --git a/go.mod b/go.mod
-index f30298c2..7d3d0c2e 100644
+index 98a5fd37..a2c9b372 100644
 --- a/go.mod
 +++ b/go.mod
 @@ -1,4 +1,4 @@
@@ -45,10 +45,10 @@ index 4b0dcc1e..923000cd 100644
  
  func timeToUTC(v string) (time.Time, error) {
 diff --git a/pagerdutyplugin/config.go b/pagerdutyplugin/config.go
-index 48b05a47..7cb7f247 100644
+index 9fc588e0..a0f10f7e 100644
 --- a/pagerdutyplugin/config.go
 +++ b/pagerdutyplugin/config.go
-@@ -11,9 +11,10 @@ import (
+@@ -12,9 +12,10 @@ import (
  	"time"
  
  	"github.com/PagerDuty/go-pagerduty"
@@ -61,7 +61,7 @@ index 48b05a47..7cb7f247 100644
  
  // Config defines the configuration options for the PagerDuty client
 diff --git a/pagerdutyplugin/provider_test.go b/pagerdutyplugin/provider_test.go
-index ea839e2b..7c589313 100644
+index f562e13b..eef50782 100644
 --- a/pagerdutyplugin/provider_test.go
 +++ b/pagerdutyplugin/provider_test.go
 @@ -6,13 +6,14 @@ import (

@@ -111,7 +111,7 @@ type Extension struct {
 	Config pulumi.StringOutput `pulumi:"config"`
 	// The url of the extension.
 	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpointUrl`, but one with named `Slack` accepts.
-	EndpointUrl pulumi.StringPtrOutput `pulumi:"endpointUrl"`
+	EndpointUrl pulumi.StringOutput `pulumi:"endpointUrl"`
 	// This is the objects for which the extension applies (An array of service ids).
 	ExtensionObjects pulumi.StringArrayOutput `pulumi:"extensionObjects"`
 	// This is the schema for this extension.
@@ -340,8 +340,8 @@ func (o ExtensionOutput) Config() pulumi.StringOutput {
 
 // The url of the extension.
 // **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpointUrl`, but one with named `Slack` accepts.
-func (o ExtensionOutput) EndpointUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.EndpointUrl }).(pulumi.StringPtrOutput)
+func (o ExtensionOutput) EndpointUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.EndpointUrl }).(pulumi.StringOutput)
 }
 
 // This is the objects for which the extension applies (An array of service ids).

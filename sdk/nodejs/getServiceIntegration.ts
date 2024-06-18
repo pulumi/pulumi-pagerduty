@@ -46,9 +46,6 @@ export interface GetServiceIntegrationArgs {
  * A collection of values returned by getServiceIntegration.
  */
 export interface GetServiceIntegrationResult {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
     readonly id: string;
     /**
      * The integration key for the integration. This can be used to configure alerts.

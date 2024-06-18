@@ -13136,7 +13136,7 @@ type ServiceAlertGroupingParametersConfig struct {
 	Aggregate *string `pulumi:"aggregate"`
 	// Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
 	Fields []string `pulumi:"fields"`
-	// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+	// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
 	TimeWindow *int `pulumi:"timeWindow"`
 	// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
 	Timeout *int `pulumi:"timeout"`
@@ -13158,7 +13158,7 @@ type ServiceAlertGroupingParametersConfigArgs struct {
 	Aggregate pulumi.StringPtrInput `pulumi:"aggregate"`
 	// Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
 	Fields pulumi.StringArrayInput `pulumi:"fields"`
-	// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+	// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
 	TimeWindow pulumi.IntPtrInput `pulumi:"timeWindow"`
 	// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
@@ -13251,7 +13251,7 @@ func (o ServiceAlertGroupingParametersConfigOutput) Fields() pulumi.StringArrayO
 	return o.ApplyT(func(v ServiceAlertGroupingParametersConfig) []string { return v.Fields }).(pulumi.StringArrayOutput)
 }
 
-// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
 func (o ServiceAlertGroupingParametersConfigOutput) TimeWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceAlertGroupingParametersConfig) *int { return v.TimeWindow }).(pulumi.IntPtrOutput)
 }
@@ -13305,7 +13305,7 @@ func (o ServiceAlertGroupingParametersConfigPtrOutput) Fields() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
 func (o ServiceAlertGroupingParametersConfigPtrOutput) TimeWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceAlertGroupingParametersConfig) *int {
 		if v == nil {
@@ -17819,6 +17819,162 @@ func (o SlackConnectionConfigArrayOutput) Index(i pulumi.IntInput) SlackConnecti
 	}).(SlackConnectionConfigOutput)
 }
 
+type UserHandoffNotificationRuleContactMethod struct {
+	// The ID of the contact method.
+	Id string `pulumi:"id"`
+	// The type of the contact method. May be (`emailContactMethod`, `emailContactMethodReference`, `phoneContactMethod`, `phoneContactMethodReference`, `pushNotificationContactMethod`, `pushNotificationContactMethodReference`, `smsContactMethod`, `smsContactMethodReference`).
+	Type string `pulumi:"type"`
+}
+
+// UserHandoffNotificationRuleContactMethodInput is an input type that accepts UserHandoffNotificationRuleContactMethodArgs and UserHandoffNotificationRuleContactMethodOutput values.
+// You can construct a concrete instance of `UserHandoffNotificationRuleContactMethodInput` via:
+//
+//	UserHandoffNotificationRuleContactMethodArgs{...}
+type UserHandoffNotificationRuleContactMethodInput interface {
+	pulumi.Input
+
+	ToUserHandoffNotificationRuleContactMethodOutput() UserHandoffNotificationRuleContactMethodOutput
+	ToUserHandoffNotificationRuleContactMethodOutputWithContext(context.Context) UserHandoffNotificationRuleContactMethodOutput
+}
+
+type UserHandoffNotificationRuleContactMethodArgs struct {
+	// The ID of the contact method.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The type of the contact method. May be (`emailContactMethod`, `emailContactMethodReference`, `phoneContactMethod`, `phoneContactMethodReference`, `pushNotificationContactMethod`, `pushNotificationContactMethodReference`, `smsContactMethod`, `smsContactMethodReference`).
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (UserHandoffNotificationRuleContactMethodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHandoffNotificationRuleContactMethod)(nil)).Elem()
+}
+
+func (i UserHandoffNotificationRuleContactMethodArgs) ToUserHandoffNotificationRuleContactMethodOutput() UserHandoffNotificationRuleContactMethodOutput {
+	return i.ToUserHandoffNotificationRuleContactMethodOutputWithContext(context.Background())
+}
+
+func (i UserHandoffNotificationRuleContactMethodArgs) ToUserHandoffNotificationRuleContactMethodOutputWithContext(ctx context.Context) UserHandoffNotificationRuleContactMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHandoffNotificationRuleContactMethodOutput)
+}
+
+func (i UserHandoffNotificationRuleContactMethodArgs) ToUserHandoffNotificationRuleContactMethodPtrOutput() UserHandoffNotificationRuleContactMethodPtrOutput {
+	return i.ToUserHandoffNotificationRuleContactMethodPtrOutputWithContext(context.Background())
+}
+
+func (i UserHandoffNotificationRuleContactMethodArgs) ToUserHandoffNotificationRuleContactMethodPtrOutputWithContext(ctx context.Context) UserHandoffNotificationRuleContactMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHandoffNotificationRuleContactMethodOutput).ToUserHandoffNotificationRuleContactMethodPtrOutputWithContext(ctx)
+}
+
+// UserHandoffNotificationRuleContactMethodPtrInput is an input type that accepts UserHandoffNotificationRuleContactMethodArgs, UserHandoffNotificationRuleContactMethodPtr and UserHandoffNotificationRuleContactMethodPtrOutput values.
+// You can construct a concrete instance of `UserHandoffNotificationRuleContactMethodPtrInput` via:
+//
+//	        UserHandoffNotificationRuleContactMethodArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserHandoffNotificationRuleContactMethodPtrInput interface {
+	pulumi.Input
+
+	ToUserHandoffNotificationRuleContactMethodPtrOutput() UserHandoffNotificationRuleContactMethodPtrOutput
+	ToUserHandoffNotificationRuleContactMethodPtrOutputWithContext(context.Context) UserHandoffNotificationRuleContactMethodPtrOutput
+}
+
+type userHandoffNotificationRuleContactMethodPtrType UserHandoffNotificationRuleContactMethodArgs
+
+func UserHandoffNotificationRuleContactMethodPtr(v *UserHandoffNotificationRuleContactMethodArgs) UserHandoffNotificationRuleContactMethodPtrInput {
+	return (*userHandoffNotificationRuleContactMethodPtrType)(v)
+}
+
+func (*userHandoffNotificationRuleContactMethodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserHandoffNotificationRuleContactMethod)(nil)).Elem()
+}
+
+func (i *userHandoffNotificationRuleContactMethodPtrType) ToUserHandoffNotificationRuleContactMethodPtrOutput() UserHandoffNotificationRuleContactMethodPtrOutput {
+	return i.ToUserHandoffNotificationRuleContactMethodPtrOutputWithContext(context.Background())
+}
+
+func (i *userHandoffNotificationRuleContactMethodPtrType) ToUserHandoffNotificationRuleContactMethodPtrOutputWithContext(ctx context.Context) UserHandoffNotificationRuleContactMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHandoffNotificationRuleContactMethodPtrOutput)
+}
+
+type UserHandoffNotificationRuleContactMethodOutput struct{ *pulumi.OutputState }
+
+func (UserHandoffNotificationRuleContactMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHandoffNotificationRuleContactMethod)(nil)).Elem()
+}
+
+func (o UserHandoffNotificationRuleContactMethodOutput) ToUserHandoffNotificationRuleContactMethodOutput() UserHandoffNotificationRuleContactMethodOutput {
+	return o
+}
+
+func (o UserHandoffNotificationRuleContactMethodOutput) ToUserHandoffNotificationRuleContactMethodOutputWithContext(ctx context.Context) UserHandoffNotificationRuleContactMethodOutput {
+	return o
+}
+
+func (o UserHandoffNotificationRuleContactMethodOutput) ToUserHandoffNotificationRuleContactMethodPtrOutput() UserHandoffNotificationRuleContactMethodPtrOutput {
+	return o.ToUserHandoffNotificationRuleContactMethodPtrOutputWithContext(context.Background())
+}
+
+func (o UserHandoffNotificationRuleContactMethodOutput) ToUserHandoffNotificationRuleContactMethodPtrOutputWithContext(ctx context.Context) UserHandoffNotificationRuleContactMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserHandoffNotificationRuleContactMethod) *UserHandoffNotificationRuleContactMethod {
+		return &v
+	}).(UserHandoffNotificationRuleContactMethodPtrOutput)
+}
+
+// The ID of the contact method.
+func (o UserHandoffNotificationRuleContactMethodOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v UserHandoffNotificationRuleContactMethod) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The type of the contact method. May be (`emailContactMethod`, `emailContactMethodReference`, `phoneContactMethod`, `phoneContactMethodReference`, `pushNotificationContactMethod`, `pushNotificationContactMethodReference`, `smsContactMethod`, `smsContactMethodReference`).
+func (o UserHandoffNotificationRuleContactMethodOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v UserHandoffNotificationRuleContactMethod) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type UserHandoffNotificationRuleContactMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (UserHandoffNotificationRuleContactMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserHandoffNotificationRuleContactMethod)(nil)).Elem()
+}
+
+func (o UserHandoffNotificationRuleContactMethodPtrOutput) ToUserHandoffNotificationRuleContactMethodPtrOutput() UserHandoffNotificationRuleContactMethodPtrOutput {
+	return o
+}
+
+func (o UserHandoffNotificationRuleContactMethodPtrOutput) ToUserHandoffNotificationRuleContactMethodPtrOutputWithContext(ctx context.Context) UserHandoffNotificationRuleContactMethodPtrOutput {
+	return o
+}
+
+func (o UserHandoffNotificationRuleContactMethodPtrOutput) Elem() UserHandoffNotificationRuleContactMethodOutput {
+	return o.ApplyT(func(v *UserHandoffNotificationRuleContactMethod) UserHandoffNotificationRuleContactMethod {
+		if v != nil {
+			return *v
+		}
+		var ret UserHandoffNotificationRuleContactMethod
+		return ret
+	}).(UserHandoffNotificationRuleContactMethodOutput)
+}
+
+// The ID of the contact method.
+func (o UserHandoffNotificationRuleContactMethodPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHandoffNotificationRuleContactMethod) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the contact method. May be (`emailContactMethod`, `emailContactMethodReference`, `phoneContactMethod`, `phoneContactMethodReference`, `pushNotificationContactMethod`, `pushNotificationContactMethodReference`, `smsContactMethod`, `smsContactMethodReference`).
+func (o UserHandoffNotificationRuleContactMethodPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHandoffNotificationRuleContactMethod) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type WebhookSubscriptionDeliveryMethod struct {
 	// The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
 	CustomHeaders []WebhookSubscriptionDeliveryMethodCustomHeader `pulumi:"customHeaders"`
@@ -21114,6 +21270,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSupportHoursPtrInput)(nil)).Elem(), ServiceSupportHoursArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlackConnectionConfigInput)(nil)).Elem(), SlackConnectionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlackConnectionConfigArrayInput)(nil)).Elem(), SlackConnectionConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHandoffNotificationRuleContactMethodInput)(nil)).Elem(), UserHandoffNotificationRuleContactMethodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHandoffNotificationRuleContactMethodPtrInput)(nil)).Elem(), UserHandoffNotificationRuleContactMethodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionDeliveryMethodInput)(nil)).Elem(), WebhookSubscriptionDeliveryMethodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionDeliveryMethodArrayInput)(nil)).Elem(), WebhookSubscriptionDeliveryMethodArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionDeliveryMethodCustomHeaderInput)(nil)).Elem(), WebhookSubscriptionDeliveryMethodCustomHeaderArgs{})
@@ -21425,6 +21583,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSupportHoursPtrOutput{})
 	pulumi.RegisterOutputType(SlackConnectionConfigOutput{})
 	pulumi.RegisterOutputType(SlackConnectionConfigArrayOutput{})
+	pulumi.RegisterOutputType(UserHandoffNotificationRuleContactMethodOutput{})
+	pulumi.RegisterOutputType(UserHandoffNotificationRuleContactMethodPtrOutput{})
 	pulumi.RegisterOutputType(WebhookSubscriptionDeliveryMethodOutput{})
 	pulumi.RegisterOutputType(WebhookSubscriptionDeliveryMethodArrayOutput{})
 	pulumi.RegisterOutputType(WebhookSubscriptionDeliveryMethodCustomHeaderOutput{})

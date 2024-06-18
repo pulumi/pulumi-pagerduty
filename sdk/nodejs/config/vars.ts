@@ -17,6 +17,14 @@ Object.defineProperty(exports, "apiUrlOverride", {
     enumerable: true,
 });
 
+export declare const insecureTls: boolean | undefined;
+Object.defineProperty(exports, "insecureTls", {
+    get() {
+        return __config.getObject<boolean>("insecureTls");
+    },
+    enumerable: true,
+});
+
 export declare const serviceRegion: string | undefined;
 Object.defineProperty(exports, "serviceRegion", {
     get() {

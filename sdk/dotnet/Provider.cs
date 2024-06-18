@@ -61,6 +61,9 @@ namespace Pulumi.Pagerduty
         [Input("apiUrlOverride")]
         public Input<string>? ApiUrlOverride { get; set; }
 
+        [Input("insecureTls", json: true)]
+        public Input<bool>? InsecureTls { get; set; }
+
         [Input("serviceRegion")]
         public Input<string>? ServiceRegion { get; set; }
 

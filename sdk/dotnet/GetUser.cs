@@ -42,7 +42,7 @@ namespace Pulumi.Pagerduty
         ///                 {
         ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                     {
-        ///                         Type = "user",
+        ///                         Type = "user_reference",
         ///                         Id = me.Apply(getUserResult =&gt; getUserResult.Id),
         ///                     },
         ///                 },
@@ -87,7 +87,7 @@ namespace Pulumi.Pagerduty
         ///                 {
         ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                     {
-        ///                         Type = "user",
+        ///                         Type = "user_reference",
         ///                         Id = me.Apply(getUserResult =&gt; getUserResult.Id),
         ///                     },
         ///                 },

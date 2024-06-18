@@ -39,6 +39,13 @@ namespace Pulumi.Pagerduty
             set => _apiUrlOverride.Set(value);
         }
 
+        private static readonly __Value<bool?> _insecureTls = new __Value<bool?>(() => __config.GetBoolean("insecureTls"));
+        public static bool? InsecureTls
+        {
+            get => _insecureTls.Get();
+            set => _insecureTls.Set(value);
+        }
+
         private static readonly __Value<string?> _serviceRegion = new __Value<string?>(() => __config.Get("serviceRegion"));
         public static string? ServiceRegion
         {

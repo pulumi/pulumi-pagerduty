@@ -75,6 +75,7 @@ from .team import *
 from .team_membership import *
 from .user import *
 from .user_contact_method import *
+from .user_handoff_notification_rule import *
 from .user_notification_rule import *
 from .webhook_subscription import *
 from ._inputs import *
@@ -408,6 +409,14 @@ _utilities.register(
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/userContactMethod:UserContactMethod": "UserContactMethod"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/userHandoffNotificationRule",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule": "UserHandoffNotificationRule"
   }
  },
  {

@@ -59,7 +59,6 @@ type LookupServiceIntegrationArgs struct {
 
 // A collection of values returned by getServiceIntegration.
 type LookupServiceIntegrationResult struct {
-	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The integration key for the integration. This can be used to configure alerts.
 	IntegrationKey     string `pulumi:"integrationKey"`
@@ -107,7 +106,6 @@ func (o LookupServiceIntegrationResultOutput) ToLookupServiceIntegrationResultOu
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
 func (o LookupServiceIntegrationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceIntegrationResult) string { return v.Id }).(pulumi.StringOutput)
 }

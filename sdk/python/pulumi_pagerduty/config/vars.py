@@ -21,6 +21,10 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('apiUrlOverride')
 
     @property
+    def insecure_tls(self) -> Optional[bool]:
+        return __config__.get_bool('insecureTls')
+
+    @property
     def service_region(self) -> Optional[str]:
         return __config__.get('serviceRegion')
 

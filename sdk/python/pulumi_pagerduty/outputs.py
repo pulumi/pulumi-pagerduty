@@ -143,6 +143,7 @@ __all__ = [
     'ServiceScheduledActionAt',
     'ServiceSupportHours',
     'SlackConnectionConfig',
+    'UserHandoffNotificationRuleContactMethod',
     'WebhookSubscriptionDeliveryMethod',
     'WebhookSubscriptionDeliveryMethodCustomHeader',
     'WebhookSubscriptionFilter',
@@ -5037,7 +5038,7 @@ class ServiceAlertGroupingParametersConfig(dict):
         """
         :param str aggregate: One of `any` or `all`. This setting applies only when `type` is set to `content_based`. Group alerts based on one or all of `fields` value(s).
         :param Sequence[str] fields: Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `content_based`.
-        :param int time_window: The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+        :param int time_window: The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
         :param int timeout: The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         """
         if aggregate is not None:
@@ -5069,7 +5070,7 @@ class ServiceAlertGroupingParametersConfig(dict):
     @pulumi.getter(name="timeWindow")
     def time_window(self) -> Optional[int]:
         """
-        The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+        The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
         """
         return pulumi.get(self, "time_window")
 
@@ -5135,22 +5136,24 @@ class ServiceDependencyDependency(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 dependent_services: Sequence['outputs.ServiceDependencyDependencyDependentService'],
-                 supporting_services: Sequence['outputs.ServiceDependencyDependencySupportingService'],
+                 dependent_services: Optional[Sequence['outputs.ServiceDependencyDependencyDependentService']] = None,
+                 supporting_services: Optional[Sequence['outputs.ServiceDependencyDependencySupportingService']] = None,
                  type: Optional[str] = None):
         """
         :param Sequence['ServiceDependencyDependencyDependentServiceArgs'] dependent_services: The service that dependents on the supporting service. Dependency dependent service documented below.
         :param Sequence['ServiceDependencyDependencySupportingServiceArgs'] supporting_services: The service that supports the dependent service. Dependency supporting service documented below.
         :param str type: Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
         """
-        pulumi.set(__self__, "dependent_services", dependent_services)
-        pulumi.set(__self__, "supporting_services", supporting_services)
+        if dependent_services is not None:
+            pulumi.set(__self__, "dependent_services", dependent_services)
+        if supporting_services is not None:
+            pulumi.set(__self__, "supporting_services", supporting_services)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="dependentServices")
-    def dependent_services(self) -> Sequence['outputs.ServiceDependencyDependencyDependentService']:
+    def dependent_services(self) -> Optional[Sequence['outputs.ServiceDependencyDependencyDependentService']]:
         """
         The service that dependents on the supporting service. Dependency dependent service documented below.
         """
@@ -5158,7 +5161,7 @@ class ServiceDependencyDependency(dict):
 
     @property
     @pulumi.getter(name="supportingServices")
-    def supporting_services(self) -> Sequence['outputs.ServiceDependencyDependencySupportingService']:
+    def supporting_services(self) -> Optional[Sequence['outputs.ServiceDependencyDependencySupportingService']]:
         """
         The service that supports the dependent service. Dependency supporting service documented below.
         """
@@ -6713,6 +6716,35 @@ class SlackConnectionConfig(dict):
         Allows you to filter events by urgency. Either `high` or `low`.
         """
         return pulumi.get(self, "urgency")
+
+
+@pulumi.output_type
+class UserHandoffNotificationRuleContactMethod(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 type: str):
+        """
+        :param str id: The ID of the contact method.
+        :param str type: The type of the contact method. May be (`email_contact_method`, `email_contact_method_reference`, `phone_contact_method`, `phone_contact_method_reference`, `push_notification_contact_method`, `push_notification_contact_method_reference`, `sms_contact_method`, `sms_contact_method_reference`).
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the contact method.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the contact method. May be (`email_contact_method`, `email_contact_method_reference`, `phone_contact_method`, `phone_contact_method_reference`, `push_notification_contact_method`, `push_notification_contact_method_reference`, `sms_contact_method`, `sms_contact_method_reference`).
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
- *             type: "user",
+ *             type: "user_reference",
  *             id: me.then(me => me.id),
  *         }],
  *     }],
@@ -95,7 +95,7 @@ export interface GetUserResult {
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
- *             type: "user",
+ *             type: "user_reference",
  *             id: me.then(me => me.id),
  *         }],
  *     }],

@@ -12,7 +12,6 @@ import com.pulumi.pagerduty.Utilities;
 import com.pulumi.pagerduty.inputs.ExtensionState;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -135,15 +134,15 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpointUrl", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> endpointUrl;
+    private Output<String> endpointUrl;
 
     /**
      * @return The url of the extension.
      * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn&#39;t accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
      * 
      */
-    public Output<Optional<String>> endpointUrl() {
-        return Codegen.optional(this.endpointUrl);
+    public Output<String> endpointUrl() {
+        return this.endpointUrl;
     }
     /**
      * This is the objects for which the extension applies (An array of service ids).

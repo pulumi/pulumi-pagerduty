@@ -1893,7 +1893,7 @@ export interface ServiceAlertGroupingParametersConfig {
      */
     fields?: string[];
     /**
-     * The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+     * The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
      */
     timeWindow: number;
     /**
@@ -1917,15 +1917,15 @@ export interface ServiceDependencyDependency {
     /**
      * The service that dependents on the supporting service. Dependency dependent service documented below.
      */
-    dependentServices: outputs.ServiceDependencyDependencyDependentService[];
+    dependentServices?: outputs.ServiceDependencyDependencyDependentService[];
     /**
      * The service that supports the dependent service. Dependency supporting service documented below.
      */
-    supportingServices: outputs.ServiceDependencyDependencySupportingService[];
+    supportingServices?: outputs.ServiceDependencyDependencySupportingService[];
     /**
      * Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
      */
-    type?: string;
+    type: string;
 }
 
 export interface ServiceDependencyDependencyDependentService {
@@ -2389,6 +2389,17 @@ export interface SlackConnectionConfig {
      * Allows you to filter events by urgency. Either `high` or `low`.
      */
     urgency?: string;
+}
+
+export interface UserHandoffNotificationRuleContactMethod {
+    /**
+     * The ID of the contact method.
+     */
+    id: string;
+    /**
+     * The type of the contact method. May be (`emailContactMethod`, `emailContactMethodReference`, `phoneContactMethod`, `phoneContactMethodReference`, `pushNotificationContactMethod`, `pushNotificationContactMethodReference`, `smsContactMethod`, `smsContactMethodReference`).
+     */
+    type: string;
 }
 
 export interface WebhookSubscriptionDeliveryMethod {

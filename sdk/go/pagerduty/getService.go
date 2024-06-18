@@ -81,7 +81,7 @@ type LookupServiceResult struct {
 	Description string `pulumi:"description"`
 	// The escalation policy associated with this service.
 	EscalationPolicy string `pulumi:"escalationPolicy"`
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of the found service.
 	Id string `pulumi:"id"`
 	// The short name of the found service.
 	Name string `pulumi:"name"`
@@ -154,7 +154,7 @@ func (o LookupServiceResultOutput) EscalationPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.EscalationPolicy }).(pulumi.StringOutput)
 }
 
-// The provider-assigned unique ID for this managed resource.
+// The ID of the found service.
 func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
 }

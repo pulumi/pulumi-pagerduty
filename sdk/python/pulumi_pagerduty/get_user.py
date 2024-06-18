@@ -131,7 +131,7 @@ def get_user(email: Optional[str] = None,
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,
             targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                type="user",
+                type="user_reference",
                 id=me.id,
             )],
         )])
@@ -174,7 +174,7 @@ def get_user_output(email: Optional[pulumi.Input[str]] = None,
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,
             targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                type="user",
+                type="user_reference",
                 id=me.id,
             )],
         )])

@@ -107,9 +107,6 @@ namespace Pulumi.Pagerduty
     [OutputType]
     public sealed class GetServiceIntegrationResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         public readonly string Id;
         /// <summary>
         /// The integration key for the integration. This can be used to configure alerts.

@@ -14,6 +14,9 @@ var _ = internal.GetEnvOrDefault
 func GetApiUrlOverride(ctx *pulumi.Context) string {
 	return config.Get(ctx, "pagerduty:apiUrlOverride")
 }
+func GetInsecureTls(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "pagerduty:insecureTls")
+}
 func GetServiceRegion(ctx *pulumi.Context) string {
 	return config.Get(ctx, "pagerduty:serviceRegion")
 }

@@ -12,6 +12,8 @@ from . import outputs
 
 apiUrlOverride: Optional[str]
 
+insecureTls: Optional[bool]
+
 serviceRegion: Optional[str]
 
 skipCredentialsValidation: bool

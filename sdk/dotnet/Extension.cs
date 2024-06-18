@@ -108,7 +108,7 @@ namespace Pulumi.Pagerduty
         /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         /// </summary>
         [Output("endpointUrl")]
-        public Output<string?> EndpointUrl { get; private set; } = null!;
+        public Output<string> EndpointUrl { get; private set; } = null!;
 
         /// <summary>
         /// This is the objects for which the extension applies (An array of service ids).

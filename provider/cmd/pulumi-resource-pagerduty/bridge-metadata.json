@@ -863,6 +863,15 @@
                 "current": "pagerduty:index/userContactMethod:UserContactMethod",
                 "majorVersion": 4
             },
+            "pagerduty_user_handoff_notification_rule": {
+                "current": "pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule",
+                "majorVersion": 4,
+                "fields": {
+                    "contact_method": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "pagerduty_user_notification_rule": {
                 "current": "pagerduty:index/userNotificationRule:UserNotificationRule",
                 "majorVersion": 4
@@ -1144,7 +1153,7 @@
     "auto-settings": {},
     "mux": {
         "resources": {
-            "pagerduty:index/addon:Addon": 0,
+            "pagerduty:index/addon:Addon": 1,
             "pagerduty:index/automationActionsAction:AutomationActionsAction": 0,
             "pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation": 0,
             "pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation": 0,
@@ -1174,7 +1183,7 @@
             "pagerduty:index/rulesetRule:RulesetRule": 0,
             "pagerduty:index/schedule:Schedule": 0,
             "pagerduty:index/service:Service": 0,
-            "pagerduty:index/serviceDependency:ServiceDependency": 0,
+            "pagerduty:index/serviceDependency:ServiceDependency": 1,
             "pagerduty:index/serviceEventRule:ServiceEventRule": 0,
             "pagerduty:index/serviceIntegration:ServiceIntegration": 0,
             "pagerduty:index/slackConnection:SlackConnection": 0,
@@ -1184,6 +1193,7 @@
             "pagerduty:index/teamMembership:TeamMembership": 0,
             "pagerduty:index/user:User": 0,
             "pagerduty:index/userContactMethod:UserContactMethod": 0,
+            "pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule": 1,
             "pagerduty:index/userNotificationRule:UserNotificationRule": 0,
             "pagerduty:index/webhookSubscription:WebhookSubscription": 0
         },
@@ -1205,8 +1215,8 @@
             "pagerduty:index/getPriority:getPriority": 0,
             "pagerduty:index/getRuleset:getRuleset": 0,
             "pagerduty:index/getSchedule:getSchedule": 0,
-            "pagerduty:index/getService:getService": 0,
-            "pagerduty:index/getServiceIntegration:getServiceIntegration": 0,
+            "pagerduty:index/getService:getService": 1,
+            "pagerduty:index/getServiceIntegration:getServiceIntegration": 1,
             "pagerduty:index/getStandards:getStandards": 1,
             "pagerduty:index/getStandardsResourceScores:getStandardsResourceScores": 1,
             "pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores": 1,

@@ -486,7 +486,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointUrl")
-    def endpoint_url(self) -> pulumi.Output[Optional[str]]:
+    def endpoint_url(self) -> pulumi.Output[str]:
         """
         The url of the extension.
         **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `get_extension_schema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.

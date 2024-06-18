@@ -95,7 +95,7 @@ class GetServiceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The provider-assigned unique ID for this managed resource.
+        The ID of the found service.
         """
         return pulumi.get(self, "id")
 

@@ -143,6 +143,7 @@ __all__ = [
     'ServiceScheduledActionAtArgs',
     'ServiceSupportHoursArgs',
     'SlackConnectionConfigArgs',
+    'UserHandoffNotificationRuleContactMethodArgs',
     'WebhookSubscriptionDeliveryMethodArgs',
     'WebhookSubscriptionDeliveryMethodCustomHeaderArgs',
     'WebhookSubscriptionFilterArgs',
@@ -5708,7 +5709,7 @@ class ServiceAlertGroupingParametersConfigArgs:
         """
         :param pulumi.Input[str] aggregate: One of `any` or `all`. This setting applies only when `type` is set to `content_based`. Group alerts based on one or all of `fields` value(s).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fields: Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `content_based`.
-        :param pulumi.Input[int] time_window: The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+        :param pulumi.Input[int] time_window: The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
         :param pulumi.Input[int] timeout: The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         """
         if aggregate is not None:
@@ -5748,7 +5749,7 @@ class ServiceAlertGroupingParametersConfigArgs:
     @pulumi.getter(name="timeWindow")
     def time_window(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+        The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
         """
         return pulumi.get(self, "time_window")
 
@@ -5811,41 +5812,43 @@ class ServiceAutoPauseNotificationsParametersArgs:
 @pulumi.input_type
 class ServiceDependencyDependencyArgs:
     def __init__(__self__, *,
-                 dependent_services: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]],
-                 supporting_services: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]],
+                 dependent_services: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]]] = None,
+                 supporting_services: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]] dependent_services: The service that dependents on the supporting service. Dependency dependent service documented below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]] supporting_services: The service that supports the dependent service. Dependency supporting service documented below.
         :param pulumi.Input[str] type: Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
         """
-        pulumi.set(__self__, "dependent_services", dependent_services)
-        pulumi.set(__self__, "supporting_services", supporting_services)
+        if dependent_services is not None:
+            pulumi.set(__self__, "dependent_services", dependent_services)
+        if supporting_services is not None:
+            pulumi.set(__self__, "supporting_services", supporting_services)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="dependentServices")
-    def dependent_services(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]]:
+    def dependent_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]]]:
         """
         The service that dependents on the supporting service. Dependency dependent service documented below.
         """
         return pulumi.get(self, "dependent_services")
 
     @dependent_services.setter
-    def dependent_services(self, value: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]]):
+    def dependent_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]]]):
         pulumi.set(self, "dependent_services", value)
 
     @property
     @pulumi.getter(name="supportingServices")
-    def supporting_services(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]]:
+    def supporting_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]]]:
         """
         The service that supports the dependent service. Dependency supporting service documented below.
         """
         return pulumi.get(self, "supporting_services")
 
     @supporting_services.setter
-    def supporting_services(self, value: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]]):
+    def supporting_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]]]):
         pulumi.set(self, "supporting_services", value)
 
     @property
@@ -7542,6 +7545,43 @@ class SlackConnectionConfigArgs:
     @urgency.setter
     def urgency(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "urgency", value)
+
+
+@pulumi.input_type
+class UserHandoffNotificationRuleContactMethodArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the contact method.
+        :param pulumi.Input[str] type: The type of the contact method. May be (`email_contact_method`, `email_contact_method_reference`, `phone_contact_method`, `phone_contact_method_reference`, `push_notification_contact_method`, `push_notification_contact_method_reference`, `sms_contact_method`, `sms_contact_method_reference`).
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the contact method.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the contact method. May be (`email_contact_method`, `email_contact_method_reference`, `phone_contact_method`, `phone_contact_method_reference`, `push_notification_contact_method`, `push_notification_contact_method_reference`, `sms_contact_method`, `sms_contact_method_reference`).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

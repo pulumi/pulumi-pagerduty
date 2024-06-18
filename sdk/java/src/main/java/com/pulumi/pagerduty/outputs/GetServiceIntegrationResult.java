@@ -10,10 +10,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceIntegrationResult {
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     private String id;
     /**
      * @return The integration key for the integration. This can be used to configure alerts.
@@ -24,10 +20,6 @@ public final class GetServiceIntegrationResult {
     private String serviceName;
 
     private GetServiceIntegrationResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     public String id() {
         return this.id;
     }

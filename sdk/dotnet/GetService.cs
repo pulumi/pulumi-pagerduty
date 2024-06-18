@@ -140,7 +140,7 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly string EscalationPolicy;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// The ID of the found service.
         /// </summary>
         public readonly string Id;
         /// <summary>

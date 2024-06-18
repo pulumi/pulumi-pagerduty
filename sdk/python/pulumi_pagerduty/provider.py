@@ -16,6 +16,7 @@ __all__ = ['ProviderArgs', 'Provider']
 class ProviderArgs:
     def __init__(__self__, *,
                  api_url_override: Optional[pulumi.Input[str]] = None,
+                 insecure_tls: Optional[pulumi.Input[bool]] = None,
                  service_region: Optional[pulumi.Input[str]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  token: Optional[pulumi.Input[str]] = None,
@@ -26,6 +27,8 @@ class ProviderArgs:
         """
         if api_url_override is not None:
             pulumi.set(__self__, "api_url_override", api_url_override)
+        if insecure_tls is not None:
+            pulumi.set(__self__, "insecure_tls", insecure_tls)
         if service_region is not None:
             pulumi.set(__self__, "service_region", service_region)
         if skip_credentials_validation is None:
@@ -47,6 +50,15 @@ class ProviderArgs:
     @api_url_override.setter
     def api_url_override(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "api_url_override", value)
+
+    @property
+    @pulumi.getter(name="insecureTls")
+    def insecure_tls(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "insecure_tls")
+
+    @insecure_tls.setter
+    def insecure_tls(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "insecure_tls", value)
 
     @property
     @pulumi.getter(name="serviceRegion")
@@ -100,6 +112,7 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_url_override: Optional[pulumi.Input[str]] = None,
+                 insecure_tls: Optional[pulumi.Input[bool]] = None,
                  service_region: Optional[pulumi.Input[str]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  token: Optional[pulumi.Input[str]] = None,
@@ -143,6 +156,7 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_url_override: Optional[pulumi.Input[str]] = None,
+                 insecure_tls: Optional[pulumi.Input[bool]] = None,
                  service_region: Optional[pulumi.Input[str]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  token: Optional[pulumi.Input[str]] = None,
@@ -158,6 +172,7 @@ class Provider(pulumi.ProviderResource):
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
             __props__.__dict__["api_url_override"] = api_url_override
+            __props__.__dict__["insecure_tls"] = pulumi.Output.from_input(insecure_tls).apply(pulumi.runtime.to_json) if insecure_tls is not None else None
             __props__.__dict__["service_region"] = service_region
             if skip_credentials_validation is None:
                 skip_credentials_validation = False

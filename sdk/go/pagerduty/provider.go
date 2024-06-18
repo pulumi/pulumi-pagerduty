@@ -45,6 +45,7 @@ func NewProvider(ctx *pulumi.Context,
 
 type providerArgs struct {
 	ApiUrlOverride            *string                         `pulumi:"apiUrlOverride"`
+	InsecureTls               *bool                           `pulumi:"insecureTls"`
 	ServiceRegion             *string                         `pulumi:"serviceRegion"`
 	SkipCredentialsValidation *bool                           `pulumi:"skipCredentialsValidation"`
 	Token                     *string                         `pulumi:"token"`
@@ -55,6 +56,7 @@ type providerArgs struct {
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
 	ApiUrlOverride            pulumi.StringPtrInput
+	InsecureTls               pulumi.BoolPtrInput
 	ServiceRegion             pulumi.StringPtrInput
 	SkipCredentialsValidation pulumi.BoolPtrInput
 	Token                     pulumi.StringPtrInput

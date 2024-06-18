@@ -5,7 +5,6 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.ServiceDependencyDependencyDependentServiceArgs;
 import com.pulumi.pagerduty.inputs.ServiceDependencyDependencySupportingServiceArgs;
 import java.lang.String;
@@ -23,30 +22,30 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
      * The service that dependents on the supporting service. Dependency dependent service documented below.
      * 
      */
-    @Import(name="dependentServices", required=true)
-    private Output<List<ServiceDependencyDependencyDependentServiceArgs>> dependentServices;
+    @Import(name="dependentServices")
+    private @Nullable Output<List<ServiceDependencyDependencyDependentServiceArgs>> dependentServices;
 
     /**
      * @return The service that dependents on the supporting service. Dependency dependent service documented below.
      * 
      */
-    public Output<List<ServiceDependencyDependencyDependentServiceArgs>> dependentServices() {
-        return this.dependentServices;
+    public Optional<Output<List<ServiceDependencyDependencyDependentServiceArgs>>> dependentServices() {
+        return Optional.ofNullable(this.dependentServices);
     }
 
     /**
      * The service that supports the dependent service. Dependency supporting service documented below.
      * 
      */
-    @Import(name="supportingServices", required=true)
-    private Output<List<ServiceDependencyDependencySupportingServiceArgs>> supportingServices;
+    @Import(name="supportingServices")
+    private @Nullable Output<List<ServiceDependencyDependencySupportingServiceArgs>> supportingServices;
 
     /**
      * @return The service that supports the dependent service. Dependency supporting service documented below.
      * 
      */
-    public Output<List<ServiceDependencyDependencySupportingServiceArgs>> supportingServices() {
-        return this.supportingServices;
+    public Optional<Output<List<ServiceDependencyDependencySupportingServiceArgs>>> supportingServices() {
+        return Optional.ofNullable(this.supportingServices);
     }
 
     /**
@@ -96,7 +95,7 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder dependentServices(Output<List<ServiceDependencyDependencyDependentServiceArgs>> dependentServices) {
+        public Builder dependentServices(@Nullable Output<List<ServiceDependencyDependencyDependentServiceArgs>> dependentServices) {
             $.dependentServices = dependentServices;
             return this;
         }
@@ -127,7 +126,7 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder supportingServices(Output<List<ServiceDependencyDependencySupportingServiceArgs>> supportingServices) {
+        public Builder supportingServices(@Nullable Output<List<ServiceDependencyDependencySupportingServiceArgs>> supportingServices) {
             $.supportingServices = supportingServices;
             return this;
         }
@@ -174,12 +173,6 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
         }
 
         public ServiceDependencyDependencyArgs build() {
-            if ($.dependentServices == null) {
-                throw new MissingRequiredPropertyException("ServiceDependencyDependencyArgs", "dependentServices");
-            }
-            if ($.supportingServices == null) {
-                throw new MissingRequiredPropertyException("ServiceDependencyDependencyArgs", "supportingServices");
-            }
             return $;
         }
     }

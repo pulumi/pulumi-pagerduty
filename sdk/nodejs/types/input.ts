@@ -1622,7 +1622,7 @@ export interface ServiceAlertGroupingParametersConfig {
      */
     fields?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+     * The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
      */
     timeWindow?: pulumi.Input<number>;
     /**
@@ -1646,11 +1646,11 @@ export interface ServiceDependencyDependency {
     /**
      * The service that dependents on the supporting service. Dependency dependent service documented below.
      */
-    dependentServices: pulumi.Input<pulumi.Input<inputs.ServiceDependencyDependencyDependentService>[]>;
+    dependentServices?: pulumi.Input<pulumi.Input<inputs.ServiceDependencyDependencyDependentService>[]>;
     /**
      * The service that supports the dependent service. Dependency supporting service documented below.
      */
-    supportingServices: pulumi.Input<pulumi.Input<inputs.ServiceDependencyDependencySupportingService>[]>;
+    supportingServices?: pulumi.Input<pulumi.Input<inputs.ServiceDependencyDependencySupportingService>[]>;
     /**
      * Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
      */
@@ -2118,6 +2118,17 @@ export interface SlackConnectionConfig {
      * Allows you to filter events by urgency. Either `high` or `low`.
      */
     urgency?: pulumi.Input<string>;
+}
+
+export interface UserHandoffNotificationRuleContactMethod {
+    /**
+     * The ID of the contact method.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The type of the contact method. May be (`emailContactMethod`, `emailContactMethodReference`, `phoneContactMethod`, `phoneContactMethodReference`, `pushNotificationContactMethod`, `pushNotificationContactMethodReference`, `smsContactMethod`, `smsContactMethodReference`).
+     */
+    type: pulumi.Input<string>;
 }
 
 export interface WebhookSubscriptionDeliveryMethod {

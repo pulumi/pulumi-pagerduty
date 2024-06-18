@@ -4,7 +4,6 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.ServiceDependencyDependencyDependentService;
 import com.pulumi.pagerduty.outputs.ServiceDependencyDependencySupportingService;
 import java.lang.String;
@@ -19,12 +18,12 @@ public final class ServiceDependencyDependency {
      * @return The service that dependents on the supporting service. Dependency dependent service documented below.
      * 
      */
-    private List<ServiceDependencyDependencyDependentService> dependentServices;
+    private @Nullable List<ServiceDependencyDependencyDependentService> dependentServices;
     /**
      * @return The service that supports the dependent service. Dependency supporting service documented below.
      * 
      */
-    private List<ServiceDependencyDependencySupportingService> supportingServices;
+    private @Nullable List<ServiceDependencyDependencySupportingService> supportingServices;
     /**
      * @return Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
      * 
@@ -37,14 +36,14 @@ public final class ServiceDependencyDependency {
      * 
      */
     public List<ServiceDependencyDependencyDependentService> dependentServices() {
-        return this.dependentServices;
+        return this.dependentServices == null ? List.of() : this.dependentServices;
     }
     /**
      * @return The service that supports the dependent service. Dependency supporting service documented below.
      * 
      */
     public List<ServiceDependencyDependencySupportingService> supportingServices() {
-        return this.supportingServices;
+        return this.supportingServices == null ? List.of() : this.supportingServices;
     }
     /**
      * @return Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
@@ -63,8 +62,8 @@ public final class ServiceDependencyDependency {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<ServiceDependencyDependencyDependentService> dependentServices;
-        private List<ServiceDependencyDependencySupportingService> supportingServices;
+        private @Nullable List<ServiceDependencyDependencyDependentService> dependentServices;
+        private @Nullable List<ServiceDependencyDependencySupportingService> supportingServices;
         private @Nullable String type;
         public Builder() {}
         public Builder(ServiceDependencyDependency defaults) {
@@ -75,10 +74,8 @@ public final class ServiceDependencyDependency {
         }
 
         @CustomType.Setter
-        public Builder dependentServices(List<ServiceDependencyDependencyDependentService> dependentServices) {
-            if (dependentServices == null) {
-              throw new MissingRequiredPropertyException("ServiceDependencyDependency", "dependentServices");
-            }
+        public Builder dependentServices(@Nullable List<ServiceDependencyDependencyDependentService> dependentServices) {
+
             this.dependentServices = dependentServices;
             return this;
         }
@@ -86,10 +83,8 @@ public final class ServiceDependencyDependency {
             return dependentServices(List.of(dependentServices));
         }
         @CustomType.Setter
-        public Builder supportingServices(List<ServiceDependencyDependencySupportingService> supportingServices) {
-            if (supportingServices == null) {
-              throw new MissingRequiredPropertyException("ServiceDependencyDependency", "supportingServices");
-            }
+        public Builder supportingServices(@Nullable List<ServiceDependencyDependencySupportingService> supportingServices) {
+
             this.supportingServices = supportingServices;
             return this;
         }

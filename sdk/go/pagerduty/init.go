@@ -101,6 +101,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &User{}
 	case "pagerduty:index/userContactMethod:UserContactMethod":
 		r = &UserContactMethod{}
+	case "pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule":
+		r = &UserHandoffNotificationRule{}
 	case "pagerduty:index/userNotificationRule:UserNotificationRule":
 		r = &UserNotificationRule{}
 	case "pagerduty:index/webhookSubscription:WebhookSubscription":
@@ -334,6 +336,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"pagerduty",
 		"index/userContactMethod",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/userHandoffNotificationRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

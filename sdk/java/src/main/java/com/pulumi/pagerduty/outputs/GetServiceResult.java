@@ -39,7 +39,7 @@ public final class GetServiceResult {
      */
     private String escalationPolicy;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found service.
      * 
      */
     private String id;
@@ -96,7 +96,7 @@ public final class GetServiceResult {
         return this.escalationPolicy;
     }
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found service.
      * 
      */
     public String id() {

@@ -89,6 +89,7 @@
         "types/output.ts",
         "user.ts",
         "userContactMethod.ts",
+        "userHandoffNotificationRule.ts",
         "userNotificationRule.ts",
         "utilities.ts",
         "webhookSubscription.ts"

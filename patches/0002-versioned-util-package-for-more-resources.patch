@@ -18,7 +18,7 @@ index 11a75167..e3dedc0d 100644
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
 diff --git a/pagerduty/resource_pagerduty_service.go b/pagerduty/resource_pagerduty_service.go
-index 17224545..608eee66 100644
+index 3ae23fea..cf31dae8 100644
 --- a/pagerduty/resource_pagerduty_service.go
 +++ b/pagerduty/resource_pagerduty_service.go
 @@ -8,7 +8,7 @@ import (
@@ -44,7 +44,7 @@ index e96c5199..9347ef08 100644
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
  	"github.com/heimweh/go-pagerduty/pagerduty"
 diff --git a/pagerdutyplugin/data_source_pagerduty_business_service.go b/pagerdutyplugin/data_source_pagerduty_business_service.go
-index 81958235..b69c5f17 100644
+index 84e60d61..5a6ad3c4 100644
 --- a/pagerdutyplugin/data_source_pagerduty_business_service.go
 +++ b/pagerdutyplugin/data_source_pagerduty_business_service.go
 @@ -7,7 +7,7 @@ import (

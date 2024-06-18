@@ -25,6 +25,13 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.apiUrlOverride);
     }
 
+    @Import(name="insecureTls", json=true)
+    private @Nullable Output<Boolean> insecureTls;
+
+    public Optional<Output<Boolean>> insecureTls() {
+        return Optional.ofNullable(this.insecureTls);
+    }
+
     @Import(name="serviceRegion")
     private @Nullable Output<String> serviceRegion;
 
@@ -64,6 +71,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     private ProviderArgs(ProviderArgs $) {
         this.apiUrlOverride = $.apiUrlOverride;
+        this.insecureTls = $.insecureTls;
         this.serviceRegion = $.serviceRegion;
         this.skipCredentialsValidation = $.skipCredentialsValidation;
         this.token = $.token;
@@ -96,6 +104,15 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder apiUrlOverride(String apiUrlOverride) {
             return apiUrlOverride(Output.of(apiUrlOverride));
+        }
+
+        public Builder insecureTls(@Nullable Output<Boolean> insecureTls) {
+            $.insecureTls = insecureTls;
+            return this;
+        }
+
+        public Builder insecureTls(Boolean insecureTls) {
+            return insecureTls(Output.of(insecureTls));
         }
 
         public Builder serviceRegion(@Nullable Output<String> serviceRegion) {

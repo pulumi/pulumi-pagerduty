@@ -355,6 +355,11 @@ export type UserContactMethod = import("./userContactMethod").UserContactMethod;
 export const UserContactMethod: typeof import("./userContactMethod").UserContactMethod = null as any;
 utilities.lazyLoad(exports, ["UserContactMethod"], () => require("./userContactMethod"));
 
+export { UserHandoffNotificationRuleArgs, UserHandoffNotificationRuleState } from "./userHandoffNotificationRule";
+export type UserHandoffNotificationRule = import("./userHandoffNotificationRule").UserHandoffNotificationRule;
+export const UserHandoffNotificationRule: typeof import("./userHandoffNotificationRule").UserHandoffNotificationRule = null as any;
+utilities.lazyLoad(exports, ["UserHandoffNotificationRule"], () => require("./userHandoffNotificationRule"));
+
 export { UserNotificationRuleArgs, UserNotificationRuleState } from "./userNotificationRule";
 export type UserNotificationRule = import("./userNotificationRule").UserNotificationRule;
 export const UserNotificationRule: typeof import("./userNotificationRule").UserNotificationRule = null as any;
@@ -459,6 +464,8 @@ const _module = {
                 return new User(name, <any>undefined, { urn })
             case "pagerduty:index/userContactMethod:UserContactMethod":
                 return new UserContactMethod(name, <any>undefined, { urn })
+            case "pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule":
+                return new UserHandoffNotificationRule(name, <any>undefined, { urn })
             case "pagerduty:index/userNotificationRule:UserNotificationRule":
                 return new UserNotificationRule(name, <any>undefined, { urn })
             case "pagerduty:index/webhookSubscription:WebhookSubscription":
@@ -508,6 +515,7 @@ pulumi.runtime.registerResourceModule("pagerduty", "index/team", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/teamMembership", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/user", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/userContactMethod", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/userHandoffNotificationRule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/userNotificationRule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/webhookSubscription", _module)
 pulumi.runtime.registerResourcePackage("pagerduty", {

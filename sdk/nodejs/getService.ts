@@ -72,7 +72,7 @@ export interface GetServiceResult {
      */
     readonly escalationPolicy: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * The ID of the found service.
      */
     readonly id: string;
     /**

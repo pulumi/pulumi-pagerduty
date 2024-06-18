@@ -44,6 +44,7 @@ export class Provider extends pulumi.ProviderResource {
         opts = opts || {};
         {
             resourceInputs["apiUrlOverride"] = args ? args.apiUrlOverride : undefined;
+            resourceInputs["insecureTls"] = pulumi.output(args ? args.insecureTls : undefined).apply(JSON.stringify);
             resourceInputs["serviceRegion"] = args ? args.serviceRegion : undefined;
             resourceInputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) ?? false).apply(JSON.stringify);
             resourceInputs["token"] = args ? args.token : undefined;
@@ -60,6 +61,7 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     apiUrlOverride?: pulumi.Input<string>;
+    insecureTls?: pulumi.Input<boolean>;
     serviceRegion?: pulumi.Input<string>;
     skipCredentialsValidation?: pulumi.Input<boolean>;
     token?: pulumi.Input<string>;

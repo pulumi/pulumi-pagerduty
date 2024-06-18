@@ -15,6 +15,9 @@ public final class Config {
     public Optional<String> apiUrlOverride() {
         return Codegen.stringProp("apiUrlOverride").config(config).get();
     }
+    public Optional<Boolean> insecureTls() {
+        return Codegen.booleanProp("insecureTls").config(config).get();
+    }
     public Optional<String> serviceRegion() {
         return Codegen.stringProp("serviceRegion").config(config).get();
     }

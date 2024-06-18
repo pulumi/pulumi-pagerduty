@@ -57,6 +57,9 @@
             "apiUrlOverride": {
                 "type": "string"
             },
+            "insecureTls": {
+                "type": "boolean"
+            },
             "serviceRegion": {
                 "type": "string"
             },
@@ -2445,7 +2448,7 @@
                 },
                 "timeWindow": {
                     "type": "integer",
-                    "description": "The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.\n"
+                    "description": "The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.\n"
                 },
                 "timeout": {
                     "type": "integer",
@@ -2504,22 +2507,23 @@
                 }
             },
             "type": "object",
-            "required": [
-                "dependentServices",
-                "supportingServices"
-            ]
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "type"
+                    ]
+                }
+            }
         },
         "pagerduty:index/ServiceDependencyDependencyDependentService:ServiceDependencyDependencyDependentService": {
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the service dependency.\n",
-                    "willReplaceOnChanges": true
+                    "description": "The ID of the service dependency.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.\n",
-                    "willReplaceOnChanges": true
+                    "description": "Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.\n"
                 }
             },
             "type": "object",
@@ -2532,13 +2536,11 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the service dependency.\n",
-                    "willReplaceOnChanges": true
+                    "description": "The ID of the service dependency.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.\n",
-                    "willReplaceOnChanges": true
+                    "description": "Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.\n"
                 }
             },
             "type": "object",
@@ -3116,6 +3118,23 @@
             "type": "object",
             "required": [
                 "events"
+            ]
+        },
+        "pagerduty:index/UserHandoffNotificationRuleContactMethod:UserHandoffNotificationRuleContactMethod": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the contact method.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the contact method. May be (`email_contact_method`, `email_contact_method_reference`, `phone_contact_method`, `phone_contact_method_reference`, `push_notification_contact_method`, `push_notification_contact_method_reference`, `sms_contact_method`, `sms_contact_method_reference`).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "type"
             ]
         },
         "pagerduty:index/WebhookSubscriptionDeliveryMethod:WebhookSubscriptionDeliveryMethod": {
@@ -3912,6 +3931,9 @@
             "apiUrlOverride": {
                 "type": "string"
             },
+            "insecureTls": {
+                "type": "boolean"
+            },
             "serviceRegion": {
                 "type": "string"
             },
@@ -3931,6 +3953,9 @@
         "inputProperties": {
             "apiUrlOverride": {
                 "type": "string"
+            },
+            "insecureTls": {
+                "type": "boolean"
             },
             "serviceRegion": {
                 "type": "string"
@@ -5377,6 +5402,7 @@
             },
             "required": [
                 "config",
+                "endpointUrl",
                 "extensionObjects",
                 "extensionSchema",
                 "htmlUrl",
@@ -6837,8 +6863,7 @@
             "inputProperties": {
                 "dependency": {
                     "$ref": "#/types/pagerduty:index/ServiceDependencyDependency:ServiceDependencyDependency",
-                    "description": "The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.\n",
-                    "willReplaceOnChanges": true
+                    "description": "The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.\n"
                 }
             },
             "requiredInputs": [
@@ -6849,8 +6874,7 @@
                 "properties": {
                     "dependency": {
                         "$ref": "#/types/pagerduty:index/ServiceDependencyDependency:ServiceDependencyDependency",
-                        "description": "The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.\n",
-                        "willReplaceOnChanges": true
+                        "description": "The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.\n"
                     }
                 },
                 "type": "object"
@@ -7808,6 +7832,78 @@
                     "type": {
                         "type": "string",
                         "description": "The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).\n"
+                    },
+                    "userId": {
+                        "type": "string",
+                        "description": "The ID of the user.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule": {
+            "description": "An [user handoff notification rule](https://developer.pagerduty.com/api-reference/f2ab7a3c1418a-create-a-user-handoff-notification-rule) is a rule that specifies how a user should be notified when they are handed off an incident.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst example = new pagerduty.User(\"example\", {\n    name: \"Earline Greenholt\",\n    email: \"125.greenholt.earline@foo.test\",\n});\nconst phone = new pagerduty.UserContactMethod(\"phone\", {\n    userId: example.id,\n    type: \"phone_contact_method\",\n    countryCode: 1,\n    address: \"2025550199\",\n    label: \"Work\",\n});\nconst example_oncall_offcall = new pagerduty.UserHandoffNotificationRule(\"example-oncall-offcall\", {\n    userId: example.id,\n    handoffType: \"both\",\n    notifyAdvanceInMinutes: 180,\n    contactMethod: {\n        id: phone.id,\n        type: phone.type,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample = pagerduty.User(\"example\",\n    name=\"Earline Greenholt\",\n    email=\"125.greenholt.earline@foo.test\")\nphone = pagerduty.UserContactMethod(\"phone\",\n    user_id=example.id,\n    type=\"phone_contact_method\",\n    country_code=1,\n    address=\"2025550199\",\n    label=\"Work\")\nexample_oncall_offcall = pagerduty.UserHandoffNotificationRule(\"example-oncall-offcall\",\n    user_id=example.id,\n    handoff_type=\"both\",\n    notify_advance_in_minutes=180,\n    contact_method=pagerduty.UserHandoffNotificationRuleContactMethodArgs(\n        id=phone.id,\n        type=phone.type,\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Pagerduty.User(\"example\", new()\n    {\n        Name = \"Earline Greenholt\",\n        Email = \"125.greenholt.earline@foo.test\",\n    });\n\n    var phone = new Pagerduty.UserContactMethod(\"phone\", new()\n    {\n        UserId = example.Id,\n        Type = \"phone_contact_method\",\n        CountryCode = 1,\n        Address = \"2025550199\",\n        Label = \"Work\",\n    });\n\n    var example_oncall_offcall = new Pagerduty.UserHandoffNotificationRule(\"example-oncall-offcall\", new()\n    {\n        UserId = example.Id,\n        HandoffType = \"both\",\n        NotifyAdvanceInMinutes = 180,\n        ContactMethod = new Pagerduty.Inputs.UserHandoffNotificationRuleContactMethodArgs\n        {\n            Id = phone.Id,\n            Type = phone.Type,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := pagerduty.NewUser(ctx, \"example\", \u0026pagerduty.UserArgs{\n\t\t\tName:  pulumi.String(\"Earline Greenholt\"),\n\t\t\tEmail: pulumi.String(\"125.greenholt.earline@foo.test\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tphone, err := pagerduty.NewUserContactMethod(ctx, \"phone\", \u0026pagerduty.UserContactMethodArgs{\n\t\t\tUserId:      example.ID(),\n\t\t\tType:        pulumi.String(\"phone_contact_method\"),\n\t\t\tCountryCode: pulumi.Int(1),\n\t\t\tAddress:     pulumi.String(\"2025550199\"),\n\t\t\tLabel:       pulumi.String(\"Work\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewUserHandoffNotificationRule(ctx, \"example-oncall-offcall\", \u0026pagerduty.UserHandoffNotificationRuleArgs{\n\t\t\tUserId:                 example.ID(),\n\t\t\tHandoffType:            pulumi.String(\"both\"),\n\t\t\tNotifyAdvanceInMinutes: pulumi.Int(180),\n\t\t\tContactMethod: \u0026pagerduty.UserHandoffNotificationRuleContactMethodArgs{\n\t\t\t\tId:   phone.ID(),\n\t\t\t\tType: phone.Type,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.User;\nimport com.pulumi.pagerduty.UserArgs;\nimport com.pulumi.pagerduty.UserContactMethod;\nimport com.pulumi.pagerduty.UserContactMethodArgs;\nimport com.pulumi.pagerduty.UserHandoffNotificationRule;\nimport com.pulumi.pagerduty.UserHandoffNotificationRuleArgs;\nimport com.pulumi.pagerduty.inputs.UserHandoffNotificationRuleContactMethodArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new User(\"example\", UserArgs.builder()\n            .name(\"Earline Greenholt\")\n            .email(\"125.greenholt.earline@foo.test\")\n            .build());\n\n        var phone = new UserContactMethod(\"phone\", UserContactMethodArgs.builder()\n            .userId(example.id())\n            .type(\"phone_contact_method\")\n            .countryCode(\"+1\")\n            .address(\"2025550199\")\n            .label(\"Work\")\n            .build());\n\n        var example_oncall_offcall = new UserHandoffNotificationRule(\"example-oncall-offcall\", UserHandoffNotificationRuleArgs.builder()\n            .userId(example.id())\n            .handoffType(\"both\")\n            .notifyAdvanceInMinutes(180)\n            .contactMethod(UserHandoffNotificationRuleContactMethodArgs.builder()\n                .id(phone.id())\n                .type(phone.type())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: pagerduty:User\n    properties:\n      name: Earline Greenholt\n      email: 125.greenholt.earline@foo.test\n  phone:\n    type: pagerduty:UserContactMethod\n    properties:\n      userId: ${example.id}\n      type: phone_contact_method\n      countryCode: '+1'\n      address: '2025550199'\n      label: Work\n  example-oncall-offcall:\n    type: pagerduty:UserHandoffNotificationRule\n    properties:\n      userId: ${example.id}\n      handoffType: both\n      notifyAdvanceInMinutes: 180\n      contactMethod:\n        id: ${phone.id}\n        type: ${phone.type}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nUser handoff notification rules can be imported using the `user_id` and `id` separated by a dot, e.g.\n\n```sh\n$ pulumi import pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule main PX4IAP4.PULREBP\n```\n",
+            "properties": {
+                "contactMethod": {
+                    "$ref": "#/types/pagerduty:index/UserHandoffNotificationRuleContactMethod:UserHandoffNotificationRuleContactMethod",
+                    "description": "The contact method to notify the user. Contact method documented below.\n"
+                },
+                "handoffType": {
+                    "type": "string",
+                    "description": "The type of handoff to notify the user about. Possible values are `oncall`, `offcall`, `both`.\n"
+                },
+                "notifyAdvanceInMinutes": {
+                    "type": "integer",
+                    "description": "The number of minutes before the handoff that the user should be notified. Must be a positive integer greater than or equal to 0.\n"
+                },
+                "userId": {
+                    "type": "string",
+                    "description": "The ID of the user.\n"
+                }
+            },
+            "required": [
+                "contactMethod",
+                "handoffType",
+                "notifyAdvanceInMinutes",
+                "userId"
+            ],
+            "inputProperties": {
+                "contactMethod": {
+                    "$ref": "#/types/pagerduty:index/UserHandoffNotificationRuleContactMethod:UserHandoffNotificationRuleContactMethod",
+                    "description": "The contact method to notify the user. Contact method documented below.\n"
+                },
+                "handoffType": {
+                    "type": "string",
+                    "description": "The type of handoff to notify the user about. Possible values are `oncall`, `offcall`, `both`.\n"
+                },
+                "notifyAdvanceInMinutes": {
+                    "type": "integer",
+                    "description": "The number of minutes before the handoff that the user should be notified. Must be a positive integer greater than or equal to 0.\n"
+                },
+                "userId": {
+                    "type": "string",
+                    "description": "The ID of the user.\n"
+                }
+            },
+            "requiredInputs": [
+                "contactMethod",
+                "notifyAdvanceInMinutes",
+                "userId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering UserHandoffNotificationRule resources.\n",
+                "properties": {
+                    "contactMethod": {
+                        "$ref": "#/types/pagerduty:index/UserHandoffNotificationRuleContactMethod:UserHandoffNotificationRuleContactMethod",
+                        "description": "The contact method to notify the user. Contact method documented below.\n"
+                    },
+                    "handoffType": {
+                        "type": "string",
+                        "description": "The type of handoff to notify the user about. Possible values are `oncall`, `offcall`, `both`.\n"
+                    },
+                    "notifyAdvanceInMinutes": {
+                        "type": "integer",
+                        "description": "The number of minutes before the handoff that the user should be notified. Must be a positive integer greater than or equal to 0.\n"
                     },
                     "userId": {
                         "type": "string",
@@ -8980,7 +9076,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The ID of the found service.\n",
                         "type": "string"
                     },
                     "name": {
@@ -9005,10 +9101,10 @@
                     "autoResolveTimeout",
                     "description",
                     "escalationPolicy",
+                    "id",
                     "name",
                     "teams",
-                    "type",
-                    "id"
+                    "type"
                 ],
                 "type": "object"
             }
@@ -9037,7 +9133,6 @@
                 "description": "A collection of values returned by getServiceIntegration.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
                         "type": "string"
                     },
                     "integrationKey": {
@@ -9053,10 +9148,10 @@
                     }
                 },
                 "required": [
+                    "id",
                     "integrationKey",
                     "integrationSummary",
-                    "serviceName",
-                    "id"
+                    "serviceName"
                 ],
                 "type": "object"
             }
@@ -9338,7 +9433,7 @@
             }
         },
         "pagerduty:index/getUser:getUser": {
-            "description": "Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst me = pagerduty.getUser({\n    email: \"me@example.com\",\n});\nconst foo = new pagerduty.EscalationPolicy(\"foo\", {\n    name: \"Engineering Escalation Policy\",\n    numLoops: 2,\n    rules: [{\n        escalationDelayInMinutes: 10,\n        targets: [{\n            type: \"user\",\n            id: me.then(me =\u003e me.id),\n        }],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nme = pagerduty.get_user(email=\"me@example.com\")\nfoo = pagerduty.EscalationPolicy(\"foo\",\n    name=\"Engineering Escalation Policy\",\n    num_loops=2,\n    rules=[pagerduty.EscalationPolicyRuleArgs(\n        escalation_delay_in_minutes=10,\n        targets=[pagerduty.EscalationPolicyRuleTargetArgs(\n            type=\"user\",\n            id=me.id,\n        )],\n    )])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var me = Pagerduty.GetUser.Invoke(new()\n    {\n        Email = \"me@example.com\",\n    });\n\n    var foo = new Pagerduty.EscalationPolicy(\"foo\", new()\n    {\n        Name = \"Engineering Escalation Policy\",\n        NumLoops = 2,\n        Rules = new[]\n        {\n            new Pagerduty.Inputs.EscalationPolicyRuleArgs\n            {\n                EscalationDelayInMinutes = 10,\n                Targets = new[]\n                {\n                    new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                    {\n                        Type = \"user\",\n                        Id = me.Apply(getUserResult =\u003e getUserResult.Id),\n                    },\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tme, err := pagerduty.LookupUser(ctx, \u0026pagerduty.LookupUserArgs{\n\t\t\tEmail: \"me@example.com\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEscalationPolicy(ctx, \"foo\", \u0026pagerduty.EscalationPolicyArgs{\n\t\t\tName:     pulumi.String(\"Engineering Escalation Policy\"),\n\t\t\tNumLoops: pulumi.Int(2),\n\t\t\tRules: pagerduty.EscalationPolicyRuleArray{\n\t\t\t\t\u0026pagerduty.EscalationPolicyRuleArgs{\n\t\t\t\t\tEscalationDelayInMinutes: pulumi.Int(10),\n\t\t\t\t\tTargets: pagerduty.EscalationPolicyRuleTargetArray{\n\t\t\t\t\t\t\u0026pagerduty.EscalationPolicyRuleTargetArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"user\"),\n\t\t\t\t\t\t\tId:   pulumi.String(me.Id),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetUserArgs;\nimport com.pulumi.pagerduty.EscalationPolicy;\nimport com.pulumi.pagerduty.EscalationPolicyArgs;\nimport com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()\n            .email(\"me@example.com\")\n            .build());\n\n        var foo = new EscalationPolicy(\"foo\", EscalationPolicyArgs.builder()\n            .name(\"Engineering Escalation Policy\")\n            .numLoops(2)\n            .rules(EscalationPolicyRuleArgs.builder()\n                .escalationDelayInMinutes(10)\n                .targets(EscalationPolicyRuleTargetArgs.builder()\n                    .type(\"user\")\n                    .id(me.applyValue(getUserResult -\u003e getUserResult.id()))\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: pagerduty:EscalationPolicy\n    properties:\n      name: Engineering Escalation Policy\n      numLoops: 2\n      rules:\n        - escalationDelayInMinutes: 10\n          targets:\n            - type: user\n              id: ${me.id}\nvariables:\n  me:\n    fn::invoke:\n      Function: pagerduty:getUser\n      Arguments:\n        email: me@example.com\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst me = pagerduty.getUser({\n    email: \"me@example.com\",\n});\nconst foo = new pagerduty.EscalationPolicy(\"foo\", {\n    name: \"Engineering Escalation Policy\",\n    numLoops: 2,\n    rules: [{\n        escalationDelayInMinutes: 10,\n        targets: [{\n            type: \"user_reference\",\n            id: me.then(me =\u003e me.id),\n        }],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nme = pagerduty.get_user(email=\"me@example.com\")\nfoo = pagerduty.EscalationPolicy(\"foo\",\n    name=\"Engineering Escalation Policy\",\n    num_loops=2,\n    rules=[pagerduty.EscalationPolicyRuleArgs(\n        escalation_delay_in_minutes=10,\n        targets=[pagerduty.EscalationPolicyRuleTargetArgs(\n            type=\"user_reference\",\n            id=me.id,\n        )],\n    )])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var me = Pagerduty.GetUser.Invoke(new()\n    {\n        Email = \"me@example.com\",\n    });\n\n    var foo = new Pagerduty.EscalationPolicy(\"foo\", new()\n    {\n        Name = \"Engineering Escalation Policy\",\n        NumLoops = 2,\n        Rules = new[]\n        {\n            new Pagerduty.Inputs.EscalationPolicyRuleArgs\n            {\n                EscalationDelayInMinutes = 10,\n                Targets = new[]\n                {\n                    new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                    {\n                        Type = \"user_reference\",\n                        Id = me.Apply(getUserResult =\u003e getUserResult.Id),\n                    },\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tme, err := pagerduty.LookupUser(ctx, \u0026pagerduty.LookupUserArgs{\n\t\t\tEmail: \"me@example.com\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEscalationPolicy(ctx, \"foo\", \u0026pagerduty.EscalationPolicyArgs{\n\t\t\tName:     pulumi.String(\"Engineering Escalation Policy\"),\n\t\t\tNumLoops: pulumi.Int(2),\n\t\t\tRules: pagerduty.EscalationPolicyRuleArray{\n\t\t\t\t\u0026pagerduty.EscalationPolicyRuleArgs{\n\t\t\t\t\tEscalationDelayInMinutes: pulumi.Int(10),\n\t\t\t\t\tTargets: pagerduty.EscalationPolicyRuleTargetArray{\n\t\t\t\t\t\t\u0026pagerduty.EscalationPolicyRuleTargetArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"user_reference\"),\n\t\t\t\t\t\t\tId:   pulumi.String(me.Id),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetUserArgs;\nimport com.pulumi.pagerduty.EscalationPolicy;\nimport com.pulumi.pagerduty.EscalationPolicyArgs;\nimport com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()\n            .email(\"me@example.com\")\n            .build());\n\n        var foo = new EscalationPolicy(\"foo\", EscalationPolicyArgs.builder()\n            .name(\"Engineering Escalation Policy\")\n            .numLoops(2)\n            .rules(EscalationPolicyRuleArgs.builder()\n                .escalationDelayInMinutes(10)\n                .targets(EscalationPolicyRuleTargetArgs.builder()\n                    .type(\"user_reference\")\n                    .id(me.applyValue(getUserResult -\u003e getUserResult.id()))\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: pagerduty:EscalationPolicy\n    properties:\n      name: Engineering Escalation Policy\n      numLoops: 2\n      rules:\n        - escalationDelayInMinutes: 10\n          targets:\n            - type: user_reference\n              id: ${me.id}\nvariables:\n  me:\n    fn::invoke:\n      Function: pagerduty:getUser\n      Arguments:\n        email: me@example.com\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getUser.\n",
                 "properties": {

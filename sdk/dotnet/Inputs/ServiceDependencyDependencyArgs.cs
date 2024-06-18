@@ -12,7 +12,7 @@ namespace Pulumi.Pagerduty.Inputs
 
     public sealed class ServiceDependencyDependencyArgs : global::Pulumi.ResourceArgs
     {
-        [Input("dependentServices", required: true)]
+        [Input("dependentServices")]
         private InputList<Inputs.ServiceDependencyDependencyDependentServiceArgs>? _dependentServices;
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Pagerduty.Inputs
             set => _dependentServices = value;
         }
 
-        [Input("supportingServices", required: true)]
+        [Input("supportingServices")]
         private InputList<Inputs.ServiceDependencyDependencySupportingServiceArgs>? _supportingServices;
 
         /// <summary>

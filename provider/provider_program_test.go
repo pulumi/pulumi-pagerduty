@@ -96,6 +96,10 @@ func testProgram(t *testing.T, dir string) {
 	if testing.Short() {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
 	}
+	// Skipping due to known flakes - see https://github.com/pulumi/pulumi-pagerduty/issues/541
+	if !(dir == "test-programs/index_usercontactmethod") {
+		t.Skipf("Skipping test due to flakiness")
+	}
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
 	test := pulumitest.NewPulumiTest(t, dir,

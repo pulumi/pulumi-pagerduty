@@ -26,8 +26,8 @@ import (
 	// tzdata is used to ensure the provider works when deployed to OS-es that do not have it
 	_ "time/tzdata"
 
-	"github.com/PagerDuty/terraform-provider-pagerduty/v3/pagerduty"
-	pagerdutyplugin "github.com/PagerDuty/terraform-provider-pagerduty/v3/pagerdutyplugin"
+	"github.com/PagerDuty/terraform-provider-pagerduty/pagerduty"
+	pagerdutyplugin "github.com/PagerDuty/terraform-provider-pagerduty/pagerdutyplugin"
 
 	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"

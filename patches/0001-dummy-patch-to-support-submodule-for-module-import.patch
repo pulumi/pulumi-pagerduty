@@ -1,1 +1,1 @@
-This is a dummy patch.
+This patch exists purely so that `patches` folder can be non-empty and the patches workflow can be invoked. See https://github.com/pulumi/pulumi-pagerduty/pull/546 for details.

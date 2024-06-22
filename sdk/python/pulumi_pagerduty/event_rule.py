@@ -255,7 +255,7 @@ class EventRule(pulumi.CustomResource):
                     "homer",
                 ],
             ]),
-            opts=pulumi.ResourceOptions(depends_on=[two]))
+            opts = pulumi.ResourceOptions(depends_on=[two]))
         ```
 
         ## Import
@@ -387,7 +387,7 @@ class EventRule(pulumi.CustomResource):
                     "homer",
                 ],
             ]),
-            opts=pulumi.ResourceOptions(depends_on=[two]))
+            opts = pulumi.ResourceOptions(depends_on=[two]))
         ```
 
         ## Import

@@ -148,13 +148,11 @@ class UserArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the 'pagerduty_team_membership' resource instead.""")
     def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of teams the user should belong to. Please use `TeamMembership` instead.
         """
-        warnings.warn("""Use the 'pagerduty_team_membership' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""teams is deprecated: Use the 'pagerduty_team_membership' resource instead.""")
-
         return pulumi.get(self, "teams")
 
     @teams.setter
@@ -360,13 +358,11 @@ class _UserState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the 'pagerduty_team_membership' resource instead.""")
     def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of teams the user should belong to. Please use `TeamMembership` instead.
         """
-        warnings.warn("""Use the 'pagerduty_team_membership' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""teams is deprecated: Use the 'pagerduty_team_membership' resource instead.""")
-
         return pulumi.get(self, "teams")
 
     @teams.setter
@@ -661,13 +657,11 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the 'pagerduty_team_membership' resource instead.""")
     def teams(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of teams the user should belong to. Please use `TeamMembership` instead.
         """
-        warnings.warn("""Use the 'pagerduty_team_membership' resource instead.""", DeprecationWarning)
-        pulumi.log.warn("""teams is deprecated: Use the 'pagerduty_team_membership' resource instead.""")
-
         return pulumi.get(self, "teams")
 
     @property

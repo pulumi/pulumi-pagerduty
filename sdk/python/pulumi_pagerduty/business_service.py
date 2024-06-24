@@ -89,13 +89,11 @@ class BusinessServiceArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This will become a computed attribute in the next major release.""")
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
-        warnings.warn("""This will become a computed attribute in the next major release.""", DeprecationWarning)
-        pulumi.log.warn("""type is deprecated: This will become a computed attribute in the next major release.""")
-
         return pulumi.get(self, "type")
 
     @type.setter
@@ -229,13 +227,11 @@ class _BusinessServiceState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This will become a computed attribute in the next major release.""")
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
-        warnings.warn("""This will become a computed attribute in the next major release.""", DeprecationWarning)
-        pulumi.log.warn("""type is deprecated: This will become a computed attribute in the next major release.""")
-
         return pulumi.get(self, "type")
 
     @type.setter
@@ -456,12 +452,10 @@ class BusinessService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This will become a computed attribute in the next major release.""")
     def type(self) -> pulumi.Output[str]:
         """
         **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
-        warnings.warn("""This will become a computed attribute in the next major release.""", DeprecationWarning)
-        pulumi.log.warn("""type is deprecated: This will become a computed attribute in the next major release.""")
-
         return pulumi.get(self, "type")
 

@@ -103,8 +103,9 @@ func testProgram(t *testing.T, dir string) {
 		"test-programs/index_schedule",
 		"test-programs/index_usernotificationrule",
 		"test-programs/index_escalationpolicy",
+		"test-programs/index_usercontactmethod",
 	}, dir) {
-		t.Skipf("Skipping test due to flakiness")
+		t.Skipf("pulumi-pagerduty#541: Skipping test due to flakiness")
 	}
 	cwd, err := os.Getwd()
 	require.NoError(t, err)

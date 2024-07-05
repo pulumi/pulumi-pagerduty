@@ -65,25 +65,12 @@ func GetLicense(ctx *pulumi.Context, args *GetLicenseArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getLicense.
 type GetLicenseArgs struct {
-	// Available allocations to assign to users
-	AllocationsAvailable *int `pulumi:"allocationsAvailable"`
-	// The number of allocations already assigned to users
-	CurrentValue *int `pulumi:"currentValue"`
 	// Used to determine if the data config *description* is a valid substring of a valid license description assigned to the account.
 	Description *string `pulumi:"description"`
-	HtmlUrl     *string `pulumi:"htmlUrl"`
 	// Used to match the data config *id* with an exact match of a valid license ID assigned to the account.
 	Id *string `pulumi:"id"`
 	// Used to determine if the data config *name* is a valid substring of a valid license name assigned to the account.
 	Name *string `pulumi:"name"`
-	// The role group for the license that determines the available `validRoles`
-	RoleGroup *string `pulumi:"roleGroup"`
-	Self      *string `pulumi:"self"`
-	// Summary of the license
-	Summary *string `pulumi:"summary"`
-	Type    *string `pulumi:"type"`
-	// List of allowed roles that may be assigned to a user with this license
-	ValidRoles []string `pulumi:"validRoles"`
 }
 
 // A collection of values returned by getLicense.
@@ -121,25 +108,12 @@ func GetLicenseOutput(ctx *pulumi.Context, args GetLicenseOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getLicense.
 type GetLicenseOutputArgs struct {
-	// Available allocations to assign to users
-	AllocationsAvailable pulumi.IntPtrInput `pulumi:"allocationsAvailable"`
-	// The number of allocations already assigned to users
-	CurrentValue pulumi.IntPtrInput `pulumi:"currentValue"`
 	// Used to determine if the data config *description* is a valid substring of a valid license description assigned to the account.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	HtmlUrl     pulumi.StringPtrInput `pulumi:"htmlUrl"`
 	// Used to match the data config *id* with an exact match of a valid license ID assigned to the account.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Used to determine if the data config *name* is a valid substring of a valid license name assigned to the account.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The role group for the license that determines the available `validRoles`
-	RoleGroup pulumi.StringPtrInput `pulumi:"roleGroup"`
-	Self      pulumi.StringPtrInput `pulumi:"self"`
-	// Summary of the license
-	Summary pulumi.StringPtrInput `pulumi:"summary"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	// List of allowed roles that may be assigned to a user with this license
-	ValidRoles pulumi.StringArrayInput `pulumi:"validRoles"`
 }
 
 func (GetLicenseOutputArgs) ElementType() reflect.Type {

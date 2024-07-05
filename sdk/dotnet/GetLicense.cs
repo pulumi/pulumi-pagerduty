@@ -96,25 +96,10 @@ namespace Pulumi.Pagerduty
     public sealed class GetLicenseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Available allocations to assign to users
-        /// </summary>
-        [Input("allocationsAvailable")]
-        public int? AllocationsAvailable { get; set; }
-
-        /// <summary>
-        /// The number of allocations already assigned to users
-        /// </summary>
-        [Input("currentValue")]
-        public int? CurrentValue { get; set; }
-
-        /// <summary>
         /// Used to determine if the data config *description* is a valid substring of a valid license description assigned to the account.
         /// </summary>
         [Input("description")]
         public string? Description { get; set; }
-
-        [Input("htmlUrl")]
-        public string? HtmlUrl { get; set; }
 
         /// <summary>
         /// Used to match the data config *id* with an exact match of a valid license ID assigned to the account.
@@ -128,36 +113,6 @@ namespace Pulumi.Pagerduty
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// The role group for the license that determines the available `valid_roles`
-        /// </summary>
-        [Input("roleGroup")]
-        public string? RoleGroup { get; set; }
-
-        [Input("self")]
-        public string? Self { get; set; }
-
-        /// <summary>
-        /// Summary of the license
-        /// </summary>
-        [Input("summary")]
-        public string? Summary { get; set; }
-
-        [Input("type")]
-        public string? Type { get; set; }
-
-        [Input("validRoles")]
-        private List<string>? _validRoles;
-
-        /// <summary>
-        /// List of allowed roles that may be assigned to a user with this license
-        /// </summary>
-        public List<string> ValidRoles
-        {
-            get => _validRoles ?? (_validRoles = new List<string>());
-            set => _validRoles = value;
-        }
-
         public GetLicenseArgs()
         {
         }
@@ -167,25 +122,10 @@ namespace Pulumi.Pagerduty
     public sealed class GetLicenseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Available allocations to assign to users
-        /// </summary>
-        [Input("allocationsAvailable")]
-        public Input<int>? AllocationsAvailable { get; set; }
-
-        /// <summary>
-        /// The number of allocations already assigned to users
-        /// </summary>
-        [Input("currentValue")]
-        public Input<int>? CurrentValue { get; set; }
-
-        /// <summary>
         /// Used to determine if the data config *description* is a valid substring of a valid license description assigned to the account.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        [Input("htmlUrl")]
-        public Input<string>? HtmlUrl { get; set; }
 
         /// <summary>
         /// Used to match the data config *id* with an exact match of a valid license ID assigned to the account.
@@ -198,36 +138,6 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The role group for the license that determines the available `valid_roles`
-        /// </summary>
-        [Input("roleGroup")]
-        public Input<string>? RoleGroup { get; set; }
-
-        [Input("self")]
-        public Input<string>? Self { get; set; }
-
-        /// <summary>
-        /// Summary of the license
-        /// </summary>
-        [Input("summary")]
-        public Input<string>? Summary { get; set; }
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        [Input("validRoles")]
-        private InputList<string>? _validRoles;
-
-        /// <summary>
-        /// List of allowed roles that may be assigned to a user with this license
-        /// </summary>
-        public InputList<string> ValidRoles
-        {
-            get => _validRoles ?? (_validRoles = new InputList<string>());
-            set => _validRoles = value;
-        }
 
         public GetLicenseInvokeArgs()
         {

@@ -16,7 +16,7 @@ public final class GetPriorityResult {
      */
     private String description;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found priority.
      * 
      */
     private String id;
@@ -35,7 +35,7 @@ public final class GetPriorityResult {
         return this.description;
     }
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found priority.
      * 
      */
     public String id() {

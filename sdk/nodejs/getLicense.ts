@@ -33,17 +33,9 @@ export function getLicense(args?: GetLicenseArgs, opts?: pulumi.InvokeOptions): 
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getLicense:getLicense", {
-        "allocationsAvailable": args.allocationsAvailable,
-        "currentValue": args.currentValue,
         "description": args.description,
-        "htmlUrl": args.htmlUrl,
         "id": args.id,
         "name": args.name,
-        "roleGroup": args.roleGroup,
-        "self": args.self,
-        "summary": args.summary,
-        "type": args.type,
-        "validRoles": args.validRoles,
     }, opts);
 }
 
@@ -52,18 +44,9 @@ export function getLicense(args?: GetLicenseArgs, opts?: pulumi.InvokeOptions): 
  */
 export interface GetLicenseArgs {
     /**
-     * Available allocations to assign to users
-     */
-    allocationsAvailable?: number;
-    /**
-     * The number of allocations already assigned to users
-     */
-    currentValue?: number;
-    /**
      * Used to determine if the data config *description* is a valid substring of a valid license description assigned to the account.
      */
     description?: string;
-    htmlUrl?: string;
     /**
      * Used to match the data config *id* with an exact match of a valid license ID assigned to the account.
      */
@@ -72,20 +55,6 @@ export interface GetLicenseArgs {
      * Used to determine if the data config *name* is a valid substring of a valid license name assigned to the account.
      */
     name?: string;
-    /**
-     * The role group for the license that determines the available `validRoles`
-     */
-    roleGroup?: string;
-    self?: string;
-    /**
-     * Summary of the license
-     */
-    summary?: string;
-    type?: string;
-    /**
-     * List of allowed roles that may be assigned to a user with this license
-     */
-    validRoles?: string[];
 }
 
 /**
@@ -152,18 +121,9 @@ export function getLicenseOutput(args?: GetLicenseOutputArgs, opts?: pulumi.Invo
  */
 export interface GetLicenseOutputArgs {
     /**
-     * Available allocations to assign to users
-     */
-    allocationsAvailable?: pulumi.Input<number>;
-    /**
-     * The number of allocations already assigned to users
-     */
-    currentValue?: pulumi.Input<number>;
-    /**
      * Used to determine if the data config *description* is a valid substring of a valid license description assigned to the account.
      */
     description?: pulumi.Input<string>;
-    htmlUrl?: pulumi.Input<string>;
     /**
      * Used to match the data config *id* with an exact match of a valid license ID assigned to the account.
      */
@@ -172,18 +132,4 @@ export interface GetLicenseOutputArgs {
      * Used to determine if the data config *name* is a valid substring of a valid license name assigned to the account.
      */
     name?: pulumi.Input<string>;
-    /**
-     * The role group for the license that determines the available `validRoles`
-     */
-    roleGroup?: pulumi.Input<string>;
-    self?: pulumi.Input<string>;
-    /**
-     * Summary of the license
-     */
-    summary?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    /**
-     * List of allowed roles that may be assigned to a user with this license
-     */
-    validRoles?: pulumi.Input<pulumi.Input<string>[]>;
 }

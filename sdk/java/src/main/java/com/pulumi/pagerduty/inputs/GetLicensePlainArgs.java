@@ -4,9 +4,7 @@
 package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.annotations.Import;
-import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,36 +13,6 @@ import javax.annotation.Nullable;
 public final class GetLicensePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetLicensePlainArgs Empty = new GetLicensePlainArgs();
-
-    /**
-     * Available allocations to assign to users
-     * 
-     */
-    @Import(name="allocationsAvailable")
-    private @Nullable Integer allocationsAvailable;
-
-    /**
-     * @return Available allocations to assign to users
-     * 
-     */
-    public Optional<Integer> allocationsAvailable() {
-        return Optional.ofNullable(this.allocationsAvailable);
-    }
-
-    /**
-     * The number of allocations already assigned to users
-     * 
-     */
-    @Import(name="currentValue")
-    private @Nullable Integer currentValue;
-
-    /**
-     * @return The number of allocations already assigned to users
-     * 
-     */
-    public Optional<Integer> currentValue() {
-        return Optional.ofNullable(this.currentValue);
-    }
 
     /**
      * Used to determine if the data config *description* is a valid substring of a valid license description assigned to the account.
@@ -59,13 +27,6 @@ public final class GetLicensePlainArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
-    }
-
-    @Import(name="htmlUrl")
-    private @Nullable String htmlUrl;
-
-    public Optional<String> htmlUrl() {
-        return Optional.ofNullable(this.htmlUrl);
     }
 
     /**
@@ -98,79 +59,12 @@ public final class GetLicensePlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The role group for the license that determines the available `valid_roles`
-     * 
-     */
-    @Import(name="roleGroup")
-    private @Nullable String roleGroup;
-
-    /**
-     * @return The role group for the license that determines the available `valid_roles`
-     * 
-     */
-    public Optional<String> roleGroup() {
-        return Optional.ofNullable(this.roleGroup);
-    }
-
-    @Import(name="self")
-    private @Nullable String self;
-
-    public Optional<String> self() {
-        return Optional.ofNullable(this.self);
-    }
-
-    /**
-     * Summary of the license
-     * 
-     */
-    @Import(name="summary")
-    private @Nullable String summary;
-
-    /**
-     * @return Summary of the license
-     * 
-     */
-    public Optional<String> summary() {
-        return Optional.ofNullable(this.summary);
-    }
-
-    @Import(name="type")
-    private @Nullable String type;
-
-    public Optional<String> type() {
-        return Optional.ofNullable(this.type);
-    }
-
-    /**
-     * List of allowed roles that may be assigned to a user with this license
-     * 
-     */
-    @Import(name="validRoles")
-    private @Nullable List<String> validRoles;
-
-    /**
-     * @return List of allowed roles that may be assigned to a user with this license
-     * 
-     */
-    public Optional<List<String>> validRoles() {
-        return Optional.ofNullable(this.validRoles);
-    }
-
     private GetLicensePlainArgs() {}
 
     private GetLicensePlainArgs(GetLicensePlainArgs $) {
-        this.allocationsAvailable = $.allocationsAvailable;
-        this.currentValue = $.currentValue;
         this.description = $.description;
-        this.htmlUrl = $.htmlUrl;
         this.id = $.id;
         this.name = $.name;
-        this.roleGroup = $.roleGroup;
-        this.self = $.self;
-        this.summary = $.summary;
-        this.type = $.type;
-        this.validRoles = $.validRoles;
     }
 
     public static Builder builder() {
@@ -192,28 +86,6 @@ public final class GetLicensePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param allocationsAvailable Available allocations to assign to users
-         * 
-         * @return builder
-         * 
-         */
-        public Builder allocationsAvailable(@Nullable Integer allocationsAvailable) {
-            $.allocationsAvailable = allocationsAvailable;
-            return this;
-        }
-
-        /**
-         * @param currentValue The number of allocations already assigned to users
-         * 
-         * @return builder
-         * 
-         */
-        public Builder currentValue(@Nullable Integer currentValue) {
-            $.currentValue = currentValue;
-            return this;
-        }
-
-        /**
          * @param description Used to determine if the data config *description* is a valid substring of a valid license description assigned to the account.
          * 
          * @return builder
@@ -221,11 +93,6 @@ public final class GetLicensePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder description(@Nullable String description) {
             $.description = description;
-            return this;
-        }
-
-        public Builder htmlUrl(@Nullable String htmlUrl) {
-            $.htmlUrl = htmlUrl;
             return this;
         }
 
@@ -249,59 +116,6 @@ public final class GetLicensePlainArgs extends com.pulumi.resources.InvokeArgs {
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
-        }
-
-        /**
-         * @param roleGroup The role group for the license that determines the available `valid_roles`
-         * 
-         * @return builder
-         * 
-         */
-        public Builder roleGroup(@Nullable String roleGroup) {
-            $.roleGroup = roleGroup;
-            return this;
-        }
-
-        public Builder self(@Nullable String self) {
-            $.self = self;
-            return this;
-        }
-
-        /**
-         * @param summary Summary of the license
-         * 
-         * @return builder
-         * 
-         */
-        public Builder summary(@Nullable String summary) {
-            $.summary = summary;
-            return this;
-        }
-
-        public Builder type(@Nullable String type) {
-            $.type = type;
-            return this;
-        }
-
-        /**
-         * @param validRoles List of allowed roles that may be assigned to a user with this license
-         * 
-         * @return builder
-         * 
-         */
-        public Builder validRoles(@Nullable List<String> validRoles) {
-            $.validRoles = validRoles;
-            return this;
-        }
-
-        /**
-         * @param validRoles List of allowed roles that may be assigned to a user with this license
-         * 
-         * @return builder
-         * 
-         */
-        public Builder validRoles(String... validRoles) {
-            return validRoles(List.of(validRoles));
         }
 
         public GetLicensePlainArgs build() {

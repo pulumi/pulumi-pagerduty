@@ -89,18 +89,6 @@ namespace Pulumi.Pagerduty
         [Input("id")]
         public string? Id { get; set; }
 
-        [Input("licenses")]
-        private List<Inputs.GetLicensesLicenseArgs>? _licenses;
-
-        /// <summary>
-        /// The list of purchased licenses.
-        /// </summary>
-        public List<Inputs.GetLicensesLicenseArgs> Licenses
-        {
-            get => _licenses ?? (_licenses = new List<Inputs.GetLicensesLicenseArgs>());
-            set => _licenses = value;
-        }
-
         public GetLicensesArgs()
         {
         }
@@ -114,18 +102,6 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
-
-        [Input("licenses")]
-        private InputList<Inputs.GetLicensesLicenseInputArgs>? _licenses;
-
-        /// <summary>
-        /// The list of purchased licenses.
-        /// </summary>
-        public InputList<Inputs.GetLicensesLicenseInputArgs> Licenses
-        {
-            get => _licenses ?? (_licenses = new InputList<Inputs.GetLicensesLicenseInputArgs>());
-            set => _licenses = value;
-        }
 
         public GetLicensesInvokeArgs()
         {

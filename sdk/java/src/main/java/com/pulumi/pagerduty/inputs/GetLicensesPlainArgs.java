@@ -4,9 +4,7 @@
 package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.annotations.Import;
-import com.pulumi.pagerduty.inputs.GetLicensesLicense;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -31,26 +29,10 @@ public final class GetLicensesPlainArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * The list of purchased licenses.
-     * 
-     */
-    @Import(name="licenses")
-    private @Nullable List<GetLicensesLicense> licenses;
-
-    /**
-     * @return The list of purchased licenses.
-     * 
-     */
-    public Optional<List<GetLicensesLicense>> licenses() {
-        return Optional.ofNullable(this.licenses);
-    }
-
     private GetLicensesPlainArgs() {}
 
     private GetLicensesPlainArgs(GetLicensesPlainArgs $) {
         this.id = $.id;
-        this.licenses = $.licenses;
     }
 
     public static Builder builder() {
@@ -80,27 +62,6 @@ public final class GetLicensesPlainArgs extends com.pulumi.resources.InvokeArgs 
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
-        }
-
-        /**
-         * @param licenses The list of purchased licenses.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder licenses(@Nullable List<GetLicensesLicense> licenses) {
-            $.licenses = licenses;
-            return this;
-        }
-
-        /**
-         * @param licenses The list of purchased licenses.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder licenses(GetLicensesLicense... licenses) {
-            return licenses(List.of(licenses));
         }
 
         public GetLicensesPlainArgs build() {

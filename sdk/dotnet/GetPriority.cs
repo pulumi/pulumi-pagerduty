@@ -218,7 +218,7 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// The ID of the found priority.
         /// </summary>
         public readonly string Id;
         /// <summary>

@@ -31,7 +31,6 @@ export function getLicenses(args?: GetLicensesArgs, opts?: pulumi.InvokeOptions)
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getLicenses:getLicenses", {
         "id": args.id,
-        "licenses": args.licenses,
     }, opts);
 }
 
@@ -43,10 +42,6 @@ export interface GetLicensesArgs {
      * Allows to override the default behavior for setting the `id` attribute that is required for data sources.
      */
     id?: string;
-    /**
-     * The list of purchased licenses.
-     */
-    licenses?: inputs.GetLicensesLicense[];
 }
 
 /**
@@ -93,8 +88,4 @@ export interface GetLicensesOutputArgs {
      * Allows to override the default behavior for setting the `id` attribute that is required for data sources.
      */
     id?: pulumi.Input<string>;
-    /**
-     * The list of purchased licenses.
-     */
-    licenses?: pulumi.Input<pulumi.Input<inputs.GetLicensesLicenseArgs>[]>;
 }

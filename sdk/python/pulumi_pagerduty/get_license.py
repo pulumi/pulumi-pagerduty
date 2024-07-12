@@ -146,17 +146,9 @@ class AwaitableGetLicenseResult(GetLicenseResult):
             valid_roles=self.valid_roles)
 
 
-def get_license(allocations_available: Optional[int] = None,
-                current_value: Optional[int] = None,
-                description: Optional[str] = None,
-                html_url: Optional[str] = None,
+def get_license(description: Optional[str] = None,
                 id: Optional[str] = None,
                 name: Optional[str] = None,
-                role_group: Optional[str] = None,
-                self: Optional[str] = None,
-                summary: Optional[str] = None,
-                type: Optional[str] = None,
-                valid_roles: Optional[Sequence[str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLicenseResult:
     """
     Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
@@ -180,27 +172,14 @@ def get_license(allocations_available: Optional[int] = None,
     ```
 
 
-    :param int allocations_available: Available allocations to assign to users
-    :param int current_value: The number of allocations already assigned to users
     :param str description: Used to determine if the data config *description* is a valid substring of a valid license description assigned to the account.
     :param str id: Used to match the data config *id* with an exact match of a valid license ID assigned to the account.
     :param str name: Used to determine if the data config *name* is a valid substring of a valid license name assigned to the account.
-    :param str role_group: The role group for the license that determines the available `valid_roles`
-    :param str summary: Summary of the license
-    :param Sequence[str] valid_roles: List of allowed roles that may be assigned to a user with this license
     """
     __args__ = dict()
-    __args__['allocationsAvailable'] = allocations_available
-    __args__['currentValue'] = current_value
     __args__['description'] = description
-    __args__['htmlUrl'] = html_url
     __args__['id'] = id
     __args__['name'] = name
-    __args__['roleGroup'] = role_group
-    __args__['self'] = self
-    __args__['summary'] = summary
-    __args__['type'] = type
-    __args__['validRoles'] = valid_roles
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getLicense:getLicense', __args__, opts=opts, typ=GetLicenseResult).value
 
@@ -219,17 +198,9 @@ def get_license(allocations_available: Optional[int] = None,
 
 
 @_utilities.lift_output_func(get_license)
-def get_license_output(allocations_available: Optional[pulumi.Input[Optional[int]]] = None,
-                       current_value: Optional[pulumi.Input[Optional[int]]] = None,
-                       description: Optional[pulumi.Input[Optional[str]]] = None,
-                       html_url: Optional[pulumi.Input[Optional[str]]] = None,
+def get_license_output(description: Optional[pulumi.Input[Optional[str]]] = None,
                        id: Optional[pulumi.Input[Optional[str]]] = None,
                        name: Optional[pulumi.Input[Optional[str]]] = None,
-                       role_group: Optional[pulumi.Input[Optional[str]]] = None,
-                       self: Optional[pulumi.Input[Optional[str]]] = None,
-                       summary: Optional[pulumi.Input[Optional[str]]] = None,
-                       type: Optional[pulumi.Input[Optional[str]]] = None,
-                       valid_roles: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLicenseResult]:
     """
     Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
@@ -253,13 +224,8 @@ def get_license_output(allocations_available: Optional[pulumi.Input[Optional[int
     ```
 
 
-    :param int allocations_available: Available allocations to assign to users
-    :param int current_value: The number of allocations already assigned to users
     :param str description: Used to determine if the data config *description* is a valid substring of a valid license description assigned to the account.
     :param str id: Used to match the data config *id* with an exact match of a valid license ID assigned to the account.
     :param str name: Used to determine if the data config *name* is a valid substring of a valid license name assigned to the account.
-    :param str role_group: The role group for the license that determines the available `valid_roles`
-    :param str summary: Summary of the license
-    :param Sequence[str] valid_roles: List of allowed roles that may be assigned to a user with this license
     """
     ...

@@ -62,8 +62,6 @@ func GetLicenses(ctx *pulumi.Context, args *GetLicensesArgs, opts ...pulumi.Invo
 type GetLicensesArgs struct {
 	// Allows to override the default behavior for setting the `id` attribute that is required for data sources.
 	Id *string `pulumi:"id"`
-	// The list of purchased licenses.
-	Licenses []GetLicensesLicense `pulumi:"licenses"`
 }
 
 // A collection of values returned by getLicenses.
@@ -91,8 +89,6 @@ func GetLicensesOutput(ctx *pulumi.Context, args GetLicensesOutputArgs, opts ...
 type GetLicensesOutputArgs struct {
 	// Allows to override the default behavior for setting the `id` attribute that is required for data sources.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The list of purchased licenses.
-	Licenses GetLicensesLicenseArrayInput `pulumi:"licenses"`
 }
 
 func (GetLicensesOutputArgs) ElementType() reflect.Type {

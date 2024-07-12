@@ -8774,20 +8774,9 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getLicense.\n",
                 "properties": {
-                    "allocationsAvailable": {
-                        "type": "integer",
-                        "description": "Available allocations to assign to users\n"
-                    },
-                    "currentValue": {
-                        "type": "integer",
-                        "description": "The number of allocations already assigned to users\n"
-                    },
                     "description": {
                         "type": "string",
                         "description": "Used to determine if the data config *description* is a valid substring of a valid license description assigned to the account.\n"
-                    },
-                    "htmlUrl": {
-                        "type": "string"
                     },
                     "id": {
                         "type": "string",
@@ -8796,27 +8785,6 @@
                     "name": {
                         "type": "string",
                         "description": "Used to determine if the data config *name* is a valid substring of a valid license name assigned to the account.\n"
-                    },
-                    "roleGroup": {
-                        "type": "string",
-                        "description": "The role group for the license that determines the available `valid_roles`\n"
-                    },
-                    "self": {
-                        "type": "string"
-                    },
-                    "summary": {
-                        "type": "string",
-                        "description": "Summary of the license\n"
-                    },
-                    "type": {
-                        "type": "string"
-                    },
-                    "validRoles": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "List of allowed roles that may be assigned to a user with this license\n"
                     }
                 },
                 "type": "object"
@@ -8890,13 +8858,6 @@
                     "id": {
                         "type": "string",
                         "description": "Allows to override the default behavior for setting the `id` attribute that is required for data sources.\n"
-                    },
-                    "licenses": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/types/pagerduty:index/getLicensesLicense:getLicensesLicense"
-                        },
-                        "description": "The list of purchased licenses.\n"
                     }
                 },
                 "type": "object"
@@ -8945,7 +8906,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The ID of the found priority.\n",
                         "type": "string"
                     },
                     "name": {
@@ -8955,8 +8916,8 @@
                 },
                 "required": [
                     "description",
-                    "name",
-                    "id"
+                    "id",
+                    "name"
                 ],
                 "type": "object"
             }

@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetLicensesResult',
@@ -59,7 +58,6 @@ class AwaitableGetLicensesResult(GetLicensesResult):
 
 
 def get_licenses(id: Optional[str] = None,
-                 licenses: Optional[Sequence[pulumi.InputType['GetLicensesLicenseArgs']]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLicensesResult:
     """
     Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `get_license` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
@@ -81,11 +79,9 @@ def get_licenses(id: Optional[str] = None,
 
 
     :param str id: Allows to override the default behavior for setting the `id` attribute that is required for data sources.
-    :param Sequence[pulumi.InputType['GetLicensesLicenseArgs']] licenses: The list of purchased licenses.
     """
     __args__ = dict()
     __args__['id'] = id
-    __args__['licenses'] = licenses
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getLicenses:getLicenses', __args__, opts=opts, typ=GetLicensesResult).value
 
@@ -96,7 +92,6 @@ def get_licenses(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_licenses)
 def get_licenses_output(id: Optional[pulumi.Input[Optional[str]]] = None,
-                        licenses: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLicensesLicenseArgs']]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLicensesResult]:
     """
     Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `get_license` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
@@ -118,6 +113,5 @@ def get_licenses_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
 
     :param str id: Allows to override the default behavior for setting the `id` attribute that is required for data sources.
-    :param Sequence[pulumi.InputType['GetLicensesLicenseArgs']] licenses: The list of purchased licenses.
     """
     ...

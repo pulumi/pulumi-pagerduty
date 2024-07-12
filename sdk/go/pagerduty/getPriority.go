@@ -107,7 +107,7 @@ type GetPriorityArgs struct {
 type GetPriorityResult struct {
 	// A description of the found priority.
 	Description string `pulumi:"description"`
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of the found priority.
 	Id string `pulumi:"id"`
 	// The name of the found priority.
 	Name string `pulumi:"name"`
@@ -156,7 +156,7 @@ func (o GetPriorityResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPriorityResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The provider-assigned unique ID for this managed resource.
+// The ID of the found priority.
 func (o GetPriorityResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPriorityResult) string { return v.Id }).(pulumi.StringOutput)
 }

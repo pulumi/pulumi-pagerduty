@@ -5,9 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.pagerduty.inputs.GetLicensesLicenseArgs;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -32,26 +30,10 @@ public final class GetLicensesArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * The list of purchased licenses.
-     * 
-     */
-    @Import(name="licenses")
-    private @Nullable Output<List<GetLicensesLicenseArgs>> licenses;
-
-    /**
-     * @return The list of purchased licenses.
-     * 
-     */
-    public Optional<Output<List<GetLicensesLicenseArgs>>> licenses() {
-        return Optional.ofNullable(this.licenses);
-    }
-
     private GetLicensesArgs() {}
 
     private GetLicensesArgs(GetLicensesArgs $) {
         this.id = $.id;
-        this.licenses = $.licenses;
     }
 
     public static Builder builder() {
@@ -91,37 +73,6 @@ public final class GetLicensesArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder id(String id) {
             return id(Output.of(id));
-        }
-
-        /**
-         * @param licenses The list of purchased licenses.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder licenses(@Nullable Output<List<GetLicensesLicenseArgs>> licenses) {
-            $.licenses = licenses;
-            return this;
-        }
-
-        /**
-         * @param licenses The list of purchased licenses.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder licenses(List<GetLicensesLicenseArgs> licenses) {
-            return licenses(Output.of(licenses));
-        }
-
-        /**
-         * @param licenses The list of purchased licenses.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder licenses(GetLicensesLicenseArgs... licenses) {
-            return licenses(List.of(licenses));
         }
 
         public GetLicensesArgs build() {

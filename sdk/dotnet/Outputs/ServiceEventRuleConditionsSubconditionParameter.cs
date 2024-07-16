@@ -13,6 +13,9 @@ namespace Pulumi.Pagerduty.Outputs
     [OutputType]
     public sealed class ServiceEventRuleConditionsSubconditionParameter
     {
+        /// <summary>
+        /// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+        /// </summary>
         public readonly string? Path;
         public readonly string? Value;
 

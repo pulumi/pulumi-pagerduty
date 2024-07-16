@@ -13,8 +13,17 @@ namespace Pulumi.Pagerduty.Outputs
     [OutputType]
     public sealed class ServiceEventRuleVariable
     {
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The parameters for performing the operation to populate the variable.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ServiceEventRuleVariableParameter> Parameters;
+        /// <summary>
+        /// Type of operation to populate the variable. Usually `regex`.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

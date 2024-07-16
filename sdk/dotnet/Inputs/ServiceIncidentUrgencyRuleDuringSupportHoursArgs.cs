@@ -18,6 +18,9 @@ namespace Pulumi.Pagerduty.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+        /// </summary>
         [Input("urgency")]
         public Input<string>? Urgency { get; set; }
 

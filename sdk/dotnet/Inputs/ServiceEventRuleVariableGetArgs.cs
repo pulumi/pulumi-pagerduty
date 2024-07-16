@@ -12,17 +12,27 @@ namespace Pulumi.Pagerduty.Inputs
 
     public sealed class ServiceEventRuleVariableGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.ServiceEventRuleVariableParameterGetArgs>? _parameters;
+
+        /// <summary>
+        /// The parameters for performing the operation to populate the variable.
+        /// </summary>
         public InputList<Inputs.ServiceEventRuleVariableParameterGetArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.ServiceEventRuleVariableParameterGetArgs>());
             set => _parameters = value;
         }
 
+        /// <summary>
+        /// Type of operation to populate the variable. Usually `regex`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

@@ -4827,12 +4827,18 @@ class RulesetRuleActionsArgs:
 class RulesetRuleActionsAnnotateArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -4844,12 +4850,18 @@ class RulesetRuleActionsAnnotateArgs:
 class RulesetRuleActionsEventActionArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -4940,12 +4952,18 @@ class RulesetRuleActionsExtractionArgs:
 class RulesetRuleActionsPriorityArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -4957,12 +4975,18 @@ class RulesetRuleActionsPriorityArgs:
 class RulesetRuleActionsRouteArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -4974,12 +4998,18 @@ class RulesetRuleActionsRouteArgs:
 class RulesetRuleActionsSeverityArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -5062,12 +5092,18 @@ class RulesetRuleActionsSuppressArgs:
 class RulesetRuleActionsSuspendArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[int]]:
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -5158,6 +5194,9 @@ class RulesetRuleConditionsSubconditionParameterArgs:
     def __init__(__self__, *,
                  path: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         if path is not None:
             pulumi.set(__self__, "path", path)
         if value is not None:
@@ -5175,6 +5214,9 @@ class RulesetRuleConditionsSubconditionParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -5226,6 +5268,9 @@ class RulesetRuleTimeFrameActiveBetweenArgs:
     def __init__(__self__, *,
                  end_time: Optional[pulumi.Input[int]] = None,
                  start_time: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] start_time: A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+        """
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
         if start_time is not None:
@@ -5243,6 +5288,9 @@ class RulesetRuleTimeFrameActiveBetweenArgs:
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[int]]:
+        """
+        A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+        """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
@@ -5367,6 +5415,9 @@ class RulesetRuleVariableParameterArgs:
     def __init__(__self__, *,
                  path: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         if path is not None:
             pulumi.set(__self__, "path", path)
         if value is not None:
@@ -5384,6 +5435,9 @@ class RulesetRuleVariableParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -6374,6 +6428,9 @@ class ServiceEventRuleConditionsSubconditionParameterArgs:
     def __init__(__self__, *,
                  path: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] path: Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+        """
         if path is not None:
             pulumi.set(__self__, "path", path)
         if value is not None:
@@ -6382,6 +6439,9 @@ class ServiceEventRuleConditionsSubconditionParameterArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -6553,6 +6613,11 @@ class ServiceEventRuleVariableArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableParameterArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the variable.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableParameterArgs']]] parameters: The parameters for performing the operation to populate the variable.
+        :param pulumi.Input[str] type: Type of operation to populate the variable. Usually `regex`.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
@@ -6563,6 +6628,9 @@ class ServiceEventRuleVariableArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the variable.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -6572,6 +6640,9 @@ class ServiceEventRuleVariableArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableParameterArgs']]]]:
+        """
+        The parameters for performing the operation to populate the variable.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -6581,6 +6652,9 @@ class ServiceEventRuleVariableArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of operation to populate the variable. Usually `regex`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -6593,6 +6667,9 @@ class ServiceEventRuleVariableParameterArgs:
     def __init__(__self__, *,
                  path: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] path: Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+        """
         if path is not None:
             pulumi.set(__self__, "path", path)
         if value is not None:
@@ -6601,6 +6678,9 @@ class ServiceEventRuleVariableParameterArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -6694,6 +6774,7 @@ class ServiceIncidentUrgencyRuleDuringSupportHoursArgs:
                  urgency: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        :param pulumi.Input[str] urgency: The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -6715,6 +6796,9 @@ class ServiceIncidentUrgencyRuleDuringSupportHoursArgs:
     @property
     @pulumi.getter
     def urgency(self) -> Optional[pulumi.Input[str]]:
+        """
+        The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+        """
         return pulumi.get(self, "urgency")
 
     @urgency.setter
@@ -6729,6 +6813,7 @@ class ServiceIncidentUrgencyRuleOutsideSupportHoursArgs:
                  urgency: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        :param pulumi.Input[str] urgency: The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -6750,6 +6835,9 @@ class ServiceIncidentUrgencyRuleOutsideSupportHoursArgs:
     @property
     @pulumi.getter
     def urgency(self) -> Optional[pulumi.Input[str]]:
+        """
+        The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+        """
         return pulumi.get(self, "urgency")
 
     @urgency.setter

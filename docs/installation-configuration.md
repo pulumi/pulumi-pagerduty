@@ -186,18 +186,18 @@ public class App {
 The following arguments are supported:
 
 * `token` - (Optional) The v2 authorization token. It can also be sourced from the `PAGERDUTY_TOKEN` environment variable. See [API Documentation](https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTUx-authentication)for more information.
-* `user_token` - (Optional) The v2 user level authorization token. It can also be sourced from the `PAGERDUTY_USER_TOKEN` environment variable. See [API Documentation](https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTUx-authentication) for more information.
-* `use_app_oauth_scoped_token` - (Optional) Defines the configuration needed for making use of [App Oauth Scoped API token](https://developer.pagerduty.com/docs/e518101fde5f3-obtaining-an-app-o-auth-token) for authenticating API calls.
-* `skip_credentials_validation` - (Optional) Skip validation of the token against the PagerDuty API.
-* `service_region` - (Optional) The PagerDuty service region to use. Default to empty (uses US region). Supported value: `eu`. This setting also affects configuration of `use_app_oauth_scoped_token` for setting Region of *App Oauth token credentials*. It can also be sourced from the `PAGERDUTY_SERVICE_REGION` environment variable.
-* `api_url_override` - (Optional) It can be used to set a custom proxy endpoint as PagerDuty client api url overriding `service_region` setup.
-* `insecure_tls` - (Optional) Can be used to disable TLS certificate checking when calling the PagerDuty API. This can be useful if you're behind a corporate proxy.
+* `userToken` - (Optional) The v2 user level authorization token. It can also be sourced from the `PAGERDUTY_USER_TOKEN` environment variable. See [API Documentation](https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTUx-authentication) for more information.
+* `useAppOauthScopedToken` - (Optional) Defines the configuration needed for making use of [App Oauth Scoped API token](https://developer.pagerduty.com/docs/e518101fde5f3-obtaining-an-app-o-auth-token) for authenticating API calls.
+* `skipCredentialsValidation` - (Optional) Skip validation of the token against the PagerDuty API.
+* `serviceRegion` - (Optional) The PagerDuty service region to use. Default to empty (uses US region). Supported value: `eu`. This setting also affects configuration of `useAppOauthScopedToken` for setting Region of *App Oauth token credentials*. It can also be sourced from the `PAGERDUTY_SERVICE_REGION` environment variable.
+* `apiUrlOverride` - (Optional) It can be used to set a custom proxy endpoint as PagerDuty client api url overriding `serviceRegion` setup.
+* `insecureTls` - (Optional) Can be used to disable TLS certificate checking when calling the PagerDuty API. This can be useful if you're behind a corporate proxy.
 
-The `use_app_oauth_scoped_token` block contains the following arguments:
+The `useAppOauthScopedToken` block contains the following arguments:
 
-* `pd_client_id` - (Required) An identifier issued when the Scoped OAuth client was added to a PagerDuty App. It can also be sourced from the `PAGERDUTY_CLIENT_ID` environment variable.
-* `pd_client_secret` - (Required) A secret issued when the Scoped OAuth client was added to a PagerDuty App. It can also be sourced from the `PAGERDUTY_CLIENT_SECRET` environment variable.
-* `pd_subdomain` - (Required) Your PagerDuty account subdomain; i.e: If the *URL* shown by the Browser when you are in your PagerDuty account is some like: https://acme.pagerudty.com, then your PagerDuty subdomain is `acme`. It can also be sourced from the `PAGERDUTY_SUBDOMAIN` environment variable.
+* `pdClientId` - (Required) An identifier issued when the Scoped OAuth client was added to a PagerDuty App. It can also be sourced from the `PAGERDUTY_CLIENT_ID` environment variable.
+* `pdClientSecret` - (Required) A secret issued when the Scoped OAuth client was added to a PagerDuty App. It can also be sourced from the `PAGERDUTY_CLIENT_SECRET` environment variable.
+* `pdSubdomain` - (Required) Your PagerDuty account subdomain; i.e: If the *URL* shown by the Browser when you are in your PagerDuty account is some like: https://acme.pagerudty.com, then your PagerDuty subdomain is `acme`. It can also be sourced from the `PAGERDUTY_SUBDOMAIN` environment variable.
 
 ## Example using App Oauth scoped token
 
@@ -374,7 +374,7 @@ public class App {
 
 ## Debugging Provider Output Using Logs
 
-In addition to the [log levels provided by Terraform](https://developer.hashicorp.com/terraform/internals/debugging), namely `TRACE`, `DEBUG`, `INFO`, `WARN`, and `ERROR` (in descending order of verbosity), the PagerDuty Provider introduces an extra level called `SECURE`. This level offers verbosity similar to Terraform's debug logging level, specifically for the output of API calls and HTTP request/response logs. The key difference is that API keys within the request's Authorization header will be obfuscated, revealing only the last four characters. An example is provided below:
+In addition to the log levels provided by Pulumi, namely `TRACE`, `DEBUG`, `INFO`, `WARN`, and `ERROR` (in descending order of verbosity), the PagerDuty Provider introduces an extra level called `SECURE`. This level offers verbosity similar to Pulumi's debug logging level, specifically for the output of API calls and HTTP request/response logs. The key difference is that API keys within the request's Authorization header will be obfuscated, revealing only the last four characters. An example is provided below:
 
 ```sh
 ---[ REQUEST ]---------------------------------------
@@ -382,11 +382,10 @@ GET /teams/DER8RFS HTTP/1.1
 Accept: application/vnd.pagerduty+json;version=2
 Authorization: <OBSCURED>kCjQ
 Content-Type: application/json
-User-Agent: (darwin arm64) Terraform/1.5.1
+User-Agent: (darwin arm64) Pulumi/1.5.1
 ```
 
 To enable the `SECURE` log level, you must set two environment variables:
 
 * `TF_LOG=INFO`
 * `TF_LOG_PROVIDER_PAGERDUTY=SECURE`
-

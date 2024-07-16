@@ -2078,7 +2078,8 @@
         "pagerduty:index/RulesetRuleActionsAnnotate:RulesetRuleActionsAnnotate": {
             "properties": {
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.\n"
                 }
             },
             "type": "object"
@@ -2086,7 +2087,8 @@
         "pagerduty:index/RulesetRuleActionsEventAction:RulesetRuleActionsEventAction": {
             "properties": {
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.\n"
                 }
             },
             "type": "object"
@@ -2115,7 +2117,8 @@
         "pagerduty:index/RulesetRuleActionsPriority:RulesetRuleActionsPriority": {
             "properties": {
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.\n"
                 }
             },
             "type": "object"
@@ -2123,7 +2126,8 @@
         "pagerduty:index/RulesetRuleActionsRoute:RulesetRuleActionsRoute": {
             "properties": {
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.\n"
                 }
             },
             "type": "object"
@@ -2131,7 +2135,8 @@
         "pagerduty:index/RulesetRuleActionsSeverity:RulesetRuleActionsSeverity": {
             "properties": {
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.\n"
                 }
             },
             "type": "object"
@@ -2160,7 +2165,8 @@
         "pagerduty:index/RulesetRuleActionsSuspend:RulesetRuleActionsSuspend": {
             "properties": {
                 "value": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.\n"
                 }
             },
             "type": "object"
@@ -2203,7 +2209,8 @@
                     "type": "string"
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.\n"
                 }
             },
             "type": "object"
@@ -2233,7 +2240,8 @@
                     "type": "integer"
                 },
                 "startTime": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000\u0026tz=America%2FNew_York).\n"
                 }
             },
             "type": "object"
@@ -2285,7 +2293,8 @@
                     "type": "string"
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.\n"
                 }
             },
             "type": "object"
@@ -2720,7 +2729,8 @@
         "pagerduty:index/ServiceEventRuleConditionsSubconditionParameter:ServiceEventRuleConditionsSubconditionParameter": {
             "properties": {
                 "path": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).\n"
                 },
                 "value": {
                     "type": "string"
@@ -2787,16 +2797,19 @@
         "pagerduty:index/ServiceEventRuleVariable:ServiceEventRuleVariable": {
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the variable.\n"
                 },
                 "parameters": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/pagerduty:index/ServiceEventRuleVariableParameter:ServiceEventRuleVariableParameter"
-                    }
+                    },
+                    "description": "The parameters for performing the operation to populate the variable.\n"
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Type of operation to populate the variable. Usually `regex`.\n"
                 }
             },
             "type": "object"
@@ -2804,7 +2817,8 @@
         "pagerduty:index/ServiceEventRuleVariableParameter:ServiceEventRuleVariableParameter": {
             "properties": {
                 "path": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).\n"
                 },
                 "value": {
                     "type": "string"
@@ -2843,7 +2857,8 @@
                     "description": "The type of object. The value returned will be `service`. Can be used for passing to a service dependency.\n"
                 },
                 "urgency": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.\n"
                 }
             },
             "type": "object"
@@ -2855,7 +2870,8 @@
                     "description": "The type of object. The value returned will be `service`. Can be used for passing to a service dependency.\n"
                 },
                 "urgency": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.\n"
                 }
             },
             "type": "object"

@@ -30,9 +30,17 @@ public final class ServiceIncidentUrgencyRuleOutsideSupportHoursArgs extends com
         return Optional.ofNullable(this.type);
     }
 
+    /**
+     * The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+     * 
+     */
     @Import(name="urgency")
     private @Nullable Output<String> urgency;
 
+    /**
+     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+     * 
+     */
     public Optional<Output<String>> urgency() {
         return Optional.ofNullable(this.urgency);
     }
@@ -83,11 +91,23 @@ public final class ServiceIncidentUrgencyRuleOutsideSupportHoursArgs extends com
             return type(Output.of(type));
         }
 
+        /**
+         * @param urgency The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urgency(@Nullable Output<String> urgency) {
             $.urgency = urgency;
             return this;
         }
 
+        /**
+         * @param urgency The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder urgency(String urgency) {
             return urgency(Output.of(urgency));
         }

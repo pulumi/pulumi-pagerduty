@@ -15,9 +15,17 @@ public final class ServiceEventRuleConditionsSubconditionParameterArgs extends c
 
     public static final ServiceEventRuleConditionsSubconditionParameterArgs Empty = new ServiceEventRuleConditionsSubconditionParameterArgs();
 
+    /**
+     * Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+     * 
+     */
     @Import(name="path")
     private @Nullable Output<String> path;
 
+    /**
+     * @return Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+     * 
+     */
     public Optional<Output<String>> path() {
         return Optional.ofNullable(this.path);
     }
@@ -54,11 +62,23 @@ public final class ServiceEventRuleConditionsSubconditionParameterArgs extends c
             $ = new ServiceEventRuleConditionsSubconditionParameterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param path Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
+        /**
+         * @param path Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(String path) {
             return path(Output.of(path));
         }

@@ -11,10 +11,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceEventRuleVariableParameter {
+    /**
+     * @return Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+     * 
+     */
     private @Nullable String path;
     private @Nullable String value;
 
     private ServiceEventRuleVariableParameter() {}
+    /**
+     * @return Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+     * 
+     */
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }

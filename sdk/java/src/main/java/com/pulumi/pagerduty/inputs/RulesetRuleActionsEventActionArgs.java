@@ -15,9 +15,17 @@ public final class RulesetRuleActionsEventActionArgs extends com.pulumi.resource
 
     public static final RulesetRuleActionsEventActionArgs Empty = new RulesetRuleActionsEventActionArgs();
 
+    /**
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+     * 
+     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
+    /**
+     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+     * 
+     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -46,11 +54,23 @@ public final class RulesetRuleActionsEventActionArgs extends com.pulumi.resource
             $ = new RulesetRuleActionsEventActionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param value Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

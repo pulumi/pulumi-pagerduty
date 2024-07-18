@@ -1664,10 +1664,16 @@ export interface RulesetRuleActions {
 }
 
 export interface RulesetRuleActionsAnnotate {
+    /**
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+     */
     value?: string;
 }
 
 export interface RulesetRuleActionsEventAction {
+    /**
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+     */
     value?: string;
 }
 
@@ -1695,14 +1701,23 @@ export interface RulesetRuleActionsExtraction {
 }
 
 export interface RulesetRuleActionsPriority {
+    /**
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+     */
     value?: string;
 }
 
 export interface RulesetRuleActionsRoute {
+    /**
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+     */
     value?: string;
 }
 
 export interface RulesetRuleActionsSeverity {
+    /**
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+     */
     value?: string;
 }
 
@@ -1726,6 +1741,9 @@ export interface RulesetRuleActionsSuppress {
 }
 
 export interface RulesetRuleActionsSuspend {
+    /**
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+     */
     value?: number;
 }
 
@@ -1753,6 +1771,9 @@ export interface RulesetRuleConditionsSubcondition {
 
 export interface RulesetRuleConditionsSubconditionParameter {
     path?: string;
+    /**
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+     */
     value?: string;
 }
 
@@ -1769,6 +1790,9 @@ export interface RulesetRuleTimeFrame {
 
 export interface RulesetRuleTimeFrameActiveBetween {
     endTime?: number;
+    /**
+     * A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+     */
     startTime?: number;
 }
 
@@ -1799,6 +1823,9 @@ export interface RulesetRuleVariable {
 
 export interface RulesetRuleVariableParameter {
     path?: string;
+    /**
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+     */
     value?: string;
 }
 
@@ -2066,6 +2093,9 @@ export interface ServiceEventRuleConditionsSubcondition {
 }
 
 export interface ServiceEventRuleConditionsSubconditionParameter {
+    /**
+     * Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+     */
     path?: string;
     value?: string;
 }
@@ -2112,12 +2142,24 @@ export interface ServiceEventRuleTimeFrameScheduledWeekly {
 }
 
 export interface ServiceEventRuleVariable {
+    /**
+     * The name of the variable.
+     */
     name?: string;
+    /**
+     * The parameters for performing the operation to populate the variable.
+     */
     parameters?: outputs.ServiceEventRuleVariableParameter[];
+    /**
+     * Type of operation to populate the variable. Usually `regex`.
+     */
     type?: string;
 }
 
 export interface ServiceEventRuleVariableParameter {
+    /**
+     * Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+     */
     path?: string;
     value?: string;
 }
@@ -2146,6 +2188,9 @@ export interface ServiceIncidentUrgencyRuleDuringSupportHours {
      * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      */
     type?: string;
+    /**
+     * The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+     */
     urgency?: string;
 }
 
@@ -2154,6 +2199,9 @@ export interface ServiceIncidentUrgencyRuleOutsideSupportHours {
      * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      */
     type?: string;
+    /**
+     * The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+     */
     urgency?: string;
 }
 

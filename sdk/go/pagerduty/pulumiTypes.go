@@ -10672,6 +10672,7 @@ func (o RulesetRuleActionsPtrOutput) Suspends() RulesetRuleActionsSuspendArrayOu
 }
 
 type RulesetRuleActionsAnnotate struct {
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -10687,6 +10688,7 @@ type RulesetRuleActionsAnnotateInput interface {
 }
 
 type RulesetRuleActionsAnnotateArgs struct {
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -10741,6 +10743,7 @@ func (o RulesetRuleActionsAnnotateOutput) ToRulesetRuleActionsAnnotateOutputWith
 	return o
 }
 
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o RulesetRuleActionsAnnotateOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsAnnotate) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -10766,6 +10769,7 @@ func (o RulesetRuleActionsAnnotateArrayOutput) Index(i pulumi.IntInput) RulesetR
 }
 
 type RulesetRuleActionsEventAction struct {
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -10781,6 +10785,7 @@ type RulesetRuleActionsEventActionInput interface {
 }
 
 type RulesetRuleActionsEventActionArgs struct {
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -10835,6 +10840,7 @@ func (o RulesetRuleActionsEventActionOutput) ToRulesetRuleActionsEventActionOutp
 	return o
 }
 
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o RulesetRuleActionsEventActionOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsEventAction) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -10996,6 +11002,7 @@ func (o RulesetRuleActionsExtractionArrayOutput) Index(i pulumi.IntInput) Rulese
 }
 
 type RulesetRuleActionsPriority struct {
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -11011,6 +11018,7 @@ type RulesetRuleActionsPriorityInput interface {
 }
 
 type RulesetRuleActionsPriorityArgs struct {
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -11065,6 +11073,7 @@ func (o RulesetRuleActionsPriorityOutput) ToRulesetRuleActionsPriorityOutputWith
 	return o
 }
 
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o RulesetRuleActionsPriorityOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsPriority) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -11090,6 +11099,7 @@ func (o RulesetRuleActionsPriorityArrayOutput) Index(i pulumi.IntInput) RulesetR
 }
 
 type RulesetRuleActionsRoute struct {
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -11105,6 +11115,7 @@ type RulesetRuleActionsRouteInput interface {
 }
 
 type RulesetRuleActionsRouteArgs struct {
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -11159,6 +11170,7 @@ func (o RulesetRuleActionsRouteOutput) ToRulesetRuleActionsRouteOutputWithContex
 	return o
 }
 
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o RulesetRuleActionsRouteOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsRoute) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -11184,6 +11196,7 @@ func (o RulesetRuleActionsRouteArrayOutput) Index(i pulumi.IntInput) RulesetRule
 }
 
 type RulesetRuleActionsSeverity struct {
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -11199,6 +11212,7 @@ type RulesetRuleActionsSeverityInput interface {
 }
 
 type RulesetRuleActionsSeverityArgs struct {
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -11253,6 +11267,7 @@ func (o RulesetRuleActionsSeverityOutput) ToRulesetRuleActionsSeverityOutputWith
 	return o
 }
 
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o RulesetRuleActionsSeverityOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsSeverity) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -11402,6 +11417,7 @@ func (o RulesetRuleActionsSuppressArrayOutput) Index(i pulumi.IntInput) RulesetR
 }
 
 type RulesetRuleActionsSuspend struct {
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *int `pulumi:"value"`
 }
 
@@ -11417,6 +11433,7 @@ type RulesetRuleActionsSuspendInput interface {
 }
 
 type RulesetRuleActionsSuspendArgs struct {
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
@@ -11471,6 +11488,7 @@ func (o RulesetRuleActionsSuspendOutput) ToRulesetRuleActionsSuspendOutputWithCo
 	return o
 }
 
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o RulesetRuleActionsSuspendOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsSuspend) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -11760,7 +11778,8 @@ func (o RulesetRuleConditionsSubconditionArrayOutput) Index(i pulumi.IntInput) R
 }
 
 type RulesetRuleConditionsSubconditionParameter struct {
-	Path  *string `pulumi:"path"`
+	Path *string `pulumi:"path"`
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -11776,7 +11795,8 @@ type RulesetRuleConditionsSubconditionParameterInput interface {
 }
 
 type RulesetRuleConditionsSubconditionParameterArgs struct {
-	Path  pulumi.StringPtrInput `pulumi:"path"`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -11835,6 +11855,7 @@ func (o RulesetRuleConditionsSubconditionParameterOutput) Path() pulumi.StringPt
 	return o.ApplyT(func(v RulesetRuleConditionsSubconditionParameter) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o RulesetRuleConditionsSubconditionParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleConditionsSubconditionParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -12016,7 +12037,8 @@ func (o RulesetRuleTimeFramePtrOutput) ScheduledWeeklies() RulesetRuleTimeFrameS
 }
 
 type RulesetRuleTimeFrameActiveBetween struct {
-	EndTime   *int `pulumi:"endTime"`
+	EndTime *int `pulumi:"endTime"`
+	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 	StartTime *int `pulumi:"startTime"`
 }
 
@@ -12032,7 +12054,8 @@ type RulesetRuleTimeFrameActiveBetweenInput interface {
 }
 
 type RulesetRuleTimeFrameActiveBetweenArgs struct {
-	EndTime   pulumi.IntPtrInput `pulumi:"endTime"`
+	EndTime pulumi.IntPtrInput `pulumi:"endTime"`
+	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
 }
 
@@ -12091,6 +12114,7 @@ func (o RulesetRuleTimeFrameActiveBetweenOutput) EndTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameActiveBetween) *int { return v.EndTime }).(pulumi.IntPtrOutput)
 }
 
+// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 func (o RulesetRuleTimeFrameActiveBetweenOutput) StartTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameActiveBetween) *int { return v.StartTime }).(pulumi.IntPtrOutput)
 }
@@ -12346,7 +12370,8 @@ func (o RulesetRuleVariableArrayOutput) Index(i pulumi.IntInput) RulesetRuleVari
 }
 
 type RulesetRuleVariableParameter struct {
-	Path  *string `pulumi:"path"`
+	Path *string `pulumi:"path"`
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -12362,7 +12387,8 @@ type RulesetRuleVariableParameterInput interface {
 }
 
 type RulesetRuleVariableParameterArgs struct {
-	Path  pulumi.StringPtrInput `pulumi:"path"`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -12421,6 +12447,7 @@ func (o RulesetRuleVariableParameterOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleVariableParameter) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o RulesetRuleVariableParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleVariableParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -15118,6 +15145,7 @@ func (o ServiceEventRuleConditionsSubconditionArrayOutput) Index(i pulumi.IntInp
 }
 
 type ServiceEventRuleConditionsSubconditionParameter struct {
+	// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
 	Path  *string `pulumi:"path"`
 	Value *string `pulumi:"value"`
 }
@@ -15134,6 +15162,7 @@ type ServiceEventRuleConditionsSubconditionParameterInput interface {
 }
 
 type ServiceEventRuleConditionsSubconditionParameterArgs struct {
+	// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
 	Path  pulumi.StringPtrInput `pulumi:"path"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
@@ -15189,6 +15218,7 @@ func (o ServiceEventRuleConditionsSubconditionParameterOutput) ToServiceEventRul
 	return o
 }
 
+// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
 func (o ServiceEventRuleConditionsSubconditionParameterOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleConditionsSubconditionParameter) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -15606,9 +15636,12 @@ func (o ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput) Index(i pulumi.IntI
 }
 
 type ServiceEventRuleVariable struct {
-	Name       *string                             `pulumi:"name"`
+	// The name of the variable.
+	Name *string `pulumi:"name"`
+	// The parameters for performing the operation to populate the variable.
 	Parameters []ServiceEventRuleVariableParameter `pulumi:"parameters"`
-	Type       *string                             `pulumi:"type"`
+	// Type of operation to populate the variable. Usually `regex`.
+	Type *string `pulumi:"type"`
 }
 
 // ServiceEventRuleVariableInput is an input type that accepts ServiceEventRuleVariableArgs and ServiceEventRuleVariableOutput values.
@@ -15623,9 +15656,12 @@ type ServiceEventRuleVariableInput interface {
 }
 
 type ServiceEventRuleVariableArgs struct {
-	Name       pulumi.StringPtrInput                       `pulumi:"name"`
+	// The name of the variable.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The parameters for performing the operation to populate the variable.
 	Parameters ServiceEventRuleVariableParameterArrayInput `pulumi:"parameters"`
-	Type       pulumi.StringPtrInput                       `pulumi:"type"`
+	// Type of operation to populate the variable. Usually `regex`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ServiceEventRuleVariableArgs) ElementType() reflect.Type {
@@ -15679,14 +15715,17 @@ func (o ServiceEventRuleVariableOutput) ToServiceEventRuleVariableOutputWithCont
 	return o
 }
 
+// The name of the variable.
 func (o ServiceEventRuleVariableOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleVariable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The parameters for performing the operation to populate the variable.
 func (o ServiceEventRuleVariableOutput) Parameters() ServiceEventRuleVariableParameterArrayOutput {
 	return o.ApplyT(func(v ServiceEventRuleVariable) []ServiceEventRuleVariableParameter { return v.Parameters }).(ServiceEventRuleVariableParameterArrayOutput)
 }
 
+// Type of operation to populate the variable. Usually `regex`.
 func (o ServiceEventRuleVariableOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleVariable) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -15712,6 +15751,7 @@ func (o ServiceEventRuleVariableArrayOutput) Index(i pulumi.IntInput) ServiceEve
 }
 
 type ServiceEventRuleVariableParameter struct {
+	// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
 	Path  *string `pulumi:"path"`
 	Value *string `pulumi:"value"`
 }
@@ -15728,6 +15768,7 @@ type ServiceEventRuleVariableParameterInput interface {
 }
 
 type ServiceEventRuleVariableParameterArgs struct {
+	// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
 	Path  pulumi.StringPtrInput `pulumi:"path"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
@@ -15783,6 +15824,7 @@ func (o ServiceEventRuleVariableParameterOutput) ToServiceEventRuleVariableParam
 	return o
 }
 
+// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
 func (o ServiceEventRuleVariableParameterOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleVariableParameter) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -16011,7 +16053,8 @@ func (o ServiceIncidentUrgencyRulePtrOutput) Urgency() pulumi.StringPtrOutput {
 
 type ServiceIncidentUrgencyRuleDuringSupportHours struct {
 	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
-	Type    *string `pulumi:"type"`
+	Type *string `pulumi:"type"`
+	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 	Urgency *string `pulumi:"urgency"`
 }
 
@@ -16028,7 +16071,8 @@ type ServiceIncidentUrgencyRuleDuringSupportHoursInput interface {
 
 type ServiceIncidentUrgencyRuleDuringSupportHoursArgs struct {
 	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
-	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 	Urgency pulumi.StringPtrInput `pulumi:"urgency"`
 }
 
@@ -16114,6 +16158,7 @@ func (o ServiceIncidentUrgencyRuleDuringSupportHoursOutput) Type() pulumi.String
 	return o.ApplyT(func(v ServiceIncidentUrgencyRuleDuringSupportHours) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 func (o ServiceIncidentUrgencyRuleDuringSupportHoursOutput) Urgency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRuleDuringSupportHours) *string { return v.Urgency }).(pulumi.StringPtrOutput)
 }
@@ -16152,6 +16197,7 @@ func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) Type() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) Urgency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRuleDuringSupportHours) *string {
 		if v == nil {
@@ -16163,7 +16209,8 @@ func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) Urgency() pulumi.
 
 type ServiceIncidentUrgencyRuleOutsideSupportHours struct {
 	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
-	Type    *string `pulumi:"type"`
+	Type *string `pulumi:"type"`
+	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 	Urgency *string `pulumi:"urgency"`
 }
 
@@ -16180,7 +16227,8 @@ type ServiceIncidentUrgencyRuleOutsideSupportHoursInput interface {
 
 type ServiceIncidentUrgencyRuleOutsideSupportHoursArgs struct {
 	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
-	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 	Urgency pulumi.StringPtrInput `pulumi:"urgency"`
 }
 
@@ -16266,6 +16314,7 @@ func (o ServiceIncidentUrgencyRuleOutsideSupportHoursOutput) Type() pulumi.Strin
 	return o.ApplyT(func(v ServiceIncidentUrgencyRuleOutsideSupportHours) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 func (o ServiceIncidentUrgencyRuleOutsideSupportHoursOutput) Urgency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRuleOutsideSupportHours) *string { return v.Urgency }).(pulumi.StringPtrOutput)
 }
@@ -16304,6 +16353,7 @@ func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) Type() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) Urgency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRuleOutsideSupportHours) *string {
 		if v == nil {

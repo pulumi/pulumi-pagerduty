@@ -16,6 +16,10 @@ public final class ServiceIncidentUrgencyRuleOutsideSupportHours {
      * 
      */
     private @Nullable String type;
+    /**
+     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+     * 
+     */
     private @Nullable String urgency;
 
     private ServiceIncidentUrgencyRuleOutsideSupportHours() {}
@@ -26,6 +30,10 @@ public final class ServiceIncidentUrgencyRuleOutsideSupportHours {
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
+    /**
+     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+     * 
+     */
     public Optional<String> urgency() {
         return Optional.ofNullable(this.urgency);
     }

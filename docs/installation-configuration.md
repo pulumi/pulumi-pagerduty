@@ -4,6 +4,17 @@ meta_desc: Provides an overview on how to configure the Pulumi PagerDuty Provide
 layout: package
 ---
 
+## Installation
+
+The pagerduty provider is available as a package in all Pulumi languages:
+
+* JavaScript/TypeScript: [`@pulumi/pagerduty`](https://www.npmjs.com/package/@pulumi/pagerduty)
+* Python: [`pulumi-pagerduty`](https://pypi.org/project/pulumi-pagerduty/)
+* Go: [`github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty`](https://github.com/pulumi/pulumi-pagerduty)
+* .NET: [`Pulumi.Pagerduty`](https://www.nuget.org/packages/Pulumi.Pagerduty)
+* Java: [`com.pulumi/pagerduty`](https://central.sonatype.com/artifact/com.pulumi/pagerduty)
+
+
 [PagerDuty](https://www.pagerduty.com/) is an incident management platform that provides reliable notifications, automatic escalations, on-call scheduling, and other functionality to help teams detect and address unplanned work in real-time.
 
 Use the navigation to the left to read about the available resources.
@@ -12,6 +23,15 @@ Use the navigation to the left to read about the available resources.
 
 {{< chooser language "typescript,python,go,csharp,java,yaml" >}}
 {{% choosable language typescript %}}
+```yaml
+# Provider configuration file
+name: configuration-example
+runtime: nodejs
+config:
+  pagerduty:token:
+    value: 'TODO: var.pagerduty_token'
+
+```
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as pagerduty from "@pulumi/pagerduty";
@@ -28,6 +48,15 @@ const earlineEngineering = new pagerduty.TeamMembership("earlineEngineering", {
 ```
 {{% /choosable %}}
 {{% choosable language python %}}
+```yaml
+# Provider configuration file
+name: configuration-example
+runtime: python
+config:
+  pagerduty:token:
+    value: 'TODO: var.pagerduty_token'
+
+```
 ```python
 import pulumi
 import pulumi_pagerduty as pagerduty
@@ -43,6 +72,15 @@ earline_engineering = pagerduty.TeamMembership("earlineEngineering",
 ```
 {{% /choosable %}}
 {{% choosable language csharp %}}
+```yaml
+# Provider configuration file
+name: configuration-example
+runtime: dotnet
+config:
+  pagerduty:token:
+    value: 'TODO: var.pagerduty_token'
+
+```
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -74,6 +112,15 @@ return await Deployment.RunAsync(() =>
 ```
 {{% /choosable %}}
 {{% choosable language go %}}
+```yaml
+# Provider configuration file
+name: configuration-example
+runtime: go
+config:
+  pagerduty:token:
+    value: 'TODO: var.pagerduty_token'
+
+```
 ```go
 package main
 
@@ -113,6 +160,15 @@ func main() {
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
+# Provider configuration file
+name: configuration-example
+runtime: yaml
+config:
+  pagerduty:token:
+    value: 'TODO: var.pagerduty_token'
+
+```
+```yaml
 resources:
   # Create a PagerDuty team
   engineering:
@@ -133,6 +189,15 @@ resources:
 ```
 {{% /choosable %}}
 {{% choosable language java %}}
+```yaml
+# Provider configuration file
+name: configuration-example
+runtime: java
+config:
+  pagerduty:token:
+    value: 'TODO: var.pagerduty_token'
+
+```
 ```java
 package generated_program;
 
@@ -181,9 +246,9 @@ public class App {
 {{< /chooser >}}
 
 
-## Argument Reference
+## Configuration Reference
 
-The following arguments are supported:
+The following configuration inputs are supported:
 
 * `token` - (Optional) The v2 authorization token. It can also be sourced from the `PAGERDUTY_TOKEN` environment variable. See [API Documentation](https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTUx-authentication)for more information.
 * `userToken` - (Optional) The v2 user level authorization token. It can also be sourced from the `PAGERDUTY_USER_TOKEN` environment variable. See [API Documentation](https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTUx-authentication) for more information.
@@ -193,7 +258,7 @@ The following arguments are supported:
 * `apiUrlOverride` - (Optional) It can be used to set a custom proxy endpoint as PagerDuty client api url overriding `serviceRegion` setup.
 * `insecureTls` - (Optional) Can be used to disable TLS certificate checking when calling the PagerDuty API. This can be useful if you're behind a corporate proxy.
 
-The `useAppOauthScopedToken` block contains the following arguments:
+The `useAppOauthScopedToken` input has the following nested fields:
 
 * `pdClientId` - (Required) An identifier issued when the Scoped OAuth client was added to a PagerDuty App. It can also be sourced from the `PAGERDUTY_CLIENT_ID` environment variable.
 * `pdClientSecret` - (Required) A secret issued when the Scoped OAuth client was added to a PagerDuty App. It can also be sourced from the `PAGERDUTY_CLIENT_SECRET` environment variable.
@@ -203,6 +268,12 @@ The `useAppOauthScopedToken` block contains the following arguments:
 
 {{< chooser language "typescript,python,go,csharp,java,yaml" >}}
 {{% choosable language typescript %}}
+```yaml
+# Provider configuration file
+name: configuration-example
+runtime: nodejs
+
+```
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 import * as pagerduty from "@pulumi/pagerduty";
@@ -219,6 +290,12 @@ const earlineEngineering = new pagerduty.TeamMembership("earlineEngineering", {
 ```
 {{% /choosable %}}
 {{% choosable language python %}}
+```yaml
+# Provider configuration file
+name: configuration-example
+runtime: python
+
+```
 ```python
 import pulumi
 import pulumi_pagerduty as pagerduty
@@ -234,6 +311,12 @@ earline_engineering = pagerduty.TeamMembership("earlineEngineering",
 ```
 {{% /choosable %}}
 {{% choosable language csharp %}}
+```yaml
+# Provider configuration file
+name: configuration-example
+runtime: dotnet
+
+```
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -265,6 +348,12 @@ return await Deployment.RunAsync(() =>
 ```
 {{% /choosable %}}
 {{% choosable language go %}}
+```yaml
+# Provider configuration file
+name: configuration-example
+runtime: go
+
+```
 ```go
 package main
 
@@ -304,6 +393,12 @@ func main() {
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
+# Provider configuration file
+name: configuration-example
+runtime: yaml
+
+```
+```yaml
 resources:
   # Create a PagerDuty team
   engineering:
@@ -324,6 +419,12 @@ resources:
 ```
 {{% /choosable %}}
 {{% choosable language java %}}
+```yaml
+# Provider configuration file
+name: configuration-example
+runtime: java
+
+```
 ```java
 package generated_program;
 
@@ -374,7 +475,7 @@ public class App {
 
 ## Debugging Provider Output Using Logs
 
-In addition to the log levels provided by Pulumi, namely `TRACE`, `DEBUG`, `INFO`, `WARN`, and `ERROR` (in descending order of verbosity), the PagerDuty Provider introduces an extra level called `SECURE`. This level offers verbosity similar to Pulumi's debug logging level, specifically for the output of API calls and HTTP request/response logs. The key difference is that API keys within the request's Authorization header will be obfuscated, revealing only the last four characters. An example is provided below:
+In addition to the log levels provided by [pP]ulumi, namely `TRACE`, `DEBUG`, `INFO`, `WARN`, and `ERROR` (in descending order of verbosity), the PagerDuty Provider introduces an extra level called `SECURE`. This level offers verbosity similar to [pP]ulumi's debug logging level, specifically for the output of API calls and HTTP request/response logs. The key difference is that API keys within the request's Authorization header will be obfuscated, revealing only the last four characters. An example is provided below:
 
 ```sh
 ---[ REQUEST ]---------------------------------------
@@ -382,7 +483,7 @@ GET /teams/DER8RFS HTTP/1.1
 Accept: application/vnd.pagerduty+json;version=2
 Authorization: <OBSCURED>kCjQ
 Content-Type: application/json
-User-Agent: (darwin arm64) Pulumi/1.5.1
+User-Agent: (darwin arm64) [pP]ulumi/1.5.1
 ```
 
 To enable the `SECURE` log level, you must set two environment variables:

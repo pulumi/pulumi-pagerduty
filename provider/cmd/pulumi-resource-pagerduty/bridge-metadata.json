@@ -208,7 +208,14 @@
                                     "elem": {
                                         "fields": {
                                             "actions": {
-                                                "maxItemsOne": true
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "dynamic_route_to": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
                                             },
                                             "condition": {
                                                 "maxItemsOne": false

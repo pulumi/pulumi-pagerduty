@@ -109,6 +109,10 @@ export interface EventOrchestrationGlobalCatchAllActions {
      */
     dropEvent?: pulumi.Input<boolean>;
     /**
+     * The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+     */
+    escalationPolicy?: pulumi.Input<string>;
+    /**
      * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      */
     eventAction?: pulumi.Input<string>;
@@ -286,6 +290,10 @@ export interface EventOrchestrationGlobalSetRuleActions {
      * When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
      */
     dropEvent?: pulumi.Input<boolean>;
+    /**
+     * The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+     */
+    escalationPolicy?: pulumi.Input<string>;
     /**
      * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      */
@@ -494,9 +502,27 @@ export interface EventOrchestrationRouterSetRule {
 
 export interface EventOrchestrationRouterSetRuleActions {
     /**
-     * The ID of the target Service for the resulting alert.
+     * supports the following:
      */
-    routeTo: pulumi.Input<string>;
+    dynamicRouteTos?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationRouterSetRuleActionsDynamicRouteTo>[]>;
+    routeTo?: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationRouterSetRuleActionsDynamicRouteTo {
+    /**
+     * Indicates whether the extracted value from the source is a service's name or ID. Allowed values are: `serviceName`, `serviceId`
+     *
+     * If an event has a value at the specified `source`, and if the `regex` successfully matches the value, and if the matching portion is valid Service ID or Name, then the event will be routed to that service. Otherwise the event will be checked against any subsequent router rules.
+     */
+    lookupBy: pulumi.Input<string>;
+    /**
+     * The regular expression, used to extract a value from the source field. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     */
+    regex: pulumi.Input<string>;
+    /**
+     * The path to a field in an event.
+     */
+    source: pulumi.Input<string>;
 }
 
 export interface EventOrchestrationRouterSetRuleCondition {
@@ -548,6 +574,10 @@ export interface EventOrchestrationServiceCatchAllActions {
      * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
      */
     automationAction?: pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsAutomationAction>;
+    /**
+     * The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+     */
+    escalationPolicy?: pulumi.Input<string>;
     /**
      * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      */
@@ -733,6 +763,10 @@ export interface EventOrchestrationServiceSetRuleActions {
      * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
      */
     automationAction?: pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsAutomationAction>;
+    /**
+     * The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+     */
+    escalationPolicy?: pulumi.Input<string>;
     /**
      * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      */

@@ -41,6 +41,7 @@ __all__ = [
     'EventOrchestrationRouterSetArgs',
     'EventOrchestrationRouterSetRuleArgs',
     'EventOrchestrationRouterSetRuleActionsArgs',
+    'EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs',
     'EventOrchestrationRouterSetRuleConditionArgs',
     'EventOrchestrationServiceCacheVariableConditionArgs',
     'EventOrchestrationServiceCacheVariableConfigurationArgs',
@@ -484,6 +485,7 @@ class EventOrchestrationGlobalCatchAllActionsArgs:
                  annotate: Optional[pulumi.Input[str]] = None,
                  automation_action: Optional[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionArgs']] = None,
                  drop_event: Optional[pulumi.Input[bool]] = None,
+                 escalation_policy: Optional[pulumi.Input[str]] = None,
                  event_action: Optional[pulumi.Input[str]] = None,
                  extractions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsExtractionArgs']]]] = None,
                  incident_custom_field_updates: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs']]]] = None,
@@ -497,6 +499,7 @@ class EventOrchestrationGlobalCatchAllActionsArgs:
         :param pulumi.Input[str] annotate: Add this text as a note on the resulting incident.
         :param pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionArgs'] automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
         :param pulumi.Input[bool] drop_event: When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
+        :param pulumi.Input[str] escalation_policy: The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
         :param pulumi.Input[str] event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsExtractionArgs']]] extractions: Replace any CEF field or Custom Details object field using custom variables.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs']]] incident_custom_field_updates: Assign a custom field to the resulting incident.
@@ -513,6 +516,8 @@ class EventOrchestrationGlobalCatchAllActionsArgs:
             pulumi.set(__self__, "automation_action", automation_action)
         if drop_event is not None:
             pulumi.set(__self__, "drop_event", drop_event)
+        if escalation_policy is not None:
+            pulumi.set(__self__, "escalation_policy", escalation_policy)
         if event_action is not None:
             pulumi.set(__self__, "event_action", event_action)
         if extractions is not None:
@@ -567,6 +572,18 @@ class EventOrchestrationGlobalCatchAllActionsArgs:
     @drop_event.setter
     def drop_event(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "drop_event", value)
+
+    @property
+    @pulumi.getter(name="escalationPolicy")
+    def escalation_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+        """
+        return pulumi.get(self, "escalation_policy")
+
+    @escalation_policy.setter
+    def escalation_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "escalation_policy", value)
 
     @property
     @pulumi.getter(name="eventAction")
@@ -1140,6 +1157,7 @@ class EventOrchestrationGlobalSetRuleActionsArgs:
                  annotate: Optional[pulumi.Input[str]] = None,
                  automation_action: Optional[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionArgs']] = None,
                  drop_event: Optional[pulumi.Input[bool]] = None,
+                 escalation_policy: Optional[pulumi.Input[str]] = None,
                  event_action: Optional[pulumi.Input[str]] = None,
                  extractions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsExtractionArgs']]]] = None,
                  incident_custom_field_updates: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs']]]] = None,
@@ -1153,6 +1171,7 @@ class EventOrchestrationGlobalSetRuleActionsArgs:
         :param pulumi.Input[str] annotate: Add this text as a note on the resulting incident.
         :param pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionArgs'] automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
         :param pulumi.Input[bool] drop_event: When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
+        :param pulumi.Input[str] escalation_policy: The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
         :param pulumi.Input[str] event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsExtractionArgs']]] extractions: Replace any CEF field or Custom Details object field using custom variables.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs']]] incident_custom_field_updates: Assign a custom field to the resulting incident.
@@ -1169,6 +1188,8 @@ class EventOrchestrationGlobalSetRuleActionsArgs:
             pulumi.set(__self__, "automation_action", automation_action)
         if drop_event is not None:
             pulumi.set(__self__, "drop_event", drop_event)
+        if escalation_policy is not None:
+            pulumi.set(__self__, "escalation_policy", escalation_policy)
         if event_action is not None:
             pulumi.set(__self__, "event_action", event_action)
         if extractions is not None:
@@ -1223,6 +1244,18 @@ class EventOrchestrationGlobalSetRuleActionsArgs:
     @drop_event.setter
     def drop_event(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "drop_event", value)
+
+    @property
+    @pulumi.getter(name="escalationPolicy")
+    def escalation_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+        """
+        return pulumi.get(self, "escalation_policy")
+
+    @escalation_policy.setter
+    def escalation_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "escalation_policy", value)
 
     @property
     @pulumi.getter(name="eventAction")
@@ -1945,23 +1978,92 @@ class EventOrchestrationRouterSetRuleArgs:
 @pulumi.input_type
 class EventOrchestrationRouterSetRuleActionsArgs:
     def __init__(__self__, *,
-                 route_to: pulumi.Input[str]):
+                 dynamic_route_tos: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs']]]] = None,
+                 route_to: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] route_to: The ID of the target Service for the resulting alert.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs']]] dynamic_route_tos: supports the following:
         """
-        pulumi.set(__self__, "route_to", route_to)
+        if dynamic_route_tos is not None:
+            pulumi.set(__self__, "dynamic_route_tos", dynamic_route_tos)
+        if route_to is not None:
+            pulumi.set(__self__, "route_to", route_to)
+
+    @property
+    @pulumi.getter(name="dynamicRouteTos")
+    def dynamic_route_tos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs']]]]:
+        """
+        supports the following:
+        """
+        return pulumi.get(self, "dynamic_route_tos")
+
+    @dynamic_route_tos.setter
+    def dynamic_route_tos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs']]]]):
+        pulumi.set(self, "dynamic_route_tos", value)
 
     @property
     @pulumi.getter(name="routeTo")
-    def route_to(self) -> pulumi.Input[str]:
-        """
-        The ID of the target Service for the resulting alert.
-        """
+    def route_to(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "route_to")
 
     @route_to.setter
-    def route_to(self, value: pulumi.Input[str]):
+    def route_to(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "route_to", value)
+
+
+@pulumi.input_type
+class EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs:
+    def __init__(__self__, *,
+                 lookup_by: pulumi.Input[str],
+                 regex: pulumi.Input[str],
+                 source: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] lookup_by: Indicates whether the extracted value from the source is a service's name or ID. Allowed values are: `service_name`, `service_id`
+               
+               If an event has a value at the specified `source`, and if the `regex` successfully matches the value, and if the matching portion is valid Service ID or Name, then the event will be routed to that service. Otherwise the event will be checked against any subsequent router rules.
+        :param pulumi.Input[str] regex: The regular expression, used to extract a value from the source field. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        :param pulumi.Input[str] source: The path to a field in an event.
+        """
+        pulumi.set(__self__, "lookup_by", lookup_by)
+        pulumi.set(__self__, "regex", regex)
+        pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter(name="lookupBy")
+    def lookup_by(self) -> pulumi.Input[str]:
+        """
+        Indicates whether the extracted value from the source is a service's name or ID. Allowed values are: `service_name`, `service_id`
+
+        If an event has a value at the specified `source`, and if the `regex` successfully matches the value, and if the matching portion is valid Service ID or Name, then the event will be routed to that service. Otherwise the event will be checked against any subsequent router rules.
+        """
+        return pulumi.get(self, "lookup_by")
+
+    @lookup_by.setter
+    def lookup_by(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lookup_by", value)
+
+    @property
+    @pulumi.getter
+    def regex(self) -> pulumi.Input[str]:
+        """
+        The regular expression, used to extract a value from the source field. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        return pulumi.get(self, "regex")
+
+    @regex.setter
+    def regex(self, value: pulumi.Input[str]):
+        pulumi.set(self, "regex", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[str]:
+        """
+        The path to a field in an event.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source", value)
 
 
 @pulumi.input_type
@@ -2105,6 +2207,7 @@ class EventOrchestrationServiceCatchAllActionsArgs:
     def __init__(__self__, *,
                  annotate: Optional[pulumi.Input[str]] = None,
                  automation_action: Optional[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionArgs']] = None,
+                 escalation_policy: Optional[pulumi.Input[str]] = None,
                  event_action: Optional[pulumi.Input[str]] = None,
                  extractions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsExtractionArgs']]]] = None,
                  incident_custom_field_updates: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs']]]] = None,
@@ -2118,6 +2221,7 @@ class EventOrchestrationServiceCatchAllActionsArgs:
         """
         :param pulumi.Input[str] annotate: Add this text as a note on the resulting incident.
         :param pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionArgs'] automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        :param pulumi.Input[str] escalation_policy: The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
         :param pulumi.Input[str] event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsExtractionArgs']]] extractions: Replace any CEF field or Custom Details object field using custom variables.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs']]] incident_custom_field_updates: Assign a custom field to the resulting incident.
@@ -2133,6 +2237,8 @@ class EventOrchestrationServiceCatchAllActionsArgs:
             pulumi.set(__self__, "annotate", annotate)
         if automation_action is not None:
             pulumi.set(__self__, "automation_action", automation_action)
+        if escalation_policy is not None:
+            pulumi.set(__self__, "escalation_policy", escalation_policy)
         if event_action is not None:
             pulumi.set(__self__, "event_action", event_action)
         if extractions is not None:
@@ -2177,6 +2283,18 @@ class EventOrchestrationServiceCatchAllActionsArgs:
     @automation_action.setter
     def automation_action(self, value: Optional[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionArgs']]):
         pulumi.set(self, "automation_action", value)
+
+    @property
+    @pulumi.getter(name="escalationPolicy")
+    def escalation_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+        """
+        return pulumi.get(self, "escalation_policy")
+
+    @escalation_policy.setter
+    def escalation_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "escalation_policy", value)
 
     @property
     @pulumi.getter(name="eventAction")
@@ -2783,6 +2901,7 @@ class EventOrchestrationServiceSetRuleActionsArgs:
     def __init__(__self__, *,
                  annotate: Optional[pulumi.Input[str]] = None,
                  automation_action: Optional[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionArgs']] = None,
+                 escalation_policy: Optional[pulumi.Input[str]] = None,
                  event_action: Optional[pulumi.Input[str]] = None,
                  extractions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsExtractionArgs']]]] = None,
                  incident_custom_field_updates: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs']]]] = None,
@@ -2796,6 +2915,7 @@ class EventOrchestrationServiceSetRuleActionsArgs:
         """
         :param pulumi.Input[str] annotate: Add this text as a note on the resulting incident.
         :param pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionArgs'] automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        :param pulumi.Input[str] escalation_policy: The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
         :param pulumi.Input[str] event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsExtractionArgs']]] extractions: Replace any CEF field or Custom Details object field using custom variables.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs']]] incident_custom_field_updates: Assign a custom field to the resulting incident.
@@ -2811,6 +2931,8 @@ class EventOrchestrationServiceSetRuleActionsArgs:
             pulumi.set(__self__, "annotate", annotate)
         if automation_action is not None:
             pulumi.set(__self__, "automation_action", automation_action)
+        if escalation_policy is not None:
+            pulumi.set(__self__, "escalation_policy", escalation_policy)
         if event_action is not None:
             pulumi.set(__self__, "event_action", event_action)
         if extractions is not None:
@@ -2855,6 +2977,18 @@ class EventOrchestrationServiceSetRuleActionsArgs:
     @automation_action.setter
     def automation_action(self, value: Optional[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionArgs']]):
         pulumi.set(self, "automation_action", value)
+
+    @property
+    @pulumi.getter(name="escalationPolicy")
+    def escalation_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+        """
+        return pulumi.get(self, "escalation_policy")
+
+    @escalation_policy.setter
+    def escalation_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "escalation_policy", value)
 
     @property
     @pulumi.getter(name="eventAction")

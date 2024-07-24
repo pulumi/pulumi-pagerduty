@@ -22,6 +22,10 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly Outputs.EventOrchestrationServiceCatchAllActionsAutomationAction? AutomationAction;
         /// <summary>
+        /// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+        /// </summary>
+        public readonly string? EscalationPolicy;
+        /// <summary>
         /// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         /// </summary>
         public readonly string? EventAction;
@@ -68,6 +72,8 @@ namespace Pulumi.Pagerduty.Outputs
 
             Outputs.EventOrchestrationServiceCatchAllActionsAutomationAction? automationAction,
 
+            string? escalationPolicy,
+
             string? eventAction,
 
             ImmutableArray<Outputs.EventOrchestrationServiceCatchAllActionsExtraction> extractions,
@@ -90,6 +96,7 @@ namespace Pulumi.Pagerduty.Outputs
         {
             Annotate = annotate;
             AutomationAction = automationAction;
+            EscalationPolicy = escalationPolicy;
             EventAction = eventAction;
             Extractions = extractions;
             IncidentCustomFieldUpdates = incidentCustomFieldUpdates;

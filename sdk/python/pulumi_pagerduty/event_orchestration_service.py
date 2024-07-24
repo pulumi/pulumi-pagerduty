@@ -173,7 +173,7 @@ class EventOrchestrationService(pulumi.CustomResource):
 
         This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
 
-        This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the first rule in set "step-two" the resulting incident will have the Priority `P1`.
+        This example also shows using the get_priority data sources to configure `priority` and `escalation_policy` actions for a rule.
 
         This example shows a Service Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
 
@@ -212,6 +212,7 @@ class EventOrchestrationService(pulumi.CustomResource):
             data_type="string",
             field_type="single_value")
         p1 = pagerduty.get_priority(name="P1")
+        sre_esc_policy = pagerduty.get_escalation_policy(name="SRE Escalation Policy")
         www = pagerduty.EventOrchestrationService("www",
             service=example_service.id,
             enable_event_orchestration_for_service=True,
@@ -257,6 +258,15 @@ class EventOrchestrationService(pulumi.CustomResource):
                                     id=cs_impact.id,
                                     value="High Impact",
                                 )],
+                            ),
+                        ),
+                        pagerduty.EventOrchestrationServiceSetRuleArgs(
+                            label="If any of the API apps are unavailable, page the SRE team",
+                            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
+                                expression="event.custom_details.service_name matches part '-api' and event.custom_details.status_code matches '502'",
+                            )],
+                            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
+                                escalation_policy=sre_esc_policy.id,
                             ),
                         ),
                         pagerduty.EventOrchestrationServiceSetRuleArgs(
@@ -333,7 +343,7 @@ class EventOrchestrationService(pulumi.CustomResource):
 
         This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
 
-        This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the first rule in set "step-two" the resulting incident will have the Priority `P1`.
+        This example also shows using the get_priority data sources to configure `priority` and `escalation_policy` actions for a rule.
 
         This example shows a Service Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
 
@@ -372,6 +382,7 @@ class EventOrchestrationService(pulumi.CustomResource):
             data_type="string",
             field_type="single_value")
         p1 = pagerduty.get_priority(name="P1")
+        sre_esc_policy = pagerduty.get_escalation_policy(name="SRE Escalation Policy")
         www = pagerduty.EventOrchestrationService("www",
             service=example_service.id,
             enable_event_orchestration_for_service=True,
@@ -417,6 +428,15 @@ class EventOrchestrationService(pulumi.CustomResource):
                                     id=cs_impact.id,
                                     value="High Impact",
                                 )],
+                            ),
+                        ),
+                        pagerduty.EventOrchestrationServiceSetRuleArgs(
+                            label="If any of the API apps are unavailable, page the SRE team",
+                            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
+                                expression="event.custom_details.service_name matches part '-api' and event.custom_details.status_code matches '502'",
+                            )],
+                            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
+                                escalation_policy=sre_esc_policy.id,
                             ),
                         ),
                         pagerduty.EventOrchestrationServiceSetRuleArgs(

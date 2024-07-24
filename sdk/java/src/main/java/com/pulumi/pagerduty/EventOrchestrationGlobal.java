@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * 
  * This example shows creating `Team`, and `Event Orchestration` resources followed by creating a Global Orchestration to handle Events sent to that Event Orchestration.
  * 
- * This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the third rule in set &#34;step-two&#34; the resulting incident will have the Priority `P1`.
+ * This example also shows using the pagerduty.getPriority data sources to configure `priority` and `escalation_policy` actions for a rule.
  * 
  * This example shows a Global Orchestration that has nested sets: a rule in the &#34;start&#34; set has a `route_to` action pointing at the &#34;step-two&#34; set.
  * 
@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.EventOrchestrationArgs;
  * import com.pulumi.pagerduty.PagerdutyFunctions;
  * import com.pulumi.pagerduty.inputs.GetPriorityArgs;
+ * import com.pulumi.pagerduty.inputs.GetEscalationPolicyArgs;
  * import com.pulumi.pagerduty.EventOrchestrationGlobal;
  * import com.pulumi.pagerduty.EventOrchestrationGlobalArgs;
  * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalSetArgs;
@@ -74,6 +75,10 @@ import javax.annotation.Nullable;
  *             .name("P1")
  *             .build());
  * 
+ *         final var sreEscPolicy = PagerdutyFunctions.getEscalationPolicy(GetEscalationPolicyArgs.builder()
+ *             .name("SRE Escalation Policy")
+ *             .build());
+ * 
  *         var global = new EventOrchestrationGlobal("global", EventOrchestrationGlobalArgs.builder()
  *             .eventOrchestration(eventOrchestration.id())
  *             .sets(            
@@ -97,6 +102,15 @@ import javax.annotation.Nullable;
  *                                 .build())
  *                             .actions(EventOrchestrationGlobalSetRuleActionsArgs.builder()
  *                                 .dropEvent(true)
+ *                                 .build())
+ *                             .build(),
+ *                         EventOrchestrationGlobalSetRuleArgs.builder()
+ *                             .label("If the DB host is running out of space, then page the SRE team")
+ *                             .conditions(EventOrchestrationGlobalSetRuleConditionArgs.builder()
+ *                                 .expression("event.summary matches part 'running out of space'")
+ *                                 .build())
+ *                             .actions(EventOrchestrationGlobalSetRuleActionsArgs.builder()
+ *                                 .escalationPolicy(sreEscPolicy.applyValue(getEscalationPolicyResult -> getEscalationPolicyResult.id()))
  *                                 .build())
  *                             .build(),
  *                         EventOrchestrationGlobalSetRuleArgs.builder()

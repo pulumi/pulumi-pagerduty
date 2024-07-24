@@ -1027,6 +1027,8 @@ type EventOrchestrationGlobalCatchAllActions struct {
 	AutomationAction *EventOrchestrationGlobalCatchAllActionsAutomationAction `pulumi:"automationAction"`
 	// When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
 	DropEvent *bool `pulumi:"dropEvent"`
+	// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+	EscalationPolicy *string `pulumi:"escalationPolicy"`
 	// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
 	EventAction *string `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
@@ -1065,6 +1067,8 @@ type EventOrchestrationGlobalCatchAllActionsArgs struct {
 	AutomationAction EventOrchestrationGlobalCatchAllActionsAutomationActionPtrInput `pulumi:"automationAction"`
 	// When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
 	DropEvent pulumi.BoolPtrInput `pulumi:"dropEvent"`
+	// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+	EscalationPolicy pulumi.StringPtrInput `pulumi:"escalationPolicy"`
 	// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
 	EventAction pulumi.StringPtrInput `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
@@ -1179,6 +1183,11 @@ func (o EventOrchestrationGlobalCatchAllActionsOutput) DropEvent() pulumi.BoolPt
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActions) *bool { return v.DropEvent }).(pulumi.BoolPtrOutput)
 }
 
+// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+func (o EventOrchestrationGlobalCatchAllActionsOutput) EscalationPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActions) *string { return v.EscalationPolicy }).(pulumi.StringPtrOutput)
+}
+
 // sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
 func (o EventOrchestrationGlobalCatchAllActionsOutput) EventAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActions) *string { return v.EventAction }).(pulumi.StringPtrOutput)
@@ -1282,6 +1291,16 @@ func (o EventOrchestrationGlobalCatchAllActionsPtrOutput) DropEvent() pulumi.Boo
 		}
 		return v.DropEvent
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+func (o EventOrchestrationGlobalCatchAllActionsPtrOutput) EscalationPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationGlobalCatchAllActions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EscalationPolicy
+	}).(pulumi.StringPtrOutput)
 }
 
 // sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
@@ -2408,6 +2427,8 @@ type EventOrchestrationGlobalSetRuleActions struct {
 	AutomationAction *EventOrchestrationGlobalSetRuleActionsAutomationAction `pulumi:"automationAction"`
 	// When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
 	DropEvent *bool `pulumi:"dropEvent"`
+	// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+	EscalationPolicy *string `pulumi:"escalationPolicy"`
 	// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
 	EventAction *string `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
@@ -2446,6 +2467,8 @@ type EventOrchestrationGlobalSetRuleActionsArgs struct {
 	AutomationAction EventOrchestrationGlobalSetRuleActionsAutomationActionPtrInput `pulumi:"automationAction"`
 	// When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
 	DropEvent pulumi.BoolPtrInput `pulumi:"dropEvent"`
+	// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+	EscalationPolicy pulumi.StringPtrInput `pulumi:"escalationPolicy"`
 	// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
 	EventAction pulumi.StringPtrInput `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
@@ -2507,6 +2530,11 @@ func (o EventOrchestrationGlobalSetRuleActionsOutput) AutomationAction() EventOr
 // When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
 func (o EventOrchestrationGlobalSetRuleActionsOutput) DropEvent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActions) *bool { return v.DropEvent }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+func (o EventOrchestrationGlobalSetRuleActionsOutput) EscalationPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActions) *string { return v.EscalationPolicy }).(pulumi.StringPtrOutput)
 }
 
 // sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
@@ -4225,8 +4253,9 @@ func (o EventOrchestrationRouterSetRuleArrayOutput) Index(i pulumi.IntInput) Eve
 }
 
 type EventOrchestrationRouterSetRuleActions struct {
-	// The ID of the target Service for the resulting alert.
-	RouteTo string `pulumi:"routeTo"`
+	// supports the following:
+	DynamicRouteTos []EventOrchestrationRouterSetRuleActionsDynamicRouteTo `pulumi:"dynamicRouteTos"`
+	RouteTo         *string                                                `pulumi:"routeTo"`
 }
 
 // EventOrchestrationRouterSetRuleActionsInput is an input type that accepts EventOrchestrationRouterSetRuleActionsArgs and EventOrchestrationRouterSetRuleActionsOutput values.
@@ -4241,8 +4270,9 @@ type EventOrchestrationRouterSetRuleActionsInput interface {
 }
 
 type EventOrchestrationRouterSetRuleActionsArgs struct {
-	// The ID of the target Service for the resulting alert.
-	RouteTo pulumi.StringInput `pulumi:"routeTo"`
+	// supports the following:
+	DynamicRouteTos EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayInput `pulumi:"dynamicRouteTos"`
+	RouteTo         pulumi.StringPtrInput                                          `pulumi:"routeTo"`
 }
 
 func (EventOrchestrationRouterSetRuleActionsArgs) ElementType() reflect.Type {
@@ -4271,9 +4301,136 @@ func (o EventOrchestrationRouterSetRuleActionsOutput) ToEventOrchestrationRouter
 	return o
 }
 
-// The ID of the target Service for the resulting alert.
-func (o EventOrchestrationRouterSetRuleActionsOutput) RouteTo() pulumi.StringOutput {
-	return o.ApplyT(func(v EventOrchestrationRouterSetRuleActions) string { return v.RouteTo }).(pulumi.StringOutput)
+// supports the following:
+func (o EventOrchestrationRouterSetRuleActionsOutput) DynamicRouteTos() EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationRouterSetRuleActions) []EventOrchestrationRouterSetRuleActionsDynamicRouteTo {
+		return v.DynamicRouteTos
+	}).(EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput)
+}
+
+func (o EventOrchestrationRouterSetRuleActionsOutput) RouteTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationRouterSetRuleActions) *string { return v.RouteTo }).(pulumi.StringPtrOutput)
+}
+
+type EventOrchestrationRouterSetRuleActionsDynamicRouteTo struct {
+	// Indicates whether the extracted value from the source is a service's name or ID. Allowed values are: `serviceName`, `serviceId`
+	//
+	// If an event has a value at the specified `source`, and if the `regex` successfully matches the value, and if the matching portion is valid Service ID or Name, then the event will be routed to that service. Otherwise the event will be checked against any subsequent router rules.
+	LookupBy string `pulumi:"lookupBy"`
+	// The regular expression, used to extract a value from the source field. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	Regex string `pulumi:"regex"`
+	// The path to a field in an event.
+	Source string `pulumi:"source"`
+}
+
+// EventOrchestrationRouterSetRuleActionsDynamicRouteToInput is an input type that accepts EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs and EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput values.
+// You can construct a concrete instance of `EventOrchestrationRouterSetRuleActionsDynamicRouteToInput` via:
+//
+//	EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs{...}
+type EventOrchestrationRouterSetRuleActionsDynamicRouteToInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationRouterSetRuleActionsDynamicRouteToOutput() EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput
+	ToEventOrchestrationRouterSetRuleActionsDynamicRouteToOutputWithContext(context.Context) EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput
+}
+
+type EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs struct {
+	// Indicates whether the extracted value from the source is a service's name or ID. Allowed values are: `serviceName`, `serviceId`
+	//
+	// If an event has a value at the specified `source`, and if the `regex` successfully matches the value, and if the matching portion is valid Service ID or Name, then the event will be routed to that service. Otherwise the event will be checked against any subsequent router rules.
+	LookupBy pulumi.StringInput `pulumi:"lookupBy"`
+	// The regular expression, used to extract a value from the source field. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	Regex pulumi.StringInput `pulumi:"regex"`
+	// The path to a field in an event.
+	Source pulumi.StringInput `pulumi:"source"`
+}
+
+func (EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationRouterSetRuleActionsDynamicRouteTo)(nil)).Elem()
+}
+
+func (i EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs) ToEventOrchestrationRouterSetRuleActionsDynamicRouteToOutput() EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput {
+	return i.ToEventOrchestrationRouterSetRuleActionsDynamicRouteToOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs) ToEventOrchestrationRouterSetRuleActionsDynamicRouteToOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput)
+}
+
+// EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayInput is an input type that accepts EventOrchestrationRouterSetRuleActionsDynamicRouteToArray and EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayInput` via:
+//
+//	EventOrchestrationRouterSetRuleActionsDynamicRouteToArray{ EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs{...} }
+type EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput() EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput
+	ToEventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutputWithContext(context.Context) EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput
+}
+
+type EventOrchestrationRouterSetRuleActionsDynamicRouteToArray []EventOrchestrationRouterSetRuleActionsDynamicRouteToInput
+
+func (EventOrchestrationRouterSetRuleActionsDynamicRouteToArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationRouterSetRuleActionsDynamicRouteTo)(nil)).Elem()
+}
+
+func (i EventOrchestrationRouterSetRuleActionsDynamicRouteToArray) ToEventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput() EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput {
+	return i.ToEventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationRouterSetRuleActionsDynamicRouteToArray) ToEventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput)
+}
+
+type EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationRouterSetRuleActionsDynamicRouteTo)(nil)).Elem()
+}
+
+func (o EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput) ToEventOrchestrationRouterSetRuleActionsDynamicRouteToOutput() EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput) ToEventOrchestrationRouterSetRuleActionsDynamicRouteToOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput {
+	return o
+}
+
+// Indicates whether the extracted value from the source is a service's name or ID. Allowed values are: `serviceName`, `serviceId`
+//
+// If an event has a value at the specified `source`, and if the `regex` successfully matches the value, and if the matching portion is valid Service ID or Name, then the event will be routed to that service. Otherwise the event will be checked against any subsequent router rules.
+func (o EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput) LookupBy() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationRouterSetRuleActionsDynamicRouteTo) string { return v.LookupBy }).(pulumi.StringOutput)
+}
+
+// The regular expression, used to extract a value from the source field. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+func (o EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationRouterSetRuleActionsDynamicRouteTo) string { return v.Regex }).(pulumi.StringOutput)
+}
+
+// The path to a field in an event.
+func (o EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationRouterSetRuleActionsDynamicRouteTo) string { return v.Source }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationRouterSetRuleActionsDynamicRouteTo)(nil)).Elem()
+}
+
+func (o EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput) ToEventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput() EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput) ToEventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput) Index(i pulumi.IntInput) EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationRouterSetRuleActionsDynamicRouteTo {
+		return vs[0].([]EventOrchestrationRouterSetRuleActionsDynamicRouteTo)[vs[1].(int)]
+	}).(EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput)
 }
 
 type EventOrchestrationRouterSetRuleCondition struct {
@@ -4806,6 +4963,8 @@ type EventOrchestrationServiceCatchAllActions struct {
 	Annotate *string `pulumi:"annotate"`
 	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
 	AutomationAction *EventOrchestrationServiceCatchAllActionsAutomationAction `pulumi:"automationAction"`
+	// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+	EscalationPolicy *string `pulumi:"escalationPolicy"`
 	// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
 	EventAction *string `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
@@ -4844,6 +5003,8 @@ type EventOrchestrationServiceCatchAllActionsArgs struct {
 	Annotate pulumi.StringPtrInput `pulumi:"annotate"`
 	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
 	AutomationAction EventOrchestrationServiceCatchAllActionsAutomationActionPtrInput `pulumi:"automationAction"`
+	// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+	EscalationPolicy pulumi.StringPtrInput `pulumi:"escalationPolicy"`
 	// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
 	EventAction pulumi.StringPtrInput `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
@@ -4955,6 +5116,11 @@ func (o EventOrchestrationServiceCatchAllActionsOutput) AutomationAction() Event
 	}).(EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput)
 }
 
+// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+func (o EventOrchestrationServiceCatchAllActionsOutput) EscalationPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *string { return v.EscalationPolicy }).(pulumi.StringPtrOutput)
+}
+
 // sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
 func (o EventOrchestrationServiceCatchAllActionsOutput) EventAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *string { return v.EventAction }).(pulumi.StringPtrOutput)
@@ -5055,6 +5221,16 @@ func (o EventOrchestrationServiceCatchAllActionsPtrOutput) AutomationAction() Ev
 		}
 		return v.AutomationAction
 	}).(EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput)
+}
+
+// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) EscalationPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EscalationPolicy
+	}).(pulumi.StringPtrOutput)
 }
 
 // sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
@@ -6326,6 +6502,8 @@ type EventOrchestrationServiceSetRuleActions struct {
 	Annotate *string `pulumi:"annotate"`
 	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
 	AutomationAction *EventOrchestrationServiceSetRuleActionsAutomationAction `pulumi:"automationAction"`
+	// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+	EscalationPolicy *string `pulumi:"escalationPolicy"`
 	// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
 	EventAction *string `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
@@ -6364,6 +6542,8 @@ type EventOrchestrationServiceSetRuleActionsArgs struct {
 	Annotate pulumi.StringPtrInput `pulumi:"annotate"`
 	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
 	AutomationAction EventOrchestrationServiceSetRuleActionsAutomationActionPtrInput `pulumi:"automationAction"`
+	// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+	EscalationPolicy pulumi.StringPtrInput `pulumi:"escalationPolicy"`
 	// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
 	EventAction pulumi.StringPtrInput `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
@@ -6422,6 +6602,11 @@ func (o EventOrchestrationServiceSetRuleActionsOutput) AutomationAction() EventO
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) *EventOrchestrationServiceSetRuleActionsAutomationAction {
 		return v.AutomationAction
 	}).(EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput)
+}
+
+// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+func (o EventOrchestrationServiceSetRuleActionsOutput) EscalationPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) *string { return v.EscalationPolicy }).(pulumi.StringPtrOutput)
 }
 
 // sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
@@ -21119,6 +21304,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetRuleInput)(nil)).Elem(), EventOrchestrationRouterSetRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetRuleArrayInput)(nil)).Elem(), EventOrchestrationRouterSetRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetRuleActionsInput)(nil)).Elem(), EventOrchestrationRouterSetRuleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetRuleActionsDynamicRouteToInput)(nil)).Elem(), EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayInput)(nil)).Elem(), EventOrchestrationRouterSetRuleActionsDynamicRouteToArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetRuleConditionInput)(nil)).Elem(), EventOrchestrationRouterSetRuleConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetRuleConditionArrayInput)(nil)).Elem(), EventOrchestrationRouterSetRuleConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCacheVariableConditionInput)(nil)).Elem(), EventOrchestrationServiceCacheVariableConditionArgs{})
@@ -21432,6 +21619,8 @@ func init() {
 	pulumi.RegisterOutputType(EventOrchestrationRouterSetRuleOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationRouterSetRuleArrayOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationRouterSetRuleActionsOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationRouterSetRuleActionsDynamicRouteToOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationRouterSetRuleActionsDynamicRouteToArrayOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationRouterSetRuleConditionOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationRouterSetRuleConditionArrayOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationServiceCacheVariableConditionOutput{})

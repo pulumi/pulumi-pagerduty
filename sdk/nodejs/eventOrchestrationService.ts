@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  *
  * This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
  *
- * This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the first rule in set "step-two" the resulting incident will have the Priority `P1`.
+ * This example also shows using the pagerduty.getPriority data sources to configure `priority` and `escalationPolicy` actions for a rule.
  *
  * This example shows a Service Orchestration that has nested sets: a rule in the "start" set has a `routeTo` action pointing at the "step-two" set.
  *
@@ -60,6 +60,9 @@ import * as utilities from "./utilities";
  * });
  * const p1 = pagerduty.getPriority({
  *     name: "P1",
+ * });
+ * const sreEscPolicy = pagerduty.getEscalationPolicy({
+ *     name: "SRE Escalation Policy",
  * });
  * const www = new pagerduty.EventOrchestrationService("www", {
  *     service: exampleService.id,
@@ -106,6 +109,15 @@ import * as utilities from "./utilities";
  *                             id: csImpact.id,
  *                             value: "High Impact",
  *                         }],
+ *                     },
+ *                 },
+ *                 {
+ *                     label: "If any of the API apps are unavailable, page the SRE team",
+ *                     conditions: [{
+ *                         expression: "event.custom_details.service_name matches part '-api' and event.custom_details.status_code matches '502'",
+ *                     }],
+ *                     actions: {
+ *                         escalationPolicy: sreEscPolicy.then(sreEscPolicy => sreEscPolicy.id),
  *                     },
  *                 },
  *                 {

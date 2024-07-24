@@ -11,19 +11,33 @@ import * as utilities from "./utilities";
  *
  * ## Example of configuring Router rules for an Orchestration
  *
- * In this example the user has defined the Router with two rules, each routing to a different service.
- *
- * This example assumes services used in the `routeTo` configuration already exists. So it does not show creation of service resource.
+ * In this example the user has defined the Router with three rules. The first rule configures a dynamic route: any event containing a value in its `pdServiceId` custom detail will be routed to the Service with the ID specified by that value. The other rules route events matching a condition to specific services.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
+ * const database = pagerduty.getService({
+ *     name: "Primary Data Store",
+ * });
+ * const www = pagerduty.getService({
+ *     name: "Web Server App",
+ * });
  * const router = new pagerduty.EventOrchestrationRouter("router", {
  *     eventOrchestration: myMonitor.id,
  *     set: {
  *         id: "start",
  *         rules: [
+ *             {
+ *                 label: "Dynamically route events related to specific PagerDuty services",
+ *                 actions: {
+ *                     dynamicRouteTos: {
+ *                         lookupBy: "service_id",
+ *                         source: "event.custom_details.pd_service_id",
+ *                         regexp: "(.*)",
+ *                     },
+ *                 },
+ *             },
  *             {
  *                 label: "Events relating to our relational database",
  *                 conditions: [
@@ -35,7 +49,7 @@ import * as utilities from "./utilities";
  *                     },
  *                 ],
  *                 actions: {
- *                     routeTo: database.id,
+ *                     routeTo: database.then(database => database.id),
  *                 },
  *             },
  *             {
@@ -43,7 +57,7 @@ import * as utilities from "./utilities";
  *                     expression: "event.summary matches part 'www'",
  *                 }],
  *                 actions: {
- *                     routeTo: www.id,
+ *                     routeTo: www.then(www => www.id),
  *                 },
  *             },
  *         ],

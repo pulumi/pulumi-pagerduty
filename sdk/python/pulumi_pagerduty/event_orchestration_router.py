@@ -136,19 +136,29 @@ class EventOrchestrationRouter(pulumi.CustomResource):
 
         ## Example of configuring Router rules for an Orchestration
 
-        In this example the user has defined the Router with two rules, each routing to a different service.
-
-        This example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.
+        In this example the user has defined the Router with three rules. The first rule configures a dynamic route: any event containing a value in its `pd_service_id` custom detail will be routed to the Service with the ID specified by that value. The other rules route events matching a condition to specific services.
 
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
+        database = pagerduty.get_service(name="Primary Data Store")
+        www = pagerduty.get_service(name="Web Server App")
         router = pagerduty.EventOrchestrationRouter("router",
             event_orchestration=my_monitor["id"],
             set=pagerduty.EventOrchestrationRouterSetArgs(
                 id="start",
                 rules=[
+                    pagerduty.EventOrchestrationRouterSetRuleArgs(
+                        label="Dynamically route events related to specific PagerDuty services",
+                        actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
+                            dynamic_route_tos={
+                                "lookupBy": "service_id",
+                                "source": "event.custom_details.pd_service_id",
+                                "regexp": "(.*)",
+                            },
+                        ),
+                    ),
                     pagerduty.EventOrchestrationRouterSetRuleArgs(
                         label="Events relating to our relational database",
                         conditions=[
@@ -160,7 +170,7 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                             ),
                         ],
                         actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=database["id"],
+                            route_to=database.id,
                         ),
                     ),
                     pagerduty.EventOrchestrationRouterSetRuleArgs(
@@ -168,7 +178,7 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                             expression="event.summary matches part 'www'",
                         )],
                         actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=www["id"],
+                            route_to=www.id,
                         ),
                     ),
                 ],
@@ -205,19 +215,29 @@ class EventOrchestrationRouter(pulumi.CustomResource):
 
         ## Example of configuring Router rules for an Orchestration
 
-        In this example the user has defined the Router with two rules, each routing to a different service.
-
-        This example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.
+        In this example the user has defined the Router with three rules. The first rule configures a dynamic route: any event containing a value in its `pd_service_id` custom detail will be routed to the Service with the ID specified by that value. The other rules route events matching a condition to specific services.
 
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
+        database = pagerduty.get_service(name="Primary Data Store")
+        www = pagerduty.get_service(name="Web Server App")
         router = pagerduty.EventOrchestrationRouter("router",
             event_orchestration=my_monitor["id"],
             set=pagerduty.EventOrchestrationRouterSetArgs(
                 id="start",
                 rules=[
+                    pagerduty.EventOrchestrationRouterSetRuleArgs(
+                        label="Dynamically route events related to specific PagerDuty services",
+                        actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
+                            dynamic_route_tos={
+                                "lookupBy": "service_id",
+                                "source": "event.custom_details.pd_service_id",
+                                "regexp": "(.*)",
+                            },
+                        ),
+                    ),
                     pagerduty.EventOrchestrationRouterSetRuleArgs(
                         label="Events relating to our relational database",
                         conditions=[
@@ -229,7 +249,7 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                             ),
                         ],
                         actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=database["id"],
+                            route_to=database.id,
                         ),
                     ),
                     pagerduty.EventOrchestrationRouterSetRuleArgs(
@@ -237,7 +257,7 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                             expression="event.summary matches part 'www'",
                         )],
                         actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=www["id"],
+                            route_to=www.id,
                         ),
                     ),
                 ],

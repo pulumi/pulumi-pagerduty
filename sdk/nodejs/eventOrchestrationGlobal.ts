@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  *
  * This example shows creating `Team`, and `Event Orchestration` resources followed by creating a Global Orchestration to handle Events sent to that Event Orchestration.
  *
- * This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the third rule in set "step-two" the resulting incident will have the Priority `P1`.
+ * This example also shows using the pagerduty.getPriority data sources to configure `priority` and `escalationPolicy` actions for a rule.
  *
  * This example shows a Global Orchestration that has nested sets: a rule in the "start" set has a `routeTo` action pointing at the "step-two" set.
  *
@@ -30,6 +30,9 @@ import * as utilities from "./utilities";
  * });
  * const p1 = pagerduty.getPriority({
  *     name: "P1",
+ * });
+ * const sreEscPolicy = pagerduty.getEscalationPolicy({
+ *     name: "SRE Escalation Policy",
  * });
  * const global = new pagerduty.EventOrchestrationGlobal("global", {
  *     eventOrchestration: eventOrchestration.id,
@@ -54,6 +57,15 @@ import * as utilities from "./utilities";
  *                     }],
  *                     actions: {
  *                         dropEvent: true,
+ *                     },
+ *                 },
+ *                 {
+ *                     label: "If the DB host is running out of space, then page the SRE team",
+ *                     conditions: [{
+ *                         expression: "event.summary matches part 'running out of space'",
+ *                     }],
+ *                     actions: {
+ *                         escalationPolicy: sreEscPolicy.then(sreEscPolicy => sreEscPolicy.id),
  *                     },
  *                 },
  *                 {

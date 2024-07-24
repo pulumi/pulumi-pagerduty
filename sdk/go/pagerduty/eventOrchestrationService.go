@@ -20,7 +20,7 @@ import (
 //
 // This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
 //
-// This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the first rule in set "step-two" the resulting incident will have the Priority `P1`.
+// This example also shows using the getPriority data sources to configure `priority` and `escalationPolicy` actions for a rule.
 //
 // This example shows a Service Orchestration that has nested sets: a rule in the "start" set has a `routeTo` action pointing at the "step-two" set.
 //
@@ -101,6 +101,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			sreEscPolicy, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
+//				Name: "SRE Escalation Policy",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = pagerduty.NewEventOrchestrationService(ctx, "www", &pagerduty.EventOrchestrationServiceArgs{
 //				Service:                            exampleService.ID(),
 //				EnableEventOrchestrationForService: pulumi.Bool(true),
@@ -154,6 +160,17 @@ import (
 //											Value: pulumi.String("High Impact"),
 //										},
 //									},
+//								},
+//							},
+//							&pagerduty.EventOrchestrationServiceSetRuleArgs{
+//								Label: pulumi.String("If any of the API apps are unavailable, page the SRE team"),
+//								Conditions: pagerduty.EventOrchestrationServiceSetRuleConditionArray{
+//									&pagerduty.EventOrchestrationServiceSetRuleConditionArgs{
+//										Expression: pulumi.String("event.custom_details.service_name matches part '-api' and event.custom_details.status_code matches '502'"),
+//									},
+//								},
+//								Actions: &pagerduty.EventOrchestrationServiceSetRuleActionsArgs{
+//									EscalationPolicy: pulumi.String(sreEscPolicy.Id),
 //								},
 //							},
 //							&pagerduty.EventOrchestrationServiceSetRuleArgs{

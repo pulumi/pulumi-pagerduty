@@ -12,11 +12,20 @@ namespace Pulumi.Pagerduty.Inputs
 
     public sealed class EventOrchestrationRouterSetRuleActionsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("dynamicRouteTos")]
+        private InputList<Inputs.EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs>? _dynamicRouteTos;
+
         /// <summary>
-        /// The ID of the target Service for the resulting alert.
+        /// supports the following:
         /// </summary>
-        [Input("routeTo", required: true)]
-        public Input<string> RouteTo { get; set; } = null!;
+        public InputList<Inputs.EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs> DynamicRouteTos
+        {
+            get => _dynamicRouteTos ?? (_dynamicRouteTos = new InputList<Inputs.EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs>());
+            set => _dynamicRouteTos = value;
+        }
+
+        [Input("routeTo")]
+        public Input<string>? RouteTo { get; set; }
 
         public EventOrchestrationRouterSetRuleActionsArgs()
         {

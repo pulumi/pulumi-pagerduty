@@ -14,9 +14,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example of configuring Router rules for an Orchestration
     /// 
-    /// In this example the user has defined the Router with two rules, each routing to a different service.
-    /// 
-    /// This example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.
+    /// In this example the user has defined the Router with three rules. The first rule configures a dynamic route: any event containing a value in its `pd_service_id` custom detail will be routed to the Service with the ID specified by that value. The other rules route events matching a condition to specific services.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -26,6 +24,16 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var database = Pagerduty.GetService.Invoke(new()
+    ///     {
+    ///         Name = "Primary Data Store",
+    ///     });
+    /// 
+    ///     var www = Pagerduty.GetService.Invoke(new()
+    ///     {
+    ///         Name = "Web Server App",
+    ///     });
+    /// 
     ///     var router = new Pagerduty.EventOrchestrationRouter("router", new()
     ///     {
     ///         EventOrchestration = myMonitor.Id,
@@ -34,6 +42,19 @@ namespace Pulumi.Pagerduty
     ///             Id = "start",
     ///             Rules = new[]
     ///             {
+    ///                 new Pagerduty.Inputs.EventOrchestrationRouterSetRuleArgs
+    ///                 {
+    ///                     Label = "Dynamically route events related to specific PagerDuty services",
+    ///                     Actions = new Pagerduty.Inputs.EventOrchestrationRouterSetRuleActionsArgs
+    ///                     {
+    ///                         DynamicRouteTos = 
+    ///                         {
+    ///                             { "lookupBy", "service_id" },
+    ///                             { "source", "event.custom_details.pd_service_id" },
+    ///                             { "regexp", "(.*)" },
+    ///                         },
+    ///                     },
+    ///                 },
     ///                 new Pagerduty.Inputs.EventOrchestrationRouterSetRuleArgs
     ///                 {
     ///                     Label = "Events relating to our relational database",
@@ -50,7 +71,7 @@ namespace Pulumi.Pagerduty
     ///                     },
     ///                     Actions = new Pagerduty.Inputs.EventOrchestrationRouterSetRuleActionsArgs
     ///                     {
-    ///                         RouteTo = database.Id,
+    ///                         RouteTo = database.Apply(getServiceResult =&gt; getServiceResult.Id),
     ///                     },
     ///                 },
     ///                 new Pagerduty.Inputs.EventOrchestrationRouterSetRuleArgs
@@ -64,7 +85,7 @@ namespace Pulumi.Pagerduty
     ///                     },
     ///                     Actions = new Pagerduty.Inputs.EventOrchestrationRouterSetRuleActionsArgs
     ///                     {
-    ///                         RouteTo = www.Id,
+    ///                         RouteTo = www.Apply(getServiceResult =&gt; getServiceResult.Id),
     ///                     },
     ///                 },
     ///             },

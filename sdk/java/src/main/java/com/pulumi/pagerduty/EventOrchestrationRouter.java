@@ -20,9 +20,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example of configuring Router rules for an Orchestration
  * 
- * In this example the user has defined the Router with two rules, each routing to a different service.
- * 
- * This example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.
+ * In this example the user has defined the Router with three rules. The first rule configures a dynamic route: any event containing a value in its `pd_service_id` custom detail will be routed to the Service with the ID specified by that value. The other rules route events matching a condition to specific services.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -32,6 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.pagerduty.PagerdutyFunctions;
+ * import com.pulumi.pagerduty.inputs.GetServiceArgs;
  * import com.pulumi.pagerduty.EventOrchestrationRouter;
  * import com.pulumi.pagerduty.EventOrchestrationRouterArgs;
  * import com.pulumi.pagerduty.inputs.EventOrchestrationRouterSetArgs;
@@ -50,11 +50,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         final var database = PagerdutyFunctions.getService(GetServiceArgs.builder()
+ *             .name("Primary Data Store")
+ *             .build());
+ * 
+ *         final var www = PagerdutyFunctions.getService(GetServiceArgs.builder()
+ *             .name("Web Server App")
+ *             .build());
+ * 
  *         var router = new EventOrchestrationRouter("router", EventOrchestrationRouterArgs.builder()
  *             .eventOrchestration(myMonitor.id())
  *             .set(EventOrchestrationRouterSetArgs.builder()
  *                 .id("start")
  *                 .rules(                
+ *                     EventOrchestrationRouterSetRuleArgs.builder()
+ *                         .label("Dynamically route events related to specific PagerDuty services")
+ *                         .actions(EventOrchestrationRouterSetRuleActionsArgs.builder()
+ *                             .dynamicRouteTos(EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs.builder()
+ *                                 .lookupBy("service_id")
+ *                                 .source("event.custom_details.pd_service_id")
+ *                                 .regexp("(.*)")
+ *                                 .build())
+ *                             .build())
+ *                         .build(),
  *                     EventOrchestrationRouterSetRuleArgs.builder()
  *                         .label("Events relating to our relational database")
  *                         .conditions(                        
@@ -65,7 +83,7 @@ import javax.annotation.Nullable;
  *                                 .expression("event.source matches regex 'db[0-9]+-server'")
  *                                 .build())
  *                         .actions(EventOrchestrationRouterSetRuleActionsArgs.builder()
- *                             .routeTo(database.id())
+ *                             .routeTo(database.applyValue(getServiceResult -> getServiceResult.id()))
  *                             .build())
  *                         .build(),
  *                     EventOrchestrationRouterSetRuleArgs.builder()
@@ -73,7 +91,7 @@ import javax.annotation.Nullable;
  *                             .expression("event.summary matches part 'www'")
  *                             .build())
  *                         .actions(EventOrchestrationRouterSetRuleActionsArgs.builder()
- *                             .routeTo(www.id())
+ *                             .routeTo(www.applyValue(getServiceResult -> getServiceResult.id()))
  *                             .build())
  *                         .build())
  *                 .build())

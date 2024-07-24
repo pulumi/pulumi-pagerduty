@@ -18,7 +18,7 @@ import (
 //
 // This example shows creating `Team`, and `Event Orchestration` resources followed by creating a Global Orchestration to handle Events sent to that Event Orchestration.
 //
-// This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the third rule in set "step-two" the resulting incident will have the Priority `P1`.
+// This example also shows using the getPriority data sources to configure `priority` and `escalationPolicy` actions for a rule.
 //
 // This example shows a Global Orchestration that has nested sets: a rule in the "start" set has a `routeTo` action pointing at the "step-two" set.
 //
@@ -55,6 +55,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			sreEscPolicy, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
+//				Name: "SRE Escalation Policy",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = pagerduty.NewEventOrchestrationGlobal(ctx, "global", &pagerduty.EventOrchestrationGlobalArgs{
 //				EventOrchestration: eventOrchestration.ID(),
 //				Sets: pagerduty.EventOrchestrationGlobalSetArray{
@@ -82,6 +88,17 @@ import (
 //								},
 //								Actions: &pagerduty.EventOrchestrationGlobalSetRuleActionsArgs{
 //									DropEvent: pulumi.Bool(true),
+//								},
+//							},
+//							&pagerduty.EventOrchestrationGlobalSetRuleArgs{
+//								Label: pulumi.String("If the DB host is running out of space, then page the SRE team"),
+//								Conditions: pagerduty.EventOrchestrationGlobalSetRuleConditionArray{
+//									&pagerduty.EventOrchestrationGlobalSetRuleConditionArgs{
+//										Expression: pulumi.String("event.summary matches part 'running out of space'"),
+//									},
+//								},
+//								Actions: &pagerduty.EventOrchestrationGlobalSetRuleActionsArgs{
+//									EscalationPolicy: pulumi.String(sreEscPolicy.Id),
 //								},
 //							},
 //							&pagerduty.EventOrchestrationGlobalSetRuleArgs{

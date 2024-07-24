@@ -14,13 +14,18 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class EventOrchestrationRouterSetRuleActions
     {
         /// <summary>
-        /// The ID of the target Service for the resulting alert.
+        /// supports the following:
         /// </summary>
-        public readonly string RouteTo;
+        public readonly ImmutableArray<Outputs.EventOrchestrationRouterSetRuleActionsDynamicRouteTo> DynamicRouteTos;
+        public readonly string? RouteTo;
 
         [OutputConstructor]
-        private EventOrchestrationRouterSetRuleActions(string routeTo)
+        private EventOrchestrationRouterSetRuleActions(
+            ImmutableArray<Outputs.EventOrchestrationRouterSetRuleActionsDynamicRouteTo> dynamicRouteTos,
+
+            string? routeTo)
         {
+            DynamicRouteTos = dynamicRouteTos;
             RouteTo = routeTo;
         }
     }

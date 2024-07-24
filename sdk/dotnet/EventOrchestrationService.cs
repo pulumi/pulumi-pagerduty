@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
     /// 
-    /// This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the first rule in set "step-two" the resulting incident will have the Priority `P1`.
+    /// This example also shows using the pagerduty.getPriority data sources to configure `priority` and `escalation_policy` actions for a rule.
     /// 
     /// This example shows a Service Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
     /// 
@@ -90,6 +90,11 @@ namespace Pulumi.Pagerduty
     ///     var p1 = Pagerduty.GetPriority.Invoke(new()
     ///     {
     ///         Name = "P1",
+    ///     });
+    /// 
+    ///     var sreEscPolicy = Pagerduty.GetEscalationPolicy.Invoke(new()
+    ///     {
+    ///         Name = "SRE Escalation Policy",
     ///     });
     /// 
     ///     var www = new Pagerduty.EventOrchestrationService("www", new()
@@ -164,6 +169,21 @@ namespace Pulumi.Pagerduty
     ///                                     Value = "High Impact",
     ///                                 },
     ///                             },
+    ///                         },
+    ///                     },
+    ///                     new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs
+    ///                     {
+    ///                         Label = "If any of the API apps are unavailable, page the SRE team",
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new Pagerduty.Inputs.EventOrchestrationServiceSetRuleConditionArgs
+    ///                             {
+    ///                                 Expression = "event.custom_details.service_name matches part '-api' and event.custom_details.status_code matches '502'",
+    ///                             },
+    ///                         },
+    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsArgs
+    ///                         {
+    ///                             EscalationPolicy = sreEscPolicy.Apply(getEscalationPolicyResult =&gt; getEscalationPolicyResult.Id),
     ///                         },
     ///                     },
     ///                     new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs

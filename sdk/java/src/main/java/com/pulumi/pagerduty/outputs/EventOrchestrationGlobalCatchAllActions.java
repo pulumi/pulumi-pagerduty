@@ -34,6 +34,11 @@ public final class EventOrchestrationGlobalCatchAllActions {
      */
     private @Nullable Boolean dropEvent;
     /**
+     * @return The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service&#39;s settings, with what is configured by this action.
+     * 
+     */
+    private @Nullable String escalationPolicy;
+    /**
      * @return sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      * 
      */
@@ -100,6 +105,13 @@ public final class EventOrchestrationGlobalCatchAllActions {
      */
     public Optional<Boolean> dropEvent() {
         return Optional.ofNullable(this.dropEvent);
+    }
+    /**
+     * @return The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service&#39;s settings, with what is configured by this action.
+     * 
+     */
+    public Optional<String> escalationPolicy() {
+        return Optional.ofNullable(this.escalationPolicy);
     }
     /**
      * @return sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
@@ -177,6 +189,7 @@ public final class EventOrchestrationGlobalCatchAllActions {
         private @Nullable String annotate;
         private @Nullable EventOrchestrationGlobalCatchAllActionsAutomationAction automationAction;
         private @Nullable Boolean dropEvent;
+        private @Nullable String escalationPolicy;
         private @Nullable String eventAction;
         private @Nullable List<EventOrchestrationGlobalCatchAllActionsExtraction> extractions;
         private @Nullable List<EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate> incidentCustomFieldUpdates;
@@ -192,6 +205,7 @@ public final class EventOrchestrationGlobalCatchAllActions {
     	      this.annotate = defaults.annotate;
     	      this.automationAction = defaults.automationAction;
     	      this.dropEvent = defaults.dropEvent;
+    	      this.escalationPolicy = defaults.escalationPolicy;
     	      this.eventAction = defaults.eventAction;
     	      this.extractions = defaults.extractions;
     	      this.incidentCustomFieldUpdates = defaults.incidentCustomFieldUpdates;
@@ -219,6 +233,12 @@ public final class EventOrchestrationGlobalCatchAllActions {
         public Builder dropEvent(@Nullable Boolean dropEvent) {
 
             this.dropEvent = dropEvent;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder escalationPolicy(@Nullable String escalationPolicy) {
+
+            this.escalationPolicy = escalationPolicy;
             return this;
         }
         @CustomType.Setter
@@ -289,6 +309,7 @@ public final class EventOrchestrationGlobalCatchAllActions {
             _resultValue.annotate = annotate;
             _resultValue.automationAction = automationAction;
             _resultValue.dropEvent = dropEvent;
+            _resultValue.escalationPolicy = escalationPolicy;
             _resultValue.eventAction = eventAction;
             _resultValue.extractions = extractions;
             _resultValue.incidentCustomFieldUpdates = incidentCustomFieldUpdates;

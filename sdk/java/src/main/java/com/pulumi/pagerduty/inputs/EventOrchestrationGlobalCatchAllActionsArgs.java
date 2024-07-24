@@ -68,6 +68,21 @@ public final class EventOrchestrationGlobalCatchAllActionsArgs extends com.pulum
     }
 
     /**
+     * The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service&#39;s settings, with what is configured by this action.
+     * 
+     */
+    @Import(name="escalationPolicy")
+    private @Nullable Output<String> escalationPolicy;
+
+    /**
+     * @return The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service&#39;s settings, with what is configured by this action.
+     * 
+     */
+    public Optional<Output<String>> escalationPolicy() {
+        return Optional.ofNullable(this.escalationPolicy);
+    }
+
+    /**
      * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      * 
      */
@@ -208,6 +223,7 @@ public final class EventOrchestrationGlobalCatchAllActionsArgs extends com.pulum
         this.annotate = $.annotate;
         this.automationAction = $.automationAction;
         this.dropEvent = $.dropEvent;
+        this.escalationPolicy = $.escalationPolicy;
         this.eventAction = $.eventAction;
         this.extractions = $.extractions;
         this.incidentCustomFieldUpdates = $.incidentCustomFieldUpdates;
@@ -298,6 +314,27 @@ public final class EventOrchestrationGlobalCatchAllActionsArgs extends com.pulum
          */
         public Builder dropEvent(Boolean dropEvent) {
             return dropEvent(Output.of(dropEvent));
+        }
+
+        /**
+         * @param escalationPolicy The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service&#39;s settings, with what is configured by this action.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder escalationPolicy(@Nullable Output<String> escalationPolicy) {
+            $.escalationPolicy = escalationPolicy;
+            return this;
+        }
+
+        /**
+         * @param escalationPolicy The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service&#39;s settings, with what is configured by this action.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder escalationPolicy(String escalationPolicy) {
+            return escalationPolicy(Output.of(escalationPolicy));
         }
 
         /**

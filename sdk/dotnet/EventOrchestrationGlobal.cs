@@ -16,7 +16,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// This example shows creating `Team`, and `Event Orchestration` resources followed by creating a Global Orchestration to handle Events sent to that Event Orchestration.
     /// 
-    /// This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the third rule in set "step-two" the resulting incident will have the Priority `P1`.
+    /// This example also shows using the pagerduty.getPriority data sources to configure `priority` and `escalation_policy` actions for a rule.
     /// 
     /// This example shows a Global Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
     /// 
@@ -44,6 +44,11 @@ namespace Pulumi.Pagerduty
     ///     var p1 = Pagerduty.GetPriority.Invoke(new()
     ///     {
     ///         Name = "P1",
+    ///     });
+    /// 
+    ///     var sreEscPolicy = Pagerduty.GetEscalationPolicy.Invoke(new()
+    ///     {
+    ///         Name = "SRE Escalation Policy",
     ///     });
     /// 
     ///     var @global = new Pagerduty.EventOrchestrationGlobal("global", new()
@@ -85,6 +90,21 @@ namespace Pulumi.Pagerduty
     ///                         Actions = new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleActionsArgs
     ///                         {
     ///                             DropEvent = true,
+    ///                         },
+    ///                     },
+    ///                     new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleArgs
+    ///                     {
+    ///                         Label = "If the DB host is running out of space, then page the SRE team",
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleConditionArgs
+    ///                             {
+    ///                                 Expression = "event.summary matches part 'running out of space'",
+    ///                             },
+    ///                         },
+    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleActionsArgs
+    ///                         {
+    ///                             EscalationPolicy = sreEscPolicy.Apply(getEscalationPolicyResult =&gt; getEscalationPolicyResult.Id),
     ///                         },
     ///                     },
     ///                     new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleArgs

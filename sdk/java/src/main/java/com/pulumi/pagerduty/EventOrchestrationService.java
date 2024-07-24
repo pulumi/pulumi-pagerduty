@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * 
  * This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
  * 
- * This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the first rule in set &#34;step-two&#34; the resulting incident will have the Priority `P1`.
+ * This example also shows using the pagerduty.getPriority data sources to configure `priority` and `escalation_policy` actions for a rule.
  * 
  * This example shows a Service Orchestration that has nested sets: a rule in the &#34;start&#34; set has a `route_to` action pointing at the &#34;step-two&#34; set.
  * 
@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.IncidentCustomFieldArgs;
  * import com.pulumi.pagerduty.PagerdutyFunctions;
  * import com.pulumi.pagerduty.inputs.GetPriorityArgs;
+ * import com.pulumi.pagerduty.inputs.GetEscalationPolicyArgs;
  * import com.pulumi.pagerduty.EventOrchestrationService;
  * import com.pulumi.pagerduty.EventOrchestrationServiceArgs;
  * import com.pulumi.pagerduty.inputs.EventOrchestrationServiceSetArgs;
@@ -118,6 +119,10 @@ import javax.annotation.Nullable;
  *             .name("P1")
  *             .build());
  * 
+ *         final var sreEscPolicy = PagerdutyFunctions.getEscalationPolicy(GetEscalationPolicyArgs.builder()
+ *             .name("SRE Escalation Policy")
+ *             .build());
+ * 
  *         var www = new EventOrchestrationService("www", EventOrchestrationServiceArgs.builder()
  *             .service(exampleService.id())
  *             .enableEventOrchestrationForService(true)
@@ -162,6 +167,15 @@ import javax.annotation.Nullable;
  *                                     .id(csImpact.id())
  *                                     .value("High Impact")
  *                                     .build())
+ *                                 .build())
+ *                             .build(),
+ *                         EventOrchestrationServiceSetRuleArgs.builder()
+ *                             .label("If any of the API apps are unavailable, page the SRE team")
+ *                             .conditions(EventOrchestrationServiceSetRuleConditionArgs.builder()
+ *                                 .expression("event.custom_details.service_name matches part '-api' and event.custom_details.status_code matches '502'")
+ *                                 .build())
+ *                             .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()
+ *                                 .escalationPolicy(sreEscPolicy.applyValue(getEscalationPolicyResult -> getEscalationPolicyResult.id()))
  *                                 .build())
  *                             .build(),
  *                         EventOrchestrationServiceSetRuleArgs.builder()

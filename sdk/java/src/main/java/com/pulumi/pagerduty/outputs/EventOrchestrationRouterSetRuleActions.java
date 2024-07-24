@@ -4,25 +4,32 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.pagerduty.outputs.EventOrchestrationRouterSetRuleActionsDynamicRouteTo;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class EventOrchestrationRouterSetRuleActions {
     /**
-     * @return The ID of the target Service for the resulting alert.
+     * @return supports the following:
      * 
      */
-    private String routeTo;
+    private @Nullable List<EventOrchestrationRouterSetRuleActionsDynamicRouteTo> dynamicRouteTos;
+    private @Nullable String routeTo;
 
     private EventOrchestrationRouterSetRuleActions() {}
     /**
-     * @return The ID of the target Service for the resulting alert.
+     * @return supports the following:
      * 
      */
-    public String routeTo() {
-        return this.routeTo;
+    public List<EventOrchestrationRouterSetRuleActionsDynamicRouteTo> dynamicRouteTos() {
+        return this.dynamicRouteTos == null ? List.of() : this.dynamicRouteTos;
+    }
+    public Optional<String> routeTo() {
+        return Optional.ofNullable(this.routeTo);
     }
 
     public static Builder builder() {
@@ -34,23 +41,33 @@ public final class EventOrchestrationRouterSetRuleActions {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String routeTo;
+        private @Nullable List<EventOrchestrationRouterSetRuleActionsDynamicRouteTo> dynamicRouteTos;
+        private @Nullable String routeTo;
         public Builder() {}
         public Builder(EventOrchestrationRouterSetRuleActions defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dynamicRouteTos = defaults.dynamicRouteTos;
     	      this.routeTo = defaults.routeTo;
         }
 
         @CustomType.Setter
-        public Builder routeTo(String routeTo) {
-            if (routeTo == null) {
-              throw new MissingRequiredPropertyException("EventOrchestrationRouterSetRuleActions", "routeTo");
-            }
+        public Builder dynamicRouteTos(@Nullable List<EventOrchestrationRouterSetRuleActionsDynamicRouteTo> dynamicRouteTos) {
+
+            this.dynamicRouteTos = dynamicRouteTos;
+            return this;
+        }
+        public Builder dynamicRouteTos(EventOrchestrationRouterSetRuleActionsDynamicRouteTo... dynamicRouteTos) {
+            return dynamicRouteTos(List.of(dynamicRouteTos));
+        }
+        @CustomType.Setter
+        public Builder routeTo(@Nullable String routeTo) {
+
             this.routeTo = routeTo;
             return this;
         }
         public EventOrchestrationRouterSetRuleActions build() {
             final var _resultValue = new EventOrchestrationRouterSetRuleActions();
+            _resultValue.dynamicRouteTos = dynamicRouteTos;
             _resultValue.routeTo = routeTo;
             return _resultValue;
         }

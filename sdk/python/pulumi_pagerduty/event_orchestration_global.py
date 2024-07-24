@@ -138,7 +138,7 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
 
         This example shows creating `Team`, and `Event Orchestration` resources followed by creating a Global Orchestration to handle Events sent to that Event Orchestration.
 
-        This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the third rule in set "step-two" the resulting incident will have the Priority `P1`.
+        This example also shows using the get_priority data sources to configure `priority` and `escalation_policy` actions for a rule.
 
         This example shows a Global Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
 
@@ -153,6 +153,7 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
             name="Example Orchestration",
             team=database_team.id)
         p1 = pagerduty.get_priority(name="P1")
+        sre_esc_policy = pagerduty.get_escalation_policy(name="SRE Escalation Policy")
         global_ = pagerduty.EventOrchestrationGlobal("global",
             event_orchestration=event_orchestration.id,
             sets=[
@@ -176,6 +177,15 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
                             )],
                             actions=pagerduty.EventOrchestrationGlobalSetRuleActionsArgs(
                                 drop_event=True,
+                            ),
+                        ),
+                        pagerduty.EventOrchestrationGlobalSetRuleArgs(
+                            label="If the DB host is running out of space, then page the SRE team",
+                            conditions=[pagerduty.EventOrchestrationGlobalSetRuleConditionArgs(
+                                expression="event.summary matches part 'running out of space'",
+                            )],
+                            actions=pagerduty.EventOrchestrationGlobalSetRuleActionsArgs(
+                                escalation_policy=sre_esc_policy.id,
                             ),
                         ),
                         pagerduty.EventOrchestrationGlobalSetRuleArgs(
@@ -233,7 +243,7 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
 
         This example shows creating `Team`, and `Event Orchestration` resources followed by creating a Global Orchestration to handle Events sent to that Event Orchestration.
 
-        This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the third rule in set "step-two" the resulting incident will have the Priority `P1`.
+        This example also shows using the get_priority data sources to configure `priority` and `escalation_policy` actions for a rule.
 
         This example shows a Global Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
 
@@ -248,6 +258,7 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
             name="Example Orchestration",
             team=database_team.id)
         p1 = pagerduty.get_priority(name="P1")
+        sre_esc_policy = pagerduty.get_escalation_policy(name="SRE Escalation Policy")
         global_ = pagerduty.EventOrchestrationGlobal("global",
             event_orchestration=event_orchestration.id,
             sets=[
@@ -271,6 +282,15 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
                             )],
                             actions=pagerduty.EventOrchestrationGlobalSetRuleActionsArgs(
                                 drop_event=True,
+                            ),
+                        ),
+                        pagerduty.EventOrchestrationGlobalSetRuleArgs(
+                            label="If the DB host is running out of space, then page the SRE team",
+                            conditions=[pagerduty.EventOrchestrationGlobalSetRuleConditionArgs(
+                                expression="event.summary matches part 'running out of space'",
+                            )],
+                            actions=pagerduty.EventOrchestrationGlobalSetRuleActionsArgs(
+                                escalation_policy=sre_esc_policy.id,
                             ),
                         ),
                         pagerduty.EventOrchestrationGlobalSetRuleArgs(

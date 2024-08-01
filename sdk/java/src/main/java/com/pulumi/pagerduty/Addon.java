@@ -114,11 +114,18 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Addon(String name, AddonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/addon:Addon", name, args == null ? AddonArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/addon:Addon", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Addon(String name, Output<String> id, @Nullable AddonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/addon:Addon", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AddonArgs makeArgs(AddonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AddonArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

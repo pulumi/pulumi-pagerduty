@@ -159,11 +159,18 @@ public class EventOrchestrationUnrouted extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public EventOrchestrationUnrouted(String name, EventOrchestrationUnroutedArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted", name, args == null ? EventOrchestrationUnroutedArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EventOrchestrationUnrouted(String name, Output<String> id, @Nullable EventOrchestrationUnroutedState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EventOrchestrationUnroutedArgs makeArgs(EventOrchestrationUnroutedArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventOrchestrationUnroutedArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *                             .dynamicRouteTos(EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs.builder()
  *                                 .lookupBy("service_id")
  *                                 .source("event.custom_details.pd_service_id")
- *                                 .regexp("(.*)")
+ *                                 .regex("(.*)")
  *                                 .build())
  *                             .build())
  *                         .build(),
@@ -184,11 +184,18 @@ public class EventOrchestrationRouter extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public EventOrchestrationRouter(String name, EventOrchestrationRouterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter", name, args == null ? EventOrchestrationRouterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EventOrchestrationRouter(String name, Output<String> id, @Nullable EventOrchestrationRouterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EventOrchestrationRouterArgs makeArgs(EventOrchestrationRouterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventOrchestrationRouterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

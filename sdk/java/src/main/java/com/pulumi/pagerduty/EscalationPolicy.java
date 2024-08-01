@@ -181,11 +181,18 @@ public class EscalationPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EscalationPolicy(String name, EscalationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/escalationPolicy:EscalationPolicy", name, args == null ? EscalationPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/escalationPolicy:EscalationPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EscalationPolicy(String name, Output<String> id, @Nullable EscalationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/escalationPolicy:EscalationPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EscalationPolicyArgs makeArgs(EscalationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EscalationPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

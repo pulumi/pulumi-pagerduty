@@ -152,11 +152,11 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                     pagerduty.EventOrchestrationRouterSetRuleArgs(
                         label="Dynamically route events related to specific PagerDuty services",
                         actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            dynamic_route_tos={
-                                "lookupBy": "service_id",
-                                "source": "event.custom_details.pd_service_id",
-                                "regexp": "(.*)",
-                            },
+                            dynamic_route_tos=[pagerduty.EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs(
+                                lookup_by="service_id",
+                                source="event.custom_details.pd_service_id",
+                                regex="(.*)",
+                            )],
                         ),
                     ),
                     pagerduty.EventOrchestrationRouterSetRuleArgs(
@@ -231,11 +231,11 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                     pagerduty.EventOrchestrationRouterSetRuleArgs(
                         label="Dynamically route events related to specific PagerDuty services",
                         actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            dynamic_route_tos={
-                                "lookupBy": "service_id",
-                                "source": "event.custom_details.pd_service_id",
-                                "regexp": "(.*)",
-                            },
+                            dynamic_route_tos=[pagerduty.EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs(
+                                lookup_by="service_id",
+                                source="event.custom_details.pd_service_id",
+                                regex="(.*)",
+                            )],
                         ),
                     ),
                     pagerduty.EventOrchestrationRouterSetRuleArgs(

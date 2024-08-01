@@ -258,11 +258,18 @@ public class ServiceEventRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ServiceEventRule(String name, ServiceEventRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/serviceEventRule:ServiceEventRule", name, args == null ? ServiceEventRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/serviceEventRule:ServiceEventRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServiceEventRule(String name, Output<String> id, @Nullable ServiceEventRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/serviceEventRule:ServiceEventRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServiceEventRuleArgs makeArgs(ServiceEventRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceEventRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

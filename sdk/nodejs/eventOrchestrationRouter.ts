@@ -31,11 +31,11 @@ import * as utilities from "./utilities";
  *             {
  *                 label: "Dynamically route events related to specific PagerDuty services",
  *                 actions: {
- *                     dynamicRouteTos: {
+ *                     dynamicRouteTos: [{
  *                         lookupBy: "service_id",
  *                         source: "event.custom_details.pd_service_id",
- *                         regexp: "(.*)",
- *                     },
+ *                         regex: "(.*)",
+ *                     }],
  *                 },
  *             },
  *             {

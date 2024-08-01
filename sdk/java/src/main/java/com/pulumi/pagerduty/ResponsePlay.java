@@ -282,11 +282,18 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ResponsePlay(String name, ResponsePlayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/responsePlay:ResponsePlay", name, args == null ? ResponsePlayArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/responsePlay:ResponsePlay", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResponsePlay(String name, Output<String> id, @Nullable ResponsePlayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/responsePlay:ResponsePlay", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResponsePlayArgs makeArgs(ResponsePlayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResponsePlayArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

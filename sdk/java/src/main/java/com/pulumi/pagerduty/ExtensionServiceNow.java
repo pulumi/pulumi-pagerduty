@@ -298,11 +298,18 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ExtensionServiceNow(String name, ExtensionServiceNowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/extensionServiceNow:ExtensionServiceNow", name, args == null ? ExtensionServiceNowArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/extensionServiceNow:ExtensionServiceNow", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ExtensionServiceNow(String name, Output<String> id, @Nullable ExtensionServiceNowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/extensionServiceNow:ExtensionServiceNow", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ExtensionServiceNowArgs makeArgs(ExtensionServiceNowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ExtensionServiceNowArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

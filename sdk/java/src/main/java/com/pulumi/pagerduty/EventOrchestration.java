@@ -159,11 +159,18 @@ public class EventOrchestration extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EventOrchestration(String name, @Nullable EventOrchestrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/eventOrchestration:EventOrchestration", name, args == null ? EventOrchestrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/eventOrchestration:EventOrchestration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EventOrchestration(String name, Output<String> id, @Nullable EventOrchestrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/eventOrchestration:EventOrchestration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EventOrchestrationArgs makeArgs(@Nullable EventOrchestrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventOrchestrationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

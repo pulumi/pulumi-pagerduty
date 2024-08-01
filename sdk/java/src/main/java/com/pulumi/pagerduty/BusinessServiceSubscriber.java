@@ -157,11 +157,18 @@ public class BusinessServiceSubscriber extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public BusinessServiceSubscriber(String name, BusinessServiceSubscriberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber", name, args == null ? BusinessServiceSubscriberArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BusinessServiceSubscriber(String name, Output<String> id, @Nullable BusinessServiceSubscriberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BusinessServiceSubscriberArgs makeArgs(BusinessServiceSubscriberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BusinessServiceSubscriberArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

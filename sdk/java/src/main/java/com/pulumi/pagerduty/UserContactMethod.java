@@ -225,11 +225,18 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UserContactMethod(String name, UserContactMethodArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/userContactMethod:UserContactMethod", name, args == null ? UserContactMethodArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/userContactMethod:UserContactMethod", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserContactMethod(String name, Output<String> id, @Nullable UserContactMethodState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/userContactMethod:UserContactMethod", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserContactMethodArgs makeArgs(UserContactMethodArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserContactMethodArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

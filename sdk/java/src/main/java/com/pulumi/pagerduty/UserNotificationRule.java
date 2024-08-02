@@ -201,11 +201,18 @@ public class UserNotificationRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UserNotificationRule(String name, UserNotificationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/userNotificationRule:UserNotificationRule", name, args == null ? UserNotificationRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/userNotificationRule:UserNotificationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserNotificationRule(String name, Output<String> id, @Nullable UserNotificationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/userNotificationRule:UserNotificationRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserNotificationRuleArgs makeArgs(UserNotificationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserNotificationRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

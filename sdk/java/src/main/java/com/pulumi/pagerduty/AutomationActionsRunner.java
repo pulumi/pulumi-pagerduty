@@ -221,11 +221,18 @@ public class AutomationActionsRunner extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public AutomationActionsRunner(String name, AutomationActionsRunnerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/automationActionsRunner:AutomationActionsRunner", name, args == null ? AutomationActionsRunnerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/automationActionsRunner:AutomationActionsRunner", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AutomationActionsRunner(String name, Output<String> id, @Nullable AutomationActionsRunnerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/automationActionsRunner:AutomationActionsRunner", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AutomationActionsRunnerArgs makeArgs(AutomationActionsRunnerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AutomationActionsRunnerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

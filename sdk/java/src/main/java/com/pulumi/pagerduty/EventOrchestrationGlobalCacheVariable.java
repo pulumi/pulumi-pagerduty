@@ -207,11 +207,18 @@ public class EventOrchestrationGlobalCacheVariable extends com.pulumi.resources.
      * @param options A bag of options that control this resource's behavior.
      */
     public EventOrchestrationGlobalCacheVariable(String name, EventOrchestrationGlobalCacheVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable", name, args == null ? EventOrchestrationGlobalCacheVariableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EventOrchestrationGlobalCacheVariable(String name, Output<String> id, @Nullable EventOrchestrationGlobalCacheVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EventOrchestrationGlobalCacheVariableArgs makeArgs(EventOrchestrationGlobalCacheVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventOrchestrationGlobalCacheVariableArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

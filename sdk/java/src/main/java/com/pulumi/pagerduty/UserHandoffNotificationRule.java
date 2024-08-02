@@ -167,11 +167,18 @@ public class UserHandoffNotificationRule extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public UserHandoffNotificationRule(String name, UserHandoffNotificationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule", name, args == null ? UserHandoffNotificationRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserHandoffNotificationRule(String name, Output<String> id, @Nullable UserHandoffNotificationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserHandoffNotificationRuleArgs makeArgs(UserHandoffNotificationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserHandoffNotificationRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

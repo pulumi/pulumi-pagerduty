@@ -210,11 +210,18 @@ public class IncidentWorkflowTrigger extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public IncidentWorkflowTrigger(String name, IncidentWorkflowTriggerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger", name, args == null ? IncidentWorkflowTriggerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IncidentWorkflowTrigger(String name, Output<String> id, @Nullable IncidentWorkflowTriggerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IncidentWorkflowTriggerArgs makeArgs(IncidentWorkflowTriggerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IncidentWorkflowTriggerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

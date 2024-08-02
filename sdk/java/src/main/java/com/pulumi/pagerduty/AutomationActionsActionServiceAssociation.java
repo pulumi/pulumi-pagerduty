@@ -163,11 +163,18 @@ public class AutomationActionsActionServiceAssociation extends com.pulumi.resour
      * @param options A bag of options that control this resource's behavior.
      */
     public AutomationActionsActionServiceAssociation(String name, AutomationActionsActionServiceAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation", name, args == null ? AutomationActionsActionServiceAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AutomationActionsActionServiceAssociation(String name, Output<String> id, @Nullable AutomationActionsActionServiceAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AutomationActionsActionServiceAssociationArgs makeArgs(AutomationActionsActionServiceAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AutomationActionsActionServiceAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

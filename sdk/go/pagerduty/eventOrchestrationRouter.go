@@ -51,9 +51,11 @@ import (
 //							Label: pulumi.String("Dynamically route events related to specific PagerDuty services"),
 //							Actions: &pagerduty.EventOrchestrationRouterSetRuleActionsArgs{
 //								DynamicRouteTos: pagerduty.EventOrchestrationRouterSetRuleActionsDynamicRouteToArray{
-//									LookupBy: "service_id",
-//									Source:   "event.custom_details.pd_service_id",
-//									Regexp:   "(.*)",
+//									&pagerduty.EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs{
+//										LookupBy: pulumi.String("service_id"),
+//										Source:   pulumi.String("event.custom_details.pd_service_id"),
+//										Regex:    pulumi.String("(.*)"),
+//									},
 //								},
 //							},
 //						},

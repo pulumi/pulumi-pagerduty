@@ -237,11 +237,18 @@ public class SlackConnection extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SlackConnection(String name, SlackConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/slackConnection:SlackConnection", name, args == null ? SlackConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("pagerduty:index/slackConnection:SlackConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SlackConnection(String name, Output<String> id, @Nullable SlackConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/slackConnection:SlackConnection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SlackConnectionArgs makeArgs(SlackConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SlackConnectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

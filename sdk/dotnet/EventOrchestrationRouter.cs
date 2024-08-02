@@ -47,11 +47,14 @@ namespace Pulumi.Pagerduty
     ///                     Label = "Dynamically route events related to specific PagerDuty services",
     ///                     Actions = new Pagerduty.Inputs.EventOrchestrationRouterSetRuleActionsArgs
     ///                     {
-    ///                         DynamicRouteTos = 
+    ///                         DynamicRouteTos = new[]
     ///                         {
-    ///                             { "lookupBy", "service_id" },
-    ///                             { "source", "event.custom_details.pd_service_id" },
-    ///                             { "regexp", "(.*)" },
+    ///                             new Pagerduty.Inputs.EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs
+    ///                             {
+    ///                                 LookupBy = "service_id",
+    ///                                 Source = "event.custom_details.pd_service_id",
+    ///                                 Regex = "(.*)",
+    ///                             },
     ///                         },
     ///                     },
     ///                 },

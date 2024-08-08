@@ -70,14 +70,14 @@ class AwaitableGetEventOrchestrationResult(GetEventOrchestrationResult):
             name=self.name)
 
 
-def get_event_orchestration(integration_detail: Optional[Sequence[pulumi.InputType['GetEventOrchestrationIntegrationDetailArgs']]] = None,
+def get_event_orchestration(integration_detail: Optional[Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']]] = None,
                             name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventOrchestrationResult:
     """
     Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
 
 
-    :param Sequence[pulumi.InputType['GetEventOrchestrationIntegrationDetailArgs']] integration_detail: An integration for the Event Orchestration.
+    :param Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']] integration_detail: An integration for the Event Orchestration.
     :param str name: The name of the Global Event orchestration to find in the PagerDuty API.
     """
     __args__ = dict()
@@ -93,14 +93,14 @@ def get_event_orchestration(integration_detail: Optional[Sequence[pulumi.InputTy
 
 
 @_utilities.lift_output_func(get_event_orchestration)
-def get_event_orchestration_output(integration_detail: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEventOrchestrationIntegrationDetailArgs']]]]] = None,
+def get_event_orchestration_output(integration_detail: Optional[pulumi.Input[Optional[Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']]]]] = None,
                                    name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventOrchestrationResult]:
     """
     Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
 
 
-    :param Sequence[pulumi.InputType['GetEventOrchestrationIntegrationDetailArgs']] integration_detail: An integration for the Event Orchestration.
+    :param Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']] integration_detail: An integration for the Event Orchestration.
     :param str name: The name of the Global Event orchestration to find in the PagerDuty API.
     """
     ...

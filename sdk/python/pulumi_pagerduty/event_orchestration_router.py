@@ -127,9 +127,9 @@ class EventOrchestrationRouter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catch_all: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationRouterCatchAllArgs']]] = None,
+                 catch_all: Optional[pulumi.Input[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict']]] = None,
                  event_orchestration: Optional[pulumi.Input[str]] = None,
-                 set: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationRouterSetArgs']]] = None,
+                 set: Optional[pulumi.Input[Union['EventOrchestrationRouterSetArgs', 'EventOrchestrationRouterSetArgsDict']]] = None,
                  __props__=None):
         """
         An Orchestration Router allows users to create a set of Event Rules. The Router evaluates events sent to this Orchestration against each of its rules, one at a time, and routes the event to a specific Service based on the first rule that matches. If an event doesn't match any rules, it'll be sent to service specified in the `catch_all` or to the "Unrouted" Orchestration if no service is specified.
@@ -146,48 +146,48 @@ class EventOrchestrationRouter(pulumi.CustomResource):
         www = pagerduty.get_service(name="Web Server App")
         router = pagerduty.EventOrchestrationRouter("router",
             event_orchestration=my_monitor["id"],
-            set=pagerduty.EventOrchestrationRouterSetArgs(
-                id="start",
-                rules=[
-                    pagerduty.EventOrchestrationRouterSetRuleArgs(
-                        label="Dynamically route events related to specific PagerDuty services",
-                        actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            dynamic_route_tos=[pagerduty.EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs(
-                                lookup_by="service_id",
-                                source="event.custom_details.pd_service_id",
-                                regex="(.*)",
-                            )],
-                        ),
-                    ),
-                    pagerduty.EventOrchestrationRouterSetRuleArgs(
-                        label="Events relating to our relational database",
-                        conditions=[
-                            pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
-                                expression="event.summary matches part 'database'",
-                            ),
-                            pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
-                                expression="event.source matches regex 'db[0-9]+-server'",
-                            ),
+            set={
+                "id": "start",
+                "rules": [
+                    {
+                        "label": "Dynamically route events related to specific PagerDuty services",
+                        "actions": {
+                            "dynamic_route_tos": [{
+                                "lookup_by": "service_id",
+                                "source": "event.custom_details.pd_service_id",
+                                "regex": "(.*)",
+                            }],
+                        },
+                    },
+                    {
+                        "label": "Events relating to our relational database",
+                        "conditions": [
+                            {
+                                "expression": "event.summary matches part 'database'",
+                            },
+                            {
+                                "expression": "event.source matches regex 'db[0-9]+-server'",
+                            },
                         ],
-                        actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=database.id,
-                        ),
-                    ),
-                    pagerduty.EventOrchestrationRouterSetRuleArgs(
-                        conditions=[pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
-                            expression="event.summary matches part 'www'",
-                        )],
-                        actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=www.id,
-                        ),
-                    ),
+                        "actions": {
+                            "route_to": database.id,
+                        },
+                    },
+                    {
+                        "conditions": [{
+                            "expression": "event.summary matches part 'www'",
+                        }],
+                        "actions": {
+                            "route_to": www.id,
+                        },
+                    },
                 ],
-            ),
-            catch_all=pagerduty.EventOrchestrationRouterCatchAllArgs(
-                actions=pagerduty.EventOrchestrationRouterCatchAllActionsArgs(
-                    route_to="unrouted",
-                ),
-            ))
+            },
+            catch_all={
+                "actions": {
+                    "route_to": "unrouted",
+                },
+            })
         ```
 
         ## Import
@@ -200,9 +200,9 @@ class EventOrchestrationRouter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EventOrchestrationRouterCatchAllArgs']] catch_all: When none of the rules match an event, the event will be routed according to the catch_all settings.
+        :param pulumi.Input[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict']] catch_all: When none of the rules match an event, the event will be routed according to the catch_all settings.
         :param pulumi.Input[str] event_orchestration: ID of the Event Orchestration to which the Router belongs.
-        :param pulumi.Input[pulumi.InputType['EventOrchestrationRouterSetArgs']] set: The Router contains a single set of rules  (the "start" set).
+        :param pulumi.Input[Union['EventOrchestrationRouterSetArgs', 'EventOrchestrationRouterSetArgsDict']] set: The Router contains a single set of rules  (the "start" set).
         """
         ...
     @overload
@@ -225,48 +225,48 @@ class EventOrchestrationRouter(pulumi.CustomResource):
         www = pagerduty.get_service(name="Web Server App")
         router = pagerduty.EventOrchestrationRouter("router",
             event_orchestration=my_monitor["id"],
-            set=pagerduty.EventOrchestrationRouterSetArgs(
-                id="start",
-                rules=[
-                    pagerduty.EventOrchestrationRouterSetRuleArgs(
-                        label="Dynamically route events related to specific PagerDuty services",
-                        actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            dynamic_route_tos=[pagerduty.EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs(
-                                lookup_by="service_id",
-                                source="event.custom_details.pd_service_id",
-                                regex="(.*)",
-                            )],
-                        ),
-                    ),
-                    pagerduty.EventOrchestrationRouterSetRuleArgs(
-                        label="Events relating to our relational database",
-                        conditions=[
-                            pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
-                                expression="event.summary matches part 'database'",
-                            ),
-                            pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
-                                expression="event.source matches regex 'db[0-9]+-server'",
-                            ),
+            set={
+                "id": "start",
+                "rules": [
+                    {
+                        "label": "Dynamically route events related to specific PagerDuty services",
+                        "actions": {
+                            "dynamic_route_tos": [{
+                                "lookup_by": "service_id",
+                                "source": "event.custom_details.pd_service_id",
+                                "regex": "(.*)",
+                            }],
+                        },
+                    },
+                    {
+                        "label": "Events relating to our relational database",
+                        "conditions": [
+                            {
+                                "expression": "event.summary matches part 'database'",
+                            },
+                            {
+                                "expression": "event.source matches regex 'db[0-9]+-server'",
+                            },
                         ],
-                        actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=database.id,
-                        ),
-                    ),
-                    pagerduty.EventOrchestrationRouterSetRuleArgs(
-                        conditions=[pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
-                            expression="event.summary matches part 'www'",
-                        )],
-                        actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=www.id,
-                        ),
-                    ),
+                        "actions": {
+                            "route_to": database.id,
+                        },
+                    },
+                    {
+                        "conditions": [{
+                            "expression": "event.summary matches part 'www'",
+                        }],
+                        "actions": {
+                            "route_to": www.id,
+                        },
+                    },
                 ],
-            ),
-            catch_all=pagerduty.EventOrchestrationRouterCatchAllArgs(
-                actions=pagerduty.EventOrchestrationRouterCatchAllActionsArgs(
-                    route_to="unrouted",
-                ),
-            ))
+            },
+            catch_all={
+                "actions": {
+                    "route_to": "unrouted",
+                },
+            })
         ```
 
         ## Import
@@ -292,9 +292,9 @@ class EventOrchestrationRouter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catch_all: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationRouterCatchAllArgs']]] = None,
+                 catch_all: Optional[pulumi.Input[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict']]] = None,
                  event_orchestration: Optional[pulumi.Input[str]] = None,
-                 set: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationRouterSetArgs']]] = None,
+                 set: Optional[pulumi.Input[Union['EventOrchestrationRouterSetArgs', 'EventOrchestrationRouterSetArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,9 +323,9 @@ class EventOrchestrationRouter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            catch_all: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationRouterCatchAllArgs']]] = None,
+            catch_all: Optional[pulumi.Input[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict']]] = None,
             event_orchestration: Optional[pulumi.Input[str]] = None,
-            set: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationRouterSetArgs']]] = None) -> 'EventOrchestrationRouter':
+            set: Optional[pulumi.Input[Union['EventOrchestrationRouterSetArgs', 'EventOrchestrationRouterSetArgsDict']]] = None) -> 'EventOrchestrationRouter':
         """
         Get an existing EventOrchestrationRouter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -333,9 +333,9 @@ class EventOrchestrationRouter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EventOrchestrationRouterCatchAllArgs']] catch_all: When none of the rules match an event, the event will be routed according to the catch_all settings.
+        :param pulumi.Input[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict']] catch_all: When none of the rules match an event, the event will be routed according to the catch_all settings.
         :param pulumi.Input[str] event_orchestration: ID of the Event Orchestration to which the Router belongs.
-        :param pulumi.Input[pulumi.InputType['EventOrchestrationRouterSetArgs']] set: The Router contains a single set of rules  (the "start" set).
+        :param pulumi.Input[Union['EventOrchestrationRouterSetArgs', 'EventOrchestrationRouterSetArgsDict']] set: The Router contains a single set of rules  (the "start" set).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

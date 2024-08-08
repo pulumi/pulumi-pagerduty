@@ -219,7 +219,7 @@ public class SlackConnection extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SlackConnection(String name) {
+    public SlackConnection(java.lang.String name) {
         this(name, SlackConnectionArgs.Empty);
     }
     /**
@@ -227,7 +227,7 @@ public class SlackConnection extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SlackConnection(String name, SlackConnectionArgs args) {
+    public SlackConnection(java.lang.String name, SlackConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -236,12 +236,12 @@ public class SlackConnection extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SlackConnection(String name, SlackConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/slackConnection:SlackConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SlackConnection(java.lang.String name, SlackConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/slackConnection:SlackConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SlackConnection(String name, Output<String> id, @Nullable SlackConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/slackConnection:SlackConnection", name, state, makeResourceOptions(options, id));
+    private SlackConnection(java.lang.String name, Output<java.lang.String> id, @Nullable SlackConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/slackConnection:SlackConnection", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SlackConnectionArgs makeArgs(SlackConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -251,7 +251,7 @@ public class SlackConnection extends com.pulumi.resources.CustomResource {
         return args == null ? SlackConnectionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -267,7 +267,7 @@ public class SlackConnection extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SlackConnection get(String name, Output<String> id, @Nullable SlackConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SlackConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable SlackConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SlackConnection(name, id, state, options);
     }
 }

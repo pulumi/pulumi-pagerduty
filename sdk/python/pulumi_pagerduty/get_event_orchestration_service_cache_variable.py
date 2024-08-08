@@ -117,13 +117,13 @@ def get_event_orchestration_service_cache_variable(id: Optional[str] = None,
     example_escalation_policy = pagerduty.EscalationPolicy("example",
         name="Engineering Escalation Policy",
         num_loops=2,
-        rules=[pagerduty.EscalationPolicyRuleArgs(
-            escalation_delay_in_minutes=10,
-            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                type="user",
-                id=example.id,
-            )],
-        )])
+        rules=[{
+            "escalation_delay_in_minutes": 10,
+            "targets": [{
+                "type": "user",
+                "id": example.id,
+            }],
+        }])
     service = pagerduty.Service("service",
         name="My Web App",
         auto_resolve_timeout="14400",
@@ -177,13 +177,13 @@ def get_event_orchestration_service_cache_variable_output(id: Optional[pulumi.In
     example_escalation_policy = pagerduty.EscalationPolicy("example",
         name="Engineering Escalation Policy",
         num_loops=2,
-        rules=[pagerduty.EscalationPolicyRuleArgs(
-            escalation_delay_in_minutes=10,
-            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                type="user",
-                id=example.id,
-            )],
-        )])
+        rules=[{
+            "escalation_delay_in_minutes": 10,
+            "targets": [{
+                "type": "user",
+                "id": example.id,
+            }],
+        }])
     service = pagerduty.Service("service",
         name="My Web App",
         auto_resolve_timeout="14400",

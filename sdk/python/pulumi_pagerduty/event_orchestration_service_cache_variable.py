@@ -192,8 +192,8 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationServiceCacheVariableConditionArgs']]]]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationServiceCacheVariableConfigurationArgs']]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]]] = None,
+                 configuration: Optional[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  service: Optional[pulumi.Input[str]] = None,
@@ -217,13 +217,13 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
         db_ep = pagerduty.EscalationPolicy("db_ep",
             name="Database Escalation Policy",
             num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user",
-                    id=user1.id,
-                )],
-            )])
+            rules=[{
+                "escalation_delay_in_minutes": 10,
+                "targets": [{
+                    "type": "user",
+                    "id": user1.id,
+                }],
+            }])
         svc = pagerduty.Service("svc",
             name="My Database Service",
             auto_resolve_timeout="14400",
@@ -233,31 +233,31 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
         num_db_triggers = pagerduty.EventOrchestrationServiceCacheVariable("num_db_triggers",
             service=svc.id,
             name="num_db_triggers",
-            conditions=[pagerduty.EventOrchestrationServiceCacheVariableConditionArgs(
-                expression="event.summary matches part 'database'",
-            )],
-            configuration=pagerduty.EventOrchestrationServiceCacheVariableConfigurationArgs(
-                type="trigger_event_count",
-                ttl_seconds=60,
-            ))
+            conditions=[{
+                "expression": "event.summary matches part 'database'",
+            }],
+            configuration={
+                "type": "trigger_event_count",
+                "ttl_seconds": 60,
+            })
         event_orchestration = pagerduty.EventOrchestrationService("event_orchestration",
             service=svc.id,
             enable_event_orchestration_for_service=True,
-            sets=[pagerduty.EventOrchestrationServiceSetArgs(
-                id="start",
-                rules=[pagerduty.EventOrchestrationServiceSetRuleArgs(
-                    label="Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute",
-                    conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
-                        expression="cache_var.num_db_triggers >= 5",
-                    )],
-                    actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
-                        severity="critical",
-                    ),
-                )],
-            )],
-            catch_all=pagerduty.EventOrchestrationServiceCatchAllArgs(
-                actions=pagerduty.EventOrchestrationServiceCatchAllActionsArgs(),
-            ))
+            sets=[{
+                "id": "start",
+                "rules": [{
+                    "label": "Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute",
+                    "conditions": [{
+                        "expression": "cache_var.num_db_triggers >= 5",
+                    }],
+                    "actions": {
+                        "severity": "critical",
+                    },
+                }],
+            }],
+            catch_all={
+                "actions": {},
+            })
         ```
 
         ## Import
@@ -270,8 +270,8 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationServiceCacheVariableConditionArgs']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
-        :param pulumi.Input[pulumi.InputType['EventOrchestrationServiceCacheVariableConfigurationArgs']] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+        :param pulumi.Input[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
         :param pulumi.Input[bool] disabled: Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
         :param pulumi.Input[str] name: Name of the Cache Variable associated with the Service Event Orchestration.
         :param pulumi.Input[str] service: ID of the Service Event Orchestration to which this Cache Variable belongs.
@@ -301,13 +301,13 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
         db_ep = pagerduty.EscalationPolicy("db_ep",
             name="Database Escalation Policy",
             num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user",
-                    id=user1.id,
-                )],
-            )])
+            rules=[{
+                "escalation_delay_in_minutes": 10,
+                "targets": [{
+                    "type": "user",
+                    "id": user1.id,
+                }],
+            }])
         svc = pagerduty.Service("svc",
             name="My Database Service",
             auto_resolve_timeout="14400",
@@ -317,31 +317,31 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
         num_db_triggers = pagerduty.EventOrchestrationServiceCacheVariable("num_db_triggers",
             service=svc.id,
             name="num_db_triggers",
-            conditions=[pagerduty.EventOrchestrationServiceCacheVariableConditionArgs(
-                expression="event.summary matches part 'database'",
-            )],
-            configuration=pagerduty.EventOrchestrationServiceCacheVariableConfigurationArgs(
-                type="trigger_event_count",
-                ttl_seconds=60,
-            ))
+            conditions=[{
+                "expression": "event.summary matches part 'database'",
+            }],
+            configuration={
+                "type": "trigger_event_count",
+                "ttl_seconds": 60,
+            })
         event_orchestration = pagerduty.EventOrchestrationService("event_orchestration",
             service=svc.id,
             enable_event_orchestration_for_service=True,
-            sets=[pagerduty.EventOrchestrationServiceSetArgs(
-                id="start",
-                rules=[pagerduty.EventOrchestrationServiceSetRuleArgs(
-                    label="Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute",
-                    conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
-                        expression="cache_var.num_db_triggers >= 5",
-                    )],
-                    actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
-                        severity="critical",
-                    ),
-                )],
-            )],
-            catch_all=pagerduty.EventOrchestrationServiceCatchAllArgs(
-                actions=pagerduty.EventOrchestrationServiceCatchAllActionsArgs(),
-            ))
+            sets=[{
+                "id": "start",
+                "rules": [{
+                    "label": "Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute",
+                    "conditions": [{
+                        "expression": "cache_var.num_db_triggers >= 5",
+                    }],
+                    "actions": {
+                        "severity": "critical",
+                    },
+                }],
+            }],
+            catch_all={
+                "actions": {},
+            })
         ```
 
         ## Import
@@ -367,8 +367,8 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationServiceCacheVariableConditionArgs']]]]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationServiceCacheVariableConfigurationArgs']]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]]] = None,
+                 configuration: Optional[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  service: Optional[pulumi.Input[str]] = None,
@@ -400,8 +400,8 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationServiceCacheVariableConditionArgs']]]]] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationServiceCacheVariableConfigurationArgs']]] = None,
+            conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]]] = None,
+            configuration: Optional[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']]] = None,
             disabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             service: Optional[pulumi.Input[str]] = None) -> 'EventOrchestrationServiceCacheVariable':
@@ -412,8 +412,8 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationServiceCacheVariableConditionArgs']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
-        :param pulumi.Input[pulumi.InputType['EventOrchestrationServiceCacheVariableConfigurationArgs']] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+        :param pulumi.Input[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
         :param pulumi.Input[bool] disabled: Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
         :param pulumi.Input[str] name: Name of the Cache Variable associated with the Service Event Orchestration.
         :param pulumi.Input[str] service: ID of the Service Event Orchestration to which this Cache Variable belongs.

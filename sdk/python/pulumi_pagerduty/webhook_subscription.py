@@ -276,10 +276,10 @@ class WebhookSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
-                 delivery_methods: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookSubscriptionDeliveryMethodArgs']]]]] = None,
+                 delivery_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionDeliveryMethodArgs', 'WebhookSubscriptionDeliveryMethodArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookSubscriptionFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionFilterArgs', 'WebhookSubscriptionFilterArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -293,20 +293,20 @@ class WebhookSubscription(pulumi.CustomResource):
 
         example = pagerduty.get_service(name="My Service")
         foo = pagerduty.WebhookSubscription("foo",
-            delivery_methods=[pagerduty.WebhookSubscriptionDeliveryMethodArgs(
-                type="http_delivery_method",
-                url="https://example.com/receive_a_pagerduty_webhook",
-                custom_headers=[
-                    pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArgs(
-                        name="X-Foo",
-                        value="foo",
-                    ),
-                    pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArgs(
-                        name="X-Bar",
-                        value="bar",
-                    ),
+            delivery_methods=[{
+                "type": "http_delivery_method",
+                "url": "https://example.com/receive_a_pagerduty_webhook",
+                "custom_headers": [
+                    {
+                        "name": "X-Foo",
+                        "value": "foo",
+                    },
+                    {
+                        "name": "X-Bar",
+                        "value": "bar",
+                    },
                 ],
-            )],
+            }],
             description="%s",
             events=[
                 "incident.acknowledged",
@@ -324,10 +324,10 @@ class WebhookSubscription(pulumi.CustomResource):
                 "incident.unacknowledged",
             ],
             active=True,
-            filters=[pagerduty.WebhookSubscriptionFilterArgs(
-                id=example.id,
-                type="service_reference",
-            )],
+            filters=[{
+                "id": example.id,
+                "type": "service_reference",
+            }],
             type="webhook_subscription")
         ```
 
@@ -342,7 +342,7 @@ class WebhookSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Determines whether the subscription will produce webhook events.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookSubscriptionDeliveryMethodArgs']]]] delivery_methods: The object describing where to send the webhooks.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionDeliveryMethodArgs', 'WebhookSubscriptionDeliveryMethodArgsDict']]]] delivery_methods: The object describing where to send the webhooks.
         :param pulumi.Input[str] description: A short description of the webhook subscription
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A set of outbound event types the webhook will receive. The follow event types are possible: 
                * `incident.acknowledged`
@@ -358,7 +358,7 @@ class WebhookSubscription(pulumi.CustomResource):
                * `incident.status_update_published`
                * `incident.triggered`
                * `incident.unacknowledged`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookSubscriptionFilterArgs']]]] filters: determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionFilterArgs', 'WebhookSubscriptionFilterArgsDict']]]] filters: determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
         :param pulumi.Input[str] type: The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
         """
         ...
@@ -378,20 +378,20 @@ class WebhookSubscription(pulumi.CustomResource):
 
         example = pagerduty.get_service(name="My Service")
         foo = pagerduty.WebhookSubscription("foo",
-            delivery_methods=[pagerduty.WebhookSubscriptionDeliveryMethodArgs(
-                type="http_delivery_method",
-                url="https://example.com/receive_a_pagerduty_webhook",
-                custom_headers=[
-                    pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArgs(
-                        name="X-Foo",
-                        value="foo",
-                    ),
-                    pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArgs(
-                        name="X-Bar",
-                        value="bar",
-                    ),
+            delivery_methods=[{
+                "type": "http_delivery_method",
+                "url": "https://example.com/receive_a_pagerduty_webhook",
+                "custom_headers": [
+                    {
+                        "name": "X-Foo",
+                        "value": "foo",
+                    },
+                    {
+                        "name": "X-Bar",
+                        "value": "bar",
+                    },
                 ],
-            )],
+            }],
             description="%s",
             events=[
                 "incident.acknowledged",
@@ -409,10 +409,10 @@ class WebhookSubscription(pulumi.CustomResource):
                 "incident.unacknowledged",
             ],
             active=True,
-            filters=[pagerduty.WebhookSubscriptionFilterArgs(
-                id=example.id,
-                type="service_reference",
-            )],
+            filters=[{
+                "id": example.id,
+                "type": "service_reference",
+            }],
             type="webhook_subscription")
         ```
 
@@ -440,10 +440,10 @@ class WebhookSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
-                 delivery_methods: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookSubscriptionDeliveryMethodArgs']]]]] = None,
+                 delivery_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionDeliveryMethodArgs', 'WebhookSubscriptionDeliveryMethodArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookSubscriptionFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionFilterArgs', 'WebhookSubscriptionFilterArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -477,10 +477,10 @@ class WebhookSubscription(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             active: Optional[pulumi.Input[bool]] = None,
-            delivery_methods: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookSubscriptionDeliveryMethodArgs']]]]] = None,
+            delivery_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionDeliveryMethodArgs', 'WebhookSubscriptionDeliveryMethodArgsDict']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookSubscriptionFilterArgs']]]]] = None,
+            filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionFilterArgs', 'WebhookSubscriptionFilterArgsDict']]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'WebhookSubscription':
         """
         Get an existing WebhookSubscription resource's state with the given name, id, and optional extra
@@ -490,7 +490,7 @@ class WebhookSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Determines whether the subscription will produce webhook events.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookSubscriptionDeliveryMethodArgs']]]] delivery_methods: The object describing where to send the webhooks.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionDeliveryMethodArgs', 'WebhookSubscriptionDeliveryMethodArgsDict']]]] delivery_methods: The object describing where to send the webhooks.
         :param pulumi.Input[str] description: A short description of the webhook subscription
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A set of outbound event types the webhook will receive. The follow event types are possible: 
                * `incident.acknowledged`
@@ -506,7 +506,7 @@ class WebhookSubscription(pulumi.CustomResource):
                * `incident.status_update_published`
                * `incident.triggered`
                * `incident.unacknowledged`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookSubscriptionFilterArgs']]]] filters: determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionFilterArgs', 'WebhookSubscriptionFilterArgsDict']]]] filters: determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
         :param pulumi.Input[str] type: The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

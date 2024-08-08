@@ -71,13 +71,13 @@ def get_schedule(name: Optional[str] = None,
     foo = pagerduty.EscalationPolicy("foo",
         name="Engineering Escalation Policy",
         num_loops=2,
-        rules=[pagerduty.EscalationPolicyRuleArgs(
-            escalation_delay_in_minutes=10,
-            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                type="schedule",
-                id=test.id,
-            )],
-        )])
+        rules=[{
+            "escalation_delay_in_minutes": 10,
+            "targets": [{
+                "type": "schedule",
+                "id": test.id,
+            }],
+        }])
     ```
 
 
@@ -109,13 +109,13 @@ def get_schedule_output(name: Optional[pulumi.Input[str]] = None,
     foo = pagerduty.EscalationPolicy("foo",
         name="Engineering Escalation Policy",
         num_loops=2,
-        rules=[pagerduty.EscalationPolicyRuleArgs(
-            escalation_delay_in_minutes=10,
-            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                type="schedule",
-                id=test.id,
-            )],
-        )])
+        rules=[{
+            "escalation_delay_in_minutes": 10,
+            "targets": [{
+                "type": "schedule",
+                "id": test.id,
+            }],
+        }])
     ```
 
 

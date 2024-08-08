@@ -65,7 +65,7 @@ class ServiceDependency(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dependency: Optional[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]] = None,
+                 dependency: Optional[pulumi.Input[Union['ServiceDependencyDependencyArgs', 'ServiceDependencyDependencyArgsDict']]] = None,
                  __props__=None):
         """
         A [service dependency](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Mg-associate-service-dependencies) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
@@ -76,26 +76,26 @@ class ServiceDependency(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        foo = pagerduty.ServiceDependency("foo", dependency=pagerduty.ServiceDependencyDependencyArgs(
-            dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
-                id=foo_pagerduty_business_service["id"],
-                type=foo_pagerduty_business_service["type"],
-            )],
-            supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
-                id=foo_pagerduty_service["id"],
-                type=foo_pagerduty_service["type"],
-            )],
-        ))
-        bar = pagerduty.ServiceDependency("bar", dependency=pagerduty.ServiceDependencyDependencyArgs(
-            dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
-                id=foo_pagerduty_business_service["id"],
-                type=foo_pagerduty_business_service["type"],
-            )],
-            supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
-                id=two["id"],
-                type=two["type"],
-            )],
-        ))
+        foo = pagerduty.ServiceDependency("foo", dependency={
+            "dependent_services": [{
+                "id": foo_pagerduty_business_service["id"],
+                "type": foo_pagerduty_business_service["type"],
+            }],
+            "supporting_services": [{
+                "id": foo_pagerduty_service["id"],
+                "type": foo_pagerduty_service["type"],
+            }],
+        })
+        bar = pagerduty.ServiceDependency("bar", dependency={
+            "dependent_services": [{
+                "id": foo_pagerduty_business_service["id"],
+                "type": foo_pagerduty_business_service["type"],
+            }],
+            "supporting_services": [{
+                "id": two["id"],
+                "type": two["type"],
+            }],
+        })
         ```
 
         ## Import
@@ -108,7 +108,7 @@ class ServiceDependency(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']] dependency: The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
+        :param pulumi.Input[Union['ServiceDependencyDependencyArgs', 'ServiceDependencyDependencyArgsDict']] dependency: The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
         ...
     @overload
@@ -125,26 +125,26 @@ class ServiceDependency(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        foo = pagerduty.ServiceDependency("foo", dependency=pagerduty.ServiceDependencyDependencyArgs(
-            dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
-                id=foo_pagerduty_business_service["id"],
-                type=foo_pagerduty_business_service["type"],
-            )],
-            supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
-                id=foo_pagerduty_service["id"],
-                type=foo_pagerduty_service["type"],
-            )],
-        ))
-        bar = pagerduty.ServiceDependency("bar", dependency=pagerduty.ServiceDependencyDependencyArgs(
-            dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
-                id=foo_pagerduty_business_service["id"],
-                type=foo_pagerduty_business_service["type"],
-            )],
-            supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
-                id=two["id"],
-                type=two["type"],
-            )],
-        ))
+        foo = pagerduty.ServiceDependency("foo", dependency={
+            "dependent_services": [{
+                "id": foo_pagerduty_business_service["id"],
+                "type": foo_pagerduty_business_service["type"],
+            }],
+            "supporting_services": [{
+                "id": foo_pagerduty_service["id"],
+                "type": foo_pagerduty_service["type"],
+            }],
+        })
+        bar = pagerduty.ServiceDependency("bar", dependency={
+            "dependent_services": [{
+                "id": foo_pagerduty_business_service["id"],
+                "type": foo_pagerduty_business_service["type"],
+            }],
+            "supporting_services": [{
+                "id": two["id"],
+                "type": two["type"],
+            }],
+        })
         ```
 
         ## Import
@@ -170,7 +170,7 @@ class ServiceDependency(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dependency: Optional[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]] = None,
+                 dependency: Optional[pulumi.Input[Union['ServiceDependencyDependencyArgs', 'ServiceDependencyDependencyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -193,7 +193,7 @@ class ServiceDependency(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dependency: Optional[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]] = None) -> 'ServiceDependency':
+            dependency: Optional[pulumi.Input[Union['ServiceDependencyDependencyArgs', 'ServiceDependencyDependencyArgsDict']]] = None) -> 'ServiceDependency':
         """
         Get an existing ServiceDependency resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -201,7 +201,7 @@ class ServiceDependency(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']] dependency: The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
+        :param pulumi.Input[Union['ServiceDependencyDependencyArgs', 'ServiceDependencyDependencyArgsDict']] dependency: The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

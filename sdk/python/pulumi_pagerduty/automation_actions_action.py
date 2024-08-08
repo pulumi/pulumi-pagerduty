@@ -353,7 +353,7 @@ class AutomationActionsAction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_classification: Optional[pulumi.Input[str]] = None,
-                 action_data_reference: Optional[pulumi.Input[pulumi.InputType['AutomationActionsActionActionDataReferenceArgs']]] = None,
+                 action_data_reference: Optional[pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']]] = None,
                  action_type: Optional[pulumi.Input[str]] = None,
                  creation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -376,17 +376,17 @@ class AutomationActionsAction(pulumi.CustomResource):
             name="PA Action created via TF",
             description="Description of the PA Action created via TF",
             action_type="process_automation",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                process_automation_job_id="P123456",
-            ))
+            action_data_reference={
+                "process_automation_job_id": "P123456",
+            })
         script_action_example = pagerduty.AutomationActionsAction("script_action_example",
             name="Script Action created via TF",
             description="Description of the Script Action created via TF",
             action_type="script",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                script="print(\\"Hello from a Python script!\\")",
-                invocation_command="/usr/local/bin/python3",
-            ))
+            action_data_reference={
+                "script": "print(\\"Hello from a Python script!\\")",
+                "invocation_command": "/usr/local/bin/python3",
+            })
         ```
 
         ## Import
@@ -400,7 +400,7 @@ class AutomationActionsAction(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_classification: The category of the action. The only allowed values are `diagnostic` and `remediation`.
-        :param pulumi.Input[pulumi.InputType['AutomationActionsActionActionDataReferenceArgs']] action_data_reference: Action Data block. Action Data is documented below.
+        :param pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']] action_data_reference: Action Data block. Action Data is documented below.
         :param pulumi.Input[str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
         :param pulumi.Input[str] creation_time: The time action was created. Represented as an ISO 8601 timestamp.
         :param pulumi.Input[str] description: The description of the action. Max length is 1024 characters.
@@ -429,17 +429,17 @@ class AutomationActionsAction(pulumi.CustomResource):
             name="PA Action created via TF",
             description="Description of the PA Action created via TF",
             action_type="process_automation",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                process_automation_job_id="P123456",
-            ))
+            action_data_reference={
+                "process_automation_job_id": "P123456",
+            })
         script_action_example = pagerduty.AutomationActionsAction("script_action_example",
             name="Script Action created via TF",
             description="Description of the Script Action created via TF",
             action_type="script",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                script="print(\\"Hello from a Python script!\\")",
-                invocation_command="/usr/local/bin/python3",
-            ))
+            action_data_reference={
+                "script": "print(\\"Hello from a Python script!\\")",
+                "invocation_command": "/usr/local/bin/python3",
+            })
         ```
 
         ## Import
@@ -466,7 +466,7 @@ class AutomationActionsAction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_classification: Optional[pulumi.Input[str]] = None,
-                 action_data_reference: Optional[pulumi.Input[pulumi.InputType['AutomationActionsActionActionDataReferenceArgs']]] = None,
+                 action_data_reference: Optional[pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']]] = None,
                  action_type: Optional[pulumi.Input[str]] = None,
                  creation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -509,7 +509,7 @@ class AutomationActionsAction(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             action_classification: Optional[pulumi.Input[str]] = None,
-            action_data_reference: Optional[pulumi.Input[pulumi.InputType['AutomationActionsActionActionDataReferenceArgs']]] = None,
+            action_data_reference: Optional[pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']]] = None,
             action_type: Optional[pulumi.Input[str]] = None,
             creation_time: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -526,7 +526,7 @@ class AutomationActionsAction(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_classification: The category of the action. The only allowed values are `diagnostic` and `remediation`.
-        :param pulumi.Input[pulumi.InputType['AutomationActionsActionActionDataReferenceArgs']] action_data_reference: Action Data block. Action Data is documented below.
+        :param pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']] action_data_reference: Action Data block. Action Data is documented below.
         :param pulumi.Input[str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
         :param pulumi.Input[str] creation_time: The time action was created. Represented as an ISO 8601 timestamp.
         :param pulumi.Input[str] description: The description of the action. Max length is 1024 characters.

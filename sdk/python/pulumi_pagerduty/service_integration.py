@@ -434,9 +434,9 @@ class ServiceIntegration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  email_filter_mode: Optional[pulumi.Input[str]] = None,
-                 email_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIntegrationEmailFilterArgs']]]]] = None,
+                 email_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceIntegrationEmailFilterArgs', 'ServiceIntegrationEmailFilterArgsDict']]]]] = None,
                  email_incident_creation: Optional[pulumi.Input[str]] = None,
-                 email_parsers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIntegrationEmailParserArgs']]]]] = None,
+                 email_parsers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceIntegrationEmailParserArgs', 'ServiceIntegrationEmailParserArgsDict']]]]] = None,
                  email_parsing_fallback: Optional[pulumi.Input[str]] = None,
                  integration_email: Optional[pulumi.Input[str]] = None,
                  integration_key: Optional[pulumi.Input[str]] = None,
@@ -461,13 +461,13 @@ class ServiceIntegration(pulumi.CustomResource):
         foo = pagerduty.EscalationPolicy("foo",
             name="Engineering Escalation Policy",
             num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user",
-                    id=example.id,
-                )],
-            )])
+            rules=[{
+                "escalation_delay_in_minutes": 10,
+                "targets": [{
+                    "type": "user",
+                    "id": example.id,
+                }],
+            }])
         example_service = pagerduty.Service("example",
             name="My Web App",
             auto_resolve_timeout="14400",
@@ -505,60 +505,60 @@ class ServiceIntegration(pulumi.CustomResource):
             email_incident_creation="use_rules",
             email_filter_mode="and-rules-email",
             email_filters=[
-                pagerduty.ServiceIntegrationEmailFilterArgs(
-                    body_mode="always",
-                    body_regex=None,
-                    from_email_mode="match",
-                    from_email_regex="(@foo.test*)",
-                    subject_mode="match",
-                    subject_regex="(CRITICAL*)",
-                ),
-                pagerduty.ServiceIntegrationEmailFilterArgs(
-                    body_mode="always",
-                    body_regex=None,
-                    from_email_mode="match",
-                    from_email_regex="(@bar.com*)",
-                    subject_mode="match",
-                    subject_regex="(CRITICAL*)",
-                ),
+                {
+                    "body_mode": "always",
+                    "body_regex": None,
+                    "from_email_mode": "match",
+                    "from_email_regex": "(@foo.test*)",
+                    "subject_mode": "match",
+                    "subject_regex": "(CRITICAL*)",
+                },
+                {
+                    "body_mode": "always",
+                    "body_regex": None,
+                    "from_email_mode": "match",
+                    "from_email_regex": "(@bar.com*)",
+                    "subject_mode": "match",
+                    "subject_regex": "(CRITICAL*)",
+                },
             ],
-            email_parsers=[pagerduty.ServiceIntegrationEmailParserArgs(
-                action="resolve",
-                match_predicate=pagerduty.ServiceIntegrationEmailParserMatchPredicateArgs(
-                    type="any",
-                    predicates=[
-                        pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs(
-                            matcher="foo",
-                            part="subject",
-                            type="contains",
-                        ),
-                        pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs(
-                            type="not",
-                            predicates=[pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs(
-                                matcher="(bar*)",
-                                part="body",
-                                type="regex",
-                            )],
-                        ),
+            email_parsers=[{
+                "action": "resolve",
+                "match_predicate": {
+                    "type": "any",
+                    "predicates": [
+                        {
+                            "matcher": "foo",
+                            "part": "subject",
+                            "type": "contains",
+                        },
+                        {
+                            "type": "not",
+                            "predicates": [{
+                                "matcher": "(bar*)",
+                                "part": "body",
+                                "type": "regex",
+                            }],
+                        },
                     ],
-                ),
-                value_extractors=[
-                    pagerduty.ServiceIntegrationEmailParserValueExtractorArgs(
-                        ends_before="end",
-                        part="subject",
-                        starts_after="start",
-                        type="between",
-                        value_name="incident_key",
-                    ),
-                    pagerduty.ServiceIntegrationEmailParserValueExtractorArgs(
-                        ends_before="end",
-                        part="subject",
-                        starts_after="start",
-                        type="between",
-                        value_name="FieldName1",
-                    ),
+                },
+                "value_extractors": [
+                    {
+                        "ends_before": "end",
+                        "part": "subject",
+                        "starts_after": "start",
+                        "type": "between",
+                        "value_name": "incident_key",
+                    },
+                    {
+                        "ends_before": "end",
+                        "part": "subject",
+                        "starts_after": "start",
+                        "type": "between",
+                        "value_name": "FieldName1",
+                    },
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -615,13 +615,13 @@ class ServiceIntegration(pulumi.CustomResource):
         foo = pagerduty.EscalationPolicy("foo",
             name="Engineering Escalation Policy",
             num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user",
-                    id=example.id,
-                )],
-            )])
+            rules=[{
+                "escalation_delay_in_minutes": 10,
+                "targets": [{
+                    "type": "user",
+                    "id": example.id,
+                }],
+            }])
         example_service = pagerduty.Service("example",
             name="My Web App",
             auto_resolve_timeout="14400",
@@ -659,60 +659,60 @@ class ServiceIntegration(pulumi.CustomResource):
             email_incident_creation="use_rules",
             email_filter_mode="and-rules-email",
             email_filters=[
-                pagerduty.ServiceIntegrationEmailFilterArgs(
-                    body_mode="always",
-                    body_regex=None,
-                    from_email_mode="match",
-                    from_email_regex="(@foo.test*)",
-                    subject_mode="match",
-                    subject_regex="(CRITICAL*)",
-                ),
-                pagerduty.ServiceIntegrationEmailFilterArgs(
-                    body_mode="always",
-                    body_regex=None,
-                    from_email_mode="match",
-                    from_email_regex="(@bar.com*)",
-                    subject_mode="match",
-                    subject_regex="(CRITICAL*)",
-                ),
+                {
+                    "body_mode": "always",
+                    "body_regex": None,
+                    "from_email_mode": "match",
+                    "from_email_regex": "(@foo.test*)",
+                    "subject_mode": "match",
+                    "subject_regex": "(CRITICAL*)",
+                },
+                {
+                    "body_mode": "always",
+                    "body_regex": None,
+                    "from_email_mode": "match",
+                    "from_email_regex": "(@bar.com*)",
+                    "subject_mode": "match",
+                    "subject_regex": "(CRITICAL*)",
+                },
             ],
-            email_parsers=[pagerduty.ServiceIntegrationEmailParserArgs(
-                action="resolve",
-                match_predicate=pagerduty.ServiceIntegrationEmailParserMatchPredicateArgs(
-                    type="any",
-                    predicates=[
-                        pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs(
-                            matcher="foo",
-                            part="subject",
-                            type="contains",
-                        ),
-                        pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs(
-                            type="not",
-                            predicates=[pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs(
-                                matcher="(bar*)",
-                                part="body",
-                                type="regex",
-                            )],
-                        ),
+            email_parsers=[{
+                "action": "resolve",
+                "match_predicate": {
+                    "type": "any",
+                    "predicates": [
+                        {
+                            "matcher": "foo",
+                            "part": "subject",
+                            "type": "contains",
+                        },
+                        {
+                            "type": "not",
+                            "predicates": [{
+                                "matcher": "(bar*)",
+                                "part": "body",
+                                "type": "regex",
+                            }],
+                        },
                     ],
-                ),
-                value_extractors=[
-                    pagerduty.ServiceIntegrationEmailParserValueExtractorArgs(
-                        ends_before="end",
-                        part="subject",
-                        starts_after="start",
-                        type="between",
-                        value_name="incident_key",
-                    ),
-                    pagerduty.ServiceIntegrationEmailParserValueExtractorArgs(
-                        ends_before="end",
-                        part="subject",
-                        starts_after="start",
-                        type="between",
-                        value_name="FieldName1",
-                    ),
+                },
+                "value_extractors": [
+                    {
+                        "ends_before": "end",
+                        "part": "subject",
+                        "starts_after": "start",
+                        "type": "between",
+                        "value_name": "incident_key",
+                    },
+                    {
+                        "ends_before": "end",
+                        "part": "subject",
+                        "starts_after": "start",
+                        "type": "between",
+                        "value_name": "FieldName1",
+                    },
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -739,9 +739,9 @@ class ServiceIntegration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  email_filter_mode: Optional[pulumi.Input[str]] = None,
-                 email_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIntegrationEmailFilterArgs']]]]] = None,
+                 email_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceIntegrationEmailFilterArgs', 'ServiceIntegrationEmailFilterArgsDict']]]]] = None,
                  email_incident_creation: Optional[pulumi.Input[str]] = None,
-                 email_parsers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIntegrationEmailParserArgs']]]]] = None,
+                 email_parsers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceIntegrationEmailParserArgs', 'ServiceIntegrationEmailParserArgsDict']]]]] = None,
                  email_parsing_fallback: Optional[pulumi.Input[str]] = None,
                  integration_email: Optional[pulumi.Input[str]] = None,
                  integration_key: Optional[pulumi.Input[str]] = None,
@@ -783,9 +783,9 @@ class ServiceIntegration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             email_filter_mode: Optional[pulumi.Input[str]] = None,
-            email_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIntegrationEmailFilterArgs']]]]] = None,
+            email_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceIntegrationEmailFilterArgs', 'ServiceIntegrationEmailFilterArgsDict']]]]] = None,
             email_incident_creation: Optional[pulumi.Input[str]] = None,
-            email_parsers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIntegrationEmailParserArgs']]]]] = None,
+            email_parsers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceIntegrationEmailParserArgs', 'ServiceIntegrationEmailParserArgsDict']]]]] = None,
             email_parsing_fallback: Optional[pulumi.Input[str]] = None,
             html_url: Optional[pulumi.Input[str]] = None,
             integration_email: Optional[pulumi.Input[str]] = None,

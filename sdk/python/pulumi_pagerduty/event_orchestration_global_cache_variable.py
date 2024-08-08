@@ -192,8 +192,8 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationGlobalCacheVariableConditionArgs']]]]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationGlobalCacheVariableConfigurationArgs']]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConditionArgs', 'EventOrchestrationGlobalCacheVariableConditionArgsDict']]]]] = None,
+                 configuration: Optional[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConfigurationArgs', 'EventOrchestrationGlobalCacheVariableConfigurationArgsDict']]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  event_orchestration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -216,28 +216,28 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
         cache_var = pagerduty.EventOrchestrationGlobalCacheVariable("cache_var",
             event_orchestration=event_orchestration.id,
             name="recent_host",
-            conditions=[pagerduty.EventOrchestrationGlobalCacheVariableConditionArgs(
-                expression="event.source exists",
-            )],
-            configuration=pagerduty.EventOrchestrationGlobalCacheVariableConfigurationArgs(
-                type="recent_value",
-                source="event.source",
-                regex=".*",
-            ))
+            conditions=[{
+                "expression": "event.source exists",
+            }],
+            configuration={
+                "type": "recent_value",
+                "source": "event.source",
+                "regex": ".*",
+            })
         global_ = pagerduty.EventOrchestrationGlobal("global",
             event_orchestration=event_orchestration.id,
-            sets=[pagerduty.EventOrchestrationGlobalSetArgs(
-                id="start",
-                rules=[pagerduty.EventOrchestrationGlobalSetRuleArgs(
-                    label="Always annotate the incident with the event source for all events",
-                    actions=pagerduty.EventOrchestrationGlobalSetRuleActionsArgs(
-                        annotate="Last time, we saw this incident occur on host: {{cache_var.recent_host}}",
-                    ),
-                )],
-            )],
-            catch_all=pagerduty.EventOrchestrationGlobalCatchAllArgs(
-                actions=pagerduty.EventOrchestrationGlobalCatchAllActionsArgs(),
-            ))
+            sets=[{
+                "id": "start",
+                "rules": [{
+                    "label": "Always annotate the incident with the event source for all events",
+                    "actions": {
+                        "annotate": "Last time, we saw this incident occur on host: {{cache_var.recent_host}}",
+                    },
+                }],
+            }],
+            catch_all={
+                "actions": {},
+            })
         ```
 
         ## Import
@@ -250,8 +250,8 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationGlobalCacheVariableConditionArgs']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
-        :param pulumi.Input[pulumi.InputType['EventOrchestrationGlobalCacheVariableConfigurationArgs']] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConditionArgs', 'EventOrchestrationGlobalCacheVariableConditionArgsDict']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+        :param pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConfigurationArgs', 'EventOrchestrationGlobalCacheVariableConfigurationArgsDict']] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
         :param pulumi.Input[bool] disabled: Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
         :param pulumi.Input[str] event_orchestration: ID of the Global Event Orchestration to which this Cache Variable belongs.
         :param pulumi.Input[str] name: Name of the Cache Variable associated with the Global Event Orchestration.
@@ -280,28 +280,28 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
         cache_var = pagerduty.EventOrchestrationGlobalCacheVariable("cache_var",
             event_orchestration=event_orchestration.id,
             name="recent_host",
-            conditions=[pagerduty.EventOrchestrationGlobalCacheVariableConditionArgs(
-                expression="event.source exists",
-            )],
-            configuration=pagerduty.EventOrchestrationGlobalCacheVariableConfigurationArgs(
-                type="recent_value",
-                source="event.source",
-                regex=".*",
-            ))
+            conditions=[{
+                "expression": "event.source exists",
+            }],
+            configuration={
+                "type": "recent_value",
+                "source": "event.source",
+                "regex": ".*",
+            })
         global_ = pagerduty.EventOrchestrationGlobal("global",
             event_orchestration=event_orchestration.id,
-            sets=[pagerduty.EventOrchestrationGlobalSetArgs(
-                id="start",
-                rules=[pagerduty.EventOrchestrationGlobalSetRuleArgs(
-                    label="Always annotate the incident with the event source for all events",
-                    actions=pagerduty.EventOrchestrationGlobalSetRuleActionsArgs(
-                        annotate="Last time, we saw this incident occur on host: {{cache_var.recent_host}}",
-                    ),
-                )],
-            )],
-            catch_all=pagerduty.EventOrchestrationGlobalCatchAllArgs(
-                actions=pagerduty.EventOrchestrationGlobalCatchAllActionsArgs(),
-            ))
+            sets=[{
+                "id": "start",
+                "rules": [{
+                    "label": "Always annotate the incident with the event source for all events",
+                    "actions": {
+                        "annotate": "Last time, we saw this incident occur on host: {{cache_var.recent_host}}",
+                    },
+                }],
+            }],
+            catch_all={
+                "actions": {},
+            })
         ```
 
         ## Import
@@ -327,8 +327,8 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationGlobalCacheVariableConditionArgs']]]]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationGlobalCacheVariableConfigurationArgs']]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConditionArgs', 'EventOrchestrationGlobalCacheVariableConditionArgsDict']]]]] = None,
+                 configuration: Optional[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConfigurationArgs', 'EventOrchestrationGlobalCacheVariableConfigurationArgsDict']]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  event_orchestration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -360,8 +360,8 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationGlobalCacheVariableConditionArgs']]]]] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationGlobalCacheVariableConfigurationArgs']]] = None,
+            conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConditionArgs', 'EventOrchestrationGlobalCacheVariableConditionArgsDict']]]]] = None,
+            configuration: Optional[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConfigurationArgs', 'EventOrchestrationGlobalCacheVariableConfigurationArgsDict']]] = None,
             disabled: Optional[pulumi.Input[bool]] = None,
             event_orchestration: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'EventOrchestrationGlobalCacheVariable':
@@ -372,8 +372,8 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationGlobalCacheVariableConditionArgs']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
-        :param pulumi.Input[pulumi.InputType['EventOrchestrationGlobalCacheVariableConfigurationArgs']] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConditionArgs', 'EventOrchestrationGlobalCacheVariableConditionArgsDict']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+        :param pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConfigurationArgs', 'EventOrchestrationGlobalCacheVariableConfigurationArgsDict']] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
         :param pulumi.Input[bool] disabled: Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
         :param pulumi.Input[str] event_orchestration: ID of the Global Event Orchestration to which this Cache Variable belongs.
         :param pulumi.Input[str] name: Name of the Cache Variable associated with the Global Event Orchestration.

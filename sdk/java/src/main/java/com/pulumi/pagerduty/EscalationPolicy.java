@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Team("example", TeamArgs.builder()
  *             .name("Engineering")
  *             .description("All engineering")
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .name("Earline Greenholt")
- *             .email("125.greenholt.earline{@literal @}graham.name")
+ *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
  *             .teams(example.id())
  *             .build());
  * 
@@ -79,8 +79,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -163,7 +163,7 @@ public class EscalationPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EscalationPolicy(String name) {
+    public EscalationPolicy(java.lang.String name) {
         this(name, EscalationPolicyArgs.Empty);
     }
     /**
@@ -171,7 +171,7 @@ public class EscalationPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EscalationPolicy(String name, EscalationPolicyArgs args) {
+    public EscalationPolicy(java.lang.String name, EscalationPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -180,12 +180,12 @@ public class EscalationPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EscalationPolicy(String name, EscalationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/escalationPolicy:EscalationPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EscalationPolicy(java.lang.String name, EscalationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/escalationPolicy:EscalationPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EscalationPolicy(String name, Output<String> id, @Nullable EscalationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/escalationPolicy:EscalationPolicy", name, state, makeResourceOptions(options, id));
+    private EscalationPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable EscalationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/escalationPolicy:EscalationPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EscalationPolicyArgs makeArgs(EscalationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -195,7 +195,7 @@ public class EscalationPolicy extends com.pulumi.resources.CustomResource {
         return args == null ? EscalationPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -211,7 +211,7 @@ public class EscalationPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EscalationPolicy get(String name, Output<String> id, @Nullable EscalationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EscalationPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable EscalationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EscalationPolicy(name, id, state, options);
     }
 }

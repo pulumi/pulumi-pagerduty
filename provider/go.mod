@@ -5,9 +5,9 @@ go 1.21.12
 require (
 	github.com/PagerDuty/terraform-provider-pagerduty v0.0.0
 	github.com/pulumi/providertest v0.0.14
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.41.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.88.0
-	github.com/pulumi/pulumi/sdk/v3 v3.126.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.41.1-0.20240808181221-46d7e984a474
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.88.1-0.20240808181221-46d7e984a474
+	github.com/pulumi/pulumi/sdk/v3 v3.128.0
 	github.com/stretchr/testify v1.9.0
 )
 
@@ -128,7 +128,7 @@ require (
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/hashicorp/terraform-exec v0.20.0 // indirect
 	github.com/hashicorp/terraform-json v0.21.0 // indirect
-	github.com/hashicorp/terraform-plugin-framework v1.10.0 // indirect
+	github.com/hashicorp/terraform-plugin-framework v1.11.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-jsontypes v0.1.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-validators v0.12.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.23.0 // indirect
@@ -191,7 +191,7 @@ require (
 	github.com/pulumi/pulumi-java/pkg v0.11.0 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
 	github.com/pulumi/pulumi-yaml v1.9.1 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.126.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.128.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
@@ -225,6 +225,7 @@ require (
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/xeipuuv/gojsonschema v1.2.0 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a // indirect
+	github.com/yuin/goldmark v1.7.4 // indirect
 	github.com/zclconf/go-cty v1.14.2 // indirect
 	go.mongodb.org/mongo-driver v1.13.1 // indirect
 	go.opencensus.io v0.24.0 // indirect

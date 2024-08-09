@@ -112,30 +112,30 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
         foo = pagerduty.EscalationPolicy("foo",
             name="Engineering Escalation Policy",
             num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user_reference",
-                    id=example.id,
-                )],
-            )])
+            rules=[{
+                "escalation_delay_in_minutes": 10,
+                "targets": [{
+                    "type": "user_reference",
+                    "id": example.id,
+                }],
+            }])
         example_service = pagerduty.Service("example",
             name="My Web App",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
             escalation_policy=foo.id,
             alert_creation="create_alerts_and_incidents",
-            auto_pause_notifications_parameters=pagerduty.ServiceAutoPauseNotificationsParametersArgs(
-                enabled=True,
-                timeout=300,
-            ))
+            auto_pause_notifications_parameters={
+                "enabled": True,
+                "timeout": 300,
+            })
         pa_action_example = pagerduty.AutomationActionsAction("pa_action_example",
             name="PA Action created via TF",
             description="Description of the PA Action created via TF",
             action_type="process_automation",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                process_automation_job_id="P123456",
-            ))
+            action_data_reference={
+                "process_automation_job_id": "P123456",
+            })
         foo_automation_actions_action_service_association = pagerduty.AutomationActionsActionServiceAssociation("foo",
             action_id=pa_action_example.id,
             service_id=example_service.id)
@@ -175,30 +175,30 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
         foo = pagerduty.EscalationPolicy("foo",
             name="Engineering Escalation Policy",
             num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user_reference",
-                    id=example.id,
-                )],
-            )])
+            rules=[{
+                "escalation_delay_in_minutes": 10,
+                "targets": [{
+                    "type": "user_reference",
+                    "id": example.id,
+                }],
+            }])
         example_service = pagerduty.Service("example",
             name="My Web App",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
             escalation_policy=foo.id,
             alert_creation="create_alerts_and_incidents",
-            auto_pause_notifications_parameters=pagerduty.ServiceAutoPauseNotificationsParametersArgs(
-                enabled=True,
-                timeout=300,
-            ))
+            auto_pause_notifications_parameters={
+                "enabled": True,
+                "timeout": 300,
+            })
         pa_action_example = pagerduty.AutomationActionsAction("pa_action_example",
             name="PA Action created via TF",
             description="Description of the PA Action created via TF",
             action_type="process_automation",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                process_automation_job_id="P123456",
-            ))
+            action_data_reference={
+                "process_automation_job_id": "P123456",
+            })
         foo_automation_actions_action_service_association = pagerduty.AutomationActionsActionServiceAssociation("foo",
             action_id=pa_action_example.id,
             service_id=example_service.id)

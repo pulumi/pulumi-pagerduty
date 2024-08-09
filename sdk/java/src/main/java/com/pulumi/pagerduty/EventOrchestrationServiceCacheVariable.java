@@ -58,19 +58,19 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var databaseTeam = new Team("databaseTeam", TeamArgs.builder()
  *             .name("Database Team")
  *             .build());
  * 
  *         var user1 = new User("user1", UserArgs.builder()
  *             .name("Earline Greenholt")
- *             .email("125.greenholt.earline{@literal @}graham.name")
+ *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
  *             .teams(databaseTeam.id())
  *             .build());
  * 
@@ -126,8 +126,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -218,7 +218,7 @@ public class EventOrchestrationServiceCacheVariable extends com.pulumi.resources
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventOrchestrationServiceCacheVariable(String name) {
+    public EventOrchestrationServiceCacheVariable(java.lang.String name) {
         this(name, EventOrchestrationServiceCacheVariableArgs.Empty);
     }
     /**
@@ -226,7 +226,7 @@ public class EventOrchestrationServiceCacheVariable extends com.pulumi.resources
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventOrchestrationServiceCacheVariable(String name, EventOrchestrationServiceCacheVariableArgs args) {
+    public EventOrchestrationServiceCacheVariable(java.lang.String name, EventOrchestrationServiceCacheVariableArgs args) {
         this(name, args, null);
     }
     /**
@@ -235,12 +235,12 @@ public class EventOrchestrationServiceCacheVariable extends com.pulumi.resources
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventOrchestrationServiceCacheVariable(String name, EventOrchestrationServiceCacheVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EventOrchestrationServiceCacheVariable(java.lang.String name, EventOrchestrationServiceCacheVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventOrchestrationServiceCacheVariable(String name, Output<String> id, @Nullable EventOrchestrationServiceCacheVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable", name, state, makeResourceOptions(options, id));
+    private EventOrchestrationServiceCacheVariable(java.lang.String name, Output<java.lang.String> id, @Nullable EventOrchestrationServiceCacheVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EventOrchestrationServiceCacheVariableArgs makeArgs(EventOrchestrationServiceCacheVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -250,7 +250,7 @@ public class EventOrchestrationServiceCacheVariable extends com.pulumi.resources
         return args == null ? EventOrchestrationServiceCacheVariableArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -266,7 +266,7 @@ public class EventOrchestrationServiceCacheVariable extends com.pulumi.resources
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventOrchestrationServiceCacheVariable get(String name, Output<String> id, @Nullable EventOrchestrationServiceCacheVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventOrchestrationServiceCacheVariable get(java.lang.String name, Output<java.lang.String> id, @Nullable EventOrchestrationServiceCacheVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventOrchestrationServiceCacheVariable(name, id, state, options);
     }
 }

@@ -192,7 +192,7 @@ class EscalationPolicy(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  num_loops: Optional[pulumi.Input[int]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationPolicyRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]]] = None,
                  teams: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -215,19 +215,19 @@ class EscalationPolicy(pulumi.CustomResource):
             name="Engineering Escalation Policy",
             num_loops=2,
             teams=example.id,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[
-                    pagerduty.EscalationPolicyRuleTargetArgs(
-                        type="user_reference",
-                        id=example_user.id,
-                    ),
-                    pagerduty.EscalationPolicyRuleTargetArgs(
-                        type="user_reference",
-                        id=example2["id"],
-                    ),
+            rules=[{
+                "escalation_delay_in_minutes": 10,
+                "targets": [
+                    {
+                        "type": "user_reference",
+                        "id": example_user.id,
+                    },
+                    {
+                        "type": "user_reference",
+                        "id": example2["id"],
+                    },
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -242,7 +242,7 @@ class EscalationPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the escalation policy.
         :param pulumi.Input[int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationPolicyRuleArgs']]]] rules: An Escalation rule block. Escalation rules documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]] rules: An Escalation rule block. Escalation rules documented below.
         :param pulumi.Input[str] teams: Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
         """
         ...
@@ -271,19 +271,19 @@ class EscalationPolicy(pulumi.CustomResource):
             name="Engineering Escalation Policy",
             num_loops=2,
             teams=example.id,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[
-                    pagerduty.EscalationPolicyRuleTargetArgs(
-                        type="user_reference",
-                        id=example_user.id,
-                    ),
-                    pagerduty.EscalationPolicyRuleTargetArgs(
-                        type="user_reference",
-                        id=example2["id"],
-                    ),
+            rules=[{
+                "escalation_delay_in_minutes": 10,
+                "targets": [
+                    {
+                        "type": "user_reference",
+                        "id": example_user.id,
+                    },
+                    {
+                        "type": "user_reference",
+                        "id": example2["id"],
+                    },
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -312,7 +312,7 @@ class EscalationPolicy(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  num_loops: Optional[pulumi.Input[int]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationPolicyRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]]] = None,
                  teams: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -345,7 +345,7 @@ class EscalationPolicy(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             num_loops: Optional[pulumi.Input[int]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationPolicyRuleArgs']]]]] = None,
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]]] = None,
             teams: Optional[pulumi.Input[str]] = None) -> 'EscalationPolicy':
         """
         Get an existing EscalationPolicy resource's state with the given name, id, and optional extra
@@ -356,7 +356,7 @@ class EscalationPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the escalation policy.
         :param pulumi.Input[int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationPolicyRuleArgs']]]] rules: An Escalation rule block. Escalation rules documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]] rules: An Escalation rule block. Escalation rules documented below.
         :param pulumi.Input[str] teams: Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

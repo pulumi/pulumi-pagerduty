@@ -289,14 +289,14 @@ class RulesetRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']]] = None,
+                 actions: Optional[pulumi.Input[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']]] = None,
                  catch_all: Optional[pulumi.Input[bool]] = None,
-                 conditions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']]] = None,
+                 conditions: Optional[pulumi.Input[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict']]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  position: Optional[pulumi.Input[int]] = None,
                  ruleset: Optional[pulumi.Input[str]] = None,
-                 time_frame: Optional[pulumi.Input[pulumi.InputType['RulesetRuleTimeFrameArgs']]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesetRuleVariableArgs']]]]] = None,
+                 time_frame: Optional[pulumi.Input[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict']]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -309,9 +309,9 @@ class RulesetRule(pulumi.CustomResource):
         foo = pagerduty.Team("foo", name="Engineering (Seattle)")
         foo_ruleset = pagerduty.Ruleset("foo",
             name="Primary Ruleset",
-            team=pagerduty.RulesetTeamArgs(
-                id=foo.id,
-            ))
+            team={
+                "id": foo.id,
+            })
         # The pagerduty_ruleset_rule.foo rule defined below
         # repeats daily from 9:30am - 11:30am using the America/New_York timezone.
         # Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
@@ -321,79 +321,79 @@ class RulesetRule(pulumi.CustomResource):
             ruleset=foo_ruleset.id,
             position=0,
             disabled=False,
-            time_frame=pagerduty.RulesetRuleTimeFrameArgs(
-                scheduled_weeklies=[pagerduty.RulesetRuleTimeFrameScheduledWeeklyArgs(
-                    weekdays=[
+            time_frame={
+                "scheduled_weeklies": [{
+                    "weekdays": [
                         2,
                         4,
                         6,
                     ],
-                    start_time=eastern_time_at0930.unix.apply(lambda unix: unix * 1000),
-                    duration=2 * 60 * 60 * 1000,
-                    timezone="America/New_York",
-                )],
-            ),
-            conditions=pagerduty.RulesetRuleConditionsArgs(
-                operator="and",
-                subconditions=[
-                    pagerduty.RulesetRuleConditionsSubconditionArgs(
-                        operator="contains",
-                        parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
-                            value="disk space",
-                            path="payload.summary",
-                        )],
-                    ),
-                    pagerduty.RulesetRuleConditionsSubconditionArgs(
-                        operator="contains",
-                        parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
-                            value="db",
-                            path="payload.source",
-                        )],
-                    ),
+                    "start_time": eastern_time_at0930.unix.apply(lambda unix: unix * 1000),
+                    "duration": 2 * 60 * 60 * 1000,
+                    "timezone": "America/New_York",
+                }],
+            },
+            conditions={
+                "operator": "and",
+                "subconditions": [
+                    {
+                        "operator": "contains",
+                        "parameters": [{
+                            "value": "disk space",
+                            "path": "payload.summary",
+                        }],
+                    },
+                    {
+                        "operator": "contains",
+                        "parameters": [{
+                            "value": "db",
+                            "path": "payload.source",
+                        }],
+                    },
                 ],
-            ),
-            variables=[pagerduty.RulesetRuleVariableArgs(
-                type="regex",
-                name="Src",
-                parameters=[pagerduty.RulesetRuleVariableParameterArgs(
-                    value="(.*)",
-                    path="payload.source",
-                )],
-            )],
-            actions=pagerduty.RulesetRuleActionsArgs(
-                routes=[pagerduty.RulesetRuleActionsRouteArgs(
-                    value=foo_pagerduty_service["id"],
-                )],
-                severities=[pagerduty.RulesetRuleActionsSeverityArgs(
-                    value="warning",
-                )],
-                annotates=[pagerduty.RulesetRuleActionsAnnotateArgs(
-                    value="From Terraform",
-                )],
-                extractions=[
-                    pagerduty.RulesetRuleActionsExtractionArgs(
-                        target="dedup_key",
-                        source="details.host",
-                        regex="(.*)",
-                    ),
-                    pagerduty.RulesetRuleActionsExtractionArgs(
-                        target="summary",
-                        template="Warning: Disk Space Low on {{Src}}",
-                    ),
+            },
+            variables=[{
+                "type": "regex",
+                "name": "Src",
+                "parameters": [{
+                    "value": "(.*)",
+                    "path": "payload.source",
+                }],
+            }],
+            actions={
+                "routes": [{
+                    "value": foo_pagerduty_service["id"],
+                }],
+                "severities": [{
+                    "value": "warning",
+                }],
+                "annotates": [{
+                    "value": "From Terraform",
+                }],
+                "extractions": [
+                    {
+                        "target": "dedup_key",
+                        "source": "details.host",
+                        "regex": "(.*)",
+                    },
+                    {
+                        "target": "summary",
+                        "template": "Warning: Disk Space Low on {{Src}}",
+                    },
                 ],
-            ))
+            })
         catch_all = pagerduty.RulesetRule("catch_all",
             ruleset=foo_ruleset.id,
             position=1,
             catch_all=True,
-            actions=pagerduty.RulesetRuleActionsArgs(
-                annotates=[pagerduty.RulesetRuleActionsAnnotateArgs(
-                    value="From Terraform",
-                )],
-                suppresses=[pagerduty.RulesetRuleActionsSuppressArgs(
-                    value=True,
-                )],
-            ))
+            actions={
+                "annotates": [{
+                    "value": "From Terraform",
+                }],
+                "suppresses": [{
+                    "value": True,
+                }],
+            })
         ```
 
         ## Import
@@ -406,14 +406,14 @@ class RulesetRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']] actions: Actions to apply to an event if the conditions match.
+        :param pulumi.Input[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']] actions: Actions to apply to an event if the conditions match.
         :param pulumi.Input[bool] catch_all: Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
-        :param pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
+        :param pulumi.Input[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict']] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[int] position: Position/index of the rule within the ruleset.
         :param pulumi.Input[str] ruleset: The ID of the ruleset that the rule belongs to.
-        :param pulumi.Input[pulumi.InputType['RulesetRuleTimeFrameArgs']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesetRuleVariableArgs']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+        :param pulumi.Input[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
         ...
     @overload
@@ -432,9 +432,9 @@ class RulesetRule(pulumi.CustomResource):
         foo = pagerduty.Team("foo", name="Engineering (Seattle)")
         foo_ruleset = pagerduty.Ruleset("foo",
             name="Primary Ruleset",
-            team=pagerduty.RulesetTeamArgs(
-                id=foo.id,
-            ))
+            team={
+                "id": foo.id,
+            })
         # The pagerduty_ruleset_rule.foo rule defined below
         # repeats daily from 9:30am - 11:30am using the America/New_York timezone.
         # Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
@@ -444,79 +444,79 @@ class RulesetRule(pulumi.CustomResource):
             ruleset=foo_ruleset.id,
             position=0,
             disabled=False,
-            time_frame=pagerduty.RulesetRuleTimeFrameArgs(
-                scheduled_weeklies=[pagerduty.RulesetRuleTimeFrameScheduledWeeklyArgs(
-                    weekdays=[
+            time_frame={
+                "scheduled_weeklies": [{
+                    "weekdays": [
                         2,
                         4,
                         6,
                     ],
-                    start_time=eastern_time_at0930.unix.apply(lambda unix: unix * 1000),
-                    duration=2 * 60 * 60 * 1000,
-                    timezone="America/New_York",
-                )],
-            ),
-            conditions=pagerduty.RulesetRuleConditionsArgs(
-                operator="and",
-                subconditions=[
-                    pagerduty.RulesetRuleConditionsSubconditionArgs(
-                        operator="contains",
-                        parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
-                            value="disk space",
-                            path="payload.summary",
-                        )],
-                    ),
-                    pagerduty.RulesetRuleConditionsSubconditionArgs(
-                        operator="contains",
-                        parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
-                            value="db",
-                            path="payload.source",
-                        )],
-                    ),
+                    "start_time": eastern_time_at0930.unix.apply(lambda unix: unix * 1000),
+                    "duration": 2 * 60 * 60 * 1000,
+                    "timezone": "America/New_York",
+                }],
+            },
+            conditions={
+                "operator": "and",
+                "subconditions": [
+                    {
+                        "operator": "contains",
+                        "parameters": [{
+                            "value": "disk space",
+                            "path": "payload.summary",
+                        }],
+                    },
+                    {
+                        "operator": "contains",
+                        "parameters": [{
+                            "value": "db",
+                            "path": "payload.source",
+                        }],
+                    },
                 ],
-            ),
-            variables=[pagerduty.RulesetRuleVariableArgs(
-                type="regex",
-                name="Src",
-                parameters=[pagerduty.RulesetRuleVariableParameterArgs(
-                    value="(.*)",
-                    path="payload.source",
-                )],
-            )],
-            actions=pagerduty.RulesetRuleActionsArgs(
-                routes=[pagerduty.RulesetRuleActionsRouteArgs(
-                    value=foo_pagerduty_service["id"],
-                )],
-                severities=[pagerduty.RulesetRuleActionsSeverityArgs(
-                    value="warning",
-                )],
-                annotates=[pagerduty.RulesetRuleActionsAnnotateArgs(
-                    value="From Terraform",
-                )],
-                extractions=[
-                    pagerduty.RulesetRuleActionsExtractionArgs(
-                        target="dedup_key",
-                        source="details.host",
-                        regex="(.*)",
-                    ),
-                    pagerduty.RulesetRuleActionsExtractionArgs(
-                        target="summary",
-                        template="Warning: Disk Space Low on {{Src}}",
-                    ),
+            },
+            variables=[{
+                "type": "regex",
+                "name": "Src",
+                "parameters": [{
+                    "value": "(.*)",
+                    "path": "payload.source",
+                }],
+            }],
+            actions={
+                "routes": [{
+                    "value": foo_pagerduty_service["id"],
+                }],
+                "severities": [{
+                    "value": "warning",
+                }],
+                "annotates": [{
+                    "value": "From Terraform",
+                }],
+                "extractions": [
+                    {
+                        "target": "dedup_key",
+                        "source": "details.host",
+                        "regex": "(.*)",
+                    },
+                    {
+                        "target": "summary",
+                        "template": "Warning: Disk Space Low on {{Src}}",
+                    },
                 ],
-            ))
+            })
         catch_all = pagerduty.RulesetRule("catch_all",
             ruleset=foo_ruleset.id,
             position=1,
             catch_all=True,
-            actions=pagerduty.RulesetRuleActionsArgs(
-                annotates=[pagerduty.RulesetRuleActionsAnnotateArgs(
-                    value="From Terraform",
-                )],
-                suppresses=[pagerduty.RulesetRuleActionsSuppressArgs(
-                    value=True,
-                )],
-            ))
+            actions={
+                "annotates": [{
+                    "value": "From Terraform",
+                }],
+                "suppresses": [{
+                    "value": True,
+                }],
+            })
         ```
 
         ## Import
@@ -542,14 +542,14 @@ class RulesetRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']]] = None,
+                 actions: Optional[pulumi.Input[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']]] = None,
                  catch_all: Optional[pulumi.Input[bool]] = None,
-                 conditions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']]] = None,
+                 conditions: Optional[pulumi.Input[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict']]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  position: Optional[pulumi.Input[int]] = None,
                  ruleset: Optional[pulumi.Input[str]] = None,
-                 time_frame: Optional[pulumi.Input[pulumi.InputType['RulesetRuleTimeFrameArgs']]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesetRuleVariableArgs']]]]] = None,
+                 time_frame: Optional[pulumi.Input[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict']]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -579,14 +579,14 @@ class RulesetRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']]] = None,
+            actions: Optional[pulumi.Input[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']]] = None,
             catch_all: Optional[pulumi.Input[bool]] = None,
-            conditions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']]] = None,
+            conditions: Optional[pulumi.Input[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict']]] = None,
             disabled: Optional[pulumi.Input[bool]] = None,
             position: Optional[pulumi.Input[int]] = None,
             ruleset: Optional[pulumi.Input[str]] = None,
-            time_frame: Optional[pulumi.Input[pulumi.InputType['RulesetRuleTimeFrameArgs']]] = None,
-            variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesetRuleVariableArgs']]]]] = None) -> 'RulesetRule':
+            time_frame: Optional[pulumi.Input[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict']]] = None,
+            variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]]] = None) -> 'RulesetRule':
         """
         Get an existing RulesetRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -594,14 +594,14 @@ class RulesetRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']] actions: Actions to apply to an event if the conditions match.
+        :param pulumi.Input[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']] actions: Actions to apply to an event if the conditions match.
         :param pulumi.Input[bool] catch_all: Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
-        :param pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
+        :param pulumi.Input[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict']] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[int] position: Position/index of the rule within the ruleset.
         :param pulumi.Input[str] ruleset: The ID of the ruleset that the rule belongs to.
-        :param pulumi.Input[pulumi.InputType['RulesetRuleTimeFrameArgs']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesetRuleVariableArgs']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+        :param pulumi.Input[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

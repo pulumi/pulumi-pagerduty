@@ -257,13 +257,13 @@ class ServiceEventRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['ServiceEventRuleActionsArgs']]] = None,
-                 conditions: Optional[pulumi.Input[pulumi.InputType['ServiceEventRuleConditionsArgs']]] = None,
+                 actions: Optional[pulumi.Input[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']]] = None,
+                 conditions: Optional[pulumi.Input[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict']]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  position: Optional[pulumi.Input[int]] = None,
                  service: Optional[pulumi.Input[str]] = None,
-                 time_frame: Optional[pulumi.Input[pulumi.InputType['ServiceEventRuleTimeFrameArgs']]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEventRuleVariableArgs']]]]] = None,
+                 time_frame: Optional[pulumi.Input[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict']]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict']]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -282,59 +282,59 @@ class ServiceEventRule(pulumi.CustomResource):
             service=example.id,
             position=0,
             disabled=True,
-            conditions=pagerduty.ServiceEventRuleConditionsArgs(
-                operator="and",
-                subconditions=[pagerduty.ServiceEventRuleConditionsSubconditionArgs(
-                    operator="contains",
-                    parameters=[pagerduty.ServiceEventRuleConditionsSubconditionParameterArgs(
-                        value="disk space",
-                        path="summary",
-                    )],
-                )],
-            ),
-            variables=[pagerduty.ServiceEventRuleVariableArgs(
-                type="regex",
-                name="Src",
-                parameters=[pagerduty.ServiceEventRuleVariableParameterArgs(
-                    value="(.*)",
-                    path="source",
-                )],
-            )],
-            actions=pagerduty.ServiceEventRuleActionsArgs(
-                annotates=[pagerduty.ServiceEventRuleActionsAnnotateArgs(
-                    value="From Terraform",
-                )],
-                extractions=[
-                    pagerduty.ServiceEventRuleActionsExtractionArgs(
-                        target="dedup_key",
-                        source="source",
-                        regex="(.*)",
-                    ),
-                    pagerduty.ServiceEventRuleActionsExtractionArgs(
-                        target="summary",
-                        template="Warning: Disk Space Low on {{Src}}",
-                    ),
+            conditions={
+                "operator": "and",
+                "subconditions": [{
+                    "operator": "contains",
+                    "parameters": [{
+                        "value": "disk space",
+                        "path": "summary",
+                    }],
+                }],
+            },
+            variables=[{
+                "type": "regex",
+                "name": "Src",
+                "parameters": [{
+                    "value": "(.*)",
+                    "path": "source",
+                }],
+            }],
+            actions={
+                "annotates": [{
+                    "value": "From Terraform",
+                }],
+                "extractions": [
+                    {
+                        "target": "dedup_key",
+                        "source": "source",
+                        "regex": "(.*)",
+                    },
+                    {
+                        "target": "summary",
+                        "template": "Warning: Disk Space Low on {{Src}}",
+                    },
                 ],
-            ))
+            })
         bar = pagerduty.ServiceEventRule("bar",
             service=foo_pagerduty_service["id"],
             position=1,
             disabled=True,
-            conditions=pagerduty.ServiceEventRuleConditionsArgs(
-                operator="and",
-                subconditions=[pagerduty.ServiceEventRuleConditionsSubconditionArgs(
-                    operator="contains",
-                    parameters=[pagerduty.ServiceEventRuleConditionsSubconditionParameterArgs(
-                        value="cpu spike",
-                        path="summary",
-                    )],
-                )],
-            ),
-            actions=pagerduty.ServiceEventRuleActionsArgs(
-                annotates=[pagerduty.ServiceEventRuleActionsAnnotateArgs(
-                    value="From Terraform",
-                )],
-            ))
+            conditions={
+                "operator": "and",
+                "subconditions": [{
+                    "operator": "contains",
+                    "parameters": [{
+                        "value": "cpu spike",
+                        "path": "summary",
+                    }],
+                }],
+            },
+            actions={
+                "annotates": [{
+                    "value": "From Terraform",
+                }],
+            })
         ```
 
         ## Import
@@ -347,13 +347,13 @@ class ServiceEventRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceEventRuleActionsArgs']] actions: Actions to apply to an event if the conditions match.
-        :param pulumi.Input[pulumi.InputType['ServiceEventRuleConditionsArgs']] conditions: Conditions evaluated to check if an event matches this event rule.
+        :param pulumi.Input[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']] actions: Actions to apply to an event if the conditions match.
+        :param pulumi.Input[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict']] conditions: Conditions evaluated to check if an event matches this event rule.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[int] position: Position/index of the rule within the service.
         :param pulumi.Input[str] service: The ID of the service that the rule belongs to.
-        :param pulumi.Input[pulumi.InputType['ServiceEventRuleTimeFrameArgs']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEventRuleVariableArgs']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+        :param pulumi.Input[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
         ...
     @overload
@@ -378,59 +378,59 @@ class ServiceEventRule(pulumi.CustomResource):
             service=example.id,
             position=0,
             disabled=True,
-            conditions=pagerduty.ServiceEventRuleConditionsArgs(
-                operator="and",
-                subconditions=[pagerduty.ServiceEventRuleConditionsSubconditionArgs(
-                    operator="contains",
-                    parameters=[pagerduty.ServiceEventRuleConditionsSubconditionParameterArgs(
-                        value="disk space",
-                        path="summary",
-                    )],
-                )],
-            ),
-            variables=[pagerduty.ServiceEventRuleVariableArgs(
-                type="regex",
-                name="Src",
-                parameters=[pagerduty.ServiceEventRuleVariableParameterArgs(
-                    value="(.*)",
-                    path="source",
-                )],
-            )],
-            actions=pagerduty.ServiceEventRuleActionsArgs(
-                annotates=[pagerduty.ServiceEventRuleActionsAnnotateArgs(
-                    value="From Terraform",
-                )],
-                extractions=[
-                    pagerduty.ServiceEventRuleActionsExtractionArgs(
-                        target="dedup_key",
-                        source="source",
-                        regex="(.*)",
-                    ),
-                    pagerduty.ServiceEventRuleActionsExtractionArgs(
-                        target="summary",
-                        template="Warning: Disk Space Low on {{Src}}",
-                    ),
+            conditions={
+                "operator": "and",
+                "subconditions": [{
+                    "operator": "contains",
+                    "parameters": [{
+                        "value": "disk space",
+                        "path": "summary",
+                    }],
+                }],
+            },
+            variables=[{
+                "type": "regex",
+                "name": "Src",
+                "parameters": [{
+                    "value": "(.*)",
+                    "path": "source",
+                }],
+            }],
+            actions={
+                "annotates": [{
+                    "value": "From Terraform",
+                }],
+                "extractions": [
+                    {
+                        "target": "dedup_key",
+                        "source": "source",
+                        "regex": "(.*)",
+                    },
+                    {
+                        "target": "summary",
+                        "template": "Warning: Disk Space Low on {{Src}}",
+                    },
                 ],
-            ))
+            })
         bar = pagerduty.ServiceEventRule("bar",
             service=foo_pagerduty_service["id"],
             position=1,
             disabled=True,
-            conditions=pagerduty.ServiceEventRuleConditionsArgs(
-                operator="and",
-                subconditions=[pagerduty.ServiceEventRuleConditionsSubconditionArgs(
-                    operator="contains",
-                    parameters=[pagerduty.ServiceEventRuleConditionsSubconditionParameterArgs(
-                        value="cpu spike",
-                        path="summary",
-                    )],
-                )],
-            ),
-            actions=pagerduty.ServiceEventRuleActionsArgs(
-                annotates=[pagerduty.ServiceEventRuleActionsAnnotateArgs(
-                    value="From Terraform",
-                )],
-            ))
+            conditions={
+                "operator": "and",
+                "subconditions": [{
+                    "operator": "contains",
+                    "parameters": [{
+                        "value": "cpu spike",
+                        "path": "summary",
+                    }],
+                }],
+            },
+            actions={
+                "annotates": [{
+                    "value": "From Terraform",
+                }],
+            })
         ```
 
         ## Import
@@ -456,13 +456,13 @@ class ServiceEventRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['ServiceEventRuleActionsArgs']]] = None,
-                 conditions: Optional[pulumi.Input[pulumi.InputType['ServiceEventRuleConditionsArgs']]] = None,
+                 actions: Optional[pulumi.Input[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']]] = None,
+                 conditions: Optional[pulumi.Input[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict']]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  position: Optional[pulumi.Input[int]] = None,
                  service: Optional[pulumi.Input[str]] = None,
-                 time_frame: Optional[pulumi.Input[pulumi.InputType['ServiceEventRuleTimeFrameArgs']]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEventRuleVariableArgs']]]]] = None,
+                 time_frame: Optional[pulumi.Input[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict']]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -491,13 +491,13 @@ class ServiceEventRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[pulumi.InputType['ServiceEventRuleActionsArgs']]] = None,
-            conditions: Optional[pulumi.Input[pulumi.InputType['ServiceEventRuleConditionsArgs']]] = None,
+            actions: Optional[pulumi.Input[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']]] = None,
+            conditions: Optional[pulumi.Input[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict']]] = None,
             disabled: Optional[pulumi.Input[bool]] = None,
             position: Optional[pulumi.Input[int]] = None,
             service: Optional[pulumi.Input[str]] = None,
-            time_frame: Optional[pulumi.Input[pulumi.InputType['ServiceEventRuleTimeFrameArgs']]] = None,
-            variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEventRuleVariableArgs']]]]] = None) -> 'ServiceEventRule':
+            time_frame: Optional[pulumi.Input[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict']]] = None,
+            variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict']]]]] = None) -> 'ServiceEventRule':
         """
         Get an existing ServiceEventRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -505,13 +505,13 @@ class ServiceEventRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceEventRuleActionsArgs']] actions: Actions to apply to an event if the conditions match.
-        :param pulumi.Input[pulumi.InputType['ServiceEventRuleConditionsArgs']] conditions: Conditions evaluated to check if an event matches this event rule.
+        :param pulumi.Input[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']] actions: Actions to apply to an event if the conditions match.
+        :param pulumi.Input[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict']] conditions: Conditions evaluated to check if an event matches this event rule.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[int] position: Position/index of the rule within the service.
         :param pulumi.Input[str] service: The ID of the service that the rule belongs to.
-        :param pulumi.Input[pulumi.InputType['ServiceEventRuleTimeFrameArgs']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEventRuleVariableArgs']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+        :param pulumi.Input[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

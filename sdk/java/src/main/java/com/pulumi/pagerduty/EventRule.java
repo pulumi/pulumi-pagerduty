@@ -233,7 +233,7 @@ public class EventRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventRule(String name) {
+    public EventRule(java.lang.String name) {
         this(name, EventRuleArgs.Empty);
     }
     /**
@@ -241,7 +241,7 @@ public class EventRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventRule(String name, EventRuleArgs args) {
+    public EventRule(java.lang.String name, EventRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -250,12 +250,12 @@ public class EventRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventRule(String name, EventRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/eventRule:EventRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EventRule(java.lang.String name, EventRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/eventRule:EventRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventRule(String name, Output<String> id, @Nullable EventRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/eventRule:EventRule", name, state, makeResourceOptions(options, id));
+    private EventRule(java.lang.String name, Output<java.lang.String> id, @Nullable EventRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/eventRule:EventRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EventRuleArgs makeArgs(EventRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -265,7 +265,7 @@ public class EventRule extends com.pulumi.resources.CustomResource {
         return args == null ? EventRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -281,7 +281,7 @@ public class EventRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventRule get(String name, Output<String> id, @Nullable EventRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventRule get(java.lang.String name, Output<java.lang.String> id, @Nullable EventRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventRule(name, id, state, options);
     }
 }

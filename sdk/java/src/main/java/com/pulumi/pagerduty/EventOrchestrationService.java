@@ -68,19 +68,19 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var engineering = new Team("engineering", TeamArgs.builder()
  *             .name("Engineering")
  *             .build());
  * 
  *         var example = new User("example", UserArgs.builder()
  *             .name("Earline Greenholt")
- *             .email("125.greenholt.earline{@literal @}graham.name")
+ *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
  *             .build());
  * 
  *         var foo = new TeamMembership("foo", TeamMembershipArgs.builder()
@@ -140,7 +140,7 @@ import javax.annotation.Nullable;
  *                                 .build())
  *                             .extractions(                            
  *                                 EventOrchestrationServiceSetRuleActionsExtractionArgs.builder()
- *                                     .template("{{variables.hostname}}")
+ *                                     .template("}{{{@code variables.hostname}}}{@code ")
  *                                     .target("event.custom_details.hostname")
  *                                     .build(),
  *                                 EventOrchestrationServiceSetRuleActionsExtractionArgs.builder()
@@ -219,8 +219,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -297,7 +297,7 @@ public class EventOrchestrationService extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventOrchestrationService(String name) {
+    public EventOrchestrationService(java.lang.String name) {
         this(name, EventOrchestrationServiceArgs.Empty);
     }
     /**
@@ -305,7 +305,7 @@ public class EventOrchestrationService extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventOrchestrationService(String name, EventOrchestrationServiceArgs args) {
+    public EventOrchestrationService(java.lang.String name, EventOrchestrationServiceArgs args) {
         this(name, args, null);
     }
     /**
@@ -314,12 +314,12 @@ public class EventOrchestrationService extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventOrchestrationService(String name, EventOrchestrationServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/eventOrchestrationService:EventOrchestrationService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EventOrchestrationService(java.lang.String name, EventOrchestrationServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/eventOrchestrationService:EventOrchestrationService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventOrchestrationService(String name, Output<String> id, @Nullable EventOrchestrationServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/eventOrchestrationService:EventOrchestrationService", name, state, makeResourceOptions(options, id));
+    private EventOrchestrationService(java.lang.String name, Output<java.lang.String> id, @Nullable EventOrchestrationServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/eventOrchestrationService:EventOrchestrationService", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EventOrchestrationServiceArgs makeArgs(EventOrchestrationServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -329,7 +329,7 @@ public class EventOrchestrationService extends com.pulumi.resources.CustomResour
         return args == null ? EventOrchestrationServiceArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -345,7 +345,7 @@ public class EventOrchestrationService extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventOrchestrationService get(String name, Output<String> id, @Nullable EventOrchestrationServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventOrchestrationService get(java.lang.String name, Output<java.lang.String> id, @Nullable EventOrchestrationServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventOrchestrationService(name, id, state, options);
     }
 }

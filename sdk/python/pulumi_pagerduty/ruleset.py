@@ -131,7 +131,7 @@ class Ruleset(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 team: Optional[pulumi.Input[pulumi.InputType['RulesetTeamArgs']]] = None,
+                 team: Optional[pulumi.Input[Union['RulesetTeamArgs', 'RulesetTeamArgsDict']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -143,9 +143,9 @@ class Ruleset(pulumi.CustomResource):
         foo = pagerduty.Team("foo", name="Engineering (Seattle)")
         foo_ruleset = pagerduty.Ruleset("foo",
             name="Primary Ruleset",
-            team=pagerduty.RulesetTeamArgs(
-                id=foo.id,
-            ))
+            team={
+                "id": foo.id,
+            })
         ```
 
         ## Import
@@ -159,7 +159,7 @@ class Ruleset(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the ruleset.
-        :param pulumi.Input[pulumi.InputType['RulesetTeamArgs']] team: Reference to the team that owns the ruleset. If none is specified, only admins have access.
+        :param pulumi.Input[Union['RulesetTeamArgs', 'RulesetTeamArgsDict']] team: Reference to the team that owns the ruleset. If none is specified, only admins have access.
         """
         ...
     @overload
@@ -177,9 +177,9 @@ class Ruleset(pulumi.CustomResource):
         foo = pagerduty.Team("foo", name="Engineering (Seattle)")
         foo_ruleset = pagerduty.Ruleset("foo",
             name="Primary Ruleset",
-            team=pagerduty.RulesetTeamArgs(
-                id=foo.id,
-            ))
+            team={
+                "id": foo.id,
+            })
         ```
 
         ## Import
@@ -206,7 +206,7 @@ class Ruleset(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 team: Optional[pulumi.Input[pulumi.InputType['RulesetTeamArgs']]] = None,
+                 team: Optional[pulumi.Input[Union['RulesetTeamArgs', 'RulesetTeamArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -232,7 +232,7 @@ class Ruleset(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
             routing_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            team: Optional[pulumi.Input[pulumi.InputType['RulesetTeamArgs']]] = None,
+            team: Optional[pulumi.Input[Union['RulesetTeamArgs', 'RulesetTeamArgsDict']]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'Ruleset':
         """
         Get an existing Ruleset resource's state with the given name, id, and optional extra
@@ -243,7 +243,7 @@ class Ruleset(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the ruleset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] routing_keys: Routing keys routed to this ruleset.
-        :param pulumi.Input[pulumi.InputType['RulesetTeamArgs']] team: Reference to the team that owns the ruleset. If none is specified, only admins have access.
+        :param pulumi.Input[Union['RulesetTeamArgs', 'RulesetTeamArgsDict']] team: Reference to the team that owns the ruleset. If none is specified, only admins have access.
         :param pulumi.Input[str] type: Type of ruleset. Currently, only sets to `global`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

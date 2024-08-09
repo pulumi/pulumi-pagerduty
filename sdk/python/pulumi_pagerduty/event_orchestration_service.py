@@ -159,10 +159,10 @@ class EventOrchestrationService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catch_all: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationServiceCatchAllArgs']]] = None,
+                 catch_all: Optional[pulumi.Input[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']]] = None,
                  enable_event_orchestration_for_service: Optional[pulumi.Input[bool]] = None,
                  service: Optional[pulumi.Input[str]] = None,
-                 sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationServiceSetArgs']]]]] = None,
+                 sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict']]]]] = None,
                  __props__=None):
         """
         A [Service Orchestration](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) allows you to create a set of Event Rules. The Service Orchestration evaluates Events sent to this Service against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Service Orchestration for further processing.
@@ -194,13 +194,13 @@ class EventOrchestrationService(pulumi.CustomResource):
         example_escalation_policy = pagerduty.EscalationPolicy("example",
             name="Engineering Escalation Policy",
             num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user_reference",
-                    id=example.id,
-                )],
-            )])
+            rules=[{
+                "escalation_delay_in_minutes": 10,
+                "targets": [{
+                    "type": "user_reference",
+                    "id": example.id,
+                }],
+            }])
         example_service = pagerduty.Service("example",
             name="My Web App",
             auto_resolve_timeout="14400",
@@ -217,100 +217,100 @@ class EventOrchestrationService(pulumi.CustomResource):
             service=example_service.id,
             enable_event_orchestration_for_service=True,
             sets=[
-                pagerduty.EventOrchestrationServiceSetArgs(
-                    id="start",
-                    rules=[pagerduty.EventOrchestrationServiceSetRuleArgs(
-                        label="Always apply some consistent event transformations to all events",
-                        actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
-                            variables=[pagerduty.EventOrchestrationServiceSetRuleActionsVariableArgs(
-                                name="hostname",
-                                path="event.component",
-                                value="hostname: (.*)",
-                                type="regex",
-                            )],
-                            extractions=[
-                                pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs(
-                                    template="{{variables.hostname}}",
-                                    target="event.custom_details.hostname",
-                                ),
-                                pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs(
-                                    source="event.source",
-                                    regex="www (.*) service",
-                                    target="event.source",
-                                ),
+                {
+                    "id": "start",
+                    "rules": [{
+                        "label": "Always apply some consistent event transformations to all events",
+                        "actions": {
+                            "variables": [{
+                                "name": "hostname",
+                                "path": "event.component",
+                                "value": "hostname: (.*)",
+                                "type": "regex",
+                            }],
+                            "extractions": [
+                                {
+                                    "template": "{{variables.hostname}}",
+                                    "target": "event.custom_details.hostname",
+                                },
+                                {
+                                    "source": "event.source",
+                                    "regex": "www (.*) service",
+                                    "target": "event.source",
+                                },
                             ],
-                            route_to="step-two",
-                        ),
-                    )],
-                ),
-                pagerduty.EventOrchestrationServiceSetArgs(
-                    id="step-two",
-                    rules=[
-                        pagerduty.EventOrchestrationServiceSetRuleArgs(
-                            label="All critical alerts should be treated as P1 incident",
-                            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
-                                expression="event.severity matches 'critical'",
-                            )],
-                            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
-                                annotate="Please use our P1 runbook: https://docs.test/p1-runbook",
-                                priority=p1.id,
-                                incident_custom_field_updates=[pagerduty.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs(
-                                    id=cs_impact.id,
-                                    value="High Impact",
-                                )],
-                            ),
-                        ),
-                        pagerduty.EventOrchestrationServiceSetRuleArgs(
-                            label="If any of the API apps are unavailable, page the SRE team",
-                            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
-                                expression="event.custom_details.service_name matches part '-api' and event.custom_details.status_code matches '502'",
-                            )],
-                            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
-                                escalation_policy=sre_esc_policy.id,
-                            ),
-                        ),
-                        pagerduty.EventOrchestrationServiceSetRuleArgs(
-                            label="If there's something wrong on the canary let the team know about it in our deployments Slack channel",
-                            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
-                                expression="event.custom_details.hostname matches part 'canary'",
-                            )],
-                            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
-                                automation_action=pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionArgs(
-                                    name="Canary Slack Notification",
-                                    url="https://our-slack-listerner.test/canary-notification",
-                                    auto_send=True,
-                                    parameters=[
-                                        pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs(
-                                            key="channel",
-                                            value="#my-team-channel",
-                                        ),
-                                        pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs(
-                                            key="message",
-                                            value="something is wrong with the canary deployment",
-                                        ),
+                            "route_to": "step-two",
+                        },
+                    }],
+                },
+                {
+                    "id": "step-two",
+                    "rules": [
+                        {
+                            "label": "All critical alerts should be treated as P1 incident",
+                            "conditions": [{
+                                "expression": "event.severity matches 'critical'",
+                            }],
+                            "actions": {
+                                "annotate": "Please use our P1 runbook: https://docs.test/p1-runbook",
+                                "priority": p1.id,
+                                "incident_custom_field_updates": [{
+                                    "id": cs_impact.id,
+                                    "value": "High Impact",
+                                }],
+                            },
+                        },
+                        {
+                            "label": "If any of the API apps are unavailable, page the SRE team",
+                            "conditions": [{
+                                "expression": "event.custom_details.service_name matches part '-api' and event.custom_details.status_code matches '502'",
+                            }],
+                            "actions": {
+                                "escalation_policy": sre_esc_policy.id,
+                            },
+                        },
+                        {
+                            "label": "If there's something wrong on the canary let the team know about it in our deployments Slack channel",
+                            "conditions": [{
+                                "expression": "event.custom_details.hostname matches part 'canary'",
+                            }],
+                            "actions": {
+                                "automation_action": {
+                                    "name": "Canary Slack Notification",
+                                    "url": "https://our-slack-listerner.test/canary-notification",
+                                    "auto_send": True,
+                                    "parameters": [
+                                        {
+                                            "key": "channel",
+                                            "value": "#my-team-channel",
+                                        },
+                                        {
+                                            "key": "message",
+                                            "value": "something is wrong with the canary deployment",
+                                        },
                                     ],
-                                    headers=[pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs(
-                                        key="X-Notification-Source",
-                                        value="PagerDuty Incident Webhook",
-                                    )],
-                                ),
-                            ),
-                        ),
-                        pagerduty.EventOrchestrationServiceSetRuleArgs(
-                            label="Never bother the on-call for info-level events outside of work hours",
-                            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
-                                expression="event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)",
-                            )],
-                            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
-                                suppress=True,
-                            ),
-                        ),
+                                    "headers": [{
+                                        "key": "X-Notification-Source",
+                                        "value": "PagerDuty Incident Webhook",
+                                    }],
+                                },
+                            },
+                        },
+                        {
+                            "label": "Never bother the on-call for info-level events outside of work hours",
+                            "conditions": [{
+                                "expression": "event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)",
+                            }],
+                            "actions": {
+                                "suppress": True,
+                            },
+                        },
                     ],
-                ),
+                },
             ],
-            catch_all=pagerduty.EventOrchestrationServiceCatchAllArgs(
-                actions=pagerduty.EventOrchestrationServiceCatchAllActionsArgs(),
-            ))
+            catch_all={
+                "actions": {},
+            })
         ```
 
         ## Import
@@ -323,10 +323,10 @@ class EventOrchestrationService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EventOrchestrationServiceCatchAllArgs']] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+        :param pulumi.Input[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         :param pulumi.Input[bool] enable_event_orchestration_for_service: Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
         :param pulumi.Input[str] service: ID of the Service to which this Service Orchestration belongs to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationServiceSetArgs']]]] sets: A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict']]]] sets: A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
         """
         ...
     @overload
@@ -364,13 +364,13 @@ class EventOrchestrationService(pulumi.CustomResource):
         example_escalation_policy = pagerduty.EscalationPolicy("example",
             name="Engineering Escalation Policy",
             num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user_reference",
-                    id=example.id,
-                )],
-            )])
+            rules=[{
+                "escalation_delay_in_minutes": 10,
+                "targets": [{
+                    "type": "user_reference",
+                    "id": example.id,
+                }],
+            }])
         example_service = pagerduty.Service("example",
             name="My Web App",
             auto_resolve_timeout="14400",
@@ -387,100 +387,100 @@ class EventOrchestrationService(pulumi.CustomResource):
             service=example_service.id,
             enable_event_orchestration_for_service=True,
             sets=[
-                pagerduty.EventOrchestrationServiceSetArgs(
-                    id="start",
-                    rules=[pagerduty.EventOrchestrationServiceSetRuleArgs(
-                        label="Always apply some consistent event transformations to all events",
-                        actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
-                            variables=[pagerduty.EventOrchestrationServiceSetRuleActionsVariableArgs(
-                                name="hostname",
-                                path="event.component",
-                                value="hostname: (.*)",
-                                type="regex",
-                            )],
-                            extractions=[
-                                pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs(
-                                    template="{{variables.hostname}}",
-                                    target="event.custom_details.hostname",
-                                ),
-                                pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs(
-                                    source="event.source",
-                                    regex="www (.*) service",
-                                    target="event.source",
-                                ),
+                {
+                    "id": "start",
+                    "rules": [{
+                        "label": "Always apply some consistent event transformations to all events",
+                        "actions": {
+                            "variables": [{
+                                "name": "hostname",
+                                "path": "event.component",
+                                "value": "hostname: (.*)",
+                                "type": "regex",
+                            }],
+                            "extractions": [
+                                {
+                                    "template": "{{variables.hostname}}",
+                                    "target": "event.custom_details.hostname",
+                                },
+                                {
+                                    "source": "event.source",
+                                    "regex": "www (.*) service",
+                                    "target": "event.source",
+                                },
                             ],
-                            route_to="step-two",
-                        ),
-                    )],
-                ),
-                pagerduty.EventOrchestrationServiceSetArgs(
-                    id="step-two",
-                    rules=[
-                        pagerduty.EventOrchestrationServiceSetRuleArgs(
-                            label="All critical alerts should be treated as P1 incident",
-                            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
-                                expression="event.severity matches 'critical'",
-                            )],
-                            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
-                                annotate="Please use our P1 runbook: https://docs.test/p1-runbook",
-                                priority=p1.id,
-                                incident_custom_field_updates=[pagerduty.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs(
-                                    id=cs_impact.id,
-                                    value="High Impact",
-                                )],
-                            ),
-                        ),
-                        pagerduty.EventOrchestrationServiceSetRuleArgs(
-                            label="If any of the API apps are unavailable, page the SRE team",
-                            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
-                                expression="event.custom_details.service_name matches part '-api' and event.custom_details.status_code matches '502'",
-                            )],
-                            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
-                                escalation_policy=sre_esc_policy.id,
-                            ),
-                        ),
-                        pagerduty.EventOrchestrationServiceSetRuleArgs(
-                            label="If there's something wrong on the canary let the team know about it in our deployments Slack channel",
-                            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
-                                expression="event.custom_details.hostname matches part 'canary'",
-                            )],
-                            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
-                                automation_action=pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionArgs(
-                                    name="Canary Slack Notification",
-                                    url="https://our-slack-listerner.test/canary-notification",
-                                    auto_send=True,
-                                    parameters=[
-                                        pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs(
-                                            key="channel",
-                                            value="#my-team-channel",
-                                        ),
-                                        pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs(
-                                            key="message",
-                                            value="something is wrong with the canary deployment",
-                                        ),
+                            "route_to": "step-two",
+                        },
+                    }],
+                },
+                {
+                    "id": "step-two",
+                    "rules": [
+                        {
+                            "label": "All critical alerts should be treated as P1 incident",
+                            "conditions": [{
+                                "expression": "event.severity matches 'critical'",
+                            }],
+                            "actions": {
+                                "annotate": "Please use our P1 runbook: https://docs.test/p1-runbook",
+                                "priority": p1.id,
+                                "incident_custom_field_updates": [{
+                                    "id": cs_impact.id,
+                                    "value": "High Impact",
+                                }],
+                            },
+                        },
+                        {
+                            "label": "If any of the API apps are unavailable, page the SRE team",
+                            "conditions": [{
+                                "expression": "event.custom_details.service_name matches part '-api' and event.custom_details.status_code matches '502'",
+                            }],
+                            "actions": {
+                                "escalation_policy": sre_esc_policy.id,
+                            },
+                        },
+                        {
+                            "label": "If there's something wrong on the canary let the team know about it in our deployments Slack channel",
+                            "conditions": [{
+                                "expression": "event.custom_details.hostname matches part 'canary'",
+                            }],
+                            "actions": {
+                                "automation_action": {
+                                    "name": "Canary Slack Notification",
+                                    "url": "https://our-slack-listerner.test/canary-notification",
+                                    "auto_send": True,
+                                    "parameters": [
+                                        {
+                                            "key": "channel",
+                                            "value": "#my-team-channel",
+                                        },
+                                        {
+                                            "key": "message",
+                                            "value": "something is wrong with the canary deployment",
+                                        },
                                     ],
-                                    headers=[pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs(
-                                        key="X-Notification-Source",
-                                        value="PagerDuty Incident Webhook",
-                                    )],
-                                ),
-                            ),
-                        ),
-                        pagerduty.EventOrchestrationServiceSetRuleArgs(
-                            label="Never bother the on-call for info-level events outside of work hours",
-                            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
-                                expression="event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)",
-                            )],
-                            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
-                                suppress=True,
-                            ),
-                        ),
+                                    "headers": [{
+                                        "key": "X-Notification-Source",
+                                        "value": "PagerDuty Incident Webhook",
+                                    }],
+                                },
+                            },
+                        },
+                        {
+                            "label": "Never bother the on-call for info-level events outside of work hours",
+                            "conditions": [{
+                                "expression": "event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)",
+                            }],
+                            "actions": {
+                                "suppress": True,
+                            },
+                        },
                     ],
-                ),
+                },
             ],
-            catch_all=pagerduty.EventOrchestrationServiceCatchAllArgs(
-                actions=pagerduty.EventOrchestrationServiceCatchAllActionsArgs(),
-            ))
+            catch_all={
+                "actions": {},
+            })
         ```
 
         ## Import
@@ -506,10 +506,10 @@ class EventOrchestrationService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catch_all: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationServiceCatchAllArgs']]] = None,
+                 catch_all: Optional[pulumi.Input[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']]] = None,
                  enable_event_orchestration_for_service: Optional[pulumi.Input[bool]] = None,
                  service: Optional[pulumi.Input[str]] = None,
-                 sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationServiceSetArgs']]]]] = None,
+                 sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -539,10 +539,10 @@ class EventOrchestrationService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            catch_all: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationServiceCatchAllArgs']]] = None,
+            catch_all: Optional[pulumi.Input[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']]] = None,
             enable_event_orchestration_for_service: Optional[pulumi.Input[bool]] = None,
             service: Optional[pulumi.Input[str]] = None,
-            sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationServiceSetArgs']]]]] = None) -> 'EventOrchestrationService':
+            sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict']]]]] = None) -> 'EventOrchestrationService':
         """
         Get an existing EventOrchestrationService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -550,10 +550,10 @@ class EventOrchestrationService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EventOrchestrationServiceCatchAllArgs']] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+        :param pulumi.Input[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         :param pulumi.Input[bool] enable_event_orchestration_for_service: Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
         :param pulumi.Input[str] service: ID of the Service to which this Service Orchestration belongs to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationServiceSetArgs']]]] sets: A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict']]]] sets: A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

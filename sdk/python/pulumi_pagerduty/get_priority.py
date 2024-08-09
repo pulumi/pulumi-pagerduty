@@ -85,33 +85,33 @@ def get_priority(name: Optional[str] = None,
         ruleset=foo.id,
         position=0,
         disabled=False,
-        conditions=pagerduty.RulesetRuleConditionsArgs(
-            operator="and",
-            subconditions=[
-                pagerduty.RulesetRuleConditionsSubconditionArgs(
-                    operator="contains",
-                    parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
-                        value="disk space",
-                        path="payload.summary",
-                    )],
-                ),
-                pagerduty.RulesetRuleConditionsSubconditionArgs(
-                    operator="contains",
-                    parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
-                        value="db",
-                        path="payload.source",
-                    )],
-                ),
+        conditions={
+            "operator": "and",
+            "subconditions": [
+                {
+                    "operator": "contains",
+                    "parameters": [{
+                        "value": "disk space",
+                        "path": "payload.summary",
+                    }],
+                },
+                {
+                    "operator": "contains",
+                    "parameters": [{
+                        "value": "db",
+                        "path": "payload.source",
+                    }],
+                },
             ],
-        ),
-        actions=pagerduty.RulesetRuleActionsArgs(
-            routes=[pagerduty.RulesetRuleActionsRouteArgs(
-                value="P5DTL0K",
-            )],
-            priorities=[pagerduty.RulesetRuleActionsPriorityArgs(
-                value=p1.id,
-            )],
-        ))
+        },
+        actions={
+            "routes": [{
+                "value": "P5DTL0K",
+            }],
+            "priorities": [{
+                "value": p1.id,
+            }],
+        })
     ```
 
 
@@ -146,33 +146,33 @@ def get_priority_output(name: Optional[pulumi.Input[str]] = None,
         ruleset=foo.id,
         position=0,
         disabled=False,
-        conditions=pagerduty.RulesetRuleConditionsArgs(
-            operator="and",
-            subconditions=[
-                pagerduty.RulesetRuleConditionsSubconditionArgs(
-                    operator="contains",
-                    parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
-                        value="disk space",
-                        path="payload.summary",
-                    )],
-                ),
-                pagerduty.RulesetRuleConditionsSubconditionArgs(
-                    operator="contains",
-                    parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
-                        value="db",
-                        path="payload.source",
-                    )],
-                ),
+        conditions={
+            "operator": "and",
+            "subconditions": [
+                {
+                    "operator": "contains",
+                    "parameters": [{
+                        "value": "disk space",
+                        "path": "payload.summary",
+                    }],
+                },
+                {
+                    "operator": "contains",
+                    "parameters": [{
+                        "value": "db",
+                        "path": "payload.source",
+                    }],
+                },
             ],
-        ),
-        actions=pagerduty.RulesetRuleActionsArgs(
-            routes=[pagerduty.RulesetRuleActionsRouteArgs(
-                value="P5DTL0K",
-            )],
-            priorities=[pagerduty.RulesetRuleActionsPriorityArgs(
-                value=p1.id,
-            )],
-        ))
+        },
+        actions={
+            "routes": [{
+                "value": "P5DTL0K",
+            }],
+            "priorities": [{
+                "value": p1.id,
+            }],
+        })
     ```
 
 

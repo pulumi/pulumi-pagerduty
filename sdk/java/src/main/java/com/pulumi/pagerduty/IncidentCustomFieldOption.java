@@ -125,7 +125,7 @@ public class IncidentCustomFieldOption extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IncidentCustomFieldOption(String name) {
+    public IncidentCustomFieldOption(java.lang.String name) {
         this(name, IncidentCustomFieldOptionArgs.Empty);
     }
     /**
@@ -133,7 +133,7 @@ public class IncidentCustomFieldOption extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IncidentCustomFieldOption(String name, IncidentCustomFieldOptionArgs args) {
+    public IncidentCustomFieldOption(java.lang.String name, IncidentCustomFieldOptionArgs args) {
         this(name, args, null);
     }
     /**
@@ -142,12 +142,12 @@ public class IncidentCustomFieldOption extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IncidentCustomFieldOption(String name, IncidentCustomFieldOptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IncidentCustomFieldOption(java.lang.String name, IncidentCustomFieldOptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IncidentCustomFieldOption(String name, Output<String> id, @Nullable IncidentCustomFieldOptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption", name, state, makeResourceOptions(options, id));
+    private IncidentCustomFieldOption(java.lang.String name, Output<java.lang.String> id, @Nullable IncidentCustomFieldOptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IncidentCustomFieldOptionArgs makeArgs(IncidentCustomFieldOptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -157,7 +157,7 @@ public class IncidentCustomFieldOption extends com.pulumi.resources.CustomResour
         return args == null ? IncidentCustomFieldOptionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -173,7 +173,7 @@ public class IncidentCustomFieldOption extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IncidentCustomFieldOption get(String name, Output<String> id, @Nullable IncidentCustomFieldOptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IncidentCustomFieldOption get(java.lang.String name, Output<java.lang.String> id, @Nullable IncidentCustomFieldOptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IncidentCustomFieldOption(name, id, state, options);
     }
 }

@@ -249,7 +249,7 @@ class Schedule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 layers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]]] = None,
+                 layers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overflow: Optional[pulumi.Input[bool]] = None,
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -271,18 +271,18 @@ class Schedule(pulumi.CustomResource):
         foo = pagerduty.Schedule("foo",
             name="Daily Engineering Rotation",
             time_zone="America/New_York",
-            layers=[pagerduty.ScheduleLayerArgs(
-                name="Night Shift",
-                start="2015-11-06T20:00:00-05:00",
-                rotation_virtual_start="2015-11-06T20:00:00-05:00",
-                rotation_turn_length_seconds=86400,
-                users=[example.id],
-                restrictions=[pagerduty.ScheduleLayerRestrictionArgs(
-                    type="daily_restriction",
-                    start_time_of_day="08:00:00",
-                    duration_seconds=32400,
-                )],
-            )],
+            layers=[{
+                "name": "Night Shift",
+                "start": "2015-11-06T20:00:00-05:00",
+                "rotation_virtual_start": "2015-11-06T20:00:00-05:00",
+                "rotation_turn_length_seconds": 86400,
+                "users": [example.id],
+                "restrictions": [{
+                    "type": "daily_restriction",
+                    "start_time_of_day": "08:00:00",
+                    "duration_seconds": 32400,
+                }],
+            }],
             teams=[example_team.id])
         ```
 
@@ -297,7 +297,7 @@ class Schedule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the schedule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]] layers: A schedule layer block. Schedule layers documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict']]]] layers: A schedule layer block. Schedule layers documented below.
         :param pulumi.Input[str] name: The name of the schedule.
         :param pulumi.Input[bool] overflow: Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
                If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
@@ -327,18 +327,18 @@ class Schedule(pulumi.CustomResource):
         foo = pagerduty.Schedule("foo",
             name="Daily Engineering Rotation",
             time_zone="America/New_York",
-            layers=[pagerduty.ScheduleLayerArgs(
-                name="Night Shift",
-                start="2015-11-06T20:00:00-05:00",
-                rotation_virtual_start="2015-11-06T20:00:00-05:00",
-                rotation_turn_length_seconds=86400,
-                users=[example.id],
-                restrictions=[pagerduty.ScheduleLayerRestrictionArgs(
-                    type="daily_restriction",
-                    start_time_of_day="08:00:00",
-                    duration_seconds=32400,
-                )],
-            )],
+            layers=[{
+                "name": "Night Shift",
+                "start": "2015-11-06T20:00:00-05:00",
+                "rotation_virtual_start": "2015-11-06T20:00:00-05:00",
+                "rotation_turn_length_seconds": 86400,
+                "users": [example.id],
+                "restrictions": [{
+                    "type": "daily_restriction",
+                    "start_time_of_day": "08:00:00",
+                    "duration_seconds": 32400,
+                }],
+            }],
             teams=[example_team.id])
         ```
 
@@ -366,7 +366,7 @@ class Schedule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 layers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]]] = None,
+                 layers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overflow: Optional[pulumi.Input[bool]] = None,
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -404,8 +404,8 @@ class Schedule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
-            final_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleFinalScheduleArgs']]]]] = None,
-            layers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]]] = None,
+            final_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleFinalScheduleArgs', 'ScheduleFinalScheduleArgsDict']]]]] = None,
+            layers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             overflow: Optional[pulumi.Input[bool]] = None,
             teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -418,7 +418,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the schedule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]] layers: A schedule layer block. Schedule layers documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict']]]] layers: A schedule layer block. Schedule layers documented below.
         :param pulumi.Input[str] name: The name of the schedule.
         :param pulumi.Input[bool] overflow: Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
                If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.

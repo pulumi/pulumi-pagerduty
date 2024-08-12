@@ -44,15 +44,15 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new User("example", UserArgs.builder()
  *             .name("Earline Greenholt")
- *             .email("125.greenholt.earline{@literal @}graham.name")
+ *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
  *             .teams(examplePagerdutyTeam.id())
  *             .build());
  * 
@@ -82,8 +82,8 @@ import javax.annotation.Nullable;
  *             .runnability("services")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -264,7 +264,7 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResponsePlay(String name) {
+    public ResponsePlay(java.lang.String name) {
         this(name, ResponsePlayArgs.Empty);
     }
     /**
@@ -272,7 +272,7 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResponsePlay(String name, ResponsePlayArgs args) {
+    public ResponsePlay(java.lang.String name, ResponsePlayArgs args) {
         this(name, args, null);
     }
     /**
@@ -281,12 +281,12 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResponsePlay(String name, ResponsePlayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/responsePlay:ResponsePlay", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ResponsePlay(java.lang.String name, ResponsePlayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/responsePlay:ResponsePlay", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResponsePlay(String name, Output<String> id, @Nullable ResponsePlayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/responsePlay:ResponsePlay", name, state, makeResourceOptions(options, id));
+    private ResponsePlay(java.lang.String name, Output<java.lang.String> id, @Nullable ResponsePlayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/responsePlay:ResponsePlay", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ResponsePlayArgs makeArgs(ResponsePlayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -296,7 +296,7 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
         return args == null ? ResponsePlayArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -312,7 +312,7 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResponsePlay get(String name, Output<String> id, @Nullable ResponsePlayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResponsePlay get(java.lang.String name, Output<java.lang.String> id, @Nullable ResponsePlayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResponsePlay(name, id, state, options);
     }
 }

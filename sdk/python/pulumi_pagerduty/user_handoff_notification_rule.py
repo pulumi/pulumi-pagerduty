@@ -159,7 +159,7 @@ class UserHandoffNotificationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_method: Optional[pulumi.Input[pulumi.InputType['UserHandoffNotificationRuleContactMethodArgs']]] = None,
+                 contact_method: Optional[pulumi.Input[Union['UserHandoffNotificationRuleContactMethodArgs', 'UserHandoffNotificationRuleContactMethodArgsDict']]] = None,
                  handoff_type: Optional[pulumi.Input[str]] = None,
                  notify_advance_in_minutes: Optional[pulumi.Input[int]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
@@ -186,10 +186,10 @@ class UserHandoffNotificationRule(pulumi.CustomResource):
             user_id=example.id,
             handoff_type="both",
             notify_advance_in_minutes=180,
-            contact_method=pagerduty.UserHandoffNotificationRuleContactMethodArgs(
-                id=phone.id,
-                type=phone.type,
-            ))
+            contact_method={
+                "id": phone.id,
+                "type": phone.type,
+            })
         ```
 
         ## Import
@@ -202,7 +202,7 @@ class UserHandoffNotificationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserHandoffNotificationRuleContactMethodArgs']] contact_method: The contact method to notify the user. Contact method documented below.
+        :param pulumi.Input[Union['UserHandoffNotificationRuleContactMethodArgs', 'UserHandoffNotificationRuleContactMethodArgsDict']] contact_method: The contact method to notify the user. Contact method documented below.
         :param pulumi.Input[str] handoff_type: The type of handoff to notify the user about. Possible values are `oncall`, `offcall`, `both`.
         :param pulumi.Input[int] notify_advance_in_minutes: The number of minutes before the handoff that the user should be notified. Must be a positive integer greater than or equal to 0.
         :param pulumi.Input[str] user_id: The ID of the user.
@@ -235,10 +235,10 @@ class UserHandoffNotificationRule(pulumi.CustomResource):
             user_id=example.id,
             handoff_type="both",
             notify_advance_in_minutes=180,
-            contact_method=pagerduty.UserHandoffNotificationRuleContactMethodArgs(
-                id=phone.id,
-                type=phone.type,
-            ))
+            contact_method={
+                "id": phone.id,
+                "type": phone.type,
+            })
         ```
 
         ## Import
@@ -264,7 +264,7 @@ class UserHandoffNotificationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_method: Optional[pulumi.Input[pulumi.InputType['UserHandoffNotificationRuleContactMethodArgs']]] = None,
+                 contact_method: Optional[pulumi.Input[Union['UserHandoffNotificationRuleContactMethodArgs', 'UserHandoffNotificationRuleContactMethodArgsDict']]] = None,
                  handoff_type: Optional[pulumi.Input[str]] = None,
                  notify_advance_in_minutes: Optional[pulumi.Input[int]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
@@ -297,7 +297,7 @@ class UserHandoffNotificationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            contact_method: Optional[pulumi.Input[pulumi.InputType['UserHandoffNotificationRuleContactMethodArgs']]] = None,
+            contact_method: Optional[pulumi.Input[Union['UserHandoffNotificationRuleContactMethodArgs', 'UserHandoffNotificationRuleContactMethodArgsDict']]] = None,
             handoff_type: Optional[pulumi.Input[str]] = None,
             notify_advance_in_minutes: Optional[pulumi.Input[int]] = None,
             user_id: Optional[pulumi.Input[str]] = None) -> 'UserHandoffNotificationRule':
@@ -308,7 +308,7 @@ class UserHandoffNotificationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserHandoffNotificationRuleContactMethodArgs']] contact_method: The contact method to notify the user. Contact method documented below.
+        :param pulumi.Input[Union['UserHandoffNotificationRuleContactMethodArgs', 'UserHandoffNotificationRuleContactMethodArgsDict']] contact_method: The contact method to notify the user. Contact method documented below.
         :param pulumi.Input[str] handoff_type: The type of handoff to notify the user about. Possible values are `oncall`, `offcall`, `both`.
         :param pulumi.Input[int] notify_advance_in_minutes: The number of minutes before the handoff that the user should be notified. Must be a positive integer greater than or equal to 0.
         :param pulumi.Input[str] user_id: The ID of the user.

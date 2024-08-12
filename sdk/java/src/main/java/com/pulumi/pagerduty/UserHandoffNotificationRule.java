@@ -42,15 +42,15 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new User("example", UserArgs.builder()
  *             .name("Earline Greenholt")
- *             .email("125.greenholt.earline{@literal @}foo.test")
+ *             .email("125.greenholt.earline}{@literal @}{@code foo.test")
  *             .build());
  * 
  *         var phone = new UserContactMethod("phone", UserContactMethodArgs.builder()
@@ -71,8 +71,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -149,7 +149,7 @@ public class UserHandoffNotificationRule extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UserHandoffNotificationRule(String name) {
+    public UserHandoffNotificationRule(java.lang.String name) {
         this(name, UserHandoffNotificationRuleArgs.Empty);
     }
     /**
@@ -157,7 +157,7 @@ public class UserHandoffNotificationRule extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UserHandoffNotificationRule(String name, UserHandoffNotificationRuleArgs args) {
+    public UserHandoffNotificationRule(java.lang.String name, UserHandoffNotificationRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -166,12 +166,12 @@ public class UserHandoffNotificationRule extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UserHandoffNotificationRule(String name, UserHandoffNotificationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public UserHandoffNotificationRule(java.lang.String name, UserHandoffNotificationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UserHandoffNotificationRule(String name, Output<String> id, @Nullable UserHandoffNotificationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule", name, state, makeResourceOptions(options, id));
+    private UserHandoffNotificationRule(java.lang.String name, Output<java.lang.String> id, @Nullable UserHandoffNotificationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static UserHandoffNotificationRuleArgs makeArgs(UserHandoffNotificationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -181,7 +181,7 @@ public class UserHandoffNotificationRule extends com.pulumi.resources.CustomReso
         return args == null ? UserHandoffNotificationRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -197,7 +197,7 @@ public class UserHandoffNotificationRule extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UserHandoffNotificationRule get(String name, Output<String> id, @Nullable UserHandoffNotificationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UserHandoffNotificationRule get(java.lang.String name, Output<java.lang.String> id, @Nullable UserHandoffNotificationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UserHandoffNotificationRule(name, id, state, options);
     }
 }

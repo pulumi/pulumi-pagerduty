@@ -1277,19 +1277,19 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var engineering = new Team("engineering", TeamArgs.builder()
      *             .name("Engineering")
      *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .teams(engineering.id())
      *             .build());
      * 
@@ -1318,8 +1318,8 @@ public final class PagerdutyFunctions {
      *             .name("example_cache_variable")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -1359,19 +1359,19 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var engineering = new Team("engineering", TeamArgs.builder()
      *             .name("Engineering")
      *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .teams(engineering.id())
      *             .build());
      * 
@@ -1400,8 +1400,8 @@ public final class PagerdutyFunctions {
      *             .name("example_cache_variable")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -1441,19 +1441,19 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var engineering = new Team("engineering", TeamArgs.builder()
      *             .name("Engineering")
      *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .teams(engineering.id())
      *             .build());
      * 
@@ -1482,8 +1482,8 @@ public final class PagerdutyFunctions {
      *             .name("example_cache_variable")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -1523,19 +1523,19 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         var engineering = new Team("engineering", TeamArgs.builder()
      *             .name("Engineering")
      *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .teams(engineering.id())
      *             .build());
      * 
@@ -1564,8 +1564,8 @@ public final class PagerdutyFunctions {
      *             .name("example_cache_variable")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -1813,19 +1813,19 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var webhook = PagerdutyFunctions.getExtensionSchema(GetExtensionSchemaArgs.builder()
      *             .name("Generic V2 Webhook")
      *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Howard James")
-     *             .email("howard.james{@literal @}example.domain")
+     *             .email("howard.james}{@literal @}{@code example.domain")
      *             .teams(examplePagerdutyTeam.id())
      *             .build());
      * 
@@ -1855,8 +1855,8 @@ public final class PagerdutyFunctions {
      *             .extensionObjects(exampleService.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -1896,19 +1896,19 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var webhook = PagerdutyFunctions.getExtensionSchema(GetExtensionSchemaArgs.builder()
      *             .name("Generic V2 Webhook")
      *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Howard James")
-     *             .email("howard.james{@literal @}example.domain")
+     *             .email("howard.james}{@literal @}{@code example.domain")
      *             .teams(examplePagerdutyTeam.id())
      *             .build());
      * 
@@ -1938,8 +1938,8 @@ public final class PagerdutyFunctions {
      *             .extensionObjects(exampleService.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -1979,19 +1979,19 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var webhook = PagerdutyFunctions.getExtensionSchema(GetExtensionSchemaArgs.builder()
      *             .name("Generic V2 Webhook")
      *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Howard James")
-     *             .email("howard.james{@literal @}example.domain")
+     *             .email("howard.james}{@literal @}{@code example.domain")
      *             .teams(examplePagerdutyTeam.id())
      *             .build());
      * 
@@ -2021,8 +2021,8 @@ public final class PagerdutyFunctions {
      *             .extensionObjects(exampleService.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -2062,19 +2062,19 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var webhook = PagerdutyFunctions.getExtensionSchema(GetExtensionSchemaArgs.builder()
      *             .name("Generic V2 Webhook")
      *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Howard James")
-     *             .email("howard.james{@literal @}example.domain")
+     *             .email("howard.james}{@literal @}{@code example.domain")
      *             .teams(examplePagerdutyTeam.id())
      *             .build());
      * 
@@ -2104,8 +2104,8 @@ public final class PagerdutyFunctions {
      *             .extensionObjects(exampleService.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -2564,12 +2564,12 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var invalidRoles = "owner";
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
@@ -2579,13 +2579,13 @@ public final class PagerdutyFunctions {
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
      *             .role("user")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -2620,12 +2620,12 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var invalidRoles = "owner";
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
@@ -2635,13 +2635,13 @@ public final class PagerdutyFunctions {
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
      *             .role("user")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -2676,12 +2676,12 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var invalidRoles = "owner";
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
@@ -2691,13 +2691,13 @@ public final class PagerdutyFunctions {
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
      *             .role("user")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -2732,12 +2732,12 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var invalidRoles = "owner";
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
@@ -2747,13 +2747,13 @@ public final class PagerdutyFunctions {
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
      *             .role("user")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -2788,12 +2788,12 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var invalidRoles = "owner";
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
@@ -2803,13 +2803,13 @@ public final class PagerdutyFunctions {
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
      *             .role("user")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -2844,12 +2844,12 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var invalidRoles = "owner";
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
@@ -2859,13 +2859,13 @@ public final class PagerdutyFunctions {
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
      *             .role("user")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -2898,25 +2898,25 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var invalidRoles = "owner";
      * 
      *         final var licenses = PagerdutyFunctions.getLicenses();
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
      *             .role("user")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -2949,25 +2949,25 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var invalidRoles = "owner";
      * 
      *         final var licenses = PagerdutyFunctions.getLicenses();
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
      *             .role("user")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -3000,25 +3000,25 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var invalidRoles = "owner";
      * 
      *         final var licenses = PagerdutyFunctions.getLicenses();
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
      *             .role("user")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -3051,25 +3051,25 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var invalidRoles = "owner";
      * 
      *         final var licenses = PagerdutyFunctions.getLicenses();
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
      *             .role("user")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -3102,25 +3102,25 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var invalidRoles = "owner";
      * 
      *         final var licenses = PagerdutyFunctions.getLicenses();
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
      *             .role("user")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -3153,25 +3153,25 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var invalidRoles = "owner";
      * 
      *         final var licenses = PagerdutyFunctions.getLicenses();
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
      *             .role("user")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5279,14 +5279,14 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         final var devops = PagerdutyFunctions.getTag(GetTagArgs.builder()
@@ -5299,8 +5299,8 @@ public final class PagerdutyFunctions {
      *             .entityType("users")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5334,14 +5334,14 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         final var devops = PagerdutyFunctions.getTag(GetTagArgs.builder()
@@ -5354,8 +5354,8 @@ public final class PagerdutyFunctions {
      *             .entityType("users")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5389,14 +5389,14 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         final var devops = PagerdutyFunctions.getTag(GetTagArgs.builder()
@@ -5409,8 +5409,8 @@ public final class PagerdutyFunctions {
      *             .entityType("users")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5444,14 +5444,14 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         final var devops = PagerdutyFunctions.getTag(GetTagArgs.builder()
@@ -5464,8 +5464,8 @@ public final class PagerdutyFunctions {
      *             .entityType("users")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5500,14 +5500,14 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
@@ -5527,8 +5527,8 @@ public final class PagerdutyFunctions {
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5563,14 +5563,14 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
@@ -5590,8 +5590,8 @@ public final class PagerdutyFunctions {
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5626,14 +5626,14 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
@@ -5653,8 +5653,8 @@ public final class PagerdutyFunctions {
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5689,14 +5689,14 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
@@ -5716,8 +5716,8 @@ public final class PagerdutyFunctions {
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5939,14 +5939,14 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
@@ -5961,8 +5961,8 @@ public final class PagerdutyFunctions {
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5996,14 +5996,14 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
@@ -6018,8 +6018,8 @@ public final class PagerdutyFunctions {
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6053,14 +6053,14 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
@@ -6075,8 +6075,8 @@ public final class PagerdutyFunctions {
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6110,14 +6110,14 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
@@ -6132,8 +6132,8 @@ public final class PagerdutyFunctions {
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6167,14 +6167,14 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         final var phonePush = PagerdutyFunctions.getUserContactMethod(GetUserContactMethodArgs.builder()
@@ -6193,8 +6193,8 @@ public final class PagerdutyFunctions {
      *             ))
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6228,14 +6228,14 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         final var phonePush = PagerdutyFunctions.getUserContactMethod(GetUserContactMethodArgs.builder()
@@ -6254,8 +6254,8 @@ public final class PagerdutyFunctions {
      *             ))
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6289,14 +6289,14 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         final var phonePush = PagerdutyFunctions.getUserContactMethod(GetUserContactMethodArgs.builder()
@@ -6315,8 +6315,8 @@ public final class PagerdutyFunctions {
      *             ))
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6350,14 +6350,14 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         final var phonePush = PagerdutyFunctions.getUserContactMethod(GetUserContactMethodArgs.builder()
@@ -6376,8 +6376,8 @@ public final class PagerdutyFunctions {
      *             ))
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6414,23 +6414,23 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
      *             .name("devops")
      *             .build());
      * 
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         var exampleWTeam = new User("exampleWTeam", UserArgs.builder()
      *             .name("user-with-team")
-     *             .email("user-with-team{@literal @}example.com")
+     *             .email("user-with-team}{@literal @}{@code example.com")
      *             .build());
      * 
      *         var example = new TeamMembership("example", TeamMembershipArgs.builder()
@@ -6444,8 +6444,8 @@ public final class PagerdutyFunctions {
      *             .teamIds(devopsPagerdutyTeam.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6482,23 +6482,23 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
      *             .name("devops")
      *             .build());
      * 
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         var exampleWTeam = new User("exampleWTeam", UserArgs.builder()
      *             .name("user-with-team")
-     *             .email("user-with-team{@literal @}example.com")
+     *             .email("user-with-team}{@literal @}{@code example.com")
      *             .build());
      * 
      *         var example = new TeamMembership("example", TeamMembershipArgs.builder()
@@ -6512,8 +6512,8 @@ public final class PagerdutyFunctions {
      *             .teamIds(devopsPagerdutyTeam.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6550,23 +6550,23 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
      *             .name("devops")
      *             .build());
      * 
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         var exampleWTeam = new User("exampleWTeam", UserArgs.builder()
      *             .name("user-with-team")
-     *             .email("user-with-team{@literal @}example.com")
+     *             .email("user-with-team}{@literal @}{@code example.com")
      *             .build());
      * 
      *         var example = new TeamMembership("example", TeamMembershipArgs.builder()
@@ -6580,8 +6580,8 @@ public final class PagerdutyFunctions {
      *             .teamIds(devopsPagerdutyTeam.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6618,23 +6618,23 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
      *             .name("devops")
      *             .build());
      * 
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         var exampleWTeam = new User("exampleWTeam", UserArgs.builder()
      *             .name("user-with-team")
-     *             .email("user-with-team{@literal @}example.com")
+     *             .email("user-with-team}{@literal @}{@code example.com")
      *             .build());
      * 
      *         var example = new TeamMembership("example", TeamMembershipArgs.builder()
@@ -6648,8 +6648,8 @@ public final class PagerdutyFunctions {
      *             .teamIds(devopsPagerdutyTeam.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6686,23 +6686,23 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
      *             .name("devops")
      *             .build());
      * 
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         var exampleWTeam = new User("exampleWTeam", UserArgs.builder()
      *             .name("user-with-team")
-     *             .email("user-with-team{@literal @}example.com")
+     *             .email("user-with-team}{@literal @}{@code example.com")
      *             .build());
      * 
      *         var example = new TeamMembership("example", TeamMembershipArgs.builder()
@@ -6716,8 +6716,8 @@ public final class PagerdutyFunctions {
      *             .teamIds(devopsPagerdutyTeam.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6754,23 +6754,23 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
      *             .name("devops")
      *             .build());
      * 
      *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
-     *             .email("me{@literal @}example.com")
+     *             .email("me}{@literal @}{@code example.com")
      *             .build());
      * 
      *         var exampleWTeam = new User("exampleWTeam", UserArgs.builder()
      *             .name("user-with-team")
-     *             .email("user-with-team{@literal @}example.com")
+     *             .email("user-with-team}{@literal @}{@code example.com")
      *             .build());
      * 
      *         var example = new TeamMembership("example", TeamMembershipArgs.builder()
@@ -6784,8 +6784,8 @@ public final class PagerdutyFunctions {
      *             .teamIds(devopsPagerdutyTeam.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6827,19 +6827,19 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var datadog = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
      *             .name("Datadog")
      *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .teams(examplePagerdutyTeam.id())
      *             .build());
      * 
@@ -6868,8 +6868,8 @@ public final class PagerdutyFunctions {
      *             .service(exampleService.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6911,19 +6911,19 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var datadog = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
      *             .name("Datadog")
      *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .teams(examplePagerdutyTeam.id())
      *             .build());
      * 
@@ -6952,8 +6952,8 @@ public final class PagerdutyFunctions {
      *             .service(exampleService.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6995,19 +6995,19 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var datadog = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
      *             .name("Datadog")
      *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .teams(examplePagerdutyTeam.id())
      *             .build());
      * 
@@ -7036,8 +7036,8 @@ public final class PagerdutyFunctions {
      *             .service(exampleService.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -7079,19 +7079,19 @@ public final class PagerdutyFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var datadog = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
      *             .name("Datadog")
      *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
-     *             .email("125.greenholt.earline{@literal @}graham.name")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
      *             .teams(examplePagerdutyTeam.id())
      *             .build());
      * 
@@ -7120,8 +7120,8 @@ public final class PagerdutyFunctions {
      *             .service(exampleService.id())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;

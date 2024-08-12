@@ -51,15 +51,15 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new User("example", UserArgs.builder()
  *             .name("Earline Greenholt")
- *             .email("125.greenholt.earline{@literal @}graham.name")
+ *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
  *             .teams(examplePagerdutyTeam.id())
  *             .build());
  * 
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *         var emailX = new ServiceIntegration("emailX", ServiceIntegrationArgs.builder()
  *             .name("Email X")
  *             .type("generic_email_inbound_integration")
- *             .integrationEmail("ecommerce{@literal @}subdomain.pagerduty.com")
+ *             .integrationEmail("ecommerce}{@literal @}{@code subdomain.pagerduty.com")
  *             .service(exampleService.id())
  *             .build());
  * 
@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  *             .name(email.applyValue(getVendorResult -> getVendorResult.name()))
  *             .service(exampleService.id())
  *             .vendor(email.applyValue(getVendorResult -> getVendorResult.id()))
- *             .integrationEmail("s1{@literal @}your_account.pagerduty.com")
+ *             .integrationEmail("s1}{@literal @}{@code your_account.pagerduty.com")
  *             .emailIncidentCreation("use_rules")
  *             .emailFilterMode("and-rules-email")
  *             .emailFilters(            
@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  *                     .bodyMode("always")
  *                     .bodyRegex(null)
  *                     .fromEmailMode("match")
- *                     .fromEmailRegex("({@literal @}foo.test*)")
+ *                     .fromEmailRegex("(}{@literal @}{@code foo.test*)")
  *                     .subjectMode("match")
  *                     .subjectRegex("(CRITICAL*)")
  *                     .build(),
@@ -145,7 +145,7 @@ import javax.annotation.Nullable;
  *                     .bodyMode("always")
  *                     .bodyRegex(null)
  *                     .fromEmailMode("match")
- *                     .fromEmailRegex("({@literal @}bar.com*)")
+ *                     .fromEmailRegex("(}{@literal @}{@code bar.com*)")
  *                     .subjectMode("match")
  *                     .subjectRegex("(CRITICAL*)")
  *                     .build())
@@ -186,8 +186,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -384,7 +384,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceIntegration(String name) {
+    public ServiceIntegration(java.lang.String name) {
         this(name, ServiceIntegrationArgs.Empty);
     }
     /**
@@ -392,7 +392,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceIntegration(String name, ServiceIntegrationArgs args) {
+    public ServiceIntegration(java.lang.String name, ServiceIntegrationArgs args) {
         this(name, args, null);
     }
     /**
@@ -401,12 +401,12 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceIntegration(String name, ServiceIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/serviceIntegration:ServiceIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ServiceIntegration(java.lang.String name, ServiceIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/serviceIntegration:ServiceIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceIntegration(String name, Output<String> id, @Nullable ServiceIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/serviceIntegration:ServiceIntegration", name, state, makeResourceOptions(options, id));
+    private ServiceIntegration(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/serviceIntegration:ServiceIntegration", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ServiceIntegrationArgs makeArgs(ServiceIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -416,7 +416,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
         return args == null ? ServiceIntegrationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -432,7 +432,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceIntegration get(String name, Output<String> id, @Nullable ServiceIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceIntegration get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceIntegrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceIntegration(name, id, state, options);
     }
 }

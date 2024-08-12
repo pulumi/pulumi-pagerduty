@@ -227,7 +227,7 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             event_orchestration: Optional[pulumi.Input[str]] = None,
             label: Optional[pulumi.Input[str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationIntegrationParameterArgs']]]]] = None) -> 'EventOrchestrationIntegration':
+            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationParameterArgs', 'EventOrchestrationIntegrationParameterArgsDict']]]]] = None) -> 'EventOrchestrationIntegration':
         """
         Get an existing EventOrchestrationIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

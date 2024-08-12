@@ -46,19 +46,19 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var servicenow = PagerdutyFunctions.getExtensionSchema(GetExtensionSchemaArgs.builder()
  *             .name("ServiceNow (v7)")
  *             .build());
  * 
  *         var example = new User("example", UserArgs.builder()
  *             .name("Howard James")
- *             .email("howard.james{@literal @}example.domain")
+ *             .email("howard.james}{@literal @}{@code example.domain")
  *             .build());
  * 
  *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()
@@ -92,8 +92,8 @@ import javax.annotation.Nullable;
  *             .referer("None")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -280,7 +280,7 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ExtensionServiceNow(String name) {
+    public ExtensionServiceNow(java.lang.String name) {
         this(name, ExtensionServiceNowArgs.Empty);
     }
     /**
@@ -288,7 +288,7 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ExtensionServiceNow(String name, ExtensionServiceNowArgs args) {
+    public ExtensionServiceNow(java.lang.String name, ExtensionServiceNowArgs args) {
         this(name, args, null);
     }
     /**
@@ -297,12 +297,12 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ExtensionServiceNow(String name, ExtensionServiceNowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/extensionServiceNow:ExtensionServiceNow", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ExtensionServiceNow(java.lang.String name, ExtensionServiceNowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/extensionServiceNow:ExtensionServiceNow", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ExtensionServiceNow(String name, Output<String> id, @Nullable ExtensionServiceNowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/extensionServiceNow:ExtensionServiceNow", name, state, makeResourceOptions(options, id));
+    private ExtensionServiceNow(java.lang.String name, Output<java.lang.String> id, @Nullable ExtensionServiceNowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/extensionServiceNow:ExtensionServiceNow", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ExtensionServiceNowArgs makeArgs(ExtensionServiceNowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -312,7 +312,7 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
         return args == null ? ExtensionServiceNowArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -332,7 +332,7 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ExtensionServiceNow get(String name, Output<String> id, @Nullable ExtensionServiceNowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ExtensionServiceNow get(java.lang.String name, Output<java.lang.String> id, @Nullable ExtensionServiceNowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ExtensionServiceNow(name, id, state, options);
     }
 }

@@ -45,19 +45,19 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var webhook = PagerdutyFunctions.getExtensionSchema(GetExtensionSchemaArgs.builder()
  *             .name("Generic V2 Webhook")
  *             .build());
  * 
  *         var example = new User("example", UserArgs.builder()
  *             .name("Howard James")
- *             .email("howard.james{@literal @}example.domain")
+ *             .email("howard.james}{@literal @}{@code example.domain")
  *             .build());
  * 
  *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()
@@ -85,20 +85,20 @@ import javax.annotation.Nullable;
  *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -> getExtensionSchemaResult.id()))
  *             .extensionObjects(exampleService.id())
  *             .config("""
- * {
+ * }{{@code
  * 	"restrict": "any",
- * 	"notify_types": {
+ * 	"notify_types": }{{@code
  * 			"resolve": false,
  * 			"acknowledge": false,
  * 			"assignments": false
- * 	},
+ * 	}}{@code ,
  * 	"access_token": "XXX"
- * }
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -229,7 +229,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Extension(String name) {
+    public Extension(java.lang.String name) {
         this(name, ExtensionArgs.Empty);
     }
     /**
@@ -237,7 +237,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Extension(String name, ExtensionArgs args) {
+    public Extension(java.lang.String name, ExtensionArgs args) {
         this(name, args, null);
     }
     /**
@@ -246,12 +246,12 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Extension(String name, ExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/extension:Extension", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Extension(java.lang.String name, ExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/extension:Extension", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Extension(String name, Output<String> id, @Nullable ExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/extension:Extension", name, state, makeResourceOptions(options, id));
+    private Extension(java.lang.String name, Output<java.lang.String> id, @Nullable ExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/extension:Extension", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ExtensionArgs makeArgs(ExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -261,7 +261,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
         return args == null ? ExtensionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -280,7 +280,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Extension get(String name, Output<String> id, @Nullable ExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Extension get(java.lang.String name, Output<java.lang.String> id, @Nullable ExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Extension(name, id, state, options);
     }
 }

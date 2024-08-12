@@ -113,9 +113,9 @@ class AutomationActionsActionTeamAssociation(pulumi.CustomResource):
             name="PA Action created via TF",
             description="Description of the PA Action created via TF",
             action_type="process_automation",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                process_automation_job_id="P123456",
-            ))
+            action_data_reference={
+                "process_automation_job_id": "P123456",
+            })
         foo = pagerduty.AutomationActionsActionTeamAssociation("foo",
             action_id=pa_action_example.id,
             team_id=example.id)
@@ -156,9 +156,9 @@ class AutomationActionsActionTeamAssociation(pulumi.CustomResource):
             name="PA Action created via TF",
             description="Description of the PA Action created via TF",
             action_type="process_automation",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                process_automation_job_id="P123456",
-            ))
+            action_data_reference={
+                "process_automation_job_id": "P123456",
+            })
         foo = pagerduty.AutomationActionsActionTeamAssociation("foo",
             action_id=pa_action_example.id,
             team_id=example.id)

@@ -115,7 +115,7 @@ public class AutomationActionsActionTeamAssociation extends com.pulumi.resources
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AutomationActionsActionTeamAssociation(String name) {
+    public AutomationActionsActionTeamAssociation(java.lang.String name) {
         this(name, AutomationActionsActionTeamAssociationArgs.Empty);
     }
     /**
@@ -123,7 +123,7 @@ public class AutomationActionsActionTeamAssociation extends com.pulumi.resources
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AutomationActionsActionTeamAssociation(String name, AutomationActionsActionTeamAssociationArgs args) {
+    public AutomationActionsActionTeamAssociation(java.lang.String name, AutomationActionsActionTeamAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -132,12 +132,12 @@ public class AutomationActionsActionTeamAssociation extends com.pulumi.resources
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AutomationActionsActionTeamAssociation(String name, AutomationActionsActionTeamAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AutomationActionsActionTeamAssociation(java.lang.String name, AutomationActionsActionTeamAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AutomationActionsActionTeamAssociation(String name, Output<String> id, @Nullable AutomationActionsActionTeamAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation", name, state, makeResourceOptions(options, id));
+    private AutomationActionsActionTeamAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable AutomationActionsActionTeamAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AutomationActionsActionTeamAssociationArgs makeArgs(AutomationActionsActionTeamAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -147,7 +147,7 @@ public class AutomationActionsActionTeamAssociation extends com.pulumi.resources
         return args == null ? AutomationActionsActionTeamAssociationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -163,7 +163,7 @@ public class AutomationActionsActionTeamAssociation extends com.pulumi.resources
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AutomationActionsActionTeamAssociation get(String name, Output<String> id, @Nullable AutomationActionsActionTeamAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AutomationActionsActionTeamAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable AutomationActionsActionTeamAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AutomationActionsActionTeamAssociation(name, id, state, options);
     }
 }

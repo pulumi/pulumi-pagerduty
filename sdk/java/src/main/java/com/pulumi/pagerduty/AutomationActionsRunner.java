@@ -203,7 +203,7 @@ public class AutomationActionsRunner extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AutomationActionsRunner(String name) {
+    public AutomationActionsRunner(java.lang.String name) {
         this(name, AutomationActionsRunnerArgs.Empty);
     }
     /**
@@ -211,7 +211,7 @@ public class AutomationActionsRunner extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AutomationActionsRunner(String name, AutomationActionsRunnerArgs args) {
+    public AutomationActionsRunner(java.lang.String name, AutomationActionsRunnerArgs args) {
         this(name, args, null);
     }
     /**
@@ -220,12 +220,12 @@ public class AutomationActionsRunner extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AutomationActionsRunner(String name, AutomationActionsRunnerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/automationActionsRunner:AutomationActionsRunner", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AutomationActionsRunner(java.lang.String name, AutomationActionsRunnerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/automationActionsRunner:AutomationActionsRunner", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AutomationActionsRunner(String name, Output<String> id, @Nullable AutomationActionsRunnerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/automationActionsRunner:AutomationActionsRunner", name, state, makeResourceOptions(options, id));
+    private AutomationActionsRunner(java.lang.String name, Output<java.lang.String> id, @Nullable AutomationActionsRunnerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/automationActionsRunner:AutomationActionsRunner", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AutomationActionsRunnerArgs makeArgs(AutomationActionsRunnerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -235,7 +235,7 @@ public class AutomationActionsRunner extends com.pulumi.resources.CustomResource
         return args == null ? AutomationActionsRunnerArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -254,7 +254,7 @@ public class AutomationActionsRunner extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AutomationActionsRunner get(String name, Output<String> id, @Nullable AutomationActionsRunnerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AutomationActionsRunner get(java.lang.String name, Output<java.lang.String> id, @Nullable AutomationActionsRunnerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AutomationActionsRunner(name, id, state, options);
     }
 }

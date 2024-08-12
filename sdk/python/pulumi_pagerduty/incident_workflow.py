@@ -164,7 +164,7 @@ class IncidentWorkflow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentWorkflowStepArgs']]]]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]]] = None,
                  team: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -179,14 +179,14 @@ class IncidentWorkflow(pulumi.CustomResource):
         my_first_workflow = pagerduty.IncidentWorkflow("my_first_workflow",
             name="Example Incident Workflow",
             description="This Incident Workflow is an example",
-            steps=[pagerduty.IncidentWorkflowStepArgs(
-                name="Send Status Update",
-                action="pagerduty.com:incident-workflows:send-status-update:1",
-                inputs=[pagerduty.IncidentWorkflowStepInputArgs(
-                    name="Message",
-                    value="Example status message sent on {{current_date}}",
-                )],
-            )])
+            steps=[{
+                "name": "Send Status Update",
+                "action": "pagerduty.com:incident-workflows:send-status-update:1",
+                "inputs": [{
+                    "name": "Message",
+                    "value": "Example status message sent on {{current_date}}",
+                }],
+            }])
         ```
 
         ## Import
@@ -201,7 +201,7 @@ class IncidentWorkflow(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the workflow.
         :param pulumi.Input[str] name: The name of the workflow.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentWorkflowStepArgs']]]] steps: The steps in the workflow.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]] steps: The steps in the workflow.
         :param pulumi.Input[str] team: A team ID. If specified then workflow edit permissions will be scoped to members of this team.
         """
         ...
@@ -222,14 +222,14 @@ class IncidentWorkflow(pulumi.CustomResource):
         my_first_workflow = pagerduty.IncidentWorkflow("my_first_workflow",
             name="Example Incident Workflow",
             description="This Incident Workflow is an example",
-            steps=[pagerduty.IncidentWorkflowStepArgs(
-                name="Send Status Update",
-                action="pagerduty.com:incident-workflows:send-status-update:1",
-                inputs=[pagerduty.IncidentWorkflowStepInputArgs(
-                    name="Message",
-                    value="Example status message sent on {{current_date}}",
-                )],
-            )])
+            steps=[{
+                "name": "Send Status Update",
+                "action": "pagerduty.com:incident-workflows:send-status-update:1",
+                "inputs": [{
+                    "name": "Message",
+                    "value": "Example status message sent on {{current_date}}",
+                }],
+            }])
         ```
 
         ## Import
@@ -257,7 +257,7 @@ class IncidentWorkflow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentWorkflowStepArgs']]]]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]]] = None,
                  team: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -284,7 +284,7 @@ class IncidentWorkflow(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentWorkflowStepArgs']]]]] = None,
+            steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]]] = None,
             team: Optional[pulumi.Input[str]] = None) -> 'IncidentWorkflow':
         """
         Get an existing IncidentWorkflow resource's state with the given name, id, and optional extra
@@ -295,7 +295,7 @@ class IncidentWorkflow(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the workflow.
         :param pulumi.Input[str] name: The name of the workflow.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentWorkflowStepArgs']]]] steps: The steps in the workflow.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]] steps: The steps in the workflow.
         :param pulumi.Input[str] team: A team ID. If specified then workflow edit permissions will be scoped to members of this team.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

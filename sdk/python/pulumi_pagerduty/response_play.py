@@ -418,10 +418,10 @@ class ResponsePlay(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  from_: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlayResponderArgs']]]]] = None,
+                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]]] = None,
                  responders_message: Optional[pulumi.Input[str]] = None,
                  runnability: Optional[pulumi.Input[str]] = None,
-                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlaySubscriberArgs']]]]] = None,
+                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict']]]]] = None,
                  subscribers_message: Optional[pulumi.Input[str]] = None,
                  team: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -440,24 +440,24 @@ class ResponsePlay(pulumi.CustomResource):
         example_escalation_policy = pagerduty.EscalationPolicy("example",
             name="Engineering Escalation Policy",
             num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user",
-                    id=example.id,
-                )],
-            )])
+            rules=[{
+                "escalation_delay_in_minutes": 10,
+                "targets": [{
+                    "type": "user",
+                    "id": example.id,
+                }],
+            }])
         example_response_play = pagerduty.ResponsePlay("example",
             name="My Response Play",
             from_=example.email,
-            responders=[pagerduty.ResponsePlayResponderArgs(
-                type="escalation_policy_reference",
-                id=example_escalation_policy.id,
-            )],
-            subscribers=[pagerduty.ResponsePlaySubscriberArgs(
-                type="user_reference",
-                id=example.id,
-            )],
+            responders=[{
+                "type": "escalation_policy_reference",
+                "id": example_escalation_policy.id,
+            }],
+            subscribers=[{
+                "type": "user_reference",
+                "id": example.id,
+            }],
             runnability="services")
         ```
 
@@ -475,10 +475,10 @@ class ResponsePlay(pulumi.CustomResource):
         :param pulumi.Input[str] conference_url: The URL that will be set as the conference URL for any incident on which this response play is run.
         :param pulumi.Input[str] from_: The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
         :param pulumi.Input[str] name: The name of the response play.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlayResponderArgs']]]] responders: A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]] responders: A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
         :param pulumi.Input[str] responders_message: The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
         :param pulumi.Input[str] runnability: String representing how this response play is allowed to be run. Valid options are:
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlaySubscriberArgs']]]] subscribers: A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict']]]] subscribers: A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
         :param pulumi.Input[str] subscribers_message: The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
         :param pulumi.Input[str] team: The ID of the team associated with the response play.
         :param pulumi.Input[str] type: A string that determines the schema of the object. If not set, the default value is "response_play".
@@ -503,24 +503,24 @@ class ResponsePlay(pulumi.CustomResource):
         example_escalation_policy = pagerduty.EscalationPolicy("example",
             name="Engineering Escalation Policy",
             num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user",
-                    id=example.id,
-                )],
-            )])
+            rules=[{
+                "escalation_delay_in_minutes": 10,
+                "targets": [{
+                    "type": "user",
+                    "id": example.id,
+                }],
+            }])
         example_response_play = pagerduty.ResponsePlay("example",
             name="My Response Play",
             from_=example.email,
-            responders=[pagerduty.ResponsePlayResponderArgs(
-                type="escalation_policy_reference",
-                id=example_escalation_policy.id,
-            )],
-            subscribers=[pagerduty.ResponsePlaySubscriberArgs(
-                type="user_reference",
-                id=example.id,
-            )],
+            responders=[{
+                "type": "escalation_policy_reference",
+                "id": example_escalation_policy.id,
+            }],
+            subscribers=[{
+                "type": "user_reference",
+                "id": example.id,
+            }],
             runnability="services")
         ```
 
@@ -552,10 +552,10 @@ class ResponsePlay(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  from_: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlayResponderArgs']]]]] = None,
+                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]]] = None,
                  responders_message: Optional[pulumi.Input[str]] = None,
                  runnability: Optional[pulumi.Input[str]] = None,
-                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlaySubscriberArgs']]]]] = None,
+                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict']]]]] = None,
                  subscribers_message: Optional[pulumi.Input[str]] = None,
                  team: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -599,10 +599,10 @@ class ResponsePlay(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             from_: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            responders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlayResponderArgs']]]]] = None,
+            responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]]] = None,
             responders_message: Optional[pulumi.Input[str]] = None,
             runnability: Optional[pulumi.Input[str]] = None,
-            subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlaySubscriberArgs']]]]] = None,
+            subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict']]]]] = None,
             subscribers_message: Optional[pulumi.Input[str]] = None,
             team: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'ResponsePlay':
@@ -617,10 +617,10 @@ class ResponsePlay(pulumi.CustomResource):
         :param pulumi.Input[str] conference_url: The URL that will be set as the conference URL for any incident on which this response play is run.
         :param pulumi.Input[str] from_: The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
         :param pulumi.Input[str] name: The name of the response play.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlayResponderArgs']]]] responders: A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]] responders: A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
         :param pulumi.Input[str] responders_message: The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
         :param pulumi.Input[str] runnability: String representing how this response play is allowed to be run. Valid options are:
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlaySubscriberArgs']]]] subscribers: A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict']]]] subscribers: A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
         :param pulumi.Input[str] subscribers_message: The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
         :param pulumi.Input[str] team: The ID of the team associated with the response play.
         :param pulumi.Input[str] type: A string that determines the schema of the object. If not set, the default value is "response_play".

@@ -116,7 +116,7 @@ class Provider(pulumi.ProviderResource):
                  service_region: Optional[pulumi.Input[str]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  token: Optional[pulumi.Input[str]] = None,
-                 use_app_oauth_scoped_token: Optional[pulumi.Input[pulumi.InputType['ProviderUseAppOauthScopedTokenArgs']]] = None,
+                 use_app_oauth_scoped_token: Optional[pulumi.Input[Union['ProviderUseAppOauthScopedTokenArgs', 'ProviderUseAppOauthScopedTokenArgsDict']]] = None,
                  user_token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -160,7 +160,7 @@ class Provider(pulumi.ProviderResource):
                  service_region: Optional[pulumi.Input[str]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  token: Optional[pulumi.Input[str]] = None,
-                 use_app_oauth_scoped_token: Optional[pulumi.Input[pulumi.InputType['ProviderUseAppOauthScopedTokenArgs']]] = None,
+                 use_app_oauth_scoped_token: Optional[pulumi.Input[Union['ProviderUseAppOauthScopedTokenArgs', 'ProviderUseAppOauthScopedTokenArgsDict']]] = None,
                  user_token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

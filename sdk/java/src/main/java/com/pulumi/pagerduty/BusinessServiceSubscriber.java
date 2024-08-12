@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new BusinessService("example", BusinessServiceArgs.builder()
  *             .name("My Web App")
  *             .description("A very descriptive description of this business service")
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .name("Earline Greenholt")
- *             .email("125.greenholt.earline{@literal @}graham.name")
+ *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
  *             .build());
  * 
  *         var teamExample = new BusinessServiceSubscriber("teamExample", BusinessServiceSubscriberArgs.builder()
@@ -75,8 +75,8 @@ import javax.annotation.Nullable;
  *             .businessServiceId(example.id())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -139,7 +139,7 @@ public class BusinessServiceSubscriber extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BusinessServiceSubscriber(String name) {
+    public BusinessServiceSubscriber(java.lang.String name) {
         this(name, BusinessServiceSubscriberArgs.Empty);
     }
     /**
@@ -147,7 +147,7 @@ public class BusinessServiceSubscriber extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BusinessServiceSubscriber(String name, BusinessServiceSubscriberArgs args) {
+    public BusinessServiceSubscriber(java.lang.String name, BusinessServiceSubscriberArgs args) {
         this(name, args, null);
     }
     /**
@@ -156,12 +156,12 @@ public class BusinessServiceSubscriber extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BusinessServiceSubscriber(String name, BusinessServiceSubscriberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public BusinessServiceSubscriber(java.lang.String name, BusinessServiceSubscriberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BusinessServiceSubscriber(String name, Output<String> id, @Nullable BusinessServiceSubscriberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber", name, state, makeResourceOptions(options, id));
+    private BusinessServiceSubscriber(java.lang.String name, Output<java.lang.String> id, @Nullable BusinessServiceSubscriberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber", name, state, makeResourceOptions(options, id), false);
     }
 
     private static BusinessServiceSubscriberArgs makeArgs(BusinessServiceSubscriberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -171,7 +171,7 @@ public class BusinessServiceSubscriber extends com.pulumi.resources.CustomResour
         return args == null ? BusinessServiceSubscriberArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -187,7 +187,7 @@ public class BusinessServiceSubscriber extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BusinessServiceSubscriber get(String name, Output<String> id, @Nullable BusinessServiceSubscriberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BusinessServiceSubscriber get(java.lang.String name, Output<java.lang.String> id, @Nullable BusinessServiceSubscriberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BusinessServiceSubscriber(name, id, state, options);
     }
 }

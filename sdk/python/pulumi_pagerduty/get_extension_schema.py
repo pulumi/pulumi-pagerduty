@@ -87,13 +87,13 @@ def get_extension_schema(name: Optional[str] = None,
     foo = pagerduty.EscalationPolicy("foo",
         name="Engineering Escalation Policy",
         num_loops=2,
-        rules=[pagerduty.EscalationPolicyRuleArgs(
-            escalation_delay_in_minutes=10,
-            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                type="user",
-                id=example.id,
-            )],
-        )])
+        rules=[{
+            "escalation_delay_in_minutes": 10,
+            "targets": [{
+                "type": "user",
+                "id": example.id,
+            }],
+        }])
     example_service = pagerduty.Service("example",
         name="My Web App",
         auto_resolve_timeout="14400",
@@ -140,13 +140,13 @@ def get_extension_schema_output(name: Optional[pulumi.Input[str]] = None,
     foo = pagerduty.EscalationPolicy("foo",
         name="Engineering Escalation Policy",
         num_loops=2,
-        rules=[pagerduty.EscalationPolicyRuleArgs(
-            escalation_delay_in_minutes=10,
-            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                type="user",
-                id=example.id,
-            )],
-        )])
+        rules=[{
+            "escalation_delay_in_minutes": 10,
+            "targets": [{
+                "type": "user",
+                "id": example.id,
+            }],
+        }])
     example_service = pagerduty.Service("example",
         name="My Web App",
         auto_resolve_timeout="14400",

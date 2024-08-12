@@ -6668,38 +6668,38 @@ class ServiceScheduledActionAt(dict):
                    auto_resolve_timeout="3600",
                    acknowledgement_timeout="3600",
                    escalation_policy=foo_pagerduty_escalation_policy["id"],
-                   incident_urgency_rule=pagerduty.ServiceIncidentUrgencyRuleArgs(
-                       type="use_support_hours",
-                       during_support_hours=pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs(
-                           type="constant",
-                           urgency="high",
-                       ),
-                       outside_support_hours=pagerduty.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs(
-                           type="constant",
-                           urgency="low",
-                       ),
-                   ),
-                   support_hours=pagerduty.ServiceSupportHoursArgs(
-                       type="fixed_time_per_day",
-                       time_zone="America/Lima",
-                       start_time="09:00:00",
-                       end_time="17:00:00",
-                       days_of_weeks=[
+                   incident_urgency_rule={
+                       "type": "use_support_hours",
+                       "during_support_hours": {
+                           "type": "constant",
+                           "urgency": "high",
+                       },
+                       "outside_support_hours": {
+                           "type": "constant",
+                           "urgency": "low",
+                       },
+                   },
+                   support_hours={
+                       "type": "fixed_time_per_day",
+                       "time_zone": "America/Lima",
+                       "start_time": "09:00:00",
+                       "end_time": "17:00:00",
+                       "days_of_weeks": [
                            1,
                            2,
                            3,
                            4,
                            5,
                        ],
-                   ),
-                   scheduled_actions=[pagerduty.ServiceScheduledActionArgs(
-                       type="urgency_change",
-                       to_urgency="high",
-                       ats=[pagerduty.ServiceScheduledActionAtArgs(
-                           type="named_time",
-                           name="support_hours_start",
-                       )],
-                   )])
+                   },
+                   scheduled_actions=[{
+                       "type": "urgency_change",
+                       "to_urgency": "high",
+                       "ats": [{
+                           "type": "named_time",
+                           "name": "support_hours_start",
+                       }],
+                   }])
                ```
         :param str type: The type of time specification. Currently, this must be set to `named_time`.
         """
@@ -6728,38 +6728,38 @@ class ServiceScheduledActionAt(dict):
             auto_resolve_timeout="3600",
             acknowledgement_timeout="3600",
             escalation_policy=foo_pagerduty_escalation_policy["id"],
-            incident_urgency_rule=pagerduty.ServiceIncidentUrgencyRuleArgs(
-                type="use_support_hours",
-                during_support_hours=pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs(
-                    type="constant",
-                    urgency="high",
-                ),
-                outside_support_hours=pagerduty.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs(
-                    type="constant",
-                    urgency="low",
-                ),
-            ),
-            support_hours=pagerduty.ServiceSupportHoursArgs(
-                type="fixed_time_per_day",
-                time_zone="America/Lima",
-                start_time="09:00:00",
-                end_time="17:00:00",
-                days_of_weeks=[
+            incident_urgency_rule={
+                "type": "use_support_hours",
+                "during_support_hours": {
+                    "type": "constant",
+                    "urgency": "high",
+                },
+                "outside_support_hours": {
+                    "type": "constant",
+                    "urgency": "low",
+                },
+            },
+            support_hours={
+                "type": "fixed_time_per_day",
+                "time_zone": "America/Lima",
+                "start_time": "09:00:00",
+                "end_time": "17:00:00",
+                "days_of_weeks": [
                     1,
                     2,
                     3,
                     4,
                     5,
                 ],
-            ),
-            scheduled_actions=[pagerduty.ServiceScheduledActionArgs(
-                type="urgency_change",
-                to_urgency="high",
-                ats=[pagerduty.ServiceScheduledActionAtArgs(
-                    type="named_time",
-                    name="support_hours_start",
-                )],
-            )])
+            },
+            scheduled_actions=[{
+                "type": "urgency_change",
+                "to_urgency": "high",
+                "ats": [{
+                    "type": "named_time",
+                    "name": "support_hours_start",
+                }],
+            }])
         ```
         """
         return pulumi.get(self, "name")

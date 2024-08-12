@@ -46,15 +46,15 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new User("example", UserArgs.builder()
  *             .name("Earline Greenholt")
- *             .email("125.greenholt.earline{@literal @}graham.name")
+ *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
  *             .build());
  * 
  *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
@@ -95,8 +95,8 @@ import javax.annotation.Nullable;
  *             .serviceId(exampleService.id())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -145,7 +145,7 @@ public class AutomationActionsActionServiceAssociation extends com.pulumi.resour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AutomationActionsActionServiceAssociation(String name) {
+    public AutomationActionsActionServiceAssociation(java.lang.String name) {
         this(name, AutomationActionsActionServiceAssociationArgs.Empty);
     }
     /**
@@ -153,7 +153,7 @@ public class AutomationActionsActionServiceAssociation extends com.pulumi.resour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AutomationActionsActionServiceAssociation(String name, AutomationActionsActionServiceAssociationArgs args) {
+    public AutomationActionsActionServiceAssociation(java.lang.String name, AutomationActionsActionServiceAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -162,12 +162,12 @@ public class AutomationActionsActionServiceAssociation extends com.pulumi.resour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AutomationActionsActionServiceAssociation(String name, AutomationActionsActionServiceAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AutomationActionsActionServiceAssociation(java.lang.String name, AutomationActionsActionServiceAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AutomationActionsActionServiceAssociation(String name, Output<String> id, @Nullable AutomationActionsActionServiceAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation", name, state, makeResourceOptions(options, id));
+    private AutomationActionsActionServiceAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable AutomationActionsActionServiceAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AutomationActionsActionServiceAssociationArgs makeArgs(AutomationActionsActionServiceAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -177,7 +177,7 @@ public class AutomationActionsActionServiceAssociation extends com.pulumi.resour
         return args == null ? AutomationActionsActionServiceAssociationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -193,7 +193,7 @@ public class AutomationActionsActionServiceAssociation extends com.pulumi.resour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AutomationActionsActionServiceAssociation get(String name, Output<String> id, @Nullable AutomationActionsActionServiceAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AutomationActionsActionServiceAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable AutomationActionsActionServiceAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AutomationActionsActionServiceAssociation(name, id, state, options);
     }
 }

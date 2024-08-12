@@ -111,13 +111,13 @@ def get_team(default_role: Optional[str] = None,
         name="DevOps Escalation Policy",
         num_loops=2,
         teams=devops.id,
-        rules=[pagerduty.EscalationPolicyRuleArgs(
-            escalation_delay_in_minutes=10,
-            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                type="user",
-                id=me.id,
-            )],
-        )])
+        rules=[{
+            "escalation_delay_in_minutes": 10,
+            "targets": [{
+                "type": "user",
+                "id": me.id,
+            }],
+        }])
     ```
 
 
@@ -160,13 +160,13 @@ def get_team_output(default_role: Optional[pulumi.Input[Optional[str]]] = None,
         name="DevOps Escalation Policy",
         num_loops=2,
         teams=devops.id,
-        rules=[pagerduty.EscalationPolicyRuleArgs(
-            escalation_delay_in_minutes=10,
-            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                type="user",
-                id=me.id,
-            )],
-        )])
+        rules=[{
+            "escalation_delay_in_minutes": 10,
+            "targets": [{
+                "type": "user",
+                "id": me.id,
+            }],
+        }])
     ```
 
 

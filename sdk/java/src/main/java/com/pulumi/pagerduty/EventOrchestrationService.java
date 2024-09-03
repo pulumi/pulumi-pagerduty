@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * 
  * This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
  * 
- * This example also shows using the pagerduty.getPriority data sources to configure `priority` and `escalation_policy` actions for a rule.
+ * This example also shows using the pagerduty.getPriority and pagerduty.EscalationPolicy data sources to configure `priority` and `escalation_policy` actions for a rule.
  * 
  * This example shows a Service Orchestration that has nested sets: a rule in the &#34;start&#34; set has a `route_to` action pointing at the &#34;step-two&#34; set.
  * 

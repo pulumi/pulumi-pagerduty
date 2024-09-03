@@ -18,14 +18,14 @@ public final class EventOrchestrationGlobalCacheVariableConfigurationArgs extend
     public static final EventOrchestrationGlobalCacheVariableConfigurationArgs Empty = new EventOrchestrationGlobalCacheVariableConfigurationArgs();
 
     /**
-     * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+     * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
      * 
      */
     @Import(name="regex")
     private @Nullable Output<String> regex;
 
     /**
-     * @return A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+     * @return A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
      * 
      */
     public Optional<Output<String>> regex() {
@@ -105,7 +105,7 @@ public final class EventOrchestrationGlobalCacheVariableConfigurationArgs extend
         }
 
         /**
-         * @param regex A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+         * @param regex A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class EventOrchestrationGlobalCacheVariableConfigurationArgs extend
         }
 
         /**
-         * @param regex A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+         * @param regex A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
          * 
          * @return builder
          * 

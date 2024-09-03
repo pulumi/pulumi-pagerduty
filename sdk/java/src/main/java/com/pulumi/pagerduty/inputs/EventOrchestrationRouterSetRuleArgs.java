@@ -36,14 +36,14 @@ public final class EventOrchestrationRouterSetRuleArgs extends com.pulumi.resour
     }
 
     /**
-     * Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+     * Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will *always* match against the rule.
      * 
      */
     @Import(name="conditions")
     private @Nullable Output<List<EventOrchestrationRouterSetRuleConditionArgs>> conditions;
 
     /**
-     * @return Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+     * @return Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will *always* match against the rule.
      * 
      */
     public Optional<Output<List<EventOrchestrationRouterSetRuleConditionArgs>>> conditions() {
@@ -145,7 +145,7 @@ public final class EventOrchestrationRouterSetRuleArgs extends com.pulumi.resour
         }
 
         /**
-         * @param conditions Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+         * @param conditions Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will *always* match against the rule.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class EventOrchestrationRouterSetRuleArgs extends com.pulumi.resour
         }
 
         /**
-         * @param conditions Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+         * @param conditions Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will *always* match against the rule.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class EventOrchestrationRouterSetRuleArgs extends com.pulumi.resour
         }
 
         /**
-         * @param conditions Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+         * @param conditions Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will *always* match against the rule.
          * 
          * @return builder
          * 

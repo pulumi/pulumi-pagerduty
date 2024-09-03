@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class EventOrchestrationServiceCacheVariableConfiguration
     {
         /// <summary>
-        /// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+        /// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
         /// </summary>
         public readonly string? Regex;
         /// <summary>

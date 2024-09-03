@@ -12,7 +12,7 @@ namespace Pulumi.Pagerduty
     public static class GetTeamMembers
     {
         /// <summary>
-        /// Use this data source to get information about a specific [team's members][1].
+        /// Use this data source to get information about a specific [team's members](https://developer.pagerduty.com/api-reference/e35802f3c4ba4-list-members-of-a-team).
         /// 
         /// ## Example Usage
         /// 
@@ -41,7 +41,7 @@ namespace Pulumi.Pagerduty
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTeamMembersResult>("pagerduty:index/getTeamMembers:getTeamMembers", args ?? new GetTeamMembersArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about a specific [team's members][1].
+        /// Use this data source to get information about a specific [team's members](https://developer.pagerduty.com/api-reference/e35802f3c4ba4-list-members-of-a-team).
         /// 
         /// ## Example Usage
         /// 

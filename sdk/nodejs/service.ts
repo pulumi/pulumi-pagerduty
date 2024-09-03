@@ -84,7 +84,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly acknowledgementTimeout!: pulumi.Output<string | undefined>;
     /**
-     * (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
+     * (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details <https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service>.
      */
     public readonly alertCreation!: pulumi.Output<string | undefined>;
     /**
@@ -219,7 +219,7 @@ export interface ServiceState {
      */
     acknowledgementTimeout?: pulumi.Input<string>;
     /**
-     * (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
+     * (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details <https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service>.
      */
     alertCreation?: pulumi.Input<string>;
     /**
@@ -293,7 +293,7 @@ export interface ServiceArgs {
      */
     acknowledgementTimeout?: pulumi.Input<string>;
     /**
-     * (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
+     * (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details <https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service>.
      */
     alertCreation?: pulumi.Input<string>;
     /**

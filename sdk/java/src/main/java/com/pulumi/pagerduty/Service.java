@@ -115,14 +115,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.acknowledgementTimeout);
     }
     /**
-     * (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
+     * (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details &lt;https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service&gt;.
      * 
      */
     @Export(name="alertCreation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alertCreation;
 
     /**
-     * @return (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
+     * @return (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details &lt;https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service&gt;.
      * 
      */
     public Output<Optional<String>> alertCreation() {

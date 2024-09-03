@@ -107,7 +107,7 @@ export class WebhookSubscription extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A set of outbound event types the webhook will receive. The follow event types are possible: 
+     * A set of outbound event types the webhook will receive. The follow event types are possible:
      * * `incident.acknowledged`
      * * `incident.annotated`
      * * `incident.delegated`
@@ -191,7 +191,7 @@ export interface WebhookSubscriptionState {
      */
     description?: pulumi.Input<string>;
     /**
-     * A set of outbound event types the webhook will receive. The follow event types are possible: 
+     * A set of outbound event types the webhook will receive. The follow event types are possible:
      * * `incident.acknowledged`
      * * `incident.annotated`
      * * `incident.delegated`
@@ -234,7 +234,7 @@ export interface WebhookSubscriptionArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A set of outbound event types the webhook will receive. The follow event types are possible: 
+     * A set of outbound event types the webhook will receive. The follow event types are possible:
      * * `incident.acknowledged`
      * * `incident.annotated`
      * * `incident.delegated`

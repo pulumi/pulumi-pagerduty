@@ -12,8 +12,6 @@ namespace Pulumi.Pagerduty
     public static class GetLicenses
     {
         /// <summary>
-        /// Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -46,8 +44,6 @@ namespace Pulumi.Pagerduty
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLicensesResult>("pagerduty:index/getLicenses:getLicenses", args ?? new GetLicensesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

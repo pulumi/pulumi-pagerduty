@@ -86,7 +86,7 @@ def get_standards_resource_scores(id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStandardsResourceScoresResult:
     """
     Use this data source to get information about the [scores for the standards of a
-    resource][1].
+    resource](https://developer.pagerduty.com/api-reference/f339354b607d5-list-a-resource-s-standards-scores).
 
     ## Example Usage
 
@@ -122,7 +122,7 @@ def get_standards_resource_scores_output(id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardsResourceScoresResult]:
     """
     Use this data source to get information about the [scores for the standards of a
-    resource][1].
+    resource](https://developer.pagerduty.com/api-reference/f339354b607d5-list-a-resource-s-standards-scores).
 
     ## Example Usage
 

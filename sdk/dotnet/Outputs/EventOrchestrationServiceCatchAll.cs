@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class EventOrchestrationServiceCatchAll
     {
         /// <summary>
-        /// These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+        /// These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` *except* `route_to` action.
         /// </summary>
         public readonly Outputs.EventOrchestrationServiceCatchAllActions Actions;
 

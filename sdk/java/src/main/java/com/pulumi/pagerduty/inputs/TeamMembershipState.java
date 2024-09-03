@@ -16,8 +16,7 @@ public final class TeamMembershipState extends com.pulumi.resources.ResourceArgs
     public static final TeamMembershipState Empty = new TeamMembershipState();
 
     /**
-     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
-     * These roles match up to user roles in the following ways:
+     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.These roles match up to user roles in the following ways:
      * * User role of `user` is a Team role of `manager`
      * * User role of `limited_user` is a Team role of `responder`
      * 
@@ -26,8 +25,7 @@ public final class TeamMembershipState extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<String> role;
 
     /**
-     * @return The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
-     * These roles match up to user roles in the following ways:
+     * @return The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.These roles match up to user roles in the following ways:
      * * User role of `user` is a Team role of `manager`
      * * User role of `limited_user` is a Team role of `responder`
      * 
@@ -93,8 +91,7 @@ public final class TeamMembershipState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param role The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
-         * These roles match up to user roles in the following ways:
+         * @param role The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.These roles match up to user roles in the following ways:
          * * User role of `user` is a Team role of `manager`
          * * User role of `limited_user` is a Team role of `responder`
          * 
@@ -107,8 +104,7 @@ public final class TeamMembershipState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param role The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
-         * These roles match up to user roles in the following ways:
+         * @param role The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.These roles match up to user roles in the following ways:
          * * User role of `user` is a Team role of `manager`
          * * User role of `limited_user` is a Team role of `responder`
          * 

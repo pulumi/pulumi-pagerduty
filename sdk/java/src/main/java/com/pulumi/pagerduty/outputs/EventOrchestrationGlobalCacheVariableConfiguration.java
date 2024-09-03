@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventOrchestrationGlobalCacheVariableConfiguration {
     /**
-     * @return A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+     * @return A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
      * 
      */
     private @Nullable String regex;
@@ -36,7 +36,7 @@ public final class EventOrchestrationGlobalCacheVariableConfiguration {
 
     private EventOrchestrationGlobalCacheVariableConfiguration() {}
     /**
-     * @return A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+     * @return A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
      * 
      */
     public Optional<String> regex() {

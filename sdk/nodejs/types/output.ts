@@ -71,7 +71,7 @@ export interface EventOrchestrationGlobalCacheVariableCondition {
 
 export interface EventOrchestrationGlobalCacheVariableConfiguration {
     /**
-     * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+     * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
      */
     regex?: string;
     /**
@@ -90,7 +90,7 @@ export interface EventOrchestrationGlobalCacheVariableConfiguration {
 
 export interface EventOrchestrationGlobalCatchAll {
     /**
-     * These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+     * These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` *except* `routeTo` action.
      */
     actions: outputs.EventOrchestrationGlobalCatchAllActions;
 }
@@ -464,7 +464,7 @@ export interface EventOrchestrationRouterCatchAll {
 
 export interface EventOrchestrationRouterCatchAllActions {
     /**
-     * Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service _or_ the string `"unrouted"` to send events to the Unrouted Orchestration.
+     * Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service *or* the string `"unrouted"` to send events to the Unrouted Orchestration.
      */
     routeTo: string;
 }
@@ -483,7 +483,7 @@ export interface EventOrchestrationRouterSetRule {
      */
     actions: outputs.EventOrchestrationRouterSetRuleActions;
     /**
-     * Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+     * Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will *always* match against the rule.
      */
     conditions?: outputs.EventOrchestrationRouterSetRuleCondition[];
     /**
@@ -541,7 +541,7 @@ export interface EventOrchestrationServiceCacheVariableCondition {
 
 export interface EventOrchestrationServiceCacheVariableConfiguration {
     /**
-     * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+     * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
      */
     regex?: string;
     /**
@@ -560,7 +560,7 @@ export interface EventOrchestrationServiceCacheVariableConfiguration {
 
 export interface EventOrchestrationServiceCatchAll {
     /**
-     * These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+     * These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` *except* `routeTo` action.
      */
     actions: outputs.EventOrchestrationServiceCatchAllActions;
 }
@@ -921,7 +921,7 @@ export interface EventOrchestrationServiceSetRuleCondition {
 
 export interface EventOrchestrationUnroutedCatchAll {
     /**
-     * These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+     * These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` *except* `routeTo` action.
      */
     actions: outputs.EventOrchestrationUnroutedCatchAllActions;
 }
@@ -1119,7 +1119,7 @@ export interface GetEventOrchestrationGlobalCacheVariableCondition {
 
 export interface GetEventOrchestrationGlobalCacheVariableConfiguration {
     /**
-     * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+     * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
      */
     regex: string;
     /**
@@ -1176,7 +1176,7 @@ export interface GetEventOrchestrationServiceCacheVariableCondition {
 
 export interface GetEventOrchestrationServiceCacheVariableConfiguration {
     /**
-     * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+     * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
      */
     regex: string;
     /**
@@ -1825,7 +1825,7 @@ export interface RulesetRuleTimeFrame {
 export interface RulesetRuleTimeFrameActiveBetween {
     endTime?: number;
     /**
-     * A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+     * A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the *date* of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
      */
     startTime?: number;
 }
@@ -1836,7 +1836,7 @@ export interface RulesetRuleTimeFrameScheduledWeekly {
      */
     duration?: number;
     /**
-     * A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+     * A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the *date* of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
      */
     startTime?: number;
     /**

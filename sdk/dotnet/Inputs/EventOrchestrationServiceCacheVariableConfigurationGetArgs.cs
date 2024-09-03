@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class EventOrchestrationServiceCacheVariableConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+        /// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
         /// </summary>
         [Input("regex")]
         public Input<string>? Regex { get; set; }

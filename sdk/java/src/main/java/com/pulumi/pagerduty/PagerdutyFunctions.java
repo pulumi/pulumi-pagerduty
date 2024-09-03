@@ -2875,8 +2875,6 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getLicense:getLicense", TypeShape.of(GetLicenseResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
-     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -2926,8 +2924,6 @@ public final class PagerdutyFunctions {
         return getLicenses(GetLicensesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
-     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -2977,8 +2973,6 @@ public final class PagerdutyFunctions {
         return getLicensesPlain(GetLicensesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
-     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -3028,8 +3022,6 @@ public final class PagerdutyFunctions {
         return getLicenses(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
-     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -3079,8 +3071,6 @@ public final class PagerdutyFunctions {
         return getLicensesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
-     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -3130,8 +3120,6 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invoke("pagerduty:index/getLicenses:getLicenses", TypeShape.of(GetLicensesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
-     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -4820,7 +4808,7 @@ public final class PagerdutyFunctions {
     }
     /**
      * Use this data source to get information about the [scores for the standards of a
-     * resource][1].
+     * resource](https://developer.pagerduty.com/api-reference/f339354b607d5-list-a-resource-s-standards-scores).
      * 
      * ## Example Usage
      * 
@@ -4869,7 +4857,7 @@ public final class PagerdutyFunctions {
     }
     /**
      * Use this data source to get information about the [scores for the standards of a
-     * resource][1].
+     * resource](https://developer.pagerduty.com/api-reference/f339354b607d5-list-a-resource-s-standards-scores).
      * 
      * ## Example Usage
      * 
@@ -4918,7 +4906,7 @@ public final class PagerdutyFunctions {
     }
     /**
      * Use this data source to get information about the [scores for the standards of a
-     * resource][1].
+     * resource](https://developer.pagerduty.com/api-reference/f339354b607d5-list-a-resource-s-standards-scores).
      * 
      * ## Example Usage
      * 
@@ -4967,7 +4955,7 @@ public final class PagerdutyFunctions {
     }
     /**
      * Use this data source to get information about the [scores for the standards of a
-     * resource][1].
+     * resource](https://developer.pagerduty.com/api-reference/f339354b607d5-list-a-resource-s-standards-scores).
      * 
      * ## Example Usage
      * 
@@ -5016,7 +5004,7 @@ public final class PagerdutyFunctions {
     }
     /**
      * Use this data source to get information about the [scores for the standards for
-     * many resources][1].
+     * many resources](https://developer.pagerduty.com/api-reference/2e832500ae129-list-resources-standards-scores).
      * 
      * ## Example Usage
      * 
@@ -5076,7 +5064,7 @@ public final class PagerdutyFunctions {
     }
     /**
      * Use this data source to get information about the [scores for the standards for
-     * many resources][1].
+     * many resources](https://developer.pagerduty.com/api-reference/2e832500ae129-list-resources-standards-scores).
      * 
      * ## Example Usage
      * 
@@ -5136,7 +5124,7 @@ public final class PagerdutyFunctions {
     }
     /**
      * Use this data source to get information about the [scores for the standards for
-     * many resources][1].
+     * many resources](https://developer.pagerduty.com/api-reference/2e832500ae129-list-resources-standards-scores).
      * 
      * ## Example Usage
      * 
@@ -5196,7 +5184,7 @@ public final class PagerdutyFunctions {
     }
     /**
      * Use this data source to get information about the [scores for the standards for
-     * many resources][1].
+     * many resources](https://developer.pagerduty.com/api-reference/2e832500ae129-list-resources-standards-scores).
      * 
      * ## Example Usage
      * 
@@ -5727,7 +5715,7 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getTeam:getTeam", TypeShape.of(GetTeamResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a specific [team&#39;s members][1].
+     * Use this data source to get information about a specific [team&#39;s members](https://developer.pagerduty.com/api-reference/e35802f3c4ba4-list-members-of-a-team).
      * 
      * ## Example Usage
      * 
@@ -5774,7 +5762,7 @@ public final class PagerdutyFunctions {
         return getTeamMembers(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific [team&#39;s members][1].
+     * Use this data source to get information about a specific [team&#39;s members](https://developer.pagerduty.com/api-reference/e35802f3c4ba4-list-members-of-a-team).
      * 
      * ## Example Usage
      * 
@@ -5821,7 +5809,7 @@ public final class PagerdutyFunctions {
         return getTeamMembersPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific [team&#39;s members][1].
+     * Use this data source to get information about a specific [team&#39;s members](https://developer.pagerduty.com/api-reference/e35802f3c4ba4-list-members-of-a-team).
      * 
      * ## Example Usage
      * 
@@ -5868,7 +5856,7 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invoke("pagerduty:index/getTeamMembers:getTeamMembers", TypeShape.of(GetTeamMembersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a specific [team&#39;s members][1].
+     * Use this data source to get information about a specific [team&#39;s members](https://developer.pagerduty.com/api-reference/e35802f3c4ba4-list-members-of-a-team).
      * 
      * ## Example Usage
      * 

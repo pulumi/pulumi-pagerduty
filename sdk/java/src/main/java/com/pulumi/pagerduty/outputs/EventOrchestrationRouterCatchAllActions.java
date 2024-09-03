@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class EventOrchestrationRouterCatchAllActions {
     /**
-     * @return Defines where an alert will be sent if doesn&#39;t match any rules. Can either be the ID of a Service _or_ the string `&#34;unrouted&#34;` to send events to the Unrouted Orchestration.
+     * @return Defines where an alert will be sent if doesn&#39;t match any rules. Can either be the ID of a Service *or* the string `&#34;unrouted&#34;` to send events to the Unrouted Orchestration.
      * 
      */
     private String routeTo;
 
     private EventOrchestrationRouterCatchAllActions() {}
     /**
-     * @return Defines where an alert will be sent if doesn&#39;t match any rules. Can either be the ID of a Service _or_ the string `&#34;unrouted&#34;` to send events to the Unrouted Orchestration.
+     * @return Defines where an alert will be sent if doesn&#39;t match any rules. Can either be the ID of a Service *or* the string `&#34;unrouted&#34;` to send events to the Unrouted Orchestration.
      * 
      */
     public String routeTo() {

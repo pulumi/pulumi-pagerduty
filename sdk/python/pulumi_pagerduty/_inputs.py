@@ -396,7 +396,7 @@ class EventOrchestrationGlobalCacheVariableConfigurationArgs:
                  ttl_seconds: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] type: The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
-        :param pulumi.Input[str] regex: A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+        :param pulumi.Input[str] regex: A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
         :param pulumi.Input[str] source: The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
         :param pulumi.Input[int] ttl_seconds: The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
         """
@@ -424,7 +424,7 @@ class EventOrchestrationGlobalCacheVariableConfigurationArgs:
     @pulumi.getter
     def regex(self) -> Optional[pulumi.Input[str]]:
         """
-        A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+        A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
         """
         return pulumi.get(self, "regex")
 
@@ -462,7 +462,7 @@ class EventOrchestrationGlobalCatchAllArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input['EventOrchestrationGlobalCatchAllActionsArgs']):
         """
-        :param pulumi.Input['EventOrchestrationGlobalCatchAllActionsArgs'] actions: These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+        :param pulumi.Input['EventOrchestrationGlobalCatchAllActionsArgs'] actions: These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` *except* `route_to` action.
         """
         pulumi.set(__self__, "actions", actions)
 
@@ -470,7 +470,7 @@ class EventOrchestrationGlobalCatchAllArgs:
     @pulumi.getter
     def actions(self) -> pulumi.Input['EventOrchestrationGlobalCatchAllActionsArgs']:
         """
-        These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+        These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` *except* `route_to` action.
         """
         return pulumi.get(self, "actions")
 
@@ -1838,7 +1838,7 @@ class EventOrchestrationRouterCatchAllActionsArgs:
     def __init__(__self__, *,
                  route_to: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] route_to: Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service _or_ the string `"unrouted"` to send events to the Unrouted Orchestration.
+        :param pulumi.Input[str] route_to: Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service *or* the string `"unrouted"` to send events to the Unrouted Orchestration.
         """
         pulumi.set(__self__, "route_to", route_to)
 
@@ -1846,7 +1846,7 @@ class EventOrchestrationRouterCatchAllActionsArgs:
     @pulumi.getter(name="routeTo")
     def route_to(self) -> pulumi.Input[str]:
         """
-        Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service _or_ the string `"unrouted"` to send events to the Unrouted Orchestration.
+        Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service *or* the string `"unrouted"` to send events to the Unrouted Orchestration.
         """
         return pulumi.get(self, "route_to")
 
@@ -1899,7 +1899,7 @@ class EventOrchestrationRouterSetRuleArgs:
                  label: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['EventOrchestrationRouterSetRuleActionsArgs'] actions: Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
-        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleConditionArgs']]] conditions: Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleConditionArgs']]] conditions: Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will *always* match against the rule.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[str] id: The ID of the rule within the `start` set.
         :param pulumi.Input[str] label: A description of this rule's purpose.
@@ -1930,7 +1930,7 @@ class EventOrchestrationRouterSetRuleArgs:
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleConditionArgs']]]]:
         """
-        Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+        Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will *always* match against the rule.
         """
         return pulumi.get(self, "conditions")
 
@@ -2119,7 +2119,7 @@ class EventOrchestrationServiceCacheVariableConfigurationArgs:
                  ttl_seconds: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] type: The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
-        :param pulumi.Input[str] regex: A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+        :param pulumi.Input[str] regex: A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
         :param pulumi.Input[str] source: The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
         :param pulumi.Input[int] ttl_seconds: The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
         """
@@ -2147,7 +2147,7 @@ class EventOrchestrationServiceCacheVariableConfigurationArgs:
     @pulumi.getter
     def regex(self) -> Optional[pulumi.Input[str]]:
         """
-        A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+        A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
         """
         return pulumi.get(self, "regex")
 
@@ -2185,7 +2185,7 @@ class EventOrchestrationServiceCatchAllArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input['EventOrchestrationServiceCatchAllActionsArgs']):
         """
-        :param pulumi.Input['EventOrchestrationServiceCatchAllActionsArgs'] actions: These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+        :param pulumi.Input['EventOrchestrationServiceCatchAllActionsArgs'] actions: These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` *except* `route_to` action.
         """
         pulumi.set(__self__, "actions", actions)
 
@@ -2193,7 +2193,7 @@ class EventOrchestrationServiceCatchAllArgs:
     @pulumi.getter
     def actions(self) -> pulumi.Input['EventOrchestrationServiceCatchAllActionsArgs']:
         """
-        These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+        These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` *except* `route_to` action.
         """
         return pulumi.get(self, "actions")
 
@@ -3497,7 +3497,7 @@ class EventOrchestrationUnroutedCatchAllArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input['EventOrchestrationUnroutedCatchAllActionsArgs']):
         """
-        :param pulumi.Input['EventOrchestrationUnroutedCatchAllActionsArgs'] actions: These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+        :param pulumi.Input['EventOrchestrationUnroutedCatchAllActionsArgs'] actions: These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` *except* `route_to` action.
         """
         pulumi.set(__self__, "actions", actions)
 
@@ -3505,7 +3505,7 @@ class EventOrchestrationUnroutedCatchAllArgs:
     @pulumi.getter
     def actions(self) -> pulumi.Input['EventOrchestrationUnroutedCatchAllActionsArgs']:
         """
-        These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+        These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` *except* `route_to` action.
         """
         return pulumi.get(self, "actions")
 
@@ -5403,7 +5403,7 @@ class RulesetRuleTimeFrameActiveBetweenArgs:
                  end_time: Optional[pulumi.Input[int]] = None,
                  start_time: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] start_time: A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+        :param pulumi.Input[int] start_time: A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the *date* of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
         """
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
@@ -5423,7 +5423,7 @@ class RulesetRuleTimeFrameActiveBetweenArgs:
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[int]]:
         """
-        A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+        A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the *date* of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
         """
         return pulumi.get(self, "start_time")
 
@@ -5441,7 +5441,7 @@ class RulesetRuleTimeFrameScheduledWeeklyArgs:
                  weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[int] duration: Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `start_time`.
-        :param pulumi.Input[int] start_time: A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+        :param pulumi.Input[int] start_time: A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the *date* of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
         :param pulumi.Input[str] timezone: [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
         :param pulumi.Input[Sequence[pulumi.Input[int]]] weekdays: An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
         """
@@ -5470,7 +5470,7 @@ class RulesetRuleTimeFrameScheduledWeeklyArgs:
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[int]]:
         """
-        A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+        A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the *date* of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
         """
         return pulumi.get(self, "start_time")
 

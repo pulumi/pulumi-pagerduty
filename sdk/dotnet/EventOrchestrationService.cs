@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
     /// 
-    /// This example also shows using the pagerduty.getPriority data sources to configure `priority` and `escalation_policy` actions for a rule.
+    /// This example also shows using the pagerduty.getPriority and pagerduty.EscalationPolicy data sources to configure `priority` and `escalation_policy` actions for a rule.
     /// 
     /// This example shows a Service Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
     /// 

@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty
     {
         /// <summary>
         /// Use this data source to get information about the [scores for the standards of a
-        /// resource][1].
+        /// resource](https://developer.pagerduty.com/api-reference/f339354b607d5-list-a-resource-s-standards-scores).
         /// 
         /// ## Example Usage
         /// 
@@ -44,7 +44,7 @@ namespace Pulumi.Pagerduty
 
         /// <summary>
         /// Use this data source to get information about the [scores for the standards of a
-        /// resource][1].
+        /// resource](https://developer.pagerduty.com/api-reference/f339354b607d5-list-a-resource-s-standards-scores).
         /// 
         /// ## Example Usage
         /// 

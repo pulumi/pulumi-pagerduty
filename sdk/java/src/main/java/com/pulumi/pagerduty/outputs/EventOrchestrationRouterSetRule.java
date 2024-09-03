@@ -22,7 +22,7 @@ public final class EventOrchestrationRouterSetRule {
      */
     private EventOrchestrationRouterSetRuleActions actions;
     /**
-     * @return Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+     * @return Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will *always* match against the rule.
      * 
      */
     private @Nullable List<EventOrchestrationRouterSetRuleCondition> conditions;
@@ -51,7 +51,7 @@ public final class EventOrchestrationRouterSetRule {
         return this.actions;
     }
     /**
-     * @return Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+     * @return Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will *always* match against the rule.
      * 
      */
     public List<EventOrchestrationRouterSetRuleCondition> conditions() {

@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetEventOrchestrationGlobalCacheVariableConfiguration {
     /**
-     * @return A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+     * @return A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
      * 
      */
     private String regex;
@@ -34,7 +34,7 @@ public final class GetEventOrchestrationGlobalCacheVariableConfiguration {
 
     private GetEventOrchestrationGlobalCacheVariableConfiguration() {}
     /**
-     * @return A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+     * @return A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
      * 
      */
     public String regex() {

@@ -690,7 +690,7 @@ func (o EventOrchestrationGlobalCacheVariableConditionArrayOutput) Index(i pulum
 }
 
 type EventOrchestrationGlobalCacheVariableConfiguration struct {
-	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+	// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 	Regex *string `pulumi:"regex"`
 	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
 	Source *string `pulumi:"source"`
@@ -712,7 +712,7 @@ type EventOrchestrationGlobalCacheVariableConfigurationInput interface {
 }
 
 type EventOrchestrationGlobalCacheVariableConfigurationArgs struct {
-	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+	// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
 	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
 	Source pulumi.StringPtrInput `pulumi:"source"`
@@ -799,7 +799,7 @@ func (o EventOrchestrationGlobalCacheVariableConfigurationOutput) ToEventOrchest
 	}).(EventOrchestrationGlobalCacheVariableConfigurationPtrOutput)
 }
 
-// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 func (o EventOrchestrationGlobalCacheVariableConfigurationOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCacheVariableConfiguration) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
@@ -843,7 +843,7 @@ func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) Elem() Even
 	}).(EventOrchestrationGlobalCacheVariableConfigurationOutput)
 }
 
-// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationGlobalCacheVariableConfiguration) *string {
 		if v == nil {
@@ -884,7 +884,7 @@ func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) Type() pulu
 }
 
 type EventOrchestrationGlobalCatchAll struct {
-	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` *except* `routeTo` action.
 	Actions EventOrchestrationGlobalCatchAllActions `pulumi:"actions"`
 }
 
@@ -900,7 +900,7 @@ type EventOrchestrationGlobalCatchAllInput interface {
 }
 
 type EventOrchestrationGlobalCatchAllArgs struct {
-	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` *except* `routeTo` action.
 	Actions EventOrchestrationGlobalCatchAllActionsInput `pulumi:"actions"`
 }
 
@@ -981,7 +981,7 @@ func (o EventOrchestrationGlobalCatchAllOutput) ToEventOrchestrationGlobalCatchA
 	}).(EventOrchestrationGlobalCatchAllPtrOutput)
 }
 
-// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` *except* `routeTo` action.
 func (o EventOrchestrationGlobalCatchAllOutput) Actions() EventOrchestrationGlobalCatchAllActionsOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAll) EventOrchestrationGlobalCatchAllActions { return v.Actions }).(EventOrchestrationGlobalCatchAllActionsOutput)
 }
@@ -1010,7 +1010,7 @@ func (o EventOrchestrationGlobalCatchAllPtrOutput) Elem() EventOrchestrationGlob
 	}).(EventOrchestrationGlobalCatchAllOutput)
 }
 
-// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` *except* `routeTo` action.
 func (o EventOrchestrationGlobalCatchAllPtrOutput) Actions() EventOrchestrationGlobalCatchAllActionsPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationGlobalCatchAll) *EventOrchestrationGlobalCatchAllActions {
 		if v == nil {
@@ -3829,7 +3829,7 @@ func (o EventOrchestrationRouterCatchAllPtrOutput) Actions() EventOrchestrationR
 }
 
 type EventOrchestrationRouterCatchAllActions struct {
-	// Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service _or_ the string `"unrouted"` to send events to the Unrouted Orchestration.
+	// Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service *or* the string `"unrouted"` to send events to the Unrouted Orchestration.
 	RouteTo string `pulumi:"routeTo"`
 }
 
@@ -3845,7 +3845,7 @@ type EventOrchestrationRouterCatchAllActionsInput interface {
 }
 
 type EventOrchestrationRouterCatchAllActionsArgs struct {
-	// Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service _or_ the string `"unrouted"` to send events to the Unrouted Orchestration.
+	// Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service *or* the string `"unrouted"` to send events to the Unrouted Orchestration.
 	RouteTo pulumi.StringInput `pulumi:"routeTo"`
 }
 
@@ -3926,7 +3926,7 @@ func (o EventOrchestrationRouterCatchAllActionsOutput) ToEventOrchestrationRoute
 	}).(EventOrchestrationRouterCatchAllActionsPtrOutput)
 }
 
-// Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service _or_ the string `"unrouted"` to send events to the Unrouted Orchestration.
+// Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service *or* the string `"unrouted"` to send events to the Unrouted Orchestration.
 func (o EventOrchestrationRouterCatchAllActionsOutput) RouteTo() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationRouterCatchAllActions) string { return v.RouteTo }).(pulumi.StringOutput)
 }
@@ -3955,7 +3955,7 @@ func (o EventOrchestrationRouterCatchAllActionsPtrOutput) Elem() EventOrchestrat
 	}).(EventOrchestrationRouterCatchAllActionsOutput)
 }
 
-// Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service _or_ the string `"unrouted"` to send events to the Unrouted Orchestration.
+// Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service *or* the string `"unrouted"` to send events to the Unrouted Orchestration.
 func (o EventOrchestrationRouterCatchAllActionsPtrOutput) RouteTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationRouterCatchAllActions) *string {
 		if v == nil {
@@ -4120,7 +4120,7 @@ func (o EventOrchestrationRouterSetPtrOutput) Rules() EventOrchestrationRouterSe
 type EventOrchestrationRouterSetRule struct {
 	// Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
 	Actions EventOrchestrationRouterSetRuleActions `pulumi:"actions"`
-	// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+	// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will *always* match against the rule.
 	Conditions []EventOrchestrationRouterSetRuleCondition `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled *bool `pulumi:"disabled"`
@@ -4144,7 +4144,7 @@ type EventOrchestrationRouterSetRuleInput interface {
 type EventOrchestrationRouterSetRuleArgs struct {
 	// Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
 	Actions EventOrchestrationRouterSetRuleActionsInput `pulumi:"actions"`
-	// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+	// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will *always* match against the rule.
 	Conditions EventOrchestrationRouterSetRuleConditionArrayInput `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
@@ -4210,7 +4210,7 @@ func (o EventOrchestrationRouterSetRuleOutput) Actions() EventOrchestrationRoute
 	return o.ApplyT(func(v EventOrchestrationRouterSetRule) EventOrchestrationRouterSetRuleActions { return v.Actions }).(EventOrchestrationRouterSetRuleActionsOutput)
 }
 
-// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will *always* match against the rule.
 func (o EventOrchestrationRouterSetRuleOutput) Conditions() EventOrchestrationRouterSetRuleConditionArrayOutput {
 	return o.ApplyT(func(v EventOrchestrationRouterSetRule) []EventOrchestrationRouterSetRuleCondition {
 		return v.Conditions
@@ -4628,7 +4628,7 @@ func (o EventOrchestrationServiceCacheVariableConditionArrayOutput) Index(i pulu
 }
 
 type EventOrchestrationServiceCacheVariableConfiguration struct {
-	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+	// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 	Regex *string `pulumi:"regex"`
 	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
 	Source *string `pulumi:"source"`
@@ -4650,7 +4650,7 @@ type EventOrchestrationServiceCacheVariableConfigurationInput interface {
 }
 
 type EventOrchestrationServiceCacheVariableConfigurationArgs struct {
-	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+	// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
 	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
 	Source pulumi.StringPtrInput `pulumi:"source"`
@@ -4737,7 +4737,7 @@ func (o EventOrchestrationServiceCacheVariableConfigurationOutput) ToEventOrches
 	}).(EventOrchestrationServiceCacheVariableConfigurationPtrOutput)
 }
 
-// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 func (o EventOrchestrationServiceCacheVariableConfigurationOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCacheVariableConfiguration) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
@@ -4781,7 +4781,7 @@ func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) Elem() Eve
 	}).(EventOrchestrationServiceCacheVariableConfigurationOutput)
 }
 
-// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationServiceCacheVariableConfiguration) *string {
 		if v == nil {
@@ -4822,7 +4822,7 @@ func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) Type() pul
 }
 
 type EventOrchestrationServiceCatchAll struct {
-	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` *except* `routeTo` action.
 	Actions EventOrchestrationServiceCatchAllActions `pulumi:"actions"`
 }
 
@@ -4838,7 +4838,7 @@ type EventOrchestrationServiceCatchAllInput interface {
 }
 
 type EventOrchestrationServiceCatchAllArgs struct {
-	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` *except* `routeTo` action.
 	Actions EventOrchestrationServiceCatchAllActionsInput `pulumi:"actions"`
 }
 
@@ -4919,7 +4919,7 @@ func (o EventOrchestrationServiceCatchAllOutput) ToEventOrchestrationServiceCatc
 	}).(EventOrchestrationServiceCatchAllPtrOutput)
 }
 
-// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` *except* `routeTo` action.
 func (o EventOrchestrationServiceCatchAllOutput) Actions() EventOrchestrationServiceCatchAllActionsOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAll) EventOrchestrationServiceCatchAllActions { return v.Actions }).(EventOrchestrationServiceCatchAllActionsOutput)
 }
@@ -4948,7 +4948,7 @@ func (o EventOrchestrationServiceCatchAllPtrOutput) Elem() EventOrchestrationSer
 	}).(EventOrchestrationServiceCatchAllOutput)
 }
 
-// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` *except* `routeTo` action.
 func (o EventOrchestrationServiceCatchAllPtrOutput) Actions() EventOrchestrationServiceCatchAllActionsPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationServiceCatchAll) *EventOrchestrationServiceCatchAllActions {
 		if v == nil {
@@ -7691,7 +7691,7 @@ func (o EventOrchestrationServiceSetRuleConditionArrayOutput) Index(i pulumi.Int
 }
 
 type EventOrchestrationUnroutedCatchAll struct {
-	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` *except* `routeTo` action.
 	Actions EventOrchestrationUnroutedCatchAllActions `pulumi:"actions"`
 }
 
@@ -7707,7 +7707,7 @@ type EventOrchestrationUnroutedCatchAllInput interface {
 }
 
 type EventOrchestrationUnroutedCatchAllArgs struct {
-	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` *except* `routeTo` action.
 	Actions EventOrchestrationUnroutedCatchAllActionsInput `pulumi:"actions"`
 }
 
@@ -7788,7 +7788,7 @@ func (o EventOrchestrationUnroutedCatchAllOutput) ToEventOrchestrationUnroutedCa
 	}).(EventOrchestrationUnroutedCatchAllPtrOutput)
 }
 
-// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` *except* `routeTo` action.
 func (o EventOrchestrationUnroutedCatchAllOutput) Actions() EventOrchestrationUnroutedCatchAllActionsOutput {
 	return o.ApplyT(func(v EventOrchestrationUnroutedCatchAll) EventOrchestrationUnroutedCatchAllActions { return v.Actions }).(EventOrchestrationUnroutedCatchAllActionsOutput)
 }
@@ -7817,7 +7817,7 @@ func (o EventOrchestrationUnroutedCatchAllPtrOutput) Elem() EventOrchestrationUn
 	}).(EventOrchestrationUnroutedCatchAllOutput)
 }
 
-// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` *except* `routeTo` action.
 func (o EventOrchestrationUnroutedCatchAllPtrOutput) Actions() EventOrchestrationUnroutedCatchAllActionsPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationUnroutedCatchAll) *EventOrchestrationUnroutedCatchAllActions {
 		if v == nil {
@@ -12223,7 +12223,7 @@ func (o RulesetRuleTimeFramePtrOutput) ScheduledWeeklies() RulesetRuleTimeFrameS
 
 type RulesetRuleTimeFrameActiveBetween struct {
 	EndTime *int `pulumi:"endTime"`
-	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the *date* of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 	StartTime *int `pulumi:"startTime"`
 }
 
@@ -12240,7 +12240,7 @@ type RulesetRuleTimeFrameActiveBetweenInput interface {
 
 type RulesetRuleTimeFrameActiveBetweenArgs struct {
 	EndTime pulumi.IntPtrInput `pulumi:"endTime"`
-	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the *date* of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
 }
 
@@ -12299,7 +12299,7 @@ func (o RulesetRuleTimeFrameActiveBetweenOutput) EndTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameActiveBetween) *int { return v.EndTime }).(pulumi.IntPtrOutput)
 }
 
-// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the *date* of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 func (o RulesetRuleTimeFrameActiveBetweenOutput) StartTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameActiveBetween) *int { return v.StartTime }).(pulumi.IntPtrOutput)
 }
@@ -12327,7 +12327,7 @@ func (o RulesetRuleTimeFrameActiveBetweenArrayOutput) Index(i pulumi.IntInput) R
 type RulesetRuleTimeFrameScheduledWeekly struct {
 	// Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `startTime`.
 	Duration *int `pulumi:"duration"`
-	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the *date* of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 	StartTime *int `pulumi:"startTime"`
 	// [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
 	Timezone *string `pulumi:"timezone"`
@@ -12349,7 +12349,7 @@ type RulesetRuleTimeFrameScheduledWeeklyInput interface {
 type RulesetRuleTimeFrameScheduledWeeklyArgs struct {
 	// Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `startTime`.
 	Duration pulumi.IntPtrInput `pulumi:"duration"`
-	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the *date* of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
 	// [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
@@ -12413,7 +12413,7 @@ func (o RulesetRuleTimeFrameScheduledWeeklyOutput) Duration() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v RulesetRuleTimeFrameScheduledWeekly) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
-// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the *date* of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 func (o RulesetRuleTimeFrameScheduledWeeklyOutput) StartTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameScheduledWeekly) *int { return v.StartTime }).(pulumi.IntPtrOutput)
 }
@@ -18773,7 +18773,7 @@ func (o GetEventOrchestrationGlobalCacheVariableConditionArrayOutput) Index(i pu
 }
 
 type GetEventOrchestrationGlobalCacheVariableConfiguration struct {
-	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+	// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 	Regex string `pulumi:"regex"`
 	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
 	Source string `pulumi:"source"`
@@ -18795,7 +18795,7 @@ type GetEventOrchestrationGlobalCacheVariableConfigurationInput interface {
 }
 
 type GetEventOrchestrationGlobalCacheVariableConfigurationArgs struct {
-	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+	// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 	Regex pulumi.StringInput `pulumi:"regex"`
 	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
 	Source pulumi.StringInput `pulumi:"source"`
@@ -18856,7 +18856,7 @@ func (o GetEventOrchestrationGlobalCacheVariableConfigurationOutput) ToGetEventO
 	return o
 }
 
-// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 func (o GetEventOrchestrationGlobalCacheVariableConfigurationOutput) Regex() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventOrchestrationGlobalCacheVariableConfiguration) string { return v.Regex }).(pulumi.StringOutput)
 }
@@ -19317,7 +19317,7 @@ func (o GetEventOrchestrationServiceCacheVariableConditionArrayOutput) Index(i p
 }
 
 type GetEventOrchestrationServiceCacheVariableConfiguration struct {
-	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+	// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 	Regex string `pulumi:"regex"`
 	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
 	Source string `pulumi:"source"`
@@ -19339,7 +19339,7 @@ type GetEventOrchestrationServiceCacheVariableConfigurationInput interface {
 }
 
 type GetEventOrchestrationServiceCacheVariableConfigurationArgs struct {
-	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+	// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 	Regex pulumi.StringInput `pulumi:"regex"`
 	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
 	Source pulumi.StringInput `pulumi:"source"`
@@ -19400,7 +19400,7 @@ func (o GetEventOrchestrationServiceCacheVariableConfigurationOutput) ToGetEvent
 	return o
 }
 
-// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 func (o GetEventOrchestrationServiceCacheVariableConfigurationOutput) Regex() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventOrchestrationServiceCacheVariableConfiguration) string { return v.Regex }).(pulumi.StringOutput)
 }

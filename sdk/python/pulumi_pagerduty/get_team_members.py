@@ -69,7 +69,7 @@ class AwaitableGetTeamMembersResult(GetTeamMembersResult):
 def get_team_members(team_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTeamMembersResult:
     """
-    Use this data source to get information about a specific [team's members][1].
+    Use this data source to get information about a specific [team's members](https://developer.pagerduty.com/api-reference/e35802f3c4ba4-list-members-of-a-team).
 
     ## Example Usage
 
@@ -99,7 +99,7 @@ def get_team_members(team_id: Optional[str] = None,
 def get_team_members_output(team_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamMembersResult]:
     """
-    Use this data source to get information about a specific [team's members][1].
+    Use this data source to get information about a specific [team's members](https://developer.pagerduty.com/api-reference/e35802f3c4ba4-list-members-of-a-team).
 
     ## Example Usage
 

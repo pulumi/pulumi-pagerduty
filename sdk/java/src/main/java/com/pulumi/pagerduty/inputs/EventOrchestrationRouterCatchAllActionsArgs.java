@@ -15,14 +15,14 @@ public final class EventOrchestrationRouterCatchAllActionsArgs extends com.pulum
     public static final EventOrchestrationRouterCatchAllActionsArgs Empty = new EventOrchestrationRouterCatchAllActionsArgs();
 
     /**
-     * Defines where an alert will be sent if doesn&#39;t match any rules. Can either be the ID of a Service _or_ the string `&#34;unrouted&#34;` to send events to the Unrouted Orchestration.
+     * Defines where an alert will be sent if doesn&#39;t match any rules. Can either be the ID of a Service *or* the string `&#34;unrouted&#34;` to send events to the Unrouted Orchestration.
      * 
      */
     @Import(name="routeTo", required=true)
     private Output<String> routeTo;
 
     /**
-     * @return Defines where an alert will be sent if doesn&#39;t match any rules. Can either be the ID of a Service _or_ the string `&#34;unrouted&#34;` to send events to the Unrouted Orchestration.
+     * @return Defines where an alert will be sent if doesn&#39;t match any rules. Can either be the ID of a Service *or* the string `&#34;unrouted&#34;` to send events to the Unrouted Orchestration.
      * 
      */
     public Output<String> routeTo() {
@@ -54,7 +54,7 @@ public final class EventOrchestrationRouterCatchAllActionsArgs extends com.pulum
         }
 
         /**
-         * @param routeTo Defines where an alert will be sent if doesn&#39;t match any rules. Can either be the ID of a Service _or_ the string `&#34;unrouted&#34;` to send events to the Unrouted Orchestration.
+         * @param routeTo Defines where an alert will be sent if doesn&#39;t match any rules. Can either be the ID of a Service *or* the string `&#34;unrouted&#34;` to send events to the Unrouted Orchestration.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class EventOrchestrationRouterCatchAllActionsArgs extends com.pulum
         }
 
         /**
-         * @param routeTo Defines where an alert will be sent if doesn&#39;t match any rules. Can either be the ID of a Service _or_ the string `&#34;unrouted&#34;` to send events to the Unrouted Orchestration.
+         * @param routeTo Defines where an alert will be sent if doesn&#39;t match any rules. Can either be the ID of a Service *or* the string `&#34;unrouted&#34;` to send events to the Unrouted Orchestration.
          * 
          * @return builder
          * 

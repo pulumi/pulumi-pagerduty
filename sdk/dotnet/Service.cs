@@ -84,7 +84,7 @@ namespace Pulumi.Pagerduty
         public Output<string?> AcknowledgementTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
+        /// (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details &lt;https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service&gt;.
         /// </summary>
         [Output("alertCreation")]
         public Output<string?> AlertCreation { get; private set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? AcknowledgementTimeout { get; set; }
 
         /// <summary>
-        /// (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
+        /// (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details &lt;https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service&gt;.
         /// </summary>
         [Input("alertCreation")]
         public Input<string>? AlertCreation { get; set; }
@@ -318,7 +318,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? AcknowledgementTimeout { get; set; }
 
         /// <summary>
-        /// (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
+        /// (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details &lt;https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service&gt;.
         /// </summary>
         [Input("alertCreation")]
         public Input<string>? AlertCreation { get; set; }

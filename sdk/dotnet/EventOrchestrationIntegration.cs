@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
-    /// An Event Orchestration Integration allows you to create and manage multiple Integrations (and Routing Keys) per Event Orchestration _and_ will allow you to move (migrate) Integrations _between_ two Event Orchestrations.
+    /// An Event Orchestration Integration allows you to create and manage multiple Integrations (and Routing Keys) per Event Orchestration *and* will allow you to move (migrate) Integrations *between* two Event Orchestrations.
     /// 
     /// ## Example of configuring an Integration for an Event Orchestration
     /// 

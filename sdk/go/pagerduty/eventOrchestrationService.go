@@ -20,7 +20,7 @@ import (
 //
 // This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
 //
-// This example also shows using the getPriority data sources to configure `priority` and `escalationPolicy` actions for a rule.
+// This example also shows using the getPriority and EscalationPolicy data sources to configure `priority` and `escalationPolicy` actions for a rule.
 //
 // This example shows a Service Orchestration that has nested sets: a rule in the "start" set has a `routeTo` action pointing at the "step-two" set.
 //

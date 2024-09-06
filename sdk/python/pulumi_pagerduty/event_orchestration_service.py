@@ -173,7 +173,7 @@ class EventOrchestrationService(pulumi.CustomResource):
 
         This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
 
-        This example also shows using the get_priority data sources to configure `priority` and `escalation_policy` actions for a rule.
+        This example also shows using the get_priority and EscalationPolicy data sources to configure `priority` and `escalation_policy` actions for a rule.
 
         This example shows a Service Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
 
@@ -343,7 +343,7 @@ class EventOrchestrationService(pulumi.CustomResource):
 
         This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
 
-        This example also shows using the get_priority data sources to configure `priority` and `escalation_policy` actions for a rule.
+        This example also shows using the get_priority and EscalationPolicy data sources to configure `priority` and `escalation_policy` actions for a rule.
 
         This example shows a Service Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
 

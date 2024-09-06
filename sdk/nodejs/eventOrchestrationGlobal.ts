@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  *
  * This example shows creating `Team`, and `Event Orchestration` resources followed by creating a Global Orchestration to handle Events sent to that Event Orchestration.
  *
- * This example also shows using the pagerduty.getPriority data sources to configure `priority` and `escalationPolicy` actions for a rule.
+ * This example also shows using the pagerduty.getPriority and pagerduty.EscalationPolicy data sources to configure `priority` and `escalationPolicy` actions for a rule.
  *
  * This example shows a Global Orchestration that has nested sets: a rule in the "start" set has a `routeTo` action pointing at the "step-two" set.
  *

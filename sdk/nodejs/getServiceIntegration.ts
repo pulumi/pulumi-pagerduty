@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getServiceIntegration(args: GetServiceIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceIntegrationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getServiceIntegration:getServiceIntegration", {
         "integrationSummary": args.integrationSummary,
@@ -70,7 +69,11 @@ export interface GetServiceIntegrationResult {
  * ```
  */
 export function getServiceIntegrationOutput(args: GetServiceIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceIntegrationResult> {
-    return pulumi.output(args).apply((a: any) => getServiceIntegration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getServiceIntegration:getServiceIntegration", {
+        "integrationSummary": args.integrationSummary,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 /**

@@ -71,14 +71,20 @@ type GetTeamMembersResult struct {
 
 func GetTeamMembersOutput(ctx *pulumi.Context, args GetTeamMembersOutputArgs, opts ...pulumi.InvokeOption) GetTeamMembersResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetTeamMembersResult, error) {
+		ApplyT(func(v interface{}) (GetTeamMembersResultOutput, error) {
 			args := v.(GetTeamMembersArgs)
-			r, err := GetTeamMembers(ctx, &args, opts...)
-			var s GetTeamMembersResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetTeamMembersResult
+			secret, err := ctx.InvokePackageRaw("pagerduty:index/getTeamMembers:getTeamMembers", args, &rv, "", opts...)
+			if err != nil {
+				return GetTeamMembersResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetTeamMembersResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetTeamMembersResultOutput), nil
+			}
+			return output, nil
 		}).(GetTeamMembersResultOutput)
 }
 

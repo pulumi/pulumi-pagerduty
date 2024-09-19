@@ -23,7 +23,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getEventOrchestrationGlobalCacheVariable(args: GetEventOrchestrationGlobalCacheVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetEventOrchestrationGlobalCacheVariableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable", {
         "eventOrchestration": args.eventOrchestration,
@@ -87,7 +86,12 @@ export interface GetEventOrchestrationGlobalCacheVariableResult {
  * ```
  */
 export function getEventOrchestrationGlobalCacheVariableOutput(args: GetEventOrchestrationGlobalCacheVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventOrchestrationGlobalCacheVariableResult> {
-    return pulumi.output(args).apply((a: any) => getEventOrchestrationGlobalCacheVariable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable", {
+        "eventOrchestration": args.eventOrchestration,
+        "id": args.id,
+        "name": args.name,
+    }, opts);
 }
 
 /**

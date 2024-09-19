@@ -30,7 +30,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getService:getService", {
         "name": args.name,
@@ -112,7 +111,10 @@ export interface GetServiceResult {
  * ```
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply((a: any) => getService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getService:getService", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

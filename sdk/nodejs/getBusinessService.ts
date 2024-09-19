@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getBusinessService(args: GetBusinessServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getBusinessService:getBusinessService", {
         "name": args.name,
@@ -68,7 +67,10 @@ export interface GetBusinessServiceResult {
  * ```
  */
 export function getBusinessServiceOutput(args: GetBusinessServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessServiceResult> {
-    return pulumi.output(args).apply((a: any) => getBusinessService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getBusinessService:getBusinessService", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

@@ -33,7 +33,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getUserContactMethod(args: GetUserContactMethodArgs, opts?: pulumi.InvokeOptions): Promise<GetUserContactMethodResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getUserContactMethod:getUserContactMethod", {
         "label": args.label,
@@ -131,7 +130,12 @@ export interface GetUserContactMethodResult {
  * ```
  */
 export function getUserContactMethodOutput(args: GetUserContactMethodOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserContactMethodResult> {
-    return pulumi.output(args).apply((a: any) => getUserContactMethod(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getUserContactMethod:getUserContactMethod", {
+        "label": args.label,
+        "type": args.type,
+        "userId": args.userId,
+    }, opts);
 }
 
 /**

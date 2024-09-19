@@ -75,14 +75,20 @@ type LookupIncidentCustomFieldResult struct {
 
 func LookupIncidentCustomFieldOutput(ctx *pulumi.Context, args LookupIncidentCustomFieldOutputArgs, opts ...pulumi.InvokeOption) LookupIncidentCustomFieldResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupIncidentCustomFieldResult, error) {
+		ApplyT(func(v interface{}) (LookupIncidentCustomFieldResultOutput, error) {
 			args := v.(LookupIncidentCustomFieldArgs)
-			r, err := LookupIncidentCustomField(ctx, &args, opts...)
-			var s LookupIncidentCustomFieldResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupIncidentCustomFieldResult
+			secret, err := ctx.InvokePackageRaw("pagerduty:index/getIncidentCustomField:getIncidentCustomField", args, &rv, "", opts...)
+			if err != nil {
+				return LookupIncidentCustomFieldResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupIncidentCustomFieldResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupIncidentCustomFieldResultOutput), nil
+			}
+			return output, nil
 		}).(LookupIncidentCustomFieldResultOutput)
 }
 

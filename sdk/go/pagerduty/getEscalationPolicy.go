@@ -73,14 +73,20 @@ type LookupEscalationPolicyResult struct {
 
 func LookupEscalationPolicyOutput(ctx *pulumi.Context, args LookupEscalationPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupEscalationPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEscalationPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupEscalationPolicyResultOutput, error) {
 			args := v.(LookupEscalationPolicyArgs)
-			r, err := LookupEscalationPolicy(ctx, &args, opts...)
-			var s LookupEscalationPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEscalationPolicyResult
+			secret, err := ctx.InvokePackageRaw("pagerduty:index/getEscalationPolicy:getEscalationPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEscalationPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEscalationPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEscalationPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEscalationPolicyResultOutput)
 }
 

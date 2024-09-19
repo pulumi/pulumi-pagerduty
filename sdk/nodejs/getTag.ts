@@ -27,7 +27,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getTag(args: GetTagArgs, opts?: pulumi.InvokeOptions): Promise<GetTagResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getTag:getTag", {
         "label": args.label,
@@ -77,7 +76,10 @@ export interface GetTagResult {
  * ```
  */
 export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagResult> {
-    return pulumi.output(args).apply((a: any) => getTag(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getTag:getTag", {
+        "label": args.label,
+    }, opts);
 }
 
 /**

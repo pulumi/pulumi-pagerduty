@@ -27,7 +27,6 @@ import * as utilities from "./utilities";
  */
 export function getLicenses(args?: GetLicensesArgs, opts?: pulumi.InvokeOptions): Promise<GetLicensesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getLicenses:getLicenses", {
         "id": args.id,
@@ -77,7 +76,11 @@ export interface GetLicensesResult {
  * ```
  */
 export function getLicensesOutput(args?: GetLicensesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicensesResult> {
-    return pulumi.output(args).apply((a: any) => getLicenses(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getLicenses:getLicenses", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

@@ -77,14 +77,20 @@ type GetEventOrchestrationsResult struct {
 
 func GetEventOrchestrationsOutput(ctx *pulumi.Context, args GetEventOrchestrationsOutputArgs, opts ...pulumi.InvokeOption) GetEventOrchestrationsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetEventOrchestrationsResult, error) {
+		ApplyT(func(v interface{}) (GetEventOrchestrationsResultOutput, error) {
 			args := v.(GetEventOrchestrationsArgs)
-			r, err := GetEventOrchestrations(ctx, &args, opts...)
-			var s GetEventOrchestrationsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetEventOrchestrationsResult
+			secret, err := ctx.InvokePackageRaw("pagerduty:index/getEventOrchestrations:getEventOrchestrations", args, &rv, "", opts...)
+			if err != nil {
+				return GetEventOrchestrationsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetEventOrchestrationsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetEventOrchestrationsResultOutput), nil
+			}
+			return output, nil
 		}).(GetEventOrchestrationsResultOutput)
 }
 

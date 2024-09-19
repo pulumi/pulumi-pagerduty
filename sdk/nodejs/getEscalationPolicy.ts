@@ -25,7 +25,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getEscalationPolicy(args: GetEscalationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetEscalationPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getEscalationPolicy:getEscalationPolicy", {
         "name": args.name,
@@ -76,7 +75,10 @@ export interface GetEscalationPolicyResult {
  * ```
  */
 export function getEscalationPolicyOutput(args: GetEscalationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEscalationPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getEscalationPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getEscalationPolicy:getEscalationPolicy", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

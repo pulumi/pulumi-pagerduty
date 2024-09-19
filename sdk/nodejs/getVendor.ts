@@ -48,7 +48,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getVendor:getVendor", {
         "name": args.name,
@@ -126,7 +125,10 @@ export interface GetVendorResult {
  * ```
  */
 export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorResult> {
-    return pulumi.output(args).apply((a: any) => getVendor(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getVendor:getVendor", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

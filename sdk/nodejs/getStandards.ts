@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  */
 export function getStandards(args?: GetStandardsArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getStandards:getStandards", {
         "resourceType": args.resourceType,
@@ -69,7 +68,11 @@ export interface GetStandardsResult {
  * ```
  */
 export function getStandardsOutput(args?: GetStandardsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardsResult> {
-    return pulumi.output(args).apply((a: any) => getStandards(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getStandards:getStandards", {
+        "resourceType": args.resourceType,
+    }, opts);
 }
 
 /**

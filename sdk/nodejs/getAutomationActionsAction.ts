@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getAutomationActionsAction(args: GetAutomationActionsActionArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationActionsActionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getAutomationActionsAction:getAutomationActionsAction", {
         "actionClassification": args.actionClassification,
@@ -137,7 +136,17 @@ export interface GetAutomationActionsActionResult {
  * ```
  */
 export function getAutomationActionsActionOutput(args: GetAutomationActionsActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationActionsActionResult> {
-    return pulumi.output(args).apply((a: any) => getAutomationActionsAction(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getAutomationActionsAction:getAutomationActionsAction", {
+        "actionClassification": args.actionClassification,
+        "creationTime": args.creationTime,
+        "description": args.description,
+        "id": args.id,
+        "modifyTime": args.modifyTime,
+        "runnerId": args.runnerId,
+        "runnerType": args.runnerType,
+        "type": args.type,
+    }, opts);
 }
 
 /**

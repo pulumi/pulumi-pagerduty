@@ -23,7 +23,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getEventOrchestrations(args: GetEventOrchestrationsArgs, opts?: pulumi.InvokeOptions): Promise<GetEventOrchestrationsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getEventOrchestrations:getEventOrchestrations", {
         "nameFilter": args.nameFilter,
@@ -71,7 +70,10 @@ export interface GetEventOrchestrationsResult {
  * ```
  */
 export function getEventOrchestrationsOutput(args: GetEventOrchestrationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventOrchestrationsResult> {
-    return pulumi.output(args).apply((a: any) => getEventOrchestrations(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getEventOrchestrations:getEventOrchestrations", {
+        "nameFilter": args.nameFilter,
+    }, opts);
 }
 
 /**

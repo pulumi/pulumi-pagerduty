@@ -47,7 +47,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getExtensionSchema(args: GetExtensionSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionSchemaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getExtensionSchema:getExtensionSchema", {
         "name": args.name,
@@ -124,7 +123,10 @@ export interface GetExtensionSchemaResult {
  * ```
  */
 export function getExtensionSchemaOutput(args: GetExtensionSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionSchemaResult> {
-    return pulumi.output(args).apply((a: any) => getExtensionSchema(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getExtensionSchema:getExtensionSchema", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

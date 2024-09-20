@@ -24,7 +24,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getTeamMembers(args: GetTeamMembersArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamMembersResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getTeamMembers:getTeamMembers", {
         "teamId": args.teamId,
@@ -73,7 +72,10 @@ export interface GetTeamMembersResult {
  * ```
  */
 export function getTeamMembersOutput(args: GetTeamMembersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamMembersResult> {
-    return pulumi.output(args).apply((a: any) => getTeamMembers(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getTeamMembers:getTeamMembers", {
+        "teamId": args.teamId,
+    }, opts);
 }
 
 /**

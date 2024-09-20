@@ -46,7 +46,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getEventOrchestrationServiceCacheVariable(args: GetEventOrchestrationServiceCacheVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetEventOrchestrationServiceCacheVariableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getEventOrchestrationServiceCacheVariable:getEventOrchestrationServiceCacheVariable", {
         "id": args.id,
@@ -133,7 +132,12 @@ export interface GetEventOrchestrationServiceCacheVariableResult {
  * ```
  */
 export function getEventOrchestrationServiceCacheVariableOutput(args: GetEventOrchestrationServiceCacheVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventOrchestrationServiceCacheVariableResult> {
-    return pulumi.output(args).apply((a: any) => getEventOrchestrationServiceCacheVariable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getEventOrchestrationServiceCacheVariable:getEventOrchestrationServiceCacheVariable", {
+        "id": args.id,
+        "name": args.name,
+        "service": args.service,
+    }, opts);
 }
 
 /**

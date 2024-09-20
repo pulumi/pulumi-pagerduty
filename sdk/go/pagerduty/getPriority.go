@@ -115,14 +115,20 @@ type GetPriorityResult struct {
 
 func GetPriorityOutput(ctx *pulumi.Context, args GetPriorityOutputArgs, opts ...pulumi.InvokeOption) GetPriorityResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetPriorityResult, error) {
+		ApplyT(func(v interface{}) (GetPriorityResultOutput, error) {
 			args := v.(GetPriorityArgs)
-			r, err := GetPriority(ctx, &args, opts...)
-			var s GetPriorityResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetPriorityResult
+			secret, err := ctx.InvokePackageRaw("pagerduty:index/getPriority:getPriority", args, &rv, "", opts...)
+			if err != nil {
+				return GetPriorityResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetPriorityResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetPriorityResultOutput), nil
+			}
+			return output, nil
 		}).(GetPriorityResultOutput)
 }
 

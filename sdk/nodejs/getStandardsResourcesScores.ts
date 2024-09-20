@@ -36,7 +36,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getStandardsResourcesScores(args: GetStandardsResourcesScoresArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardsResourcesScoresResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores", {
         "ids": args.ids,
@@ -106,7 +105,11 @@ export interface GetStandardsResourcesScoresResult {
  * ```
  */
 export function getStandardsResourcesScoresOutput(args: GetStandardsResourcesScoresOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardsResourcesScoresResult> {
-    return pulumi.output(args).apply((a: any) => getStandardsResourcesScores(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores", {
+        "ids": args.ids,
+        "resourceType": args.resourceType,
+    }, opts);
 }
 
 /**

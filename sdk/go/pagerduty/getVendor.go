@@ -113,14 +113,20 @@ type GetVendorResult struct {
 
 func GetVendorOutput(ctx *pulumi.Context, args GetVendorOutputArgs, opts ...pulumi.InvokeOption) GetVendorResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetVendorResult, error) {
+		ApplyT(func(v interface{}) (GetVendorResultOutput, error) {
 			args := v.(GetVendorArgs)
-			r, err := GetVendor(ctx, &args, opts...)
-			var s GetVendorResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetVendorResult
+			secret, err := ctx.InvokePackageRaw("pagerduty:index/getVendor:getVendor", args, &rv, "", opts...)
+			if err != nil {
+				return GetVendorResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetVendorResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetVendorResultOutput), nil
+			}
+			return output, nil
 		}).(GetVendorResultOutput)
 }
 

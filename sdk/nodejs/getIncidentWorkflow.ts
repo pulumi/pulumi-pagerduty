@@ -28,7 +28,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getIncidentWorkflow(args: GetIncidentWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentWorkflowResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", {
         "name": args.name,
@@ -80,7 +79,10 @@ export interface GetIncidentWorkflowResult {
  * ```
  */
 export function getIncidentWorkflowOutput(args: GetIncidentWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentWorkflowResult> {
-    return pulumi.output(args).apply((a: any) => getIncidentWorkflow(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

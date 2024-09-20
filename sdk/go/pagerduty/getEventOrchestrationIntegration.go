@@ -72,14 +72,20 @@ type LookupEventOrchestrationIntegrationResult struct {
 
 func LookupEventOrchestrationIntegrationOutput(ctx *pulumi.Context, args LookupEventOrchestrationIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupEventOrchestrationIntegrationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEventOrchestrationIntegrationResult, error) {
+		ApplyT(func(v interface{}) (LookupEventOrchestrationIntegrationResultOutput, error) {
 			args := v.(LookupEventOrchestrationIntegrationArgs)
-			r, err := LookupEventOrchestrationIntegration(ctx, &args, opts...)
-			var s LookupEventOrchestrationIntegrationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEventOrchestrationIntegrationResult
+			secret, err := ctx.InvokePackageRaw("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEventOrchestrationIntegrationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEventOrchestrationIntegrationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEventOrchestrationIntegrationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEventOrchestrationIntegrationResultOutput)
 }
 

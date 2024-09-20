@@ -52,7 +52,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getPriority(args: GetPriorityArgs, opts?: pulumi.InvokeOptions): Promise<GetPriorityResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getPriority:getPriority", {
         "name": args.name,
@@ -134,7 +133,10 @@ export interface GetPriorityResult {
  * ```
  */
 export function getPriorityOutput(args: GetPriorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPriorityResult> {
-    return pulumi.output(args).apply((a: any) => getPriority(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getPriority:getPriority", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

@@ -30,7 +30,6 @@ import * as utilities from "./utilities";
  */
 export function getLicense(args?: GetLicenseArgs, opts?: pulumi.InvokeOptions): Promise<GetLicenseResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getLicense:getLicense", {
         "description": args.description,
@@ -113,7 +112,13 @@ export interface GetLicenseResult {
  * ```
  */
 export function getLicenseOutput(args?: GetLicenseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicenseResult> {
-    return pulumi.output(args).apply((a: any) => getLicense(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getLicense:getLicense", {
+        "description": args.description,
+        "id": args.id,
+        "name": args.name,
+    }, opts);
 }
 
 /**

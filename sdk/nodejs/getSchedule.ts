@@ -30,7 +30,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getSchedule:getSchedule", {
         "name": args.name,
@@ -86,7 +85,10 @@ export interface GetScheduleResult {
  * ```
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
-    return pulumi.output(args).apply((a: any) => getSchedule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pagerduty:index/getSchedule:getSchedule", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

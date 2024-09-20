@@ -103,14 +103,20 @@ type LookupUserContactMethodResult struct {
 
 func LookupUserContactMethodOutput(ctx *pulumi.Context, args LookupUserContactMethodOutputArgs, opts ...pulumi.InvokeOption) LookupUserContactMethodResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupUserContactMethodResult, error) {
+		ApplyT(func(v interface{}) (LookupUserContactMethodResultOutput, error) {
 			args := v.(LookupUserContactMethodArgs)
-			r, err := LookupUserContactMethod(ctx, &args, opts...)
-			var s LookupUserContactMethodResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupUserContactMethodResult
+			secret, err := ctx.InvokePackageRaw("pagerduty:index/getUserContactMethod:getUserContactMethod", args, &rv, "", opts...)
+			if err != nil {
+				return LookupUserContactMethodResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupUserContactMethodResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupUserContactMethodResultOutput), nil
+			}
+			return output, nil
 		}).(LookupUserContactMethodResultOutput)
 }
 

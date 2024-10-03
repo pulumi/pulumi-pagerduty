@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -88,9 +93,6 @@ def get_licenses(id: Optional[str] = None,
     return AwaitableGetLicensesResult(
         id=pulumi.get(__ret__, 'id'),
         licenses=pulumi.get(__ret__, 'licenses'))
-
-
-@_utilities.lift_output_func(get_licenses)
 def get_licenses_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLicensesResult]:
     """
@@ -114,4 +116,10 @@ def get_licenses_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     :param str id: Allows to override the default behavior for setting the `id` attribute that is required for data sources.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getLicenses:getLicenses', __args__, opts=opts, typ=GetLicensesResult)
+    return __ret__.apply(lambda __response__: GetLicensesResult(
+        id=pulumi.get(__response__, 'id'),
+        licenses=pulumi.get(__response__, 'licenses')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -138,9 +143,6 @@ def get_team(default_role: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         parent=pulumi.get(__ret__, 'parent'))
-
-
-@_utilities.lift_output_func(get_team)
 def get_team_output(default_role: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[str]] = None,
                     parent: Optional[pulumi.Input[Optional[str]]] = None,
@@ -174,4 +176,15 @@ def get_team_output(default_role: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: The name of the team to find in the PagerDuty API.
     :param str parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
     """
-    ...
+    __args__ = dict()
+    __args__['defaultRole'] = default_role
+    __args__['name'] = name
+    __args__['parent'] = parent
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getTeam:getTeam', __args__, opts=opts, typ=GetTeamResult)
+    return __ret__.apply(lambda __response__: GetTeamResult(
+        default_role=pulumi.get(__response__, 'default_role'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        parent=pulumi.get(__response__, 'parent')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -93,9 +98,6 @@ def get_team_members(team_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         members=pulumi.get(__ret__, 'members'),
         team_id=pulumi.get(__ret__, 'team_id'))
-
-
-@_utilities.lift_output_func(get_team_members)
 def get_team_members_output(team_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamMembersResult]:
     """
@@ -114,4 +116,11 @@ def get_team_members_output(team_id: Optional[pulumi.Input[str]] = None,
 
     :param str team_id: The ID of the team to find in the PagerDuty API.
     """
-    ...
+    __args__ = dict()
+    __args__['teamId'] = team_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getTeamMembers:getTeamMembers', __args__, opts=opts, typ=GetTeamMembersResult)
+    return __ret__.apply(lambda __response__: GetTeamMembersResult(
+        id=pulumi.get(__response__, 'id'),
+        members=pulumi.get(__response__, 'members'),
+        team_id=pulumi.get(__response__, 'team_id')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -133,9 +138,6 @@ def get_event_orchestration_global_cache_variable(event_orchestration: Optional[
         event_orchestration=pulumi.get(__ret__, 'event_orchestration'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_event_orchestration_global_cache_variable)
 def get_event_orchestration_global_cache_variable_output(event_orchestration: Optional[pulumi.Input[str]] = None,
                                                          id: Optional[pulumi.Input[Optional[str]]] = None,
                                                          name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -159,4 +161,16 @@ def get_event_orchestration_global_cache_variable_output(event_orchestration: Op
     :param str id: ID of the Cache Variable associated with the Global Event Orchestration. Specify either `id` or `name`. If both are specified `id` takes precedence.
     :param str name: Name of the Cache Variable associated with the Global Event Orchestration. Specify either `id` or `name`. If both are specified `id` takes precedence.
     """
-    ...
+    __args__ = dict()
+    __args__['eventOrchestration'] = event_orchestration
+    __args__['id'] = id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable', __args__, opts=opts, typ=GetEventOrchestrationGlobalCacheVariableResult)
+    return __ret__.apply(lambda __response__: GetEventOrchestrationGlobalCacheVariableResult(
+        conditions=pulumi.get(__response__, 'conditions'),
+        configurations=pulumi.get(__response__, 'configurations'),
+        disabled=pulumi.get(__response__, 'disabled'),
+        event_orchestration=pulumi.get(__response__, 'event_orchestration'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name')))

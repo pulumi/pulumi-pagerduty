@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -96,9 +101,6 @@ def get_standards(resource_type: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
         standards=pulumi.get(__ret__, 'standards'))
-
-
-@_utilities.lift_output_func(get_standards)
 def get_standards_output(resource_type: Optional[pulumi.Input[Optional[str]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardsResult]:
     """
@@ -117,4 +119,11 @@ def get_standards_output(resource_type: Optional[pulumi.Input[Optional[str]]] = 
 
     :param str resource_type: Filter by `resource_type` the received standards. Allowed values are `technical_service`.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceType'] = resource_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getStandards:getStandards', __args__, opts=opts, typ=GetStandardsResult)
+    return __ret__.apply(lambda __response__: GetStandardsResult(
+        id=pulumi.get(__response__, 'id'),
+        resource_type=pulumi.get(__response__, 'resource_type'),
+        standards=pulumi.get(__response__, 'standards')))

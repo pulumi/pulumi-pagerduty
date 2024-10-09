@@ -4,153 +4,325 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
     'AutomationActionsActionActionDataReferenceArgs',
+    'AutomationActionsActionActionDataReferenceArgsDict',
     'EscalationPolicyRuleArgs',
+    'EscalationPolicyRuleArgsDict',
     'EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs',
+    'EscalationPolicyRuleEscalationRuleAssignmentStrategyArgsDict',
     'EscalationPolicyRuleTargetArgs',
+    'EscalationPolicyRuleTargetArgsDict',
     'EventOrchestrationGlobalCacheVariableConditionArgs',
+    'EventOrchestrationGlobalCacheVariableConditionArgsDict',
     'EventOrchestrationGlobalCacheVariableConfigurationArgs',
+    'EventOrchestrationGlobalCacheVariableConfigurationArgsDict',
     'EventOrchestrationGlobalCatchAllArgs',
+    'EventOrchestrationGlobalCatchAllArgsDict',
     'EventOrchestrationGlobalCatchAllActionsArgs',
+    'EventOrchestrationGlobalCatchAllActionsArgsDict',
     'EventOrchestrationGlobalCatchAllActionsAutomationActionArgs',
+    'EventOrchestrationGlobalCatchAllActionsAutomationActionArgsDict',
     'EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs',
+    'EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgsDict',
     'EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs',
+    'EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgsDict',
     'EventOrchestrationGlobalCatchAllActionsExtractionArgs',
+    'EventOrchestrationGlobalCatchAllActionsExtractionArgsDict',
     'EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs',
+    'EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgsDict',
     'EventOrchestrationGlobalCatchAllActionsVariableArgs',
+    'EventOrchestrationGlobalCatchAllActionsVariableArgsDict',
     'EventOrchestrationGlobalSetArgs',
+    'EventOrchestrationGlobalSetArgsDict',
     'EventOrchestrationGlobalSetRuleArgs',
+    'EventOrchestrationGlobalSetRuleArgsDict',
     'EventOrchestrationGlobalSetRuleActionsArgs',
+    'EventOrchestrationGlobalSetRuleActionsArgsDict',
     'EventOrchestrationGlobalSetRuleActionsAutomationActionArgs',
+    'EventOrchestrationGlobalSetRuleActionsAutomationActionArgsDict',
     'EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs',
+    'EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgsDict',
     'EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs',
+    'EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgsDict',
     'EventOrchestrationGlobalSetRuleActionsExtractionArgs',
+    'EventOrchestrationGlobalSetRuleActionsExtractionArgsDict',
     'EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs',
+    'EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgsDict',
     'EventOrchestrationGlobalSetRuleActionsVariableArgs',
+    'EventOrchestrationGlobalSetRuleActionsVariableArgsDict',
     'EventOrchestrationGlobalSetRuleConditionArgs',
+    'EventOrchestrationGlobalSetRuleConditionArgsDict',
     'EventOrchestrationIntegrationArgs',
+    'EventOrchestrationIntegrationArgsDict',
     'EventOrchestrationIntegrationParameterArgs',
+    'EventOrchestrationIntegrationParameterArgsDict',
     'EventOrchestrationRouterCatchAllArgs',
+    'EventOrchestrationRouterCatchAllArgsDict',
     'EventOrchestrationRouterCatchAllActionsArgs',
+    'EventOrchestrationRouterCatchAllActionsArgsDict',
     'EventOrchestrationRouterSetArgs',
+    'EventOrchestrationRouterSetArgsDict',
     'EventOrchestrationRouterSetRuleArgs',
+    'EventOrchestrationRouterSetRuleArgsDict',
     'EventOrchestrationRouterSetRuleActionsArgs',
+    'EventOrchestrationRouterSetRuleActionsArgsDict',
     'EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs',
+    'EventOrchestrationRouterSetRuleActionsDynamicRouteToArgsDict',
     'EventOrchestrationRouterSetRuleConditionArgs',
+    'EventOrchestrationRouterSetRuleConditionArgsDict',
     'EventOrchestrationServiceCacheVariableConditionArgs',
+    'EventOrchestrationServiceCacheVariableConditionArgsDict',
     'EventOrchestrationServiceCacheVariableConfigurationArgs',
+    'EventOrchestrationServiceCacheVariableConfigurationArgsDict',
     'EventOrchestrationServiceCatchAllArgs',
+    'EventOrchestrationServiceCatchAllArgsDict',
     'EventOrchestrationServiceCatchAllActionsArgs',
+    'EventOrchestrationServiceCatchAllActionsArgsDict',
     'EventOrchestrationServiceCatchAllActionsAutomationActionArgs',
+    'EventOrchestrationServiceCatchAllActionsAutomationActionArgsDict',
     'EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs',
+    'EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgsDict',
     'EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs',
+    'EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgsDict',
     'EventOrchestrationServiceCatchAllActionsExtractionArgs',
+    'EventOrchestrationServiceCatchAllActionsExtractionArgsDict',
     'EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs',
+    'EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgsDict',
     'EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs',
+    'EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgsDict',
     'EventOrchestrationServiceCatchAllActionsVariableArgs',
+    'EventOrchestrationServiceCatchAllActionsVariableArgsDict',
     'EventOrchestrationServiceSetArgs',
+    'EventOrchestrationServiceSetArgsDict',
     'EventOrchestrationServiceSetRuleArgs',
+    'EventOrchestrationServiceSetRuleArgsDict',
     'EventOrchestrationServiceSetRuleActionsArgs',
+    'EventOrchestrationServiceSetRuleActionsArgsDict',
     'EventOrchestrationServiceSetRuleActionsAutomationActionArgs',
+    'EventOrchestrationServiceSetRuleActionsAutomationActionArgsDict',
     'EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs',
+    'EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgsDict',
     'EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs',
+    'EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgsDict',
     'EventOrchestrationServiceSetRuleActionsExtractionArgs',
+    'EventOrchestrationServiceSetRuleActionsExtractionArgsDict',
     'EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs',
+    'EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgsDict',
     'EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs',
+    'EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgsDict',
     'EventOrchestrationServiceSetRuleActionsVariableArgs',
+    'EventOrchestrationServiceSetRuleActionsVariableArgsDict',
     'EventOrchestrationServiceSetRuleConditionArgs',
+    'EventOrchestrationServiceSetRuleConditionArgsDict',
     'EventOrchestrationUnroutedCatchAllArgs',
+    'EventOrchestrationUnroutedCatchAllArgsDict',
     'EventOrchestrationUnroutedCatchAllActionsArgs',
+    'EventOrchestrationUnroutedCatchAllActionsArgsDict',
     'EventOrchestrationUnroutedCatchAllActionsExtractionArgs',
+    'EventOrchestrationUnroutedCatchAllActionsExtractionArgsDict',
     'EventOrchestrationUnroutedCatchAllActionsVariableArgs',
+    'EventOrchestrationUnroutedCatchAllActionsVariableArgsDict',
     'EventOrchestrationUnroutedSetArgs',
+    'EventOrchestrationUnroutedSetArgsDict',
     'EventOrchestrationUnroutedSetRuleArgs',
+    'EventOrchestrationUnroutedSetRuleArgsDict',
     'EventOrchestrationUnroutedSetRuleActionsArgs',
+    'EventOrchestrationUnroutedSetRuleActionsArgsDict',
     'EventOrchestrationUnroutedSetRuleActionsExtractionArgs',
+    'EventOrchestrationUnroutedSetRuleActionsExtractionArgsDict',
     'EventOrchestrationUnroutedSetRuleActionsVariableArgs',
+    'EventOrchestrationUnroutedSetRuleActionsVariableArgsDict',
     'EventOrchestrationUnroutedSetRuleConditionArgs',
+    'EventOrchestrationUnroutedSetRuleConditionArgsDict',
     'IncidentWorkflowStepArgs',
+    'IncidentWorkflowStepArgsDict',
     'IncidentWorkflowStepInlineStepsInputArgs',
+    'IncidentWorkflowStepInlineStepsInputArgsDict',
     'IncidentWorkflowStepInlineStepsInputStepArgs',
+    'IncidentWorkflowStepInlineStepsInputStepArgsDict',
     'IncidentWorkflowStepInlineStepsInputStepInputArgs',
+    'IncidentWorkflowStepInlineStepsInputStepInputArgsDict',
     'IncidentWorkflowStepInputArgs',
+    'IncidentWorkflowStepInputArgsDict',
     'IncidentWorkflowTriggerPermissionsArgs',
+    'IncidentWorkflowTriggerPermissionsArgsDict',
     'ProviderUseAppOauthScopedTokenArgs',
+    'ProviderUseAppOauthScopedTokenArgsDict',
     'ResponsePlayResponderArgs',
+    'ResponsePlayResponderArgsDict',
     'ResponsePlayResponderEscalationRuleArgs',
+    'ResponsePlayResponderEscalationRuleArgsDict',
     'ResponsePlayResponderEscalationRuleTargetArgs',
+    'ResponsePlayResponderEscalationRuleTargetArgsDict',
     'ResponsePlayResponderServiceArgs',
+    'ResponsePlayResponderServiceArgsDict',
     'ResponsePlayResponderTeamArgs',
+    'ResponsePlayResponderTeamArgsDict',
     'ResponsePlaySubscriberArgs',
+    'ResponsePlaySubscriberArgsDict',
     'RulesetRuleActionsArgs',
+    'RulesetRuleActionsArgsDict',
     'RulesetRuleActionsAnnotateArgs',
+    'RulesetRuleActionsAnnotateArgsDict',
     'RulesetRuleActionsEventActionArgs',
+    'RulesetRuleActionsEventActionArgsDict',
     'RulesetRuleActionsExtractionArgs',
+    'RulesetRuleActionsExtractionArgsDict',
     'RulesetRuleActionsPriorityArgs',
+    'RulesetRuleActionsPriorityArgsDict',
     'RulesetRuleActionsRouteArgs',
+    'RulesetRuleActionsRouteArgsDict',
     'RulesetRuleActionsSeverityArgs',
+    'RulesetRuleActionsSeverityArgsDict',
     'RulesetRuleActionsSuppressArgs',
+    'RulesetRuleActionsSuppressArgsDict',
     'RulesetRuleActionsSuspendArgs',
+    'RulesetRuleActionsSuspendArgsDict',
     'RulesetRuleConditionsArgs',
+    'RulesetRuleConditionsArgsDict',
     'RulesetRuleConditionsSubconditionArgs',
+    'RulesetRuleConditionsSubconditionArgsDict',
     'RulesetRuleConditionsSubconditionParameterArgs',
+    'RulesetRuleConditionsSubconditionParameterArgsDict',
     'RulesetRuleTimeFrameArgs',
+    'RulesetRuleTimeFrameArgsDict',
     'RulesetRuleTimeFrameActiveBetweenArgs',
+    'RulesetRuleTimeFrameActiveBetweenArgsDict',
     'RulesetRuleTimeFrameScheduledWeeklyArgs',
+    'RulesetRuleTimeFrameScheduledWeeklyArgsDict',
     'RulesetRuleVariableArgs',
+    'RulesetRuleVariableArgsDict',
     'RulesetRuleVariableParameterArgs',
+    'RulesetRuleVariableParameterArgsDict',
     'RulesetTeamArgs',
+    'RulesetTeamArgsDict',
     'ScheduleFinalScheduleArgs',
+    'ScheduleFinalScheduleArgsDict',
     'ScheduleLayerArgs',
+    'ScheduleLayerArgsDict',
     'ScheduleLayerRestrictionArgs',
+    'ScheduleLayerRestrictionArgsDict',
     'ServiceAlertGroupingParametersArgs',
+    'ServiceAlertGroupingParametersArgsDict',
     'ServiceAlertGroupingParametersConfigArgs',
+    'ServiceAlertGroupingParametersConfigArgsDict',
     'ServiceAutoPauseNotificationsParametersArgs',
+    'ServiceAutoPauseNotificationsParametersArgsDict',
     'ServiceDependencyDependencyArgs',
+    'ServiceDependencyDependencyArgsDict',
     'ServiceDependencyDependencyDependentServiceArgs',
+    'ServiceDependencyDependencyDependentServiceArgsDict',
     'ServiceDependencyDependencySupportingServiceArgs',
+    'ServiceDependencyDependencySupportingServiceArgsDict',
     'ServiceEventRuleActionsArgs',
+    'ServiceEventRuleActionsArgsDict',
     'ServiceEventRuleActionsAnnotateArgs',
+    'ServiceEventRuleActionsAnnotateArgsDict',
     'ServiceEventRuleActionsEventActionArgs',
+    'ServiceEventRuleActionsEventActionArgsDict',
     'ServiceEventRuleActionsExtractionArgs',
+    'ServiceEventRuleActionsExtractionArgsDict',
     'ServiceEventRuleActionsPriorityArgs',
+    'ServiceEventRuleActionsPriorityArgsDict',
     'ServiceEventRuleActionsSeverityArgs',
+    'ServiceEventRuleActionsSeverityArgsDict',
     'ServiceEventRuleActionsSuppressArgs',
+    'ServiceEventRuleActionsSuppressArgsDict',
     'ServiceEventRuleActionsSuspendArgs',
+    'ServiceEventRuleActionsSuspendArgsDict',
     'ServiceEventRuleConditionsArgs',
+    'ServiceEventRuleConditionsArgsDict',
     'ServiceEventRuleConditionsSubconditionArgs',
+    'ServiceEventRuleConditionsSubconditionArgsDict',
     'ServiceEventRuleConditionsSubconditionParameterArgs',
+    'ServiceEventRuleConditionsSubconditionParameterArgsDict',
     'ServiceEventRuleTimeFrameArgs',
+    'ServiceEventRuleTimeFrameArgsDict',
     'ServiceEventRuleTimeFrameActiveBetweenArgs',
+    'ServiceEventRuleTimeFrameActiveBetweenArgsDict',
     'ServiceEventRuleTimeFrameScheduledWeeklyArgs',
+    'ServiceEventRuleTimeFrameScheduledWeeklyArgsDict',
     'ServiceEventRuleVariableArgs',
+    'ServiceEventRuleVariableArgsDict',
     'ServiceEventRuleVariableParameterArgs',
+    'ServiceEventRuleVariableParameterArgsDict',
     'ServiceIncidentUrgencyRuleArgs',
+    'ServiceIncidentUrgencyRuleArgsDict',
     'ServiceIncidentUrgencyRuleDuringSupportHoursArgs',
+    'ServiceIncidentUrgencyRuleDuringSupportHoursArgsDict',
     'ServiceIncidentUrgencyRuleOutsideSupportHoursArgs',
+    'ServiceIncidentUrgencyRuleOutsideSupportHoursArgsDict',
     'ServiceIntegrationEmailFilterArgs',
+    'ServiceIntegrationEmailFilterArgsDict',
     'ServiceIntegrationEmailParserArgs',
+    'ServiceIntegrationEmailParserArgsDict',
     'ServiceIntegrationEmailParserMatchPredicateArgs',
+    'ServiceIntegrationEmailParserMatchPredicateArgsDict',
     'ServiceIntegrationEmailParserMatchPredicatePredicateArgs',
+    'ServiceIntegrationEmailParserMatchPredicatePredicateArgsDict',
     'ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs',
+    'ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgsDict',
     'ServiceIntegrationEmailParserValueExtractorArgs',
+    'ServiceIntegrationEmailParserValueExtractorArgsDict',
     'ServiceScheduledActionArgs',
+    'ServiceScheduledActionArgsDict',
     'ServiceScheduledActionAtArgs',
+    'ServiceScheduledActionAtArgsDict',
     'ServiceSupportHoursArgs',
+    'ServiceSupportHoursArgsDict',
     'SlackConnectionConfigArgs',
+    'SlackConnectionConfigArgsDict',
     'UserHandoffNotificationRuleContactMethodArgs',
+    'UserHandoffNotificationRuleContactMethodArgsDict',
     'WebhookSubscriptionDeliveryMethodArgs',
+    'WebhookSubscriptionDeliveryMethodArgsDict',
     'WebhookSubscriptionDeliveryMethodCustomHeaderArgs',
+    'WebhookSubscriptionDeliveryMethodCustomHeaderArgsDict',
     'WebhookSubscriptionFilterArgs',
+    'WebhookSubscriptionFilterArgsDict',
     'GetEventOrchestrationIntegrationDetailArgs',
+    'GetEventOrchestrationIntegrationDetailArgsDict',
     'GetEventOrchestrationIntegrationDetailParameterArgs',
+    'GetEventOrchestrationIntegrationDetailParameterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AutomationActionsActionActionDataReferenceArgsDict(TypedDict):
+        invocation_command: NotRequired[pulumi.Input[str]]
+        """
+        The command to execute the script with.
+        """
+        process_automation_job_arguments: NotRequired[pulumi.Input[str]]
+        """
+        The arguments to pass to the Process Automation job execution.
+        """
+        process_automation_job_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Process Automation job to execute.
+        """
+        process_automation_node_filter: NotRequired[pulumi.Input[str]]
+        """
+        The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+        """
+        script: NotRequired[pulumi.Input[str]]
+        """
+        Body of the script to be executed on the Runner. Max length is 16777215 characters.
+        """
+elif False:
+    AutomationActionsActionActionDataReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationActionsActionActionDataReferenceArgs:
@@ -239,6 +411,24 @@ class AutomationActionsActionActionDataReferenceArgs:
         pulumi.set(self, "script", value)
 
 
+if not MYPY:
+    class EscalationPolicyRuleArgsDict(TypedDict):
+        escalation_delay_in_minutes: pulumi.Input[int]
+        """
+        The number of minutes before an unacknowledged incident escalates away from this rule.
+        """
+        targets: pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleTargetArgsDict']]]
+        escalation_rule_assignment_strategy: NotRequired[pulumi.Input['EscalationPolicyRuleEscalationRuleAssignmentStrategyArgsDict']]
+        """
+        The strategy used to assign the escalation rule to an incident. Documented below.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the escalation policy.
+        """
+elif False:
+    EscalationPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EscalationPolicyRuleArgs:
     def __init__(__self__, *,
@@ -304,6 +494,15 @@ class EscalationPolicyRuleArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class EscalationPolicyRuleEscalationRuleAssignmentStrategyArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Can be `round_robin` or `assign_to_everyone`.
+        """
+elif False:
+    EscalationPolicyRuleEscalationRuleAssignmentStrategyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs:
     def __init__(__self__, *,
@@ -326,6 +525,19 @@ class EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class EscalationPolicyRuleTargetArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        A target ID
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+        """
+elif False:
+    EscalationPolicyRuleTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EscalationPolicyRuleTargetArgs:
@@ -365,6 +577,15 @@ class EscalationPolicyRuleTargetArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class EventOrchestrationGlobalCacheVariableConditionArgsDict(TypedDict):
+        expression: pulumi.Input[str]
+        """
+        A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+elif False:
+    EventOrchestrationGlobalCacheVariableConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationGlobalCacheVariableConditionArgs:
     def __init__(__self__, *,
@@ -386,6 +607,27 @@ class EventOrchestrationGlobalCacheVariableConditionArgs:
     def expression(self, value: pulumi.Input[str]):
         pulumi.set(self, "expression", value)
 
+
+if not MYPY:
+    class EventOrchestrationGlobalCacheVariableConfigurationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+        """
+        regex: NotRequired[pulumi.Input[str]]
+        """
+        A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
+        """
+        ttl_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        """
+elif False:
+    EventOrchestrationGlobalCacheVariableConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationGlobalCacheVariableConfigurationArgs:
@@ -457,6 +699,15 @@ class EventOrchestrationGlobalCacheVariableConfigurationArgs:
         pulumi.set(self, "ttl_seconds", value)
 
 
+if not MYPY:
+    class EventOrchestrationGlobalCatchAllArgsDict(TypedDict):
+        actions: pulumi.Input['EventOrchestrationGlobalCatchAllActionsArgsDict']
+        """
+        These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+        """
+elif False:
+    EventOrchestrationGlobalCatchAllArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationGlobalCatchAllArgs:
     def __init__(__self__, *,
@@ -478,6 +729,63 @@ class EventOrchestrationGlobalCatchAllArgs:
     def actions(self, value: pulumi.Input['EventOrchestrationGlobalCatchAllActionsArgs']):
         pulumi.set(self, "actions", value)
 
+
+if not MYPY:
+    class EventOrchestrationGlobalCatchAllActionsArgsDict(TypedDict):
+        annotate: NotRequired[pulumi.Input[str]]
+        """
+        Add this text as a note on the resulting incident.
+        """
+        automation_action: NotRequired[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionArgsDict']]
+        """
+        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        """
+        drop_event: NotRequired[pulumi.Input[bool]]
+        """
+        When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
+        """
+        escalation_policy: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+        """
+        event_action: NotRequired[pulumi.Input[str]]
+        """
+        sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        """
+        extractions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsExtractionArgsDict']]]]
+        """
+        Replace any CEF field or Custom Details object field using custom variables.
+        """
+        incident_custom_field_updates: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgsDict']]]]
+        """
+        Assign a custom field to the resulting incident.
+        """
+        priority: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
+        """
+        route_to: NotRequired[pulumi.Input[str]]
+        """
+        The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
+        """
+        severity: NotRequired[pulumi.Input[str]]
+        """
+        sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        """
+        suppress: NotRequired[pulumi.Input[bool]]
+        """
+        Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+        """
+        suspend: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
+        """
+        variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsVariableArgsDict']]]]
+        """
+        Populate variables from event payloads and use those variables in other event actions.
+        """
+elif False:
+    EventOrchestrationGlobalCatchAllActionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationGlobalCatchAllActionsArgs:
@@ -694,6 +1002,31 @@ class EventOrchestrationGlobalCatchAllActionsArgs:
         pulumi.set(self, "variables", value)
 
 
+if not MYPY:
+    class EventOrchestrationGlobalCatchAllActionsAutomationActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of this Webhook.
+        """
+        url: pulumi.Input[str]
+        """
+        The API endpoint where PagerDuty's servers will send the webhook request.
+        """
+        auto_send: NotRequired[pulumi.Input[bool]]
+        """
+        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgsDict']]]]
+        """
+        Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+        """
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgsDict']]]]
+        """
+        Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+        """
+elif False:
+    EventOrchestrationGlobalCatchAllActionsAutomationActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationGlobalCatchAllActionsAutomationActionArgs:
     def __init__(__self__, *,
@@ -779,6 +1112,19 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Name to identify the header
+        """
+        value: pulumi.Input[str]
+        """
+        Value of this header
+        """
+elif False:
+    EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs:
     def __init__(__self__, *,
@@ -816,6 +1162,19 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Name to identify the parameter
+        """
+        value: pulumi.Input[str]
+        """
+        Value of this parameter
+        """
+elif False:
+    EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs:
     def __init__(__self__, *,
@@ -852,6 +1211,29 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EventOrchestrationGlobalCatchAllActionsExtractionArgsDict(TypedDict):
+        target: pulumi.Input[str]
+        """
+        The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+        """
+        regex: NotRequired[pulumi.Input[str]]
+        """
+        A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+        """
+        template: NotRequired[pulumi.Input[str]]
+        """
+        A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+        * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+        * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+        """
+elif False:
+    EventOrchestrationGlobalCatchAllActionsExtractionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationGlobalCatchAllActionsExtractionArgs:
@@ -927,6 +1309,19 @@ class EventOrchestrationGlobalCatchAllActionsExtractionArgs:
         pulumi.set(self, "template", value)
 
 
+if not MYPY:
+    class EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The custom field id
+        """
+        value: pulumi.Input[str]
+        """
+        The value to assign to this custom field
+        """
+elif False:
+    EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs:
     def __init__(__self__, *,
@@ -963,6 +1358,27 @@ class EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EventOrchestrationGlobalCatchAllActionsVariableArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the variable
+        """
+        path: pulumi.Input[str]
+        """
+        Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+        """
+        type: pulumi.Input[str]
+        """
+        Only `regex` is supported
+        """
+        value: pulumi.Input[str]
+        """
+        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+elif False:
+    EventOrchestrationGlobalCatchAllActionsVariableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationGlobalCatchAllActionsVariableArgs:
@@ -1031,6 +1447,16 @@ class EventOrchestrationGlobalCatchAllActionsVariableArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventOrchestrationGlobalSetArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleArgsDict']]]]
+elif False:
+    EventOrchestrationGlobalSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationGlobalSetArgs:
     def __init__(__self__, *,
@@ -1064,6 +1490,31 @@ class EventOrchestrationGlobalSetArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class EventOrchestrationGlobalSetRuleArgsDict(TypedDict):
+        actions: pulumi.Input['EventOrchestrationGlobalSetRuleActionsArgsDict']
+        """
+        Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleConditionArgsDict']]]]
+        """
+        Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+        """
+        disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the rule is disabled and would therefore not be evaluated.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the rule within the set.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        A description of this rule's purpose.
+        """
+elif False:
+    EventOrchestrationGlobalSetRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationGlobalSetRuleArgs:
@@ -1150,6 +1601,63 @@ class EventOrchestrationGlobalSetRuleArgs:
     def label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "label", value)
 
+
+if not MYPY:
+    class EventOrchestrationGlobalSetRuleActionsArgsDict(TypedDict):
+        annotate: NotRequired[pulumi.Input[str]]
+        """
+        Add this text as a note on the resulting incident.
+        """
+        automation_action: NotRequired[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionArgsDict']]
+        """
+        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        """
+        drop_event: NotRequired[pulumi.Input[bool]]
+        """
+        When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
+        """
+        escalation_policy: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+        """
+        event_action: NotRequired[pulumi.Input[str]]
+        """
+        sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        """
+        extractions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsExtractionArgsDict']]]]
+        """
+        Replace any CEF field or Custom Details object field using custom variables.
+        """
+        incident_custom_field_updates: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgsDict']]]]
+        """
+        Assign a custom field to the resulting incident.
+        """
+        priority: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
+        """
+        route_to: NotRequired[pulumi.Input[str]]
+        """
+        The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
+        """
+        severity: NotRequired[pulumi.Input[str]]
+        """
+        sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        """
+        suppress: NotRequired[pulumi.Input[bool]]
+        """
+        Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+        """
+        suspend: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
+        """
+        variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsVariableArgsDict']]]]
+        """
+        Populate variables from event payloads and use those variables in other event actions.
+        """
+elif False:
+    EventOrchestrationGlobalSetRuleActionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationGlobalSetRuleActionsArgs:
@@ -1366,6 +1874,31 @@ class EventOrchestrationGlobalSetRuleActionsArgs:
         pulumi.set(self, "variables", value)
 
 
+if not MYPY:
+    class EventOrchestrationGlobalSetRuleActionsAutomationActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of this Webhook.
+        """
+        url: pulumi.Input[str]
+        """
+        The API endpoint where PagerDuty's servers will send the webhook request.
+        """
+        auto_send: NotRequired[pulumi.Input[bool]]
+        """
+        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgsDict']]]]
+        """
+        Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+        """
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgsDict']]]]
+        """
+        Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+        """
+elif False:
+    EventOrchestrationGlobalSetRuleActionsAutomationActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationGlobalSetRuleActionsAutomationActionArgs:
     def __init__(__self__, *,
@@ -1451,6 +1984,19 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Name to identify the header
+        """
+        value: pulumi.Input[str]
+        """
+        Value of this header
+        """
+elif False:
+    EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs:
     def __init__(__self__, *,
@@ -1488,6 +2034,19 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Name to identify the parameter
+        """
+        value: pulumi.Input[str]
+        """
+        Value of this parameter
+        """
+elif False:
+    EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs:
     def __init__(__self__, *,
@@ -1524,6 +2083,29 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EventOrchestrationGlobalSetRuleActionsExtractionArgsDict(TypedDict):
+        target: pulumi.Input[str]
+        """
+        The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+        """
+        regex: NotRequired[pulumi.Input[str]]
+        """
+        A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+        """
+        template: NotRequired[pulumi.Input[str]]
+        """
+        A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+        * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+        * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+        """
+elif False:
+    EventOrchestrationGlobalSetRuleActionsExtractionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationGlobalSetRuleActionsExtractionArgs:
@@ -1599,6 +2181,19 @@ class EventOrchestrationGlobalSetRuleActionsExtractionArgs:
         pulumi.set(self, "template", value)
 
 
+if not MYPY:
+    class EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The custom field id
+        """
+        value: pulumi.Input[str]
+        """
+        The value to assign to this custom field
+        """
+elif False:
+    EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs:
     def __init__(__self__, *,
@@ -1635,6 +2230,27 @@ class EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EventOrchestrationGlobalSetRuleActionsVariableArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the variable
+        """
+        path: pulumi.Input[str]
+        """
+        Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+        """
+        type: pulumi.Input[str]
+        """
+        Only `regex` is supported
+        """
+        value: pulumi.Input[str]
+        """
+        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+elif False:
+    EventOrchestrationGlobalSetRuleActionsVariableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationGlobalSetRuleActionsVariableArgs:
@@ -1703,6 +2319,15 @@ class EventOrchestrationGlobalSetRuleActionsVariableArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventOrchestrationGlobalSetRuleConditionArgsDict(TypedDict):
+        expression: pulumi.Input[str]
+        """
+        A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+elif False:
+    EventOrchestrationGlobalSetRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationGlobalSetRuleConditionArgs:
     def __init__(__self__, *,
@@ -1724,6 +2349,17 @@ class EventOrchestrationGlobalSetRuleConditionArgs:
     def expression(self, value: pulumi.Input[str]):
         pulumi.set(self, "expression", value)
 
+
+if not MYPY:
+    class EventOrchestrationIntegrationArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the integration
+        """
+        label: NotRequired[pulumi.Input[str]]
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgsDict']]]]
+elif False:
+    EventOrchestrationIntegrationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationIntegrationArgs:
@@ -1772,6 +2408,19 @@ class EventOrchestrationIntegrationArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class EventOrchestrationIntegrationParameterArgsDict(TypedDict):
+        routing_key: NotRequired[pulumi.Input[str]]
+        """
+        Routing key that routes to this Orchestration.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the routing key. `global` is the default type.
+        """
+elif False:
+    EventOrchestrationIntegrationParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationIntegrationParameterArgs:
     def __init__(__self__, *,
@@ -1811,6 +2460,15 @@ class EventOrchestrationIntegrationParameterArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class EventOrchestrationRouterCatchAllArgsDict(TypedDict):
+        actions: pulumi.Input['EventOrchestrationRouterCatchAllActionsArgsDict']
+        """
+        These are the actions that will be taken to change the resulting alert and incident.
+        """
+elif False:
+    EventOrchestrationRouterCatchAllArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationRouterCatchAllArgs:
     def __init__(__self__, *,
@@ -1833,6 +2491,15 @@ class EventOrchestrationRouterCatchAllArgs:
         pulumi.set(self, "actions", value)
 
 
+if not MYPY:
+    class EventOrchestrationRouterCatchAllActionsArgsDict(TypedDict):
+        route_to: pulumi.Input[str]
+        """
+        Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service _or_ the string `"unrouted"` to send events to the Unrouted Orchestration.
+        """
+elif False:
+    EventOrchestrationRouterCatchAllActionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationRouterCatchAllActionsArgs:
     def __init__(__self__, *,
@@ -1854,6 +2521,16 @@ class EventOrchestrationRouterCatchAllActionsArgs:
     def route_to(self, value: pulumi.Input[str]):
         pulumi.set(self, "route_to", value)
 
+
+if not MYPY:
+    class EventOrchestrationRouterSetArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        ID of the `start` set. Router supports only one set and it's id has to be `start`
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleArgsDict']]]]
+elif False:
+    EventOrchestrationRouterSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationRouterSetArgs:
@@ -1888,6 +2565,31 @@ class EventOrchestrationRouterSetArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class EventOrchestrationRouterSetRuleArgsDict(TypedDict):
+        actions: pulumi.Input['EventOrchestrationRouterSetRuleActionsArgsDict']
+        """
+        Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleConditionArgsDict']]]]
+        """
+        Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+        """
+        disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the rule is disabled and would therefore not be evaluated.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the rule within the `start` set.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        A description of this rule's purpose.
+        """
+elif False:
+    EventOrchestrationRouterSetRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationRouterSetRuleArgs:
@@ -1975,6 +2677,16 @@ class EventOrchestrationRouterSetRuleArgs:
         pulumi.set(self, "label", value)
 
 
+if not MYPY:
+    class EventOrchestrationRouterSetRuleActionsArgsDict(TypedDict):
+        dynamic_route_tos: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleActionsDynamicRouteToArgsDict']]]]
+        """
+        supports the following:
+        """
+        route_to: NotRequired[pulumi.Input[str]]
+elif False:
+    EventOrchestrationRouterSetRuleActionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationRouterSetRuleActionsArgs:
     def __init__(__self__, *,
@@ -2009,6 +2721,25 @@ class EventOrchestrationRouterSetRuleActionsArgs:
     def route_to(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "route_to", value)
 
+
+if not MYPY:
+    class EventOrchestrationRouterSetRuleActionsDynamicRouteToArgsDict(TypedDict):
+        lookup_by: pulumi.Input[str]
+        """
+        Indicates whether the extracted value from the source is a service's name or ID. Allowed values are: `service_name`, `service_id`
+
+        If an event has a value at the specified `source`, and if the `regex` successfully matches the value, and if the matching portion is valid Service ID or Name, then the event will be routed to that service. Otherwise the event will be checked against any subsequent router rules.
+        """
+        regex: pulumi.Input[str]
+        """
+        The regular expression, used to extract a value from the source field. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        source: pulumi.Input[str]
+        """
+        The path to a field in an event.
+        """
+elif False:
+    EventOrchestrationRouterSetRuleActionsDynamicRouteToArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs:
@@ -2066,6 +2797,15 @@ class EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs:
         pulumi.set(self, "source", value)
 
 
+if not MYPY:
+    class EventOrchestrationRouterSetRuleConditionArgsDict(TypedDict):
+        expression: pulumi.Input[str]
+        """
+        A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+elif False:
+    EventOrchestrationRouterSetRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationRouterSetRuleConditionArgs:
     def __init__(__self__, *,
@@ -2088,6 +2828,15 @@ class EventOrchestrationRouterSetRuleConditionArgs:
         pulumi.set(self, "expression", value)
 
 
+if not MYPY:
+    class EventOrchestrationServiceCacheVariableConditionArgsDict(TypedDict):
+        expression: pulumi.Input[str]
+        """
+        A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+elif False:
+    EventOrchestrationServiceCacheVariableConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationServiceCacheVariableConditionArgs:
     def __init__(__self__, *,
@@ -2109,6 +2858,27 @@ class EventOrchestrationServiceCacheVariableConditionArgs:
     def expression(self, value: pulumi.Input[str]):
         pulumi.set(self, "expression", value)
 
+
+if not MYPY:
+    class EventOrchestrationServiceCacheVariableConfigurationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+        """
+        regex: NotRequired[pulumi.Input[str]]
+        """
+        A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
+        """
+        ttl_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        """
+elif False:
+    EventOrchestrationServiceCacheVariableConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationServiceCacheVariableConfigurationArgs:
@@ -2180,6 +2950,15 @@ class EventOrchestrationServiceCacheVariableConfigurationArgs:
         pulumi.set(self, "ttl_seconds", value)
 
 
+if not MYPY:
+    class EventOrchestrationServiceCatchAllArgsDict(TypedDict):
+        actions: pulumi.Input['EventOrchestrationServiceCatchAllActionsArgsDict']
+        """
+        These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+        """
+elif False:
+    EventOrchestrationServiceCatchAllArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationServiceCatchAllArgs:
     def __init__(__self__, *,
@@ -2201,6 +2980,63 @@ class EventOrchestrationServiceCatchAllArgs:
     def actions(self, value: pulumi.Input['EventOrchestrationServiceCatchAllActionsArgs']):
         pulumi.set(self, "actions", value)
 
+
+if not MYPY:
+    class EventOrchestrationServiceCatchAllActionsArgsDict(TypedDict):
+        annotate: NotRequired[pulumi.Input[str]]
+        """
+        Add this text as a note on the resulting incident.
+        """
+        automation_action: NotRequired[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionArgsDict']]
+        """
+        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        """
+        escalation_policy: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+        """
+        event_action: NotRequired[pulumi.Input[str]]
+        """
+        sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        """
+        extractions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsExtractionArgsDict']]]]
+        """
+        Replace any CEF field or Custom Details object field using custom variables.
+        """
+        incident_custom_field_updates: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgsDict']]]]
+        """
+        Assign a custom field to the resulting incident.
+        """
+        pagerduty_automation_action: NotRequired[pulumi.Input['EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgsDict']]
+        """
+        Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+        """
+        priority: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
+        """
+        route_to: NotRequired[pulumi.Input[str]]
+        """
+        The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
+        """
+        severity: NotRequired[pulumi.Input[str]]
+        """
+        sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        """
+        suppress: NotRequired[pulumi.Input[bool]]
+        """
+        Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+        """
+        suspend: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
+        """
+        variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsVariableArgsDict']]]]
+        """
+        Populate variables from event payloads and use those variables in other event actions.
+        """
+elif False:
+    EventOrchestrationServiceCatchAllActionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationServiceCatchAllActionsArgs:
@@ -2417,6 +3253,31 @@ class EventOrchestrationServiceCatchAllActionsArgs:
         pulumi.set(self, "variables", value)
 
 
+if not MYPY:
+    class EventOrchestrationServiceCatchAllActionsAutomationActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of this Webhook.
+        """
+        url: pulumi.Input[str]
+        """
+        The API endpoint where PagerDuty's servers will send the webhook request.
+        """
+        auto_send: NotRequired[pulumi.Input[bool]]
+        """
+        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgsDict']]]]
+        """
+        Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+        """
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgsDict']]]]
+        """
+        Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+        """
+elif False:
+    EventOrchestrationServiceCatchAllActionsAutomationActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationServiceCatchAllActionsAutomationActionArgs:
     def __init__(__self__, *,
@@ -2502,6 +3363,19 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Name to identify the header
+        """
+        value: pulumi.Input[str]
+        """
+        Value of this header
+        """
+elif False:
+    EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs:
     def __init__(__self__, *,
@@ -2539,6 +3413,19 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Name to identify the parameter
+        """
+        value: pulumi.Input[str]
+        """
+        Value of this parameter
+        """
+elif False:
+    EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs:
     def __init__(__self__, *,
@@ -2575,6 +3462,29 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EventOrchestrationServiceCatchAllActionsExtractionArgsDict(TypedDict):
+        target: pulumi.Input[str]
+        """
+        The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+        """
+        regex: NotRequired[pulumi.Input[str]]
+        """
+        A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+        """
+        template: NotRequired[pulumi.Input[str]]
+        """
+        A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+        * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+        * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+        """
+elif False:
+    EventOrchestrationServiceCatchAllActionsExtractionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationServiceCatchAllActionsExtractionArgs:
@@ -2650,6 +3560,19 @@ class EventOrchestrationServiceCatchAllActionsExtractionArgs:
         pulumi.set(self, "template", value)
 
 
+if not MYPY:
+    class EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The custom field id
+        """
+        value: pulumi.Input[str]
+        """
+        The value to assign to this custom field
+        """
+elif False:
+    EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs:
     def __init__(__self__, *,
@@ -2687,6 +3610,15 @@ class EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgsDict(TypedDict):
+        action_id: pulumi.Input[str]
+        """
+        Id of the Process Automation action to be triggered.
+        """
+elif False:
+    EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs:
     def __init__(__self__, *,
@@ -2708,6 +3640,27 @@ class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs:
     def action_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "action_id", value)
 
+
+if not MYPY:
+    class EventOrchestrationServiceCatchAllActionsVariableArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the variable
+        """
+        path: pulumi.Input[str]
+        """
+        Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+        """
+        type: pulumi.Input[str]
+        """
+        Only `regex` is supported
+        """
+        value: pulumi.Input[str]
+        """
+        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+elif False:
+    EventOrchestrationServiceCatchAllActionsVariableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationServiceCatchAllActionsVariableArgs:
@@ -2776,6 +3729,16 @@ class EventOrchestrationServiceCatchAllActionsVariableArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventOrchestrationServiceSetArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleArgsDict']]]]
+elif False:
+    EventOrchestrationServiceSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationServiceSetArgs:
     def __init__(__self__, *,
@@ -2809,6 +3772,31 @@ class EventOrchestrationServiceSetArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class EventOrchestrationServiceSetRuleArgsDict(TypedDict):
+        actions: pulumi.Input['EventOrchestrationServiceSetRuleActionsArgsDict']
+        """
+        Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleConditionArgsDict']]]]
+        """
+        Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+        """
+        disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the rule is disabled and would therefore not be evaluated.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the rule within the set.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        A description of this rule's purpose.
+        """
+elif False:
+    EventOrchestrationServiceSetRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationServiceSetRuleArgs:
@@ -2895,6 +3883,63 @@ class EventOrchestrationServiceSetRuleArgs:
     def label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "label", value)
 
+
+if not MYPY:
+    class EventOrchestrationServiceSetRuleActionsArgsDict(TypedDict):
+        annotate: NotRequired[pulumi.Input[str]]
+        """
+        Add this text as a note on the resulting incident.
+        """
+        automation_action: NotRequired[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionArgsDict']]
+        """
+        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        """
+        escalation_policy: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
+        """
+        event_action: NotRequired[pulumi.Input[str]]
+        """
+        sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        """
+        extractions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsExtractionArgsDict']]]]
+        """
+        Replace any CEF field or Custom Details object field using custom variables.
+        """
+        incident_custom_field_updates: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgsDict']]]]
+        """
+        Assign a custom field to the resulting incident.
+        """
+        pagerduty_automation_action: NotRequired[pulumi.Input['EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgsDict']]
+        """
+        Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+        """
+        priority: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
+        """
+        route_to: NotRequired[pulumi.Input[str]]
+        """
+        The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
+        """
+        severity: NotRequired[pulumi.Input[str]]
+        """
+        sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        """
+        suppress: NotRequired[pulumi.Input[bool]]
+        """
+        Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+        """
+        suspend: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
+        """
+        variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsVariableArgsDict']]]]
+        """
+        Populate variables from event payloads and use those variables in other event actions.
+        """
+elif False:
+    EventOrchestrationServiceSetRuleActionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationServiceSetRuleActionsArgs:
@@ -3111,6 +4156,31 @@ class EventOrchestrationServiceSetRuleActionsArgs:
         pulumi.set(self, "variables", value)
 
 
+if not MYPY:
+    class EventOrchestrationServiceSetRuleActionsAutomationActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of this Webhook.
+        """
+        url: pulumi.Input[str]
+        """
+        The API endpoint where PagerDuty's servers will send the webhook request.
+        """
+        auto_send: NotRequired[pulumi.Input[bool]]
+        """
+        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgsDict']]]]
+        """
+        Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+        """
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgsDict']]]]
+        """
+        Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+        """
+elif False:
+    EventOrchestrationServiceSetRuleActionsAutomationActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationServiceSetRuleActionsAutomationActionArgs:
     def __init__(__self__, *,
@@ -3196,6 +4266,19 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Name to identify the header
+        """
+        value: pulumi.Input[str]
+        """
+        Value of this header
+        """
+elif False:
+    EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs:
     def __init__(__self__, *,
@@ -3233,6 +4316,19 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Name to identify the parameter
+        """
+        value: pulumi.Input[str]
+        """
+        Value of this parameter
+        """
+elif False:
+    EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs:
     def __init__(__self__, *,
@@ -3269,6 +4365,29 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EventOrchestrationServiceSetRuleActionsExtractionArgsDict(TypedDict):
+        target: pulumi.Input[str]
+        """
+        The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+        """
+        regex: NotRequired[pulumi.Input[str]]
+        """
+        A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+        """
+        template: NotRequired[pulumi.Input[str]]
+        """
+        A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+        * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+        * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+        """
+elif False:
+    EventOrchestrationServiceSetRuleActionsExtractionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationServiceSetRuleActionsExtractionArgs:
@@ -3344,6 +4463,19 @@ class EventOrchestrationServiceSetRuleActionsExtractionArgs:
         pulumi.set(self, "template", value)
 
 
+if not MYPY:
+    class EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The custom field id
+        """
+        value: pulumi.Input[str]
+        """
+        The value to assign to this custom field
+        """
+elif False:
+    EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs:
     def __init__(__self__, *,
@@ -3381,6 +4513,15 @@ class EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgsDict(TypedDict):
+        action_id: pulumi.Input[str]
+        """
+        Id of the Process Automation action to be triggered.
+        """
+elif False:
+    EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs:
     def __init__(__self__, *,
@@ -3402,6 +4543,27 @@ class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs:
     def action_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "action_id", value)
 
+
+if not MYPY:
+    class EventOrchestrationServiceSetRuleActionsVariableArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the variable
+        """
+        path: pulumi.Input[str]
+        """
+        Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+        """
+        type: pulumi.Input[str]
+        """
+        Only `regex` is supported
+        """
+        value: pulumi.Input[str]
+        """
+        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+elif False:
+    EventOrchestrationServiceSetRuleActionsVariableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationServiceSetRuleActionsVariableArgs:
@@ -3470,6 +4632,15 @@ class EventOrchestrationServiceSetRuleActionsVariableArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventOrchestrationServiceSetRuleConditionArgsDict(TypedDict):
+        expression: pulumi.Input[str]
+        """
+        A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+elif False:
+    EventOrchestrationServiceSetRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationServiceSetRuleConditionArgs:
     def __init__(__self__, *,
@@ -3492,6 +4663,15 @@ class EventOrchestrationServiceSetRuleConditionArgs:
         pulumi.set(self, "expression", value)
 
 
+if not MYPY:
+    class EventOrchestrationUnroutedCatchAllArgsDict(TypedDict):
+        actions: pulumi.Input['EventOrchestrationUnroutedCatchAllActionsArgsDict']
+        """
+        These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+        """
+elif False:
+    EventOrchestrationUnroutedCatchAllArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationUnroutedCatchAllArgs:
     def __init__(__self__, *,
@@ -3513,6 +4693,28 @@ class EventOrchestrationUnroutedCatchAllArgs:
     def actions(self, value: pulumi.Input['EventOrchestrationUnroutedCatchAllActionsArgs']):
         pulumi.set(self, "actions", value)
 
+
+if not MYPY:
+    class EventOrchestrationUnroutedCatchAllActionsArgsDict(TypedDict):
+        event_action: NotRequired[pulumi.Input[str]]
+        """
+        sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        """
+        extractions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedCatchAllActionsExtractionArgsDict']]]]
+        """
+        Replace any CEF field or Custom Details object field using custom variables.
+        """
+        severity: NotRequired[pulumi.Input[str]]
+        """
+        sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        """
+        suppress: NotRequired[pulumi.Input[bool]]
+        variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedCatchAllActionsVariableArgsDict']]]]
+        """
+        Populate variables from event payloads and use those variables in other event actions.
+        """
+elif False:
+    EventOrchestrationUnroutedCatchAllActionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationUnroutedCatchAllActionsArgs:
@@ -3597,6 +4799,29 @@ class EventOrchestrationUnroutedCatchAllActionsArgs:
         pulumi.set(self, "variables", value)
 
 
+if not MYPY:
+    class EventOrchestrationUnroutedCatchAllActionsExtractionArgsDict(TypedDict):
+        target: pulumi.Input[str]
+        """
+        The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+        """
+        regex: NotRequired[pulumi.Input[str]]
+        """
+        A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+        """
+        template: NotRequired[pulumi.Input[str]]
+        """
+        A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+        * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+        * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+        """
+elif False:
+    EventOrchestrationUnroutedCatchAllActionsExtractionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationUnroutedCatchAllActionsExtractionArgs:
     def __init__(__self__, *,
@@ -3671,6 +4896,27 @@ class EventOrchestrationUnroutedCatchAllActionsExtractionArgs:
         pulumi.set(self, "template", value)
 
 
+if not MYPY:
+    class EventOrchestrationUnroutedCatchAllActionsVariableArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the variable
+        """
+        path: pulumi.Input[str]
+        """
+        Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.
+        """
+        type: pulumi.Input[str]
+        """
+        Only `regex` is supported
+        """
+        value: pulumi.Input[str]
+        """
+        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+elif False:
+    EventOrchestrationUnroutedCatchAllActionsVariableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationUnroutedCatchAllActionsVariableArgs:
     def __init__(__self__, *,
@@ -3738,6 +4984,16 @@ class EventOrchestrationUnroutedCatchAllActionsVariableArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventOrchestrationUnroutedSetArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleArgsDict']]]]
+elif False:
+    EventOrchestrationUnroutedSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationUnroutedSetArgs:
     def __init__(__self__, *,
@@ -3771,6 +5027,31 @@ class EventOrchestrationUnroutedSetArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class EventOrchestrationUnroutedSetRuleArgsDict(TypedDict):
+        actions: pulumi.Input['EventOrchestrationUnroutedSetRuleActionsArgsDict']
+        """
+        Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleConditionArgsDict']]]]
+        """
+        Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+        """
+        disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the rule is disabled and would therefore not be evaluated.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the rule within the set.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        A description of this rule's purpose.
+        """
+elif False:
+    EventOrchestrationUnroutedSetRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationUnroutedSetRuleArgs:
@@ -3857,6 +5138,31 @@ class EventOrchestrationUnroutedSetRuleArgs:
     def label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "label", value)
 
+
+if not MYPY:
+    class EventOrchestrationUnroutedSetRuleActionsArgsDict(TypedDict):
+        event_action: NotRequired[pulumi.Input[str]]
+        """
+        sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        """
+        extractions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleActionsExtractionArgsDict']]]]
+        """
+        Replace any CEF field or Custom Details object field using custom variables.
+        """
+        route_to: NotRequired[pulumi.Input[str]]
+        """
+        The ID of a Set from this Unrouted Orchestration whose rules you also want to use with events that match this rule.
+        """
+        severity: NotRequired[pulumi.Input[str]]
+        """
+        sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        """
+        variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleActionsVariableArgsDict']]]]
+        """
+        Populate variables from event payloads and use those variables in other event actions.
+        """
+elif False:
+    EventOrchestrationUnroutedSetRuleActionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationUnroutedSetRuleActionsArgs:
@@ -3945,6 +5251,29 @@ class EventOrchestrationUnroutedSetRuleActionsArgs:
         pulumi.set(self, "variables", value)
 
 
+if not MYPY:
+    class EventOrchestrationUnroutedSetRuleActionsExtractionArgsDict(TypedDict):
+        target: pulumi.Input[str]
+        """
+        The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+        """
+        regex: NotRequired[pulumi.Input[str]]
+        """
+        A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+        """
+        template: NotRequired[pulumi.Input[str]]
+        """
+        A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+        * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+        * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+        """
+elif False:
+    EventOrchestrationUnroutedSetRuleActionsExtractionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationUnroutedSetRuleActionsExtractionArgs:
     def __init__(__self__, *,
@@ -4019,6 +5348,27 @@ class EventOrchestrationUnroutedSetRuleActionsExtractionArgs:
         pulumi.set(self, "template", value)
 
 
+if not MYPY:
+    class EventOrchestrationUnroutedSetRuleActionsVariableArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the variable
+        """
+        path: pulumi.Input[str]
+        """
+        Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.
+        """
+        type: pulumi.Input[str]
+        """
+        Only `regex` is supported
+        """
+        value: pulumi.Input[str]
+        """
+        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+elif False:
+    EventOrchestrationUnroutedSetRuleActionsVariableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationUnroutedSetRuleActionsVariableArgs:
     def __init__(__self__, *,
@@ -4086,6 +5436,15 @@ class EventOrchestrationUnroutedSetRuleActionsVariableArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventOrchestrationUnroutedSetRuleConditionArgsDict(TypedDict):
+        expression: pulumi.Input[str]
+        """
+        A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+elif False:
+    EventOrchestrationUnroutedSetRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventOrchestrationUnroutedSetRuleConditionArgs:
     def __init__(__self__, *,
@@ -4107,6 +5466,31 @@ class EventOrchestrationUnroutedSetRuleConditionArgs:
     def expression(self, value: pulumi.Input[str]):
         pulumi.set(self, "expression", value)
 
+
+if not MYPY:
+    class IncidentWorkflowStepArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the workflow step.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the incident workflow.
+        """
+        inline_steps_inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepInlineStepsInputArgsDict']]]]
+        """
+        The list of inputs that contain a series of inline steps for the workflow action.
+        """
+        inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepInputArgsDict']]]]
+        """
+        The list of standard inputs for the workflow action.
+        """
+elif False:
+    IncidentWorkflowStepArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IncidentWorkflowStepArgs:
@@ -4193,6 +5577,19 @@ class IncidentWorkflowStepArgs:
         pulumi.set(self, "inputs", value)
 
 
+if not MYPY:
+    class IncidentWorkflowStepInlineStepsInputArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the input.
+        """
+        steps: NotRequired[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepInlineStepsInputStepArgsDict']]]]
+        """
+        The inline steps of the input. An inline step adheres to the step schema described above.
+        """
+elif False:
+    IncidentWorkflowStepInlineStepsInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IncidentWorkflowStepInlineStepsInputArgs:
     def __init__(__self__, *,
@@ -4230,6 +5627,23 @@ class IncidentWorkflowStepInlineStepsInputArgs:
     def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepInlineStepsInputStepArgs']]]]):
         pulumi.set(self, "steps", value)
 
+
+if not MYPY:
+    class IncidentWorkflowStepInlineStepsInputStepArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the workflow step.
+        """
+        inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepInlineStepsInputStepInputArgsDict']]]]
+        """
+        The list of standard inputs for the workflow action.
+        """
+elif False:
+    IncidentWorkflowStepInlineStepsInputStepArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IncidentWorkflowStepInlineStepsInputStepArgs:
@@ -4284,6 +5698,20 @@ class IncidentWorkflowStepInlineStepsInputStepArgs:
         pulumi.set(self, "inputs", value)
 
 
+if not MYPY:
+    class IncidentWorkflowStepInlineStepsInputStepInputArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the input.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the input.
+        """
+        generated: NotRequired[pulumi.Input[bool]]
+elif False:
+    IncidentWorkflowStepInlineStepsInputStepInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IncidentWorkflowStepInlineStepsInputStepInputArgs:
     def __init__(__self__, *,
@@ -4332,6 +5760,20 @@ class IncidentWorkflowStepInlineStepsInputStepInputArgs:
     def generated(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "generated", value)
 
+
+if not MYPY:
+    class IncidentWorkflowStepInputArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the input.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the input.
+        """
+        generated: NotRequired[pulumi.Input[bool]]
+elif False:
+    IncidentWorkflowStepInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IncidentWorkflowStepInputArgs:
@@ -4382,6 +5824,19 @@ class IncidentWorkflowStepInputArgs:
         pulumi.set(self, "generated", value)
 
 
+if not MYPY:
+    class IncidentWorkflowTriggerPermissionsArgsDict(TypedDict):
+        restricted: NotRequired[pulumi.Input[bool]]
+        """
+        If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+        """
+        team_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+        """
+elif False:
+    IncidentWorkflowTriggerPermissionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IncidentWorkflowTriggerPermissionsArgs:
     def __init__(__self__, *,
@@ -4420,6 +5875,14 @@ class IncidentWorkflowTriggerPermissionsArgs:
     def team_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "team_id", value)
 
+
+if not MYPY:
+    class ProviderUseAppOauthScopedTokenArgsDict(TypedDict):
+        pd_client_id: NotRequired[pulumi.Input[str]]
+        pd_client_secret: NotRequired[pulumi.Input[str]]
+        pd_subdomain: NotRequired[pulumi.Input[str]]
+elif False:
+    ProviderUseAppOauthScopedTokenArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderUseAppOauthScopedTokenArgs:
@@ -4461,6 +5924,47 @@ class ProviderUseAppOauthScopedTokenArgs:
     def pd_subdomain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pd_subdomain", value)
 
+
+if not MYPY:
+    class ResponsePlayResponderArgsDict(TypedDict):
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of escalation policy
+        """
+        escalation_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderEscalationRuleArgsDict']]]]
+        """
+        The escalation rules
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the user defined as the responder
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the escalation policy
+        """
+        num_loops: NotRequired[pulumi.Input[int]]
+        """
+        The number of times the escalation policy will repeat after reaching the end of its escalation.
+        """
+        on_call_handoff_notifications: NotRequired[pulumi.Input[str]]
+        """
+        Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "if_has_services". Could be "if_has_services", "always
+        """
+        services: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderServiceArgsDict']]]]
+        """
+        There can be multiple services associated with a policy.
+        """
+        teams: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderTeamArgsDict']]]]
+        """
+        Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Should be set as `escalation_policy` for escalation policy responders.
+        """
+elif False:
+    ResponsePlayResponderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponsePlayResponderArgs:
@@ -4613,6 +6117,23 @@ class ResponsePlayResponderArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ResponsePlayResponderEscalationRuleArgsDict(TypedDict):
+        targets: pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderEscalationRuleTargetArgsDict']]]
+        """
+        The targets an incident should be assigned to upon reaching this rule.
+        """
+        escalation_delay_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The number of minutes before an unacknowledged incident escalates away from this rule.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the response play.
+        """
+elif False:
+    ResponsePlayResponderEscalationRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResponsePlayResponderEscalationRuleArgs:
     def __init__(__self__, *,
@@ -4667,6 +6188,19 @@ class ResponsePlayResponderEscalationRuleArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class ResponsePlayResponderEscalationRuleTargetArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the response play.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+        """
+elif False:
+    ResponsePlayResponderEscalationRuleTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResponsePlayResponderEscalationRuleTargetArgs:
     def __init__(__self__, *,
@@ -4705,6 +6239,19 @@ class ResponsePlayResponderEscalationRuleTargetArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ResponsePlayResponderServiceArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the response play.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
+elif False:
+    ResponsePlayResponderServiceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponsePlayResponderServiceArgs:
@@ -4745,6 +6292,19 @@ class ResponsePlayResponderServiceArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ResponsePlayResponderTeamArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the response play.
+        """
+elif False:
+    ResponsePlayResponderTeamArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResponsePlayResponderTeamArgs:
     def __init__(__self__, *,
@@ -4782,6 +6342,19 @@ class ResponsePlayResponderTeamArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ResponsePlaySubscriberArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the response play.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
+elif False:
+    ResponsePlaySubscriberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponsePlaySubscriberArgs:
@@ -4821,6 +6394,43 @@ class ResponsePlaySubscriberArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class RulesetRuleActionsArgsDict(TypedDict):
+        annotates: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsAnnotateArgsDict']]]]
+        """
+        Note added to the event.
+        """
+        event_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsEventActionArgsDict']]]]
+        """
+        An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+        """
+        extractions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsExtractionArgsDict']]]]
+        """
+        Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
+        """
+        priorities: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsPriorityArgsDict']]]]
+        """
+        The ID of the priority applied to the event.
+        """
+        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsRouteArgsDict']]]]
+        """
+        The ID of the service where the event will be routed.
+        """
+        severities: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSeverityArgsDict']]]]
+        """
+        The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`warning`,`error`, or `critical`.
+        """
+        suppresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuppressArgsDict']]]]
+        """
+        Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
+        """
+        suspends: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuspendArgsDict']]]]
+        """
+        An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
+        """
+elif False:
+    RulesetRuleActionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RulesetRuleActionsArgs:
@@ -4957,6 +6567,15 @@ class RulesetRuleActionsArgs:
         pulumi.set(self, "suspends", value)
 
 
+if not MYPY:
+    class RulesetRuleActionsAnnotateArgsDict(TypedDict):
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+elif False:
+    RulesetRuleActionsAnnotateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RulesetRuleActionsAnnotateArgs:
     def __init__(__self__, *,
@@ -4980,6 +6599,15 @@ class RulesetRuleActionsAnnotateArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class RulesetRuleActionsEventActionArgsDict(TypedDict):
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+elif False:
+    RulesetRuleActionsEventActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RulesetRuleActionsEventActionArgs:
     def __init__(__self__, *,
@@ -5002,6 +6630,31 @@ class RulesetRuleActionsEventActionArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class RulesetRuleActionsExtractionArgsDict(TypedDict):
+        regex: NotRequired[pulumi.Input[str]]
+        """
+        The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+
+        *- **OR** -*
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        """
+        target: NotRequired[pulumi.Input[str]]
+        """
+        Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+
+        *NOTE: A rule can have multiple `extraction` objects attributed to it.*
+        """
+        template: NotRequired[pulumi.Input[str]]
+        """
+        A customized field message. This can also include variables extracted from the payload by using string interpolation.
+        """
+elif False:
+    RulesetRuleActionsExtractionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RulesetRuleActionsExtractionArgs:
@@ -5082,6 +6735,15 @@ class RulesetRuleActionsExtractionArgs:
         pulumi.set(self, "template", value)
 
 
+if not MYPY:
+    class RulesetRuleActionsPriorityArgsDict(TypedDict):
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+elif False:
+    RulesetRuleActionsPriorityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RulesetRuleActionsPriorityArgs:
     def __init__(__self__, *,
@@ -5104,6 +6766,15 @@ class RulesetRuleActionsPriorityArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class RulesetRuleActionsRouteArgsDict(TypedDict):
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+elif False:
+    RulesetRuleActionsRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RulesetRuleActionsRouteArgs:
@@ -5128,6 +6799,15 @@ class RulesetRuleActionsRouteArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class RulesetRuleActionsSeverityArgsDict(TypedDict):
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+elif False:
+    RulesetRuleActionsSeverityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RulesetRuleActionsSeverityArgs:
     def __init__(__self__, *,
@@ -5150,6 +6830,27 @@ class RulesetRuleActionsSeverityArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class RulesetRuleActionsSuppressArgsDict(TypedDict):
+        threshold_time_amount: NotRequired[pulumi.Input[int]]
+        """
+        The number value of the `threshold_time_unit` before an incident is created. Must be greater than 0.
+        """
+        threshold_time_unit: NotRequired[pulumi.Input[str]]
+        """
+        The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
+        """
+        threshold_value: NotRequired[pulumi.Input[int]]
+        """
+        The number of alerts that should be suppressed. Must be greater than 0.
+        """
+        value: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+elif False:
+    RulesetRuleActionsSuppressArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RulesetRuleActionsSuppressArgs:
@@ -5222,6 +6923,15 @@ class RulesetRuleActionsSuppressArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class RulesetRuleActionsSuspendArgsDict(TypedDict):
+        value: NotRequired[pulumi.Input[int]]
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+elif False:
+    RulesetRuleActionsSuspendArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RulesetRuleActionsSuspendArgs:
     def __init__(__self__, *,
@@ -5244,6 +6954,19 @@ class RulesetRuleActionsSuspendArgs:
     def value(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class RulesetRuleConditionsArgsDict(TypedDict):
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        Operator to combine sub-conditions. Can be `and` or `or`.
+        """
+        subconditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetRuleConditionsSubconditionArgsDict']]]]
+        """
+        List of sub-conditions that define the condition.
+        """
+elif False:
+    RulesetRuleConditionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RulesetRuleConditionsArgs:
@@ -5284,6 +7007,19 @@ class RulesetRuleConditionsArgs:
         pulumi.set(self, "subconditions", value)
 
 
+if not MYPY:
+    class RulesetRuleConditionsSubconditionArgsDict(TypedDict):
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+        """
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetRuleConditionsSubconditionParameterArgsDict']]]]
+        """
+        Parameter for the sub-condition. It requires both a `path` and `value` to be set.
+        """
+elif False:
+    RulesetRuleConditionsSubconditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RulesetRuleConditionsSubconditionArgs:
     def __init__(__self__, *,
@@ -5323,6 +7059,16 @@ class RulesetRuleConditionsSubconditionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class RulesetRuleConditionsSubconditionParameterArgsDict(TypedDict):
+        path: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+elif False:
+    RulesetRuleConditionsSubconditionParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RulesetRuleConditionsSubconditionParameterArgs:
     def __init__(__self__, *,
@@ -5357,6 +7103,19 @@ class RulesetRuleConditionsSubconditionParameterArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class RulesetRuleTimeFrameArgsDict(TypedDict):
+        active_betweens: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetRuleTimeFrameActiveBetweenArgsDict']]]]
+        """
+        Values for executing the rule during a specific time period.
+        """
+        scheduled_weeklies: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetRuleTimeFrameScheduledWeeklyArgsDict']]]]
+        """
+        Values for executing the rule on a recurring schedule.
+        """
+elif False:
+    RulesetRuleTimeFrameArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RulesetRuleTimeFrameArgs:
@@ -5397,6 +7156,16 @@ class RulesetRuleTimeFrameArgs:
         pulumi.set(self, "scheduled_weeklies", value)
 
 
+if not MYPY:
+    class RulesetRuleTimeFrameActiveBetweenArgsDict(TypedDict):
+        end_time: NotRequired[pulumi.Input[int]]
+        start_time: NotRequired[pulumi.Input[int]]
+        """
+        A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+        """
+elif False:
+    RulesetRuleTimeFrameActiveBetweenArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RulesetRuleTimeFrameActiveBetweenArgs:
     def __init__(__self__, *,
@@ -5431,6 +7200,27 @@ class RulesetRuleTimeFrameActiveBetweenArgs:
     def start_time(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "start_time", value)
 
+
+if not MYPY:
+    class RulesetRuleTimeFrameScheduledWeeklyArgsDict(TypedDict):
+        duration: NotRequired[pulumi.Input[int]]
+        """
+        Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `start_time`.
+        """
+        start_time: NotRequired[pulumi.Input[int]]
+        """
+        A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+        """
+        timezone: NotRequired[pulumi.Input[str]]
+        """
+        [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
+        """
+        weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
+        """
+elif False:
+    RulesetRuleTimeFrameScheduledWeeklyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RulesetRuleTimeFrameScheduledWeeklyArgs:
@@ -5503,6 +7293,14 @@ class RulesetRuleTimeFrameScheduledWeeklyArgs:
         pulumi.set(self, "weekdays", value)
 
 
+if not MYPY:
+    class RulesetRuleVariableArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableParameterArgsDict']]]]
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    RulesetRuleVariableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RulesetRuleVariableArgs:
     def __init__(__self__, *,
@@ -5544,6 +7342,16 @@ class RulesetRuleVariableArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class RulesetRuleVariableParameterArgsDict(TypedDict):
+        path: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+elif False:
+    RulesetRuleVariableParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RulesetRuleVariableParameterArgs:
     def __init__(__self__, *,
@@ -5579,6 +7387,15 @@ class RulesetRuleVariableParameterArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class RulesetTeamArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the ruleset.
+        """
+elif False:
+    RulesetTeamArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RulesetTeamArgs:
     def __init__(__self__, *,
@@ -5600,6 +7417,16 @@ class RulesetTeamArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ScheduleFinalScheduleArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the schedule.
+        """
+        rendered_coverage_percentage: NotRequired[pulumi.Input[str]]
+elif False:
+    ScheduleFinalScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduleFinalScheduleArgs:
@@ -5635,6 +7462,44 @@ class ScheduleFinalScheduleArgs:
     def rendered_coverage_percentage(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rendered_coverage_percentage", value)
 
+
+if not MYPY:
+    class ScheduleLayerArgsDict(TypedDict):
+        rotation_turn_length_seconds: pulumi.Input[int]
+        """
+        The duration of each on-call shift in `seconds`.
+        """
+        rotation_virtual_start: pulumi.Input[str]
+        """
+        The effective start time of the schedule layer. This can be before the start time of the schedule.
+        """
+        start: pulumi.Input[str]
+        """
+        The start time of the schedule layer.
+        """
+        users: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The ordered list of users on this layer. The position of the user on the list determines their order in the layer.
+        """
+        end: NotRequired[pulumi.Input[str]]
+        """
+        The end time of the schedule layer. If not specified, the layer does not end.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the schedule.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the schedule layer.
+        """
+        rendered_coverage_percentage: NotRequired[pulumi.Input[str]]
+        restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduleLayerRestrictionArgsDict']]]]
+        """
+        A schedule layer restriction block. Restriction blocks documented below.
+        """
+elif False:
+    ScheduleLayerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduleLayerArgs:
@@ -5779,6 +7644,27 @@ class ScheduleLayerArgs:
         pulumi.set(self, "restrictions", value)
 
 
+if not MYPY:
+    class ScheduleLayerRestrictionArgsDict(TypedDict):
+        duration_seconds: pulumi.Input[int]
+        """
+        The duration of the restriction in `seconds`.
+        """
+        start_time_of_day: pulumi.Input[str]
+        """
+        The start time in `HH:mm:ss` format.
+        """
+        type: pulumi.Input[str]
+        """
+        Can be `daily_restriction` or `weekly_restriction`.
+        """
+        start_day_of_week: NotRequired[pulumi.Input[int]]
+        """
+        Number of the day when restriction starts. From 1 to 7 where 1 is Monday and 7 is Sunday.
+        """
+elif False:
+    ScheduleLayerRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduleLayerRestrictionArgs:
     def __init__(__self__, *,
@@ -5847,6 +7733,19 @@ class ScheduleLayerRestrictionArgs:
         pulumi.set(self, "start_day_of_week", value)
 
 
+if not MYPY:
+    class ServiceAlertGroupingParametersArgsDict(TypedDict):
+        config: NotRequired[pulumi.Input['ServiceAlertGroupingParametersConfigArgsDict']]
+        """
+        Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        """
+elif False:
+    ServiceAlertGroupingParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceAlertGroupingParametersArgs:
     def __init__(__self__, *,
@@ -5885,6 +7784,27 @@ class ServiceAlertGroupingParametersArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ServiceAlertGroupingParametersConfigArgsDict(TypedDict):
+        aggregate: NotRequired[pulumi.Input[str]]
+        """
+        One of `any` or `all`. This setting applies only when `type` is set to `content_based`. Group alerts based on one or all of `fields` value(s).
+        """
+        fields: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `content_based`.
+        """
+        time_window: NotRequired[pulumi.Input[int]]
+        """
+        The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+        """
+        timeout: NotRequired[pulumi.Input[int]]
+        """
+        The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        """
+elif False:
+    ServiceAlertGroupingParametersConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceAlertGroupingParametersConfigArgs:
@@ -5957,6 +7877,19 @@ class ServiceAlertGroupingParametersConfigArgs:
         pulumi.set(self, "timeout", value)
 
 
+if not MYPY:
+    class ServiceAutoPauseNotificationsParametersArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
+        """
+        timeout: NotRequired[pulumi.Input[int]]
+        """
+        Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+        """
+elif False:
+    ServiceAutoPauseNotificationsParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceAutoPauseNotificationsParametersArgs:
     def __init__(__self__, *,
@@ -5995,6 +7928,23 @@ class ServiceAutoPauseNotificationsParametersArgs:
     def timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout", value)
 
+
+if not MYPY:
+    class ServiceDependencyDependencyArgsDict(TypedDict):
+        dependent_services: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgsDict']]]]
+        """
+        The service that dependents on the supporting service. Dependency dependent service documented below.
+        """
+        supporting_services: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgsDict']]]]
+        """
+        The service that supports the dependent service. Dependency supporting service documented below.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+        """
+elif False:
+    ServiceDependencyDependencyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceDependencyDependencyArgs:
@@ -6051,6 +8001,19 @@ class ServiceDependencyDependencyArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ServiceDependencyDependencyDependentServiceArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the service dependency.
+        """
+        type: pulumi.Input[str]
+        """
+        Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+        """
+elif False:
+    ServiceDependencyDependencyDependentServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceDependencyDependencyDependentServiceArgs:
     def __init__(__self__, *,
@@ -6088,6 +8051,19 @@ class ServiceDependencyDependencyDependentServiceArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ServiceDependencyDependencySupportingServiceArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the service dependency.
+        """
+        type: pulumi.Input[str]
+        """
+        Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+        """
+elif False:
+    ServiceDependencyDependencySupportingServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceDependencyDependencySupportingServiceArgs:
     def __init__(__self__, *,
@@ -6124,6 +8100,39 @@ class ServiceDependencyDependencySupportingServiceArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ServiceEventRuleActionsArgsDict(TypedDict):
+        annotates: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsAnnotateArgsDict']]]]
+        """
+        Note added to the event.
+        """
+        event_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsEventActionArgsDict']]]]
+        """
+        An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+        """
+        extractions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsExtractionArgsDict']]]]
+        """
+        Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
+        """
+        priorities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsPriorityArgsDict']]]]
+        """
+        The ID of the priority applied to the event.
+        """
+        severities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSeverityArgsDict']]]]
+        """
+        The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+        """
+        suppresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSuppressArgsDict']]]]
+        """
+        Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+        """
+        suspends: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSuspendArgsDict']]]]
+        """
+        An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+        """
+elif False:
+    ServiceEventRuleActionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceEventRuleActionsArgs:
@@ -6244,6 +8253,12 @@ class ServiceEventRuleActionsArgs:
         pulumi.set(self, "suspends", value)
 
 
+if not MYPY:
+    class ServiceEventRuleActionsAnnotateArgsDict(TypedDict):
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ServiceEventRuleActionsAnnotateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEventRuleActionsAnnotateArgs:
     def __init__(__self__, *,
@@ -6261,6 +8276,12 @@ class ServiceEventRuleActionsAnnotateArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ServiceEventRuleActionsEventActionArgsDict(TypedDict):
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ServiceEventRuleActionsEventActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEventRuleActionsEventActionArgs:
     def __init__(__self__, *,
@@ -6277,6 +8298,31 @@ class ServiceEventRuleActionsEventActionArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ServiceEventRuleActionsExtractionArgsDict(TypedDict):
+        regex: NotRequired[pulumi.Input[str]]
+        """
+        The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+
+        *- **OR** -*
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        """
+        target: NotRequired[pulumi.Input[str]]
+        """
+        Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+
+        *NOTE: A rule can have multiple `extraction` objects attributed to it.*
+        """
+        template: NotRequired[pulumi.Input[str]]
+        """
+        A customized field message. This can also include variables extracted from the payload by using string interpolation.
+        """
+elif False:
+    ServiceEventRuleActionsExtractionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceEventRuleActionsExtractionArgs:
@@ -6357,6 +8403,12 @@ class ServiceEventRuleActionsExtractionArgs:
         pulumi.set(self, "template", value)
 
 
+if not MYPY:
+    class ServiceEventRuleActionsPriorityArgsDict(TypedDict):
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ServiceEventRuleActionsPriorityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEventRuleActionsPriorityArgs:
     def __init__(__self__, *,
@@ -6374,6 +8426,12 @@ class ServiceEventRuleActionsPriorityArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ServiceEventRuleActionsSeverityArgsDict(TypedDict):
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ServiceEventRuleActionsSeverityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEventRuleActionsSeverityArgs:
     def __init__(__self__, *,
@@ -6390,6 +8448,27 @@ class ServiceEventRuleActionsSeverityArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ServiceEventRuleActionsSuppressArgsDict(TypedDict):
+        threshold_time_amount: NotRequired[pulumi.Input[int]]
+        """
+        The number value of the `threshold_time_unit` before an incident is created.
+        """
+        threshold_time_unit: NotRequired[pulumi.Input[str]]
+        """
+        The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
+        """
+        threshold_value: NotRequired[pulumi.Input[int]]
+        """
+        The number of alerts that should be suppressed.
+        """
+        value: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+elif False:
+    ServiceEventRuleActionsSuppressArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceEventRuleActionsSuppressArgs:
@@ -6462,6 +8541,12 @@ class ServiceEventRuleActionsSuppressArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ServiceEventRuleActionsSuspendArgsDict(TypedDict):
+        value: NotRequired[pulumi.Input[int]]
+elif False:
+    ServiceEventRuleActionsSuspendArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEventRuleActionsSuspendArgs:
     def __init__(__self__, *,
@@ -6478,6 +8563,19 @@ class ServiceEventRuleActionsSuspendArgs:
     def value(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ServiceEventRuleConditionsArgsDict(TypedDict):
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        Operator to combine sub-conditions. Can be `and` or `or`.
+        """
+        subconditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleConditionsSubconditionArgsDict']]]]
+        """
+        List of sub-conditions that define the condition.
+        """
+elif False:
+    ServiceEventRuleConditionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceEventRuleConditionsArgs:
@@ -6518,6 +8616,19 @@ class ServiceEventRuleConditionsArgs:
         pulumi.set(self, "subconditions", value)
 
 
+if not MYPY:
+    class ServiceEventRuleConditionsSubconditionArgsDict(TypedDict):
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+        """
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleConditionsSubconditionParameterArgsDict']]]]
+        """
+        Parameter for the sub-condition. It requires both a `path` and `value` to be set. The `path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        """
+elif False:
+    ServiceEventRuleConditionsSubconditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEventRuleConditionsSubconditionArgs:
     def __init__(__self__, *,
@@ -6557,6 +8668,16 @@ class ServiceEventRuleConditionsSubconditionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class ServiceEventRuleConditionsSubconditionParameterArgsDict(TypedDict):
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+        """
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ServiceEventRuleConditionsSubconditionParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEventRuleConditionsSubconditionParameterArgs:
     def __init__(__self__, *,
@@ -6591,6 +8712,19 @@ class ServiceEventRuleConditionsSubconditionParameterArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ServiceEventRuleTimeFrameArgsDict(TypedDict):
+        active_betweens: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleTimeFrameActiveBetweenArgsDict']]]]
+        """
+        Values for executing the rule during a specific time period.
+        """
+        scheduled_weeklies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleTimeFrameScheduledWeeklyArgsDict']]]]
+        """
+        Values for executing the rule on a recurring schedule.
+        """
+elif False:
+    ServiceEventRuleTimeFrameArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceEventRuleTimeFrameArgs:
@@ -6631,6 +8765,19 @@ class ServiceEventRuleTimeFrameArgs:
         pulumi.set(self, "scheduled_weeklies", value)
 
 
+if not MYPY:
+    class ServiceEventRuleTimeFrameActiveBetweenArgsDict(TypedDict):
+        end_time: NotRequired[pulumi.Input[int]]
+        """
+        Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+        """
+        start_time: NotRequired[pulumi.Input[int]]
+        """
+        Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+        """
+elif False:
+    ServiceEventRuleTimeFrameActiveBetweenArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEventRuleTimeFrameActiveBetweenArgs:
     def __init__(__self__, *,
@@ -6669,6 +8816,27 @@ class ServiceEventRuleTimeFrameActiveBetweenArgs:
     def start_time(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "start_time", value)
 
+
+if not MYPY:
+    class ServiceEventRuleTimeFrameScheduledWeeklyArgsDict(TypedDict):
+        duration: NotRequired[pulumi.Input[int]]
+        """
+        Length of time the schedule will be active.  Unix timestamp in milliseconds.
+        """
+        start_time: NotRequired[pulumi.Input[int]]
+        """
+        Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+        """
+        timezone: NotRequired[pulumi.Input[str]]
+        """
+        Timezone for the given schedule.
+        """
+        weekdays: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
+        """
+elif False:
+    ServiceEventRuleTimeFrameScheduledWeeklyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceEventRuleTimeFrameScheduledWeeklyArgs:
@@ -6741,6 +8909,23 @@ class ServiceEventRuleTimeFrameScheduledWeeklyArgs:
         pulumi.set(self, "weekdays", value)
 
 
+if not MYPY:
+    class ServiceEventRuleVariableArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the variable.
+        """
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableParameterArgsDict']]]]
+        """
+        The parameters for performing the operation to populate the variable.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of operation to populate the variable. Usually `regex`.
+        """
+elif False:
+    ServiceEventRuleVariableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEventRuleVariableArgs:
     def __init__(__self__, *,
@@ -6796,6 +8981,16 @@ class ServiceEventRuleVariableArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ServiceEventRuleVariableParameterArgsDict(TypedDict):
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+        """
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    ServiceEventRuleVariableParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceEventRuleVariableParameterArgs:
     def __init__(__self__, *,
@@ -6830,6 +9025,27 @@ class ServiceEventRuleVariableParameterArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ServiceIncidentUrgencyRuleArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
+        """
+        during_support_hours: NotRequired[pulumi.Input['ServiceIncidentUrgencyRuleDuringSupportHoursArgsDict']]
+        """
+        Incidents' urgency during support hours.
+        """
+        outside_support_hours: NotRequired[pulumi.Input['ServiceIncidentUrgencyRuleOutsideSupportHoursArgsDict']]
+        """
+        Incidents' urgency outside support hours.
+        """
+        urgency: NotRequired[pulumi.Input[str]]
+        """
+        The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+        """
+elif False:
+    ServiceIncidentUrgencyRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceIncidentUrgencyRuleArgs:
@@ -6901,6 +9117,19 @@ class ServiceIncidentUrgencyRuleArgs:
         pulumi.set(self, "urgency", value)
 
 
+if not MYPY:
+    class ServiceIncidentUrgencyRuleDuringSupportHoursArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        """
+        urgency: NotRequired[pulumi.Input[str]]
+        """
+        The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+        """
+elif False:
+    ServiceIncidentUrgencyRuleDuringSupportHoursArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceIncidentUrgencyRuleDuringSupportHoursArgs:
     def __init__(__self__, *,
@@ -6940,6 +9169,19 @@ class ServiceIncidentUrgencyRuleDuringSupportHoursArgs:
         pulumi.set(self, "urgency", value)
 
 
+if not MYPY:
+    class ServiceIncidentUrgencyRuleOutsideSupportHoursArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        """
+        urgency: NotRequired[pulumi.Input[str]]
+        """
+        The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+        """
+elif False:
+    ServiceIncidentUrgencyRuleOutsideSupportHoursArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceIncidentUrgencyRuleOutsideSupportHoursArgs:
     def __init__(__self__, *,
@@ -6978,6 +9220,39 @@ class ServiceIncidentUrgencyRuleOutsideSupportHoursArgs:
     def urgency(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "urgency", value)
 
+
+if not MYPY:
+    class ServiceIntegrationEmailFilterArgsDict(TypedDict):
+        body_mode: NotRequired[pulumi.Input[str]]
+        """
+        Can be `always` or `match`.
+        """
+        body_regex: NotRequired[pulumi.Input[str]]
+        """
+        Should be a valid regex or `null`
+        """
+        from_email_mode: NotRequired[pulumi.Input[str]]
+        """
+        Can be `always` or `match`.
+        """
+        from_email_regex: NotRequired[pulumi.Input[str]]
+        """
+        Should be a valid regex or `null`
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the service integration.
+        """
+        subject_mode: NotRequired[pulumi.Input[str]]
+        """
+        Can be `always` or `match`.
+        """
+        subject_regex: NotRequired[pulumi.Input[str]]
+        """
+        Should be a valid regex or `null`
+        """
+elif False:
+    ServiceIntegrationEmailFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceIntegrationEmailFilterArgs:
@@ -7098,6 +9373,21 @@ class ServiceIntegrationEmailFilterArgs:
         pulumi.set(self, "subject_regex", value)
 
 
+if not MYPY:
+    class ServiceIntegrationEmailParserArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        Can be `resolve` or `trigger`.
+        """
+        match_predicate: pulumi.Input['ServiceIntegrationEmailParserMatchPredicateArgsDict']
+        id: NotRequired[pulumi.Input[int]]
+        """
+        The ID of the service integration.
+        """
+        value_extractors: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailParserValueExtractorArgsDict']]]]
+elif False:
+    ServiceIntegrationEmailParserArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceIntegrationEmailParserArgs:
     def __init__(__self__, *,
@@ -7159,6 +9449,16 @@ class ServiceIntegrationEmailParserArgs:
         pulumi.set(self, "value_extractors", value)
 
 
+if not MYPY:
+    class ServiceIntegrationEmailParserMatchPredicateArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Can be `any` or `all`.
+        """
+        predicates: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailParserMatchPredicatePredicateArgsDict']]]]
+elif False:
+    ServiceIntegrationEmailParserMatchPredicateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceIntegrationEmailParserMatchPredicateArgs:
     def __init__(__self__, *,
@@ -7192,6 +9492,24 @@ class ServiceIntegrationEmailParserMatchPredicateArgs:
     def predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailParserMatchPredicatePredicateArgs']]]]):
         pulumi.set(self, "predicates", value)
 
+
+if not MYPY:
+    class ServiceIntegrationEmailParserMatchPredicatePredicateArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+        """
+        matcher: NotRequired[pulumi.Input[str]]
+        """
+        Predicate value or valid regex.
+        """
+        part: NotRequired[pulumi.Input[str]]
+        """
+        Can be `subject`, `body` or `from_addresses`.
+        """
+        predicates: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgsDict']]]]
+elif False:
+    ServiceIntegrationEmailParserMatchPredicatePredicateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceIntegrationEmailParserMatchPredicatePredicateArgs:
@@ -7259,6 +9577,23 @@ class ServiceIntegrationEmailParserMatchPredicatePredicateArgs:
         pulumi.set(self, "predicates", value)
 
 
+if not MYPY:
+    class ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgsDict(TypedDict):
+        matcher: pulumi.Input[str]
+        """
+        Predicate value or valid regex.
+        """
+        part: pulumi.Input[str]
+        """
+        Can be `subject`, `body` or `from_addresses`.
+        """
+        type: pulumi.Input[str]
+        """
+        Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+        """
+elif False:
+    ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs:
     def __init__(__self__, *,
@@ -7310,6 +9645,31 @@ class ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ServiceIntegrationEmailParserValueExtractorArgsDict(TypedDict):
+        part: pulumi.Input[str]
+        """
+        Can be `subject` or `body`.
+        """
+        type: pulumi.Input[str]
+        """
+        Can be `between`, `entire` or `regex`.
+        """
+        value_name: pulumi.Input[str]
+        """
+        First value extractor should have name `incident_key` other value extractors should contain custom names.
+        """
+        ends_before: NotRequired[pulumi.Input[str]]
+        regex: NotRequired[pulumi.Input[str]]
+        """
+        If `type` has value `regex` this value should contain valid regex.
+
+        **Note:** You can use the `get_vendor` data source to locate the appropriate vendor ID.
+        """
+        starts_after: NotRequired[pulumi.Input[str]]
+elif False:
+    ServiceIntegrationEmailParserValueExtractorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceIntegrationEmailParserValueExtractorArgs:
@@ -7407,6 +9767,23 @@ class ServiceIntegrationEmailParserValueExtractorArgs:
         pulumi.set(self, "starts_after", value)
 
 
+if not MYPY:
+    class ServiceScheduledActionArgsDict(TypedDict):
+        ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionAtArgsDict']]]]
+        """
+        A block representing when the scheduled action will occur.
+        """
+        to_urgency: NotRequired[pulumi.Input[str]]
+        """
+        The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of scheduled action. Currently, this must be set to `urgency_change`.
+        """
+elif False:
+    ServiceScheduledActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceScheduledActionArgs:
     def __init__(__self__, *,
@@ -7461,6 +9838,67 @@ class ServiceScheduledActionArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ServiceScheduledActionAtArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
+
+        Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
+
+        Below is an example for a `Service` resource with `incident_urgency_rules` with `type = "use_support_hours"`, `support_hours` and a default `scheduled_action` as well.
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo = pagerduty.Service("foo",
+            name="bar",
+            description="bar bar bar",
+            auto_resolve_timeout="3600",
+            acknowledgement_timeout="3600",
+            escalation_policy=foo_pagerduty_escalation_policy["id"],
+            incident_urgency_rule={
+                "type": "use_support_hours",
+                "during_support_hours": {
+                    "type": "constant",
+                    "urgency": "high",
+                },
+                "outside_support_hours": {
+                    "type": "constant",
+                    "urgency": "low",
+                },
+            },
+            support_hours={
+                "type": "fixed_time_per_day",
+                "time_zone": "America/Lima",
+                "start_time": "09:00:00",
+                "end_time": "17:00:00",
+                "days_of_weeks": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                ],
+            },
+            scheduled_actions=[{
+                "type": "urgency_change",
+                "to_urgency": "high",
+                "ats": [{
+                    "type": "named_time",
+                    "name": "support_hours_start",
+                }],
+            }])
+        ```
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of time specification. Currently, this must be set to `named_time`.
+        """
+elif False:
+    ServiceScheduledActionAtArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceScheduledActionAtArgs:
@@ -7597,6 +10035,32 @@ class ServiceScheduledActionAtArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ServiceSupportHoursArgsDict(TypedDict):
+        days_of_weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        Array of days of week as integers. `1` to `7`, `1` being
+        Monday and `7` being Sunday.
+        """
+        end_time: NotRequired[pulumi.Input[str]]
+        """
+        The support hours' ending time of day.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        The support hours' starting time of day.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        The time zone for the support hours.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of support hours. Can be `fixed_time_per_day`.
+        """
+elif False:
+    ServiceSupportHoursArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceSupportHoursArgs:
     def __init__(__self__, *,
@@ -7686,6 +10150,37 @@ class ServiceSupportHoursArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class SlackConnectionConfigArgsDict(TypedDict):
+        events: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of strings to filter events by PagerDuty event type. `"incident.triggered"` is required. The follow event types are also possible:
+        - `incident.acknowledged`
+        - `incident.escalated`
+        - `incident.resolved`
+        - `incident.reassigned`
+        - `incident.annotated`
+        - `incident.unacknowledged`
+        - `incident.delegated`
+        - `incident.priority_updated`
+        - `incident.responder.added`
+        - `incident.responder.replied`
+        - `incident.status_update_published`
+        - `incident.reopened`
+        """
+        priorities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through get_priority data source.
+        - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+        - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
+        """
+        urgency: NotRequired[pulumi.Input[str]]
+        """
+        Allows you to filter events by urgency. Either `high` or `low`.
+        """
+elif False:
+    SlackConnectionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SlackConnectionConfigArgs:
     def __init__(__self__, *,
@@ -7768,6 +10263,19 @@ class SlackConnectionConfigArgs:
         pulumi.set(self, "urgency", value)
 
 
+if not MYPY:
+    class UserHandoffNotificationRuleContactMethodArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the contact method.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the contact method. May be (`email_contact_method`, `email_contact_method_reference`, `phone_contact_method`, `phone_contact_method_reference`, `push_notification_contact_method`, `push_notification_contact_method_reference`, `sms_contact_method`, `sms_contact_method_reference`).
+        """
+elif False:
+    UserHandoffNotificationRuleContactMethodArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserHandoffNotificationRuleContactMethodArgs:
     def __init__(__self__, *,
@@ -7804,6 +10312,27 @@ class UserHandoffNotificationRuleContactMethodArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class WebhookSubscriptionDeliveryMethodArgsDict(TypedDict):
+        custom_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodCustomHeaderArgsDict']]]]
+        """
+        The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+        """
+        temporarily_disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The destination URL for webhook delivery.
+        """
+elif False:
+    WebhookSubscriptionDeliveryMethodArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebhookSubscriptionDeliveryMethodArgs:
@@ -7876,6 +10405,13 @@ class WebhookSubscriptionDeliveryMethodArgs:
         pulumi.set(self, "url", value)
 
 
+if not MYPY:
+    class WebhookSubscriptionDeliveryMethodCustomHeaderArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    WebhookSubscriptionDeliveryMethodCustomHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WebhookSubscriptionDeliveryMethodCustomHeaderArgs:
     def __init__(__self__, *,
@@ -7902,6 +10438,19 @@ class WebhookSubscriptionDeliveryMethodCustomHeaderArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class WebhookSubscriptionFilterArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of object being used as the filter. Allowed values are `account_reference`, `service_reference`, and `team_reference`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The id of the object being used as the filter. This field is required for all filter types except account_reference.
+        """
+elif False:
+    WebhookSubscriptionFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebhookSubscriptionFilterArgs:
@@ -7940,6 +10489,17 @@ class WebhookSubscriptionFilterArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetEventOrchestrationIntegrationDetailArgsDict(TypedDict):
+        id: str
+        """
+        ID of the integration
+        """
+        label: str
+        parameters: Sequence['GetEventOrchestrationIntegrationDetailParameterArgsDict']
+elif False:
+    GetEventOrchestrationIntegrationDetailArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetEventOrchestrationIntegrationDetailArgs:
@@ -7984,6 +10544,19 @@ class GetEventOrchestrationIntegrationDetailArgs:
     def parameters(self, value: Sequence['GetEventOrchestrationIntegrationDetailParameterArgs']):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class GetEventOrchestrationIntegrationDetailParameterArgsDict(TypedDict):
+        routing_key: str
+        """
+        Routing key that routes to this Orchestration.
+        """
+        type: str
+        """
+        Type of the routing key. `global` is the default type.
+        """
+elif False:
+    GetEventOrchestrationIntegrationDetailParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetEventOrchestrationIntegrationDetailParameterArgs:

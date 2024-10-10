@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -94,9 +99,6 @@ def get_event_orchestrations(name_filter: Optional[str] = None,
         event_orchestrations=pulumi.get(__ret__, 'event_orchestrations'),
         id=pulumi.get(__ret__, 'id'),
         name_filter=pulumi.get(__ret__, 'name_filter'))
-
-
-@_utilities.lift_output_func(get_event_orchestrations)
 def get_event_orchestrations_output(name_filter: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventOrchestrationsResult]:
     """
@@ -116,4 +118,11 @@ def get_event_orchestrations_output(name_filter: Optional[pulumi.Input[str]] = N
 
     :param str name_filter: The regex name of Global Event orchestrations to find in the PagerDuty API.
     """
-    ...
+    __args__ = dict()
+    __args__['nameFilter'] = name_filter
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getEventOrchestrations:getEventOrchestrations', __args__, opts=opts, typ=GetEventOrchestrationsResult)
+    return __ret__.apply(lambda __response__: GetEventOrchestrationsResult(
+        event_orchestrations=pulumi.get(__response__, 'event_orchestrations'),
+        id=pulumi.get(__response__, 'id'),
+        name_filter=pulumi.get(__response__, 'name_filter')))

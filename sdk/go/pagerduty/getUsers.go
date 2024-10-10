@@ -52,7 +52,8 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = pagerduty.GetUsers(ctx, nil, nil);
+// _, err = pagerduty.GetUsers(ctx, &pagerduty.GetUsersArgs{
+// }, nil);
 // if err != nil {
 // return err
 // }

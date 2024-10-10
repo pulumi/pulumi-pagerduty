@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -117,9 +122,6 @@ def get_standards_resources_scores(ids: Optional[Sequence[str]] = None,
         ids=pulumi.get(__ret__, 'ids'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
         resources=pulumi.get(__ret__, 'resources'))
-
-
-@_utilities.lift_output_func(get_standards_resources_scores)
 def get_standards_resources_scores_output(ids: Optional[pulumi.Input[Sequence[str]]] = None,
                                           resource_type: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardsResourcesScoresResult]:
@@ -148,4 +150,13 @@ def get_standards_resources_scores_output(ids: Optional[pulumi.Input[Sequence[st
     :param Sequence[str] ids: List of identifiers of the resources to query.
     :param str resource_type: Type of the object the standards are associated to. Allowed values are `technical_services`.
     """
-    ...
+    __args__ = dict()
+    __args__['ids'] = ids
+    __args__['resourceType'] = resource_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores', __args__, opts=opts, typ=GetStandardsResourcesScoresResult)
+    return __ret__.apply(lambda __response__: GetStandardsResourcesScoresResult(
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        resource_type=pulumi.get(__response__, 'resource_type'),
+        resources=pulumi.get(__response__, 'resources')))

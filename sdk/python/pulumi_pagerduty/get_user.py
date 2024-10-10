@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -153,9 +158,6 @@ def get_user(email: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         role=pulumi.get(__ret__, 'role'),
         time_zone=pulumi.get(__ret__, 'time_zone'))
-
-
-@_utilities.lift_output_func(get_user)
 def get_user_output(email: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
@@ -183,4 +185,15 @@ def get_user_output(email: Optional[pulumi.Input[str]] = None,
 
     :param str email: The email to use to find a user in the PagerDuty API.
     """
-    ...
+    __args__ = dict()
+    __args__['email'] = email
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
+    return __ret__.apply(lambda __response__: GetUserResult(
+        description=pulumi.get(__response__, 'description'),
+        email=pulumi.get(__response__, 'email'),
+        id=pulumi.get(__response__, 'id'),
+        job_title=pulumi.get(__response__, 'job_title'),
+        name=pulumi.get(__response__, 'name'),
+        role=pulumi.get(__response__, 'role'),
+        time_zone=pulumi.get(__response__, 'time_zone')))

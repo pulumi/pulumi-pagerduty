@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -220,9 +225,6 @@ def get_automation_actions_action(action_classification: Optional[str] = None,
         runner_id=pulumi.get(__ret__, 'runner_id'),
         runner_type=pulumi.get(__ret__, 'runner_type'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_automation_actions_action)
 def get_automation_actions_action_output(action_classification: Optional[pulumi.Input[Optional[str]]] = None,
                                          creation_time: Optional[pulumi.Input[Optional[str]]] = None,
                                          description: Optional[pulumi.Input[Optional[str]]] = None,
@@ -254,4 +256,26 @@ def get_automation_actions_action_output(action_classification: Optional[pulumi.
     :param str runner_type: (Optional) The type of the runner associated with the action.
     :param str type: The type of object. The value returned will be `action`.
     """
-    ...
+    __args__ = dict()
+    __args__['actionClassification'] = action_classification
+    __args__['creationTime'] = creation_time
+    __args__['description'] = description
+    __args__['id'] = id
+    __args__['modifyTime'] = modify_time
+    __args__['runnerId'] = runner_id
+    __args__['runnerType'] = runner_type
+    __args__['type'] = type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getAutomationActionsAction:getAutomationActionsAction', __args__, opts=opts, typ=GetAutomationActionsActionResult)
+    return __ret__.apply(lambda __response__: GetAutomationActionsActionResult(
+        action_classification=pulumi.get(__response__, 'action_classification'),
+        action_data_references=pulumi.get(__response__, 'action_data_references'),
+        action_type=pulumi.get(__response__, 'action_type'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        modify_time=pulumi.get(__response__, 'modify_time'),
+        name=pulumi.get(__response__, 'name'),
+        runner_id=pulumi.get(__response__, 'runner_id'),
+        runner_type=pulumi.get(__response__, 'runner_type'),
+        type=pulumi.get(__response__, 'type')))

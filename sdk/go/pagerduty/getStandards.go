@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pagerduty.GetStandards(ctx, nil, nil)
+//			_, err := pagerduty.GetStandards(ctx, &pagerduty.GetStandardsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

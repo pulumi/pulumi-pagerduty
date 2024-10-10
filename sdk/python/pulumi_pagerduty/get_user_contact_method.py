@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -199,9 +204,6 @@ def get_user_contact_method(label: Optional[str] = None,
         send_short_email=pulumi.get(__ret__, 'send_short_email'),
         type=pulumi.get(__ret__, 'type'),
         user_id=pulumi.get(__ret__, 'user_id'))
-
-
-@_utilities.lift_output_func(get_user_contact_method)
 def get_user_contact_method_output(label: Optional[pulumi.Input[str]] = None,
                                    type: Optional[pulumi.Input[str]] = None,
                                    user_id: Optional[pulumi.Input[str]] = None,
@@ -234,4 +236,20 @@ def get_user_contact_method_output(label: Optional[pulumi.Input[str]] = None,
     :param str type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
     :param str user_id: The ID of the user.
     """
-    ...
+    __args__ = dict()
+    __args__['label'] = label
+    __args__['type'] = type
+    __args__['userId'] = user_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getUserContactMethod:getUserContactMethod', __args__, opts=opts, typ=GetUserContactMethodResult)
+    return __ret__.apply(lambda __response__: GetUserContactMethodResult(
+        address=pulumi.get(__response__, 'address'),
+        blacklisted=pulumi.get(__response__, 'blacklisted'),
+        country_code=pulumi.get(__response__, 'country_code'),
+        device_type=pulumi.get(__response__, 'device_type'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        id=pulumi.get(__response__, 'id'),
+        label=pulumi.get(__response__, 'label'),
+        send_short_email=pulumi.get(__response__, 'send_short_email'),
+        type=pulumi.get(__response__, 'type'),
+        user_id=pulumi.get(__response__, 'user_id')))

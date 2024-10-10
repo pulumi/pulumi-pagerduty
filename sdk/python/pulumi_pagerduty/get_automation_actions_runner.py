@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -168,9 +173,6 @@ def get_automation_actions_runner(description: Optional[str] = None,
         runbook_base_uri=pulumi.get(__ret__, 'runbook_base_uri'),
         runner_type=pulumi.get(__ret__, 'runner_type'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_automation_actions_runner)
 def get_automation_actions_runner_output(description: Optional[pulumi.Input[Optional[str]]] = None,
                                          id: Optional[pulumi.Input[str]] = None,
                                          last_seen: Optional[pulumi.Input[Optional[str]]] = None,
@@ -194,4 +196,19 @@ def get_automation_actions_runner_output(description: Optional[pulumi.Input[Opti
     :param str last_seen: (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
     :param str runbook_base_uri: (Optional) The base URI of the Runbook server to connect to. Applicable to `runbook` type runners only.
     """
-    ...
+    __args__ = dict()
+    __args__['description'] = description
+    __args__['id'] = id
+    __args__['lastSeen'] = last_seen
+    __args__['runbookBaseUri'] = runbook_base_uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner', __args__, opts=opts, typ=GetAutomationActionsRunnerResult)
+    return __ret__.apply(lambda __response__: GetAutomationActionsRunnerResult(
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        last_seen=pulumi.get(__response__, 'last_seen'),
+        name=pulumi.get(__response__, 'name'),
+        runbook_base_uri=pulumi.get(__response__, 'runbook_base_uri'),
+        runner_type=pulumi.get(__response__, 'runner_type'),
+        type=pulumi.get(__response__, 'type')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -104,9 +109,6 @@ def get_event_orchestration_integration(event_orchestration: Optional[str] = Non
         id=pulumi.get(__ret__, 'id'),
         label=pulumi.get(__ret__, 'label'),
         parameters=pulumi.get(__ret__, 'parameters'))
-
-
-@_utilities.lift_output_func(get_event_orchestration_integration)
 def get_event_orchestration_integration_output(event_orchestration: Optional[pulumi.Input[str]] = None,
                                                id: Optional[pulumi.Input[Optional[str]]] = None,
                                                label: Optional[pulumi.Input[Optional[str]]] = None,
@@ -130,4 +132,14 @@ def get_event_orchestration_integration_output(event_orchestration: Optional[pul
     :param str id: ID of the Integration associated with the Event Orchestration. Specify either `id` or `label`. If both are specified `id` takes precedence.
     :param str label: Name/description of the Integration associated with the Event Orchestration. Specify either `id` or `label`. If both are specified `id` takes precedence. The value of `label` is not unique. Potentially there might be multiple Integrations with the same `label` value associated with the Event Orchestration and retrieving data by `label` attribute will result in an error during the planning step.
     """
-    ...
+    __args__ = dict()
+    __args__['eventOrchestration'] = event_orchestration
+    __args__['id'] = id
+    __args__['label'] = label
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration', __args__, opts=opts, typ=GetEventOrchestrationIntegrationResult)
+    return __ret__.apply(lambda __response__: GetEventOrchestrationIntegrationResult(
+        event_orchestration=pulumi.get(__response__, 'event_orchestration'),
+        id=pulumi.get(__response__, 'id'),
+        label=pulumi.get(__response__, 'label'),
+        parameters=pulumi.get(__response__, 'parameters')))

@@ -30,7 +30,7 @@ import (
 //			_ := []string{
 //				"owner",
 //			}
-//			licenses, err := pagerduty.GetLicenses(ctx, nil, nil)
+//			licenses, err := pagerduty.GetLicenses(ctx, &pagerduty.GetLicensesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

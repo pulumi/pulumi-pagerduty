@@ -76,7 +76,7 @@ import (
 //					},
 //				},
 //				CatchAll: &pagerduty.EventOrchestrationGlobalCatchAllArgs{
-//					Actions: nil,
+//					Actions: &pagerduty.EventOrchestrationGlobalCatchAllActionsArgs{},
 //				},
 //			})
 //			if err != nil {

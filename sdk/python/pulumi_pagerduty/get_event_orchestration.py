@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -90,9 +95,6 @@ def get_event_orchestration(integration_detail: Optional[Sequence[Union['GetEven
         id=pulumi.get(__ret__, 'id'),
         integration_detail=pulumi.get(__ret__, 'integration_detail'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_event_orchestration)
 def get_event_orchestration_output(integration_detail: Optional[pulumi.Input[Optional[Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']]]]] = None,
                                    name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventOrchestrationResult]:
@@ -103,4 +105,12 @@ def get_event_orchestration_output(integration_detail: Optional[pulumi.Input[Opt
     :param Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']] integration_detail: An integration for the Event Orchestration.
     :param str name: The name of the Global Event orchestration to find in the PagerDuty API.
     """
-    ...
+    __args__ = dict()
+    __args__['integrationDetail'] = integration_detail
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getEventOrchestration:getEventOrchestration', __args__, opts=opts, typ=GetEventOrchestrationResult)
+    return __ret__.apply(lambda __response__: GetEventOrchestrationResult(
+        id=pulumi.get(__response__, 'id'),
+        integration_detail=pulumi.get(__response__, 'integration_detail'),
+        name=pulumi.get(__response__, 'name')))

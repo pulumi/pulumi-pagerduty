@@ -112,7 +112,7 @@ import (
 //					},
 //				},
 //				CatchAll: &pagerduty.EventOrchestrationServiceCatchAllArgs{
-//					Actions: nil,
+//					Actions: &pagerduty.EventOrchestrationServiceCatchAllActionsArgs{},
 //				},
 //			})
 //			if err != nil {

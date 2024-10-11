@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -102,9 +107,6 @@ def get_service_integration(integration_summary: Optional[str] = None,
         integration_key=pulumi.get(__ret__, 'integration_key'),
         integration_summary=pulumi.get(__ret__, 'integration_summary'),
         service_name=pulumi.get(__ret__, 'service_name'))
-
-
-@_utilities.lift_output_func(get_service_integration)
 def get_service_integration_output(integration_summary: Optional[pulumi.Input[str]] = None,
                                    service_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceIntegrationResult]:
@@ -125,4 +127,13 @@ def get_service_integration_output(integration_summary: Optional[pulumi.Input[st
     :param str integration_summary: The integration summary used to find the desired integration on the service.
     :param str service_name: The service name to use to find a service in the PagerDuty API.
     """
-    ...
+    __args__ = dict()
+    __args__['integrationSummary'] = integration_summary
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getServiceIntegration:getServiceIntegration', __args__, opts=opts, typ=GetServiceIntegrationResult)
+    return __ret__.apply(lambda __response__: GetServiceIntegrationResult(
+        id=pulumi.get(__response__, 'id'),
+        integration_key=pulumi.get(__response__, 'integration_key'),
+        integration_summary=pulumi.get(__response__, 'integration_summary'),
+        service_name=pulumi.get(__response__, 'service_name')))

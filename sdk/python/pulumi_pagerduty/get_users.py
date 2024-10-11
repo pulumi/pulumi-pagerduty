@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -101,9 +106,6 @@ def get_users(team_ids: Optional[Sequence[str]] = None,
         id=pulumi.get(__ret__, 'id'),
         team_ids=pulumi.get(__ret__, 'team_ids'),
         users=pulumi.get(__ret__, 'users'))
-
-
-@_utilities.lift_output_func(get_users)
 def get_users_output(team_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
     """
@@ -130,4 +132,11 @@ def get_users_output(team_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] =
 
     :param Sequence[str] team_ids: List of team IDs. Only results related to these teams will be returned. Account must have the `teams` ability to use this parameter.
     """
-    ...
+    __args__ = dict()
+    __args__['teamIds'] = team_ids
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult)
+    return __ret__.apply(lambda __response__: GetUsersResult(
+        id=pulumi.get(__response__, 'id'),
+        team_ids=pulumi.get(__response__, 'team_ids'),
+        users=pulumi.get(__response__, 'users')))

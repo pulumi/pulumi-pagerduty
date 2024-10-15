@@ -5,6 +5,22 @@
                 "current": "pagerduty:index/addon:Addon",
                 "majorVersion": 4
             },
+            "pagerduty_alert_grouping_setting": {
+                "current": "pagerduty:index/alertGroupingSetting:AlertGroupingSetting",
+                "majorVersion": 4,
+                "fields": {
+                    "config": {
+                        "fields": {
+                            "fields": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "services": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "pagerduty_automation_actions_action": {
                 "current": "pagerduty:index/automationActionsAction:AutomationActionsAction",
                 "majorVersion": 4,
@@ -907,6 +923,22 @@
             }
         },
         "datasources": {
+            "pagerduty_alert_grouping_setting": {
+                "current": "pagerduty:index/getAlertGroupingSetting:getAlertGroupingSetting",
+                "majorVersion": 4,
+                "fields": {
+                    "config": {
+                        "fields": {
+                            "fields": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "services": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "pagerduty_automation_actions_action": {
                 "current": "pagerduty:index/getAutomationActionsAction:getAutomationActionsAction",
                 "majorVersion": 4,
@@ -1161,6 +1193,7 @@
     "mux": {
         "resources": {
             "pagerduty:index/addon:Addon": 1,
+            "pagerduty:index/alertGroupingSetting:AlertGroupingSetting": 1,
             "pagerduty:index/automationActionsAction:AutomationActionsAction": 0,
             "pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation": 0,
             "pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation": 0,
@@ -1205,6 +1238,7 @@
             "pagerduty:index/webhookSubscription:WebhookSubscription": 0
         },
         "functions": {
+            "pagerduty:index/getAlertGroupingSetting:getAlertGroupingSetting": 1,
             "pagerduty:index/getAutomationActionsAction:getAutomationActionsAction": 0,
             "pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner": 0,
             "pagerduty:index/getBusinessService:getBusinessService": 1,

@@ -5,6 +5,25 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface AlertGroupingSettingConfig {
+    /**
+     * One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
+     */
+    aggregate?: string;
+    /**
+     * Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
+     */
+    fields?: string[];
+    /**
+     * The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+     */
+    timeWindow: number;
+    /**
+     * The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+     */
+    timeout: number;
+}
+
 export interface AutomationActionsActionActionDataReference {
     /**
      * The command to execute the script with.
@@ -1085,6 +1104,25 @@ export interface EventOrchestrationUnroutedSetRuleCondition {
      * A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
      */
     expression: string;
+}
+
+export interface GetAlertGroupingSettingConfig {
+    /**
+     * One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
+     */
+    aggregate?: string;
+    /**
+     * Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
+     */
+    fields?: string[];
+    /**
+     * The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+     */
+    timeWindow: number;
+    /**
+     * The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+     */
+    timeout: number;
 }
 
 export interface GetAutomationActionsActionActionDataReference {

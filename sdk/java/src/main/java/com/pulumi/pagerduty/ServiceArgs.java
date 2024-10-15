@@ -77,16 +77,24 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+     * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
+     * 
+     * @deprecated
+     * Use a resource `pagerduty.AlertGroupingSetting` instead
      * 
      */
+    @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead */
     @Import(name="alertGroupingParameters")
     private @Nullable Output<ServiceAlertGroupingParametersArgs> alertGroupingParameters;
 
     /**
-     * @return Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+     * @return (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
+     * 
+     * @deprecated
+     * Use a resource `pagerduty.AlertGroupingSetting` instead
      * 
      */
+    @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead */
     public Optional<Output<ServiceAlertGroupingParametersArgs>> alertGroupingParameters() {
         return Optional.ofNullable(this.alertGroupingParameters);
     }
@@ -189,14 +197,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The response play used by this service.
+     * (Deprecated) The response play used by this service.
      * 
      */
     @Import(name="responsePlay")
     private @Nullable Output<String> responsePlay;
 
     /**
-     * @return The response play used by this service.
+     * @return (Deprecated) The response play used by this service.
      * 
      */
     public Optional<Output<String>> responsePlay() {
@@ -326,22 +334,30 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alertGroupingParameters Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+         * @param alertGroupingParameters (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use a resource `pagerduty.AlertGroupingSetting` instead
+         * 
          */
+        @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead */
         public Builder alertGroupingParameters(@Nullable Output<ServiceAlertGroupingParametersArgs> alertGroupingParameters) {
             $.alertGroupingParameters = alertGroupingParameters;
             return this;
         }
 
         /**
-         * @param alertGroupingParameters Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+         * @param alertGroupingParameters (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use a resource `pagerduty.AlertGroupingSetting` instead
+         * 
          */
+        @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead */
         public Builder alertGroupingParameters(ServiceAlertGroupingParametersArgs alertGroupingParameters) {
             return alertGroupingParameters(Output.of(alertGroupingParameters));
         }
@@ -478,7 +494,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responsePlay The response play used by this service.
+         * @param responsePlay (Deprecated) The response play used by this service.
          * 
          * @return builder
          * 
@@ -489,7 +505,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responsePlay The response play used by this service.
+         * @param responsePlay (Deprecated) The response play used by this service.
          * 
          * @return builder
          * 

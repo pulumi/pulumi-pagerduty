@@ -8,6 +8,8 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.pagerduty.Utilities;
+import com.pulumi.pagerduty.inputs.GetAlertGroupingSettingArgs;
+import com.pulumi.pagerduty.inputs.GetAlertGroupingSettingPlainArgs;
 import com.pulumi.pagerduty.inputs.GetAutomationActionsActionArgs;
 import com.pulumi.pagerduty.inputs.GetAutomationActionsActionPlainArgs;
 import com.pulumi.pagerduty.inputs.GetAutomationActionsRunnerArgs;
@@ -66,6 +68,7 @@ import com.pulumi.pagerduty.inputs.GetUsersArgs;
 import com.pulumi.pagerduty.inputs.GetUsersPlainArgs;
 import com.pulumi.pagerduty.inputs.GetVendorArgs;
 import com.pulumi.pagerduty.inputs.GetVendorPlainArgs;
+import com.pulumi.pagerduty.outputs.GetAlertGroupingSettingResult;
 import com.pulumi.pagerduty.outputs.GetAutomationActionsActionResult;
 import com.pulumi.pagerduty.outputs.GetAutomationActionsRunnerResult;
 import com.pulumi.pagerduty.outputs.GetBusinessServiceResult;
@@ -98,6 +101,174 @@ import com.pulumi.pagerduty.outputs.GetVendorResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class PagerdutyFunctions {
+    /**
+     * Use this data source to get information about a specific [alert grouping setting](https://developer.pagerduty.com/api-reference/9b5a6c8d7379b-get-an-alert-grouping-setting).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetAlertGroupingSettingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getAlertGroupingSetting(GetAlertGroupingSettingArgs.builder()
+     *             .name("My example setting")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAlertGroupingSettingResult> getAlertGroupingSetting(GetAlertGroupingSettingArgs args) {
+        return getAlertGroupingSetting(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [alert grouping setting](https://developer.pagerduty.com/api-reference/9b5a6c8d7379b-get-an-alert-grouping-setting).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetAlertGroupingSettingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getAlertGroupingSetting(GetAlertGroupingSettingArgs.builder()
+     *             .name("My example setting")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetAlertGroupingSettingResult> getAlertGroupingSettingPlain(GetAlertGroupingSettingPlainArgs args) {
+        return getAlertGroupingSettingPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [alert grouping setting](https://developer.pagerduty.com/api-reference/9b5a6c8d7379b-get-an-alert-grouping-setting).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetAlertGroupingSettingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getAlertGroupingSetting(GetAlertGroupingSettingArgs.builder()
+     *             .name("My example setting")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAlertGroupingSettingResult> getAlertGroupingSetting(GetAlertGroupingSettingArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getAlertGroupingSetting:getAlertGroupingSetting", TypeShape.of(GetAlertGroupingSettingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [alert grouping setting](https://developer.pagerduty.com/api-reference/9b5a6c8d7379b-get-an-alert-grouping-setting).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetAlertGroupingSettingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getAlertGroupingSetting(GetAlertGroupingSettingArgs.builder()
+     *             .name("My example setting")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetAlertGroupingSettingResult> getAlertGroupingSettingPlain(GetAlertGroupingSettingPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getAlertGroupingSetting:getAlertGroupingSetting", TypeShape.of(GetAlertGroupingSettingResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
      * 

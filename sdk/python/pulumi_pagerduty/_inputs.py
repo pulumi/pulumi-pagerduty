@@ -15,6 +15,8 @@ else:
 from . import _utilities
 
 __all__ = [
+    'AlertGroupingSettingConfigArgs',
+    'AlertGroupingSettingConfigArgsDict',
     'AutomationActionsActionActionDataReferenceArgs',
     'AutomationActionsActionActionDataReferenceArgsDict',
     'EscalationPolicyRuleArgs',
@@ -291,6 +293,8 @@ __all__ = [
     'WebhookSubscriptionDeliveryMethodCustomHeaderArgsDict',
     'WebhookSubscriptionFilterArgs',
     'WebhookSubscriptionFilterArgsDict',
+    'GetAlertGroupingSettingConfigArgs',
+    'GetAlertGroupingSettingConfigArgsDict',
     'GetEventOrchestrationIntegrationDetailArgs',
     'GetEventOrchestrationIntegrationDetailArgsDict',
     'GetEventOrchestrationIntegrationDetailParameterArgs',
@@ -298,6 +302,98 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AlertGroupingSettingConfigArgsDict(TypedDict):
+        aggregate: NotRequired[pulumi.Input[str]]
+        """
+        One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
+        """
+        fields: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
+        """
+        time_window: NotRequired[pulumi.Input[int]]
+        """
+        The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+        """
+        timeout: NotRequired[pulumi.Input[int]]
+        """
+        The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+        """
+elif False:
+    AlertGroupingSettingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AlertGroupingSettingConfigArgs:
+    def __init__(__self__, *,
+                 aggregate: Optional[pulumi.Input[str]] = None,
+                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 time_window: Optional[pulumi.Input[int]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] aggregate: One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fields: Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
+        :param pulumi.Input[int] time_window: The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+        :param pulumi.Input[int] timeout: The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+        """
+        if aggregate is not None:
+            pulumi.set(__self__, "aggregate", aggregate)
+        if fields is not None:
+            pulumi.set(__self__, "fields", fields)
+        if time_window is not None:
+            pulumi.set(__self__, "time_window", time_window)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def aggregate(self) -> Optional[pulumi.Input[str]]:
+        """
+        One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
+        """
+        return pulumi.get(self, "aggregate")
+
+    @aggregate.setter
+    def aggregate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aggregate", value)
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
+        """
+        return pulumi.get(self, "fields")
+
+    @fields.setter
+    def fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "fields", value)
+
+    @property
+    @pulumi.getter(name="timeWindow")
+    def time_window(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+        """
+        return pulumi.get(self, "time_window")
+
+    @time_window.setter
+    def time_window(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "time_window", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
+
 
 if not MYPY:
     class AutomationActionsActionActionDataReferenceArgsDict(TypedDict):
@@ -10488,6 +10584,96 @@ class WebhookSubscriptionFilterArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class GetAlertGroupingSettingConfigArgsDict(TypedDict):
+        time_window: int
+        """
+        The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+        """
+        timeout: int
+        """
+        The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+        """
+        aggregate: NotRequired[str]
+        """
+        One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
+        """
+        fields: NotRequired[Sequence[str]]
+        """
+        Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
+        """
+elif False:
+    GetAlertGroupingSettingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetAlertGroupingSettingConfigArgs:
+    def __init__(__self__, *,
+                 time_window: int,
+                 timeout: int,
+                 aggregate: Optional[str] = None,
+                 fields: Optional[Sequence[str]] = None):
+        """
+        :param int time_window: The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+        :param int timeout: The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+        :param str aggregate: One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
+        :param Sequence[str] fields: Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
+        """
+        pulumi.set(__self__, "time_window", time_window)
+        pulumi.set(__self__, "timeout", timeout)
+        if aggregate is not None:
+            pulumi.set(__self__, "aggregate", aggregate)
+        if fields is not None:
+            pulumi.set(__self__, "fields", fields)
+
+    @property
+    @pulumi.getter(name="timeWindow")
+    def time_window(self) -> int:
+        """
+        The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+        """
+        return pulumi.get(self, "time_window")
+
+    @time_window.setter
+    def time_window(self, value: int):
+        pulumi.set(self, "time_window", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> int:
+        """
+        The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: int):
+        pulumi.set(self, "timeout", value)
+
+    @property
+    @pulumi.getter
+    def aggregate(self) -> Optional[str]:
+        """
+        One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
+        """
+        return pulumi.get(self, "aggregate")
+
+    @aggregate.setter
+    def aggregate(self, value: Optional[str]):
+        pulumi.set(self, "aggregate", value)
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Optional[Sequence[str]]:
+        """
+        Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
+        """
+        return pulumi.get(self, "fields")
+
+    @fields.setter
+    def fields(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "fields", value)
 
 
 if not MYPY:

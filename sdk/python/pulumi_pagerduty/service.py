@@ -41,12 +41,12 @@ class ServiceArgs:
         :param pulumi.Input[str] acknowledgement_timeout: Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
         :param pulumi.Input[str] alert_creation: (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
         :param pulumi.Input[str] alert_grouping: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
-        :param pulumi.Input['ServiceAlertGroupingParametersArgs'] alert_grouping_parameters: Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        :param pulumi.Input['ServiceAlertGroupingParametersArgs'] alert_grouping_parameters: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
         :param pulumi.Input[str] alert_grouping_timeout: (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
         :param pulumi.Input['ServiceAutoPauseNotificationsParametersArgs'] auto_pause_notifications_parameters: Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] name: The name of the service.
-        :param pulumi.Input[str] response_play: The response play used by this service.
+        :param pulumi.Input[str] response_play: (Deprecated) The response play used by this service.
         """
         pulumi.set(__self__, "escalation_policy", escalation_policy)
         if acknowledgement_timeout is not None:
@@ -58,6 +58,9 @@ class ServiceArgs:
             pulumi.log.warn("""alert_grouping is deprecated: Use `alert_grouping_parameters.type`""")
         if alert_grouping is not None:
             pulumi.set(__self__, "alert_grouping", alert_grouping)
+        if alert_grouping_parameters is not None:
+            warnings.warn("""Use a resource `AlertGroupingSetting` instead""", DeprecationWarning)
+            pulumi.log.warn("""alert_grouping_parameters is deprecated: Use a resource `AlertGroupingSetting` instead""")
         if alert_grouping_parameters is not None:
             pulumi.set(__self__, "alert_grouping_parameters", alert_grouping_parameters)
         if alert_grouping_timeout is not None:
@@ -135,9 +138,10 @@ class ServiceArgs:
 
     @property
     @pulumi.getter(name="alertGroupingParameters")
+    @_utilities.deprecated("""Use a resource `AlertGroupingSetting` instead""")
     def alert_grouping_parameters(self) -> Optional[pulumi.Input['ServiceAlertGroupingParametersArgs']]:
         """
-        Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
         """
         return pulumi.get(self, "alert_grouping_parameters")
 
@@ -216,7 +220,7 @@ class ServiceArgs:
     @pulumi.getter(name="responsePlay")
     def response_play(self) -> Optional[pulumi.Input[str]]:
         """
-        The response play used by this service.
+        (Deprecated) The response play used by this service.
         """
         return pulumi.get(self, "response_play")
 
@@ -270,7 +274,7 @@ class _ServiceState:
         :param pulumi.Input[str] acknowledgement_timeout: Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
         :param pulumi.Input[str] alert_creation: (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
         :param pulumi.Input[str] alert_grouping: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
-        :param pulumi.Input['ServiceAlertGroupingParametersArgs'] alert_grouping_parameters: Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        :param pulumi.Input['ServiceAlertGroupingParametersArgs'] alert_grouping_parameters: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
         :param pulumi.Input[str] alert_grouping_timeout: (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
         :param pulumi.Input['ServiceAutoPauseNotificationsParametersArgs'] auto_pause_notifications_parameters: Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
@@ -279,7 +283,7 @@ class _ServiceState:
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] last_incident_timestamp: Last incident timestamp of the service.
         :param pulumi.Input[str] name: The name of the service.
-        :param pulumi.Input[str] response_play: The response play used by this service.
+        :param pulumi.Input[str] response_play: (Deprecated) The response play used by this service.
         :param pulumi.Input[str] status: The status of the service.
         :param pulumi.Input[str] type: The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         """
@@ -292,6 +296,9 @@ class _ServiceState:
             pulumi.log.warn("""alert_grouping is deprecated: Use `alert_grouping_parameters.type`""")
         if alert_grouping is not None:
             pulumi.set(__self__, "alert_grouping", alert_grouping)
+        if alert_grouping_parameters is not None:
+            warnings.warn("""Use a resource `AlertGroupingSetting` instead""", DeprecationWarning)
+            pulumi.log.warn("""alert_grouping_parameters is deprecated: Use a resource `AlertGroupingSetting` instead""")
         if alert_grouping_parameters is not None:
             pulumi.set(__self__, "alert_grouping_parameters", alert_grouping_parameters)
         if alert_grouping_timeout is not None:
@@ -369,9 +376,10 @@ class _ServiceState:
 
     @property
     @pulumi.getter(name="alertGroupingParameters")
+    @_utilities.deprecated("""Use a resource `AlertGroupingSetting` instead""")
     def alert_grouping_parameters(self) -> Optional[pulumi.Input['ServiceAlertGroupingParametersArgs']]:
         """
-        Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
         """
         return pulumi.get(self, "alert_grouping_parameters")
 
@@ -498,7 +506,7 @@ class _ServiceState:
     @pulumi.getter(name="responsePlay")
     def response_play(self) -> Optional[pulumi.Input[str]]:
         """
-        The response play used by this service.
+        (Deprecated) The response play used by this service.
         """
         return pulumi.get(self, "response_play")
 
@@ -616,13 +624,13 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] acknowledgement_timeout: Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
         :param pulumi.Input[str] alert_creation: (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
         :param pulumi.Input[str] alert_grouping: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
-        :param pulumi.Input[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict']] alert_grouping_parameters: Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        :param pulumi.Input[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict']] alert_grouping_parameters: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
         :param pulumi.Input[str] alert_grouping_timeout: (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
         :param pulumi.Input[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict']] auto_pause_notifications_parameters: Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
         :param pulumi.Input[str] name: The name of the service.
-        :param pulumi.Input[str] response_play: The response play used by this service.
+        :param pulumi.Input[str] response_play: (Deprecated) The response play used by this service.
         """
         ...
     @overload
@@ -772,7 +780,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] acknowledgement_timeout: Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
         :param pulumi.Input[str] alert_creation: (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
         :param pulumi.Input[str] alert_grouping: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
-        :param pulumi.Input[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict']] alert_grouping_parameters: Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        :param pulumi.Input[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict']] alert_grouping_parameters: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
         :param pulumi.Input[str] alert_grouping_timeout: (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
         :param pulumi.Input[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict']] auto_pause_notifications_parameters: Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
@@ -781,7 +789,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] last_incident_timestamp: Last incident timestamp of the service.
         :param pulumi.Input[str] name: The name of the service.
-        :param pulumi.Input[str] response_play: The response play used by this service.
+        :param pulumi.Input[str] response_play: (Deprecated) The response play used by this service.
         :param pulumi.Input[str] status: The status of the service.
         :param pulumi.Input[str] type: The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         """
@@ -837,9 +845,10 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alertGroupingParameters")
+    @_utilities.deprecated("""Use a resource `AlertGroupingSetting` instead""")
     def alert_grouping_parameters(self) -> pulumi.Output['outputs.ServiceAlertGroupingParameters']:
         """
-        Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
         """
         return pulumi.get(self, "alert_grouping_parameters")
 
@@ -922,7 +931,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="responsePlay")
     def response_play(self) -> pulumi.Output[str]:
         """
-        The response play used by this service.
+        (Deprecated) The response play used by this service.
         """
         return pulumi.get(self, "response_play")
 

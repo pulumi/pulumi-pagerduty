@@ -147,14 +147,18 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.alertGrouping;
     }
     /**
-     * Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+     * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
+     * 
+     * @deprecated
+     * Use a resource `pagerduty.AlertGroupingSetting` instead
      * 
      */
+    @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead */
     @Export(name="alertGroupingParameters", refs={ServiceAlertGroupingParameters.class}, tree="[0]")
     private Output<ServiceAlertGroupingParameters> alertGroupingParameters;
 
     /**
-     * @return Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+     * @return (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
      * 
      */
     public Output<ServiceAlertGroupingParameters> alertGroupingParameters() {
@@ -289,14 +293,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The response play used by this service.
+     * (Deprecated) The response play used by this service.
      * 
      */
     @Export(name="responsePlay", refs={String.class}, tree="[0]")
     private Output<String> responsePlay;
 
     /**
-     * @return The response play used by this service.
+     * @return (Deprecated) The response play used by this service.
      * 
      */
     public Output<String> responsePlay() {

@@ -10,6 +10,11 @@ export type Addon = import("./addon").Addon;
 export const Addon: typeof import("./addon").Addon = null as any;
 utilities.lazyLoad(exports, ["Addon"], () => require("./addon"));
 
+export { AlertGroupingSettingArgs, AlertGroupingSettingState } from "./alertGroupingSetting";
+export type AlertGroupingSetting = import("./alertGroupingSetting").AlertGroupingSetting;
+export const AlertGroupingSetting: typeof import("./alertGroupingSetting").AlertGroupingSetting = null as any;
+utilities.lazyLoad(exports, ["AlertGroupingSetting"], () => require("./alertGroupingSetting"));
+
 export { AutomationActionsActionArgs, AutomationActionsActionState } from "./automationActionsAction";
 export type AutomationActionsAction = import("./automationActionsAction").AutomationActionsAction;
 export const AutomationActionsAction: typeof import("./automationActionsAction").AutomationActionsAction = null as any;
@@ -104,6 +109,11 @@ export { ExtensionServiceNowArgs, ExtensionServiceNowState } from "./extensionSe
 export type ExtensionServiceNow = import("./extensionServiceNow").ExtensionServiceNow;
 export const ExtensionServiceNow: typeof import("./extensionServiceNow").ExtensionServiceNow = null as any;
 utilities.lazyLoad(exports, ["ExtensionServiceNow"], () => require("./extensionServiceNow"));
+
+export { GetAlertGroupingSettingArgs, GetAlertGroupingSettingResult, GetAlertGroupingSettingOutputArgs } from "./getAlertGroupingSetting";
+export const getAlertGroupingSetting: typeof import("./getAlertGroupingSetting").getAlertGroupingSetting = null as any;
+export const getAlertGroupingSettingOutput: typeof import("./getAlertGroupingSetting").getAlertGroupingSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getAlertGroupingSetting","getAlertGroupingSettingOutput"], () => require("./getAlertGroupingSetting"));
 
 export { GetAutomationActionsActionArgs, GetAutomationActionsActionResult, GetAutomationActionsActionOutputArgs } from "./getAutomationActionsAction";
 export const getAutomationActionsAction: typeof import("./getAutomationActionsAction").getAutomationActionsAction = null as any;
@@ -386,6 +396,8 @@ const _module = {
         switch (type) {
             case "pagerduty:index/addon:Addon":
                 return new Addon(name, <any>undefined, { urn })
+            case "pagerduty:index/alertGroupingSetting:AlertGroupingSetting":
+                return new AlertGroupingSetting(name, <any>undefined, { urn })
             case "pagerduty:index/automationActionsAction:AutomationActionsAction":
                 return new AutomationActionsAction(name, <any>undefined, { urn })
             case "pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation":
@@ -476,6 +488,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("pagerduty", "index/addon", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/alertGroupingSetting", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/automationActionsAction", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/automationActionsActionServiceAssociation", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/automationActionsActionTeamAssociation", _module)

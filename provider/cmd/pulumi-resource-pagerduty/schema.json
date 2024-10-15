@@ -87,6 +87,38 @@
             },
             "type": "object"
         },
+        "pagerduty:index/AlertGroupingSettingConfig:AlertGroupingSettingConfig": {
+            "properties": {
+                "aggregate": {
+                    "type": "string",
+                    "description": "One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).\n"
+                },
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.\n"
+                },
+                "timeWindow": {
+                    "type": "integer",
+                    "description": "The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.\n"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "timeWindow",
+                        "timeout"
+                    ]
+                }
+            }
+        },
         "pagerduty:index/AutomationActionsActionActionDataReference:AutomationActionsActionActionDataReference": {
             "properties": {
                 "invocationCommand": {
@@ -3251,6 +3283,39 @@
                 "type"
             ]
         },
+        "pagerduty:index/getAlertGroupingSettingConfig:getAlertGroupingSettingConfig": {
+            "properties": {
+                "aggregate": {
+                    "type": "string",
+                    "description": "One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).\n"
+                },
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.\n"
+                },
+                "timeWindow": {
+                    "type": "integer",
+                    "description": "The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.\n"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "timeWindow",
+                "timeout"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "pagerduty:index/getAutomationActionsActionActionDataReference:getAutomationActionsActionActionDataReference": {
             "properties": {
                 "invocationCommand": {
@@ -4066,6 +4131,95 @@
                     "src": {
                         "type": "string",
                         "description": "The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/alertGroupingSetting:AlertGroupingSetting": {
+            "description": "An [alert grouping setting](https://developer.pagerduty.com/api-reference/create-an-alert-grouping-setting)\nstores and centralize the configuration used during grouping of the alerts.\n\n## Migration from `alert_grouping_parameters`\n\nTo migrate from using the field `alert_grouping_parameters` of a\nservice\nto a `pagerduty.AlertGroupingSetting` resource, you can cut-and-paste the\ncontents of an `alert_grouping_parameters` field from a `pagerduty.Service`\nresource into the new resource, but you also need to add at least one value in\nthe field `services` to create the alert grouping setting with a service\nassociated to it.\n\nIf you are using `timeout = 0` or `time_window = 0` in order to use the values\nrecommended by PagerDuty you also need to set its value to null or delete it,\nsince a value of `0` is no longer accepted.\n\nSince the `alert_grouping_parameters` field creates an Alert Grouping Setting\nbehind the scenes, it is necessary to import them if you want to keep your\nconfiguration the same as it is right now.\n\n**Example**:\n\nBefore:\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst default = pagerduty.getEscalationPolicy({\n    name: \"Default\",\n});\nconst foo = new pagerduty.Service(\"foo\", {\n    name: \"Foo\",\n    escalationPolicy: _default.then(_default =\u003e _default.id),\n    alertGroupingParameters: {\n        type: \"time\",\n        config: {\n            timeout: 0,\n        },\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\ndefault = pagerduty.get_escalation_policy(name=\"Default\")\nfoo = pagerduty.Service(\"foo\",\n    name=\"Foo\",\n    escalation_policy=default.id,\n    alert_grouping_parameters={\n        \"type\": \"time\",\n        \"config\": {\n            \"timeout\": 0,\n        },\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @default = Pagerduty.GetEscalationPolicy.Invoke(new()\n    {\n        Name = \"Default\",\n    });\n\n    var foo = new Pagerduty.Service(\"foo\", new()\n    {\n        Name = \"Foo\",\n        EscalationPolicy = @default.Apply(@default =\u003e @default.Apply(getEscalationPolicyResult =\u003e getEscalationPolicyResult.Id)),\n        AlertGroupingParameters = new Pagerduty.Inputs.ServiceAlertGroupingParametersArgs\n        {\n            Type = \"time\",\n            Config = new Pagerduty.Inputs.ServiceAlertGroupingParametersConfigArgs\n            {\n                Timeout = 0,\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_default, err := pagerduty.LookupEscalationPolicy(ctx, \u0026pagerduty.LookupEscalationPolicyArgs{\n\t\t\tName: \"Default\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewService(ctx, \"foo\", \u0026pagerduty.ServiceArgs{\n\t\t\tName:             pulumi.String(\"Foo\"),\n\t\t\tEscalationPolicy: pulumi.String(_default.Id),\n\t\t\tAlertGroupingParameters: \u0026pagerduty.ServiceAlertGroupingParametersArgs{\n\t\t\t\tType: pulumi.String(\"time\"),\n\t\t\t\tConfig: \u0026pagerduty.ServiceAlertGroupingParametersConfigArgs{\n\t\t\t\t\tTimeout: pulumi.Int(0),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetEscalationPolicyArgs;\nimport com.pulumi.pagerduty.Service;\nimport com.pulumi.pagerduty.ServiceArgs;\nimport com.pulumi.pagerduty.inputs.ServiceAlertGroupingParametersArgs;\nimport com.pulumi.pagerduty.inputs.ServiceAlertGroupingParametersConfigArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var default = PagerdutyFunctions.getEscalationPolicy(GetEscalationPolicyArgs.builder()\n            .name(\"Default\")\n            .build());\n\n        var foo = new Service(\"foo\", ServiceArgs.builder()\n            .name(\"Foo\")\n            .escalationPolicy(default_.id())\n            .alertGroupingParameters(ServiceAlertGroupingParametersArgs.builder()\n                .type(\"time\")\n                .config(ServiceAlertGroupingParametersConfigArgs.builder()\n                    .timeout(0)\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: pagerduty:Service\n    properties:\n      name: Foo\n      escalationPolicy: ${default.id}\n      alertGroupingParameters:\n        type: time\n        config:\n          timeout: 0\nvariables:\n  default:\n    fn::invoke:\n      Function: pagerduty:getEscalationPolicy\n      Arguments:\n        name: Default\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\nAfter:\n## Import\n\nAlert grouping settings can be imported using its `id`, e.g.\n\n```sh\n$ pulumi import pagerduty:index/alertGroupingSetting:AlertGroupingSetting example P3DH5M6\n```\n",
+            "properties": {
+                "config": {
+                    "$ref": "#/types/pagerduty:index/AlertGroupingSettingConfig:AlertGroupingSettingConfig",
+                    "description": "The set of values used for configuration.\n"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name for the alert groupig settings.\n"
+                },
+                "services": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "[Updating can cause a resource replacement] The list IDs of services associated to this setting.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.\n"
+                }
+            },
+            "required": [
+                "description",
+                "name",
+                "services",
+                "type"
+            ],
+            "inputProperties": {
+                "config": {
+                    "$ref": "#/types/pagerduty:index/AlertGroupingSettingConfig:AlertGroupingSettingConfig",
+                    "description": "The set of values used for configuration.\n"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name for the alert groupig settings.\n"
+                },
+                "services": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "[Updating can cause a resource replacement] The list IDs of services associated to this setting.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.\n"
+                }
+            },
+            "requiredInputs": [
+                "services",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AlertGroupingSetting resources.\n",
+                "properties": {
+                    "config": {
+                        "$ref": "#/types/pagerduty:index/AlertGroupingSettingConfig:AlertGroupingSettingConfig",
+                        "description": "The set of values used for configuration.\n"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name for the alert groupig settings.\n"
+                    },
+                    "services": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "[Updating can cause a resource replacement] The list IDs of services associated to this setting.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.\n"
                     }
                 },
                 "type": "object"
@@ -6672,7 +6826,8 @@
                 },
                 "alertGroupingParameters": {
                     "$ref": "#/types/pagerduty:index/ServiceAlertGroupingParameters:ServiceAlertGroupingParameters",
-                    "description": "Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.\n"
+                    "description": "(Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.\n",
+                    "deprecationMessage": "Use a resource `pagerduty.AlertGroupingSetting` instead"
                 },
                 "alertGroupingTimeout": {
                     "type": "string",
@@ -6716,7 +6871,7 @@
                 },
                 "responsePlay": {
                     "type": "string",
-                    "description": "The response play used by this service.\n"
+                    "description": "(Deprecated) The response play used by this service.\n"
                 },
                 "scheduledActions": {
                     "type": "array",
@@ -6768,7 +6923,8 @@
                 },
                 "alertGroupingParameters": {
                     "$ref": "#/types/pagerduty:index/ServiceAlertGroupingParameters:ServiceAlertGroupingParameters",
-                    "description": "Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.\n"
+                    "description": "(Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.\n",
+                    "deprecationMessage": "Use a resource `pagerduty.AlertGroupingSetting` instead"
                 },
                 "alertGroupingTimeout": {
                     "type": "string",
@@ -6800,7 +6956,7 @@
                 },
                 "responsePlay": {
                     "type": "string",
-                    "description": "The response play used by this service.\n"
+                    "description": "(Deprecated) The response play used by this service.\n"
                 },
                 "scheduledActions": {
                     "type": "array",
@@ -6833,7 +6989,8 @@
                     },
                     "alertGroupingParameters": {
                         "$ref": "#/types/pagerduty:index/ServiceAlertGroupingParameters:ServiceAlertGroupingParameters",
-                        "description": "Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.\n"
+                        "description": "(Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.\n",
+                        "deprecationMessage": "Use a resource `pagerduty.AlertGroupingSetting` instead"
                     },
                     "alertGroupingTimeout": {
                         "type": "string",
@@ -6877,7 +7034,7 @@
                     },
                     "responsePlay": {
                         "type": "string",
-                        "description": "The response play used by this service.\n"
+                        "description": "(Deprecated) The response play used by this service.\n"
                     },
                     "scheduledActions": {
                         "type": "array",
@@ -8171,6 +8328,66 @@
         }
     },
     "functions": {
+        "pagerduty:index/getAlertGroupingSetting:getAlertGroupingSetting": {
+            "description": "Use this data source to get information about a specific [alert grouping setting](https://developer.pagerduty.com/api-reference/9b5a6c8d7379b-get-an-alert-grouping-setting).\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst example = pagerduty.getAlertGroupingSetting({\n    name: \"My example setting\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample = pagerduty.get_alert_grouping_setting(name=\"My example setting\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Pagerduty.GetAlertGroupingSetting.Invoke(new()\n    {\n        Name = \"My example setting\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.LookupAlertGroupingSetting(ctx, \u0026pagerduty.LookupAlertGroupingSettingArgs{\n\t\t\tName: \"My example setting\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetAlertGroupingSettingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = PagerdutyFunctions.getAlertGroupingSetting(GetAlertGroupingSettingArgs.builder()\n            .name(\"My example setting\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: pagerduty:getAlertGroupingSetting\n      Arguments:\n        name: My example setting\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getAlertGroupingSetting.\n",
+                "properties": {
+                    "config": {
+                        "$ref": "#/types/pagerduty:index/getAlertGroupingSettingConfig:getAlertGroupingSettingConfig",
+                        "description": "The values for the configuration setup for this setting.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name to use to find an alert grouping setting in the PagerDuty API.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getAlertGroupingSetting.\n",
+                "properties": {
+                    "config": {
+                        "$ref": "#/types/pagerduty:index/getAlertGroupingSettingConfig:getAlertGroupingSettingConfig",
+                        "description": "The values for the configuration setup for this setting.\n"
+                    },
+                    "description": {
+                        "description": "A description of this alert grouping setting.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The ID of the found alert grouping setting.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "The short name of the found alert grouping setting.\n",
+                        "type": "string"
+                    },
+                    "services": {
+                        "description": "A list of string containing the IDs of services associated with this setting.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "type": {
+                        "description": "The type of object. The value returned will be one of `content_based`, `content_based_intelligent`, `intelligent` or `time`.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "description",
+                    "id",
+                    "name",
+                    "services",
+                    "type"
+                ],
+                "type": "object"
+            }
+        },
         "pagerduty:index/getAutomationActionsAction:getAutomationActionsAction": {
             "description": "Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst example = pagerduty.getAutomationActionsAction({\n    id: \"01CS1685B2UDM4I3XUUOXPPORM\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample = pagerduty.get_automation_actions_action(id=\"01CS1685B2UDM4I3XUUOXPPORM\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Pagerduty.GetAutomationActionsAction.Invoke(new()\n    {\n        Id = \"01CS1685B2UDM4I3XUUOXPPORM\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.LookupAutomationActionsAction(ctx, \u0026pagerduty.LookupAutomationActionsActionArgs{\n\t\t\tId: \"01CS1685B2UDM4I3XUUOXPPORM\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetAutomationActionsActionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = PagerdutyFunctions.getAutomationActionsAction(GetAutomationActionsActionArgs.builder()\n            .id(\"01CS1685B2UDM4I3XUUOXPPORM\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: pagerduty:getAutomationActionsAction\n      Arguments:\n        id: 01CS1685B2UDM4I3XUUOXPPORM\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {

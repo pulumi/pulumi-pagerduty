@@ -13,6 +13,200 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AlertGroupingSettingConfig struct {
+	// One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
+	Aggregate *string `pulumi:"aggregate"`
+	// Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
+	Fields []string `pulumi:"fields"`
+	// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+	TimeWindow *int `pulumi:"timeWindow"`
+	// The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+	Timeout *int `pulumi:"timeout"`
+}
+
+// AlertGroupingSettingConfigInput is an input type that accepts AlertGroupingSettingConfigArgs and AlertGroupingSettingConfigOutput values.
+// You can construct a concrete instance of `AlertGroupingSettingConfigInput` via:
+//
+//	AlertGroupingSettingConfigArgs{...}
+type AlertGroupingSettingConfigInput interface {
+	pulumi.Input
+
+	ToAlertGroupingSettingConfigOutput() AlertGroupingSettingConfigOutput
+	ToAlertGroupingSettingConfigOutputWithContext(context.Context) AlertGroupingSettingConfigOutput
+}
+
+type AlertGroupingSettingConfigArgs struct {
+	// One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
+	Aggregate pulumi.StringPtrInput `pulumi:"aggregate"`
+	// Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
+	Fields pulumi.StringArrayInput `pulumi:"fields"`
+	// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+	TimeWindow pulumi.IntPtrInput `pulumi:"timeWindow"`
+	// The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+}
+
+func (AlertGroupingSettingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertGroupingSettingConfig)(nil)).Elem()
+}
+
+func (i AlertGroupingSettingConfigArgs) ToAlertGroupingSettingConfigOutput() AlertGroupingSettingConfigOutput {
+	return i.ToAlertGroupingSettingConfigOutputWithContext(context.Background())
+}
+
+func (i AlertGroupingSettingConfigArgs) ToAlertGroupingSettingConfigOutputWithContext(ctx context.Context) AlertGroupingSettingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertGroupingSettingConfigOutput)
+}
+
+func (i AlertGroupingSettingConfigArgs) ToAlertGroupingSettingConfigPtrOutput() AlertGroupingSettingConfigPtrOutput {
+	return i.ToAlertGroupingSettingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AlertGroupingSettingConfigArgs) ToAlertGroupingSettingConfigPtrOutputWithContext(ctx context.Context) AlertGroupingSettingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertGroupingSettingConfigOutput).ToAlertGroupingSettingConfigPtrOutputWithContext(ctx)
+}
+
+// AlertGroupingSettingConfigPtrInput is an input type that accepts AlertGroupingSettingConfigArgs, AlertGroupingSettingConfigPtr and AlertGroupingSettingConfigPtrOutput values.
+// You can construct a concrete instance of `AlertGroupingSettingConfigPtrInput` via:
+//
+//	        AlertGroupingSettingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertGroupingSettingConfigPtrInput interface {
+	pulumi.Input
+
+	ToAlertGroupingSettingConfigPtrOutput() AlertGroupingSettingConfigPtrOutput
+	ToAlertGroupingSettingConfigPtrOutputWithContext(context.Context) AlertGroupingSettingConfigPtrOutput
+}
+
+type alertGroupingSettingConfigPtrType AlertGroupingSettingConfigArgs
+
+func AlertGroupingSettingConfigPtr(v *AlertGroupingSettingConfigArgs) AlertGroupingSettingConfigPtrInput {
+	return (*alertGroupingSettingConfigPtrType)(v)
+}
+
+func (*alertGroupingSettingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertGroupingSettingConfig)(nil)).Elem()
+}
+
+func (i *alertGroupingSettingConfigPtrType) ToAlertGroupingSettingConfigPtrOutput() AlertGroupingSettingConfigPtrOutput {
+	return i.ToAlertGroupingSettingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *alertGroupingSettingConfigPtrType) ToAlertGroupingSettingConfigPtrOutputWithContext(ctx context.Context) AlertGroupingSettingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertGroupingSettingConfigPtrOutput)
+}
+
+type AlertGroupingSettingConfigOutput struct{ *pulumi.OutputState }
+
+func (AlertGroupingSettingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertGroupingSettingConfig)(nil)).Elem()
+}
+
+func (o AlertGroupingSettingConfigOutput) ToAlertGroupingSettingConfigOutput() AlertGroupingSettingConfigOutput {
+	return o
+}
+
+func (o AlertGroupingSettingConfigOutput) ToAlertGroupingSettingConfigOutputWithContext(ctx context.Context) AlertGroupingSettingConfigOutput {
+	return o
+}
+
+func (o AlertGroupingSettingConfigOutput) ToAlertGroupingSettingConfigPtrOutput() AlertGroupingSettingConfigPtrOutput {
+	return o.ToAlertGroupingSettingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AlertGroupingSettingConfigOutput) ToAlertGroupingSettingConfigPtrOutputWithContext(ctx context.Context) AlertGroupingSettingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertGroupingSettingConfig) *AlertGroupingSettingConfig {
+		return &v
+	}).(AlertGroupingSettingConfigPtrOutput)
+}
+
+// One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
+func (o AlertGroupingSettingConfigOutput) Aggregate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertGroupingSettingConfig) *string { return v.Aggregate }).(pulumi.StringPtrOutput)
+}
+
+// Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
+func (o AlertGroupingSettingConfigOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertGroupingSettingConfig) []string { return v.Fields }).(pulumi.StringArrayOutput)
+}
+
+// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+func (o AlertGroupingSettingConfigOutput) TimeWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlertGroupingSettingConfig) *int { return v.TimeWindow }).(pulumi.IntPtrOutput)
+}
+
+// The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+func (o AlertGroupingSettingConfigOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlertGroupingSettingConfig) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+type AlertGroupingSettingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertGroupingSettingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertGroupingSettingConfig)(nil)).Elem()
+}
+
+func (o AlertGroupingSettingConfigPtrOutput) ToAlertGroupingSettingConfigPtrOutput() AlertGroupingSettingConfigPtrOutput {
+	return o
+}
+
+func (o AlertGroupingSettingConfigPtrOutput) ToAlertGroupingSettingConfigPtrOutputWithContext(ctx context.Context) AlertGroupingSettingConfigPtrOutput {
+	return o
+}
+
+func (o AlertGroupingSettingConfigPtrOutput) Elem() AlertGroupingSettingConfigOutput {
+	return o.ApplyT(func(v *AlertGroupingSettingConfig) AlertGroupingSettingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AlertGroupingSettingConfig
+		return ret
+	}).(AlertGroupingSettingConfigOutput)
+}
+
+// One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
+func (o AlertGroupingSettingConfigPtrOutput) Aggregate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertGroupingSettingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
+func (o AlertGroupingSettingConfigPtrOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertGroupingSettingConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(pulumi.StringArrayOutput)
+}
+
+// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+func (o AlertGroupingSettingConfigPtrOutput) TimeWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlertGroupingSettingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeWindow
+	}).(pulumi.IntPtrOutput)
+}
+
+// The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+func (o AlertGroupingSettingConfigPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlertGroupingSettingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.IntPtrOutput)
+}
+
 type AutomationActionsActionActionDataReference struct {
 	// The command to execute the script with.
 	InvocationCommand *string `pulumi:"invocationCommand"`
@@ -18542,6 +18736,200 @@ func (o WebhookSubscriptionFilterArrayOutput) Index(i pulumi.IntInput) WebhookSu
 	}).(WebhookSubscriptionFilterOutput)
 }
 
+type GetAlertGroupingSettingConfig struct {
+	// One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
+	Aggregate *string `pulumi:"aggregate"`
+	// Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
+	Fields []string `pulumi:"fields"`
+	// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+	TimeWindow int `pulumi:"timeWindow"`
+	// The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+	Timeout int `pulumi:"timeout"`
+}
+
+// GetAlertGroupingSettingConfigInput is an input type that accepts GetAlertGroupingSettingConfigArgs and GetAlertGroupingSettingConfigOutput values.
+// You can construct a concrete instance of `GetAlertGroupingSettingConfigInput` via:
+//
+//	GetAlertGroupingSettingConfigArgs{...}
+type GetAlertGroupingSettingConfigInput interface {
+	pulumi.Input
+
+	ToGetAlertGroupingSettingConfigOutput() GetAlertGroupingSettingConfigOutput
+	ToGetAlertGroupingSettingConfigOutputWithContext(context.Context) GetAlertGroupingSettingConfigOutput
+}
+
+type GetAlertGroupingSettingConfigArgs struct {
+	// One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
+	Aggregate pulumi.StringPtrInput `pulumi:"aggregate"`
+	// Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
+	Fields pulumi.StringArrayInput `pulumi:"fields"`
+	// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+	TimeWindow pulumi.IntInput `pulumi:"timeWindow"`
+	// The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+	Timeout pulumi.IntInput `pulumi:"timeout"`
+}
+
+func (GetAlertGroupingSettingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertGroupingSettingConfig)(nil)).Elem()
+}
+
+func (i GetAlertGroupingSettingConfigArgs) ToGetAlertGroupingSettingConfigOutput() GetAlertGroupingSettingConfigOutput {
+	return i.ToGetAlertGroupingSettingConfigOutputWithContext(context.Background())
+}
+
+func (i GetAlertGroupingSettingConfigArgs) ToGetAlertGroupingSettingConfigOutputWithContext(ctx context.Context) GetAlertGroupingSettingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertGroupingSettingConfigOutput)
+}
+
+func (i GetAlertGroupingSettingConfigArgs) ToGetAlertGroupingSettingConfigPtrOutput() GetAlertGroupingSettingConfigPtrOutput {
+	return i.ToGetAlertGroupingSettingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GetAlertGroupingSettingConfigArgs) ToGetAlertGroupingSettingConfigPtrOutputWithContext(ctx context.Context) GetAlertGroupingSettingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertGroupingSettingConfigOutput).ToGetAlertGroupingSettingConfigPtrOutputWithContext(ctx)
+}
+
+// GetAlertGroupingSettingConfigPtrInput is an input type that accepts GetAlertGroupingSettingConfigArgs, GetAlertGroupingSettingConfigPtr and GetAlertGroupingSettingConfigPtrOutput values.
+// You can construct a concrete instance of `GetAlertGroupingSettingConfigPtrInput` via:
+//
+//	        GetAlertGroupingSettingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAlertGroupingSettingConfigPtrInput interface {
+	pulumi.Input
+
+	ToGetAlertGroupingSettingConfigPtrOutput() GetAlertGroupingSettingConfigPtrOutput
+	ToGetAlertGroupingSettingConfigPtrOutputWithContext(context.Context) GetAlertGroupingSettingConfigPtrOutput
+}
+
+type getAlertGroupingSettingConfigPtrType GetAlertGroupingSettingConfigArgs
+
+func GetAlertGroupingSettingConfigPtr(v *GetAlertGroupingSettingConfigArgs) GetAlertGroupingSettingConfigPtrInput {
+	return (*getAlertGroupingSettingConfigPtrType)(v)
+}
+
+func (*getAlertGroupingSettingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAlertGroupingSettingConfig)(nil)).Elem()
+}
+
+func (i *getAlertGroupingSettingConfigPtrType) ToGetAlertGroupingSettingConfigPtrOutput() GetAlertGroupingSettingConfigPtrOutput {
+	return i.ToGetAlertGroupingSettingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *getAlertGroupingSettingConfigPtrType) ToGetAlertGroupingSettingConfigPtrOutputWithContext(ctx context.Context) GetAlertGroupingSettingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertGroupingSettingConfigPtrOutput)
+}
+
+type GetAlertGroupingSettingConfigOutput struct{ *pulumi.OutputState }
+
+func (GetAlertGroupingSettingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertGroupingSettingConfig)(nil)).Elem()
+}
+
+func (o GetAlertGroupingSettingConfigOutput) ToGetAlertGroupingSettingConfigOutput() GetAlertGroupingSettingConfigOutput {
+	return o
+}
+
+func (o GetAlertGroupingSettingConfigOutput) ToGetAlertGroupingSettingConfigOutputWithContext(ctx context.Context) GetAlertGroupingSettingConfigOutput {
+	return o
+}
+
+func (o GetAlertGroupingSettingConfigOutput) ToGetAlertGroupingSettingConfigPtrOutput() GetAlertGroupingSettingConfigPtrOutput {
+	return o.ToGetAlertGroupingSettingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GetAlertGroupingSettingConfigOutput) ToGetAlertGroupingSettingConfigPtrOutputWithContext(ctx context.Context) GetAlertGroupingSettingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAlertGroupingSettingConfig) *GetAlertGroupingSettingConfig {
+		return &v
+	}).(GetAlertGroupingSettingConfigPtrOutput)
+}
+
+// One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
+func (o GetAlertGroupingSettingConfigOutput) Aggregate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAlertGroupingSettingConfig) *string { return v.Aggregate }).(pulumi.StringPtrOutput)
+}
+
+// Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
+func (o GetAlertGroupingSettingConfigOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAlertGroupingSettingConfig) []string { return v.Fields }).(pulumi.StringArrayOutput)
+}
+
+// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+func (o GetAlertGroupingSettingConfigOutput) TimeWindow() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAlertGroupingSettingConfig) int { return v.TimeWindow }).(pulumi.IntOutput)
+}
+
+// The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+func (o GetAlertGroupingSettingConfigOutput) Timeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAlertGroupingSettingConfig) int { return v.Timeout }).(pulumi.IntOutput)
+}
+
+type GetAlertGroupingSettingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GetAlertGroupingSettingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAlertGroupingSettingConfig)(nil)).Elem()
+}
+
+func (o GetAlertGroupingSettingConfigPtrOutput) ToGetAlertGroupingSettingConfigPtrOutput() GetAlertGroupingSettingConfigPtrOutput {
+	return o
+}
+
+func (o GetAlertGroupingSettingConfigPtrOutput) ToGetAlertGroupingSettingConfigPtrOutputWithContext(ctx context.Context) GetAlertGroupingSettingConfigPtrOutput {
+	return o
+}
+
+func (o GetAlertGroupingSettingConfigPtrOutput) Elem() GetAlertGroupingSettingConfigOutput {
+	return o.ApplyT(func(v *GetAlertGroupingSettingConfig) GetAlertGroupingSettingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GetAlertGroupingSettingConfig
+		return ret
+	}).(GetAlertGroupingSettingConfigOutput)
+}
+
+// One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
+func (o GetAlertGroupingSettingConfigPtrOutput) Aggregate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAlertGroupingSettingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
+func (o GetAlertGroupingSettingConfigPtrOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetAlertGroupingSettingConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(pulumi.StringArrayOutput)
+}
+
+// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+func (o GetAlertGroupingSettingConfigPtrOutput) TimeWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetAlertGroupingSettingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeWindow
+	}).(pulumi.IntPtrOutput)
+}
+
+// The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+func (o GetAlertGroupingSettingConfigPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetAlertGroupingSettingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Timeout
+	}).(pulumi.IntPtrOutput)
+}
+
 type GetAutomationActionsActionActionDataReference struct {
 	// (Optional) The command to execute the script with.
 	InvocationCommand string `pulumi:"invocationCommand"`
@@ -21244,6 +21632,8 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertGroupingSettingConfigInput)(nil)).Elem(), AlertGroupingSettingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertGroupingSettingConfigPtrInput)(nil)).Elem(), AlertGroupingSettingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationActionsActionActionDataReferenceInput)(nil)).Elem(), AutomationActionsActionActionDataReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationActionsActionActionDataReferencePtrInput)(nil)).Elem(), AutomationActionsActionActionDataReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleInput)(nil)).Elem(), EscalationPolicyRuleArgs{})
@@ -21515,6 +21905,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionDeliveryMethodCustomHeaderArrayInput)(nil)).Elem(), WebhookSubscriptionDeliveryMethodCustomHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionFilterInput)(nil)).Elem(), WebhookSubscriptionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionFilterArrayInput)(nil)).Elem(), WebhookSubscriptionFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertGroupingSettingConfigInput)(nil)).Elem(), GetAlertGroupingSettingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertGroupingSettingConfigPtrInput)(nil)).Elem(), GetAlertGroupingSettingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomationActionsActionActionDataReferenceInput)(nil)).Elem(), GetAutomationActionsActionActionDataReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomationActionsActionActionDataReferenceArrayInput)(nil)).Elem(), GetAutomationActionsActionActionDataReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationGlobalCacheVariableConditionInput)(nil)).Elem(), GetEventOrchestrationGlobalCacheVariableConditionArgs{})
@@ -21559,6 +21951,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembersMemberArrayInput)(nil)).Elem(), GetTeamMembersMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(AlertGroupingSettingConfigOutput{})
+	pulumi.RegisterOutputType(AlertGroupingSettingConfigPtrOutput{})
 	pulumi.RegisterOutputType(AutomationActionsActionActionDataReferenceOutput{})
 	pulumi.RegisterOutputType(AutomationActionsActionActionDataReferencePtrOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleOutput{})
@@ -21830,6 +22224,8 @@ func init() {
 	pulumi.RegisterOutputType(WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput{})
 	pulumi.RegisterOutputType(WebhookSubscriptionFilterOutput{})
 	pulumi.RegisterOutputType(WebhookSubscriptionFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertGroupingSettingConfigOutput{})
+	pulumi.RegisterOutputType(GetAlertGroupingSettingConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetAutomationActionsActionActionDataReferenceOutput{})
 	pulumi.RegisterOutputType(GetAutomationActionsActionActionDataReferenceArrayOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationGlobalCacheVariableConditionOutput{})

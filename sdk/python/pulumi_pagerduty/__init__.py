@@ -6,6 +6,7 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .addon import *
+from .alert_grouping_setting import *
 from .automation_actions_action import *
 from .automation_actions_action_service_association import *
 from .automation_actions_action_team_association import *
@@ -25,6 +26,7 @@ from .event_orchestration_unrouted import *
 from .event_rule import *
 from .extension import *
 from .extension_service_now import *
+from .get_alert_grouping_setting import *
 from .get_automation_actions_action import *
 from .get_automation_actions_runner import *
 from .get_business_service import *
@@ -97,6 +99,14 @@ _utilities.register(
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/addon:Addon": "Addon"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/alertGroupingSetting",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/alertGroupingSetting:AlertGroupingSetting": "AlertGroupingSetting"
   }
  },
  {

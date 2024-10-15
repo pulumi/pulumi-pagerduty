@@ -14,6 +14,7 @@
     },
     "files": [
         "addon.ts",
+        "alertGroupingSetting.ts",
         "automationActionsAction.ts",
         "automationActionsActionServiceAssociation.ts",
         "automationActionsActionTeamAssociation.ts",
@@ -35,6 +36,7 @@
         "eventRule.ts",
         "extension.ts",
         "extensionServiceNow.ts",
+        "getAlertGroupingSetting.ts",
         "getAutomationActionsAction.ts",
         "getAutomationActionsRunner.ts",
         "getBusinessService.ts",

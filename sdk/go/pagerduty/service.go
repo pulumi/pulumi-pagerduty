@@ -91,7 +91,9 @@ type Service struct {
 	//
 	// Deprecated: Use `alert_grouping_parameters.type`
 	AlertGrouping pulumi.StringOutput `pulumi:"alertGrouping"`
-	// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+	// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
+	//
+	// Deprecated: Use a resource `AlertGroupingSetting` instead
 	AlertGroupingParameters ServiceAlertGroupingParametersOutput `pulumi:"alertGroupingParameters"`
 	// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
 	//
@@ -113,7 +115,7 @@ type Service struct {
 	LastIncidentTimestamp pulumi.StringOutput `pulumi:"lastIncidentTimestamp"`
 	// The name of the service.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The response play used by this service.
+	// (Deprecated) The response play used by this service.
 	ResponsePlay     pulumi.StringOutput               `pulumi:"responsePlay"`
 	ScheduledActions ServiceScheduledActionArrayOutput `pulumi:"scheduledActions"`
 	// The status of the service.
@@ -167,7 +169,9 @@ type serviceState struct {
 	//
 	// Deprecated: Use `alert_grouping_parameters.type`
 	AlertGrouping *string `pulumi:"alertGrouping"`
-	// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+	// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
+	//
+	// Deprecated: Use a resource `AlertGroupingSetting` instead
 	AlertGroupingParameters *ServiceAlertGroupingParameters `pulumi:"alertGroupingParameters"`
 	// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
 	//
@@ -189,7 +193,7 @@ type serviceState struct {
 	LastIncidentTimestamp *string `pulumi:"lastIncidentTimestamp"`
 	// The name of the service.
 	Name *string `pulumi:"name"`
-	// The response play used by this service.
+	// (Deprecated) The response play used by this service.
 	ResponsePlay     *string                  `pulumi:"responsePlay"`
 	ScheduledActions []ServiceScheduledAction `pulumi:"scheduledActions"`
 	// The status of the service.
@@ -208,7 +212,9 @@ type ServiceState struct {
 	//
 	// Deprecated: Use `alert_grouping_parameters.type`
 	AlertGrouping pulumi.StringPtrInput
-	// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+	// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
+	//
+	// Deprecated: Use a resource `AlertGroupingSetting` instead
 	AlertGroupingParameters ServiceAlertGroupingParametersPtrInput
 	// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
 	//
@@ -230,7 +236,7 @@ type ServiceState struct {
 	LastIncidentTimestamp pulumi.StringPtrInput
 	// The name of the service.
 	Name pulumi.StringPtrInput
-	// The response play used by this service.
+	// (Deprecated) The response play used by this service.
 	ResponsePlay     pulumi.StringPtrInput
 	ScheduledActions ServiceScheduledActionArrayInput
 	// The status of the service.
@@ -253,7 +259,9 @@ type serviceArgs struct {
 	//
 	// Deprecated: Use `alert_grouping_parameters.type`
 	AlertGrouping *string `pulumi:"alertGrouping"`
-	// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+	// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
+	//
+	// Deprecated: Use a resource `AlertGroupingSetting` instead
 	AlertGroupingParameters *ServiceAlertGroupingParameters `pulumi:"alertGroupingParameters"`
 	// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
 	//
@@ -269,7 +277,7 @@ type serviceArgs struct {
 	IncidentUrgencyRule *ServiceIncidentUrgencyRule `pulumi:"incidentUrgencyRule"`
 	// The name of the service.
 	Name *string `pulumi:"name"`
-	// The response play used by this service.
+	// (Deprecated) The response play used by this service.
 	ResponsePlay     *string                  `pulumi:"responsePlay"`
 	ScheduledActions []ServiceScheduledAction `pulumi:"scheduledActions"`
 	SupportHours     *ServiceSupportHours     `pulumi:"supportHours"`
@@ -285,7 +293,9 @@ type ServiceArgs struct {
 	//
 	// Deprecated: Use `alert_grouping_parameters.type`
 	AlertGrouping pulumi.StringPtrInput
-	// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+	// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
+	//
+	// Deprecated: Use a resource `AlertGroupingSetting` instead
 	AlertGroupingParameters ServiceAlertGroupingParametersPtrInput
 	// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
 	//
@@ -301,7 +311,7 @@ type ServiceArgs struct {
 	IncidentUrgencyRule ServiceIncidentUrgencyRulePtrInput
 	// The name of the service.
 	Name pulumi.StringPtrInput
-	// The response play used by this service.
+	// (Deprecated) The response play used by this service.
 	ResponsePlay     pulumi.StringPtrInput
 	ScheduledActions ServiceScheduledActionArrayInput
 	SupportHours     ServiceSupportHoursPtrInput
@@ -411,7 +421,9 @@ func (o ServiceOutput) AlertGrouping() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.AlertGrouping }).(pulumi.StringOutput)
 }
 
-// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
+//
+// Deprecated: Use a resource `AlertGroupingSetting` instead
 func (o ServiceOutput) AlertGroupingParameters() ServiceAlertGroupingParametersOutput {
 	return o.ApplyT(func(v *Service) ServiceAlertGroupingParametersOutput { return v.AlertGroupingParameters }).(ServiceAlertGroupingParametersOutput)
 }
@@ -468,7 +480,7 @@ func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The response play used by this service.
+// (Deprecated) The response play used by this service.
 func (o ServiceOutput) ResponsePlay() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ResponsePlay }).(pulumi.StringOutput)
 }

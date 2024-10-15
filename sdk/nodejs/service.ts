@@ -94,7 +94,9 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly alertGrouping!: pulumi.Output<string>;
     /**
-     * Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+     * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
+     *
+     * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead
      */
     public readonly alertGroupingParameters!: pulumi.Output<outputs.ServiceAlertGroupingParameters>;
     /**
@@ -134,7 +136,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The response play used by this service.
+     * (Deprecated) The response play used by this service.
      */
     public readonly responsePlay!: pulumi.Output<string>;
     public readonly scheduledActions!: pulumi.Output<outputs.ServiceScheduledAction[] | undefined>;
@@ -229,7 +231,9 @@ export interface ServiceState {
      */
     alertGrouping?: pulumi.Input<string>;
     /**
-     * Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+     * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
+     *
+     * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead
      */
     alertGroupingParameters?: pulumi.Input<inputs.ServiceAlertGroupingParameters>;
     /**
@@ -269,7 +273,7 @@ export interface ServiceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The response play used by this service.
+     * (Deprecated) The response play used by this service.
      */
     responsePlay?: pulumi.Input<string>;
     scheduledActions?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledAction>[]>;
@@ -303,7 +307,9 @@ export interface ServiceArgs {
      */
     alertGrouping?: pulumi.Input<string>;
     /**
-     * Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+     * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
+     *
+     * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead
      */
     alertGroupingParameters?: pulumi.Input<inputs.ServiceAlertGroupingParameters>;
     /**
@@ -331,7 +337,7 @@ export interface ServiceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The response play used by this service.
+     * (Deprecated) The response play used by this service.
      */
     responsePlay?: pulumi.Input<string>;
     scheduledActions?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledAction>[]>;

@@ -96,7 +96,7 @@ namespace Pulumi.Pagerduty
         public Output<string> AlertGrouping { get; private set; } = null!;
 
         /// <summary>
-        /// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        /// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
         /// </summary>
         [Output("alertGroupingParameters")]
         public Output<Outputs.ServiceAlertGroupingParameters> AlertGroupingParameters { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Pagerduty
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The response play used by this service.
+        /// (Deprecated) The response play used by this service.
         /// </summary>
         [Output("responsePlay")]
         public Output<string> ResponsePlay { get; private set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? AlertGrouping { get; set; }
 
         /// <summary>
-        /// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        /// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
         /// </summary>
         [Input("alertGroupingParameters")]
         public Input<Inputs.ServiceAlertGroupingParametersArgs>? AlertGroupingParameters { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The response play used by this service.
+        /// (Deprecated) The response play used by this service.
         /// </summary>
         [Input("responsePlay")]
         public Input<string>? ResponsePlay { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? AlertGrouping { get; set; }
 
         /// <summary>
-        /// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        /// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
         /// </summary>
         [Input("alertGroupingParameters")]
         public Input<Inputs.ServiceAlertGroupingParametersGetArgs>? AlertGroupingParameters { get; set; }
@@ -390,7 +390,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The response play used by this service.
+        /// (Deprecated) The response play used by this service.
         /// </summary>
         [Input("responsePlay")]
         public Input<string>? ResponsePlay { get; set; }

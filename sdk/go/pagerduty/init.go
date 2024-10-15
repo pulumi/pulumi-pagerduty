@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "pagerduty:index/addon:Addon":
 		r = &Addon{}
+	case "pagerduty:index/alertGroupingSetting:AlertGroupingSetting":
+		r = &AlertGroupingSetting{}
 	case "pagerduty:index/automationActionsAction:AutomationActionsAction":
 		r = &AutomationActionsAction{}
 	case "pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation":
@@ -141,6 +143,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"pagerduty",
 		"index/addon",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/alertGroupingSetting",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

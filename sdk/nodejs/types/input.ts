@@ -1268,6 +1268,160 @@ export interface IncidentWorkflowTriggerPermissions {
     teamId?: pulumi.Input<string>;
 }
 
+export interface JiraCloudAccountMappingRuleConfig {
+    /**
+     * Synchronization settings.
+     */
+    jira?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJira>;
+    /**
+     * [Updating can cause a resource replacement] The ID of the linked PagerDuty service.
+     */
+    service: pulumi.Input<string>;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJira {
+    /**
+     * JQL query to automatically create PagerDuty incidents when matching Jira issues are created. Leave empty to disable this feature.
+     */
+    autocreateJql?: pulumi.Input<string>;
+    /**
+     * When enabled, automatically creates a Jira issue whenever a PagerDuty incident is triggered.
+     */
+    createIssueOnIncidentTrigger?: pulumi.Input<boolean>;
+    /**
+     * Defines how Jira fields are populated when a Jira Issue is created from a PagerDuty Incident.
+     */
+    customFields?: pulumi.Input<pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraCustomField>[]>;
+    /**
+     * Specifies the Jira issue type to be created or synchronized with PagerDuty incidents.
+     */
+    issueType?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraIssueType>;
+    /**
+     * Maps PagerDuty incident priorities to Jira issue priorities for synchronization.
+     */
+    priorities?: pulumi.Input<pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraPriority>[]>;
+    /**
+     * [Updating can cause a resource replacement] Defines the Jira project where issues will be created or synchronized.
+     */
+    project?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraProject>;
+    /**
+     * Maps PagerDuty incident statuses to corresponding Jira issue statuses for synchronization.
+     */
+    statusMapping?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraStatusMapping>;
+    /**
+     * ID of the PagerDuty user for syncing notes and comments between Jira issues and PagerDuty incidents. If not provided, note synchronization is disabled.
+     */
+    syncNotesUser?: pulumi.Input<string>;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJiraCustomField {
+    /**
+     * The PagerDuty incident field from which the value will be extracted (only applicable if `type` is `attribute`); one of `incidentNumber`, `incidentTitle`, `incidentDescription`, `incidentStatus`, `incidentCreatedAt`, `incidentService`, `incidentEscalationPolicy`, `incidentImpactedServices`, `incidentHtmlUrl`, `incidentAssignees`, `incidentAcknowledgers`, `incidentLastStatusChangeAt`, `incidentLastStatusChangeBy`, `incidentUrgency` or `incidentPriority`.
+     */
+    sourceIncidentField?: pulumi.Input<string>;
+    /**
+     * The unique identifier key of the Jira field that will be set.
+     */
+    targetIssueField: pulumi.Input<string>;
+    /**
+     * The human-readable name of the Jira field.
+     */
+    targetIssueFieldName: pulumi.Input<string>;
+    /**
+     * The type of the value that will be set; one of `attribute`, `const` or `jiraValue`.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The value to be set for the Jira field (only applicable if `type` is `const` or `jiraValue`). It must be set as a JSON string.
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJiraIssueType {
+    /**
+     * Unique identifier for the Jira issue type.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The name of the Jira issue type.
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJiraPriority {
+    /**
+     * The ID of the Jira priority.
+     */
+    jiraId: pulumi.Input<string>;
+    /**
+     * The ID of the PagerDuty priority.
+     */
+    pagerdutyId: pulumi.Input<string>;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJiraProject {
+    /**
+     * Unique identifier for the Jira project.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The short key name of the Jira project.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The name of the Jira project.
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJiraStatusMapping {
+    /**
+     * Jira status that maps to the PagerDuty `acknowledged` status.
+     */
+    acknowledged?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged>;
+    /**
+     * Jira status that maps to the PagerDuty `resolved` status.
+     */
+    resolved?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved>;
+    /**
+     * Jira status that maps to the PagerDuty `triggered` status.
+     */
+    triggered?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered>;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged {
+    /**
+     * Unique identifier for the Jira status.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Name of the Jira status.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved {
+    /**
+     * Unique identifier for the Jira status.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Name of the Jira status.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered {
+    /**
+     * Unique identifier for the Jira status.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Name of the Jira status.
+     */
+    name: pulumi.Input<string>;
+}
+
 export interface ProviderUseAppOauthScopedToken {
     pdClientId?: pulumi.Input<string>;
     pdClientSecret?: pulumi.Input<string>;
@@ -2173,12 +2327,12 @@ export interface SlackConnectionConfig {
     events: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.
-     * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+     * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behavior is to set `priorities` to `No Priority` value.
      * - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
      */
     priorities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Allows you to filter events by urgency. Either `high` or `low`.
+     * Allows you to filter events by urgency. Either `high`, `low` or `null` for Any urgency. Default is `null`.
      */
     urgency?: pulumi.Input<string>;
 }

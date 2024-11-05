@@ -9907,6 +9907,1661 @@ func (o IncidentWorkflowTriggerPermissionsPtrOutput) TeamId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type JiraCloudAccountMappingRuleConfig struct {
+	// Synchronization settings.
+	Jira *JiraCloudAccountMappingRuleConfigJira `pulumi:"jira"`
+	// [Updating can cause a resource replacement] The ID of the linked PagerDuty service.
+	Service string `pulumi:"service"`
+}
+
+// JiraCloudAccountMappingRuleConfigInput is an input type that accepts JiraCloudAccountMappingRuleConfigArgs and JiraCloudAccountMappingRuleConfigOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigInput` via:
+//
+//	JiraCloudAccountMappingRuleConfigArgs{...}
+type JiraCloudAccountMappingRuleConfigInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigOutput() JiraCloudAccountMappingRuleConfigOutput
+	ToJiraCloudAccountMappingRuleConfigOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigOutput
+}
+
+type JiraCloudAccountMappingRuleConfigArgs struct {
+	// Synchronization settings.
+	Jira JiraCloudAccountMappingRuleConfigJiraPtrInput `pulumi:"jira"`
+	// [Updating can cause a resource replacement] The ID of the linked PagerDuty service.
+	Service pulumi.StringInput `pulumi:"service"`
+}
+
+func (JiraCloudAccountMappingRuleConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfig)(nil)).Elem()
+}
+
+func (i JiraCloudAccountMappingRuleConfigArgs) ToJiraCloudAccountMappingRuleConfigOutput() JiraCloudAccountMappingRuleConfigOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigArgs) ToJiraCloudAccountMappingRuleConfigOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigOutput)
+}
+
+func (i JiraCloudAccountMappingRuleConfigArgs) ToJiraCloudAccountMappingRuleConfigPtrOutput() JiraCloudAccountMappingRuleConfigPtrOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigArgs) ToJiraCloudAccountMappingRuleConfigPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigOutput).ToJiraCloudAccountMappingRuleConfigPtrOutputWithContext(ctx)
+}
+
+// JiraCloudAccountMappingRuleConfigPtrInput is an input type that accepts JiraCloudAccountMappingRuleConfigArgs, JiraCloudAccountMappingRuleConfigPtr and JiraCloudAccountMappingRuleConfigPtrOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigPtrInput` via:
+//
+//	        JiraCloudAccountMappingRuleConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type JiraCloudAccountMappingRuleConfigPtrInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigPtrOutput() JiraCloudAccountMappingRuleConfigPtrOutput
+	ToJiraCloudAccountMappingRuleConfigPtrOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigPtrOutput
+}
+
+type jiraCloudAccountMappingRuleConfigPtrType JiraCloudAccountMappingRuleConfigArgs
+
+func JiraCloudAccountMappingRuleConfigPtr(v *JiraCloudAccountMappingRuleConfigArgs) JiraCloudAccountMappingRuleConfigPtrInput {
+	return (*jiraCloudAccountMappingRuleConfigPtrType)(v)
+}
+
+func (*jiraCloudAccountMappingRuleConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JiraCloudAccountMappingRuleConfig)(nil)).Elem()
+}
+
+func (i *jiraCloudAccountMappingRuleConfigPtrType) ToJiraCloudAccountMappingRuleConfigPtrOutput() JiraCloudAccountMappingRuleConfigPtrOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *jiraCloudAccountMappingRuleConfigPtrType) ToJiraCloudAccountMappingRuleConfigPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfig)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigOutput) ToJiraCloudAccountMappingRuleConfigOutput() JiraCloudAccountMappingRuleConfigOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigOutput) ToJiraCloudAccountMappingRuleConfigOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigOutput) ToJiraCloudAccountMappingRuleConfigPtrOutput() JiraCloudAccountMappingRuleConfigPtrOutput {
+	return o.ToJiraCloudAccountMappingRuleConfigPtrOutputWithContext(context.Background())
+}
+
+func (o JiraCloudAccountMappingRuleConfigOutput) ToJiraCloudAccountMappingRuleConfigPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JiraCloudAccountMappingRuleConfig) *JiraCloudAccountMappingRuleConfig {
+		return &v
+	}).(JiraCloudAccountMappingRuleConfigPtrOutput)
+}
+
+// Synchronization settings.
+func (o JiraCloudAccountMappingRuleConfigOutput) Jira() JiraCloudAccountMappingRuleConfigJiraPtrOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfig) *JiraCloudAccountMappingRuleConfigJira { return v.Jira }).(JiraCloudAccountMappingRuleConfigJiraPtrOutput)
+}
+
+// [Updating can cause a resource replacement] The ID of the linked PagerDuty service.
+func (o JiraCloudAccountMappingRuleConfigOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfig) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JiraCloudAccountMappingRuleConfig)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigPtrOutput) ToJiraCloudAccountMappingRuleConfigPtrOutput() JiraCloudAccountMappingRuleConfigPtrOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigPtrOutput) ToJiraCloudAccountMappingRuleConfigPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigPtrOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigPtrOutput) Elem() JiraCloudAccountMappingRuleConfigOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfig) JiraCloudAccountMappingRuleConfig {
+		if v != nil {
+			return *v
+		}
+		var ret JiraCloudAccountMappingRuleConfig
+		return ret
+	}).(JiraCloudAccountMappingRuleConfigOutput)
+}
+
+// Synchronization settings.
+func (o JiraCloudAccountMappingRuleConfigPtrOutput) Jira() JiraCloudAccountMappingRuleConfigJiraPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfig) *JiraCloudAccountMappingRuleConfigJira {
+		if v == nil {
+			return nil
+		}
+		return v.Jira
+	}).(JiraCloudAccountMappingRuleConfigJiraPtrOutput)
+}
+
+// [Updating can cause a resource replacement] The ID of the linked PagerDuty service.
+func (o JiraCloudAccountMappingRuleConfigPtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Service
+	}).(pulumi.StringPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJira struct {
+	// JQL query to automatically create PagerDuty incidents when matching Jira issues are created. Leave empty to disable this feature.
+	AutocreateJql *string `pulumi:"autocreateJql"`
+	// When enabled, automatically creates a Jira issue whenever a PagerDuty incident is triggered.
+	CreateIssueOnIncidentTrigger *bool `pulumi:"createIssueOnIncidentTrigger"`
+	// Defines how Jira fields are populated when a Jira Issue is created from a PagerDuty Incident.
+	CustomFields []JiraCloudAccountMappingRuleConfigJiraCustomField `pulumi:"customFields"`
+	// Specifies the Jira issue type to be created or synchronized with PagerDuty incidents.
+	IssueType *JiraCloudAccountMappingRuleConfigJiraIssueType `pulumi:"issueType"`
+	// Maps PagerDuty incident priorities to Jira issue priorities for synchronization.
+	Priorities []JiraCloudAccountMappingRuleConfigJiraPriority `pulumi:"priorities"`
+	// [Updating can cause a resource replacement] Defines the Jira project where issues will be created or synchronized.
+	Project *JiraCloudAccountMappingRuleConfigJiraProject `pulumi:"project"`
+	// Maps PagerDuty incident statuses to corresponding Jira issue statuses for synchronization.
+	StatusMapping *JiraCloudAccountMappingRuleConfigJiraStatusMapping `pulumi:"statusMapping"`
+	// ID of the PagerDuty user for syncing notes and comments between Jira issues and PagerDuty incidents. If not provided, note synchronization is disabled.
+	SyncNotesUser *string `pulumi:"syncNotesUser"`
+}
+
+// JiraCloudAccountMappingRuleConfigJiraInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraArgs and JiraCloudAccountMappingRuleConfigJiraOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraInput` via:
+//
+//	JiraCloudAccountMappingRuleConfigJiraArgs{...}
+type JiraCloudAccountMappingRuleConfigJiraInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraOutput() JiraCloudAccountMappingRuleConfigJiraOutput
+	ToJiraCloudAccountMappingRuleConfigJiraOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraOutput
+}
+
+type JiraCloudAccountMappingRuleConfigJiraArgs struct {
+	// JQL query to automatically create PagerDuty incidents when matching Jira issues are created. Leave empty to disable this feature.
+	AutocreateJql pulumi.StringPtrInput `pulumi:"autocreateJql"`
+	// When enabled, automatically creates a Jira issue whenever a PagerDuty incident is triggered.
+	CreateIssueOnIncidentTrigger pulumi.BoolPtrInput `pulumi:"createIssueOnIncidentTrigger"`
+	// Defines how Jira fields are populated when a Jira Issue is created from a PagerDuty Incident.
+	CustomFields JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayInput `pulumi:"customFields"`
+	// Specifies the Jira issue type to be created or synchronized with PagerDuty incidents.
+	IssueType JiraCloudAccountMappingRuleConfigJiraIssueTypePtrInput `pulumi:"issueType"`
+	// Maps PagerDuty incident priorities to Jira issue priorities for synchronization.
+	Priorities JiraCloudAccountMappingRuleConfigJiraPriorityArrayInput `pulumi:"priorities"`
+	// [Updating can cause a resource replacement] Defines the Jira project where issues will be created or synchronized.
+	Project JiraCloudAccountMappingRuleConfigJiraProjectPtrInput `pulumi:"project"`
+	// Maps PagerDuty incident statuses to corresponding Jira issue statuses for synchronization.
+	StatusMapping JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrInput `pulumi:"statusMapping"`
+	// ID of the PagerDuty user for syncing notes and comments between Jira issues and PagerDuty incidents. If not provided, note synchronization is disabled.
+	SyncNotesUser pulumi.StringPtrInput `pulumi:"syncNotesUser"`
+}
+
+func (JiraCloudAccountMappingRuleConfigJiraArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJira)(nil)).Elem()
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraArgs) ToJiraCloudAccountMappingRuleConfigJiraOutput() JiraCloudAccountMappingRuleConfigJiraOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraArgs) ToJiraCloudAccountMappingRuleConfigJiraOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraOutput)
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraArgs) ToJiraCloudAccountMappingRuleConfigJiraPtrOutput() JiraCloudAccountMappingRuleConfigJiraPtrOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraPtrOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraArgs) ToJiraCloudAccountMappingRuleConfigJiraPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraOutput).ToJiraCloudAccountMappingRuleConfigJiraPtrOutputWithContext(ctx)
+}
+
+// JiraCloudAccountMappingRuleConfigJiraPtrInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraArgs, JiraCloudAccountMappingRuleConfigJiraPtr and JiraCloudAccountMappingRuleConfigJiraPtrOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraPtrInput` via:
+//
+//	        JiraCloudAccountMappingRuleConfigJiraArgs{...}
+//
+//	or:
+//
+//	        nil
+type JiraCloudAccountMappingRuleConfigJiraPtrInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraPtrOutput() JiraCloudAccountMappingRuleConfigJiraPtrOutput
+	ToJiraCloudAccountMappingRuleConfigJiraPtrOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraPtrOutput
+}
+
+type jiraCloudAccountMappingRuleConfigJiraPtrType JiraCloudAccountMappingRuleConfigJiraArgs
+
+func JiraCloudAccountMappingRuleConfigJiraPtr(v *JiraCloudAccountMappingRuleConfigJiraArgs) JiraCloudAccountMappingRuleConfigJiraPtrInput {
+	return (*jiraCloudAccountMappingRuleConfigJiraPtrType)(v)
+}
+
+func (*jiraCloudAccountMappingRuleConfigJiraPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JiraCloudAccountMappingRuleConfigJira)(nil)).Elem()
+}
+
+func (i *jiraCloudAccountMappingRuleConfigJiraPtrType) ToJiraCloudAccountMappingRuleConfigJiraPtrOutput() JiraCloudAccountMappingRuleConfigJiraPtrOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraPtrOutputWithContext(context.Background())
+}
+
+func (i *jiraCloudAccountMappingRuleConfigJiraPtrType) ToJiraCloudAccountMappingRuleConfigJiraPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJira)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraOutput) ToJiraCloudAccountMappingRuleConfigJiraOutput() JiraCloudAccountMappingRuleConfigJiraOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraOutput) ToJiraCloudAccountMappingRuleConfigJiraOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraOutput) ToJiraCloudAccountMappingRuleConfigJiraPtrOutput() JiraCloudAccountMappingRuleConfigJiraPtrOutput {
+	return o.ToJiraCloudAccountMappingRuleConfigJiraPtrOutputWithContext(context.Background())
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraOutput) ToJiraCloudAccountMappingRuleConfigJiraPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JiraCloudAccountMappingRuleConfigJira) *JiraCloudAccountMappingRuleConfigJira {
+		return &v
+	}).(JiraCloudAccountMappingRuleConfigJiraPtrOutput)
+}
+
+// JQL query to automatically create PagerDuty incidents when matching Jira issues are created. Leave empty to disable this feature.
+func (o JiraCloudAccountMappingRuleConfigJiraOutput) AutocreateJql() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJira) *string { return v.AutocreateJql }).(pulumi.StringPtrOutput)
+}
+
+// When enabled, automatically creates a Jira issue whenever a PagerDuty incident is triggered.
+func (o JiraCloudAccountMappingRuleConfigJiraOutput) CreateIssueOnIncidentTrigger() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJira) *bool { return v.CreateIssueOnIncidentTrigger }).(pulumi.BoolPtrOutput)
+}
+
+// Defines how Jira fields are populated when a Jira Issue is created from a PagerDuty Incident.
+func (o JiraCloudAccountMappingRuleConfigJiraOutput) CustomFields() JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJira) []JiraCloudAccountMappingRuleConfigJiraCustomField {
+		return v.CustomFields
+	}).(JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput)
+}
+
+// Specifies the Jira issue type to be created or synchronized with PagerDuty incidents.
+func (o JiraCloudAccountMappingRuleConfigJiraOutput) IssueType() JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJira) *JiraCloudAccountMappingRuleConfigJiraIssueType {
+		return v.IssueType
+	}).(JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput)
+}
+
+// Maps PagerDuty incident priorities to Jira issue priorities for synchronization.
+func (o JiraCloudAccountMappingRuleConfigJiraOutput) Priorities() JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJira) []JiraCloudAccountMappingRuleConfigJiraPriority {
+		return v.Priorities
+	}).(JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput)
+}
+
+// [Updating can cause a resource replacement] Defines the Jira project where issues will be created or synchronized.
+func (o JiraCloudAccountMappingRuleConfigJiraOutput) Project() JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJira) *JiraCloudAccountMappingRuleConfigJiraProject {
+		return v.Project
+	}).(JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput)
+}
+
+// Maps PagerDuty incident statuses to corresponding Jira issue statuses for synchronization.
+func (o JiraCloudAccountMappingRuleConfigJiraOutput) StatusMapping() JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJira) *JiraCloudAccountMappingRuleConfigJiraStatusMapping {
+		return v.StatusMapping
+	}).(JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput)
+}
+
+// ID of the PagerDuty user for syncing notes and comments between Jira issues and PagerDuty incidents. If not provided, note synchronization is disabled.
+func (o JiraCloudAccountMappingRuleConfigJiraOutput) SyncNotesUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJira) *string { return v.SyncNotesUser }).(pulumi.StringPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraPtrOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JiraCloudAccountMappingRuleConfigJira)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraPtrOutput) ToJiraCloudAccountMappingRuleConfigJiraPtrOutput() JiraCloudAccountMappingRuleConfigJiraPtrOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraPtrOutput) ToJiraCloudAccountMappingRuleConfigJiraPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraPtrOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraPtrOutput) Elem() JiraCloudAccountMappingRuleConfigJiraOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJira) JiraCloudAccountMappingRuleConfigJira {
+		if v != nil {
+			return *v
+		}
+		var ret JiraCloudAccountMappingRuleConfigJira
+		return ret
+	}).(JiraCloudAccountMappingRuleConfigJiraOutput)
+}
+
+// JQL query to automatically create PagerDuty incidents when matching Jira issues are created. Leave empty to disable this feature.
+func (o JiraCloudAccountMappingRuleConfigJiraPtrOutput) AutocreateJql() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJira) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutocreateJql
+	}).(pulumi.StringPtrOutput)
+}
+
+// When enabled, automatically creates a Jira issue whenever a PagerDuty incident is triggered.
+func (o JiraCloudAccountMappingRuleConfigJiraPtrOutput) CreateIssueOnIncidentTrigger() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJira) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CreateIssueOnIncidentTrigger
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Defines how Jira fields are populated when a Jira Issue is created from a PagerDuty Incident.
+func (o JiraCloudAccountMappingRuleConfigJiraPtrOutput) CustomFields() JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJira) []JiraCloudAccountMappingRuleConfigJiraCustomField {
+		if v == nil {
+			return nil
+		}
+		return v.CustomFields
+	}).(JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput)
+}
+
+// Specifies the Jira issue type to be created or synchronized with PagerDuty incidents.
+func (o JiraCloudAccountMappingRuleConfigJiraPtrOutput) IssueType() JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJira) *JiraCloudAccountMappingRuleConfigJiraIssueType {
+		if v == nil {
+			return nil
+		}
+		return v.IssueType
+	}).(JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput)
+}
+
+// Maps PagerDuty incident priorities to Jira issue priorities for synchronization.
+func (o JiraCloudAccountMappingRuleConfigJiraPtrOutput) Priorities() JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJira) []JiraCloudAccountMappingRuleConfigJiraPriority {
+		if v == nil {
+			return nil
+		}
+		return v.Priorities
+	}).(JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput)
+}
+
+// [Updating can cause a resource replacement] Defines the Jira project where issues will be created or synchronized.
+func (o JiraCloudAccountMappingRuleConfigJiraPtrOutput) Project() JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJira) *JiraCloudAccountMappingRuleConfigJiraProject {
+		if v == nil {
+			return nil
+		}
+		return v.Project
+	}).(JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput)
+}
+
+// Maps PagerDuty incident statuses to corresponding Jira issue statuses for synchronization.
+func (o JiraCloudAccountMappingRuleConfigJiraPtrOutput) StatusMapping() JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJira) *JiraCloudAccountMappingRuleConfigJiraStatusMapping {
+		if v == nil {
+			return nil
+		}
+		return v.StatusMapping
+	}).(JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput)
+}
+
+// ID of the PagerDuty user for syncing notes and comments between Jira issues and PagerDuty incidents. If not provided, note synchronization is disabled.
+func (o JiraCloudAccountMappingRuleConfigJiraPtrOutput) SyncNotesUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJira) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SyncNotesUser
+	}).(pulumi.StringPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraCustomField struct {
+	// The PagerDuty incident field from which the value will be extracted (only applicable if `type` is `attribute`); one of `incidentNumber`, `incidentTitle`, `incidentDescription`, `incidentStatus`, `incidentCreatedAt`, `incidentService`, `incidentEscalationPolicy`, `incidentImpactedServices`, `incidentHtmlUrl`, `incidentAssignees`, `incidentAcknowledgers`, `incidentLastStatusChangeAt`, `incidentLastStatusChangeBy`, `incidentUrgency` or `incidentPriority`.
+	SourceIncidentField *string `pulumi:"sourceIncidentField"`
+	// The unique identifier key of the Jira field that will be set.
+	TargetIssueField string `pulumi:"targetIssueField"`
+	// The human-readable name of the Jira field.
+	TargetIssueFieldName string `pulumi:"targetIssueFieldName"`
+	// The type of the value that will be set; one of `attribute`, `const` or `jiraValue`.
+	Type string `pulumi:"type"`
+	// The value to be set for the Jira field (only applicable if `type` is `const` or `jiraValue`). It must be set as a JSON string.
+	Value *string `pulumi:"value"`
+}
+
+// JiraCloudAccountMappingRuleConfigJiraCustomFieldInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraCustomFieldArgs and JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraCustomFieldInput` via:
+//
+//	JiraCloudAccountMappingRuleConfigJiraCustomFieldArgs{...}
+type JiraCloudAccountMappingRuleConfigJiraCustomFieldInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraCustomFieldOutput() JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput
+	ToJiraCloudAccountMappingRuleConfigJiraCustomFieldOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput
+}
+
+type JiraCloudAccountMappingRuleConfigJiraCustomFieldArgs struct {
+	// The PagerDuty incident field from which the value will be extracted (only applicable if `type` is `attribute`); one of `incidentNumber`, `incidentTitle`, `incidentDescription`, `incidentStatus`, `incidentCreatedAt`, `incidentService`, `incidentEscalationPolicy`, `incidentImpactedServices`, `incidentHtmlUrl`, `incidentAssignees`, `incidentAcknowledgers`, `incidentLastStatusChangeAt`, `incidentLastStatusChangeBy`, `incidentUrgency` or `incidentPriority`.
+	SourceIncidentField pulumi.StringPtrInput `pulumi:"sourceIncidentField"`
+	// The unique identifier key of the Jira field that will be set.
+	TargetIssueField pulumi.StringInput `pulumi:"targetIssueField"`
+	// The human-readable name of the Jira field.
+	TargetIssueFieldName pulumi.StringInput `pulumi:"targetIssueFieldName"`
+	// The type of the value that will be set; one of `attribute`, `const` or `jiraValue`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value to be set for the Jira field (only applicable if `type` is `const` or `jiraValue`). It must be set as a JSON string.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (JiraCloudAccountMappingRuleConfigJiraCustomFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraCustomField)(nil)).Elem()
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraCustomFieldArgs) ToJiraCloudAccountMappingRuleConfigJiraCustomFieldOutput() JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraCustomFieldOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraCustomFieldArgs) ToJiraCloudAccountMappingRuleConfigJiraCustomFieldOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput)
+}
+
+// JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraCustomFieldArray and JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayInput` via:
+//
+//	JiraCloudAccountMappingRuleConfigJiraCustomFieldArray{ JiraCloudAccountMappingRuleConfigJiraCustomFieldArgs{...} }
+type JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput() JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput
+	ToJiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput
+}
+
+type JiraCloudAccountMappingRuleConfigJiraCustomFieldArray []JiraCloudAccountMappingRuleConfigJiraCustomFieldInput
+
+func (JiraCloudAccountMappingRuleConfigJiraCustomFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JiraCloudAccountMappingRuleConfigJiraCustomField)(nil)).Elem()
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraCustomFieldArray) ToJiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput() JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraCustomFieldArray) ToJiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraCustomField)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput) ToJiraCloudAccountMappingRuleConfigJiraCustomFieldOutput() JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput) ToJiraCloudAccountMappingRuleConfigJiraCustomFieldOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput {
+	return o
+}
+
+// The PagerDuty incident field from which the value will be extracted (only applicable if `type` is `attribute`); one of `incidentNumber`, `incidentTitle`, `incidentDescription`, `incidentStatus`, `incidentCreatedAt`, `incidentService`, `incidentEscalationPolicy`, `incidentImpactedServices`, `incidentHtmlUrl`, `incidentAssignees`, `incidentAcknowledgers`, `incidentLastStatusChangeAt`, `incidentLastStatusChangeBy`, `incidentUrgency` or `incidentPriority`.
+func (o JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput) SourceIncidentField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraCustomField) *string { return v.SourceIncidentField }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier key of the Jira field that will be set.
+func (o JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput) TargetIssueField() pulumi.StringOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraCustomField) string { return v.TargetIssueField }).(pulumi.StringOutput)
+}
+
+// The human-readable name of the Jira field.
+func (o JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput) TargetIssueFieldName() pulumi.StringOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraCustomField) string { return v.TargetIssueFieldName }).(pulumi.StringOutput)
+}
+
+// The type of the value that will be set; one of `attribute`, `const` or `jiraValue`.
+func (o JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraCustomField) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value to be set for the Jira field (only applicable if `type` is `const` or `jiraValue`). It must be set as a JSON string.
+func (o JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraCustomField) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JiraCloudAccountMappingRuleConfigJiraCustomField)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput) ToJiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput() JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput) ToJiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput) Index(i pulumi.IntInput) JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JiraCloudAccountMappingRuleConfigJiraCustomField {
+		return vs[0].([]JiraCloudAccountMappingRuleConfigJiraCustomField)[vs[1].(int)]
+	}).(JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraIssueType struct {
+	// Unique identifier for the Jira issue type.
+	Id string `pulumi:"id"`
+	// The name of the Jira issue type.
+	Name string `pulumi:"name"`
+}
+
+// JiraCloudAccountMappingRuleConfigJiraIssueTypeInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs and JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraIssueTypeInput` via:
+//
+//	JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs{...}
+type JiraCloudAccountMappingRuleConfigJiraIssueTypeInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraIssueTypeOutput() JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput
+	ToJiraCloudAccountMappingRuleConfigJiraIssueTypeOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput
+}
+
+type JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs struct {
+	// Unique identifier for the Jira issue type.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Jira issue type.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraIssueType)(nil)).Elem()
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs) ToJiraCloudAccountMappingRuleConfigJiraIssueTypeOutput() JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraIssueTypeOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs) ToJiraCloudAccountMappingRuleConfigJiraIssueTypeOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput)
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs) ToJiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput() JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs) ToJiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput).ToJiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutputWithContext(ctx)
+}
+
+// JiraCloudAccountMappingRuleConfigJiraIssueTypePtrInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs, JiraCloudAccountMappingRuleConfigJiraIssueTypePtr and JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraIssueTypePtrInput` via:
+//
+//	        JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type JiraCloudAccountMappingRuleConfigJiraIssueTypePtrInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput() JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput
+	ToJiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput
+}
+
+type jiraCloudAccountMappingRuleConfigJiraIssueTypePtrType JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs
+
+func JiraCloudAccountMappingRuleConfigJiraIssueTypePtr(v *JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs) JiraCloudAccountMappingRuleConfigJiraIssueTypePtrInput {
+	return (*jiraCloudAccountMappingRuleConfigJiraIssueTypePtrType)(v)
+}
+
+func (*jiraCloudAccountMappingRuleConfigJiraIssueTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JiraCloudAccountMappingRuleConfigJiraIssueType)(nil)).Elem()
+}
+
+func (i *jiraCloudAccountMappingRuleConfigJiraIssueTypePtrType) ToJiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput() JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutputWithContext(context.Background())
+}
+
+func (i *jiraCloudAccountMappingRuleConfigJiraIssueTypePtrType) ToJiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraIssueType)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput) ToJiraCloudAccountMappingRuleConfigJiraIssueTypeOutput() JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput) ToJiraCloudAccountMappingRuleConfigJiraIssueTypeOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput) ToJiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput() JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput {
+	return o.ToJiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutputWithContext(context.Background())
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput) ToJiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JiraCloudAccountMappingRuleConfigJiraIssueType) *JiraCloudAccountMappingRuleConfigJiraIssueType {
+		return &v
+	}).(JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput)
+}
+
+// Unique identifier for the Jira issue type.
+func (o JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraIssueType) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the Jira issue type.
+func (o JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraIssueType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JiraCloudAccountMappingRuleConfigJiraIssueType)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput) ToJiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput() JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput) ToJiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput) Elem() JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraIssueType) JiraCloudAccountMappingRuleConfigJiraIssueType {
+		if v != nil {
+			return *v
+		}
+		var ret JiraCloudAccountMappingRuleConfigJiraIssueType
+		return ret
+	}).(JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput)
+}
+
+// Unique identifier for the Jira issue type.
+func (o JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraIssueType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Jira issue type.
+func (o JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraIssueType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraPriority struct {
+	// The ID of the Jira priority.
+	JiraId string `pulumi:"jiraId"`
+	// The ID of the PagerDuty priority.
+	PagerdutyId string `pulumi:"pagerdutyId"`
+}
+
+// JiraCloudAccountMappingRuleConfigJiraPriorityInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraPriorityArgs and JiraCloudAccountMappingRuleConfigJiraPriorityOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraPriorityInput` via:
+//
+//	JiraCloudAccountMappingRuleConfigJiraPriorityArgs{...}
+type JiraCloudAccountMappingRuleConfigJiraPriorityInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraPriorityOutput() JiraCloudAccountMappingRuleConfigJiraPriorityOutput
+	ToJiraCloudAccountMappingRuleConfigJiraPriorityOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraPriorityOutput
+}
+
+type JiraCloudAccountMappingRuleConfigJiraPriorityArgs struct {
+	// The ID of the Jira priority.
+	JiraId pulumi.StringInput `pulumi:"jiraId"`
+	// The ID of the PagerDuty priority.
+	PagerdutyId pulumi.StringInput `pulumi:"pagerdutyId"`
+}
+
+func (JiraCloudAccountMappingRuleConfigJiraPriorityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraPriority)(nil)).Elem()
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraPriorityArgs) ToJiraCloudAccountMappingRuleConfigJiraPriorityOutput() JiraCloudAccountMappingRuleConfigJiraPriorityOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraPriorityOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraPriorityArgs) ToJiraCloudAccountMappingRuleConfigJiraPriorityOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraPriorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraPriorityOutput)
+}
+
+// JiraCloudAccountMappingRuleConfigJiraPriorityArrayInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraPriorityArray and JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraPriorityArrayInput` via:
+//
+//	JiraCloudAccountMappingRuleConfigJiraPriorityArray{ JiraCloudAccountMappingRuleConfigJiraPriorityArgs{...} }
+type JiraCloudAccountMappingRuleConfigJiraPriorityArrayInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput() JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput
+	ToJiraCloudAccountMappingRuleConfigJiraPriorityArrayOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput
+}
+
+type JiraCloudAccountMappingRuleConfigJiraPriorityArray []JiraCloudAccountMappingRuleConfigJiraPriorityInput
+
+func (JiraCloudAccountMappingRuleConfigJiraPriorityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JiraCloudAccountMappingRuleConfigJiraPriority)(nil)).Elem()
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraPriorityArray) ToJiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput() JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraPriorityArrayOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraPriorityArray) ToJiraCloudAccountMappingRuleConfigJiraPriorityArrayOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraPriorityOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraPriorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraPriority)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraPriorityOutput) ToJiraCloudAccountMappingRuleConfigJiraPriorityOutput() JiraCloudAccountMappingRuleConfigJiraPriorityOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraPriorityOutput) ToJiraCloudAccountMappingRuleConfigJiraPriorityOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraPriorityOutput {
+	return o
+}
+
+// The ID of the Jira priority.
+func (o JiraCloudAccountMappingRuleConfigJiraPriorityOutput) JiraId() pulumi.StringOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraPriority) string { return v.JiraId }).(pulumi.StringOutput)
+}
+
+// The ID of the PagerDuty priority.
+func (o JiraCloudAccountMappingRuleConfigJiraPriorityOutput) PagerdutyId() pulumi.StringOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraPriority) string { return v.PagerdutyId }).(pulumi.StringOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JiraCloudAccountMappingRuleConfigJiraPriority)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput) ToJiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput() JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput) ToJiraCloudAccountMappingRuleConfigJiraPriorityArrayOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput) Index(i pulumi.IntInput) JiraCloudAccountMappingRuleConfigJiraPriorityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JiraCloudAccountMappingRuleConfigJiraPriority {
+		return vs[0].([]JiraCloudAccountMappingRuleConfigJiraPriority)[vs[1].(int)]
+	}).(JiraCloudAccountMappingRuleConfigJiraPriorityOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraProject struct {
+	// Unique identifier for the Jira project.
+	Id string `pulumi:"id"`
+	// The short key name of the Jira project.
+	Key string `pulumi:"key"`
+	// The name of the Jira project.
+	Name string `pulumi:"name"`
+}
+
+// JiraCloudAccountMappingRuleConfigJiraProjectInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraProjectArgs and JiraCloudAccountMappingRuleConfigJiraProjectOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraProjectInput` via:
+//
+//	JiraCloudAccountMappingRuleConfigJiraProjectArgs{...}
+type JiraCloudAccountMappingRuleConfigJiraProjectInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraProjectOutput() JiraCloudAccountMappingRuleConfigJiraProjectOutput
+	ToJiraCloudAccountMappingRuleConfigJiraProjectOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraProjectOutput
+}
+
+type JiraCloudAccountMappingRuleConfigJiraProjectArgs struct {
+	// Unique identifier for the Jira project.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The short key name of the Jira project.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The name of the Jira project.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (JiraCloudAccountMappingRuleConfigJiraProjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraProject)(nil)).Elem()
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraProjectArgs) ToJiraCloudAccountMappingRuleConfigJiraProjectOutput() JiraCloudAccountMappingRuleConfigJiraProjectOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraProjectOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraProjectArgs) ToJiraCloudAccountMappingRuleConfigJiraProjectOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraProjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraProjectOutput)
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraProjectArgs) ToJiraCloudAccountMappingRuleConfigJiraProjectPtrOutput() JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraProjectPtrOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraProjectArgs) ToJiraCloudAccountMappingRuleConfigJiraProjectPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraProjectOutput).ToJiraCloudAccountMappingRuleConfigJiraProjectPtrOutputWithContext(ctx)
+}
+
+// JiraCloudAccountMappingRuleConfigJiraProjectPtrInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraProjectArgs, JiraCloudAccountMappingRuleConfigJiraProjectPtr and JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraProjectPtrInput` via:
+//
+//	        JiraCloudAccountMappingRuleConfigJiraProjectArgs{...}
+//
+//	or:
+//
+//	        nil
+type JiraCloudAccountMappingRuleConfigJiraProjectPtrInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraProjectPtrOutput() JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput
+	ToJiraCloudAccountMappingRuleConfigJiraProjectPtrOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput
+}
+
+type jiraCloudAccountMappingRuleConfigJiraProjectPtrType JiraCloudAccountMappingRuleConfigJiraProjectArgs
+
+func JiraCloudAccountMappingRuleConfigJiraProjectPtr(v *JiraCloudAccountMappingRuleConfigJiraProjectArgs) JiraCloudAccountMappingRuleConfigJiraProjectPtrInput {
+	return (*jiraCloudAccountMappingRuleConfigJiraProjectPtrType)(v)
+}
+
+func (*jiraCloudAccountMappingRuleConfigJiraProjectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JiraCloudAccountMappingRuleConfigJiraProject)(nil)).Elem()
+}
+
+func (i *jiraCloudAccountMappingRuleConfigJiraProjectPtrType) ToJiraCloudAccountMappingRuleConfigJiraProjectPtrOutput() JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraProjectPtrOutputWithContext(context.Background())
+}
+
+func (i *jiraCloudAccountMappingRuleConfigJiraProjectPtrType) ToJiraCloudAccountMappingRuleConfigJiraProjectPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraProjectOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraProjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraProject)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraProjectOutput) ToJiraCloudAccountMappingRuleConfigJiraProjectOutput() JiraCloudAccountMappingRuleConfigJiraProjectOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraProjectOutput) ToJiraCloudAccountMappingRuleConfigJiraProjectOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraProjectOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraProjectOutput) ToJiraCloudAccountMappingRuleConfigJiraProjectPtrOutput() JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput {
+	return o.ToJiraCloudAccountMappingRuleConfigJiraProjectPtrOutputWithContext(context.Background())
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraProjectOutput) ToJiraCloudAccountMappingRuleConfigJiraProjectPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JiraCloudAccountMappingRuleConfigJiraProject) *JiraCloudAccountMappingRuleConfigJiraProject {
+		return &v
+	}).(JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput)
+}
+
+// Unique identifier for the Jira project.
+func (o JiraCloudAccountMappingRuleConfigJiraProjectOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraProject) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The short key name of the Jira project.
+func (o JiraCloudAccountMappingRuleConfigJiraProjectOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraProject) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The name of the Jira project.
+func (o JiraCloudAccountMappingRuleConfigJiraProjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraProject) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JiraCloudAccountMappingRuleConfigJiraProject)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput) ToJiraCloudAccountMappingRuleConfigJiraProjectPtrOutput() JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput) ToJiraCloudAccountMappingRuleConfigJiraProjectPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput) Elem() JiraCloudAccountMappingRuleConfigJiraProjectOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraProject) JiraCloudAccountMappingRuleConfigJiraProject {
+		if v != nil {
+			return *v
+		}
+		var ret JiraCloudAccountMappingRuleConfigJiraProject
+		return ret
+	}).(JiraCloudAccountMappingRuleConfigJiraProjectOutput)
+}
+
+// Unique identifier for the Jira project.
+func (o JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraProject) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The short key name of the Jira project.
+func (o JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraProject) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Jira project.
+func (o JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraProject) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraStatusMapping struct {
+	// Jira status that maps to the PagerDuty `acknowledged` status.
+	Acknowledged *JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged `pulumi:"acknowledged"`
+	// Jira status that maps to the PagerDuty `resolved` status.
+	Resolved *JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved `pulumi:"resolved"`
+	// Jira status that maps to the PagerDuty `triggered` status.
+	Triggered *JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered `pulumi:"triggered"`
+}
+
+// JiraCloudAccountMappingRuleConfigJiraStatusMappingInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs and JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraStatusMappingInput` via:
+//
+//	JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs{...}
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraStatusMappingOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput
+	ToJiraCloudAccountMappingRuleConfigJiraStatusMappingOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput
+}
+
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs struct {
+	// Jira status that maps to the PagerDuty `acknowledged` status.
+	Acknowledged JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrInput `pulumi:"acknowledged"`
+	// Jira status that maps to the PagerDuty `resolved` status.
+	Resolved JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrInput `pulumi:"resolved"`
+	// Jira status that maps to the PagerDuty `triggered` status.
+	Triggered JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrInput `pulumi:"triggered"`
+}
+
+func (JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraStatusMapping)(nil)).Elem()
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraStatusMappingOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput)
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput).ToJiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutputWithContext(ctx)
+}
+
+// JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs, JiraCloudAccountMappingRuleConfigJiraStatusMappingPtr and JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrInput` via:
+//
+//	        JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs{...}
+//
+//	or:
+//
+//	        nil
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput
+	ToJiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput
+}
+
+type jiraCloudAccountMappingRuleConfigJiraStatusMappingPtrType JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs
+
+func JiraCloudAccountMappingRuleConfigJiraStatusMappingPtr(v *JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs) JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrInput {
+	return (*jiraCloudAccountMappingRuleConfigJiraStatusMappingPtrType)(v)
+}
+
+func (*jiraCloudAccountMappingRuleConfigJiraStatusMappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JiraCloudAccountMappingRuleConfigJiraStatusMapping)(nil)).Elem()
+}
+
+func (i *jiraCloudAccountMappingRuleConfigJiraStatusMappingPtrType) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *jiraCloudAccountMappingRuleConfigJiraStatusMappingPtrType) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraStatusMapping)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput {
+	return o.ToJiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutputWithContext(context.Background())
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JiraCloudAccountMappingRuleConfigJiraStatusMapping) *JiraCloudAccountMappingRuleConfigJiraStatusMapping {
+		return &v
+	}).(JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput)
+}
+
+// Jira status that maps to the PagerDuty `acknowledged` status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput) Acknowledged() JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraStatusMapping) *JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged {
+		return v.Acknowledged
+	}).(JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput)
+}
+
+// Jira status that maps to the PagerDuty `resolved` status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput) Resolved() JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraStatusMapping) *JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved {
+		return v.Resolved
+	}).(JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput)
+}
+
+// Jira status that maps to the PagerDuty `triggered` status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput) Triggered() JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraStatusMapping) *JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered {
+		return v.Triggered
+	}).(JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JiraCloudAccountMappingRuleConfigJiraStatusMapping)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput) Elem() JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraStatusMapping) JiraCloudAccountMappingRuleConfigJiraStatusMapping {
+		if v != nil {
+			return *v
+		}
+		var ret JiraCloudAccountMappingRuleConfigJiraStatusMapping
+		return ret
+	}).(JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput)
+}
+
+// Jira status that maps to the PagerDuty `acknowledged` status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput) Acknowledged() JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraStatusMapping) *JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged {
+		if v == nil {
+			return nil
+		}
+		return v.Acknowledged
+	}).(JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput)
+}
+
+// Jira status that maps to the PagerDuty `resolved` status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput) Resolved() JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraStatusMapping) *JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved {
+		if v == nil {
+			return nil
+		}
+		return v.Resolved
+	}).(JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput)
+}
+
+// Jira status that maps to the PagerDuty `triggered` status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput) Triggered() JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraStatusMapping) *JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered {
+		if v == nil {
+			return nil
+		}
+		return v.Triggered
+	}).(JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged struct {
+	// Unique identifier for the Jira status.
+	Id *string `pulumi:"id"`
+	// Name of the Jira status.
+	Name *string `pulumi:"name"`
+}
+
+// JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs and JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedInput` via:
+//
+//	JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs{...}
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput
+	ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput
+}
+
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs struct {
+	// Unique identifier for the Jira status.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the Jira status.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged)(nil)).Elem()
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput)
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput).ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutputWithContext(ctx)
+}
+
+// JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs, JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtr and JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrInput` via:
+//
+//	        JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs{...}
+//
+//	or:
+//
+//	        nil
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput
+	ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput
+}
+
+type jiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrType JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs
+
+func JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtr(v *JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs) JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrInput {
+	return (*jiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrType)(v)
+}
+
+func (*jiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged)(nil)).Elem()
+}
+
+func (i *jiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrType) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutputWithContext(context.Background())
+}
+
+func (i *jiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrType) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput {
+	return o.ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutputWithContext(context.Background())
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged) *JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged {
+		return &v
+	}).(JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput)
+}
+
+// Unique identifier for the Jira status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Jira status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput) Elem() JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged) JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged {
+		if v != nil {
+			return *v
+		}
+		var ret JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged
+		return ret
+	}).(JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput)
+}
+
+// Unique identifier for the Jira status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the Jira status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved struct {
+	// Unique identifier for the Jira status.
+	Id *string `pulumi:"id"`
+	// Name of the Jira status.
+	Name *string `pulumi:"name"`
+}
+
+// JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs and JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedInput` via:
+//
+//	JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs{...}
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput
+	ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput
+}
+
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs struct {
+	// Unique identifier for the Jira status.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the Jira status.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved)(nil)).Elem()
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput)
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput).ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutputWithContext(ctx)
+}
+
+// JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs, JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtr and JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrInput` via:
+//
+//	        JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs{...}
+//
+//	or:
+//
+//	        nil
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput
+	ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput
+}
+
+type jiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrType JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs
+
+func JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtr(v *JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs) JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrInput {
+	return (*jiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrType)(v)
+}
+
+func (*jiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved)(nil)).Elem()
+}
+
+func (i *jiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrType) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutputWithContext(context.Background())
+}
+
+func (i *jiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrType) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput {
+	return o.ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutputWithContext(context.Background())
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved) *JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved {
+		return &v
+	}).(JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput)
+}
+
+// Unique identifier for the Jira status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Jira status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput) Elem() JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved) JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved {
+		if v != nil {
+			return *v
+		}
+		var ret JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved
+		return ret
+	}).(JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput)
+}
+
+// Unique identifier for the Jira status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the Jira status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered struct {
+	// Unique identifier for the Jira status.
+	Id string `pulumi:"id"`
+	// Name of the Jira status.
+	Name string `pulumi:"name"`
+}
+
+// JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs and JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredInput` via:
+//
+//	JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs{...}
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput
+	ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput
+}
+
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs struct {
+	// Unique identifier for the Jira status.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the Jira status.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered)(nil)).Elem()
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput)
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutputWithContext(context.Background())
+}
+
+func (i JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput).ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutputWithContext(ctx)
+}
+
+// JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrInput is an input type that accepts JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs, JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtr and JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput values.
+// You can construct a concrete instance of `JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrInput` via:
+//
+//	        JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs{...}
+//
+//	or:
+//
+//	        nil
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrInput interface {
+	pulumi.Input
+
+	ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput
+	ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutputWithContext(context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput
+}
+
+type jiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrType JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs
+
+func JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtr(v *JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs) JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrInput {
+	return (*jiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrType)(v)
+}
+
+func (*jiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered)(nil)).Elem()
+}
+
+func (i *jiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrType) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput {
+	return i.ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutputWithContext(context.Background())
+}
+
+func (i *jiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrType) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput {
+	return o.ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutputWithContext(context.Background())
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered) *JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered {
+		return &v
+	}).(JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput)
+}
+
+// Unique identifier for the Jira status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the Jira status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput struct{ *pulumi.OutputState }
+
+func (JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered)(nil)).Elem()
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput() JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput) ToJiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutputWithContext(ctx context.Context) JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput {
+	return o
+}
+
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput) Elem() JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered) JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered {
+		if v != nil {
+			return *v
+		}
+		var ret JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered
+		return ret
+	}).(JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput)
+}
+
+// Unique identifier for the Jira status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the Jira status.
+func (o JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type ProviderUseAppOauthScopedToken struct {
 	PdClientId     *string `pulumi:"pdClientId"`
 	PdClientSecret *string `pulumi:"pdClientSecret"`
@@ -18107,10 +19762,10 @@ type SlackConnectionConfig struct {
 	// - `incident.reopened`
 	Events []string `pulumi:"events"`
 	// Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through getPriority data source.
-	// - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+	// - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behavior is to set `priorities` to `No Priority` value.
 	// - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
 	Priorities []string `pulumi:"priorities"`
-	// Allows you to filter events by urgency. Either `high` or `low`.
+	// Allows you to filter events by urgency. Either `high`, `low` or `null` for Any urgency. Default is `null`.
 	Urgency *string `pulumi:"urgency"`
 }
 
@@ -18141,10 +19796,10 @@ type SlackConnectionConfigArgs struct {
 	// - `incident.reopened`
 	Events pulumi.StringArrayInput `pulumi:"events"`
 	// Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through getPriority data source.
-	// - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+	// - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behavior is to set `priorities` to `No Priority` value.
 	// - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
 	Priorities pulumi.StringArrayInput `pulumi:"priorities"`
-	// Allows you to filter events by urgency. Either `high` or `low`.
+	// Allows you to filter events by urgency. Either `high`, `low` or `null` for Any urgency. Default is `null`.
 	Urgency pulumi.StringPtrInput `pulumi:"urgency"`
 }
 
@@ -18217,13 +19872,13 @@ func (o SlackConnectionConfigOutput) Events() pulumi.StringArrayOutput {
 }
 
 // Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through getPriority data source.
-// - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+// - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behavior is to set `priorities` to `No Priority` value.
 // - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
 func (o SlackConnectionConfigOutput) Priorities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlackConnectionConfig) []string { return v.Priorities }).(pulumi.StringArrayOutput)
 }
 
-// Allows you to filter events by urgency. Either `high` or `low`.
+// Allows you to filter events by urgency. Either `high`, `low` or `null` for Any urgency. Default is `null`.
 func (o SlackConnectionConfigOutput) Urgency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlackConnectionConfig) *string { return v.Urgency }).(pulumi.StringPtrOutput)
 }
@@ -21772,6 +23427,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInputTypeArrayInput)(nil)).Elem(), IncidentWorkflowStepInputTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowTriggerPermissionsInput)(nil)).Elem(), IncidentWorkflowTriggerPermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowTriggerPermissionsPtrInput)(nil)).Elem(), IncidentWorkflowTriggerPermissionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigPtrInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraPtrInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraCustomFieldInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraCustomFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraCustomFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraIssueTypeInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraIssueTypePtrInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraPriorityInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraPriorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraPriorityArrayInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraPriorityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraProjectInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraProjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraProjectPtrInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraProjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraStatusMappingInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrInput)(nil)).Elem(), JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderUseAppOauthScopedTokenInput)(nil)).Elem(), ProviderUseAppOauthScopedTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderUseAppOauthScopedTokenPtrInput)(nil)).Elem(), ProviderUseAppOauthScopedTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderInput)(nil)).Elem(), ResponsePlayResponderArgs{})
@@ -22091,6 +23766,26 @@ func init() {
 	pulumi.RegisterOutputType(IncidentWorkflowStepInputTypeArrayOutput{})
 	pulumi.RegisterOutputType(IncidentWorkflowTriggerPermissionsOutput{})
 	pulumi.RegisterOutputType(IncidentWorkflowTriggerPermissionsPtrOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigPtrOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraPtrOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraCustomFieldOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraCustomFieldArrayOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraIssueTypeOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraIssueTypePtrOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraPriorityOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraPriorityArrayOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraProjectOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraProjectPtrOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraStatusMappingOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraStatusMappingPtrOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedPtrOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedPtrOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredOutput{})
+	pulumi.RegisterOutputType(JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredPtrOutput{})
 	pulumi.RegisterOutputType(ProviderUseAppOauthScopedTokenOutput{})
 	pulumi.RegisterOutputType(ProviderUseAppOauthScopedTokenPtrOutput{})
 	pulumi.RegisterOutputType(ResponsePlayResponderOutput{})

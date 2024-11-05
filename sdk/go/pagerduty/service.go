@@ -93,7 +93,8 @@ type Service struct {
 	AlertGrouping pulumi.StringOutput `pulumi:"alertGrouping"`
 	// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
 	//
-	// Deprecated: Use a resource `AlertGroupingSetting` instead
+	// Deprecated: Use a resource `AlertGroupingSetting` instead.
+	// Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
 	AlertGroupingParameters ServiceAlertGroupingParametersOutput `pulumi:"alertGroupingParameters"`
 	// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
 	//
@@ -171,7 +172,8 @@ type serviceState struct {
 	AlertGrouping *string `pulumi:"alertGrouping"`
 	// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
 	//
-	// Deprecated: Use a resource `AlertGroupingSetting` instead
+	// Deprecated: Use a resource `AlertGroupingSetting` instead.
+	// Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
 	AlertGroupingParameters *ServiceAlertGroupingParameters `pulumi:"alertGroupingParameters"`
 	// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
 	//
@@ -214,7 +216,8 @@ type ServiceState struct {
 	AlertGrouping pulumi.StringPtrInput
 	// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
 	//
-	// Deprecated: Use a resource `AlertGroupingSetting` instead
+	// Deprecated: Use a resource `AlertGroupingSetting` instead.
+	// Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
 	AlertGroupingParameters ServiceAlertGroupingParametersPtrInput
 	// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
 	//
@@ -261,7 +264,8 @@ type serviceArgs struct {
 	AlertGrouping *string `pulumi:"alertGrouping"`
 	// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
 	//
-	// Deprecated: Use a resource `AlertGroupingSetting` instead
+	// Deprecated: Use a resource `AlertGroupingSetting` instead.
+	// Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
 	AlertGroupingParameters *ServiceAlertGroupingParameters `pulumi:"alertGroupingParameters"`
 	// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
 	//
@@ -295,7 +299,8 @@ type ServiceArgs struct {
 	AlertGrouping pulumi.StringPtrInput
 	// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
 	//
-	// Deprecated: Use a resource `AlertGroupingSetting` instead
+	// Deprecated: Use a resource `AlertGroupingSetting` instead.
+	// Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
 	AlertGroupingParameters ServiceAlertGroupingParametersPtrInput
 	// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
 	//
@@ -423,7 +428,8 @@ func (o ServiceOutput) AlertGrouping() pulumi.StringOutput {
 
 // (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
 //
-// Deprecated: Use a resource `AlertGroupingSetting` instead
+// Deprecated: Use a resource `AlertGroupingSetting` instead.
+// Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
 func (o ServiceOutput) AlertGroupingParameters() ServiceAlertGroupingParametersOutput {
 	return o.ApplyT(func(v *Service) ServiceAlertGroupingParametersOutput { return v.AlertGroupingParameters }).(ServiceAlertGroupingParametersOutput)
 }

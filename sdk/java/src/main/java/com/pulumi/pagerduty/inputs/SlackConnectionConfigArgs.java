@@ -58,7 +58,7 @@ public final class SlackConnectionConfigArgs extends com.pulumi.resources.Resour
 
     /**
      * Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.
-     * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+     * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behavior is to set `priorities` to `No Priority` value.
      * - When set to `[&#34;*&#34;]` its corresponding value for `priorities` in Slack Connection&#39;s configuration will be `Any Priority`.
      * 
      */
@@ -67,7 +67,7 @@ public final class SlackConnectionConfigArgs extends com.pulumi.resources.Resour
 
     /**
      * @return Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.
-     * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+     * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behavior is to set `priorities` to `No Priority` value.
      * - When set to `[&#34;*&#34;]` its corresponding value for `priorities` in Slack Connection&#39;s configuration will be `Any Priority`.
      * 
      */
@@ -76,14 +76,14 @@ public final class SlackConnectionConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Allows you to filter events by urgency. Either `high` or `low`.
+     * Allows you to filter events by urgency. Either `high`, `low` or `null` for Any urgency. Default is `null`.
      * 
      */
     @Import(name="urgency")
     private @Nullable Output<String> urgency;
 
     /**
-     * @return Allows you to filter events by urgency. Either `high` or `low`.
+     * @return Allows you to filter events by urgency. Either `high`, `low` or `null` for Any urgency. Default is `null`.
      * 
      */
     public Optional<Output<String>> urgency() {
@@ -185,7 +185,7 @@ public final class SlackConnectionConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param priorities Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.
-         * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+         * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behavior is to set `priorities` to `No Priority` value.
          * - When set to `[&#34;*&#34;]` its corresponding value for `priorities` in Slack Connection&#39;s configuration will be `Any Priority`.
          * 
          * @return builder
@@ -198,7 +198,7 @@ public final class SlackConnectionConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param priorities Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.
-         * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+         * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behavior is to set `priorities` to `No Priority` value.
          * - When set to `[&#34;*&#34;]` its corresponding value for `priorities` in Slack Connection&#39;s configuration will be `Any Priority`.
          * 
          * @return builder
@@ -210,7 +210,7 @@ public final class SlackConnectionConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param priorities Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.
-         * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+         * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behavior is to set `priorities` to `No Priority` value.
          * - When set to `[&#34;*&#34;]` its corresponding value for `priorities` in Slack Connection&#39;s configuration will be `Any Priority`.
          * 
          * @return builder
@@ -221,7 +221,7 @@ public final class SlackConnectionConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param urgency Allows you to filter events by urgency. Either `high` or `low`.
+         * @param urgency Allows you to filter events by urgency. Either `high`, `low` or `null` for Any urgency. Default is `null`.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class SlackConnectionConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param urgency Allows you to filter events by urgency. Either `high` or `low`.
+         * @param urgency Allows you to filter events by urgency. Either `high`, `low` or `null` for Any urgency. Default is `null`.
          * 
          * @return builder
          * 

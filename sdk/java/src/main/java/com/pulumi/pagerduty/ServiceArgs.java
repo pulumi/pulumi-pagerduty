@@ -80,10 +80,12 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
      * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
      * 
      * @deprecated
-     * Use a resource `pagerduty.AlertGroupingSetting` instead
+     * Use a resource `pagerduty.AlertGroupingSetting` instead.
+     * Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
      * 
      */
-    @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead */
+    @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead.
+Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters */
     @Import(name="alertGroupingParameters")
     private @Nullable Output<ServiceAlertGroupingParametersArgs> alertGroupingParameters;
 
@@ -91,10 +93,12 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
      * @return (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
      * 
      * @deprecated
-     * Use a resource `pagerduty.AlertGroupingSetting` instead
+     * Use a resource `pagerduty.AlertGroupingSetting` instead.
+     * Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
      * 
      */
-    @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead */
+    @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead.
+Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters */
     public Optional<Output<ServiceAlertGroupingParametersArgs>> alertGroupingParameters() {
         return Optional.ofNullable(this.alertGroupingParameters);
     }
@@ -339,10 +343,12 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use a resource `pagerduty.AlertGroupingSetting` instead
+         * Use a resource `pagerduty.AlertGroupingSetting` instead.
+         * Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
          * 
          */
-        @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead */
+        @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead.
+Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters */
         public Builder alertGroupingParameters(@Nullable Output<ServiceAlertGroupingParametersArgs> alertGroupingParameters) {
             $.alertGroupingParameters = alertGroupingParameters;
             return this;
@@ -354,10 +360,12 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use a resource `pagerduty.AlertGroupingSetting` instead
+         * Use a resource `pagerduty.AlertGroupingSetting` instead.
+         * Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
          * 
          */
-        @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead */
+        @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead.
+Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters */
         public Builder alertGroupingParameters(ServiceAlertGroupingParametersArgs alertGroupingParameters) {
             return alertGroupingParameters(Output.of(alertGroupingParameters));
         }

@@ -39,6 +39,7 @@ from .get_event_orchestrations import *
 from .get_extension_schema import *
 from .get_incident_custom_field import *
 from .get_incident_workflow import *
+from .get_jira_cloud_account_mapping import *
 from .get_license import *
 from .get_licenses import *
 from .get_priority import *
@@ -60,6 +61,7 @@ from .incident_custom_field import *
 from .incident_custom_field_option import *
 from .incident_workflow import *
 from .incident_workflow_trigger import *
+from .jira_cloud_account_mapping_rule import *
 from .maintenance_window import *
 from .provider import *
 from .response_play import *
@@ -291,6 +293,14 @@ _utilities.register(
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger": "IncidentWorkflowTrigger"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/jiraCloudAccountMappingRule",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/jiraCloudAccountMappingRule:JiraCloudAccountMappingRule": "JiraCloudAccountMappingRule"
   }
  },
  {

@@ -481,6 +481,26 @@
                     }
                 }
             },
+            "pagerduty_jira_cloud_account_mapping_rule": {
+                "current": "pagerduty:index/jiraCloudAccountMappingRule:JiraCloudAccountMappingRule",
+                "majorVersion": 4,
+                "fields": {
+                    "config": {
+                        "fields": {
+                            "jira": {
+                                "fields": {
+                                    "custom_fields": {
+                                        "maxItemsOne": false
+                                    },
+                                    "priorities": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "pagerduty_maintenance_window": {
                 "current": "pagerduty:index/maintenanceWindow:MaintenanceWindow",
                 "majorVersion": 4,
@@ -1044,6 +1064,10 @@
                 "current": "pagerduty:index/getIncidentWorkflow:getIncidentWorkflow",
                 "majorVersion": 4
             },
+            "pagerduty_jira_cloud_account_mapping": {
+                "current": "pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping",
+                "majorVersion": 4
+            },
             "pagerduty_license": {
                 "current": "pagerduty:index/getLicense:getLicense",
                 "majorVersion": 4,
@@ -1217,6 +1241,7 @@
             "pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption": 0,
             "pagerduty:index/incidentWorkflow:IncidentWorkflow": 0,
             "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger": 0,
+            "pagerduty:index/jiraCloudAccountMappingRule:JiraCloudAccountMappingRule": 1,
             "pagerduty:index/maintenanceWindow:MaintenanceWindow": 0,
             "pagerduty:index/responsePlay:ResponsePlay": 0,
             "pagerduty:index/ruleset:Ruleset": 0,
@@ -1251,6 +1276,7 @@
             "pagerduty:index/getExtensionSchema:getExtensionSchema": 1,
             "pagerduty:index/getIncidentCustomField:getIncidentCustomField": 0,
             "pagerduty:index/getIncidentWorkflow:getIncidentWorkflow": 0,
+            "pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping": 1,
             "pagerduty:index/getLicense:getLicense": 1,
             "pagerduty:index/getLicenses:getLicenses": 1,
             "pagerduty:index/getPriority:getPriority": 1,

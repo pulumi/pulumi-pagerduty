@@ -34,6 +34,8 @@ import com.pulumi.pagerduty.inputs.GetIncidentCustomFieldArgs;
 import com.pulumi.pagerduty.inputs.GetIncidentCustomFieldPlainArgs;
 import com.pulumi.pagerduty.inputs.GetIncidentWorkflowArgs;
 import com.pulumi.pagerduty.inputs.GetIncidentWorkflowPlainArgs;
+import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
+import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingPlainArgs;
 import com.pulumi.pagerduty.inputs.GetLicenseArgs;
 import com.pulumi.pagerduty.inputs.GetLicensePlainArgs;
 import com.pulumi.pagerduty.inputs.GetLicensesArgs;
@@ -81,6 +83,7 @@ import com.pulumi.pagerduty.outputs.GetEventOrchestrationsResult;
 import com.pulumi.pagerduty.outputs.GetExtensionSchemaResult;
 import com.pulumi.pagerduty.outputs.GetIncidentCustomFieldResult;
 import com.pulumi.pagerduty.outputs.GetIncidentWorkflowResult;
+import com.pulumi.pagerduty.outputs.GetJiraCloudAccountMappingResult;
 import com.pulumi.pagerduty.outputs.GetLicenseResult;
 import com.pulumi.pagerduty.outputs.GetLicensesResult;
 import com.pulumi.pagerduty.outputs.GetPriorityResult;
@@ -2708,6 +2711,174 @@ public final class PagerdutyFunctions {
      */
     public static CompletableFuture<GetIncidentWorkflowResult> getIncidentWorkflowPlain(GetIncidentWorkflowPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", TypeShape.of(GetIncidentWorkflowResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var circular = PagerdutyFunctions.getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs.builder()
+     *             .name("pdt-circular")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetJiraCloudAccountMappingResult> getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs args) {
+        return getJiraCloudAccountMapping(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var circular = PagerdutyFunctions.getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs.builder()
+     *             .name("pdt-circular")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetJiraCloudAccountMappingResult> getJiraCloudAccountMappingPlain(GetJiraCloudAccountMappingPlainArgs args) {
+        return getJiraCloudAccountMappingPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var circular = PagerdutyFunctions.getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs.builder()
+     *             .name("pdt-circular")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetJiraCloudAccountMappingResult> getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping", TypeShape.of(GetJiraCloudAccountMappingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var circular = PagerdutyFunctions.getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs.builder()
+     *             .name("pdt-circular")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetJiraCloudAccountMappingResult> getJiraCloudAccountMappingPlain(GetJiraCloudAccountMappingPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping", TypeShape.of(GetJiraCloudAccountMappingResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.

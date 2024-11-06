@@ -96,7 +96,8 @@ export class Service extends pulumi.CustomResource {
     /**
      * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
      *
-     * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead
+     * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead.
+Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
      */
     public readonly alertGroupingParameters!: pulumi.Output<outputs.ServiceAlertGroupingParameters>;
     /**
@@ -233,7 +234,8 @@ export interface ServiceState {
     /**
      * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
      *
-     * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead
+     * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead.
+Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
      */
     alertGroupingParameters?: pulumi.Input<inputs.ServiceAlertGroupingParameters>;
     /**
@@ -309,7 +311,8 @@ export interface ServiceArgs {
     /**
      * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
      *
-     * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead
+     * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead.
+Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
      */
     alertGroupingParameters?: pulumi.Input<inputs.ServiceAlertGroupingParameters>;
     /**

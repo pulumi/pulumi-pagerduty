@@ -1602,6 +1602,160 @@ export interface IncidentWorkflowTriggerPermissions {
     teamId?: string;
 }
 
+export interface JiraCloudAccountMappingRuleConfig {
+    /**
+     * Synchronization settings.
+     */
+    jira?: outputs.JiraCloudAccountMappingRuleConfigJira;
+    /**
+     * [Updating can cause a resource replacement] The ID of the linked PagerDuty service.
+     */
+    service: string;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJira {
+    /**
+     * JQL query to automatically create PagerDuty incidents when matching Jira issues are created. Leave empty to disable this feature.
+     */
+    autocreateJql?: string;
+    /**
+     * When enabled, automatically creates a Jira issue whenever a PagerDuty incident is triggered.
+     */
+    createIssueOnIncidentTrigger: boolean;
+    /**
+     * Defines how Jira fields are populated when a Jira Issue is created from a PagerDuty Incident.
+     */
+    customFields?: outputs.JiraCloudAccountMappingRuleConfigJiraCustomField[];
+    /**
+     * Specifies the Jira issue type to be created or synchronized with PagerDuty incidents.
+     */
+    issueType?: outputs.JiraCloudAccountMappingRuleConfigJiraIssueType;
+    /**
+     * Maps PagerDuty incident priorities to Jira issue priorities for synchronization.
+     */
+    priorities?: outputs.JiraCloudAccountMappingRuleConfigJiraPriority[];
+    /**
+     * [Updating can cause a resource replacement] Defines the Jira project where issues will be created or synchronized.
+     */
+    project?: outputs.JiraCloudAccountMappingRuleConfigJiraProject;
+    /**
+     * Maps PagerDuty incident statuses to corresponding Jira issue statuses for synchronization.
+     */
+    statusMapping?: outputs.JiraCloudAccountMappingRuleConfigJiraStatusMapping;
+    /**
+     * ID of the PagerDuty user for syncing notes and comments between Jira issues and PagerDuty incidents. If not provided, note synchronization is disabled.
+     */
+    syncNotesUser?: string;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJiraCustomField {
+    /**
+     * The PagerDuty incident field from which the value will be extracted (only applicable if `type` is `attribute`); one of `incidentNumber`, `incidentTitle`, `incidentDescription`, `incidentStatus`, `incidentCreatedAt`, `incidentService`, `incidentEscalationPolicy`, `incidentImpactedServices`, `incidentHtmlUrl`, `incidentAssignees`, `incidentAcknowledgers`, `incidentLastStatusChangeAt`, `incidentLastStatusChangeBy`, `incidentUrgency` or `incidentPriority`.
+     */
+    sourceIncidentField?: string;
+    /**
+     * The unique identifier key of the Jira field that will be set.
+     */
+    targetIssueField: string;
+    /**
+     * The human-readable name of the Jira field.
+     */
+    targetIssueFieldName: string;
+    /**
+     * The type of the value that will be set; one of `attribute`, `const` or `jiraValue`.
+     */
+    type: string;
+    /**
+     * The value to be set for the Jira field (only applicable if `type` is `const` or `jiraValue`). It must be set as a JSON string.
+     */
+    value?: string;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJiraIssueType {
+    /**
+     * Unique identifier for the Jira issue type.
+     */
+    id: string;
+    /**
+     * The name of the Jira issue type.
+     */
+    name: string;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJiraPriority {
+    /**
+     * The ID of the Jira priority.
+     */
+    jiraId: string;
+    /**
+     * The ID of the PagerDuty priority.
+     */
+    pagerdutyId: string;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJiraProject {
+    /**
+     * Unique identifier for the Jira project.
+     */
+    id: string;
+    /**
+     * The short key name of the Jira project.
+     */
+    key: string;
+    /**
+     * The name of the Jira project.
+     */
+    name: string;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJiraStatusMapping {
+    /**
+     * Jira status that maps to the PagerDuty `acknowledged` status.
+     */
+    acknowledged?: outputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged;
+    /**
+     * Jira status that maps to the PagerDuty `resolved` status.
+     */
+    resolved?: outputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved;
+    /**
+     * Jira status that maps to the PagerDuty `triggered` status.
+     */
+    triggered?: outputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged {
+    /**
+     * Unique identifier for the Jira status.
+     */
+    id?: string;
+    /**
+     * Name of the Jira status.
+     */
+    name?: string;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved {
+    /**
+     * Unique identifier for the Jira status.
+     */
+    id?: string;
+    /**
+     * Name of the Jira status.
+     */
+    name?: string;
+}
+
+export interface JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered {
+    /**
+     * Unique identifier for the Jira status.
+     */
+    id: string;
+    /**
+     * Name of the Jira status.
+     */
+    name: string;
+}
+
 export interface ResponsePlayResponder {
     /**
      * Description of escalation policy
@@ -2501,12 +2655,12 @@ export interface SlackConnectionConfig {
     events: string[];
     /**
      * Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.
-     * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+     * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behavior is to set `priorities` to `No Priority` value.
      * - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
      */
     priorities?: string[];
     /**
-     * Allows you to filter events by urgency. Either `high` or `low`.
+     * Allows you to filter events by urgency. Either `high`, `low` or `null` for Any urgency. Default is `null`.
      */
     urgency?: string;
 }

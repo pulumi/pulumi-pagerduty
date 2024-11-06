@@ -175,6 +175,11 @@ export const getIncidentWorkflow: typeof import("./getIncidentWorkflow").getInci
 export const getIncidentWorkflowOutput: typeof import("./getIncidentWorkflow").getIncidentWorkflowOutput = null as any;
 utilities.lazyLoad(exports, ["getIncidentWorkflow","getIncidentWorkflowOutput"], () => require("./getIncidentWorkflow"));
 
+export { GetJiraCloudAccountMappingArgs, GetJiraCloudAccountMappingResult, GetJiraCloudAccountMappingOutputArgs } from "./getJiraCloudAccountMapping";
+export const getJiraCloudAccountMapping: typeof import("./getJiraCloudAccountMapping").getJiraCloudAccountMapping = null as any;
+export const getJiraCloudAccountMappingOutput: typeof import("./getJiraCloudAccountMapping").getJiraCloudAccountMappingOutput = null as any;
+utilities.lazyLoad(exports, ["getJiraCloudAccountMapping","getJiraCloudAccountMappingOutput"], () => require("./getJiraCloudAccountMapping"));
+
 export { GetLicenseArgs, GetLicenseResult, GetLicenseOutputArgs } from "./getLicense";
 export const getLicense: typeof import("./getLicense").getLicense = null as any;
 export const getLicenseOutput: typeof import("./getLicense").getLicenseOutput = null as any;
@@ -279,6 +284,11 @@ export { IncidentWorkflowTriggerArgs, IncidentWorkflowTriggerState } from "./inc
 export type IncidentWorkflowTrigger = import("./incidentWorkflowTrigger").IncidentWorkflowTrigger;
 export const IncidentWorkflowTrigger: typeof import("./incidentWorkflowTrigger").IncidentWorkflowTrigger = null as any;
 utilities.lazyLoad(exports, ["IncidentWorkflowTrigger"], () => require("./incidentWorkflowTrigger"));
+
+export { JiraCloudAccountMappingRuleArgs, JiraCloudAccountMappingRuleState } from "./jiraCloudAccountMappingRule";
+export type JiraCloudAccountMappingRule = import("./jiraCloudAccountMappingRule").JiraCloudAccountMappingRule;
+export const JiraCloudAccountMappingRule: typeof import("./jiraCloudAccountMappingRule").JiraCloudAccountMappingRule = null as any;
+utilities.lazyLoad(exports, ["JiraCloudAccountMappingRule"], () => require("./jiraCloudAccountMappingRule"));
 
 export { MaintenanceWindowArgs, MaintenanceWindowState } from "./maintenanceWindow";
 export type MaintenanceWindow = import("./maintenanceWindow").MaintenanceWindow;
@@ -444,6 +454,8 @@ const _module = {
                 return new IncidentWorkflow(name, <any>undefined, { urn })
             case "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger":
                 return new IncidentWorkflowTrigger(name, <any>undefined, { urn })
+            case "pagerduty:index/jiraCloudAccountMappingRule:JiraCloudAccountMappingRule":
+                return new JiraCloudAccountMappingRule(name, <any>undefined, { urn })
             case "pagerduty:index/maintenanceWindow:MaintenanceWindow":
                 return new MaintenanceWindow(name, <any>undefined, { urn })
             case "pagerduty:index/responsePlay:ResponsePlay":
@@ -512,6 +524,7 @@ pulumi.runtime.registerResourceModule("pagerduty", "index/incidentCustomField", 
 pulumi.runtime.registerResourceModule("pagerduty", "index/incidentCustomFieldOption", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/incidentWorkflow", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/incidentWorkflowTrigger", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/jiraCloudAccountMappingRule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/maintenanceWindow", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/responsePlay", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/ruleset", _module)

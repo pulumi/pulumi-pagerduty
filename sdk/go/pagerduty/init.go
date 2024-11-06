@@ -71,6 +71,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IncidentWorkflow{}
 	case "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger":
 		r = &IncidentWorkflowTrigger{}
+	case "pagerduty:index/jiraCloudAccountMappingRule:JiraCloudAccountMappingRule":
+		r = &JiraCloudAccountMappingRule{}
 	case "pagerduty:index/maintenanceWindow:MaintenanceWindow":
 		r = &MaintenanceWindow{}
 	case "pagerduty:index/responsePlay:ResponsePlay":
@@ -263,6 +265,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"pagerduty",
 		"index/incidentWorkflowTrigger",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/jiraCloudAccountMappingRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

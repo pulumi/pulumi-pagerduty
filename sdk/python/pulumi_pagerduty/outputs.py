@@ -88,6 +88,16 @@ __all__ = [
     'IncidentWorkflowStepInlineStepsInputStepInput',
     'IncidentWorkflowStepInput',
     'IncidentWorkflowTriggerPermissions',
+    'JiraCloudAccountMappingRuleConfig',
+    'JiraCloudAccountMappingRuleConfigJira',
+    'JiraCloudAccountMappingRuleConfigJiraCustomField',
+    'JiraCloudAccountMappingRuleConfigJiraIssueType',
+    'JiraCloudAccountMappingRuleConfigJiraPriority',
+    'JiraCloudAccountMappingRuleConfigJiraProject',
+    'JiraCloudAccountMappingRuleConfigJiraStatusMapping',
+    'JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged',
+    'JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved',
+    'JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered',
     'ResponsePlayResponder',
     'ResponsePlayResponderEscalationRule',
     'ResponsePlayResponderEscalationRuleTarget',
@@ -3976,6 +3986,502 @@ class IncidentWorkflowTriggerPermissions(dict):
 
 
 @pulumi.output_type
+class JiraCloudAccountMappingRuleConfig(dict):
+    def __init__(__self__, *,
+                 service: str,
+                 jira: Optional['outputs.JiraCloudAccountMappingRuleConfigJira'] = None):
+        """
+        :param str service: [Updating can cause a resource replacement] The ID of the linked PagerDuty service.
+        :param 'JiraCloudAccountMappingRuleConfigJiraArgs' jira: Synchronization settings.
+        """
+        pulumi.set(__self__, "service", service)
+        if jira is not None:
+            pulumi.set(__self__, "jira", jira)
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        """
+        [Updating can cause a resource replacement] The ID of the linked PagerDuty service.
+        """
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def jira(self) -> Optional['outputs.JiraCloudAccountMappingRuleConfigJira']:
+        """
+        Synchronization settings.
+        """
+        return pulumi.get(self, "jira")
+
+
+@pulumi.output_type
+class JiraCloudAccountMappingRuleConfigJira(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autocreateJql":
+            suggest = "autocreate_jql"
+        elif key == "createIssueOnIncidentTrigger":
+            suggest = "create_issue_on_incident_trigger"
+        elif key == "customFields":
+            suggest = "custom_fields"
+        elif key == "issueType":
+            suggest = "issue_type"
+        elif key == "statusMapping":
+            suggest = "status_mapping"
+        elif key == "syncNotesUser":
+            suggest = "sync_notes_user"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JiraCloudAccountMappingRuleConfigJira. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JiraCloudAccountMappingRuleConfigJira.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JiraCloudAccountMappingRuleConfigJira.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 autocreate_jql: Optional[str] = None,
+                 create_issue_on_incident_trigger: Optional[bool] = None,
+                 custom_fields: Optional[Sequence['outputs.JiraCloudAccountMappingRuleConfigJiraCustomField']] = None,
+                 issue_type: Optional['outputs.JiraCloudAccountMappingRuleConfigJiraIssueType'] = None,
+                 priorities: Optional[Sequence['outputs.JiraCloudAccountMappingRuleConfigJiraPriority']] = None,
+                 project: Optional['outputs.JiraCloudAccountMappingRuleConfigJiraProject'] = None,
+                 status_mapping: Optional['outputs.JiraCloudAccountMappingRuleConfigJiraStatusMapping'] = None,
+                 sync_notes_user: Optional[str] = None):
+        """
+        :param str autocreate_jql: JQL query to automatically create PagerDuty incidents when matching Jira issues are created. Leave empty to disable this feature.
+        :param bool create_issue_on_incident_trigger: When enabled, automatically creates a Jira issue whenever a PagerDuty incident is triggered.
+        :param Sequence['JiraCloudAccountMappingRuleConfigJiraCustomFieldArgs'] custom_fields: Defines how Jira fields are populated when a Jira Issue is created from a PagerDuty Incident.
+        :param 'JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs' issue_type: Specifies the Jira issue type to be created or synchronized with PagerDuty incidents.
+        :param Sequence['JiraCloudAccountMappingRuleConfigJiraPriorityArgs'] priorities: Maps PagerDuty incident priorities to Jira issue priorities for synchronization.
+        :param 'JiraCloudAccountMappingRuleConfigJiraProjectArgs' project: [Updating can cause a resource replacement] Defines the Jira project where issues will be created or synchronized.
+        :param 'JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs' status_mapping: Maps PagerDuty incident statuses to corresponding Jira issue statuses for synchronization.
+        :param str sync_notes_user: ID of the PagerDuty user for syncing notes and comments between Jira issues and PagerDuty incidents. If not provided, note synchronization is disabled.
+        """
+        if autocreate_jql is not None:
+            pulumi.set(__self__, "autocreate_jql", autocreate_jql)
+        if create_issue_on_incident_trigger is not None:
+            pulumi.set(__self__, "create_issue_on_incident_trigger", create_issue_on_incident_trigger)
+        if custom_fields is not None:
+            pulumi.set(__self__, "custom_fields", custom_fields)
+        if issue_type is not None:
+            pulumi.set(__self__, "issue_type", issue_type)
+        if priorities is not None:
+            pulumi.set(__self__, "priorities", priorities)
+        if project is not None:
+            pulumi.set(__self__, "project", project)
+        if status_mapping is not None:
+            pulumi.set(__self__, "status_mapping", status_mapping)
+        if sync_notes_user is not None:
+            pulumi.set(__self__, "sync_notes_user", sync_notes_user)
+
+    @property
+    @pulumi.getter(name="autocreateJql")
+    def autocreate_jql(self) -> Optional[str]:
+        """
+        JQL query to automatically create PagerDuty incidents when matching Jira issues are created. Leave empty to disable this feature.
+        """
+        return pulumi.get(self, "autocreate_jql")
+
+    @property
+    @pulumi.getter(name="createIssueOnIncidentTrigger")
+    def create_issue_on_incident_trigger(self) -> Optional[bool]:
+        """
+        When enabled, automatically creates a Jira issue whenever a PagerDuty incident is triggered.
+        """
+        return pulumi.get(self, "create_issue_on_incident_trigger")
+
+    @property
+    @pulumi.getter(name="customFields")
+    def custom_fields(self) -> Optional[Sequence['outputs.JiraCloudAccountMappingRuleConfigJiraCustomField']]:
+        """
+        Defines how Jira fields are populated when a Jira Issue is created from a PagerDuty Incident.
+        """
+        return pulumi.get(self, "custom_fields")
+
+    @property
+    @pulumi.getter(name="issueType")
+    def issue_type(self) -> Optional['outputs.JiraCloudAccountMappingRuleConfigJiraIssueType']:
+        """
+        Specifies the Jira issue type to be created or synchronized with PagerDuty incidents.
+        """
+        return pulumi.get(self, "issue_type")
+
+    @property
+    @pulumi.getter
+    def priorities(self) -> Optional[Sequence['outputs.JiraCloudAccountMappingRuleConfigJiraPriority']]:
+        """
+        Maps PagerDuty incident priorities to Jira issue priorities for synchronization.
+        """
+        return pulumi.get(self, "priorities")
+
+    @property
+    @pulumi.getter
+    def project(self) -> Optional['outputs.JiraCloudAccountMappingRuleConfigJiraProject']:
+        """
+        [Updating can cause a resource replacement] Defines the Jira project where issues will be created or synchronized.
+        """
+        return pulumi.get(self, "project")
+
+    @property
+    @pulumi.getter(name="statusMapping")
+    def status_mapping(self) -> Optional['outputs.JiraCloudAccountMappingRuleConfigJiraStatusMapping']:
+        """
+        Maps PagerDuty incident statuses to corresponding Jira issue statuses for synchronization.
+        """
+        return pulumi.get(self, "status_mapping")
+
+    @property
+    @pulumi.getter(name="syncNotesUser")
+    def sync_notes_user(self) -> Optional[str]:
+        """
+        ID of the PagerDuty user for syncing notes and comments between Jira issues and PagerDuty incidents. If not provided, note synchronization is disabled.
+        """
+        return pulumi.get(self, "sync_notes_user")
+
+
+@pulumi.output_type
+class JiraCloudAccountMappingRuleConfigJiraCustomField(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetIssueField":
+            suggest = "target_issue_field"
+        elif key == "targetIssueFieldName":
+            suggest = "target_issue_field_name"
+        elif key == "sourceIncidentField":
+            suggest = "source_incident_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JiraCloudAccountMappingRuleConfigJiraCustomField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JiraCloudAccountMappingRuleConfigJiraCustomField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JiraCloudAccountMappingRuleConfigJiraCustomField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_issue_field: str,
+                 target_issue_field_name: str,
+                 type: str,
+                 source_incident_field: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str target_issue_field: The unique identifier key of the Jira field that will be set.
+        :param str target_issue_field_name: The human-readable name of the Jira field.
+        :param str type: The type of the value that will be set; one of `attribute`, `const` or `jira_value`.
+        :param str source_incident_field: The PagerDuty incident field from which the value will be extracted (only applicable if `type` is `attribute`); one of `incident_number`, `incident_title`, `incident_description`, `incident_status`, `incident_created_at`, `incident_service`, `incident_escalation_policy`, `incident_impacted_services`, `incident_html_url`, `incident_assignees`, `incident_acknowledgers`, `incident_last_status_change_at`, `incident_last_status_change_by`, `incident_urgency` or `incident_priority`.
+        :param str value: The value to be set for the Jira field (only applicable if `type` is `const` or `jira_value`). It must be set as a JSON string.
+        """
+        pulumi.set(__self__, "target_issue_field", target_issue_field)
+        pulumi.set(__self__, "target_issue_field_name", target_issue_field_name)
+        pulumi.set(__self__, "type", type)
+        if source_incident_field is not None:
+            pulumi.set(__self__, "source_incident_field", source_incident_field)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="targetIssueField")
+    def target_issue_field(self) -> str:
+        """
+        The unique identifier key of the Jira field that will be set.
+        """
+        return pulumi.get(self, "target_issue_field")
+
+    @property
+    @pulumi.getter(name="targetIssueFieldName")
+    def target_issue_field_name(self) -> str:
+        """
+        The human-readable name of the Jira field.
+        """
+        return pulumi.get(self, "target_issue_field_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the value that will be set; one of `attribute`, `const` or `jira_value`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="sourceIncidentField")
+    def source_incident_field(self) -> Optional[str]:
+        """
+        The PagerDuty incident field from which the value will be extracted (only applicable if `type` is `attribute`); one of `incident_number`, `incident_title`, `incident_description`, `incident_status`, `incident_created_at`, `incident_service`, `incident_escalation_policy`, `incident_impacted_services`, `incident_html_url`, `incident_assignees`, `incident_acknowledgers`, `incident_last_status_change_at`, `incident_last_status_change_by`, `incident_urgency` or `incident_priority`.
+        """
+        return pulumi.get(self, "source_incident_field")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value to be set for the Jira field (only applicable if `type` is `const` or `jira_value`). It must be set as a JSON string.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JiraCloudAccountMappingRuleConfigJiraIssueType(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: str):
+        """
+        :param str id: Unique identifier for the Jira issue type.
+        :param str name: The name of the Jira issue type.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Unique identifier for the Jira issue type.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Jira issue type.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class JiraCloudAccountMappingRuleConfigJiraPriority(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jiraId":
+            suggest = "jira_id"
+        elif key == "pagerdutyId":
+            suggest = "pagerduty_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JiraCloudAccountMappingRuleConfigJiraPriority. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JiraCloudAccountMappingRuleConfigJiraPriority.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JiraCloudAccountMappingRuleConfigJiraPriority.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 jira_id: str,
+                 pagerduty_id: str):
+        """
+        :param str jira_id: The ID of the Jira priority.
+        :param str pagerduty_id: The ID of the PagerDuty priority.
+        """
+        pulumi.set(__self__, "jira_id", jira_id)
+        pulumi.set(__self__, "pagerduty_id", pagerduty_id)
+
+    @property
+    @pulumi.getter(name="jiraId")
+    def jira_id(self) -> str:
+        """
+        The ID of the Jira priority.
+        """
+        return pulumi.get(self, "jira_id")
+
+    @property
+    @pulumi.getter(name="pagerdutyId")
+    def pagerduty_id(self) -> str:
+        """
+        The ID of the PagerDuty priority.
+        """
+        return pulumi.get(self, "pagerduty_id")
+
+
+@pulumi.output_type
+class JiraCloudAccountMappingRuleConfigJiraProject(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 key: str,
+                 name: str):
+        """
+        :param str id: Unique identifier for the Jira project.
+        :param str key: The short key name of the Jira project.
+        :param str name: The name of the Jira project.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Unique identifier for the Jira project.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The short key name of the Jira project.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Jira project.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class JiraCloudAccountMappingRuleConfigJiraStatusMapping(dict):
+    def __init__(__self__, *,
+                 acknowledged: Optional['outputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged'] = None,
+                 resolved: Optional['outputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved'] = None,
+                 triggered: Optional['outputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered'] = None):
+        """
+        :param 'JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs' acknowledged: Jira status that maps to the PagerDuty `acknowledged` status.
+        :param 'JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs' resolved: Jira status that maps to the PagerDuty `resolved` status.
+        :param 'JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs' triggered: Jira status that maps to the PagerDuty `triggered` status.
+        """
+        if acknowledged is not None:
+            pulumi.set(__self__, "acknowledged", acknowledged)
+        if resolved is not None:
+            pulumi.set(__self__, "resolved", resolved)
+        if triggered is not None:
+            pulumi.set(__self__, "triggered", triggered)
+
+    @property
+    @pulumi.getter
+    def acknowledged(self) -> Optional['outputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged']:
+        """
+        Jira status that maps to the PagerDuty `acknowledged` status.
+        """
+        return pulumi.get(self, "acknowledged")
+
+    @property
+    @pulumi.getter
+    def resolved(self) -> Optional['outputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved']:
+        """
+        Jira status that maps to the PagerDuty `resolved` status.
+        """
+        return pulumi.get(self, "resolved")
+
+    @property
+    @pulumi.getter
+    def triggered(self) -> Optional['outputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered']:
+        """
+        Jira status that maps to the PagerDuty `triggered` status.
+        """
+        return pulumi.get(self, "triggered")
+
+
+@pulumi.output_type
+class JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str id: Unique identifier for the Jira status.
+        :param str name: Name of the Jira status.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Unique identifier for the Jira status.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the Jira status.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str id: Unique identifier for the Jira status.
+        :param str name: Name of the Jira status.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Unique identifier for the Jira status.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the Jira status.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: str):
+        """
+        :param str id: Unique identifier for the Jira status.
+        :param str name: Name of the Jira status.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Unique identifier for the Jira status.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Jira status.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class ResponsePlayResponder(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -6965,9 +7471,9 @@ class SlackConnectionConfig(dict):
                - `incident.status_update_published`
                - `incident.reopened`
         :param Sequence[str] priorities: Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through get_priority data source.
-               - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+               - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behavior is to set `priorities` to `No Priority` value.
                - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
-        :param str urgency: Allows you to filter events by urgency. Either `high` or `low`.
+        :param str urgency: Allows you to filter events by urgency. Either `high`, `low` or `null` for Any urgency. Default is `null`.
         """
         pulumi.set(__self__, "events", events)
         if priorities is not None:
@@ -7000,7 +7506,7 @@ class SlackConnectionConfig(dict):
     def priorities(self) -> Optional[Sequence[str]]:
         """
         Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through get_priority data source.
-        - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+        - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behavior is to set `priorities` to `No Priority` value.
         - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
         """
         return pulumi.get(self, "priorities")
@@ -7009,7 +7515,7 @@ class SlackConnectionConfig(dict):
     @pulumi.getter
     def urgency(self) -> Optional[str]:
         """
-        Allows you to filter events by urgency. Either `high` or `low`.
+        Allows you to filter events by urgency. Either `high`, `low` or `null` for Any urgency. Default is `null`.
         """
         return pulumi.get(self, "urgency")
 

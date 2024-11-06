@@ -1895,6 +1895,218 @@
                 }
             }
         },
+        "pagerduty:index/JiraCloudAccountMappingRuleConfig:JiraCloudAccountMappingRuleConfig": {
+            "properties": {
+                "jira": {
+                    "$ref": "#/types/pagerduty:index/JiraCloudAccountMappingRuleConfigJira:JiraCloudAccountMappingRuleConfigJira",
+                    "description": "Synchronization settings.\n"
+                },
+                "service": {
+                    "type": "string",
+                    "description": "[Updating can cause a resource replacement] The ID of the linked PagerDuty service.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "service"
+            ]
+        },
+        "pagerduty:index/JiraCloudAccountMappingRuleConfigJira:JiraCloudAccountMappingRuleConfigJira": {
+            "properties": {
+                "autocreateJql": {
+                    "type": "string",
+                    "description": "JQL query to automatically create PagerDuty incidents when matching Jira issues are created. Leave empty to disable this feature.\n"
+                },
+                "createIssueOnIncidentTrigger": {
+                    "type": "boolean",
+                    "description": "When enabled, automatically creates a Jira issue whenever a PagerDuty incident is triggered.\n"
+                },
+                "customFields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/JiraCloudAccountMappingRuleConfigJiraCustomField:JiraCloudAccountMappingRuleConfigJiraCustomField"
+                    },
+                    "description": "Defines how Jira fields are populated when a Jira Issue is created from a PagerDuty Incident.\n"
+                },
+                "issueType": {
+                    "$ref": "#/types/pagerduty:index/JiraCloudAccountMappingRuleConfigJiraIssueType:JiraCloudAccountMappingRuleConfigJiraIssueType",
+                    "description": "Specifies the Jira issue type to be created or synchronized with PagerDuty incidents.\n"
+                },
+                "priorities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/JiraCloudAccountMappingRuleConfigJiraPriority:JiraCloudAccountMappingRuleConfigJiraPriority"
+                    },
+                    "description": "Maps PagerDuty incident priorities to Jira issue priorities for synchronization.\n"
+                },
+                "project": {
+                    "$ref": "#/types/pagerduty:index/JiraCloudAccountMappingRuleConfigJiraProject:JiraCloudAccountMappingRuleConfigJiraProject",
+                    "description": "[Updating can cause a resource replacement] Defines the Jira project where issues will be created or synchronized.\n"
+                },
+                "statusMapping": {
+                    "$ref": "#/types/pagerduty:index/JiraCloudAccountMappingRuleConfigJiraStatusMapping:JiraCloudAccountMappingRuleConfigJiraStatusMapping",
+                    "description": "Maps PagerDuty incident statuses to corresponding Jira issue statuses for synchronization.\n"
+                },
+                "syncNotesUser": {
+                    "type": "string",
+                    "description": "ID of the PagerDuty user for syncing notes and comments between Jira issues and PagerDuty incidents. If not provided, note synchronization is disabled.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "createIssueOnIncidentTrigger"
+                    ]
+                }
+            }
+        },
+        "pagerduty:index/JiraCloudAccountMappingRuleConfigJiraCustomField:JiraCloudAccountMappingRuleConfigJiraCustomField": {
+            "properties": {
+                "sourceIncidentField": {
+                    "type": "string",
+                    "description": "The PagerDuty incident field from which the value will be extracted (only applicable if `type` is `attribute`); one of `incident_number`, `incident_title`, `incident_description`, `incident_status`, `incident_created_at`, `incident_service`, `incident_escalation_policy`, `incident_impacted_services`, `incident_html_url`, `incident_assignees`, `incident_acknowledgers`, `incident_last_status_change_at`, `incident_last_status_change_by`, `incident_urgency` or `incident_priority`.\n"
+                },
+                "targetIssueField": {
+                    "type": "string",
+                    "description": "The unique identifier key of the Jira field that will be set.\n"
+                },
+                "targetIssueFieldName": {
+                    "type": "string",
+                    "description": "The human-readable name of the Jira field.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the value that will be set; one of `attribute`, `const` or `jira_value`.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value to be set for the Jira field (only applicable if `type` is `const` or `jira_value`). It must be set as a JSON string.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "targetIssueField",
+                "targetIssueFieldName",
+                "type"
+            ]
+        },
+        "pagerduty:index/JiraCloudAccountMappingRuleConfigJiraIssueType:JiraCloudAccountMappingRuleConfigJiraIssueType": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier for the Jira issue type.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Jira issue type.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "name"
+            ]
+        },
+        "pagerduty:index/JiraCloudAccountMappingRuleConfigJiraPriority:JiraCloudAccountMappingRuleConfigJiraPriority": {
+            "properties": {
+                "jiraId": {
+                    "type": "string",
+                    "description": "The ID of the Jira priority.\n"
+                },
+                "pagerdutyId": {
+                    "type": "string",
+                    "description": "The ID of the PagerDuty priority.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "jiraId",
+                "pagerdutyId"
+            ]
+        },
+        "pagerduty:index/JiraCloudAccountMappingRuleConfigJiraProject:JiraCloudAccountMappingRuleConfigJiraProject": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier for the Jira project.\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The short key name of the Jira project.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Jira project.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "key",
+                "name"
+            ]
+        },
+        "pagerduty:index/JiraCloudAccountMappingRuleConfigJiraStatusMapping:JiraCloudAccountMappingRuleConfigJiraStatusMapping": {
+            "properties": {
+                "acknowledged": {
+                    "$ref": "#/types/pagerduty:index/JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged:JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged",
+                    "description": "Jira status that maps to the PagerDuty `acknowledged` status.\n"
+                },
+                "resolved": {
+                    "$ref": "#/types/pagerduty:index/JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved:JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved",
+                    "description": "Jira status that maps to the PagerDuty `resolved` status.\n"
+                },
+                "triggered": {
+                    "$ref": "#/types/pagerduty:index/JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered:JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered",
+                    "description": "Jira status that maps to the PagerDuty `triggered` status.\n"
+                }
+            },
+            "type": "object"
+        },
+        "pagerduty:index/JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged:JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier for the Jira status.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Jira status.\n"
+                }
+            },
+            "type": "object"
+        },
+        "pagerduty:index/JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved:JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier for the Jira status.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Jira status.\n"
+                }
+            },
+            "type": "object"
+        },
+        "pagerduty:index/JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered:JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier for the Jira status.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Jira status.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "name"
+            ]
+        },
         "pagerduty:index/ProviderUseAppOauthScopedToken:ProviderUseAppOauthScopedToken": {
             "properties": {
                 "pdClientId": {
@@ -3191,11 +3403,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.\n- When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.\n- When set to `[\"*\"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.\n"
+                    "description": "Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.\n- When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behavior is to set `priorities` to `No Priority` value.\n- When set to `[\"*\"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.\n"
                 },
                 "urgency": {
                     "type": "string",
-                    "description": "Allows you to filter events by urgency. Either `high` or `low`.\n"
+                    "description": "Allows you to filter events by urgency. Either `high`, `low` or `null` for Any urgency. Default is `null`.\n"
                 }
             },
             "type": "object",
@@ -6224,6 +6436,80 @@
                 "type": "object"
             }
         },
+        "pagerduty:index/jiraCloudAccountMappingRule:JiraCloudAccountMappingRule": {
+            "description": "An Jira Cloud's account mapping [rule](https://developer.pagerduty.com/api-reference/85dc30ba966a6-create-a-rule)\nconfigures the bidirectional synchronization between Jira issues and PagerDuty\nincidents.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetEscalationPolicyArgs;\nimport com.pulumi.pagerduty.inputs.GetPriorityArgs;\nimport com.pulumi.pagerduty.Service;\nimport com.pulumi.pagerduty.ServiceArgs;\nimport com.pulumi.pagerduty.User;\nimport com.pulumi.pagerduty.UserArgs;\nimport com.pulumi.pagerduty.JiraCloudAccountMappingRule;\nimport com.pulumi.pagerduty.JiraCloudAccountMappingRuleArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var default = PagerdutyFunctions.getEscalationPolicy(GetEscalationPolicyArgs.builder()\n            .name(\"Default\")\n            .build());\n\n        final var p1 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()\n            .name(\"P1\")\n            .build());\n\n        final var p2 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()\n            .name(\"P2\")\n            .build());\n\n        final var p3 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()\n            .name(\"P3\")\n            .build());\n\n        var foo = new Service(\"foo\", ServiceArgs.builder()\n            .name(\"My Web App\")\n            .escalationPolicy(default_.id())\n            .build());\n\n        var fooUser = new User(\"fooUser\", UserArgs.builder()\n            .name(\"Earline Greenholt\")\n            .email(\"125.greenholt.earline@graham.name\")\n            .build());\n\n        var fooJiraCloudAccountMappingRule = new JiraCloudAccountMappingRule(\"fooJiraCloudAccountMappingRule\", JiraCloudAccountMappingRuleArgs.builder()\n            .name(\"Integration with My Web App\")\n            .accountMapping(\"PLBP09X\")\n            .config(JiraCloudAccountMappingRuleConfigArgs.builder()\n                .service(foo.id())\n                .jira(JiraCloudAccountMappingRuleConfigJiraArgs.builder()\n                    .autocreateJql(\"priority = Highest\")\n                    .createIssueOnIncidentTrigger(true)\n                    .customFields(                    \n                        JiraCloudAccountMappingRuleConfigJiraCustomFieldArgs.builder()\n                            .sourceIncidentField(\"incident_description\")\n                            .targetIssueField(\"description\")\n                            .targetIssueFieldName(\"Description\")\n                            .type(\"attribute\")\n                            .build(),\n                        JiraCloudAccountMappingRuleConfigJiraCustomFieldArgs.builder()\n                            .targetIssueField(\"security\")\n                            .targetIssueFieldName(\"Security Level\")\n                            .type(\"jira_value\")\n                            .value(serializeJson(\n                                jsonObject(\n                                    jsonProperty(\"displayName\", \"Sec Level 1\"),\n                                    jsonProperty(\"id\", \"10000\")\n                                )))\n                            .build())\n                    .issueType(JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs.builder()\n                        .id(\"10001\")\n                        .name(\"Incident\")\n                        .build())\n                    .priorities(                    \n                        JiraCloudAccountMappingRuleConfigJiraPriorityArgs.builder()\n                            .jiraId(\"1\")\n                            .pagerdutyId(p1.applyValue(getPriorityResult -\u003e getPriorityResult.id()))\n                            .build(),\n                        JiraCloudAccountMappingRuleConfigJiraPriorityArgs.builder()\n                            .jiraId(\"2\")\n                            .pagerdutyId(p2.applyValue(getPriorityResult -\u003e getPriorityResult.id()))\n                            .build(),\n                        JiraCloudAccountMappingRuleConfigJiraPriorityArgs.builder()\n                            .jiraId(\"3\")\n                            .pagerdutyId(p3.applyValue(getPriorityResult -\u003e getPriorityResult.id()))\n                            .build())\n                    .project(JiraCloudAccountMappingRuleConfigJiraProjectArgs.builder()\n                        .id(\"10100\")\n                        .key(\"ITS\")\n                        .name(\"IT Support\")\n                        .build())\n                    .statusMapping(JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs.builder()\n                        .acknowledged(JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs.builder()\n                            .id(\"2\")\n                            .name(\"In Progress\")\n                            .build())\n                        .resolved(JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs.builder()\n                            .id(\"3\")\n                            .name(\"Resolved\")\n                            .build())\n                        .triggered(JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs.builder()\n                            .id(\"1\")\n                            .name(\"Open\")\n                            .build())\n                        .build())\n                    .syncNotesUser(fooUser.id())\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: pagerduty:Service\n    properties:\n      name: My Web App\n      escalationPolicy: ${default.id}\n  fooUser:\n    type: pagerduty:User\n    name: foo\n    properties:\n      name: Earline Greenholt\n      email: 125.greenholt.earline@graham.name\n  fooJiraCloudAccountMappingRule:\n    type: pagerduty:JiraCloudAccountMappingRule\n    name: foo\n    properties:\n      name: Integration with My Web App\n      accountMapping: PLBP09X\n      config:\n        - service: ${foo.id}\n          jira:\n            - autocreateJql: priority = Highest\n              createIssueOnIncidentTrigger: true\n              customFields:\n                - sourceIncidentField: incident_description\n                  targetIssueField: description\n                  targetIssueFieldName: Description\n                  type: attribute\n                - targetIssueField: security\n                  targetIssueFieldName: Security Level\n                  type: jira_value\n                  value:\n                    fn::toJSON:\n                      displayName: Sec Level 1\n                      id: '10000'\n              issueType:\n                - id: '10001'\n                  name: Incident\n              priorities:\n                - jiraId: '1'\n                  pagerdutyId: ${p1.id}\n                - jiraId: '2'\n                  pagerdutyId: ${p2.id}\n                - jiraId: '3'\n                  pagerdutyId: ${p3.id}\n              project:\n                - id: '10100'\n                  key: ITS\n                  name: IT Support\n              statusMapping:\n                - acknowledged:\n                    - id: '2'\n                      name: In Progress\n                  resolved:\n                    - id: '3'\n                      name: Resolved\n                  triggered:\n                    - id: '1'\n                      name: Open\n              syncNotesUser: ${fooUser.id}\nvariables:\n  default:\n    fn::invoke:\n      Function: pagerduty:getEscalationPolicy\n      Arguments:\n        name: Default\n  p1:\n    fn::invoke:\n      Function: pagerduty:getPriority\n      Arguments:\n        name: P1\n  p2:\n    fn::invoke:\n      Function: pagerduty:getPriority\n      Arguments:\n        name: P2\n  p3:\n    fn::invoke:\n      Function: pagerduty:getPriority\n      Arguments:\n        name: P3\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nJira Cloud account mapping rules can be imported using the `account_mapping_id` and `rule_id`, e.g.\n\n```sh\n$ pulumi import pagerduty:index/jiraCloudAccountMappingRule:JiraCloudAccountMappingRule main PLBP09X:PLB09Z\n```\n",
+            "properties": {
+                "accountMapping": {
+                    "type": "string",
+                    "description": "[Updating can cause a resource replacement] The account mapping this rule belongs to.\n"
+                },
+                "autocreateJqlDisabledReason": {
+                    "type": "string",
+                    "description": "If auto-creation using JQL is disabled, this field provides the reason for the disablement.\n"
+                },
+                "autocreateJqlDisabledUntil": {
+                    "type": "string",
+                    "description": "The timestamp until which the auto-creation using JQL feature is disabled.\n"
+                },
+                "config": {
+                    "$ref": "#/types/pagerduty:index/JiraCloudAccountMappingRuleConfig:JiraCloudAccountMappingRuleConfig",
+                    "description": "Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the rule.\n"
+                }
+            },
+            "required": [
+                "accountMapping",
+                "autocreateJqlDisabledReason",
+                "autocreateJqlDisabledUntil",
+                "name"
+            ],
+            "inputProperties": {
+                "accountMapping": {
+                    "type": "string",
+                    "description": "[Updating can cause a resource replacement] The account mapping this rule belongs to.\n"
+                },
+                "config": {
+                    "$ref": "#/types/pagerduty:index/JiraCloudAccountMappingRuleConfig:JiraCloudAccountMappingRuleConfig",
+                    "description": "Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the rule.\n"
+                }
+            },
+            "requiredInputs": [
+                "accountMapping"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering JiraCloudAccountMappingRule resources.\n",
+                "properties": {
+                    "accountMapping": {
+                        "type": "string",
+                        "description": "[Updating can cause a resource replacement] The account mapping this rule belongs to.\n"
+                    },
+                    "autocreateJqlDisabledReason": {
+                        "type": "string",
+                        "description": "If auto-creation using JQL is disabled, this field provides the reason for the disablement.\n"
+                    },
+                    "autocreateJqlDisabledUntil": {
+                        "type": "string",
+                        "description": "The timestamp until which the auto-creation using JQL feature is disabled.\n"
+                    },
+                    "config": {
+                        "$ref": "#/types/pagerduty:index/JiraCloudAccountMappingRuleConfig:JiraCloudAccountMappingRuleConfig",
+                        "description": "Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the rule.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "pagerduty:index/maintenanceWindow:MaintenanceWindow": {
             "description": "A [maintenance window](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE1OA-create-a-maintenance-window) is used to temporarily disable one or more services for a set period of time. No incidents will be triggered and no notifications will be received while a service is disabled by a maintenance window.\n\nMaintenance windows are specified to start at a certain time and end after they have begun. Once started, a maintenance window cannot be deleted; it can only be ended immediately to re-enable the service.\n\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst example = new pagerduty.MaintenanceWindow(\"example\", {\n    startTime: \"2015-11-09T20:00:00-05:00\",\n    endTime: \"2015-11-09T22:00:00-05:00\",\n    services: [examplePagerdutyService.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample = pagerduty.MaintenanceWindow(\"example\",\n    start_time=\"2015-11-09T20:00:00-05:00\",\n    end_time=\"2015-11-09T22:00:00-05:00\",\n    services=[example_pagerduty_service[\"id\"]])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Pagerduty.MaintenanceWindow(\"example\", new()\n    {\n        StartTime = \"2015-11-09T20:00:00-05:00\",\n        EndTime = \"2015-11-09T22:00:00-05:00\",\n        Services = new[]\n        {\n            examplePagerdutyService.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewMaintenanceWindow(ctx, \"example\", \u0026pagerduty.MaintenanceWindowArgs{\n\t\t\tStartTime: pulumi.String(\"2015-11-09T20:00:00-05:00\"),\n\t\t\tEndTime:   pulumi.String(\"2015-11-09T22:00:00-05:00\"),\n\t\t\tServices: pulumi.StringArray{\n\t\t\t\texamplePagerdutyService.Id,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.MaintenanceWindow;\nimport com.pulumi.pagerduty.MaintenanceWindowArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new MaintenanceWindow(\"example\", MaintenanceWindowArgs.builder()\n            .startTime(\"2015-11-09T20:00:00-05:00\")\n            .endTime(\"2015-11-09T22:00:00-05:00\")\n            .services(examplePagerdutyService.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: pagerduty:MaintenanceWindow\n    properties:\n      startTime: 2015-11-09T20:00:00-05:00\n      endTime: 2015-11-09T22:00:00-05:00\n      services:\n        - ${examplePagerdutyService.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nMaintenance windows can be imported using the `id`, e.g.\n\n```sh\n$ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X\n```\n",
             "properties": {
@@ -6827,7 +7113,7 @@
                 "alertGroupingParameters": {
                     "$ref": "#/types/pagerduty:index/ServiceAlertGroupingParameters:ServiceAlertGroupingParameters",
                     "description": "(Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.\n",
-                    "deprecationMessage": "Use a resource `pagerduty.AlertGroupingSetting` instead"
+                    "deprecationMessage": "Use a resource `pagerduty.AlertGroupingSetting` instead.\nFollow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters"
                 },
                 "alertGroupingTimeout": {
                     "type": "string",
@@ -6924,7 +7210,7 @@
                 "alertGroupingParameters": {
                     "$ref": "#/types/pagerduty:index/ServiceAlertGroupingParameters:ServiceAlertGroupingParameters",
                     "description": "(Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.\n",
-                    "deprecationMessage": "Use a resource `pagerduty.AlertGroupingSetting` instead"
+                    "deprecationMessage": "Use a resource `pagerduty.AlertGroupingSetting` instead.\nFollow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters"
                 },
                 "alertGroupingTimeout": {
                     "type": "string",
@@ -6990,7 +7276,7 @@
                     "alertGroupingParameters": {
                         "$ref": "#/types/pagerduty:index/ServiceAlertGroupingParameters:ServiceAlertGroupingParameters",
                         "description": "(Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.\n",
-                        "deprecationMessage": "Use a resource `pagerduty.AlertGroupingSetting` instead"
+                        "deprecationMessage": "Use a resource `pagerduty.AlertGroupingSetting` instead.\nFollow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters"
                     },
                     "alertGroupingTimeout": {
                         "type": "string",
@@ -9033,6 +9319,44 @@
                     "description",
                     "name",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping": {
+            "description": "Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var circular = PagerdutyFunctions.getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs.builder()\n            .name(\"pdt-circular\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  circular:\n    fn::invoke:\n      Function: pagerduty:getJiraCloudAccountMapping\n      Arguments:\n        name: pdt-circular\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getJiraCloudAccountMapping.\n",
+                "properties": {
+                    "subdomain": {
+                        "type": "string",
+                        "description": "The service name to use to find a service in the PagerDuty API.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "subdomain"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getJiraCloudAccountMapping.\n",
+                "properties": {
+                    "baseUrl": {
+                        "description": "The base URL of the Jira Cloud instance, used for API calls and constructing links.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The ID of the found account mapping.\n",
+                        "type": "string"
+                    },
+                    "subdomain": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "baseUrl",
+                    "id",
+                    "subdomain"
                 ],
                 "type": "object"
             }

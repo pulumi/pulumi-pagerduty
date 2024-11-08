@@ -21,7 +21,7 @@ import (
 
 	_ "embed"
 
-	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
+	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 
 	pagerduty "github.com/pulumi/pulumi-pagerduty/provider/v4"
 )

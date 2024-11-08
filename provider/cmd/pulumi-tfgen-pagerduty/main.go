@@ -15,7 +15,7 @@
 package main
 
 import (
-	pftfgen "github.com/pulumi/pulumi-terraform-bridge/pf/tfgen"
+	pftfgen "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfgen"
 
 	pagerduty "github.com/pulumi/pulumi-pagerduty/provider/v4"
 )

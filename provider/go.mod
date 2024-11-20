@@ -1,8 +1,6 @@
 module github.com/pulumi/pulumi-pagerduty/provider/v4
 
-go 1.22.0
-
-toolchain go1.22.7
+go 1.23.2
 
 require (
 	github.com/PagerDuty/terraform-provider-pagerduty v0.0.0
@@ -16,6 +14,13 @@ replace (
 	github.com/PagerDuty/terraform-provider-pagerduty => ../upstream
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240520223432-0c0bf0d65f10
 )
+
+// This replace mirrors the change made upstream[^1] (in vendor, not in go.mod)
+//
+// If the provider compiles without this change, then it should be removed.
+//
+// [^1]: https://github.com/PagerDuty/terraform-provider-pagerduty/commit/aa93eab0ecb8cda077dc04ae965c2fe504eeb19a#diff-945bfe544c6a07f81616a5d45b002a3cf8f2749dc112007d8a57a2c6e4d6f337
+replace github.com/heimweh/go-pagerduty => ../upstream/vendor/github.com/heimweh/go-pagerduty
 
 require (
 	cloud.google.com/go v0.112.1 // indirect
@@ -224,10 +229,10 @@ require (
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/xeipuuv/gojsonschema v1.2.0 // indirect
-	github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a // indirect
+	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
 	github.com/yuin/goldmark v1.7.4 // indirect
 	github.com/zclconf/go-cty v1.14.2 // indirect
-	go.mongodb.org/mongo-driver v1.13.1 // indirect
+	go.mongodb.org/mongo-driver v1.17.1 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.49.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.49.0 // indirect

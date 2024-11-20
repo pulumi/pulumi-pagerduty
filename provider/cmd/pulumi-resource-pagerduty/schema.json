@@ -4356,7 +4356,8 @@
                     "description": "The set of values used for configuration.\n"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A human-friendly text to describe and identify this alert grouping setting.\n"
                 },
                 "name": {
                     "type": "string",
@@ -4386,7 +4387,8 @@
                     "description": "The set of values used for configuration.\n"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A human-friendly text to describe and identify this alert grouping setting.\n"
                 },
                 "name": {
                     "type": "string",
@@ -4416,7 +4418,8 @@
                         "description": "The set of values used for configuration.\n"
                     },
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "A human-friendly text to describe and identify this alert grouping setting.\n"
                     },
                     "name": {
                         "type": "string",
@@ -4468,6 +4471,9 @@
                     "type": "string",
                     "description": "The name of the action. Max length is 255 characters.\n"
                 },
+                "onlyInvocableOnUnresolvedIncidents": {
+                    "type": "boolean"
+                },
                 "runnerId": {
                     "type": "string",
                     "description": "The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.\n"
@@ -4487,6 +4493,7 @@
                 "creationTime",
                 "modifyTime",
                 "name",
+                "onlyInvocableOnUnresolvedIncidents",
                 "runnerType",
                 "type"
             ],
@@ -4519,6 +4526,9 @@
                 "name": {
                     "type": "string",
                     "description": "The name of the action. Max length is 255 characters.\n"
+                },
+                "onlyInvocableOnUnresolvedIncidents": {
+                    "type": "boolean"
                 },
                 "runnerId": {
                     "type": "string",
@@ -4568,6 +4578,9 @@
                     "name": {
                         "type": "string",
                         "description": "The name of the action. Max length is 255 characters.\n"
+                    },
+                    "onlyInvocableOnUnresolvedIncidents": {
+                        "type": "boolean"
                     },
                     "runnerId": {
                         "type": "string",
@@ -8699,6 +8712,10 @@
                         "type": "string",
                         "description": "(Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.\n"
                     },
+                    "onlyInvocableOnUnresolvedIncidents": {
+                        "type": "boolean",
+                        "description": "(Optional) Whether or not the action can be invoked on unresolved incidents.\n"
+                    },
                     "runnerId": {
                         "type": "string",
                         "description": "(Optional) The Process Automation Actions runner to associate the action with.\n"
@@ -8755,6 +8772,10 @@
                         "description": "The name of the action.\n",
                         "type": "string"
                     },
+                    "onlyInvocableOnUnresolvedIncidents": {
+                        "description": "(Optional) Whether or not the action can be invoked on unresolved incidents.\n",
+                        "type": "boolean"
+                    },
                     "runnerId": {
                         "description": "(Optional) The Process Automation Actions runner to associate the action with.\n",
                         "type": "string"
@@ -8777,6 +8798,7 @@
                     "id",
                     "modifyTime",
                     "name",
+                    "onlyInvocableOnUnresolvedIncidents",
                     "runnerId",
                     "runnerType",
                     "type"

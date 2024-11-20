@@ -28,6 +28,7 @@ export function getAutomationActionsAction(args: GetAutomationActionsActionArgs,
         "description": args.description,
         "id": args.id,
         "modifyTime": args.modifyTime,
+        "onlyInvocableOnUnresolvedIncidents": args.onlyInvocableOnUnresolvedIncidents,
         "runnerId": args.runnerId,
         "runnerType": args.runnerType,
         "type": args.type,
@@ -58,6 +59,10 @@ export interface GetAutomationActionsActionArgs {
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      */
     modifyTime?: string;
+    /**
+     * (Optional) Whether or not the action can be invoked on unresolved incidents.
+     */
+    onlyInvocableOnUnresolvedIncidents?: boolean;
     /**
      * (Optional) The Process Automation Actions runner to associate the action with.
      */
@@ -109,6 +114,10 @@ export interface GetAutomationActionsActionResult {
      */
     readonly name: string;
     /**
+     * (Optional) Whether or not the action can be invoked on unresolved incidents.
+     */
+    readonly onlyInvocableOnUnresolvedIncidents: boolean;
+    /**
      * (Optional) The Process Automation Actions runner to associate the action with.
      */
     readonly runnerId: string;
@@ -143,6 +152,7 @@ export function getAutomationActionsActionOutput(args: GetAutomationActionsActio
         "description": args.description,
         "id": args.id,
         "modifyTime": args.modifyTime,
+        "onlyInvocableOnUnresolvedIncidents": args.onlyInvocableOnUnresolvedIncidents,
         "runnerId": args.runnerId,
         "runnerType": args.runnerType,
         "type": args.type,
@@ -173,6 +183,10 @@ export interface GetAutomationActionsActionOutputArgs {
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      */
     modifyTime?: pulumi.Input<string>;
+    /**
+     * (Optional) Whether or not the action can be invoked on unresolved incidents.
+     */
+    onlyInvocableOnUnresolvedIncidents?: pulumi.Input<boolean>;
     /**
      * (Optional) The Process Automation Actions runner to associate the action with.
      */

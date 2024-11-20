@@ -6,6 +6,7 @@ package com.pulumi.pagerduty.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -92,6 +93,21 @@ public final class GetAutomationActionsActionArgs extends com.pulumi.resources.I
     }
 
     /**
+     * (Optional) Whether or not the action can be invoked on unresolved incidents.
+     * 
+     */
+    @Import(name="onlyInvocableOnUnresolvedIncidents")
+    private @Nullable Output<Boolean> onlyInvocableOnUnresolvedIncidents;
+
+    /**
+     * @return (Optional) Whether or not the action can be invoked on unresolved incidents.
+     * 
+     */
+    public Optional<Output<Boolean>> onlyInvocableOnUnresolvedIncidents() {
+        return Optional.ofNullable(this.onlyInvocableOnUnresolvedIncidents);
+    }
+
+    /**
      * (Optional) The Process Automation Actions runner to associate the action with.
      * 
      */
@@ -144,6 +160,7 @@ public final class GetAutomationActionsActionArgs extends com.pulumi.resources.I
         this.description = $.description;
         this.id = $.id;
         this.modifyTime = $.modifyTime;
+        this.onlyInvocableOnUnresolvedIncidents = $.onlyInvocableOnUnresolvedIncidents;
         this.runnerId = $.runnerId;
         this.runnerType = $.runnerType;
         this.type = $.type;
@@ -270,6 +287,27 @@ public final class GetAutomationActionsActionArgs extends com.pulumi.resources.I
          */
         public Builder modifyTime(String modifyTime) {
             return modifyTime(Output.of(modifyTime));
+        }
+
+        /**
+         * @param onlyInvocableOnUnresolvedIncidents (Optional) Whether or not the action can be invoked on unresolved incidents.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onlyInvocableOnUnresolvedIncidents(@Nullable Output<Boolean> onlyInvocableOnUnresolvedIncidents) {
+            $.onlyInvocableOnUnresolvedIncidents = onlyInvocableOnUnresolvedIncidents;
+            return this;
+        }
+
+        /**
+         * @param onlyInvocableOnUnresolvedIncidents (Optional) Whether or not the action can be invoked on unresolved incidents.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onlyInvocableOnUnresolvedIncidents(Boolean onlyInvocableOnUnresolvedIncidents) {
+            return onlyInvocableOnUnresolvedIncidents(Output.of(onlyInvocableOnUnresolvedIncidents));
         }
 
         /**

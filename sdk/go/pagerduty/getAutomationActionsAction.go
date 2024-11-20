@@ -60,6 +60,8 @@ type LookupAutomationActionsActionArgs struct {
 	Id string `pulumi:"id"`
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime *string `pulumi:"modifyTime"`
+	// (Optional) Whether or not the action can be invoked on unresolved incidents.
+	OnlyInvocableOnUnresolvedIncidents *bool `pulumi:"onlyInvocableOnUnresolvedIncidents"`
 	// (Optional) The Process Automation Actions runner to associate the action with.
 	RunnerId *string `pulumi:"runnerId"`
 	// (Optional) The type of the runner associated with the action.
@@ -86,6 +88,8 @@ type LookupAutomationActionsActionResult struct {
 	ModifyTime string `pulumi:"modifyTime"`
 	// The name of the action.
 	Name string `pulumi:"name"`
+	// (Optional) Whether or not the action can be invoked on unresolved incidents.
+	OnlyInvocableOnUnresolvedIncidents bool `pulumi:"onlyInvocableOnUnresolvedIncidents"`
 	// (Optional) The Process Automation Actions runner to associate the action with.
 	RunnerId string `pulumi:"runnerId"`
 	// (Optional) The type of the runner associated with the action.
@@ -125,6 +129,8 @@ type LookupAutomationActionsActionOutputArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime pulumi.StringPtrInput `pulumi:"modifyTime"`
+	// (Optional) Whether or not the action can be invoked on unresolved incidents.
+	OnlyInvocableOnUnresolvedIncidents pulumi.BoolPtrInput `pulumi:"onlyInvocableOnUnresolvedIncidents"`
 	// (Optional) The Process Automation Actions runner to associate the action with.
 	RunnerId pulumi.StringPtrInput `pulumi:"runnerId"`
 	// (Optional) The type of the runner associated with the action.
@@ -192,6 +198,11 @@ func (o LookupAutomationActionsActionResultOutput) ModifyTime() pulumi.StringOut
 // The name of the action.
 func (o LookupAutomationActionsActionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAutomationActionsActionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional) Whether or not the action can be invoked on unresolved incidents.
+func (o LookupAutomationActionsActionResultOutput) OnlyInvocableOnUnresolvedIncidents() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAutomationActionsActionResult) bool { return v.OnlyInvocableOnUnresolvedIncidents }).(pulumi.BoolOutput)
 }
 
 // (Optional) The Process Automation Actions runner to associate the action with.

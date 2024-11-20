@@ -82,6 +82,9 @@ namespace Pulumi.Pagerduty
         [Output("config")]
         public Output<Outputs.AlertGroupingSettingConfig?> Config { get; private set; } = null!;
 
+        /// <summary>
+        /// A human-friendly text to describe and identify this alert grouping setting.
+        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
@@ -155,6 +158,9 @@ namespace Pulumi.Pagerduty
         [Input("config")]
         public Input<Inputs.AlertGroupingSettingConfigArgs>? Config { get; set; }
 
+        /// <summary>
+        /// A human-friendly text to describe and identify this alert grouping setting.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -196,6 +202,9 @@ namespace Pulumi.Pagerduty
         [Input("config")]
         public Input<Inputs.AlertGroupingSettingConfigGetArgs>? Config { get; set; }
 
+        /// <summary>
+        /// A human-friendly text to describe and identify this alert grouping setting.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

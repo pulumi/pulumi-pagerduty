@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.AutomationActionsActionActionDataReferenceArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -122,6 +123,13 @@ public final class AutomationActionsActionArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="onlyInvocableOnUnresolvedIncidents")
+    private @Nullable Output<Boolean> onlyInvocableOnUnresolvedIncidents;
+
+    public Optional<Output<Boolean>> onlyInvocableOnUnresolvedIncidents() {
+        return Optional.ofNullable(this.onlyInvocableOnUnresolvedIncidents);
+    }
+
     /**
      * The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
      * 
@@ -177,6 +185,7 @@ public final class AutomationActionsActionArgs extends com.pulumi.resources.Reso
         this.description = $.description;
         this.modifyTime = $.modifyTime;
         this.name = $.name;
+        this.onlyInvocableOnUnresolvedIncidents = $.onlyInvocableOnUnresolvedIncidents;
         this.runnerId = $.runnerId;
         this.runnerType = $.runnerType;
         this.type = $.type;
@@ -345,6 +354,15 @@ public final class AutomationActionsActionArgs extends com.pulumi.resources.Reso
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder onlyInvocableOnUnresolvedIncidents(@Nullable Output<Boolean> onlyInvocableOnUnresolvedIncidents) {
+            $.onlyInvocableOnUnresolvedIncidents = onlyInvocableOnUnresolvedIncidents;
+            return this;
+        }
+
+        public Builder onlyInvocableOnUnresolvedIncidents(Boolean onlyInvocableOnUnresolvedIncidents) {
+            return onlyInvocableOnUnresolvedIncidents(Output.of(onlyInvocableOnUnresolvedIncidents));
         }
 
         /**

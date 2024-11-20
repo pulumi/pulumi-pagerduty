@@ -94,6 +94,12 @@ namespace Pulumi.Pagerduty
         public string? ModifyTime { get; set; }
 
         /// <summary>
+        /// (Optional) Whether or not the action can be invoked on unresolved incidents.
+        /// </summary>
+        [Input("onlyInvocableOnUnresolvedIncidents")]
+        public bool? OnlyInvocableOnUnresolvedIncidents { get; set; }
+
+        /// <summary>
         /// (Optional) The Process Automation Actions runner to associate the action with.
         /// </summary>
         [Input("runnerId")]
@@ -148,6 +154,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("modifyTime")]
         public Input<string>? ModifyTime { get; set; }
+
+        /// <summary>
+        /// (Optional) Whether or not the action can be invoked on unresolved incidents.
+        /// </summary>
+        [Input("onlyInvocableOnUnresolvedIncidents")]
+        public Input<bool>? OnlyInvocableOnUnresolvedIncidents { get; set; }
 
         /// <summary>
         /// (Optional) The Process Automation Actions runner to associate the action with.
@@ -210,6 +222,10 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// (Optional) Whether or not the action can be invoked on unresolved incidents.
+        /// </summary>
+        public readonly bool OnlyInvocableOnUnresolvedIncidents;
+        /// <summary>
         /// (Optional) The Process Automation Actions runner to associate the action with.
         /// </summary>
         public readonly string RunnerId;
@@ -240,6 +256,8 @@ namespace Pulumi.Pagerduty
 
             string name,
 
+            bool onlyInvocableOnUnresolvedIncidents,
+
             string runnerId,
 
             string runnerType,
@@ -254,6 +272,7 @@ namespace Pulumi.Pagerduty
             Id = id;
             ModifyTime = modifyTime;
             Name = name;
+            OnlyInvocableOnUnresolvedIncidents = onlyInvocableOnUnresolvedIncidents;
             RunnerId = runnerId;
             RunnerType = runnerType;
             Type = type;

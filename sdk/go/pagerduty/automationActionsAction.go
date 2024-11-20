@@ -80,7 +80,8 @@ type AutomationActionsAction struct {
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime pulumi.StringOutput `pulumi:"modifyTime"`
 	// The name of the action. Max length is 255 characters.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name                               pulumi.StringOutput `pulumi:"name"`
+	OnlyInvocableOnUnresolvedIncidents pulumi.BoolOutput   `pulumi:"onlyInvocableOnUnresolvedIncidents"`
 	// The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
 	RunnerId pulumi.StringPtrOutput `pulumi:"runnerId"`
 	// (Optional) The type of the runner associated with the action.
@@ -138,7 +139,8 @@ type automationActionsActionState struct {
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime *string `pulumi:"modifyTime"`
 	// The name of the action. Max length is 255 characters.
-	Name *string `pulumi:"name"`
+	Name                               *string `pulumi:"name"`
+	OnlyInvocableOnUnresolvedIncidents *bool   `pulumi:"onlyInvocableOnUnresolvedIncidents"`
 	// The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
 	RunnerId *string `pulumi:"runnerId"`
 	// (Optional) The type of the runner associated with the action.
@@ -161,7 +163,8 @@ type AutomationActionsActionState struct {
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime pulumi.StringPtrInput
 	// The name of the action. Max length is 255 characters.
-	Name pulumi.StringPtrInput
+	Name                               pulumi.StringPtrInput
+	OnlyInvocableOnUnresolvedIncidents pulumi.BoolPtrInput
 	// The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
 	RunnerId pulumi.StringPtrInput
 	// (Optional) The type of the runner associated with the action.
@@ -188,7 +191,8 @@ type automationActionsActionArgs struct {
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime *string `pulumi:"modifyTime"`
 	// The name of the action. Max length is 255 characters.
-	Name *string `pulumi:"name"`
+	Name                               *string `pulumi:"name"`
+	OnlyInvocableOnUnresolvedIncidents *bool   `pulumi:"onlyInvocableOnUnresolvedIncidents"`
 	// The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
 	RunnerId *string `pulumi:"runnerId"`
 	// (Optional) The type of the runner associated with the action.
@@ -212,7 +216,8 @@ type AutomationActionsActionArgs struct {
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime pulumi.StringPtrInput
 	// The name of the action. Max length is 255 characters.
-	Name pulumi.StringPtrInput
+	Name                               pulumi.StringPtrInput
+	OnlyInvocableOnUnresolvedIncidents pulumi.BoolPtrInput
 	// The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
 	RunnerId pulumi.StringPtrInput
 	// (Optional) The type of the runner associated with the action.
@@ -343,6 +348,10 @@ func (o AutomationActionsActionOutput) ModifyTime() pulumi.StringOutput {
 // The name of the action. Max length is 255 characters.
 func (o AutomationActionsActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AutomationActionsActionOutput) OnlyInvocableOnUnresolvedIncidents() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AutomationActionsAction) pulumi.BoolOutput { return v.OnlyInvocableOnUnresolvedIncidents }).(pulumi.BoolOutput)
 }
 
 // The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.

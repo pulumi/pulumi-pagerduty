@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -91,6 +92,21 @@ public final class GetAutomationActionsActionPlainArgs extends com.pulumi.resour
     }
 
     /**
+     * (Optional) Whether or not the action can be invoked on unresolved incidents.
+     * 
+     */
+    @Import(name="onlyInvocableOnUnresolvedIncidents")
+    private @Nullable Boolean onlyInvocableOnUnresolvedIncidents;
+
+    /**
+     * @return (Optional) Whether or not the action can be invoked on unresolved incidents.
+     * 
+     */
+    public Optional<Boolean> onlyInvocableOnUnresolvedIncidents() {
+        return Optional.ofNullable(this.onlyInvocableOnUnresolvedIncidents);
+    }
+
+    /**
      * (Optional) The Process Automation Actions runner to associate the action with.
      * 
      */
@@ -143,6 +159,7 @@ public final class GetAutomationActionsActionPlainArgs extends com.pulumi.resour
         this.description = $.description;
         this.id = $.id;
         this.modifyTime = $.modifyTime;
+        this.onlyInvocableOnUnresolvedIncidents = $.onlyInvocableOnUnresolvedIncidents;
         this.runnerId = $.runnerId;
         this.runnerType = $.runnerType;
         this.type = $.type;
@@ -218,6 +235,17 @@ public final class GetAutomationActionsActionPlainArgs extends com.pulumi.resour
          */
         public Builder modifyTime(@Nullable String modifyTime) {
             $.modifyTime = modifyTime;
+            return this;
+        }
+
+        /**
+         * @param onlyInvocableOnUnresolvedIncidents (Optional) Whether or not the action can be invoked on unresolved incidents.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onlyInvocableOnUnresolvedIncidents(@Nullable Boolean onlyInvocableOnUnresolvedIncidents) {
+            $.onlyInvocableOnUnresolvedIncidents = onlyInvocableOnUnresolvedIncidents;
             return this;
         }
 

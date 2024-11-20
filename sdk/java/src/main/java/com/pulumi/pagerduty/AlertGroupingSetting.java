@@ -115,9 +115,17 @@ public class AlertGroupingSetting extends com.pulumi.resources.CustomResource {
     public Output<Optional<AlertGroupingSettingConfig>> config() {
         return Codegen.optional(this.config);
     }
+    /**
+     * A human-friendly text to describe and identify this alert grouping setting.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
+    /**
+     * @return A human-friendly text to describe and identify this alert grouping setting.
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }

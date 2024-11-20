@@ -32,9 +32,17 @@ public final class AlertGroupingSettingState extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.config);
     }
 
+    /**
+     * A human-friendly text to describe and identify this alert grouping setting.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return A human-friendly text to describe and identify this alert grouping setting.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -133,11 +141,23 @@ public final class AlertGroupingSettingState extends com.pulumi.resources.Resour
             return config(Output.of(config));
         }
 
+        /**
+         * @param description A human-friendly text to describe and identify this alert grouping setting.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description A human-friendly text to describe and identify this alert grouping setting.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }

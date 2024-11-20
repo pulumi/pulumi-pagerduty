@@ -27,7 +27,7 @@ class GetAutomationActionsActionResult:
     """
     A collection of values returned by getAutomationActionsAction.
     """
-    def __init__(__self__, action_classification=None, action_data_references=None, action_type=None, creation_time=None, description=None, id=None, modify_time=None, name=None, runner_id=None, runner_type=None, type=None):
+    def __init__(__self__, action_classification=None, action_data_references=None, action_type=None, creation_time=None, description=None, id=None, modify_time=None, name=None, only_invocable_on_unresolved_incidents=None, runner_id=None, runner_type=None, type=None):
         if action_classification and not isinstance(action_classification, str):
             raise TypeError("Expected argument 'action_classification' to be a str")
         pulumi.set(__self__, "action_classification", action_classification)
@@ -52,6 +52,9 @@ class GetAutomationActionsActionResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if only_invocable_on_unresolved_incidents and not isinstance(only_invocable_on_unresolved_incidents, bool):
+            raise TypeError("Expected argument 'only_invocable_on_unresolved_incidents' to be a bool")
+        pulumi.set(__self__, "only_invocable_on_unresolved_incidents", only_invocable_on_unresolved_incidents)
         if runner_id and not isinstance(runner_id, str):
             raise TypeError("Expected argument 'runner_id' to be a str")
         pulumi.set(__self__, "runner_id", runner_id)
@@ -127,6 +130,14 @@ class GetAutomationActionsActionResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="onlyInvocableOnUnresolvedIncidents")
+    def only_invocable_on_unresolved_incidents(self) -> bool:
+        """
+        (Optional) Whether or not the action can be invoked on unresolved incidents.
+        """
+        return pulumi.get(self, "only_invocable_on_unresolved_incidents")
+
+    @property
     @pulumi.getter(name="runnerId")
     def runner_id(self) -> str:
         """
@@ -165,6 +176,7 @@ class AwaitableGetAutomationActionsActionResult(GetAutomationActionsActionResult
             id=self.id,
             modify_time=self.modify_time,
             name=self.name,
+            only_invocable_on_unresolved_incidents=self.only_invocable_on_unresolved_incidents,
             runner_id=self.runner_id,
             runner_type=self.runner_type,
             type=self.type)
@@ -175,6 +187,7 @@ def get_automation_actions_action(action_classification: Optional[str] = None,
                                   description: Optional[str] = None,
                                   id: Optional[str] = None,
                                   modify_time: Optional[str] = None,
+                                  only_invocable_on_unresolved_incidents: Optional[bool] = None,
                                   runner_id: Optional[str] = None,
                                   runner_type: Optional[str] = None,
                                   type: Optional[str] = None,
@@ -197,6 +210,7 @@ def get_automation_actions_action(action_classification: Optional[str] = None,
     :param str description: (Optional) The description of the action.
     :param str id: The id of the automation actions action in the PagerDuty API.
     :param str modify_time: (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
+    :param bool only_invocable_on_unresolved_incidents: (Optional) Whether or not the action can be invoked on unresolved incidents.
     :param str runner_id: (Optional) The Process Automation Actions runner to associate the action with.
     :param str runner_type: (Optional) The type of the runner associated with the action.
     :param str type: The type of object. The value returned will be `action`.
@@ -207,6 +221,7 @@ def get_automation_actions_action(action_classification: Optional[str] = None,
     __args__['description'] = description
     __args__['id'] = id
     __args__['modifyTime'] = modify_time
+    __args__['onlyInvocableOnUnresolvedIncidents'] = only_invocable_on_unresolved_incidents
     __args__['runnerId'] = runner_id
     __args__['runnerType'] = runner_type
     __args__['type'] = type
@@ -222,6 +237,7 @@ def get_automation_actions_action(action_classification: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         modify_time=pulumi.get(__ret__, 'modify_time'),
         name=pulumi.get(__ret__, 'name'),
+        only_invocable_on_unresolved_incidents=pulumi.get(__ret__, 'only_invocable_on_unresolved_incidents'),
         runner_id=pulumi.get(__ret__, 'runner_id'),
         runner_type=pulumi.get(__ret__, 'runner_type'),
         type=pulumi.get(__ret__, 'type'))
@@ -230,6 +246,7 @@ def get_automation_actions_action_output(action_classification: Optional[pulumi.
                                          description: Optional[pulumi.Input[Optional[str]]] = None,
                                          id: Optional[pulumi.Input[str]] = None,
                                          modify_time: Optional[pulumi.Input[Optional[str]]] = None,
+                                         only_invocable_on_unresolved_incidents: Optional[pulumi.Input[Optional[bool]]] = None,
                                          runner_id: Optional[pulumi.Input[Optional[str]]] = None,
                                          runner_type: Optional[pulumi.Input[Optional[str]]] = None,
                                          type: Optional[pulumi.Input[Optional[str]]] = None,
@@ -252,6 +269,7 @@ def get_automation_actions_action_output(action_classification: Optional[pulumi.
     :param str description: (Optional) The description of the action.
     :param str id: The id of the automation actions action in the PagerDuty API.
     :param str modify_time: (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
+    :param bool only_invocable_on_unresolved_incidents: (Optional) Whether or not the action can be invoked on unresolved incidents.
     :param str runner_id: (Optional) The Process Automation Actions runner to associate the action with.
     :param str runner_type: (Optional) The type of the runner associated with the action.
     :param str type: The type of object. The value returned will be `action`.
@@ -262,6 +280,7 @@ def get_automation_actions_action_output(action_classification: Optional[pulumi.
     __args__['description'] = description
     __args__['id'] = id
     __args__['modifyTime'] = modify_time
+    __args__['onlyInvocableOnUnresolvedIncidents'] = only_invocable_on_unresolved_incidents
     __args__['runnerId'] = runner_id
     __args__['runnerType'] = runner_type
     __args__['type'] = type
@@ -276,6 +295,7 @@ def get_automation_actions_action_output(action_classification: Optional[pulumi.
         id=pulumi.get(__response__, 'id'),
         modify_time=pulumi.get(__response__, 'modify_time'),
         name=pulumi.get(__response__, 'name'),
+        only_invocable_on_unresolved_incidents=pulumi.get(__response__, 'only_invocable_on_unresolved_incidents'),
         runner_id=pulumi.get(__response__, 'runner_id'),
         runner_type=pulumi.get(__response__, 'runner_type'),
         type=pulumi.get(__response__, 'type')))

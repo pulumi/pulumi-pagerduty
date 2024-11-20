@@ -98,6 +98,7 @@ export class AutomationActionsAction extends pulumi.CustomResource {
      * The name of the action. Max length is 255 characters.
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly onlyInvocableOnUnresolvedIncidents!: pulumi.Output<boolean>;
     /**
      * The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
      */
@@ -131,6 +132,7 @@ export class AutomationActionsAction extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["modifyTime"] = state ? state.modifyTime : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["onlyInvocableOnUnresolvedIncidents"] = state ? state.onlyInvocableOnUnresolvedIncidents : undefined;
             resourceInputs["runnerId"] = state ? state.runnerId : undefined;
             resourceInputs["runnerType"] = state ? state.runnerType : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -149,6 +151,7 @@ export class AutomationActionsAction extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["modifyTime"] = args ? args.modifyTime : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["onlyInvocableOnUnresolvedIncidents"] = args ? args.onlyInvocableOnUnresolvedIncidents : undefined;
             resourceInputs["runnerId"] = args ? args.runnerId : undefined;
             resourceInputs["runnerType"] = args ? args.runnerType : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -190,6 +193,7 @@ export interface AutomationActionsActionState {
      * The name of the action. Max length is 255 characters.
      */
     name?: pulumi.Input<string>;
+    onlyInvocableOnUnresolvedIncidents?: pulumi.Input<boolean>;
     /**
      * The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
      */
@@ -236,6 +240,7 @@ export interface AutomationActionsActionArgs {
      * The name of the action. Max length is 255 characters.
      */
     name?: pulumi.Input<string>;
+    onlyInvocableOnUnresolvedIncidents?: pulumi.Input<boolean>;
     /**
      * The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
      */

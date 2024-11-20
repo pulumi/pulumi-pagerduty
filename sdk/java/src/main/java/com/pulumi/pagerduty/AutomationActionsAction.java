@@ -11,6 +11,7 @@ import com.pulumi.pagerduty.AutomationActionsActionArgs;
 import com.pulumi.pagerduty.Utilities;
 import com.pulumi.pagerduty.inputs.AutomationActionsActionState;
 import com.pulumi.pagerduty.outputs.AutomationActionsActionActionDataReference;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -177,6 +178,12 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
      */
     public Output<String> name() {
         return this.name;
+    }
+    @Export(name="onlyInvocableOnUnresolvedIncidents", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> onlyInvocableOnUnresolvedIncidents;
+
+    public Output<Boolean> onlyInvocableOnUnresolvedIncidents() {
+        return this.onlyInvocableOnUnresolvedIncidents;
     }
     /**
      * The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.

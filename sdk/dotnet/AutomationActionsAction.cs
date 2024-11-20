@@ -101,6 +101,9 @@ namespace Pulumi.Pagerduty
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("onlyInvocableOnUnresolvedIncidents")]
+        public Output<bool> OnlyInvocableOnUnresolvedIncidents { get; private set; } = null!;
+
         /// <summary>
         /// The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
         /// </summary>
@@ -207,6 +210,9 @@ namespace Pulumi.Pagerduty
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("onlyInvocableOnUnresolvedIncidents")]
+        public Input<bool>? OnlyInvocableOnUnresolvedIncidents { get; set; }
+
         /// <summary>
         /// The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
         /// </summary>
@@ -274,6 +280,9 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("onlyInvocableOnUnresolvedIncidents")]
+        public Input<bool>? OnlyInvocableOnUnresolvedIncidents { get; set; }
 
         /// <summary>
         /// The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.

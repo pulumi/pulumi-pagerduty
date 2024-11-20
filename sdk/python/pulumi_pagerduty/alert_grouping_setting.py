@@ -31,6 +31,7 @@ class AlertGroupingSettingArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: [Updating can cause a resource replacement] The list IDs of services associated to this setting.
         :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.
         :param pulumi.Input['AlertGroupingSettingConfigArgs'] config: The set of values used for configuration.
+        :param pulumi.Input[str] description: A human-friendly text to describe and identify this alert grouping setting.
         :param pulumi.Input[str] name: The name for the alert groupig settings.
         """
         pulumi.set(__self__, "services", services)
@@ -81,6 +82,9 @@ class AlertGroupingSettingArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-friendly text to describe and identify this alert grouping setting.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -111,6 +115,7 @@ class _AlertGroupingSettingState:
         """
         Input properties used for looking up and filtering AlertGroupingSetting resources.
         :param pulumi.Input['AlertGroupingSettingConfigArgs'] config: The set of values used for configuration.
+        :param pulumi.Input[str] description: A human-friendly text to describe and identify this alert grouping setting.
         :param pulumi.Input[str] name: The name for the alert groupig settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: [Updating can cause a resource replacement] The list IDs of services associated to this setting.
         :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.
@@ -141,6 +146,9 @@ class _AlertGroupingSettingState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-friendly text to describe and identify this alert grouping setting.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -248,6 +256,7 @@ class AlertGroupingSetting(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AlertGroupingSettingConfigArgs', 'AlertGroupingSettingConfigArgsDict']] config: The set of values used for configuration.
+        :param pulumi.Input[str] description: A human-friendly text to describe and identify this alert grouping setting.
         :param pulumi.Input[str] name: The name for the alert groupig settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: [Updating can cause a resource replacement] The list IDs of services associated to this setting.
         :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.
@@ -369,6 +378,7 @@ class AlertGroupingSetting(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AlertGroupingSettingConfigArgs', 'AlertGroupingSettingConfigArgsDict']] config: The set of values used for configuration.
+        :param pulumi.Input[str] description: A human-friendly text to describe and identify this alert grouping setting.
         :param pulumi.Input[str] name: The name for the alert groupig settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: [Updating can cause a resource replacement] The list IDs of services associated to this setting.
         :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.
@@ -395,6 +405,9 @@ class AlertGroupingSetting(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        A human-friendly text to describe and identify this alert grouping setting.
+        """
         return pulumi.get(self, "description")
 
     @property

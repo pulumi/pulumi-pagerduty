@@ -6,6 +6,7 @@ package com.pulumi.pagerduty.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.GetAutomationActionsActionActionDataReference;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -52,6 +53,11 @@ public final class GetAutomationActionsActionResult {
      * 
      */
     private String name;
+    /**
+     * @return (Optional) Whether or not the action can be invoked on unresolved incidents.
+     * 
+     */
+    private Boolean onlyInvocableOnUnresolvedIncidents;
     /**
      * @return (Optional) The Process Automation Actions runner to associate the action with.
      * 
@@ -126,6 +132,13 @@ public final class GetAutomationActionsActionResult {
         return this.name;
     }
     /**
+     * @return (Optional) Whether or not the action can be invoked on unresolved incidents.
+     * 
+     */
+    public Boolean onlyInvocableOnUnresolvedIncidents() {
+        return this.onlyInvocableOnUnresolvedIncidents;
+    }
+    /**
      * @return (Optional) The Process Automation Actions runner to associate the action with.
      * 
      */
@@ -164,6 +177,7 @@ public final class GetAutomationActionsActionResult {
         private String id;
         private String modifyTime;
         private String name;
+        private Boolean onlyInvocableOnUnresolvedIncidents;
         private String runnerId;
         private String runnerType;
         private String type;
@@ -178,6 +192,7 @@ public final class GetAutomationActionsActionResult {
     	      this.id = defaults.id;
     	      this.modifyTime = defaults.modifyTime;
     	      this.name = defaults.name;
+    	      this.onlyInvocableOnUnresolvedIncidents = defaults.onlyInvocableOnUnresolvedIncidents;
     	      this.runnerId = defaults.runnerId;
     	      this.runnerType = defaults.runnerType;
     	      this.type = defaults.type;
@@ -251,6 +266,14 @@ public final class GetAutomationActionsActionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder onlyInvocableOnUnresolvedIncidents(Boolean onlyInvocableOnUnresolvedIncidents) {
+            if (onlyInvocableOnUnresolvedIncidents == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsActionResult", "onlyInvocableOnUnresolvedIncidents");
+            }
+            this.onlyInvocableOnUnresolvedIncidents = onlyInvocableOnUnresolvedIncidents;
+            return this;
+        }
+        @CustomType.Setter
         public Builder runnerId(String runnerId) {
             if (runnerId == null) {
               throw new MissingRequiredPropertyException("GetAutomationActionsActionResult", "runnerId");
@@ -284,6 +307,7 @@ public final class GetAutomationActionsActionResult {
             _resultValue.id = id;
             _resultValue.modifyTime = modifyTime;
             _resultValue.name = name;
+            _resultValue.onlyInvocableOnUnresolvedIncidents = onlyInvocableOnUnresolvedIncidents;
             _resultValue.runnerId = runnerId;
             _resultValue.runnerType = runnerType;
             _resultValue.type = type;

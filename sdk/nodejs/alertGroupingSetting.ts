@@ -91,6 +91,9 @@ export class AlertGroupingSetting extends pulumi.CustomResource {
      * The set of values used for configuration.
      */
     public readonly config!: pulumi.Output<outputs.AlertGroupingSettingConfig | undefined>;
+    /**
+     * A human-friendly text to describe and identify this alert grouping setting.
+     */
     public readonly description!: pulumi.Output<string>;
     /**
      * The name for the alert groupig settings.
@@ -150,6 +153,9 @@ export interface AlertGroupingSettingState {
      * The set of values used for configuration.
      */
     config?: pulumi.Input<inputs.AlertGroupingSettingConfig>;
+    /**
+     * A human-friendly text to describe and identify this alert grouping setting.
+     */
     description?: pulumi.Input<string>;
     /**
      * The name for the alert groupig settings.
@@ -173,6 +179,9 @@ export interface AlertGroupingSettingArgs {
      * The set of values used for configuration.
      */
     config?: pulumi.Input<inputs.AlertGroupingSettingConfig>;
+    /**
+     * A human-friendly text to describe and identify this alert grouping setting.
+     */
     description?: pulumi.Input<string>;
     /**
      * The name for the alert groupig settings.

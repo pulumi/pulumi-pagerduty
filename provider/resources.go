@@ -70,9 +70,9 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	sdkProv := shimv2.NewProvider(pagerduty.Provider(pagerduty.IsMuxed))
-
-	p := pftfbridge.MuxShimWithDisjointgPF(context.Background(), sdkProv, pagerdutyplugin.New())
+	p := pftfbridge.MuxShimWithDisjointgPF(context.Background(),
+		shimv2.NewProvider(pagerduty.Provider(pagerduty.IsMuxed)),
+		pagerdutyplugin.New())
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{

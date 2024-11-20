@@ -28,6 +28,7 @@ class AutomationActionsActionArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  modify_time: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 only_invocable_on_unresolved_incidents: Optional[pulumi.Input[bool]] = None,
                  runner_id: Optional[pulumi.Input[str]] = None,
                  runner_type: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -56,6 +57,8 @@ class AutomationActionsActionArgs:
             pulumi.set(__self__, "modify_time", modify_time)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if only_invocable_on_unresolved_incidents is not None:
+            pulumi.set(__self__, "only_invocable_on_unresolved_incidents", only_invocable_on_unresolved_incidents)
         if runner_id is not None:
             pulumi.set(__self__, "runner_id", runner_id)
         if runner_type is not None:
@@ -148,6 +151,15 @@ class AutomationActionsActionArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="onlyInvocableOnUnresolvedIncidents")
+    def only_invocable_on_unresolved_incidents(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "only_invocable_on_unresolved_incidents")
+
+    @only_invocable_on_unresolved_incidents.setter
+    def only_invocable_on_unresolved_incidents(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "only_invocable_on_unresolved_incidents", value)
+
+    @property
     @pulumi.getter(name="runnerId")
     def runner_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -194,6 +206,7 @@ class _AutomationActionsActionState:
                  description: Optional[pulumi.Input[str]] = None,
                  modify_time: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 only_invocable_on_unresolved_incidents: Optional[pulumi.Input[bool]] = None,
                  runner_id: Optional[pulumi.Input[str]] = None,
                  runner_type: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -224,6 +237,8 @@ class _AutomationActionsActionState:
             pulumi.set(__self__, "modify_time", modify_time)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if only_invocable_on_unresolved_incidents is not None:
+            pulumi.set(__self__, "only_invocable_on_unresolved_incidents", only_invocable_on_unresolved_incidents)
         if runner_id is not None:
             pulumi.set(__self__, "runner_id", runner_id)
         if runner_type is not None:
@@ -316,6 +331,15 @@ class _AutomationActionsActionState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="onlyInvocableOnUnresolvedIncidents")
+    def only_invocable_on_unresolved_incidents(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "only_invocable_on_unresolved_incidents")
+
+    @only_invocable_on_unresolved_incidents.setter
+    def only_invocable_on_unresolved_incidents(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "only_invocable_on_unresolved_incidents", value)
+
+    @property
     @pulumi.getter(name="runnerId")
     def runner_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -364,6 +388,7 @@ class AutomationActionsAction(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  modify_time: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 only_invocable_on_unresolved_incidents: Optional[pulumi.Input[bool]] = None,
                  runner_id: Optional[pulumi.Input[str]] = None,
                  runner_type: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -477,6 +502,7 @@ class AutomationActionsAction(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  modify_time: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 only_invocable_on_unresolved_incidents: Optional[pulumi.Input[bool]] = None,
                  runner_id: Optional[pulumi.Input[str]] = None,
                  runner_type: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -500,6 +526,7 @@ class AutomationActionsAction(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["modify_time"] = modify_time
             __props__.__dict__["name"] = name
+            __props__.__dict__["only_invocable_on_unresolved_incidents"] = only_invocable_on_unresolved_incidents
             __props__.__dict__["runner_id"] = runner_id
             __props__.__dict__["runner_type"] = runner_type
             __props__.__dict__["type"] = type
@@ -520,6 +547,7 @@ class AutomationActionsAction(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             modify_time: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            only_invocable_on_unresolved_incidents: Optional[pulumi.Input[bool]] = None,
             runner_id: Optional[pulumi.Input[str]] = None,
             runner_type: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'AutomationActionsAction':
@@ -552,6 +580,7 @@ class AutomationActionsAction(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["modify_time"] = modify_time
         __props__.__dict__["name"] = name
+        __props__.__dict__["only_invocable_on_unresolved_incidents"] = only_invocable_on_unresolved_incidents
         __props__.__dict__["runner_id"] = runner_id
         __props__.__dict__["runner_type"] = runner_type
         __props__.__dict__["type"] = type
@@ -612,6 +641,11 @@ class AutomationActionsAction(pulumi.CustomResource):
         The name of the action. Max length is 255 characters.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="onlyInvocableOnUnresolvedIncidents")
+    def only_invocable_on_unresolved_incidents(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "only_invocable_on_unresolved_incidents")
 
     @property
     @pulumi.getter(name="runnerId")

@@ -6406,7 +6406,8 @@
                 },
                 "workflow": {
                     "type": "string",
-                    "description": "The workflow ID for the workflow to trigger.\n"
+                    "description": "The workflow ID for the workflow to trigger.\n",
+                    "willReplaceOnChanges": true
                 }
             },
             "requiredInputs": [
@@ -6443,7 +6444,8 @@
                     },
                     "workflow": {
                         "type": "string",
-                        "description": "The workflow ID for the workflow to trigger.\n"
+                        "description": "The workflow ID for the workflow to trigger.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"

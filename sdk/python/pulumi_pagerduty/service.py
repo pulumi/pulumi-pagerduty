@@ -45,6 +45,8 @@ class ServiceArgs:
         :param pulumi.Input[str] alert_grouping_timeout: (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
         :param pulumi.Input['ServiceAutoPauseNotificationsParametersArgs'] auto_pause_notifications_parameters: Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
+        :param pulumi.Input[str] description: A human-friendly description of the service.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[str] response_play: (Deprecated) The response play used by this service.
         """
@@ -192,6 +194,10 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-friendly description of the service.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -282,6 +288,8 @@ class _ServiceState:
         :param pulumi.Input['ServiceAutoPauseNotificationsParametersArgs'] auto_pause_notifications_parameters: Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] created_at: Creation timestamp of the service.
+        :param pulumi.Input[str] description: A human-friendly description of the service.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] last_incident_timestamp: Last incident timestamp of the service.
@@ -445,6 +453,10 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-friendly description of the service.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -634,6 +646,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] alert_grouping_timeout: (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
         :param pulumi.Input[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict']] auto_pause_notifications_parameters: Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
+        :param pulumi.Input[str] description: A human-friendly description of the service.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[str] response_play: (Deprecated) The response play used by this service.
@@ -791,6 +805,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict']] auto_pause_notifications_parameters: Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] created_at: Creation timestamp of the service.
+        :param pulumi.Input[str] description: A human-friendly description of the service.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] last_incident_timestamp: Last incident timestamp of the service.
@@ -895,6 +911,10 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        A human-friendly description of the service.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @property

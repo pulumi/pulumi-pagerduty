@@ -16,9 +16,19 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
 
     public static final BusinessServiceState Empty = new BusinessServiceState();
 
+    /**
+     * A human-friendly description of the service.
+     * If not set, a placeholder of &#34;Managed by Pulumi&#34; will be set.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return A human-friendly description of the service.
+     * If not set, a placeholder of &#34;Managed by Pulumi&#34; will be set.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -167,11 +177,25 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
             $ = new BusinessServiceState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param description A human-friendly description of the service.
+         * If not set, a placeholder of &#34;Managed by Pulumi&#34; will be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description A human-friendly description of the service.
+         * If not set, a placeholder of &#34;Managed by Pulumi&#34; will be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }

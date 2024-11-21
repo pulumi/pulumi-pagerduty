@@ -62,6 +62,8 @@ type Team struct {
 
 	// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
 	DefaultRole pulumi.StringOutput `pulumi:"defaultRole"`
+	// A human-friendly description of the team.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// URL at which the entity is uniquely displayed in the Web app
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
@@ -106,6 +108,8 @@ func GetTeam(ctx *pulumi.Context,
 type teamState struct {
 	// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
 	DefaultRole *string `pulumi:"defaultRole"`
+	// A human-friendly description of the team.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description *string `pulumi:"description"`
 	// URL at which the entity is uniquely displayed in the Web app
 	HtmlUrl *string `pulumi:"htmlUrl"`
@@ -118,6 +122,8 @@ type teamState struct {
 type TeamState struct {
 	// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
 	DefaultRole pulumi.StringPtrInput
+	// A human-friendly description of the team.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description pulumi.StringPtrInput
 	// URL at which the entity is uniquely displayed in the Web app
 	HtmlUrl pulumi.StringPtrInput
@@ -134,6 +140,8 @@ func (TeamState) ElementType() reflect.Type {
 type teamArgs struct {
 	// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
 	DefaultRole *string `pulumi:"defaultRole"`
+	// A human-friendly description of the team.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description *string `pulumi:"description"`
 	// The name of the group.
 	Name *string `pulumi:"name"`
@@ -145,6 +153,8 @@ type teamArgs struct {
 type TeamArgs struct {
 	// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
 	DefaultRole pulumi.StringPtrInput
+	// A human-friendly description of the team.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description pulumi.StringPtrInput
 	// The name of the group.
 	Name pulumi.StringPtrInput
@@ -244,6 +254,8 @@ func (o TeamOutput) DefaultRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.DefaultRole }).(pulumi.StringOutput)
 }
 
+// A human-friendly description of the team.
+// If not set, a placeholder of "Managed by Pulumi" will be set.
 func (o TeamOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }

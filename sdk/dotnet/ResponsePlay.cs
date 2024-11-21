@@ -100,6 +100,10 @@ namespace Pulumi.Pagerduty
         [Output("conferenceUrl")]
         public Output<string?> ConferenceUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// A human-friendly description of the response play.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
@@ -215,6 +219,10 @@ namespace Pulumi.Pagerduty
         [Input("conferenceUrl")]
         public Input<string>? ConferenceUrl { get; set; }
 
+        /// <summary>
+        /// A human-friendly description of the response play.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -305,6 +313,10 @@ namespace Pulumi.Pagerduty
         [Input("conferenceUrl")]
         public Input<string>? ConferenceUrl { get; set; }
 
+        /// <summary>
+        /// A human-friendly description of the response play.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

@@ -125,6 +125,10 @@ namespace Pulumi.Pagerduty
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// A human-friendly description of the service.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
@@ -267,6 +271,10 @@ namespace Pulumi.Pagerduty
         [Input("autoResolveTimeout")]
         public Input<string>? AutoResolveTimeout { get; set; }
 
+        /// <summary>
+        /// A human-friendly description of the service.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -359,6 +367,10 @@ namespace Pulumi.Pagerduty
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
+        /// <summary>
+        /// A human-friendly description of the service.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

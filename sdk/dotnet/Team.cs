@@ -57,6 +57,10 @@ namespace Pulumi.Pagerduty
         [Output("defaultRole")]
         public Output<string> DefaultRole { get; private set; } = null!;
 
+        /// <summary>
+        /// A human-friendly description of the team.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
@@ -130,6 +134,10 @@ namespace Pulumi.Pagerduty
         [Input("defaultRole")]
         public Input<string>? DefaultRole { get; set; }
 
+        /// <summary>
+        /// A human-friendly description of the team.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -160,6 +168,10 @@ namespace Pulumi.Pagerduty
         [Input("defaultRole")]
         public Input<string>? DefaultRole { get; set; }
 
+        /// <summary>
+        /// A human-friendly description of the team.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

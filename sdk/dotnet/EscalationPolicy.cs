@@ -79,6 +79,10 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/escalationPolicy:EscalationPolicy")]
     public partial class EscalationPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A human-friendly description of the escalation policy.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
@@ -152,6 +156,10 @@ namespace Pulumi.Pagerduty
 
     public sealed class EscalationPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A human-friendly description of the escalation policy.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -194,6 +202,10 @@ namespace Pulumi.Pagerduty
 
     public sealed class EscalationPolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A human-friendly description of the escalation policy.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

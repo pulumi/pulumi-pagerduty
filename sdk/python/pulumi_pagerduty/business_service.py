@@ -26,6 +26,8 @@ class BusinessServiceArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BusinessService resource.
+        :param pulumi.Input[str] description: A human-friendly description of the service.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] name: The name of the business service.
         :param pulumi.Input[str] point_of_contact: The owner of the business service.
         :param pulumi.Input[str] team: ID of the team that owns the business service.
@@ -50,6 +52,10 @@ class BusinessServiceArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-friendly description of the service.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -119,6 +125,8 @@ class _BusinessServiceState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BusinessService resources.
+        :param pulumi.Input[str] description: A human-friendly description of the service.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] html_url: A URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] name: The name of the business service.
         :param pulumi.Input[str] point_of_contact: The owner of the business service.
@@ -152,6 +160,10 @@ class _BusinessServiceState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-friendly description of the service.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -281,6 +293,8 @@ class BusinessService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A human-friendly description of the service.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] name: The name of the business service.
         :param pulumi.Input[str] point_of_contact: The owner of the business service.
         :param pulumi.Input[str] team: ID of the team that owns the business service.
@@ -380,6 +394,8 @@ class BusinessService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A human-friendly description of the service.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] html_url: A URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] name: The name of the business service.
         :param pulumi.Input[str] point_of_contact: The owner of the business service.
@@ -405,6 +421,10 @@ class BusinessService(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        A human-friendly description of the service.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @property

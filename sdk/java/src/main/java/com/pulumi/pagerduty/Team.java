@@ -86,9 +86,19 @@ public class Team extends com.pulumi.resources.CustomResource {
     public Output<String> defaultRole() {
         return this.defaultRole;
     }
+    /**
+     * A human-friendly description of the team.
+     * If not set, a placeholder of &#34;Managed by Pulumi&#34; will be set.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
+    /**
+     * @return A human-friendly description of the team.
+     * If not set, a placeholder of &#34;Managed by Pulumi&#34; will be set.
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }

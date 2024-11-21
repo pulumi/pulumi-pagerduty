@@ -38,6 +38,8 @@ class ResponsePlayArgs:
         :param pulumi.Input[str] from_: The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
         :param pulumi.Input[str] conference_number: The telephone number that will be set as the conference number for any incident on which this response play is run.
         :param pulumi.Input[str] conference_url: The URL that will be set as the conference URL for any incident on which this response play is run.
+        :param pulumi.Input[str] description: A human-friendly description of the response play.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] name: The name of the response play.
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderArgs']]] responders: A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
         :param pulumi.Input[str] responders_message: The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
@@ -112,6 +114,10 @@ class ResponsePlayArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-friendly description of the response play.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -234,6 +240,8 @@ class _ResponsePlayState:
         Input properties used for looking up and filtering ResponsePlay resources.
         :param pulumi.Input[str] conference_number: The telephone number that will be set as the conference number for any incident on which this response play is run.
         :param pulumi.Input[str] conference_url: The URL that will be set as the conference URL for any incident on which this response play is run.
+        :param pulumi.Input[str] description: A human-friendly description of the response play.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] from_: The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
         :param pulumi.Input[str] name: The name of the response play.
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderArgs']]] responders: A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
@@ -298,6 +306,10 @@ class _ResponsePlayState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-friendly description of the response play.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -478,6 +490,8 @@ class ResponsePlay(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] conference_number: The telephone number that will be set as the conference number for any incident on which this response play is run.
         :param pulumi.Input[str] conference_url: The URL that will be set as the conference URL for any incident on which this response play is run.
+        :param pulumi.Input[str] description: A human-friendly description of the response play.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] from_: The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
         :param pulumi.Input[str] name: The name of the response play.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]] responders: A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
@@ -620,6 +634,8 @@ class ResponsePlay(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] conference_number: The telephone number that will be set as the conference number for any incident on which this response play is run.
         :param pulumi.Input[str] conference_url: The URL that will be set as the conference URL for any incident on which this response play is run.
+        :param pulumi.Input[str] description: A human-friendly description of the response play.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] from_: The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
         :param pulumi.Input[str] name: The name of the response play.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]] responders: A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
@@ -667,6 +683,10 @@ class ResponsePlay(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        A human-friendly description of the response play.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @property

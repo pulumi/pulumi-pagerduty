@@ -26,6 +26,8 @@ class TeamArgs:
         """
         The set of arguments for constructing a Team resource.
         :param pulumi.Input[str] default_role: The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        :param pulumi.Input[str] description: A human-friendly description of the team.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] name: The name of the group.
         :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
         """
@@ -55,6 +57,10 @@ class TeamArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-friendly description of the team.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -97,6 +103,8 @@ class _TeamState:
         """
         Input properties used for looking up and filtering Team resources.
         :param pulumi.Input[str] default_role: The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        :param pulumi.Input[str] description: A human-friendly description of the team.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[str] name: The name of the group.
         :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
@@ -129,6 +137,10 @@ class _TeamState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-friendly description of the team.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -213,6 +225,8 @@ class Team(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_role: The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        :param pulumi.Input[str] description: A human-friendly description of the team.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] name: The name of the group.
         :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
         """
@@ -308,6 +322,8 @@ class Team(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_role: The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        :param pulumi.Input[str] description: A human-friendly description of the team.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[str] name: The name of the group.
         :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
@@ -334,6 +350,10 @@ class Team(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        A human-friendly description of the team.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @property

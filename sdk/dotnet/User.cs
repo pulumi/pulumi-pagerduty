@@ -54,6 +54,10 @@ namespace Pulumi.Pagerduty
         [Output("color")]
         public Output<string> Color { get; private set; } = null!;
 
+        /// <summary>
+        /// A human-friendly description of the user.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
@@ -167,6 +171,10 @@ namespace Pulumi.Pagerduty
         [Input("color")]
         public Input<string>? Color { get; set; }
 
+        /// <summary>
+        /// A human-friendly description of the user.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -244,6 +252,10 @@ namespace Pulumi.Pagerduty
         [Input("color")]
         public Input<string>? Color { get; set; }
 
+        /// <summary>
+        /// A human-friendly description of the user.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

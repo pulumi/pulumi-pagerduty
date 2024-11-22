@@ -127,9 +127,19 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> conferenceUrl() {
         return Codegen.optional(this.conferenceUrl);
     }
+    /**
+     * A human-friendly description of the response play.
+     * If not set, a placeholder of &#34;Managed by Pulumi&#34; will be set.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
+    /**
+     * @return A human-friendly description of the response play.
+     * If not set, a placeholder of &#34;Managed by Pulumi&#34; will be set.
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }

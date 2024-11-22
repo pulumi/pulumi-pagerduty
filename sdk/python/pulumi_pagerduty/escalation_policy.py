@@ -29,6 +29,8 @@ class EscalationPolicyArgs:
         """
         The set of arguments for constructing a EscalationPolicy resource.
         :param pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]] rules: An Escalation rule block. Escalation rules documented below.
+        :param pulumi.Input[str] description: A human-friendly description of the escalation policy.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] name: The name of the escalation policy.
         :param pulumi.Input[int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
         :param pulumi.Input[str] teams: Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
@@ -60,6 +62,10 @@ class EscalationPolicyArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-friendly description of the escalation policy.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -113,6 +119,8 @@ class _EscalationPolicyState:
                  teams: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EscalationPolicy resources.
+        :param pulumi.Input[str] description: A human-friendly description of the escalation policy.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] name: The name of the escalation policy.
         :param pulumi.Input[int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
         :param pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]] rules: An Escalation rule block. Escalation rules documented below.
@@ -134,6 +142,10 @@ class _EscalationPolicyState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-friendly description of the escalation policy.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -245,6 +257,8 @@ class EscalationPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A human-friendly description of the escalation policy.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] name: The name of the escalation policy.
         :param pulumi.Input[int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]] rules: An Escalation rule block. Escalation rules documented below.
@@ -359,6 +373,8 @@ class EscalationPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A human-friendly description of the escalation policy.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] name: The name of the escalation policy.
         :param pulumi.Input[int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]] rules: An Escalation rule block. Escalation rules documented below.
@@ -378,6 +394,10 @@ class EscalationPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        A human-friendly description of the escalation policy.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @property

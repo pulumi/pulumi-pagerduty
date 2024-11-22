@@ -88,6 +88,10 @@ export class ResponsePlay extends pulumi.CustomResource {
      * The URL that will be set as the conference URL for any incident on which this response play is run.
      */
     public readonly conferenceUrl!: pulumi.Output<string | undefined>;
+    /**
+     * A human-friendly description of the response play.
+     * If not set, a placeholder of "Managed by Pulumi" will be set.
+     */
     public readonly description!: pulumi.Output<string>;
     /**
      * The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
@@ -186,6 +190,10 @@ export interface ResponsePlayState {
      * The URL that will be set as the conference URL for any incident on which this response play is run.
      */
     conferenceUrl?: pulumi.Input<string>;
+    /**
+     * A human-friendly description of the response play.
+     * If not set, a placeholder of "Managed by Pulumi" will be set.
+     */
     description?: pulumi.Input<string>;
     /**
      * The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
@@ -237,6 +245,10 @@ export interface ResponsePlayArgs {
      * The URL that will be set as the conference URL for any incident on which this response play is run.
      */
     conferenceUrl?: pulumi.Input<string>;
+    /**
+     * A human-friendly description of the response play.
+     * If not set, a placeholder of "Managed by Pulumi" will be set.
+     */
     description?: pulumi.Input<string>;
     /**
      * The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.

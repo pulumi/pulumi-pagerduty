@@ -32,6 +32,8 @@ class UserArgs:
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] email: The user's email address.
         :param pulumi.Input[str] color: The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+        :param pulumi.Input[str] description: A human-friendly description of the user.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] job_title: The user's title.
         :param pulumi.Input[str] license: The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `get_licenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
         :param pulumi.Input[str] name: The name of the user.
@@ -93,6 +95,10 @@ class UserArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-friendly description of the user.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -196,6 +202,8 @@ class _UserState:
         Input properties used for looking up and filtering User resources.
         :param pulumi.Input[str] avatar_url: The URL of the user's avatar.
         :param pulumi.Input[str] color: The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+        :param pulumi.Input[str] description: A human-friendly description of the user.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] email: The user's email address.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[bool] invitation_sent: If true, the user has an outstanding invitation.
@@ -267,6 +275,10 @@ class _UserState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-friendly description of the user.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -427,6 +439,8 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] color: The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+        :param pulumi.Input[str] description: A human-friendly description of the user.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] email: The user's email address.
         :param pulumi.Input[str] job_title: The user's title.
         :param pulumi.Input[str] license: The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `get_licenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
@@ -547,6 +561,8 @@ class User(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] avatar_url: The URL of the user's avatar.
         :param pulumi.Input[str] color: The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+        :param pulumi.Input[str] description: A human-friendly description of the user.
+               If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[str] email: The user's email address.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[bool] invitation_sent: If true, the user has an outstanding invitation.
@@ -598,6 +614,10 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        A human-friendly description of the user.
+        If not set, a placeholder of "Managed by Pulumi" will be set.
+        """
         return pulumi.get(self, "description")
 
     @property

@@ -105,7 +105,9 @@ type Service struct {
 	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
 	AutoResolveTimeout pulumi.StringPtrOutput `pulumi:"autoResolveTimeout"`
 	// Creation timestamp of the service.
-	CreatedAt   pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// A human-friendly description of the service.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The escalation policy used by this service.
 	EscalationPolicy pulumi.StringOutput `pulumi:"escalationPolicy"`
@@ -184,7 +186,9 @@ type serviceState struct {
 	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
 	AutoResolveTimeout *string `pulumi:"autoResolveTimeout"`
 	// Creation timestamp of the service.
-	CreatedAt   *string `pulumi:"createdAt"`
+	CreatedAt *string `pulumi:"createdAt"`
+	// A human-friendly description of the service.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description *string `pulumi:"description"`
 	// The escalation policy used by this service.
 	EscalationPolicy *string `pulumi:"escalationPolicy"`
@@ -228,7 +232,9 @@ type ServiceState struct {
 	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
 	AutoResolveTimeout pulumi.StringPtrInput
 	// Creation timestamp of the service.
-	CreatedAt   pulumi.StringPtrInput
+	CreatedAt pulumi.StringPtrInput
+	// A human-friendly description of the service.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description pulumi.StringPtrInput
 	// The escalation policy used by this service.
 	EscalationPolicy pulumi.StringPtrInput
@@ -275,7 +281,9 @@ type serviceArgs struct {
 	AutoPauseNotificationsParameters *ServiceAutoPauseNotificationsParameters `pulumi:"autoPauseNotificationsParameters"`
 	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
 	AutoResolveTimeout *string `pulumi:"autoResolveTimeout"`
-	Description        *string `pulumi:"description"`
+	// A human-friendly description of the service.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
+	Description *string `pulumi:"description"`
 	// The escalation policy used by this service.
 	EscalationPolicy    string                      `pulumi:"escalationPolicy"`
 	IncidentUrgencyRule *ServiceIncidentUrgencyRule `pulumi:"incidentUrgencyRule"`
@@ -310,7 +318,9 @@ type ServiceArgs struct {
 	AutoPauseNotificationsParameters ServiceAutoPauseNotificationsParametersPtrInput
 	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
 	AutoResolveTimeout pulumi.StringPtrInput
-	Description        pulumi.StringPtrInput
+	// A human-friendly description of the service.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
+	Description pulumi.StringPtrInput
 	// The escalation policy used by this service.
 	EscalationPolicy    pulumi.StringInput
 	IncidentUrgencyRule ServiceIncidentUrgencyRulePtrInput
@@ -458,6 +468,8 @@ func (o ServiceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// A human-friendly description of the service.
+// If not set, a placeholder of "Managed by Pulumi" will be set.
 func (o ServiceOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }

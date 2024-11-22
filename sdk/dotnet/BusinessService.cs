@@ -44,6 +44,10 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/businessService:BusinessService")]
     public partial class BusinessService : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A human-friendly description of the service.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
@@ -135,6 +139,10 @@ namespace Pulumi.Pagerduty
 
     public sealed class BusinessServiceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A human-friendly description of the service.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -171,6 +179,10 @@ namespace Pulumi.Pagerduty
 
     public sealed class BusinessServiceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A human-friendly description of the service.
+        /// If not set, a placeholder of "Managed by Pulumi" will be set.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

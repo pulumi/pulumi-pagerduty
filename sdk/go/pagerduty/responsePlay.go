@@ -94,7 +94,9 @@ type ResponsePlay struct {
 	ConferenceNumber pulumi.StringPtrOutput `pulumi:"conferenceNumber"`
 	// The URL that will be set as the conference URL for any incident on which this response play is run.
 	ConferenceUrl pulumi.StringPtrOutput `pulumi:"conferenceUrl"`
-	Description   pulumi.StringOutput    `pulumi:"description"`
+	// A human-friendly description of the response play.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
+	Description pulumi.StringOutput `pulumi:"description"`
 	// The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
 	From pulumi.StringOutput `pulumi:"from"`
 	// The name of the response play.
@@ -155,7 +157,9 @@ type responsePlayState struct {
 	ConferenceNumber *string `pulumi:"conferenceNumber"`
 	// The URL that will be set as the conference URL for any incident on which this response play is run.
 	ConferenceUrl *string `pulumi:"conferenceUrl"`
-	Description   *string `pulumi:"description"`
+	// A human-friendly description of the response play.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
+	Description *string `pulumi:"description"`
 	// The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
 	From *string `pulumi:"from"`
 	// The name of the response play.
@@ -181,7 +185,9 @@ type ResponsePlayState struct {
 	ConferenceNumber pulumi.StringPtrInput
 	// The URL that will be set as the conference URL for any incident on which this response play is run.
 	ConferenceUrl pulumi.StringPtrInput
-	Description   pulumi.StringPtrInput
+	// A human-friendly description of the response play.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
+	Description pulumi.StringPtrInput
 	// The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
 	From pulumi.StringPtrInput
 	// The name of the response play.
@@ -211,7 +217,9 @@ type responsePlayArgs struct {
 	ConferenceNumber *string `pulumi:"conferenceNumber"`
 	// The URL that will be set as the conference URL for any incident on which this response play is run.
 	ConferenceUrl *string `pulumi:"conferenceUrl"`
-	Description   *string `pulumi:"description"`
+	// A human-friendly description of the response play.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
+	Description *string `pulumi:"description"`
 	// The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
 	From string `pulumi:"from"`
 	// The name of the response play.
@@ -238,7 +246,9 @@ type ResponsePlayArgs struct {
 	ConferenceNumber pulumi.StringPtrInput
 	// The URL that will be set as the conference URL for any incident on which this response play is run.
 	ConferenceUrl pulumi.StringPtrInput
-	Description   pulumi.StringPtrInput
+	// A human-friendly description of the response play.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
+	Description pulumi.StringPtrInput
 	// The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
 	From pulumi.StringInput
 	// The name of the response play.
@@ -356,6 +366,8 @@ func (o ResponsePlayOutput) ConferenceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponsePlay) pulumi.StringPtrOutput { return v.ConferenceUrl }).(pulumi.StringPtrOutput)
 }
 
+// A human-friendly description of the response play.
+// If not set, a placeholder of "Managed by Pulumi" will be set.
 func (o ResponsePlayOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponsePlay) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }

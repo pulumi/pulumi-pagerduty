@@ -33,9 +33,19 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.color);
     }
 
+    /**
+     * A human-friendly description of the user.
+     * If not set, a placeholder of &#34;Managed by Pulumi&#34; will be set.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return A human-friendly description of the user.
+     * If not set, a placeholder of &#34;Managed by Pulumi&#34; will be set.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -214,11 +224,25 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
             return color(Output.of(color));
         }
 
+        /**
+         * @param description A human-friendly description of the user.
+         * If not set, a placeholder of &#34;Managed by Pulumi&#34; will be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description A human-friendly description of the user.
+         * If not set, a placeholder of &#34;Managed by Pulumi&#34; will be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }

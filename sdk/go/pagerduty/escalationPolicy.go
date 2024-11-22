@@ -84,6 +84,8 @@ import (
 type EscalationPolicy struct {
 	pulumi.CustomResourceState
 
+	// A human-friendly description of the escalation policy.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The name of the escalation policy.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -131,6 +133,8 @@ func GetEscalationPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EscalationPolicy resources.
 type escalationPolicyState struct {
+	// A human-friendly description of the escalation policy.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description *string `pulumi:"description"`
 	// The name of the escalation policy.
 	Name *string `pulumi:"name"`
@@ -143,6 +147,8 @@ type escalationPolicyState struct {
 }
 
 type EscalationPolicyState struct {
+	// A human-friendly description of the escalation policy.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description pulumi.StringPtrInput
 	// The name of the escalation policy.
 	Name pulumi.StringPtrInput
@@ -159,6 +165,8 @@ func (EscalationPolicyState) ElementType() reflect.Type {
 }
 
 type escalationPolicyArgs struct {
+	// A human-friendly description of the escalation policy.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description *string `pulumi:"description"`
 	// The name of the escalation policy.
 	Name *string `pulumi:"name"`
@@ -172,6 +180,8 @@ type escalationPolicyArgs struct {
 
 // The set of arguments for constructing a EscalationPolicy resource.
 type EscalationPolicyArgs struct {
+	// A human-friendly description of the escalation policy.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description pulumi.StringPtrInput
 	// The name of the escalation policy.
 	Name pulumi.StringPtrInput
@@ -270,6 +280,8 @@ func (o EscalationPolicyOutput) ToEscalationPolicyOutputWithContext(ctx context.
 	return o
 }
 
+// A human-friendly description of the escalation policy.
+// If not set, a placeholder of "Managed by Pulumi" will be set.
 func (o EscalationPolicyOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *EscalationPolicy) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }

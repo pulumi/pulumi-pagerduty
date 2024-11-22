@@ -57,6 +57,10 @@ export class BusinessService extends pulumi.CustomResource {
         return obj['__pulumiType'] === BusinessService.__pulumiType;
     }
 
+    /**
+     * A human-friendly description of the service.
+     * If not set, a placeholder of "Managed by Pulumi" will be set.
+     */
     public readonly description!: pulumi.Output<string>;
     /**
      * A URL at which the entity is uniquely displayed in the Web app.
@@ -130,6 +134,10 @@ export class BusinessService extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BusinessService resources.
  */
 export interface BusinessServiceState {
+    /**
+     * A human-friendly description of the service.
+     * If not set, a placeholder of "Managed by Pulumi" will be set.
+     */
     description?: pulumi.Input<string>;
     /**
      * A URL at which the entity is uniquely displayed in the Web app.
@@ -167,6 +175,10 @@ export interface BusinessServiceState {
  * The set of arguments for constructing a BusinessService resource.
  */
 export interface BusinessServiceArgs {
+    /**
+     * A human-friendly description of the service.
+     * If not set, a placeholder of "Managed by Pulumi" will be set.
+     */
     description?: pulumi.Input<string>;
     /**
      * The name of the business service.

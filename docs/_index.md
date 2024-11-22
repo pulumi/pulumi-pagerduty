@@ -6,7 +6,7 @@ layout: package
 ---
 ## Installation
 
-The pagerduty provider is available as a package in all Pulumi languages:
+The Pagerduty provider is available as a package in all Pulumi languages:
 
 * JavaScript/TypeScript: [`@pulumi/pagerduty`](https://www.npmjs.com/package/@pulumi/pagerduty)
 * Python: [`pulumi-pagerduty`](https://pypi.org/project/pulumi-pagerduty/)

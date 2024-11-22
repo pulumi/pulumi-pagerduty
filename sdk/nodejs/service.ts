@@ -118,6 +118,10 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
      * Creation timestamp of the service.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * A human-friendly description of the service.
+     * If not set, a placeholder of "Managed by Pulumi" will be set.
+     */
     public readonly description!: pulumi.Output<string>;
     /**
      * The escalation policy used by this service.
@@ -256,6 +260,10 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
      * Creation timestamp of the service.
      */
     createdAt?: pulumi.Input<string>;
+    /**
+     * A human-friendly description of the service.
+     * If not set, a placeholder of "Managed by Pulumi" will be set.
+     */
     description?: pulumi.Input<string>;
     /**
      * The escalation policy used by this service.
@@ -329,6 +337,10 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
      * Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
      */
     autoResolveTimeout?: pulumi.Input<string>;
+    /**
+     * A human-friendly description of the service.
+     * If not set, a placeholder of "Managed by Pulumi" will be set.
+     */
     description?: pulumi.Input<string>;
     /**
      * The escalation policy used by this service.

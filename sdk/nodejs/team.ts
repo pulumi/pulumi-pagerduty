@@ -66,6 +66,10 @@ export class Team extends pulumi.CustomResource {
      * The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
      */
     public readonly defaultRole!: pulumi.Output<string>;
+    /**
+     * A human-friendly description of the team.
+     * If not set, a placeholder of "Managed by Pulumi" will be set.
+     */
     public readonly description!: pulumi.Output<string>;
     /**
      * URL at which the entity is uniquely displayed in the Web app
@@ -119,6 +123,10 @@ export interface TeamState {
      * The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
      */
     defaultRole?: pulumi.Input<string>;
+    /**
+     * A human-friendly description of the team.
+     * If not set, a placeholder of "Managed by Pulumi" will be set.
+     */
     description?: pulumi.Input<string>;
     /**
      * URL at which the entity is uniquely displayed in the Web app
@@ -142,6 +150,10 @@ export interface TeamArgs {
      * The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
      */
     defaultRole?: pulumi.Input<string>;
+    /**
+     * A human-friendly description of the team.
+     * If not set, a placeholder of "Managed by Pulumi" will be set.
+     */
     description?: pulumi.Input<string>;
     /**
      * The name of the group.

@@ -52,6 +52,8 @@ import (
 type BusinessService struct {
 	pulumi.CustomResourceState
 
+	// A human-friendly description of the service.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// A URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
@@ -104,6 +106,8 @@ func GetBusinessService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BusinessService resources.
 type businessServiceState struct {
+	// A human-friendly description of the service.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description *string `pulumi:"description"`
 	// A URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl *string `pulumi:"htmlUrl"`
@@ -124,6 +128,8 @@ type businessServiceState struct {
 }
 
 type BusinessServiceState struct {
+	// A human-friendly description of the service.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description pulumi.StringPtrInput
 	// A URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl pulumi.StringPtrInput
@@ -148,6 +154,8 @@ func (BusinessServiceState) ElementType() reflect.Type {
 }
 
 type businessServiceArgs struct {
+	// A human-friendly description of the service.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description *string `pulumi:"description"`
 	// The name of the business service.
 	Name *string `pulumi:"name"`
@@ -163,6 +171,8 @@ type businessServiceArgs struct {
 
 // The set of arguments for constructing a BusinessService resource.
 type BusinessServiceArgs struct {
+	// A human-friendly description of the service.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description pulumi.StringPtrInput
 	// The name of the business service.
 	Name pulumi.StringPtrInput
@@ -263,6 +273,8 @@ func (o BusinessServiceOutput) ToBusinessServiceOutputWithContext(ctx context.Co
 	return o
 }
 
+// A human-friendly description of the service.
+// If not set, a placeholder of "Managed by Pulumi" will be set.
 func (o BusinessServiceOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *BusinessService) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }

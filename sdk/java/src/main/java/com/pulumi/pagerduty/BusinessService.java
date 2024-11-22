@@ -66,9 +66,19 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/businessService:BusinessService")
 public class BusinessService extends com.pulumi.resources.CustomResource {
+    /**
+     * A human-friendly description of the service.
+     * If not set, a placeholder of &#34;Managed by Pulumi&#34; will be set.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
+    /**
+     * @return A human-friendly description of the service.
+     * If not set, a placeholder of &#34;Managed by Pulumi&#34; will be set.
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }

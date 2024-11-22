@@ -226,9 +226,19 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
     public Output<String> createdAt() {
         return this.createdAt;
     }
+    /**
+     * A human-friendly description of the service.
+     * If not set, a placeholder of &#34;Managed by Pulumi&#34; will be set.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
+    /**
+     * @return A human-friendly description of the service.
+     * If not set, a placeholder of &#34;Managed by Pulumi&#34; will be set.
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }

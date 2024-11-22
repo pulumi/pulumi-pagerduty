@@ -54,7 +54,9 @@ type User struct {
 	// The URL of the user's avatar.
 	AvatarUrl pulumi.StringOutput `pulumi:"avatarUrl"`
 	// The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
-	Color       pulumi.StringOutput `pulumi:"color"`
+	Color pulumi.StringOutput `pulumi:"color"`
+	// A human-friendly description of the user.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The user's email address.
 	Email pulumi.StringOutput `pulumi:"email"`
@@ -121,7 +123,9 @@ type userState struct {
 	// The URL of the user's avatar.
 	AvatarUrl *string `pulumi:"avatarUrl"`
 	// The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
-	Color       *string `pulumi:"color"`
+	Color *string `pulumi:"color"`
+	// A human-friendly description of the user.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description *string `pulumi:"description"`
 	// The user's email address.
 	Email *string `pulumi:"email"`
@@ -153,7 +157,9 @@ type UserState struct {
 	// The URL of the user's avatar.
 	AvatarUrl pulumi.StringPtrInput
 	// The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
-	Color       pulumi.StringPtrInput
+	Color pulumi.StringPtrInput
+	// A human-friendly description of the user.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description pulumi.StringPtrInput
 	// The user's email address.
 	Email pulumi.StringPtrInput
@@ -187,7 +193,9 @@ func (UserState) ElementType() reflect.Type {
 
 type userArgs struct {
 	// The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
-	Color       *string `pulumi:"color"`
+	Color *string `pulumi:"color"`
+	// A human-friendly description of the user.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description *string `pulumi:"description"`
 	// The user's email address.
 	Email string `pulumi:"email"`
@@ -214,7 +222,9 @@ type userArgs struct {
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
 	// The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
-	Color       pulumi.StringPtrInput
+	Color pulumi.StringPtrInput
+	// A human-friendly description of the user.
+	// If not set, a placeholder of "Managed by Pulumi" will be set.
 	Description pulumi.StringPtrInput
 	// The user's email address.
 	Email pulumi.StringInput
@@ -335,6 +345,8 @@ func (o UserOutput) Color() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Color }).(pulumi.StringOutput)
 }
 
+// A human-friendly description of the user.
+// If not set, a placeholder of "Managed by Pulumi" will be set.
 func (o UserOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }

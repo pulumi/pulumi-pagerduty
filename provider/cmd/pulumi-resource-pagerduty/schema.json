@@ -4866,6 +4866,7 @@
             "properties": {
                 "description": {
                     "type": "string",
+                    "description": "A human-friendly description of the service.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                     "default": "Managed by Pulumi"
                 },
                 "htmlUrl": {
@@ -4909,6 +4910,7 @@
             "inputProperties": {
                 "description": {
                     "type": "string",
+                    "description": "A human-friendly description of the service.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                     "default": "Managed by Pulumi"
                 },
                 "name": {
@@ -4934,6 +4936,7 @@
                 "properties": {
                     "description": {
                         "type": "string",
+                        "description": "A human-friendly description of the service.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                         "default": "Managed by Pulumi"
                     },
                     "htmlUrl": {
@@ -5039,6 +5042,7 @@
             "properties": {
                 "description": {
                     "type": "string",
+                    "description": "A human-friendly description of the escalation policy.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                     "default": "Managed by Pulumi"
                 },
                 "name": {
@@ -5069,6 +5073,7 @@
             "inputProperties": {
                 "description": {
                     "type": "string",
+                    "description": "A human-friendly description of the escalation policy.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                     "default": "Managed by Pulumi"
                 },
                 "name": {
@@ -5099,6 +5104,7 @@
                 "properties": {
                     "description": {
                         "type": "string",
+                        "description": "A human-friendly description of the escalation policy.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                         "default": "Managed by Pulumi"
                     },
                     "name": {
@@ -6622,6 +6628,7 @@
                 },
                 "description": {
                     "type": "string",
+                    "description": "A human-friendly description of the response play.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                     "default": "Managed by Pulumi"
                 },
                 "from": {
@@ -6683,6 +6690,7 @@
                 },
                 "description": {
                     "type": "string",
+                    "description": "A human-friendly description of the response play.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                     "default": "Managed by Pulumi"
                 },
                 "from": {
@@ -6744,6 +6752,7 @@
                     },
                     "description": {
                         "type": "string",
+                        "description": "A human-friendly description of the response play.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                         "default": "Managed by Pulumi"
                     },
                     "from": {
@@ -7149,6 +7158,7 @@
                 },
                 "description": {
                     "type": "string",
+                    "description": "A human-friendly description of the service.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                     "default": "Managed by Pulumi"
                 },
                 "escalationPolicy": {
@@ -7242,6 +7252,7 @@
                 },
                 "description": {
                     "type": "string",
+                    "description": "A human-friendly description of the service.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                     "default": "Managed by Pulumi"
                 },
                 "escalationPolicy": {
@@ -7312,6 +7323,7 @@
                     },
                     "description": {
                         "type": "string",
+                        "description": "A human-friendly description of the service.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                         "default": "Managed by Pulumi"
                     },
                     "escalationPolicy": {
@@ -7935,6 +7947,7 @@
                 },
                 "description": {
                     "type": "string",
+                    "description": "A human-friendly description of the team.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                     "default": "Managed by Pulumi"
                 },
                 "htmlUrl": {
@@ -7963,6 +7976,7 @@
                 },
                 "description": {
                     "type": "string",
+                    "description": "A human-friendly description of the team.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                     "default": "Managed by Pulumi"
                 },
                 "name": {
@@ -7983,6 +7997,7 @@
                     },
                     "description": {
                         "type": "string",
+                        "description": "A human-friendly description of the team.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                         "default": "Managed by Pulumi"
                     },
                     "htmlUrl": {
@@ -8075,6 +8090,7 @@
                 },
                 "description": {
                     "type": "string",
+                    "description": "A human-friendly description of the user.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                     "default": "Managed by Pulumi"
                 },
                 "email": {
@@ -8137,6 +8153,7 @@
                 },
                 "description": {
                     "type": "string",
+                    "description": "A human-friendly description of the user.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                     "default": "Managed by Pulumi"
                 },
                 "email": {
@@ -8188,6 +8205,7 @@
                     },
                     "description": {
                         "type": "string",
+                        "description": "A human-friendly description of the user.\nIf not set, a placeholder of \"Managed by Pulumi\" will be set.\n",
                         "default": "Managed by Pulumi"
                     },
                     "email": {

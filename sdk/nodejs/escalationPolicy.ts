@@ -80,6 +80,10 @@ export class EscalationPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === EscalationPolicy.__pulumiType;
     }
 
+    /**
+     * A human-friendly description of the escalation policy.
+     * If not set, a placeholder of "Managed by Pulumi" will be set.
+     */
     public readonly description!: pulumi.Output<string>;
     /**
      * The name of the escalation policy.
@@ -136,6 +140,10 @@ export class EscalationPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EscalationPolicy resources.
  */
 export interface EscalationPolicyState {
+    /**
+     * A human-friendly description of the escalation policy.
+     * If not set, a placeholder of "Managed by Pulumi" will be set.
+     */
     description?: pulumi.Input<string>;
     /**
      * The name of the escalation policy.
@@ -159,6 +167,10 @@ export interface EscalationPolicyState {
  * The set of arguments for constructing a EscalationPolicy resource.
  */
 export interface EscalationPolicyArgs {
+    /**
+     * A human-friendly description of the escalation policy.
+     * If not set, a placeholder of "Managed by Pulumi" will be set.
+     */
     description?: pulumi.Input<string>;
     /**
      * The name of the escalation policy.

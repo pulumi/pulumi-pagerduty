@@ -203,7 +203,7 @@ def get_license(description: Optional[str] = None,
 def get_license_output(description: Optional[pulumi.Input[Optional[str]]] = None,
                        id: Optional[pulumi.Input[Optional[str]]] = None,
                        name: Optional[pulumi.Input[Optional[str]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLicenseResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLicenseResult]:
     """
     Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
 
@@ -234,7 +234,7 @@ def get_license_output(description: Optional[pulumi.Input[Optional[str]]] = None
     __args__['description'] = description
     __args__['id'] = id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getLicense:getLicense', __args__, opts=opts, typ=GetLicenseResult)
     return __ret__.apply(lambda __response__: GetLicenseResult(
         allocations_available=pulumi.get(__response__, 'allocations_available'),

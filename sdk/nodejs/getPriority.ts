@@ -132,7 +132,7 @@ export interface GetPriorityResult {
  * });
  * ```
  */
-export function getPriorityOutput(args: GetPriorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPriorityResult> {
+export function getPriorityOutput(args: GetPriorityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPriorityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getPriority:getPriority", {
         "name": args.name,

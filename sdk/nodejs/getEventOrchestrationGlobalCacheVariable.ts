@@ -85,7 +85,7 @@ export interface GetEventOrchestrationGlobalCacheVariableResult {
  * });
  * ```
  */
-export function getEventOrchestrationGlobalCacheVariableOutput(args: GetEventOrchestrationGlobalCacheVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventOrchestrationGlobalCacheVariableResult> {
+export function getEventOrchestrationGlobalCacheVariableOutput(args: GetEventOrchestrationGlobalCacheVariableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventOrchestrationGlobalCacheVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable", {
         "eventOrchestration": args.eventOrchestration,

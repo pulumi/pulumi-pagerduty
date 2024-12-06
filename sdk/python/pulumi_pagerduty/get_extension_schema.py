@@ -124,7 +124,7 @@ def get_extension_schema(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
 def get_extension_schema_output(name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionSchemaResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionSchemaResult]:
     """
     Use this data source to get information about a specific [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMA-list-extension-schemas) vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
 
@@ -166,7 +166,7 @@ def get_extension_schema_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getExtensionSchema:getExtensionSchema', __args__, opts=opts, typ=GetExtensionSchemaResult)
     return __ret__.apply(lambda __response__: GetExtensionSchemaResult(
         id=pulumi.get(__response__, 'id'),

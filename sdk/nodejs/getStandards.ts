@@ -67,7 +67,7 @@ export interface GetStandardsResult {
  * const standards = pagerduty.getStandards({});
  * ```
  */
-export function getStandardsOutput(args?: GetStandardsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardsResult> {
+export function getStandardsOutput(args?: GetStandardsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStandardsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getStandards:getStandards", {

@@ -68,7 +68,7 @@ export interface GetServiceIntegrationResult {
  * });
  * ```
  */
-export function getServiceIntegrationOutput(args: GetServiceIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceIntegrationResult> {
+export function getServiceIntegrationOutput(args: GetServiceIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceIntegrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getServiceIntegration:getServiceIntegration", {
         "integrationSummary": args.integrationSummary,

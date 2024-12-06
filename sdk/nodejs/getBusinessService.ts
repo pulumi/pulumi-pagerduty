@@ -66,7 +66,7 @@ export interface GetBusinessServiceResult {
  * });
  * ```
  */
-export function getBusinessServiceOutput(args: GetBusinessServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessServiceResult> {
+export function getBusinessServiceOutput(args: GetBusinessServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBusinessServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getBusinessService:getBusinessService", {
         "name": args.name,

@@ -94,7 +94,7 @@ def get_licenses(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         licenses=pulumi.get(__ret__, 'licenses'))
 def get_licenses_output(id: Optional[pulumi.Input[Optional[str]]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLicensesResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLicensesResult]:
     """
     Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `get_license` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
 
@@ -118,7 +118,7 @@ def get_licenses_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getLicenses:getLicenses', __args__, opts=opts, typ=GetLicensesResult)
     return __ret__.apply(lambda __response__: GetLicensesResult(
         id=pulumi.get(__response__, 'id'),

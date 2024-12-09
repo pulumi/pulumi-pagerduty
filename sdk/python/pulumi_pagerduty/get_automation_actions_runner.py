@@ -177,7 +177,7 @@ def get_automation_actions_runner_output(description: Optional[pulumi.Input[Opti
                                          id: Optional[pulumi.Input[str]] = None,
                                          last_seen: Optional[pulumi.Input[Optional[str]]] = None,
                                          runbook_base_uri: Optional[pulumi.Input[Optional[str]]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationActionsRunnerResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutomationActionsRunnerResult]:
     """
     Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
 
@@ -201,7 +201,7 @@ def get_automation_actions_runner_output(description: Optional[pulumi.Input[Opti
     __args__['id'] = id
     __args__['lastSeen'] = last_seen
     __args__['runbookBaseUri'] = runbook_base_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner', __args__, opts=opts, typ=GetAutomationActionsRunnerResult)
     return __ret__.apply(lambda __response__: GetAutomationActionsRunnerResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

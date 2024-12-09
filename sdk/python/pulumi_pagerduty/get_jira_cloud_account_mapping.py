@@ -88,7 +88,7 @@ def get_jira_cloud_account_mapping(subdomain: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         subdomain=pulumi.get(__ret__, 'subdomain'))
 def get_jira_cloud_account_mapping_output(subdomain: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJiraCloudAccountMappingResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJiraCloudAccountMappingResult]:
     """
     Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
 
@@ -97,7 +97,7 @@ def get_jira_cloud_account_mapping_output(subdomain: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['subdomain'] = subdomain
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping', __args__, opts=opts, typ=GetJiraCloudAccountMappingResult)
     return __ret__.apply(lambda __response__: GetJiraCloudAccountMappingResult(
         base_url=pulumi.get(__response__, 'base_url'),

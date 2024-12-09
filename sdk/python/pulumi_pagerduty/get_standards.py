@@ -102,7 +102,7 @@ def get_standards(resource_type: Optional[str] = None,
         resource_type=pulumi.get(__ret__, 'resource_type'),
         standards=pulumi.get(__ret__, 'standards'))
 def get_standards_output(resource_type: Optional[pulumi.Input[Optional[str]]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardsResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandardsResult]:
     """
     Use this data source to get information about the [standards](https://developer.pagerduty.com/api-reference/dbed9a0ff9355-list-standards) applicable to
     the PagerDuty account.
@@ -121,7 +121,7 @@ def get_standards_output(resource_type: Optional[pulumi.Input[Optional[str]]] = 
     """
     __args__ = dict()
     __args__['resourceType'] = resource_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getStandards:getStandards', __args__, opts=opts, typ=GetStandardsResult)
     return __ret__.apply(lambda __response__: GetStandardsResult(
         id=pulumi.get(__response__, 'id'),

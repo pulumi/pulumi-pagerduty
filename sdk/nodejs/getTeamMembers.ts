@@ -71,7 +71,7 @@ export interface GetTeamMembersResult {
  * }));
  * ```
  */
-export function getTeamMembersOutput(args: GetTeamMembersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamMembersResult> {
+export function getTeamMembersOutput(args: GetTeamMembersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTeamMembersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getTeamMembers:getTeamMembers", {
         "teamId": args.teamId,

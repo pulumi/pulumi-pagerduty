@@ -129,7 +129,7 @@ export interface GetUserContactMethodResult {
  * });
  * ```
  */
-export function getUserContactMethodOutput(args: GetUserContactMethodOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserContactMethodResult> {
+export function getUserContactMethodOutput(args: GetUserContactMethodOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserContactMethodResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getUserContactMethod:getUserContactMethod", {
         "label": args.label,

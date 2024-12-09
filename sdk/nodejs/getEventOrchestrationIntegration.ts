@@ -74,7 +74,7 @@ export interface GetEventOrchestrationIntegrationResult {
  * });
  * ```
  */
-export function getEventOrchestrationIntegrationOutput(args: GetEventOrchestrationIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventOrchestrationIntegrationResult> {
+export function getEventOrchestrationIntegrationOutput(args: GetEventOrchestrationIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventOrchestrationIntegrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", {
         "eventOrchestration": args.eventOrchestration,

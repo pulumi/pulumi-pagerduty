@@ -41,7 +41,7 @@ export interface GetJiraCloudAccountMappingResult {
 /**
  * Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
  */
-export function getJiraCloudAccountMappingOutput(args: GetJiraCloudAccountMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJiraCloudAccountMappingResult> {
+export function getJiraCloudAccountMappingOutput(args: GetJiraCloudAccountMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJiraCloudAccountMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping", {
         "subdomain": args.subdomain,

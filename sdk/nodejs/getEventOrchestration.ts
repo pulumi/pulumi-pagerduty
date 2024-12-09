@@ -51,7 +51,7 @@ export interface GetEventOrchestrationResult {
 /**
  * Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
  */
-export function getEventOrchestrationOutput(args: GetEventOrchestrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventOrchestrationResult> {
+export function getEventOrchestrationOutput(args: GetEventOrchestrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventOrchestrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getEventOrchestration:getEventOrchestration", {
         "integrationDetail": args.integrationDetail,

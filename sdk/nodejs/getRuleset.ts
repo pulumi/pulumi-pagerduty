@@ -142,7 +142,7 @@ export interface GetRulesetResult {
  * });
  * ```
  */
-export function getRulesetOutput(args: GetRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesetResult> {
+export function getRulesetOutput(args: GetRulesetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRulesetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getRuleset:getRuleset", {
         "name": args.name,

@@ -97,7 +97,7 @@ def get_schedule(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
 def get_schedule_output(name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4MQ-list-schedules) that you can use for other PagerDuty resources.
 
@@ -125,7 +125,7 @@ def get_schedule_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getSchedule:getSchedule', __args__, opts=opts, typ=GetScheduleResult)
     return __ret__.apply(lambda __response__: GetScheduleResult(
         id=pulumi.get(__response__, 'id'),

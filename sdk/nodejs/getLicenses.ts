@@ -75,7 +75,7 @@ export interface GetLicensesResult {
  * });
  * ```
  */
-export function getLicensesOutput(args?: GetLicensesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicensesResult> {
+export function getLicensesOutput(args?: GetLicensesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLicensesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getLicenses:getLicenses", {

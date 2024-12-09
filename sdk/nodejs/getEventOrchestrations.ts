@@ -69,7 +69,7 @@ export interface GetEventOrchestrationsResult {
  * });
  * ```
  */
-export function getEventOrchestrationsOutput(args: GetEventOrchestrationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventOrchestrationsResult> {
+export function getEventOrchestrationsOutput(args: GetEventOrchestrationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventOrchestrationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getEventOrchestrations:getEventOrchestrations", {
         "nameFilter": args.nameFilter,

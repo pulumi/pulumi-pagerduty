@@ -135,7 +135,7 @@ def get_ruleset(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         routing_keys=pulumi.get(__ret__, 'routing_keys'))
 def get_ruleset_output(name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRulesetResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRulesetResult]:
     """
     ## Example Usage
 
@@ -188,7 +188,7 @@ def get_ruleset_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getRuleset:getRuleset', __args__, opts=opts, typ=GetRulesetResult)
     return __ret__.apply(lambda __response__: GetRulesetResult(
         id=pulumi.get(__response__, 'id'),

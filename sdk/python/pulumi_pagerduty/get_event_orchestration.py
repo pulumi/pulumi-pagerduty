@@ -97,7 +97,7 @@ def get_event_orchestration(integration_detail: Optional[Sequence[Union['GetEven
         name=pulumi.get(__ret__, 'name'))
 def get_event_orchestration_output(integration_detail: Optional[pulumi.Input[Optional[Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']]]]] = None,
                                    name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventOrchestrationResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventOrchestrationResult]:
     """
     Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
 
@@ -108,7 +108,7 @@ def get_event_orchestration_output(integration_detail: Optional[pulumi.Input[Opt
     __args__ = dict()
     __args__['integrationDetail'] = integration_detail
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getEventOrchestration:getEventOrchestration', __args__, opts=opts, typ=GetEventOrchestrationResult)
     return __ret__.apply(lambda __response__: GetEventOrchestrationResult(
         id=pulumi.get(__response__, 'id'),

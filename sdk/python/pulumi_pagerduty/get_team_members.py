@@ -99,7 +99,7 @@ def get_team_members(team_id: Optional[str] = None,
         members=pulumi.get(__ret__, 'members'),
         team_id=pulumi.get(__ret__, 'team_id'))
 def get_team_members_output(team_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamMembersResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamMembersResult]:
     """
     Use this data source to get information about a specific [team's members][1].
 
@@ -118,7 +118,7 @@ def get_team_members_output(team_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['teamId'] = team_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getTeamMembers:getTeamMembers', __args__, opts=opts, typ=GetTeamMembersResult)
     return __ret__.apply(lambda __response__: GetTeamMembersResult(
         id=pulumi.get(__response__, 'id'),

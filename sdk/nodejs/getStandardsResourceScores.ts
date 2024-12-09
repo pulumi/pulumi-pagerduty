@@ -87,7 +87,7 @@ export interface GetStandardsResourceScoresResult {
  * }));
  * ```
  */
-export function getStandardsResourceScoresOutput(args: GetStandardsResourceScoresOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardsResourceScoresResult> {
+export function getStandardsResourceScoresOutput(args: GetStandardsResourceScoresOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStandardsResourceScoresResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getStandardsResourceScores:getStandardsResourceScores", {
         "id": args.id,

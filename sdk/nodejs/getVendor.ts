@@ -124,7 +124,7 @@ export interface GetVendorResult {
  * });
  * ```
  */
-export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorResult> {
+export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVendorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getVendor:getVendor", {
         "name": args.name,

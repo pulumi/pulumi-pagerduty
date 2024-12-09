@@ -124,7 +124,7 @@ def get_standards_resources_scores(ids: Optional[Sequence[str]] = None,
         resources=pulumi.get(__ret__, 'resources'))
 def get_standards_resources_scores_output(ids: Optional[pulumi.Input[Sequence[str]]] = None,
                                           resource_type: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardsResourcesScoresResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandardsResourcesScoresResult]:
     """
     Use this data source to get information about the [scores for the standards for
     many resources][1].
@@ -153,7 +153,7 @@ def get_standards_resources_scores_output(ids: Optional[pulumi.Input[Sequence[st
     __args__ = dict()
     __args__['ids'] = ids
     __args__['resourceType'] = resource_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores', __args__, opts=opts, typ=GetStandardsResourcesScoresResult)
     return __ret__.apply(lambda __response__: GetStandardsResourcesScoresResult(
         id=pulumi.get(__response__, 'id'),

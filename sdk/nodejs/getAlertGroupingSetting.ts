@@ -85,7 +85,7 @@ export interface GetAlertGroupingSettingResult {
  * });
  * ```
  */
-export function getAlertGroupingSettingOutput(args: GetAlertGroupingSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertGroupingSettingResult> {
+export function getAlertGroupingSettingOutput(args: GetAlertGroupingSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertGroupingSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getAlertGroupingSetting:getAlertGroupingSetting", {
         "config": args.config,

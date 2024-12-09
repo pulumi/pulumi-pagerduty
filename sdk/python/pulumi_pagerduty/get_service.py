@@ -185,7 +185,7 @@ def get_service(name: Optional[str] = None,
         teams=pulumi.get(__ret__, 'teams'),
         type=pulumi.get(__ret__, 'type'))
 def get_service_output(name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
 
@@ -209,7 +209,7 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getService:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         acknowledgement_timeout=pulumi.get(__response__, 'acknowledgement_timeout'),

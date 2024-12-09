@@ -101,7 +101,7 @@ export interface GetAutomationActionsRunnerResult {
  * });
  * ```
  */
-export function getAutomationActionsRunnerOutput(args: GetAutomationActionsRunnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationActionsRunnerResult> {
+export function getAutomationActionsRunnerOutput(args: GetAutomationActionsRunnerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutomationActionsRunnerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner", {
         "description": args.description,

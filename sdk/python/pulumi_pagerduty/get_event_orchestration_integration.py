@@ -112,7 +112,7 @@ def get_event_orchestration_integration(event_orchestration: Optional[str] = Non
 def get_event_orchestration_integration_output(event_orchestration: Optional[pulumi.Input[str]] = None,
                                                id: Optional[pulumi.Input[Optional[str]]] = None,
                                                label: Optional[pulumi.Input[Optional[str]]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventOrchestrationIntegrationResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventOrchestrationIntegrationResult]:
     """
     Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
 
@@ -136,7 +136,7 @@ def get_event_orchestration_integration_output(event_orchestration: Optional[pul
     __args__['eventOrchestration'] = event_orchestration
     __args__['id'] = id
     __args__['label'] = label
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration', __args__, opts=opts, typ=GetEventOrchestrationIntegrationResult)
     return __ret__.apply(lambda __response__: GetEventOrchestrationIntegrationResult(
         event_orchestration=pulumi.get(__response__, 'event_orchestration'),

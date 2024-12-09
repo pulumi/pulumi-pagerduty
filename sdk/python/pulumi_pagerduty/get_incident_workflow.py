@@ -100,7 +100,7 @@ def get_incident_workflow(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
 def get_incident_workflow_output(name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentWorkflowResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIncidentWorkflowResult]:
     """
     Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
 
@@ -124,7 +124,7 @@ def get_incident_workflow_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getIncidentWorkflow:getIncidentWorkflow', __args__, opts=opts, typ=GetIncidentWorkflowResult)
     return __ret__.apply(lambda __response__: GetIncidentWorkflowResult(
         description=pulumi.get(__response__, 'description'),

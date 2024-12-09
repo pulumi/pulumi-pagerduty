@@ -73,7 +73,7 @@ export interface GetIncidentCustomFieldResult {
  * });
  * ```
  */
-export function getIncidentCustomFieldOutput(args: GetIncidentCustomFieldOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentCustomFieldResult> {
+export function getIncidentCustomFieldOutput(args: GetIncidentCustomFieldOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIncidentCustomFieldResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getIncidentCustomField:getIncidentCustomField", {
         "name": args.name,

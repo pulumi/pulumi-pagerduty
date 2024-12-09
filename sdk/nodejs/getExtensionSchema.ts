@@ -122,7 +122,7 @@ export interface GetExtensionSchemaResult {
  * });
  * ```
  */
-export function getExtensionSchemaOutput(args: GetExtensionSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionSchemaResult> {
+export function getExtensionSchemaOutput(args: GetExtensionSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExtensionSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getExtensionSchema:getExtensionSchema", {
         "name": args.name,

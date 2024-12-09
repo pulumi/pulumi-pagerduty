@@ -207,7 +207,7 @@ def get_user_contact_method(label: Optional[str] = None,
 def get_user_contact_method_output(label: Optional[pulumi.Input[str]] = None,
                                    type: Optional[pulumi.Input[str]] = None,
                                    user_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserContactMethodResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserContactMethodResult]:
     """
     Use this data source to get information about a specific [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzOQ-list-a-user-s-contact-methods) of a PagerDuty [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
 
@@ -240,7 +240,7 @@ def get_user_contact_method_output(label: Optional[pulumi.Input[str]] = None,
     __args__['label'] = label
     __args__['type'] = type
     __args__['userId'] = user_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getUserContactMethod:getUserContactMethod', __args__, opts=opts, typ=GetUserContactMethodResult)
     return __ret__.apply(lambda __response__: GetUserContactMethodResult(
         address=pulumi.get(__response__, 'address'),

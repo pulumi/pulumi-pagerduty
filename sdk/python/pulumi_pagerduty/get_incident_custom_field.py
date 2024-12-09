@@ -128,7 +128,7 @@ def get_incident_custom_field(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
 def get_incident_custom_field_output(name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentCustomFieldResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIncidentCustomFieldResult]:
     """
     Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
 
@@ -150,7 +150,7 @@ def get_incident_custom_field_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getIncidentCustomField:getIncidentCustomField', __args__, opts=opts, typ=GetIncidentCustomFieldResult)
     return __ret__.apply(lambda __response__: GetIncidentCustomFieldResult(
         data_type=pulumi.get(__response__, 'data_type'),

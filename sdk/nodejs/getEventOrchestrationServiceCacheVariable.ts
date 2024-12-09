@@ -131,7 +131,7 @@ export interface GetEventOrchestrationServiceCacheVariableResult {
  * });
  * ```
  */
-export function getEventOrchestrationServiceCacheVariableOutput(args: GetEventOrchestrationServiceCacheVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventOrchestrationServiceCacheVariableResult> {
+export function getEventOrchestrationServiceCacheVariableOutput(args: GetEventOrchestrationServiceCacheVariableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventOrchestrationServiceCacheVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getEventOrchestrationServiceCacheVariable:getEventOrchestrationServiceCacheVariable", {
         "id": args.id,

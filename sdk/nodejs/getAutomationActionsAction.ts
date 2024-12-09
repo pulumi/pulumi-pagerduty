@@ -144,7 +144,7 @@ export interface GetAutomationActionsActionResult {
  * });
  * ```
  */
-export function getAutomationActionsActionOutput(args: GetAutomationActionsActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationActionsActionResult> {
+export function getAutomationActionsActionOutput(args: GetAutomationActionsActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutomationActionsActionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getAutomationActionsAction:getAutomationActionsAction", {
         "actionClassification": args.actionClassification,

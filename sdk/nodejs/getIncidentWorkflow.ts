@@ -78,7 +78,7 @@ export interface GetIncidentWorkflowResult {
  * });
  * ```
  */
-export function getIncidentWorkflowOutput(args: GetIncidentWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentWorkflowResult> {
+export function getIncidentWorkflowOutput(args: GetIncidentWorkflowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIncidentWorkflowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", {
         "name": args.name,

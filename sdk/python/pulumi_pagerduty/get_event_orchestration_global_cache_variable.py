@@ -141,7 +141,7 @@ def get_event_orchestration_global_cache_variable(event_orchestration: Optional[
 def get_event_orchestration_global_cache_variable_output(event_orchestration: Optional[pulumi.Input[str]] = None,
                                                          id: Optional[pulumi.Input[Optional[str]]] = None,
                                                          name: Optional[pulumi.Input[Optional[str]]] = None,
-                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventOrchestrationGlobalCacheVariableResult]:
+                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventOrchestrationGlobalCacheVariableResult]:
     """
     Use this data source to get information about a specific [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) for a Global Event Orchestration.
 
@@ -165,7 +165,7 @@ def get_event_orchestration_global_cache_variable_output(event_orchestration: Op
     __args__['eventOrchestration'] = event_orchestration
     __args__['id'] = id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable', __args__, opts=opts, typ=GetEventOrchestrationGlobalCacheVariableResult)
     return __ret__.apply(lambda __response__: GetEventOrchestrationGlobalCacheVariableResult(
         conditions=pulumi.get(__response__, 'conditions'),

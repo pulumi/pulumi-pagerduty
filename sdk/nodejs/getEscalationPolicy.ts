@@ -74,7 +74,7 @@ export interface GetEscalationPolicyResult {
  * });
  * ```
  */
-export function getEscalationPolicyOutput(args: GetEscalationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEscalationPolicyResult> {
+export function getEscalationPolicyOutput(args: GetEscalationPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEscalationPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getEscalationPolicy:getEscalationPolicy", {
         "name": args.name,

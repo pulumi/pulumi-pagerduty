@@ -22,6 +22,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Output<GetJiraCloudAccountMappingResult> Invoke(GetJiraCloudAccountMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJiraCloudAccountMappingResult>("pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping", args ?? new GetJiraCloudAccountMappingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
+        /// </summary>
+        public static Output<GetJiraCloudAccountMappingResult> Invoke(GetJiraCloudAccountMappingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJiraCloudAccountMappingResult>("pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping", args ?? new GetJiraCloudAccountMappingInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -68,6 +68,35 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Output<GetTeamMembersResult> Invoke(GetTeamMembersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTeamMembersResult>("pagerduty:index/getTeamMembers:getTeamMembers", args ?? new GetTeamMembersInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a specific [team's members][1].
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var devops = Pagerduty.GetTeam.Invoke(new()
+        ///     {
+        ///         Name = "devops",
+        ///     });
+        /// 
+        ///     var devopsMembers = Pagerduty.GetTeamMembers.Invoke(new()
+        ///     {
+        ///         TeamId = devops.Apply(getTeamResult =&gt; getTeamResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTeamMembersResult> Invoke(GetTeamMembersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTeamMembersResult>("pagerduty:index/getTeamMembers:getTeamMembers", args ?? new GetTeamMembersInvokeArgs(), options.WithDefaults());
     }
 
 

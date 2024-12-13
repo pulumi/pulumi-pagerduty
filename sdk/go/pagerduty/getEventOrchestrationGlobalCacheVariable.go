@@ -76,21 +76,11 @@ type LookupEventOrchestrationGlobalCacheVariableResult struct {
 }
 
 func LookupEventOrchestrationGlobalCacheVariableOutput(ctx *pulumi.Context, args LookupEventOrchestrationGlobalCacheVariableOutputArgs, opts ...pulumi.InvokeOption) LookupEventOrchestrationGlobalCacheVariableResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEventOrchestrationGlobalCacheVariableResultOutput, error) {
 			args := v.(LookupEventOrchestrationGlobalCacheVariableArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEventOrchestrationGlobalCacheVariableResult
-			secret, err := ctx.InvokePackageRaw("pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEventOrchestrationGlobalCacheVariableResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEventOrchestrationGlobalCacheVariableResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEventOrchestrationGlobalCacheVariableResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable", args, LookupEventOrchestrationGlobalCacheVariableResultOutput{}, options).(LookupEventOrchestrationGlobalCacheVariableResultOutput), nil
 		}).(LookupEventOrchestrationGlobalCacheVariableResultOutput)
 }
 

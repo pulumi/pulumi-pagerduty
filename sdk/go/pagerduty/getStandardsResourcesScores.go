@@ -90,21 +90,11 @@ type GetStandardsResourcesScoresResult struct {
 }
 
 func GetStandardsResourcesScoresOutput(ctx *pulumi.Context, args GetStandardsResourcesScoresOutputArgs, opts ...pulumi.InvokeOption) GetStandardsResourcesScoresResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetStandardsResourcesScoresResultOutput, error) {
 			args := v.(GetStandardsResourcesScoresArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetStandardsResourcesScoresResult
-			secret, err := ctx.InvokePackageRaw("pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores", args, &rv, "", opts...)
-			if err != nil {
-				return GetStandardsResourcesScoresResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetStandardsResourcesScoresResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetStandardsResourcesScoresResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores", args, GetStandardsResourcesScoresResultOutput{}, options).(GetStandardsResourcesScoresResultOutput), nil
 		}).(GetStandardsResourcesScoresResultOutput)
 }
 

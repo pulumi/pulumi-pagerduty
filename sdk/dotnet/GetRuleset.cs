@@ -186,6 +186,94 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Output<GetRulesetResult> Invoke(GetRulesetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRulesetResult>("pagerduty:index/getRuleset:getRuleset", args ?? new GetRulesetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Pagerduty.GetRuleset.Invoke(new()
+        ///     {
+        ///         Name = "My Ruleset",
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.RulesetRule("foo", new()
+        ///     {
+        ///         Ruleset = example.Apply(getRulesetResult =&gt; getRulesetResult.Id),
+        ///         Position = 0,
+        ///         Disabled = false,
+        ///         Conditions = new Pagerduty.Inputs.RulesetRuleConditionsArgs
+        ///         {
+        ///             Operator = "and",
+        ///             Subconditions = new[]
+        ///             {
+        ///                 new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
+        ///                 {
+        ///                     Operator = "contains",
+        ///                     Parameters = new[]
+        ///                     {
+        ///                         new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs
+        ///                         {
+        ///                             Value = "disk space",
+        ///                             Path = "payload.summary",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
+        ///                 {
+        ///                     Operator = "contains",
+        ///                     Parameters = new[]
+        ///                     {
+        ///                         new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs
+        ///                         {
+        ///                             Value = "db",
+        ///                             Path = "payload.source",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///         Actions = new Pagerduty.Inputs.RulesetRuleActionsArgs
+        ///         {
+        ///             Routes = new[]
+        ///             {
+        ///                 new Pagerduty.Inputs.RulesetRuleActionsRouteArgs
+        ///                 {
+        ///                     Value = "P5DTL0K",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Default Global Ruleset
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var defaultGlobal = Pagerduty.GetRuleset.Invoke(new()
+        ///     {
+        ///         Name = "Default Global",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRulesetResult> Invoke(GetRulesetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRulesetResult>("pagerduty:index/getRuleset:getRuleset", args ?? new GetRulesetInvokeArgs(), options.WithDefaults());
     }
 
 

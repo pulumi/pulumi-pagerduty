@@ -78,6 +78,40 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Output<GetLicensesResult> Invoke(GetLicensesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicensesResult>("pagerduty:index/getLicenses:getLicenses", args ?? new GetLicensesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var invalidRoles = new[]
+        ///     {
+        ///         "owner",
+        ///     };
+        /// 
+        ///     var licenses = Pagerduty.GetLicenses.Invoke();
+        /// 
+        ///     var example = new Pagerduty.User("example", new()
+        ///     {
+        ///         Name = "Earline Greenholt",
+        ///         Email = "125.greenholt.earline@graham.name",
+        ///         License = licenses.Apply(getLicensesResult =&gt; getLicensesResult.Licenses[0]?.Id),
+        ///         Role = "user",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLicensesResult> Invoke(GetLicensesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLicensesResult>("pagerduty:index/getLicenses:getLicenses", args ?? new GetLicensesInvokeArgs(), options.WithDefaults());
     }
 
 

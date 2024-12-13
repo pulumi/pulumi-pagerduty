@@ -80,21 +80,11 @@ type LookupIncidentWorkflowResult struct {
 }
 
 func LookupIncidentWorkflowOutput(ctx *pulumi.Context, args LookupIncidentWorkflowOutputArgs, opts ...pulumi.InvokeOption) LookupIncidentWorkflowResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIncidentWorkflowResultOutput, error) {
 			args := v.(LookupIncidentWorkflowArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupIncidentWorkflowResult
-			secret, err := ctx.InvokePackageRaw("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", args, &rv, "", opts...)
-			if err != nil {
-				return LookupIncidentWorkflowResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupIncidentWorkflowResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupIncidentWorkflowResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", args, LookupIncidentWorkflowResultOutput{}, options).(LookupIncidentWorkflowResultOutput), nil
 		}).(LookupIncidentWorkflowResultOutput)
 }
 

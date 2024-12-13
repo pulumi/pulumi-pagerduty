@@ -102,6 +102,52 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Output<GetStandardsResourcesScoresResult> Invoke(GetStandardsResourcesScoresInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandardsResourcesScoresResult>("pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores", args ?? new GetStandardsResourcesScoresInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about the [scores for the standards for
+        /// many resources][1].
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Pagerduty.GetService.Invoke(new()
+        ///     {
+        ///         Name = "foo",
+        ///     });
+        /// 
+        ///     var bar = Pagerduty.GetService.Invoke(new()
+        ///     {
+        ///         Name = "bar",
+        ///     });
+        /// 
+        ///     var baz = Pagerduty.GetService.Invoke(new()
+        ///     {
+        ///         Name = "baz",
+        ///     });
+        /// 
+        ///     var scores = Pagerduty.GetStandardsResourcesScores.Invoke(new()
+        ///     {
+        ///         ResourceType = "technical_services",
+        ///         Ids = new[]
+        ///         {
+        ///             foo.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///             bar.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///             baz.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetStandardsResourcesScoresResult> Invoke(GetStandardsResourcesScoresInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStandardsResourcesScoresResult>("pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores", args ?? new GetStandardsResourcesScoresInvokeArgs(), options.WithDefaults());
     }
 
 

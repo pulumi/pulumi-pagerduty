@@ -41,21 +41,11 @@ type LookupEventOrchestrationResult struct {
 }
 
 func LookupEventOrchestrationOutput(ctx *pulumi.Context, args LookupEventOrchestrationOutputArgs, opts ...pulumi.InvokeOption) LookupEventOrchestrationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEventOrchestrationResultOutput, error) {
 			args := v.(LookupEventOrchestrationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEventOrchestrationResult
-			secret, err := ctx.InvokePackageRaw("pagerduty:index/getEventOrchestration:getEventOrchestration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEventOrchestrationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEventOrchestrationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEventOrchestrationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("pagerduty:index/getEventOrchestration:getEventOrchestration", args, LookupEventOrchestrationResultOutput{}, options).(LookupEventOrchestrationResultOutput), nil
 		}).(LookupEventOrchestrationResultOutput)
 }
 

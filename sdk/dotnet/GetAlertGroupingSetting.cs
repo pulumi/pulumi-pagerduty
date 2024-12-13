@@ -58,6 +58,30 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Output<GetAlertGroupingSettingResult> Invoke(GetAlertGroupingSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertGroupingSettingResult>("pagerduty:index/getAlertGroupingSetting:getAlertGroupingSetting", args ?? new GetAlertGroupingSettingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a specific [alert grouping setting](https://developer.pagerduty.com/api-reference/9b5a6c8d7379b-get-an-alert-grouping-setting).
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Pagerduty.GetAlertGroupingSetting.Invoke(new()
+        ///     {
+        ///         Name = "My example setting",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAlertGroupingSettingResult> Invoke(GetAlertGroupingSettingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAlertGroupingSettingResult>("pagerduty:index/getAlertGroupingSetting:getAlertGroupingSetting", args ?? new GetAlertGroupingSettingInvokeArgs(), options.WithDefaults());
     }
 
 

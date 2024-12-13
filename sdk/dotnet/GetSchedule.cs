@@ -100,6 +100,51 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("pagerduty:index/getSchedule:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4MQ-list-schedules) that you can use for other PagerDuty resources.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Pagerduty.GetSchedule.Invoke(new()
+        ///     {
+        ///         Name = "Daily Engineering Rotation",
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     {
+        ///         Name = "Engineering Escalation Policy",
+        ///         NumLoops = 2,
+        ///         Rules = new[]
+        ///         {
+        ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///             {
+        ///                 EscalationDelayInMinutes = 10,
+        ///                 Targets = new[]
+        ///                 {
+        ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
+        ///                     {
+        ///                         Type = "schedule",
+        ///                         Id = test.Apply(getScheduleResult =&gt; getScheduleResult.Id),
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("pagerduty:index/getSchedule:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

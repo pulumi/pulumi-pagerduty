@@ -158,6 +158,80 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Output<GetExtensionSchemaResult> Invoke(GetExtensionSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionSchemaResult>("pagerduty:index/getExtensionSchema:getExtensionSchema", args ?? new GetExtensionSchemaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a specific [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMA-list-extension-schemas) vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var webhook = Pagerduty.GetExtensionSchema.Invoke(new()
+        ///     {
+        ///         Name = "Generic V2 Webhook",
+        ///     });
+        /// 
+        ///     var example = new Pagerduty.User("example", new()
+        ///     {
+        ///         Name = "Howard James",
+        ///         Email = "howard.james@example.domain",
+        ///         Teams = new[]
+        ///         {
+        ///             examplePagerdutyTeam.Id,
+        ///         },
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     {
+        ///         Name = "Engineering Escalation Policy",
+        ///         NumLoops = 2,
+        ///         Rules = new[]
+        ///         {
+        ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///             {
+        ///                 EscalationDelayInMinutes = 10,
+        ///                 Targets = new[]
+        ///                 {
+        ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
+        ///                     {
+        ///                         Type = "user",
+        ///                         Id = example.Id,
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleService = new Pagerduty.Service("example", new()
+        ///     {
+        ///         Name = "My Web App",
+        ///         AutoResolveTimeout = "14400",
+        ///         AcknowledgementTimeout = "600",
+        ///         EscalationPolicy = examplePagerdutyEscalationPolicy.Id,
+        ///     });
+        /// 
+        ///     var slack = new Pagerduty.Extension("slack", new()
+        ///     {
+        ///         Name = "My Web App Extension",
+        ///         EndpointUrl = "https://generic_webhook_url/XXXXXX/BBBBBB",
+        ///         ExtensionSchema = webhook.Apply(getExtensionSchemaResult =&gt; getExtensionSchemaResult.Id),
+        ///         ExtensionObjects = new[]
+        ///         {
+        ///             exampleService.Id,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetExtensionSchemaResult> Invoke(GetExtensionSchemaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExtensionSchemaResult>("pagerduty:index/getExtensionSchema:getExtensionSchema", args ?? new GetExtensionSchemaInvokeArgs(), options.WithDefaults());
     }
 
 

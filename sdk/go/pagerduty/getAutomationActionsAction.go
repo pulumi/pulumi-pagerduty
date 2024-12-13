@@ -99,21 +99,11 @@ type LookupAutomationActionsActionResult struct {
 }
 
 func LookupAutomationActionsActionOutput(ctx *pulumi.Context, args LookupAutomationActionsActionOutputArgs, opts ...pulumi.InvokeOption) LookupAutomationActionsActionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAutomationActionsActionResultOutput, error) {
 			args := v.(LookupAutomationActionsActionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAutomationActionsActionResult
-			secret, err := ctx.InvokePackageRaw("pagerduty:index/getAutomationActionsAction:getAutomationActionsAction", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAutomationActionsActionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAutomationActionsActionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAutomationActionsActionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("pagerduty:index/getAutomationActionsAction:getAutomationActionsAction", args, LookupAutomationActionsActionResultOutput{}, options).(LookupAutomationActionsActionResultOutput), nil
 		}).(LookupAutomationActionsActionResultOutput)
 }
 

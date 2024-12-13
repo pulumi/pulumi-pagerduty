@@ -70,6 +70,36 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Output<GetEventOrchestrationIntegrationResult> Invoke(GetEventOrchestrationIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationIntegrationResult>("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", args ?? new GetEventOrchestrationIntegrationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
+        ///     {
+        ///         Name = "Test Event Orchestration",
+        ///     });
+        /// 
+        ///     var integration = Pagerduty.GetEventOrchestrationIntegration.Invoke(new()
+        ///     {
+        ///         EventOrchestration = eventOrchestration.Id,
+        ///         Label = "Test Event Orchestration Default Integration",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetEventOrchestrationIntegrationResult> Invoke(GetEventOrchestrationIntegrationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationIntegrationResult>("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", args ?? new GetEventOrchestrationIntegrationInvokeArgs(), options.WithDefaults());
     }
 
 

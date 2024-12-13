@@ -54,6 +54,28 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Output<GetStandardsResult> Invoke(GetStandardsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandardsResult>("pagerduty:index/getStandards:getStandards", args ?? new GetStandardsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about the [standards](https://developer.pagerduty.com/api-reference/dbed9a0ff9355-list-standards) applicable to
+        /// the PagerDuty account.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var standards = Pagerduty.GetStandards.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetStandardsResult> Invoke(GetStandardsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStandardsResult>("pagerduty:index/getStandards:getStandards", args ?? new GetStandardsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -150,6 +150,76 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Output<GetEventOrchestrationServiceCacheVariableResult> Invoke(GetEventOrchestrationServiceCacheVariableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationServiceCacheVariableResult>("pagerduty:index/getEventOrchestrationServiceCacheVariable:getEventOrchestrationServiceCacheVariable", args ?? new GetEventOrchestrationServiceCacheVariableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a specific [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) for a Service Event Orchestration.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var engineering = new Pagerduty.Team("engineering", new()
+        ///     {
+        ///         Name = "Engineering",
+        ///     });
+        /// 
+        ///     var example = new Pagerduty.User("example", new()
+        ///     {
+        ///         Name = "Earline Greenholt",
+        ///         Email = "125.greenholt.earline@graham.name",
+        ///         Teams = new[]
+        ///         {
+        ///             engineering.Id,
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("example", new()
+        ///     {
+        ///         Name = "Engineering Escalation Policy",
+        ///         NumLoops = 2,
+        ///         Rules = new[]
+        ///         {
+        ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///             {
+        ///                 EscalationDelayInMinutes = 10,
+        ///                 Targets = new[]
+        ///                 {
+        ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
+        ///                     {
+        ///                         Type = "user",
+        ///                         Id = example.Id,
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var service = new Pagerduty.Service("service", new()
+        ///     {
+        ///         Name = "My Web App",
+        ///         AutoResolveTimeout = "14400",
+        ///         AcknowledgementTimeout = "600",
+        ///         EscalationPolicy = exampleEscalationPolicy.Id,
+        ///         AlertCreation = "create_alerts_and_incidents",
+        ///     });
+        /// 
+        ///     var cacheVariable = Pagerduty.GetEventOrchestrationServiceCacheVariable.Invoke(new()
+        ///     {
+        ///         Service = service.Id,
+        ///         Name = "example_cache_variable",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetEventOrchestrationServiceCacheVariableResult> Invoke(GetEventOrchestrationServiceCacheVariableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationServiceCacheVariableResult>("pagerduty:index/getEventOrchestrationServiceCacheVariable:getEventOrchestrationServiceCacheVariable", args ?? new GetEventOrchestrationServiceCacheVariableInvokeArgs(), options.WithDefaults());
     }
 
 

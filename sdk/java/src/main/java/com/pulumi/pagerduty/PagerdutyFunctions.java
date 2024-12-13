@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.pagerduty.Utilities;
 import com.pulumi.pagerduty.inputs.GetAlertGroupingSettingArgs;
 import com.pulumi.pagerduty.inputs.GetAlertGroupingSettingPlainArgs;
@@ -269,6 +270,48 @@ public final class PagerdutyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAlertGroupingSettingResult> getAlertGroupingSetting(GetAlertGroupingSettingArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getAlertGroupingSetting:getAlertGroupingSetting", TypeShape.of(GetAlertGroupingSettingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [alert grouping setting](https://developer.pagerduty.com/api-reference/9b5a6c8d7379b-get-an-alert-grouping-setting).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetAlertGroupingSettingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getAlertGroupingSetting(GetAlertGroupingSettingArgs.builder()
+     *             .name("My example setting")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAlertGroupingSettingResult> getAlertGroupingSettingPlain(GetAlertGroupingSettingPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getAlertGroupingSetting:getAlertGroupingSetting", TypeShape.of(GetAlertGroupingSettingResult.class), args, Utilities.withVersion(options));
     }
@@ -396,6 +439,48 @@ public final class PagerdutyFunctions {
      * 
      */
     public static Output<GetAutomationActionsActionResult> getAutomationActionsAction(GetAutomationActionsActionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getAutomationActionsAction:getAutomationActionsAction", TypeShape.of(GetAutomationActionsActionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetAutomationActionsActionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getAutomationActionsAction(GetAutomationActionsActionArgs.builder()
+     *             .id("01CS1685B2UDM4I3XUUOXPPORM")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAutomationActionsActionResult> getAutomationActionsAction(GetAutomationActionsActionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getAutomationActionsAction:getAutomationActionsAction", TypeShape.of(GetAutomationActionsActionResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -605,6 +690,48 @@ public final class PagerdutyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAutomationActionsRunnerResult> getAutomationActionsRunner(GetAutomationActionsRunnerArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner", TypeShape.of(GetAutomationActionsRunnerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetAutomationActionsRunnerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getAutomationActionsRunner(GetAutomationActionsRunnerArgs.builder()
+     *             .id("01DBJLIGED17S1DQKQC2AV8XYZ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAutomationActionsRunnerResult> getAutomationActionsRunnerPlain(GetAutomationActionsRunnerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner", TypeShape.of(GetAutomationActionsRunnerResult.class), args, Utilities.withVersion(options));
     }
@@ -732,6 +859,48 @@ public final class PagerdutyFunctions {
      * 
      */
     public static Output<GetBusinessServiceResult> getBusinessService(GetBusinessServiceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getBusinessService:getBusinessService", TypeShape.of(GetBusinessServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetBusinessServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getBusinessService(GetBusinessServiceArgs.builder()
+     *             .name("My Service")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBusinessServiceResult> getBusinessService(GetBusinessServiceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getBusinessService:getBusinessService", TypeShape.of(GetBusinessServiceResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -977,6 +1146,57 @@ public final class PagerdutyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetEscalationPolicyResult> getEscalationPolicy(GetEscalationPolicyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getEscalationPolicy:getEscalationPolicy", TypeShape.of(GetEscalationPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEscalationPolicyArgs;
+     * import com.pulumi.pagerduty.Service;
+     * import com.pulumi.pagerduty.ServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = PagerdutyFunctions.getEscalationPolicy(GetEscalationPolicyArgs.builder()
+     *             .name("Engineering Escalation Policy")
+     *             .build());
+     * 
+     *         var testService = new Service("testService", ServiceArgs.builder()
+     *             .name("My Web App")
+     *             .autoResolveTimeout(14400)
+     *             .acknowledgementTimeout(600)
+     *             .escalationPolicy(test.applyValue(getEscalationPolicyResult -> getEscalationPolicyResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetEscalationPolicyResult> getEscalationPolicyPlain(GetEscalationPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getEscalationPolicy:getEscalationPolicy", TypeShape.of(GetEscalationPolicyResult.class), args, Utilities.withVersion(options));
     }
@@ -1014,6 +1234,18 @@ public final class PagerdutyFunctions {
      * 
      */
     public static Output<GetEventOrchestrationResult> getEventOrchestration(GetEventOrchestrationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getEventOrchestration:getEventOrchestration", TypeShape.of(GetEventOrchestrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEventOrchestrationResult> getEventOrchestration(GetEventOrchestrationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getEventOrchestration:getEventOrchestration", TypeShape.of(GetEventOrchestrationResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1221,6 +1453,55 @@ public final class PagerdutyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetEventOrchestrationGlobalCacheVariableResult> getEventOrchestrationGlobalCacheVariable(GetEventOrchestrationGlobalCacheVariableArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable", TypeShape.of(GetEventOrchestrationGlobalCacheVariableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) for a Global Event Orchestration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.EventOrchestration;
+     * import com.pulumi.pagerduty.EventOrchestrationArgs;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationGlobalCacheVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()
+     *             .name("Test Event Orchestration")
+     *             .build());
+     * 
+     *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationGlobalCacheVariable(GetEventOrchestrationGlobalCacheVariableArgs.builder()
+     *             .eventOrchestration(eventOrchestration.id())
+     *             .name("example_cache_variable")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetEventOrchestrationGlobalCacheVariableResult> getEventOrchestrationGlobalCacheVariablePlain(GetEventOrchestrationGlobalCacheVariablePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable", TypeShape.of(GetEventOrchestrationGlobalCacheVariableResult.class), args, Utilities.withVersion(options));
     }
@@ -1369,6 +1650,55 @@ public final class PagerdutyFunctions {
      * 
      */
     public static Output<GetEventOrchestrationIntegrationResult> getEventOrchestrationIntegration(GetEventOrchestrationIntegrationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", TypeShape.of(GetEventOrchestrationIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.EventOrchestration;
+     * import com.pulumi.pagerduty.EventOrchestrationArgs;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()
+     *             .name("Test Event Orchestration")
+     *             .build());
+     * 
+     *         final var integration = PagerdutyFunctions.getEventOrchestrationIntegration(GetEventOrchestrationIntegrationArgs.builder()
+     *             .eventOrchestration(eventOrchestration.id())
+     *             .label("Test Event Orchestration Default Integration")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEventOrchestrationIntegrationResult> getEventOrchestrationIntegration(GetEventOrchestrationIntegrationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", TypeShape.of(GetEventOrchestrationIntegrationResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1745,6 +2075,88 @@ public final class PagerdutyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetEventOrchestrationServiceCacheVariableResult> getEventOrchestrationServiceCacheVariable(GetEventOrchestrationServiceCacheVariableArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getEventOrchestrationServiceCacheVariable:getEventOrchestrationServiceCacheVariable", TypeShape.of(GetEventOrchestrationServiceCacheVariableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) for a Service Event Orchestration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.Team;
+     * import com.pulumi.pagerduty.TeamArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import com.pulumi.pagerduty.EscalationPolicy;
+     * import com.pulumi.pagerduty.EscalationPolicyArgs;
+     * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+     * import com.pulumi.pagerduty.Service;
+     * import com.pulumi.pagerduty.ServiceArgs;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationServiceCacheVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         var engineering = new Team("engineering", TeamArgs.builder()
+     *             .name("Engineering")
+     *             .build());
+     * 
+     *         var example = new User("example", UserArgs.builder()
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
+     *             .teams(engineering.id())
+     *             .build());
+     * 
+     *         var exampleEscalationPolicy = new EscalationPolicy("exampleEscalationPolicy", EscalationPolicyArgs.builder()
+     *             .name("Engineering Escalation Policy")
+     *             .numLoops(2)
+     *             .rules(EscalationPolicyRuleArgs.builder()
+     *                 .escalationDelayInMinutes(10)
+     *                 .targets(EscalationPolicyRuleTargetArgs.builder()
+     *                     .type("user")
+     *                     .id(example.id())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         var service = new Service("service", ServiceArgs.builder()
+     *             .name("My Web App")
+     *             .autoResolveTimeout(14400)
+     *             .acknowledgementTimeout(600)
+     *             .escalationPolicy(exampleEscalationPolicy.id())
+     *             .alertCreation("create_alerts_and_incidents")
+     *             .build());
+     * 
+     *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationServiceCacheVariable(GetEventOrchestrationServiceCacheVariableArgs.builder()
+     *             .service(service.id())
+     *             .name("example_cache_variable")
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetEventOrchestrationServiceCacheVariableResult> getEventOrchestrationServiceCacheVariablePlain(GetEventOrchestrationServiceCacheVariablePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getEventOrchestrationServiceCacheVariable:getEventOrchestrationServiceCacheVariable", TypeShape.of(GetEventOrchestrationServiceCacheVariableResult.class), args, Utilities.withVersion(options));
     }
@@ -1902,6 +2314,58 @@ public final class PagerdutyFunctions {
      * 
      */
     public static Output<GetEventOrchestrationsResult> getEventOrchestrations(GetEventOrchestrationsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getEventOrchestrations:getEventOrchestrations", TypeShape.of(GetEventOrchestrationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information as a list about specific Global [Event Orchestrations](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations) filtered by a Regular Expression provided.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.EventOrchestration;
+     * import com.pulumi.pagerduty.EventOrchestrationArgs;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var tfOrchA = new EventOrchestration("tfOrchA", EventOrchestrationArgs.builder()
+     *             .name("Test Event A Orchestration")
+     *             .build());
+     * 
+     *         var tfOrchB = new EventOrchestration("tfOrchB", EventOrchestrationArgs.builder()
+     *             .name("Test Event B Orchestration")
+     *             .build());
+     * 
+     *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestrations(GetEventOrchestrationsArgs.builder()
+     *             .nameFilter(".*Orchestration$")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEventOrchestrationsResult> getEventOrchestrations(GetEventOrchestrationsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getEventOrchestrations:getEventOrchestrations", TypeShape.of(GetEventOrchestrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2285,6 +2749,89 @@ public final class PagerdutyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetExtensionSchemaResult> getExtensionSchema(GetExtensionSchemaArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getExtensionSchema:getExtensionSchema", TypeShape.of(GetExtensionSchemaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMA-list-extension-schemas) vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetExtensionSchemaArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import com.pulumi.pagerduty.EscalationPolicy;
+     * import com.pulumi.pagerduty.EscalationPolicyArgs;
+     * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+     * import com.pulumi.pagerduty.Service;
+     * import com.pulumi.pagerduty.ServiceArgs;
+     * import com.pulumi.pagerduty.Extension;
+     * import com.pulumi.pagerduty.ExtensionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var webhook = PagerdutyFunctions.getExtensionSchema(GetExtensionSchemaArgs.builder()
+     *             .name("Generic V2 Webhook")
+     *             .build());
+     * 
+     *         var example = new User("example", UserArgs.builder()
+     *             .name("Howard James")
+     *             .email("howard.james}{@literal @}{@code example.domain")
+     *             .teams(examplePagerdutyTeam.id())
+     *             .build());
+     * 
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
+     *             .name("Engineering Escalation Policy")
+     *             .numLoops(2)
+     *             .rules(EscalationPolicyRuleArgs.builder()
+     *                 .escalationDelayInMinutes(10)
+     *                 .targets(EscalationPolicyRuleTargetArgs.builder()
+     *                     .type("user")
+     *                     .id(example.id())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         var exampleService = new Service("exampleService", ServiceArgs.builder()
+     *             .name("My Web App")
+     *             .autoResolveTimeout(14400)
+     *             .acknowledgementTimeout(600)
+     *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
+     *             .build());
+     * 
+     *         var slack = new Extension("slack", ExtensionArgs.builder()
+     *             .name("My Web App Extension")
+     *             .endpointUrl("https://generic_webhook_url/XXXXXX/BBBBBB")
+     *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -> getExtensionSchemaResult.id()))
+     *             .extensionObjects(exampleService.id())
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetExtensionSchemaResult> getExtensionSchemaPlain(GetExtensionSchemaPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getExtensionSchema:getExtensionSchema", TypeShape.of(GetExtensionSchemaResult.class), args, Utilities.withVersion(options));
     }
@@ -2436,6 +2983,56 @@ public final class PagerdutyFunctions {
      * 
      */
     public static Output<GetIncidentCustomFieldResult> getIncidentCustomField(GetIncidentCustomFieldArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getIncidentCustomField:getIncidentCustomField", TypeShape.of(GetIncidentCustomFieldResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetIncidentCustomFieldArgs;
+     * import com.pulumi.pagerduty.IncidentCustomFieldOption;
+     * import com.pulumi.pagerduty.IncidentCustomFieldOptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var environment = PagerdutyFunctions.getIncidentCustomField(GetIncidentCustomFieldArgs.builder()
+     *             .name("environment")
+     *             .build());
+     * 
+     *         var devEnvironment = new IncidentCustomFieldOption("devEnvironment", IncidentCustomFieldOptionArgs.builder()
+     *             .field(environment.applyValue(getIncidentCustomFieldResult -> getIncidentCustomFieldResult.id()))
+     *             .datatype("string")
+     *             .value("dev")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetIncidentCustomFieldResult> getIncidentCustomField(GetIncidentCustomFieldArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getIncidentCustomField:getIncidentCustomField", TypeShape.of(GetIncidentCustomFieldResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2709,6 +3306,62 @@ public final class PagerdutyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetIncidentWorkflowResult> getIncidentWorkflow(GetIncidentWorkflowArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", TypeShape.of(GetIncidentWorkflowResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetIncidentWorkflowArgs;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.IncidentWorkflowTrigger;
+     * import com.pulumi.pagerduty.IncidentWorkflowTriggerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myWorkflow = PagerdutyFunctions.getIncidentWorkflow(GetIncidentWorkflowArgs.builder()
+     *             .name("Some Workflow Name")
+     *             .build());
+     * 
+     *         final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name("My First Service")
+     *             .build());
+     * 
+     *         var automaticTrigger = new IncidentWorkflowTrigger("automaticTrigger", IncidentWorkflowTriggerArgs.builder()
+     *             .type("conditional")
+     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -> getIncidentWorkflowResult.id()))
+     *             .services(firstService.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .condition("incident.priority matches 'P1'")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetIncidentWorkflowResult> getIncidentWorkflowPlain(GetIncidentWorkflowPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", TypeShape.of(GetIncidentWorkflowResult.class), args, Utilities.withVersion(options));
     }
@@ -2836,6 +3489,48 @@ public final class PagerdutyFunctions {
      * 
      */
     public static Output<GetJiraCloudAccountMappingResult> getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping", TypeShape.of(GetJiraCloudAccountMappingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var circular = PagerdutyFunctions.getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs.builder()
+     *             .name("pdt-circular")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetJiraCloudAccountMappingResult> getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping", TypeShape.of(GetJiraCloudAccountMappingResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3213,6 +3908,62 @@ public final class PagerdutyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetLicenseResult> getLicense(GetLicenseArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getLicense:getLicense", TypeShape.of(GetLicenseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * 
+     * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetLicenseArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var invalidRoles = "owner";
+     * 
+     *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
+     *             .name("Full User")
+     *             .description("")
+     *             .build());
+     * 
+     *         var example = new User("example", UserArgs.builder()
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
+     *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
+     *             .role("user")
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetLicenseResult> getLicensePlain(GetLicensePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getLicense:getLicense", TypeShape.of(GetLicenseResult.class), args, Utilities.withVersion(options));
     }
@@ -3519,6 +4270,57 @@ public final class PagerdutyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetLicensesResult> getLicenses(GetLicensesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getLicenses:getLicenses", TypeShape.of(GetLicensesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetLicensesArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var invalidRoles = "owner";
+     * 
+     *         final var licenses = PagerdutyFunctions.getLicenses();
+     * 
+     *         var example = new User("example", UserArgs.builder()
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
+     *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
+     *             .role("user")
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetLicensesResult> getLicensesPlain(GetLicensesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getLicenses:getLicenses", TypeShape.of(GetLicensesResult.class), args, Utilities.withVersion(options));
     }
@@ -3772,6 +4574,90 @@ public final class PagerdutyFunctions {
      * 
      */
     public static Output<GetPriorityResult> getPriority(GetPriorityArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getPriority:getPriority", TypeShape.of(GetPriorityResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2NA-list-priorities) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetPriorityArgs;
+     * import com.pulumi.pagerduty.Ruleset;
+     * import com.pulumi.pagerduty.RulesetArgs;
+     * import com.pulumi.pagerduty.RulesetRule;
+     * import com.pulumi.pagerduty.RulesetRuleArgs;
+     * import com.pulumi.pagerduty.inputs.RulesetRuleConditionsArgs;
+     * import com.pulumi.pagerduty.inputs.RulesetRuleActionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var p1 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()
+     *             .name("P1")
+     *             .build());
+     * 
+     *         var foo = new Ruleset("foo", RulesetArgs.builder()
+     *             .name("Primary Ruleset")
+     *             .build());
+     * 
+     *         var fooRulesetRule = new RulesetRule("fooRulesetRule", RulesetRuleArgs.builder()
+     *             .ruleset(foo.id())
+     *             .position(0)
+     *             .disabled("false")
+     *             .conditions(RulesetRuleConditionsArgs.builder()
+     *                 .operator("and")
+     *                 .subconditions(                
+     *                     RulesetRuleConditionsSubconditionArgs.builder()
+     *                         .operator("contains")
+     *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
+     *                             .value("disk space")
+     *                             .path("payload.summary")
+     *                             .build())
+     *                         .build(),
+     *                     RulesetRuleConditionsSubconditionArgs.builder()
+     *                         .operator("contains")
+     *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
+     *                             .value("db")
+     *                             .path("payload.source")
+     *                             .build())
+     *                         .build())
+     *                 .build())
+     *             .actions(RulesetRuleActionsArgs.builder()
+     *                 .routes(RulesetRuleActionsRouteArgs.builder()
+     *                     .value("P5DTL0K")
+     *                     .build())
+     *                 .priorities(RulesetRuleActionsPriorityArgs.builder()
+     *                     .value(p1.applyValue(getPriorityResult -> getPriorityResult.id()))
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPriorityResult> getPriority(GetPriorityArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getPriority:getPriority", TypeShape.of(GetPriorityResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4287,6 +5173,114 @@ public final class PagerdutyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRulesetResult> getRuleset(GetRulesetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getRuleset:getRuleset", TypeShape.of(GetRulesetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetRulesetArgs;
+     * import com.pulumi.pagerduty.RulesetRule;
+     * import com.pulumi.pagerduty.RulesetRuleArgs;
+     * import com.pulumi.pagerduty.inputs.RulesetRuleConditionsArgs;
+     * import com.pulumi.pagerduty.inputs.RulesetRuleActionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getRuleset(GetRulesetArgs.builder()
+     *             .name("My Ruleset")
+     *             .build());
+     * 
+     *         var foo = new RulesetRule("foo", RulesetRuleArgs.builder()
+     *             .ruleset(example.applyValue(getRulesetResult -> getRulesetResult.id()))
+     *             .position(0)
+     *             .disabled("false")
+     *             .conditions(RulesetRuleConditionsArgs.builder()
+     *                 .operator("and")
+     *                 .subconditions(                
+     *                     RulesetRuleConditionsSubconditionArgs.builder()
+     *                         .operator("contains")
+     *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
+     *                             .value("disk space")
+     *                             .path("payload.summary")
+     *                             .build())
+     *                         .build(),
+     *                     RulesetRuleConditionsSubconditionArgs.builder()
+     *                         .operator("contains")
+     *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
+     *                             .value("db")
+     *                             .path("payload.source")
+     *                             .build())
+     *                         .build())
+     *                 .build())
+     *             .actions(RulesetRuleActionsArgs.builder()
+     *                 .routes(RulesetRuleActionsRouteArgs.builder()
+     *                     .value("P5DTL0K")
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Default Global Ruleset
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetRulesetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var defaultGlobal = PagerdutyFunctions.getRuleset(GetRulesetArgs.builder()
+     *             .name("Default Global")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRulesetResult> getRulesetPlain(GetRulesetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getRuleset:getRuleset", TypeShape.of(GetRulesetResult.class), args, Utilities.withVersion(options));
     }
@@ -4459,6 +5453,63 @@ public final class PagerdutyFunctions {
      * 
      */
     public static Output<GetScheduleResult> getSchedule(GetScheduleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getSchedule:getSchedule", TypeShape.of(GetScheduleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4MQ-list-schedules) that you can use for other PagerDuty resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetScheduleArgs;
+     * import com.pulumi.pagerduty.EscalationPolicy;
+     * import com.pulumi.pagerduty.EscalationPolicyArgs;
+     * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = PagerdutyFunctions.getSchedule(GetScheduleArgs.builder()
+     *             .name("Daily Engineering Rotation")
+     *             .build());
+     * 
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
+     *             .name("Engineering Escalation Policy")
+     *             .numLoops(2)
+     *             .rules(EscalationPolicyRuleArgs.builder()
+     *                 .escalationDelayInMinutes(10)
+     *                 .targets(EscalationPolicyRuleTargetArgs.builder()
+     *                     .type("schedule")
+     *                     .id(test.applyValue(getScheduleResult -> getScheduleResult.id()))
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetScheduleResult> getSchedule(GetScheduleArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getSchedule:getSchedule", TypeShape.of(GetScheduleResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4739,6 +5790,62 @@ public final class PagerdutyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.inputs.GetVendorArgs;
+     * import com.pulumi.pagerduty.ServiceIntegration;
+     * import com.pulumi.pagerduty.ServiceIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name("My Service")
+     *             .build());
+     * 
+     *         final var datadog = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
+     *             .name("Datadog")
+     *             .build());
+     * 
+     *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
+     *             .name("Datadog Integration")
+     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
+     *             .service(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .type("generic_events_api_inbound_integration")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
     }
@@ -4869,6 +5976,49 @@ public final class PagerdutyFunctions {
      * 
      */
     public static Output<GetServiceIntegrationResult> getServiceIntegration(GetServiceIntegrationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getServiceIntegration:getServiceIntegration", TypeShape.of(GetServiceIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific service_integration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getServiceIntegration(GetServiceIntegrationArgs.builder()
+     *             .serviceName("My Service")
+     *             .integrationSummary("Datadog")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServiceIntegrationResult> getServiceIntegration(GetServiceIntegrationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getServiceIntegration:getServiceIntegration", TypeShape.of(GetServiceIntegrationResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5157,6 +6307,47 @@ public final class PagerdutyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetStandardsResult> getStandards(GetStandardsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getStandards:getStandards", TypeShape.of(GetStandardsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about the [standards](https://developer.pagerduty.com/api-reference/dbed9a0ff9355-list-standards) applicable to
+     * the PagerDuty account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetStandardsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var standards = PagerdutyFunctions.getStandards();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetStandardsResult> getStandardsPlain(GetStandardsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getStandards:getStandards", TypeShape.of(GetStandardsResult.class), args, Utilities.withVersion(options));
     }
@@ -5305,6 +6496,55 @@ public final class PagerdutyFunctions {
      * 
      */
     public static Output<GetStandardsResourceScoresResult> getStandardsResourceScores(GetStandardsResourceScoresArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getStandardsResourceScores:getStandardsResourceScores", TypeShape.of(GetStandardsResourceScoresResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about the [scores for the standards of a
+     * resource][1].
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.inputs.GetStandardsResourceScoresArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name("My Service")
+     *             .build());
+     * 
+     *         final var scores = PagerdutyFunctions.getStandardsResourceScores(GetStandardsResourceScoresArgs.builder()
+     *             .resourceType("technical_services")
+     *             .id(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetStandardsResourceScoresResult> getStandardsResourceScores(GetStandardsResourceScoresArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getStandardsResourceScores:getStandardsResourceScores", TypeShape.of(GetStandardsResourceScoresResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5593,6 +6833,66 @@ public final class PagerdutyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetStandardsResourcesScoresResult> getStandardsResourcesScores(GetStandardsResourcesScoresArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores", TypeShape.of(GetStandardsResourcesScoresResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about the [scores for the standards for
+     * many resources][1].
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.inputs.GetStandardsResourcesScoresArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name("foo")
+     *             .build());
+     * 
+     *         final var bar = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name("bar")
+     *             .build());
+     * 
+     *         final var baz = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name("baz")
+     *             .build());
+     * 
+     *         final var scores = PagerdutyFunctions.getStandardsResourcesScores(GetStandardsResourcesScoresArgs.builder()
+     *             .resourceType("technical_services")
+     *             .ids(            
+     *                 foo.applyValue(getServiceResult -> getServiceResult.id()),
+     *                 bar.applyValue(getServiceResult -> getServiceResult.id()),
+     *                 baz.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetStandardsResourcesScoresResult> getStandardsResourcesScoresPlain(GetStandardsResourcesScoresPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores", TypeShape.of(GetStandardsResourcesScoresResult.class), args, Utilities.withVersion(options));
     }
@@ -5759,6 +7059,61 @@ public final class PagerdutyFunctions {
      * 
      */
     public static Output<GetTagResult> getTag(GetTagArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getTag:getTag", TypeShape.of(GetTagResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetUserArgs;
+     * import com.pulumi.pagerduty.inputs.GetTagArgs;
+     * import com.pulumi.pagerduty.TagAssignment;
+     * import com.pulumi.pagerduty.TagAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
+     *             .email("me}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         final var devops = PagerdutyFunctions.getTag(GetTagArgs.builder()
+     *             .label("devops")
+     *             .build());
+     * 
+     *         var foo = new TagAssignment("foo", TagAssignmentArgs.builder()
+     *             .tagId(devops.applyValue(getTagResult -> getTagResult.id()))
+     *             .entityId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .entityType("users")
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTagResult> getTag(GetTagArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getTag:getTag", TypeShape.of(GetTagResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6065,6 +7420,69 @@ public final class PagerdutyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetTeamResult> getTeam(GetTeamArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getTeam:getTeam", TypeShape.of(GetTeamResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [team](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIyMw-list-teams) that you can use for other PagerDuty resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetUserArgs;
+     * import com.pulumi.pagerduty.inputs.GetTeamArgs;
+     * import com.pulumi.pagerduty.EscalationPolicy;
+     * import com.pulumi.pagerduty.EscalationPolicyArgs;
+     * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
+     *             .email("me}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
+     *             .name("devops")
+     *             .build());
+     * 
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
+     *             .name("DevOps Escalation Policy")
+     *             .numLoops(2)
+     *             .teams(devops.applyValue(getTeamResult -> getTeamResult.id()))
+     *             .rules(EscalationPolicyRuleArgs.builder()
+     *                 .escalationDelayInMinutes(10)
+     *                 .targets(EscalationPolicyRuleTargetArgs.builder()
+     *                     .type("user")
+     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetTeamResult> getTeamPlain(GetTeamPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getTeam:getTeam", TypeShape.of(GetTeamResult.class), args, Utilities.withVersion(options));
     }
@@ -6207,6 +7625,53 @@ public final class PagerdutyFunctions {
      * 
      */
     public static Output<GetTeamMembersResult> getTeamMembers(GetTeamMembersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getTeamMembers:getTeamMembers", TypeShape.of(GetTeamMembersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [team&#39;s members][1].
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamArgs;
+     * import com.pulumi.pagerduty.inputs.GetTeamMembersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
+     *             .name("devops")
+     *             .build());
+     * 
+     *         final var devopsMembers = PagerdutyFunctions.getTeamMembers(GetTeamMembersArgs.builder()
+     *             .teamId(devops.applyValue(getTeamResult -> getTeamResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTeamMembersResult> getTeamMembers(GetTeamMembersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getTeamMembers:getTeamMembers", TypeShape.of(GetTeamMembersResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6481,6 +7946,63 @@ public final class PagerdutyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetUserArgs;
+     * import com.pulumi.pagerduty.EscalationPolicy;
+     * import com.pulumi.pagerduty.EscalationPolicyArgs;
+     * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
+     *             .email("me}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
+     *             .name("Engineering Escalation Policy")
+     *             .numLoops(2)
+     *             .rules(EscalationPolicyRuleArgs.builder()
+     *                 .escalationDelayInMinutes(10)
+     *                 .targets(EscalationPolicyRuleTargetArgs.builder()
+     *                     .type("user_reference")
+     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
@@ -6665,6 +8187,67 @@ public final class PagerdutyFunctions {
      * 
      */
     public static Output<GetUserContactMethodResult> getUserContactMethod(GetUserContactMethodArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getUserContactMethod:getUserContactMethod", TypeShape.of(GetUserContactMethodResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzOQ-list-a-user-s-contact-methods) of a PagerDuty [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetUserArgs;
+     * import com.pulumi.pagerduty.inputs.GetUserContactMethodArgs;
+     * import com.pulumi.pagerduty.UserNotificationRule;
+     * import com.pulumi.pagerduty.UserNotificationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
+     *             .email("me}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         final var phonePush = PagerdutyFunctions.getUserContactMethod(GetUserContactMethodArgs.builder()
+     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .type("push_notification_contact_method")
+     *             .label("iPhone (John)")
+     *             .build());
+     * 
+     *         var lowUrgencySms = new UserNotificationRule("lowUrgencySms", UserNotificationRuleArgs.builder()
+     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .startDelayInMinutes(5)
+     *             .urgency("high")
+     *             .contactMethod(Map.ofEntries(
+     *                 Map.entry("type", "push_notification_contact_method"),
+     *                 Map.entry("id", phonePush.applyValue(getUserContactMethodResult -> getUserContactMethodResult.id()))
+     *             ))
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetUserContactMethodResult> getUserContactMethod(GetUserContactMethodArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getUserContactMethod:getUserContactMethod", TypeShape.of(GetUserContactMethodResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -7133,6 +8716,74 @@ public final class PagerdutyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamArgs;
+     * import com.pulumi.pagerduty.inputs.GetUserArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import com.pulumi.pagerduty.TeamMembership;
+     * import com.pulumi.pagerduty.TeamMembershipArgs;
+     * import com.pulumi.pagerduty.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
+     *             .name("devops")
+     *             .build());
+     * 
+     *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
+     *             .email("me}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         var exampleWTeam = new User("exampleWTeam", UserArgs.builder()
+     *             .name("user-with-team")
+     *             .email("user-with-team}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         var example = new TeamMembership("example", TeamMembershipArgs.builder()
+     *             .teamId(devopsPagerdutyTeam.id())
+     *             .userId(exampleWTeam.id())
+     *             .build());
+     * 
+     *         final var allUsers = PagerdutyFunctions.getUsers();
+     * 
+     *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
+     *             .teamIds(devopsPagerdutyTeam.id())
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
@@ -7386,6 +9037,90 @@ public final class PagerdutyFunctions {
      * 
      */
     public static Output<GetVendorResult> getVendor(GetVendorArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getVendor:getVendor", TypeShape.of(GetVendorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI1OQ-list-vendors) that you can use for a service integration (e.g. Amazon Cloudwatch, Splunk, Datadog).
+     * 
+     * &gt; For the case of vendors that rely on [Change Events](https://support.pagerduty.com/docs/change-events) (e.g. Jekings CI, Github, Gitlab, ...) is important to know that those vendors are only available with [PagerDuty AIOps](https://support.pagerduty.com/docs/aiops) add-on. Therefore, they won&#39;t be accessible as result of `pagerduty.getVendor` data source without the proper entitlements.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetVendorArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import com.pulumi.pagerduty.EscalationPolicy;
+     * import com.pulumi.pagerduty.EscalationPolicyArgs;
+     * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+     * import com.pulumi.pagerduty.Service;
+     * import com.pulumi.pagerduty.ServiceArgs;
+     * import com.pulumi.pagerduty.ServiceIntegration;
+     * import com.pulumi.pagerduty.ServiceIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var datadog = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
+     *             .name("Datadog")
+     *             .build());
+     * 
+     *         var example = new User("example", UserArgs.builder()
+     *             .name("Earline Greenholt")
+     *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
+     *             .teams(examplePagerdutyTeam.id())
+     *             .build());
+     * 
+     *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
+     *             .name("Engineering Escalation Policy")
+     *             .numLoops(2)
+     *             .rules(EscalationPolicyRuleArgs.builder()
+     *                 .escalationDelayInMinutes(10)
+     *                 .targets(EscalationPolicyRuleTargetArgs.builder()
+     *                     .type("user")
+     *                     .id(example.id())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         var exampleService = new Service("exampleService", ServiceArgs.builder()
+     *             .name("My Web App")
+     *             .autoResolveTimeout(14400)
+     *             .acknowledgementTimeout(600)
+     *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
+     *             .build());
+     * 
+     *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
+     *             .name("Datadog Integration")
+     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
+     *             .service(exampleService.id())
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVendorResult> getVendor(GetVendorArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getVendor:getVendor", TypeShape.of(GetVendorResult.class), args, Utilities.withVersion(options));
     }
     /**

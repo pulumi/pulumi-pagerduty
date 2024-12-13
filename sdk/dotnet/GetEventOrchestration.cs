@@ -22,6 +22,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Output<GetEventOrchestrationResult> Invoke(GetEventOrchestrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationResult>("pagerduty:index/getEventOrchestration:getEventOrchestration", args ?? new GetEventOrchestrationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
+        /// </summary>
+        public static Output<GetEventOrchestrationResult> Invoke(GetEventOrchestrationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationResult>("pagerduty:index/getEventOrchestration:getEventOrchestration", args ?? new GetEventOrchestrationInvokeArgs(), options.WithDefaults());
     }
 
 

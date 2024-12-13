@@ -60,6 +60,31 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Output<GetServiceIntegrationResult> Invoke(GetServiceIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceIntegrationResult>("pagerduty:index/getServiceIntegration:getServiceIntegration", args ?? new GetServiceIntegrationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a specific service_integration.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Pagerduty.GetServiceIntegration.Invoke(new()
+        ///     {
+        ///         ServiceName = "My Service",
+        ///         IntegrationSummary = "Datadog",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServiceIntegrationResult> Invoke(GetServiceIntegrationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceIntegrationResult>("pagerduty:index/getServiceIntegration:getServiceIntegration", args ?? new GetServiceIntegrationInvokeArgs(), options.WithDefaults());
     }
 
 

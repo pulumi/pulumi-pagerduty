@@ -64,21 +64,11 @@ type GetStandardsResult struct {
 }
 
 func GetStandardsOutput(ctx *pulumi.Context, args GetStandardsOutputArgs, opts ...pulumi.InvokeOption) GetStandardsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetStandardsResultOutput, error) {
 			args := v.(GetStandardsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetStandardsResult
-			secret, err := ctx.InvokePackageRaw("pagerduty:index/getStandards:getStandards", args, &rv, "", opts...)
-			if err != nil {
-				return GetStandardsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetStandardsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetStandardsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("pagerduty:index/getStandards:getStandards", args, GetStandardsResultOutput{}, options).(GetStandardsResultOutput), nil
 		}).(GetStandardsResultOutput)
 }
 

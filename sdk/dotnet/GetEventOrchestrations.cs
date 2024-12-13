@@ -78,6 +78,40 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Output<GetEventOrchestrationsResult> Invoke(GetEventOrchestrationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationsResult>("pagerduty:index/getEventOrchestrations:getEventOrchestrations", args ?? new GetEventOrchestrationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information as a list about specific Global [Event Orchestrations](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations) filtered by a Regular Expression provided.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var tfOrchA = new Pagerduty.EventOrchestration("tf_orch_a", new()
+        ///     {
+        ///         Name = "Test Event A Orchestration",
+        ///     });
+        /// 
+        ///     var tfOrchB = new Pagerduty.EventOrchestration("tf_orch_b", new()
+        ///     {
+        ///         Name = "Test Event B Orchestration",
+        ///     });
+        /// 
+        ///     var tfMyMonitor = Pagerduty.GetEventOrchestrations.Invoke(new()
+        ///     {
+        ///         NameFilter = ".*Orchestration$",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetEventOrchestrationsResult> Invoke(GetEventOrchestrationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationsResult>("pagerduty:index/getEventOrchestrations:getEventOrchestrations", args ?? new GetEventOrchestrationsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -96,6 +96,49 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Output<GetUserContactMethodResult> Invoke(GetUserContactMethodInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserContactMethodResult>("pagerduty:index/getUserContactMethod:getUserContactMethod", args ?? new GetUserContactMethodInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a specific [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzOQ-list-a-user-s-contact-methods) of a PagerDuty [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var me = Pagerduty.GetUser.Invoke(new()
+        ///     {
+        ///         Email = "me@example.com",
+        ///     });
+        /// 
+        ///     var phonePush = Pagerduty.GetUserContactMethod.Invoke(new()
+        ///     {
+        ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
+        ///         Type = "push_notification_contact_method",
+        ///         Label = "iPhone (John)",
+        ///     });
+        /// 
+        ///     var lowUrgencySms = new Pagerduty.UserNotificationRule("low_urgency_sms", new()
+        ///     {
+        ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
+        ///         StartDelayInMinutes = 5,
+        ///         Urgency = "high",
+        ///         ContactMethod = 
+        ///         {
+        ///             { "type", "push_notification_contact_method" },
+        ///             { "id", phonePush.Apply(getUserContactMethodResult =&gt; getUserContactMethodResult.Id) },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetUserContactMethodResult> Invoke(GetUserContactMethodInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserContactMethodResult>("pagerduty:index/getUserContactMethod:getUserContactMethod", args ?? new GetUserContactMethodInvokeArgs(), options.WithDefaults());
     }
 
 

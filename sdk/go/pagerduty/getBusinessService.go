@@ -65,21 +65,11 @@ type LookupBusinessServiceResult struct {
 }
 
 func LookupBusinessServiceOutput(ctx *pulumi.Context, args LookupBusinessServiceOutputArgs, opts ...pulumi.InvokeOption) LookupBusinessServiceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBusinessServiceResultOutput, error) {
 			args := v.(LookupBusinessServiceArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupBusinessServiceResult
-			secret, err := ctx.InvokePackageRaw("pagerduty:index/getBusinessService:getBusinessService", args, &rv, "", opts...)
-			if err != nil {
-				return LookupBusinessServiceResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupBusinessServiceResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupBusinessServiceResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("pagerduty:index/getBusinessService:getBusinessService", args, LookupBusinessServiceResultOutput{}, options).(LookupBusinessServiceResultOutput), nil
 		}).(LookupBusinessServiceResultOutput)
 }
 

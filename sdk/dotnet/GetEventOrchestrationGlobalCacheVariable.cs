@@ -70,6 +70,36 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Output<GetEventOrchestrationGlobalCacheVariableResult> Invoke(GetEventOrchestrationGlobalCacheVariableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationGlobalCacheVariableResult>("pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable", args ?? new GetEventOrchestrationGlobalCacheVariableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a specific [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) for a Global Event Orchestration.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
+        ///     {
+        ///         Name = "Test Event Orchestration",
+        ///     });
+        /// 
+        ///     var cacheVariable = Pagerduty.GetEventOrchestrationGlobalCacheVariable.Invoke(new()
+        ///     {
+        ///         EventOrchestration = eventOrchestration.Id,
+        ///         Name = "example_cache_variable",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetEventOrchestrationGlobalCacheVariableResult> Invoke(GetEventOrchestrationGlobalCacheVariableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationGlobalCacheVariableResult>("pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable", args ?? new GetEventOrchestrationGlobalCacheVariableInvokeArgs(), options.WithDefaults());
     }
 
 

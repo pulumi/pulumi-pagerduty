@@ -94,21 +94,11 @@ type GetLicenseResult struct {
 }
 
 func GetLicenseOutput(ctx *pulumi.Context, args GetLicenseOutputArgs, opts ...pulumi.InvokeOption) GetLicenseResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLicenseResultOutput, error) {
 			args := v.(GetLicenseArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetLicenseResult
-			secret, err := ctx.InvokePackageRaw("pagerduty:index/getLicense:getLicense", args, &rv, "", opts...)
-			if err != nil {
-				return GetLicenseResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetLicenseResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetLicenseResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("pagerduty:index/getLicense:getLicense", args, GetLicenseResultOutput{}, options).(GetLicenseResultOutput), nil
 		}).(GetLicenseResultOutput)
 }
 

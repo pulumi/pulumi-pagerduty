@@ -71,21 +71,11 @@ type LookupEventOrchestrationIntegrationResult struct {
 }
 
 func LookupEventOrchestrationIntegrationOutput(ctx *pulumi.Context, args LookupEventOrchestrationIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupEventOrchestrationIntegrationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEventOrchestrationIntegrationResultOutput, error) {
 			args := v.(LookupEventOrchestrationIntegrationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEventOrchestrationIntegrationResult
-			secret, err := ctx.InvokePackageRaw("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEventOrchestrationIntegrationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEventOrchestrationIntegrationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEventOrchestrationIntegrationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", args, LookupEventOrchestrationIntegrationResultOutput{}, options).(LookupEventOrchestrationIntegrationResultOutput), nil
 		}).(LookupEventOrchestrationIntegrationResultOutput)
 }
 

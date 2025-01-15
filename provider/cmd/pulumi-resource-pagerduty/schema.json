@@ -3815,6 +3815,50 @@
                 }
             }
         },
+        "pagerduty:index/getIncidentTypeCustomFieldFieldOption:getIncidentTypeCustomFieldFieldOption": {
+            "properties": {
+                "data": {
+                    "$ref": "#/types/pagerduty:index/getIncidentTypeCustomFieldFieldOptionData:getIncidentTypeCustomFieldFieldOptionData"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "data",
+                "id",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pagerduty:index/getIncidentTypeCustomFieldFieldOptionData:getIncidentTypeCustomFieldFieldOptionData": {
+            "properties": {
+                "dataType": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataType",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "pagerduty:index/getLicensesLicense:getLicensesLicense": {
             "properties": {
                 "allocationsAvailable": {
@@ -6269,6 +6313,265 @@
                     "value": {
                         "type": "string",
                         "description": "The allowed value.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/incidentType:IncidentType": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst base = pagerduty.getIncidentType({\n    displayName: \"Base Incident\",\n});\nconst example = new pagerduty.IncidentType(\"example\", {\n    name: \"backoffice\",\n    displayName: \"Backoffice Incident\",\n    parentType: base.then(base =\u003e base.id),\n    description: \"Internal incidents not facing customer\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nbase = pagerduty.get_incident_type(display_name=\"Base Incident\")\nexample = pagerduty.IncidentType(\"example\",\n    name=\"backoffice\",\n    display_name=\"Backoffice Incident\",\n    parent_type=base.id,\n    description=\"Internal incidents not facing customer\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @base = Pagerduty.GetIncidentType.Invoke(new()\n    {\n        DisplayName = \"Base Incident\",\n    });\n\n    var example = new Pagerduty.IncidentType(\"example\", new()\n    {\n        Name = \"backoffice\",\n        DisplayName = \"Backoffice Incident\",\n        ParentType = @base.Apply(@base =\u003e @base.Apply(getIncidentTypeResult =\u003e getIncidentTypeResult.Id)),\n        Description = \"Internal incidents not facing customer\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tbase, err := pagerduty.LookupIncidentType(ctx, \u0026pagerduty.LookupIncidentTypeArgs{\n\t\t\tDisplayName: \"Base Incident\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewIncidentType(ctx, \"example\", \u0026pagerduty.IncidentTypeArgs{\n\t\t\tName:        pulumi.String(\"backoffice\"),\n\t\t\tDisplayName: pulumi.String(\"Backoffice Incident\"),\n\t\t\tParentType:  pulumi.String(base.Id),\n\t\t\tDescription: pulumi.String(\"Internal incidents not facing customer\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetIncidentTypeArgs;\nimport com.pulumi.pagerduty.IncidentType;\nimport com.pulumi.pagerduty.IncidentTypeArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var base = PagerdutyFunctions.getIncidentType(GetIncidentTypeArgs.builder()\n            .displayName(\"Base Incident\")\n            .build());\n\n        var example = new IncidentType(\"example\", IncidentTypeArgs.builder()\n            .name(\"backoffice\")\n            .displayName(\"Backoffice Incident\")\n            .parentType(base.applyValue(getIncidentTypeResult -\u003e getIncidentTypeResult.id()))\n            .description(\"Internal incidents not facing customer\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: pagerduty:IncidentType\n    properties:\n      name: backoffice\n      displayName: Backoffice Incident\n      parentType: ${base.id}\n      description: Internal incidents not facing customer\nvariables:\n  base:\n    fn::invoke:\n      function: pagerduty:getIncidentType\n      arguments:\n        displayName: Base Incident\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nServices can be imported using the `id`, e.g.\n\n```sh\n$ pulumi import pagerduty:index/incidentType:IncidentType main P12345\n```\n",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "A succinct description of the Incident Type.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name of the Incident Type. Usage of the prefixes PD, PagerDuty, or the suffixes Default, or (Default) is prohibited.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "State of this Incident Type object. Defaults to true if not provided.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Incident Type. Usage of the suffix `_default` is prohibited. This cannot be changed once the incident type has been created.\n"
+                },
+                "parentType": {
+                    "type": "string",
+                    "description": "The parent type of the Incident Type. Either name or id of the parent type can be used.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "A string that determines the schema of the object.\n"
+                }
+            },
+            "required": [
+                "displayName",
+                "enabled",
+                "name",
+                "parentType",
+                "type"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A succinct description of the Incident Type.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name of the Incident Type. Usage of the prefixes PD, PagerDuty, or the suffixes Default, or (Default) is prohibited.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "State of this Incident Type object. Defaults to true if not provided.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Incident Type. Usage of the suffix `_default` is prohibited. This cannot be changed once the incident type has been created.\n"
+                },
+                "parentType": {
+                    "type": "string",
+                    "description": "The parent type of the Incident Type. Either name or id of the parent type can be used.\n"
+                }
+            },
+            "requiredInputs": [
+                "displayName",
+                "parentType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IncidentType resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "A succinct description of the Incident Type.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The display name of the Incident Type. Usage of the prefixes PD, PagerDuty, or the suffixes Default, or (Default) is prohibited.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "State of this Incident Type object. Defaults to true if not provided.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Incident Type. Usage of the suffix `_default` is prohibited. This cannot be changed once the incident type has been created.\n"
+                    },
+                    "parentType": {
+                        "type": "string",
+                        "description": "The parent type of the Incident Type. Either name or id of the parent type can be used.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "A string that determines the schema of the object.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/incidentTypeCustomField:IncidentTypeCustomField": {
+            "description": "An [incident type custom fields](https://developer.pagerduty.com/api-reference/423b6701f3f1b-create-a-custom-field-for-an-incident-type)\nare a feature which will allow customers to extend Incidents with their own\ncustom data, to provide additional context and support features such as\ncustomized filtering, search and analytics. Custom Fields can be applied to\ndifferent incident types. Child types will inherit custom fields from their\nparent types.\n\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst alarmTime = new pagerduty.IncidentTypeCustomField(\"alarm_time\", {\n    name: \"alarm_time_minutes\",\n    displayName: \"Alarm Time\",\n    dataType: \"integer\",\n    fieldType: \"single_value\",\n    defaultValue: JSON.stringify(5),\n    incidentType: \"incident_default\",\n});\nconst foo = pagerduty.getIncidentType({\n    displayName: \"Foo\",\n});\nconst level = new pagerduty.IncidentTypeCustomField(\"level\", {\n    name: \"level\",\n    incidentType: foo.then(foo =\u003e foo.id),\n    displayName: \"Level\",\n    dataType: \"string\",\n    fieldType: \"single_value_fixed\",\n    fieldOptions: [\n        \"Trace\",\n        \"Debug\",\n        \"Info\",\n        \"Warn\",\n        \"Error\",\n        \"Fatal\",\n    ],\n});\nconst csImpact = new pagerduty.IncidentTypeCustomField(\"cs_impact\", {\n    name: \"impact\",\n    incidentType: foo.then(foo =\u003e foo.id),\n    displayName: \"Customer Impact\",\n    dataType: \"string\",\n    fieldType: \"multi_value\",\n});\n```\n```python\nimport pulumi\nimport json\nimport pulumi_pagerduty as pagerduty\n\nalarm_time = pagerduty.IncidentTypeCustomField(\"alarm_time\",\n    name=\"alarm_time_minutes\",\n    display_name=\"Alarm Time\",\n    data_type=\"integer\",\n    field_type=\"single_value\",\n    default_value=json.dumps(5),\n    incident_type=\"incident_default\")\nfoo = pagerduty.get_incident_type(display_name=\"Foo\")\nlevel = pagerduty.IncidentTypeCustomField(\"level\",\n    name=\"level\",\n    incident_type=foo.id,\n    display_name=\"Level\",\n    data_type=\"string\",\n    field_type=\"single_value_fixed\",\n    field_options=[\n        \"Trace\",\n        \"Debug\",\n        \"Info\",\n        \"Warn\",\n        \"Error\",\n        \"Fatal\",\n    ])\ncs_impact = pagerduty.IncidentTypeCustomField(\"cs_impact\",\n    name=\"impact\",\n    incident_type=foo.id,\n    display_name=\"Customer Impact\",\n    data_type=\"string\",\n    field_type=\"multi_value\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.Json;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var alarmTime = new Pagerduty.IncidentTypeCustomField(\"alarm_time\", new()\n    {\n        Name = \"alarm_time_minutes\",\n        DisplayName = \"Alarm Time\",\n        DataType = \"integer\",\n        FieldType = \"single_value\",\n        DefaultValue = JsonSerializer.Serialize(5),\n        IncidentType = \"incident_default\",\n    });\n\n    var foo = Pagerduty.GetIncidentType.Invoke(new()\n    {\n        DisplayName = \"Foo\",\n    });\n\n    var level = new Pagerduty.IncidentTypeCustomField(\"level\", new()\n    {\n        Name = \"level\",\n        IncidentType = foo.Apply(getIncidentTypeResult =\u003e getIncidentTypeResult.Id),\n        DisplayName = \"Level\",\n        DataType = \"string\",\n        FieldType = \"single_value_fixed\",\n        FieldOptions = new[]\n        {\n            \"Trace\",\n            \"Debug\",\n            \"Info\",\n            \"Warn\",\n            \"Error\",\n            \"Fatal\",\n        },\n    });\n\n    var csImpact = new Pagerduty.IncidentTypeCustomField(\"cs_impact\", new()\n    {\n        Name = \"impact\",\n        IncidentType = foo.Apply(getIncidentTypeResult =\u003e getIncidentTypeResult.Id),\n        DisplayName = \"Customer Impact\",\n        DataType = \"string\",\n        FieldType = \"multi_value\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"encoding/json\"\n\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttmpJSON0, err := json.Marshal(5)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson0 := string(tmpJSON0)\n\t\t_, err = pagerduty.NewIncidentTypeCustomField(ctx, \"alarm_time\", \u0026pagerduty.IncidentTypeCustomFieldArgs{\n\t\t\tName:         pulumi.String(\"alarm_time_minutes\"),\n\t\t\tDisplayName:  pulumi.String(\"Alarm Time\"),\n\t\t\tDataType:     pulumi.String(\"integer\"),\n\t\t\tFieldType:    pulumi.String(\"single_value\"),\n\t\t\tDefaultValue: pulumi.String(json0),\n\t\t\tIncidentType: pulumi.String(\"incident_default\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tfoo, err := pagerduty.LookupIncidentType(ctx, \u0026pagerduty.LookupIncidentTypeArgs{\n\t\t\tDisplayName: \"Foo\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewIncidentTypeCustomField(ctx, \"level\", \u0026pagerduty.IncidentTypeCustomFieldArgs{\n\t\t\tName:         pulumi.String(\"level\"),\n\t\t\tIncidentType: pulumi.String(foo.Id),\n\t\t\tDisplayName:  pulumi.String(\"Level\"),\n\t\t\tDataType:     pulumi.String(\"string\"),\n\t\t\tFieldType:    pulumi.String(\"single_value_fixed\"),\n\t\t\tFieldOptions: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"Trace\"),\n\t\t\t\tpulumi.String(\"Debug\"),\n\t\t\t\tpulumi.String(\"Info\"),\n\t\t\t\tpulumi.String(\"Warn\"),\n\t\t\t\tpulumi.String(\"Error\"),\n\t\t\t\tpulumi.String(\"Fatal\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewIncidentTypeCustomField(ctx, \"cs_impact\", \u0026pagerduty.IncidentTypeCustomFieldArgs{\n\t\t\tName:         pulumi.String(\"impact\"),\n\t\t\tIncidentType: pulumi.String(foo.Id),\n\t\t\tDisplayName:  pulumi.String(\"Customer Impact\"),\n\t\t\tDataType:     pulumi.String(\"string\"),\n\t\t\tFieldType:    pulumi.String(\"multi_value\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.IncidentTypeCustomField;\nimport com.pulumi.pagerduty.IncidentTypeCustomFieldArgs;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetIncidentTypeArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var alarmTime = new IncidentTypeCustomField(\"alarmTime\", IncidentTypeCustomFieldArgs.builder()\n            .name(\"alarm_time_minutes\")\n            .displayName(\"Alarm Time\")\n            .dataType(\"integer\")\n            .fieldType(\"single_value\")\n            .defaultValue(serializeJson(\n                5))\n            .incidentType(\"incident_default\")\n            .build());\n\n        final var foo = PagerdutyFunctions.getIncidentType(GetIncidentTypeArgs.builder()\n            .displayName(\"Foo\")\n            .build());\n\n        var level = new IncidentTypeCustomField(\"level\", IncidentTypeCustomFieldArgs.builder()\n            .name(\"level\")\n            .incidentType(foo.applyValue(getIncidentTypeResult -\u003e getIncidentTypeResult.id()))\n            .displayName(\"Level\")\n            .dataType(\"string\")\n            .fieldType(\"single_value_fixed\")\n            .fieldOptions(            \n                \"Trace\",\n                \"Debug\",\n                \"Info\",\n                \"Warn\",\n                \"Error\",\n                \"Fatal\")\n            .build());\n\n        var csImpact = new IncidentTypeCustomField(\"csImpact\", IncidentTypeCustomFieldArgs.builder()\n            .name(\"impact\")\n            .incidentType(foo.applyValue(getIncidentTypeResult -\u003e getIncidentTypeResult.id()))\n            .displayName(\"Customer Impact\")\n            .dataType(\"string\")\n            .fieldType(\"multi_value\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  alarmTime:\n    type: pagerduty:IncidentTypeCustomField\n    name: alarm_time\n    properties:\n      name: alarm_time_minutes\n      displayName: Alarm Time\n      dataType: integer\n      fieldType: single_value\n      defaultValue:\n        fn::toJSON: 5\n      incidentType: incident_default\n  level:\n    type: pagerduty:IncidentTypeCustomField\n    properties:\n      name: level\n      incidentType: ${foo.id}\n      displayName: Level\n      dataType: string\n      fieldType: single_value_fixed\n      fieldOptions:\n        - Trace\n        - Debug\n        - Info\n        - Warn\n        - Error\n        - Fatal\n  csImpact:\n    type: pagerduty:IncidentTypeCustomField\n    name: cs_impact\n    properties:\n      name: impact\n      incidentType: ${foo.id}\n      displayName: Customer Impact\n      dataType: string\n      fieldType: multi_value\nvariables:\n  foo:\n    fn::invoke:\n      function: pagerduty:getIncidentType\n      arguments:\n        displayName: Foo\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nFields can be imported using the combination of `incident_type_id` and `field_id`, e.g.\n\n```sh\n$ pulumi import pagerduty:index/incidentTypeCustomField:IncidentTypeCustomField cs_impact PT1234:PF1234\n```\n",
+            "properties": {
+                "dataType": {
+                    "type": "string",
+                    "description": "[Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `data_type` is `single_value`, otherwise must be `string`. Update\n"
+                },
+                "defaultValue": {
+                    "type": "string",
+                    "description": "The default value to set when new incidents are created. Always specified as a string.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the custom field.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name of the custom Type.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the custom field is enabled. Defaults to true if not provided.\n"
+                },
+                "fieldOptions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The options for the custom field. Can only be applied to fields with a type of `single_value_fixed` or `multi_value_fixed`.\n"
+                },
+                "fieldType": {
+                    "type": "string",
+                    "description": "[Updating causes resource replacement] The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.\n"
+                },
+                "incidentType": {
+                    "type": "string",
+                    "description": "[Updating causes resource replacement] The id of the incident type the custom field is associated with.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "[Updating causes resource replacement] The name of the custom field.\n"
+                },
+                "self": {
+                    "type": "string",
+                    "description": "The API show URL at which the object is accessible.\n"
+                },
+                "summary": {
+                    "type": "string",
+                    "description": "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.\n"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "dataType",
+                "displayName",
+                "enabled",
+                "incidentType",
+                "name",
+                "self",
+                "summary",
+                "type"
+            ],
+            "inputProperties": {
+                "dataType": {
+                    "type": "string",
+                    "description": "[Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `data_type` is `single_value`, otherwise must be `string`. Update\n"
+                },
+                "defaultValue": {
+                    "type": "string",
+                    "description": "The default value to set when new incidents are created. Always specified as a string.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the custom field.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name of the custom Type.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the custom field is enabled. Defaults to true if not provided.\n"
+                },
+                "fieldOptions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The options for the custom field. Can only be applied to fields with a type of `single_value_fixed` or `multi_value_fixed`.\n"
+                },
+                "fieldType": {
+                    "type": "string",
+                    "description": "[Updating causes resource replacement] The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.\n"
+                },
+                "incidentType": {
+                    "type": "string",
+                    "description": "[Updating causes resource replacement] The id of the incident type the custom field is associated with.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "[Updating causes resource replacement] The name of the custom field.\n"
+                }
+            },
+            "requiredInputs": [
+                "dataType",
+                "displayName",
+                "incidentType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IncidentTypeCustomField resources.\n",
+                "properties": {
+                    "dataType": {
+                        "type": "string",
+                        "description": "[Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `data_type` is `single_value`, otherwise must be `string`. Update\n"
+                    },
+                    "defaultValue": {
+                        "type": "string",
+                        "description": "The default value to set when new incidents are created. Always specified as a string.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the custom field.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The display name of the custom Type.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the custom field is enabled. Defaults to true if not provided.\n"
+                    },
+                    "fieldOptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The options for the custom field. Can only be applied to fields with a type of `single_value_fixed` or `multi_value_fixed`.\n"
+                    },
+                    "fieldType": {
+                        "type": "string",
+                        "description": "[Updating causes resource replacement] The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.\n"
+                    },
+                    "incidentType": {
+                        "type": "string",
+                        "description": "[Updating causes resource replacement] The id of the incident type the custom field is associated with.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "[Updating causes resource replacement] The name of the custom field.\n"
+                    },
+                    "self": {
+                        "type": "string",
+                        "description": "The API show URL at which the object is accessible.\n"
+                    },
+                    "summary": {
+                        "type": "string",
+                        "description": "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.\n"
+                    },
+                    "type": {
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -9324,6 +9627,137 @@
                     "fieldType",
                     "name",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "pagerduty:index/getIncidentType:getIncidentType": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getIncidentType.\n",
+                "properties": {
+                    "displayName": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "displayName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getIncidentType.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "parentType": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "description",
+                    "displayName",
+                    "enabled",
+                    "id",
+                    "name",
+                    "parentType",
+                    "type"
+                ],
+                "type": "object"
+            }
+        },
+        "pagerduty:index/getIncidentTypeCustomField:getIncidentTypeCustomField": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getIncidentTypeCustomField.\n",
+                "properties": {
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "incidentType": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "displayName",
+                    "incidentType"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getIncidentTypeCustomField.\n",
+                "properties": {
+                    "dataType": {
+                        "type": "string"
+                    },
+                    "defaultValue": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "fieldOptions": {
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/getIncidentTypeCustomFieldFieldOption:getIncidentTypeCustomFieldFieldOption"
+                        },
+                        "type": "array"
+                    },
+                    "fieldType": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "incidentType": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "self": {
+                        "type": "string"
+                    },
+                    "summary": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "dataType",
+                    "defaultValue",
+                    "description",
+                    "displayName",
+                    "enabled",
+                    "fieldOptions",
+                    "fieldType",
+                    "id",
+                    "incidentType",
+                    "name",
+                    "self",
+                    "summary",
+                    "type"
                 ],
                 "type": "object"
             }

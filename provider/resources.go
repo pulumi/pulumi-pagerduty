@@ -171,6 +171,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"pagerduty_incident_type":              {Docs: &tfbridge.DocInfo{AllowMissing: true}},
+			"pagerduty_incident_type_custom_field": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions

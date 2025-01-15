@@ -436,6 +436,19 @@
                 "current": "pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption",
                 "majorVersion": 4
             },
+            "pagerduty_incident_type": {
+                "current": "pagerduty:index/incidentType:IncidentType",
+                "majorVersion": 4
+            },
+            "pagerduty_incident_type_custom_field": {
+                "current": "pagerduty:index/incidentTypeCustomField:IncidentTypeCustomField",
+                "majorVersion": 4,
+                "fields": {
+                    "field_options": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "pagerduty_incident_workflow": {
                 "current": "pagerduty:index/incidentWorkflow:IncidentWorkflow",
                 "majorVersion": 4,
@@ -1060,6 +1073,19 @@
                 "current": "pagerduty:index/getIncidentCustomField:getIncidentCustomField",
                 "majorVersion": 4
             },
+            "pagerduty_incident_type": {
+                "current": "pagerduty:index/getIncidentType:getIncidentType",
+                "majorVersion": 4
+            },
+            "pagerduty_incident_type_custom_field": {
+                "current": "pagerduty:index/getIncidentTypeCustomField:getIncidentTypeCustomField",
+                "majorVersion": 4,
+                "fields": {
+                    "field_options": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "pagerduty_incident_workflow": {
                 "current": "pagerduty:index/getIncidentWorkflow:getIncidentWorkflow",
                 "majorVersion": 4
@@ -1239,6 +1265,8 @@
             "pagerduty:index/extensionServiceNow:ExtensionServiceNow": 1,
             "pagerduty:index/incidentCustomField:IncidentCustomField": 0,
             "pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption": 0,
+            "pagerduty:index/incidentType:IncidentType": 1,
+            "pagerduty:index/incidentTypeCustomField:IncidentTypeCustomField": 1,
             "pagerduty:index/incidentWorkflow:IncidentWorkflow": 0,
             "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger": 0,
             "pagerduty:index/jiraCloudAccountMappingRule:JiraCloudAccountMappingRule": 1,
@@ -1275,6 +1303,8 @@
             "pagerduty:index/getEventOrchestrations:getEventOrchestrations": 0,
             "pagerduty:index/getExtensionSchema:getExtensionSchema": 1,
             "pagerduty:index/getIncidentCustomField:getIncidentCustomField": 0,
+            "pagerduty:index/getIncidentType:getIncidentType": 1,
+            "pagerduty:index/getIncidentTypeCustomField:getIncidentTypeCustomField": 1,
             "pagerduty:index/getIncidentWorkflow:getIncidentWorkflow": 0,
             "pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping": 1,
             "pagerduty:index/getLicense:getLicense": 1,

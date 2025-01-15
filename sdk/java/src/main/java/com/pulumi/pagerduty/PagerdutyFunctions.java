@@ -33,6 +33,10 @@ import com.pulumi.pagerduty.inputs.GetExtensionSchemaArgs;
 import com.pulumi.pagerduty.inputs.GetExtensionSchemaPlainArgs;
 import com.pulumi.pagerduty.inputs.GetIncidentCustomFieldArgs;
 import com.pulumi.pagerduty.inputs.GetIncidentCustomFieldPlainArgs;
+import com.pulumi.pagerduty.inputs.GetIncidentTypeArgs;
+import com.pulumi.pagerduty.inputs.GetIncidentTypeCustomFieldArgs;
+import com.pulumi.pagerduty.inputs.GetIncidentTypeCustomFieldPlainArgs;
+import com.pulumi.pagerduty.inputs.GetIncidentTypePlainArgs;
 import com.pulumi.pagerduty.inputs.GetIncidentWorkflowArgs;
 import com.pulumi.pagerduty.inputs.GetIncidentWorkflowPlainArgs;
 import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
@@ -83,6 +87,8 @@ import com.pulumi.pagerduty.outputs.GetEventOrchestrationServiceCacheVariableRes
 import com.pulumi.pagerduty.outputs.GetEventOrchestrationsResult;
 import com.pulumi.pagerduty.outputs.GetExtensionSchemaResult;
 import com.pulumi.pagerduty.outputs.GetIncidentCustomFieldResult;
+import com.pulumi.pagerduty.outputs.GetIncidentTypeCustomFieldResult;
+import com.pulumi.pagerduty.outputs.GetIncidentTypeResult;
 import com.pulumi.pagerduty.outputs.GetIncidentWorkflowResult;
 import com.pulumi.pagerduty.outputs.GetJiraCloudAccountMappingResult;
 import com.pulumi.pagerduty.outputs.GetLicenseResult;
@@ -3084,6 +3090,36 @@ public final class PagerdutyFunctions {
      */
     public static CompletableFuture<GetIncidentCustomFieldResult> getIncidentCustomFieldPlain(GetIncidentCustomFieldPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getIncidentCustomField:getIncidentCustomField", TypeShape.of(GetIncidentCustomFieldResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetIncidentTypeResult> getIncidentType(GetIncidentTypeArgs args) {
+        return getIncidentType(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetIncidentTypeResult> getIncidentTypePlain(GetIncidentTypePlainArgs args) {
+        return getIncidentTypePlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetIncidentTypeResult> getIncidentType(GetIncidentTypeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getIncidentType:getIncidentType", TypeShape.of(GetIncidentTypeResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetIncidentTypeResult> getIncidentType(GetIncidentTypeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getIncidentType:getIncidentType", TypeShape.of(GetIncidentTypeResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetIncidentTypeResult> getIncidentTypePlain(GetIncidentTypePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getIncidentType:getIncidentType", TypeShape.of(GetIncidentTypeResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetIncidentTypeCustomFieldResult> getIncidentTypeCustomField(GetIncidentTypeCustomFieldArgs args) {
+        return getIncidentTypeCustomField(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetIncidentTypeCustomFieldResult> getIncidentTypeCustomFieldPlain(GetIncidentTypeCustomFieldPlainArgs args) {
+        return getIncidentTypeCustomFieldPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetIncidentTypeCustomFieldResult> getIncidentTypeCustomField(GetIncidentTypeCustomFieldArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getIncidentTypeCustomField:getIncidentTypeCustomField", TypeShape.of(GetIncidentTypeCustomFieldResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetIncidentTypeCustomFieldResult> getIncidentTypeCustomField(GetIncidentTypeCustomFieldArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getIncidentTypeCustomField:getIncidentTypeCustomField", TypeShape.of(GetIncidentTypeCustomFieldResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetIncidentTypeCustomFieldResult> getIncidentTypeCustomFieldPlain(GetIncidentTypeCustomFieldPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getIncidentTypeCustomField:getIncidentTypeCustomField", TypeShape.of(GetIncidentTypeCustomFieldResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.

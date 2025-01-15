@@ -67,6 +67,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IncidentCustomField{}
 	case "pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption":
 		r = &IncidentCustomFieldOption{}
+	case "pagerduty:index/incidentType:IncidentType":
+		r = &IncidentType{}
+	case "pagerduty:index/incidentTypeCustomField:IncidentTypeCustomField":
+		r = &IncidentTypeCustomField{}
 	case "pagerduty:index/incidentWorkflow:IncidentWorkflow":
 		r = &IncidentWorkflow{}
 	case "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger":
@@ -255,6 +259,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"pagerduty",
 		"index/incidentCustomFieldOption",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/incidentType",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/incidentTypeCustomField",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

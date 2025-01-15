@@ -1266,6 +1266,17 @@ export interface GetEventOrchestrationsEventOrchestrationIntegrationParameter {
     type: string;
 }
 
+export interface GetIncidentTypeCustomFieldFieldOption {
+    data: outputs.GetIncidentTypeCustomFieldFieldOptionData;
+    id: string;
+    type: string;
+}
+
+export interface GetIncidentTypeCustomFieldFieldOptionData {
+    dataType: string;
+    value: string;
+}
+
 export interface GetLicensesLicense {
     /**
      * Available allocations to assign to users

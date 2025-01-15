@@ -170,6 +170,16 @@ export const getIncidentCustomField: typeof import("./getIncidentCustomField").g
 export const getIncidentCustomFieldOutput: typeof import("./getIncidentCustomField").getIncidentCustomFieldOutput = null as any;
 utilities.lazyLoad(exports, ["getIncidentCustomField","getIncidentCustomFieldOutput"], () => require("./getIncidentCustomField"));
 
+export { GetIncidentTypeArgs, GetIncidentTypeResult, GetIncidentTypeOutputArgs } from "./getIncidentType";
+export const getIncidentType: typeof import("./getIncidentType").getIncidentType = null as any;
+export const getIncidentTypeOutput: typeof import("./getIncidentType").getIncidentTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getIncidentType","getIncidentTypeOutput"], () => require("./getIncidentType"));
+
+export { GetIncidentTypeCustomFieldArgs, GetIncidentTypeCustomFieldResult, GetIncidentTypeCustomFieldOutputArgs } from "./getIncidentTypeCustomField";
+export const getIncidentTypeCustomField: typeof import("./getIncidentTypeCustomField").getIncidentTypeCustomField = null as any;
+export const getIncidentTypeCustomFieldOutput: typeof import("./getIncidentTypeCustomField").getIncidentTypeCustomFieldOutput = null as any;
+utilities.lazyLoad(exports, ["getIncidentTypeCustomField","getIncidentTypeCustomFieldOutput"], () => require("./getIncidentTypeCustomField"));
+
 export { GetIncidentWorkflowArgs, GetIncidentWorkflowResult, GetIncidentWorkflowOutputArgs } from "./getIncidentWorkflow";
 export const getIncidentWorkflow: typeof import("./getIncidentWorkflow").getIncidentWorkflow = null as any;
 export const getIncidentWorkflowOutput: typeof import("./getIncidentWorkflow").getIncidentWorkflowOutput = null as any;
@@ -274,6 +284,16 @@ export { IncidentCustomFieldOptionArgs, IncidentCustomFieldOptionState } from ".
 export type IncidentCustomFieldOption = import("./incidentCustomFieldOption").IncidentCustomFieldOption;
 export const IncidentCustomFieldOption: typeof import("./incidentCustomFieldOption").IncidentCustomFieldOption = null as any;
 utilities.lazyLoad(exports, ["IncidentCustomFieldOption"], () => require("./incidentCustomFieldOption"));
+
+export { IncidentTypeArgs, IncidentTypeState } from "./incidentType";
+export type IncidentType = import("./incidentType").IncidentType;
+export const IncidentType: typeof import("./incidentType").IncidentType = null as any;
+utilities.lazyLoad(exports, ["IncidentType"], () => require("./incidentType"));
+
+export { IncidentTypeCustomFieldArgs, IncidentTypeCustomFieldState } from "./incidentTypeCustomField";
+export type IncidentTypeCustomField = import("./incidentTypeCustomField").IncidentTypeCustomField;
+export const IncidentTypeCustomField: typeof import("./incidentTypeCustomField").IncidentTypeCustomField = null as any;
+utilities.lazyLoad(exports, ["IncidentTypeCustomField"], () => require("./incidentTypeCustomField"));
 
 export { IncidentWorkflowArgs, IncidentWorkflowState } from "./incidentWorkflow";
 export type IncidentWorkflow = import("./incidentWorkflow").IncidentWorkflow;
@@ -450,6 +470,10 @@ const _module = {
                 return new IncidentCustomField(name, <any>undefined, { urn })
             case "pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption":
                 return new IncidentCustomFieldOption(name, <any>undefined, { urn })
+            case "pagerduty:index/incidentType:IncidentType":
+                return new IncidentType(name, <any>undefined, { urn })
+            case "pagerduty:index/incidentTypeCustomField:IncidentTypeCustomField":
+                return new IncidentTypeCustomField(name, <any>undefined, { urn })
             case "pagerduty:index/incidentWorkflow:IncidentWorkflow":
                 return new IncidentWorkflow(name, <any>undefined, { urn })
             case "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger":
@@ -522,6 +546,8 @@ pulumi.runtime.registerResourceModule("pagerduty", "index/extension", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/extensionServiceNow", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/incidentCustomField", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/incidentCustomFieldOption", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/incidentType", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/incidentTypeCustomField", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/incidentWorkflow", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/incidentWorkflowTrigger", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/jiraCloudAccountMappingRule", _module)

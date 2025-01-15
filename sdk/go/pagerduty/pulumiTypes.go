@@ -21817,6 +21817,167 @@ func (o GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayOutput)
 	}).(GetEventOrchestrationsEventOrchestrationIntegrationParameterOutput)
 }
 
+type GetIncidentTypeCustomFieldFieldOption struct {
+	Data GetIncidentTypeCustomFieldFieldOptionData `pulumi:"data"`
+	Id   string                                    `pulumi:"id"`
+	Type string                                    `pulumi:"type"`
+}
+
+// GetIncidentTypeCustomFieldFieldOptionInput is an input type that accepts GetIncidentTypeCustomFieldFieldOptionArgs and GetIncidentTypeCustomFieldFieldOptionOutput values.
+// You can construct a concrete instance of `GetIncidentTypeCustomFieldFieldOptionInput` via:
+//
+//	GetIncidentTypeCustomFieldFieldOptionArgs{...}
+type GetIncidentTypeCustomFieldFieldOptionInput interface {
+	pulumi.Input
+
+	ToGetIncidentTypeCustomFieldFieldOptionOutput() GetIncidentTypeCustomFieldFieldOptionOutput
+	ToGetIncidentTypeCustomFieldFieldOptionOutputWithContext(context.Context) GetIncidentTypeCustomFieldFieldOptionOutput
+}
+
+type GetIncidentTypeCustomFieldFieldOptionArgs struct {
+	Data GetIncidentTypeCustomFieldFieldOptionDataInput `pulumi:"data"`
+	Id   pulumi.StringInput                             `pulumi:"id"`
+	Type pulumi.StringInput                             `pulumi:"type"`
+}
+
+func (GetIncidentTypeCustomFieldFieldOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIncidentTypeCustomFieldFieldOption)(nil)).Elem()
+}
+
+func (i GetIncidentTypeCustomFieldFieldOptionArgs) ToGetIncidentTypeCustomFieldFieldOptionOutput() GetIncidentTypeCustomFieldFieldOptionOutput {
+	return i.ToGetIncidentTypeCustomFieldFieldOptionOutputWithContext(context.Background())
+}
+
+func (i GetIncidentTypeCustomFieldFieldOptionArgs) ToGetIncidentTypeCustomFieldFieldOptionOutputWithContext(ctx context.Context) GetIncidentTypeCustomFieldFieldOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTypeCustomFieldFieldOptionOutput)
+}
+
+// GetIncidentTypeCustomFieldFieldOptionArrayInput is an input type that accepts GetIncidentTypeCustomFieldFieldOptionArray and GetIncidentTypeCustomFieldFieldOptionArrayOutput values.
+// You can construct a concrete instance of `GetIncidentTypeCustomFieldFieldOptionArrayInput` via:
+//
+//	GetIncidentTypeCustomFieldFieldOptionArray{ GetIncidentTypeCustomFieldFieldOptionArgs{...} }
+type GetIncidentTypeCustomFieldFieldOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetIncidentTypeCustomFieldFieldOptionArrayOutput() GetIncidentTypeCustomFieldFieldOptionArrayOutput
+	ToGetIncidentTypeCustomFieldFieldOptionArrayOutputWithContext(context.Context) GetIncidentTypeCustomFieldFieldOptionArrayOutput
+}
+
+type GetIncidentTypeCustomFieldFieldOptionArray []GetIncidentTypeCustomFieldFieldOptionInput
+
+func (GetIncidentTypeCustomFieldFieldOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIncidentTypeCustomFieldFieldOption)(nil)).Elem()
+}
+
+func (i GetIncidentTypeCustomFieldFieldOptionArray) ToGetIncidentTypeCustomFieldFieldOptionArrayOutput() GetIncidentTypeCustomFieldFieldOptionArrayOutput {
+	return i.ToGetIncidentTypeCustomFieldFieldOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetIncidentTypeCustomFieldFieldOptionArray) ToGetIncidentTypeCustomFieldFieldOptionArrayOutputWithContext(ctx context.Context) GetIncidentTypeCustomFieldFieldOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTypeCustomFieldFieldOptionArrayOutput)
+}
+
+type GetIncidentTypeCustomFieldFieldOptionOutput struct{ *pulumi.OutputState }
+
+func (GetIncidentTypeCustomFieldFieldOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIncidentTypeCustomFieldFieldOption)(nil)).Elem()
+}
+
+func (o GetIncidentTypeCustomFieldFieldOptionOutput) ToGetIncidentTypeCustomFieldFieldOptionOutput() GetIncidentTypeCustomFieldFieldOptionOutput {
+	return o
+}
+
+func (o GetIncidentTypeCustomFieldFieldOptionOutput) ToGetIncidentTypeCustomFieldFieldOptionOutputWithContext(ctx context.Context) GetIncidentTypeCustomFieldFieldOptionOutput {
+	return o
+}
+
+func (o GetIncidentTypeCustomFieldFieldOptionOutput) Data() GetIncidentTypeCustomFieldFieldOptionDataOutput {
+	return o.ApplyT(func(v GetIncidentTypeCustomFieldFieldOption) GetIncidentTypeCustomFieldFieldOptionData { return v.Data }).(GetIncidentTypeCustomFieldFieldOptionDataOutput)
+}
+
+func (o GetIncidentTypeCustomFieldFieldOptionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIncidentTypeCustomFieldFieldOption) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetIncidentTypeCustomFieldFieldOptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIncidentTypeCustomFieldFieldOption) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetIncidentTypeCustomFieldFieldOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIncidentTypeCustomFieldFieldOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIncidentTypeCustomFieldFieldOption)(nil)).Elem()
+}
+
+func (o GetIncidentTypeCustomFieldFieldOptionArrayOutput) ToGetIncidentTypeCustomFieldFieldOptionArrayOutput() GetIncidentTypeCustomFieldFieldOptionArrayOutput {
+	return o
+}
+
+func (o GetIncidentTypeCustomFieldFieldOptionArrayOutput) ToGetIncidentTypeCustomFieldFieldOptionArrayOutputWithContext(ctx context.Context) GetIncidentTypeCustomFieldFieldOptionArrayOutput {
+	return o
+}
+
+func (o GetIncidentTypeCustomFieldFieldOptionArrayOutput) Index(i pulumi.IntInput) GetIncidentTypeCustomFieldFieldOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIncidentTypeCustomFieldFieldOption {
+		return vs[0].([]GetIncidentTypeCustomFieldFieldOption)[vs[1].(int)]
+	}).(GetIncidentTypeCustomFieldFieldOptionOutput)
+}
+
+type GetIncidentTypeCustomFieldFieldOptionData struct {
+	DataType string `pulumi:"dataType"`
+	Value    string `pulumi:"value"`
+}
+
+// GetIncidentTypeCustomFieldFieldOptionDataInput is an input type that accepts GetIncidentTypeCustomFieldFieldOptionDataArgs and GetIncidentTypeCustomFieldFieldOptionDataOutput values.
+// You can construct a concrete instance of `GetIncidentTypeCustomFieldFieldOptionDataInput` via:
+//
+//	GetIncidentTypeCustomFieldFieldOptionDataArgs{...}
+type GetIncidentTypeCustomFieldFieldOptionDataInput interface {
+	pulumi.Input
+
+	ToGetIncidentTypeCustomFieldFieldOptionDataOutput() GetIncidentTypeCustomFieldFieldOptionDataOutput
+	ToGetIncidentTypeCustomFieldFieldOptionDataOutputWithContext(context.Context) GetIncidentTypeCustomFieldFieldOptionDataOutput
+}
+
+type GetIncidentTypeCustomFieldFieldOptionDataArgs struct {
+	DataType pulumi.StringInput `pulumi:"dataType"`
+	Value    pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetIncidentTypeCustomFieldFieldOptionDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIncidentTypeCustomFieldFieldOptionData)(nil)).Elem()
+}
+
+func (i GetIncidentTypeCustomFieldFieldOptionDataArgs) ToGetIncidentTypeCustomFieldFieldOptionDataOutput() GetIncidentTypeCustomFieldFieldOptionDataOutput {
+	return i.ToGetIncidentTypeCustomFieldFieldOptionDataOutputWithContext(context.Background())
+}
+
+func (i GetIncidentTypeCustomFieldFieldOptionDataArgs) ToGetIncidentTypeCustomFieldFieldOptionDataOutputWithContext(ctx context.Context) GetIncidentTypeCustomFieldFieldOptionDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTypeCustomFieldFieldOptionDataOutput)
+}
+
+type GetIncidentTypeCustomFieldFieldOptionDataOutput struct{ *pulumi.OutputState }
+
+func (GetIncidentTypeCustomFieldFieldOptionDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIncidentTypeCustomFieldFieldOptionData)(nil)).Elem()
+}
+
+func (o GetIncidentTypeCustomFieldFieldOptionDataOutput) ToGetIncidentTypeCustomFieldFieldOptionDataOutput() GetIncidentTypeCustomFieldFieldOptionDataOutput {
+	return o
+}
+
+func (o GetIncidentTypeCustomFieldFieldOptionDataOutput) ToGetIncidentTypeCustomFieldFieldOptionDataOutputWithContext(ctx context.Context) GetIncidentTypeCustomFieldFieldOptionDataOutput {
+	return o
+}
+
+func (o GetIncidentTypeCustomFieldFieldOptionDataOutput) DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIncidentTypeCustomFieldFieldOptionData) string { return v.DataType }).(pulumi.StringOutput)
+}
+
+func (o GetIncidentTypeCustomFieldFieldOptionDataOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIncidentTypeCustomFieldFieldOptionData) string { return v.Value }).(pulumi.StringOutput)
+}
+
 type GetLicensesLicense struct {
 	// Available allocations to assign to users
 	AllocationsAvailable int `pulumi:"allocationsAvailable"`
@@ -23604,6 +23765,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationsEventOrchestrationIntegrationArrayInput)(nil)).Elem(), GetEventOrchestrationsEventOrchestrationIntegrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationsEventOrchestrationIntegrationParameterInput)(nil)).Elem(), GetEventOrchestrationsEventOrchestrationIntegrationParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayInput)(nil)).Elem(), GetEventOrchestrationsEventOrchestrationIntegrationParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTypeCustomFieldFieldOptionInput)(nil)).Elem(), GetIncidentTypeCustomFieldFieldOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTypeCustomFieldFieldOptionArrayInput)(nil)).Elem(), GetIncidentTypeCustomFieldFieldOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTypeCustomFieldFieldOptionDataInput)(nil)).Elem(), GetIncidentTypeCustomFieldFieldOptionDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLicensesLicenseInput)(nil)).Elem(), GetLicensesLicenseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLicensesLicenseArrayInput)(nil)).Elem(), GetLicensesLicenseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceTeamInput)(nil)).Elem(), GetServiceTeamArgs{})
@@ -23943,6 +24107,9 @@ func init() {
 	pulumi.RegisterOutputType(GetEventOrchestrationsEventOrchestrationIntegrationArrayOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationsEventOrchestrationIntegrationParameterOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetIncidentTypeCustomFieldFieldOptionOutput{})
+	pulumi.RegisterOutputType(GetIncidentTypeCustomFieldFieldOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetIncidentTypeCustomFieldFieldOptionDataOutput{})
 	pulumi.RegisterOutputType(GetLicensesLicenseOutput{})
 	pulumi.RegisterOutputType(GetLicensesLicenseArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceTeamOutput{})

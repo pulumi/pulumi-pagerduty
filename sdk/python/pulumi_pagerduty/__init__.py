@@ -38,6 +38,8 @@ from .get_event_orchestration_service_cache_variable import *
 from .get_event_orchestrations import *
 from .get_extension_schema import *
 from .get_incident_custom_field import *
+from .get_incident_type import *
+from .get_incident_type_custom_field import *
 from .get_incident_workflow import *
 from .get_jira_cloud_account_mapping import *
 from .get_license import *
@@ -59,6 +61,8 @@ from .get_users import *
 from .get_vendor import *
 from .incident_custom_field import *
 from .incident_custom_field_option import *
+from .incident_type import *
+from .incident_type_custom_field import *
 from .incident_workflow import *
 from .incident_workflow_trigger import *
 from .jira_cloud_account_mapping_rule import *
@@ -277,6 +281,22 @@ _utilities.register(
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption": "IncidentCustomFieldOption"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/incidentType",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/incidentType:IncidentType": "IncidentType"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/incidentTypeCustomField",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/incidentTypeCustomField:IncidentTypeCustomField": "IncidentTypeCustomField"
   }
  },
  {

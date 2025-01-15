@@ -176,6 +176,8 @@ __all__ = [
     'GetEventOrchestrationsEventOrchestrationResult',
     'GetEventOrchestrationsEventOrchestrationIntegrationResult',
     'GetEventOrchestrationsEventOrchestrationIntegrationParameterResult',
+    'GetIncidentTypeCustomFieldFieldOptionResult',
+    'GetIncidentTypeCustomFieldFieldOptionDataResult',
     'GetLicensesLicenseResult',
     'GetServiceTeamResult',
     'GetStandardsResourceScoresScoreResult',
@@ -8114,6 +8116,51 @@ class GetEventOrchestrationsEventOrchestrationIntegrationParameterResult(dict):
         Type of the routing key. `global` is the default type.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetIncidentTypeCustomFieldFieldOptionResult(dict):
+    def __init__(__self__, *,
+                 data: 'outputs.GetIncidentTypeCustomFieldFieldOptionDataResult',
+                 id: str,
+                 type: str):
+        pulumi.set(__self__, "data", data)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def data(self) -> 'outputs.GetIncidentTypeCustomFieldFieldOptionDataResult':
+        return pulumi.get(self, "data")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetIncidentTypeCustomFieldFieldOptionDataResult(dict):
+    def __init__(__self__, *,
+                 data_type: str,
+                 value: str):
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> str:
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

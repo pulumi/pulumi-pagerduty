@@ -43,7 +43,7 @@ require (
 	github.com/Masterminds/semver/v3 v3.2.1 // indirect
 	github.com/Masterminds/sprig/v3 v3.2.3 // indirect
 	github.com/Microsoft/go-winio v0.6.1 // indirect
-	github.com/PagerDuty/go-pagerduty v1.8.1-0.20241111225923-0ef8f340dd3c // indirect
+	github.com/PagerDuty/go-pagerduty v1.8.1-0.20250113202017-9831333ebe6b // indirect
 	github.com/ProtonMail/go-crypto v1.1.3 // indirect
 	github.com/aead/chacha20 v0.0.0-20180709150244-8b13a72661da // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
@@ -145,7 +145,7 @@ require (
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/vault/api v1.12.0 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
-	github.com/heimweh/go-pagerduty v0.0.0-20240731213000-b0991665ac52 // indirect
+	github.com/heimweh/go-pagerduty v0.0.0-20250113182705-ce1f94dc30af // indirect
 	github.com/huandu/xstrings v1.4.0 // indirect
 	github.com/iancoleman/strcase v0.2.0 // indirect
 	github.com/imdario/mergo v0.3.15 // indirect

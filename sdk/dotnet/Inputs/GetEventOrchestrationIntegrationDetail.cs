@@ -23,6 +23,10 @@ namespace Pulumi.Pagerduty.Inputs
 
         [Input("parameters", required: true)]
         private List<Inputs.GetEventOrchestrationIntegrationDetailParameterArgs>? _parameters;
+
+        /// <summary>
+        /// A single-item list containing a parameter object describing the integration
+        /// </summary>
         public List<Inputs.GetEventOrchestrationIntegrationDetailParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new List<Inputs.GetEventOrchestrationIntegrationDetailParameterArgs>());

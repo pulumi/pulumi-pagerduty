@@ -18,6 +18,10 @@ public final class GetEventOrchestrationIntegrationDetail {
      */
     private String id;
     private String label;
+    /**
+     * @return A single-item list containing a parameter object describing the integration
+     * 
+     */
     private List<GetEventOrchestrationIntegrationDetailParameter> parameters;
 
     private GetEventOrchestrationIntegrationDetail() {}
@@ -31,6 +35,10 @@ public final class GetEventOrchestrationIntegrationDetail {
     public String label() {
         return this.label;
     }
+    /**
+     * @return A single-item list containing a parameter object describing the integration
+     * 
+     */
     public List<GetEventOrchestrationIntegrationDetailParameter> parameters() {
         return this.parameters;
     }

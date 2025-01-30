@@ -39,9 +39,26 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.GetEventOrchestrations(ctx, &pagerduty.GetEventOrchestrationsArgs{
+//			tfMyMonitor, err := pagerduty.GetEventOrchestrations(ctx, &pagerduty.GetEventOrchestrationsArgs{
 //				NameFilter: ".*Orchestration$",
 //			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewEventOrchestrationGlobalCacheVariable(ctx, "cache_var", &pagerduty.EventOrchestrationGlobalCacheVariableArgs{
+//				EventOrchestration: pulumi.String(tfMyMonitor.EventOrchestrations[0].Id),
+//				Name:               pulumi.String("recent_host"),
+//				Conditions: pagerduty.EventOrchestrationGlobalCacheVariableConditionArray{
+//					&pagerduty.EventOrchestrationGlobalCacheVariableConditionArgs{
+//						Expression: pulumi.String("event.source exists"),
+//					},
+//				},
+//				Configuration: &pagerduty.EventOrchestrationGlobalCacheVariableConfigurationArgs{
+//					Type:   pulumi.String("recent_value"),
+//					Source: pulumi.String("event.source"),
+//					Regex:  pulumi.String(".*"),
+//				},
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -62,16 +79,17 @@ func GetEventOrchestrations(ctx *pulumi.Context, args *GetEventOrchestrationsArg
 
 // A collection of arguments for invoking getEventOrchestrations.
 type GetEventOrchestrationsArgs struct {
-	// The regex name of Global Event orchestrations to find in the PagerDuty API.
+	// The regex name of Global Event Orchestrations to find in the PagerDuty API.
 	NameFilter string `pulumi:"nameFilter"`
 }
 
 // A collection of values returned by getEventOrchestrations.
 type GetEventOrchestrationsResult struct {
+	// The list of the Event Orchestrations with a name that matches the `nameFilter` argument.
 	EventOrchestrations []GetEventOrchestrationsEventOrchestration `pulumi:"eventOrchestrations"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The list of the Event Orchestrations which name match `nameFilter` argument.
+	// The regex supplied to find the list of Global Event Orchestrations
 	NameFilter string `pulumi:"nameFilter"`
 }
 
@@ -86,7 +104,7 @@ func GetEventOrchestrationsOutput(ctx *pulumi.Context, args GetEventOrchestratio
 
 // A collection of arguments for invoking getEventOrchestrations.
 type GetEventOrchestrationsOutputArgs struct {
-	// The regex name of Global Event orchestrations to find in the PagerDuty API.
+	// The regex name of Global Event Orchestrations to find in the PagerDuty API.
 	NameFilter pulumi.StringInput `pulumi:"nameFilter"`
 }
 
@@ -109,6 +127,7 @@ func (o GetEventOrchestrationsResultOutput) ToGetEventOrchestrationsResultOutput
 	return o
 }
 
+// The list of the Event Orchestrations with a name that matches the `nameFilter` argument.
 func (o GetEventOrchestrationsResultOutput) EventOrchestrations() GetEventOrchestrationsEventOrchestrationArrayOutput {
 	return o.ApplyT(func(v GetEventOrchestrationsResult) []GetEventOrchestrationsEventOrchestration {
 		return v.EventOrchestrations
@@ -120,7 +139,7 @@ func (o GetEventOrchestrationsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventOrchestrationsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The list of the Event Orchestrations which name match `nameFilter` argument.
+// The regex supplied to find the list of Global Event Orchestrations
 func (o GetEventOrchestrationsResultOutput) NameFilter() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventOrchestrationsResult) string { return v.NameFilter }).(pulumi.StringOutput)
 }

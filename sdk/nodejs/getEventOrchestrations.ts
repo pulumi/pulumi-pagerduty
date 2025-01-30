@@ -20,6 +20,18 @@ import * as utilities from "./utilities";
  * const tfMyMonitor = pagerduty.getEventOrchestrations({
  *     nameFilter: ".*Orchestration$",
  * });
+ * const cacheVar = new pagerduty.EventOrchestrationGlobalCacheVariable("cache_var", {
+ *     eventOrchestration: tfMyMonitor.then(tfMyMonitor => tfMyMonitor.eventOrchestrations?.[0]?.id),
+ *     name: "recent_host",
+ *     conditions: [{
+ *         expression: "event.source exists",
+ *     }],
+ *     configuration: {
+ *         type: "recent_value",
+ *         source: "event.source",
+ *         regex: ".*",
+ *     },
+ * });
  * ```
  */
 export function getEventOrchestrations(args: GetEventOrchestrationsArgs, opts?: pulumi.InvokeOptions): Promise<GetEventOrchestrationsResult> {
@@ -34,7 +46,7 @@ export function getEventOrchestrations(args: GetEventOrchestrationsArgs, opts?: 
  */
 export interface GetEventOrchestrationsArgs {
     /**
-     * The regex name of Global Event orchestrations to find in the PagerDuty API.
+     * The regex name of Global Event Orchestrations to find in the PagerDuty API.
      */
     nameFilter: string;
 }
@@ -43,13 +55,16 @@ export interface GetEventOrchestrationsArgs {
  * A collection of values returned by getEventOrchestrations.
  */
 export interface GetEventOrchestrationsResult {
+    /**
+     * The list of the Event Orchestrations with a name that matches the `nameFilter` argument.
+     */
     readonly eventOrchestrations: outputs.GetEventOrchestrationsEventOrchestration[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
-     * The list of the Event Orchestrations which name match `nameFilter` argument.
+     * The regex supplied to find the list of Global Event Orchestrations
      */
     readonly nameFilter: string;
 }
@@ -67,6 +82,18 @@ export interface GetEventOrchestrationsResult {
  * const tfMyMonitor = pagerduty.getEventOrchestrations({
  *     nameFilter: ".*Orchestration$",
  * });
+ * const cacheVar = new pagerduty.EventOrchestrationGlobalCacheVariable("cache_var", {
+ *     eventOrchestration: tfMyMonitor.then(tfMyMonitor => tfMyMonitor.eventOrchestrations?.[0]?.id),
+ *     name: "recent_host",
+ *     conditions: [{
+ *         expression: "event.source exists",
+ *     }],
+ *     configuration: {
+ *         type: "recent_value",
+ *         source: "event.source",
+ *         regex: ".*",
+ *     },
+ * });
  * ```
  */
 export function getEventOrchestrationsOutput(args: GetEventOrchestrationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventOrchestrationsResult> {
@@ -81,7 +108,7 @@ export function getEventOrchestrationsOutput(args: GetEventOrchestrationsOutputA
  */
 export interface GetEventOrchestrationsOutputArgs {
     /**
-     * The regex name of Global Event orchestrations to find in the PagerDuty API.
+     * The regex name of Global Event Orchestrations to find in the PagerDuty API.
      */
     nameFilter: pulumi.Input<string>;
 }

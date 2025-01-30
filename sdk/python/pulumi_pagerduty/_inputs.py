@@ -2474,6 +2474,9 @@ if not MYPY:
         """
         label: NotRequired[pulumi.Input[str]]
         parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgsDict']]]]
+        """
+        A single-item list containing a parameter object describing the integration
+        """
 elif False:
     EventOrchestrationIntegrationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2485,6 +2488,7 @@ class EventOrchestrationIntegrationArgs:
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]] = None):
         """
         :param pulumi.Input[str] id: ID of the integration
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]] parameters: A single-item list containing a parameter object describing the integration
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -2517,6 +2521,9 @@ class EventOrchestrationIntegrationArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]]:
+        """
+        A single-item list containing a parameter object describing the integration
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -11431,6 +11438,9 @@ if not MYPY:
         """
         label: str
         parameters: Sequence['GetEventOrchestrationIntegrationDetailParameterArgsDict']
+        """
+        A single-item list containing a parameter object describing the integration
+        """
 elif False:
     GetEventOrchestrationIntegrationDetailArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -11442,6 +11452,7 @@ class GetEventOrchestrationIntegrationDetailArgs:
                  parameters: Sequence['GetEventOrchestrationIntegrationDetailParameterArgs']):
         """
         :param str id: ID of the integration
+        :param Sequence['GetEventOrchestrationIntegrationDetailParameterArgs'] parameters: A single-item list containing a parameter object describing the integration
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "label", label)
@@ -11471,6 +11482,9 @@ class GetEventOrchestrationIntegrationDetailArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Sequence['GetEventOrchestrationIntegrationDetailParameterArgs']:
+        """
+        A single-item list containing a parameter object describing the integration
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter

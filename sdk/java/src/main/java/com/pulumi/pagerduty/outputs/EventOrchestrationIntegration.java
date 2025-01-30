@@ -19,6 +19,10 @@ public final class EventOrchestrationIntegration {
      */
     private @Nullable String id;
     private @Nullable String label;
+    /**
+     * @return A single-item list containing a parameter object describing the integration
+     * 
+     */
     private @Nullable List<EventOrchestrationIntegrationParameter> parameters;
 
     private EventOrchestrationIntegration() {}
@@ -32,6 +36,10 @@ public final class EventOrchestrationIntegration {
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
+    /**
+     * @return A single-item list containing a parameter object describing the integration
+     * 
+     */
     public List<EventOrchestrationIntegrationParameter> parameters() {
         return this.parameters == null ? List.of() : this.parameters;
     }

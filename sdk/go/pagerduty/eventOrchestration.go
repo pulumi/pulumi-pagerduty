@@ -59,7 +59,7 @@ type EventOrchestration struct {
 
 	// A human-friendly description of the Event Orchestration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// An integration for the Event Orchestration.
+	// A list of integrations for the Event Orchestration.
 	Integrations EventOrchestrationIntegrationTypeArrayOutput `pulumi:"integrations"`
 	// Name of the Event Orchestration.
 	Name   pulumi.StringOutput `pulumi:"name"`
@@ -100,7 +100,7 @@ func GetEventOrchestration(ctx *pulumi.Context,
 type eventOrchestrationState struct {
 	// A human-friendly description of the Event Orchestration.
 	Description *string `pulumi:"description"`
-	// An integration for the Event Orchestration.
+	// A list of integrations for the Event Orchestration.
 	Integrations []EventOrchestrationIntegrationType `pulumi:"integrations"`
 	// Name of the Event Orchestration.
 	Name   *string `pulumi:"name"`
@@ -112,7 +112,7 @@ type eventOrchestrationState struct {
 type EventOrchestrationState struct {
 	// A human-friendly description of the Event Orchestration.
 	Description pulumi.StringPtrInput
-	// An integration for the Event Orchestration.
+	// A list of integrations for the Event Orchestration.
 	Integrations EventOrchestrationIntegrationTypeArrayInput
 	// Name of the Event Orchestration.
 	Name   pulumi.StringPtrInput
@@ -128,7 +128,7 @@ func (EventOrchestrationState) ElementType() reflect.Type {
 type eventOrchestrationArgs struct {
 	// A human-friendly description of the Event Orchestration.
 	Description *string `pulumi:"description"`
-	// An integration for the Event Orchestration.
+	// A list of integrations for the Event Orchestration.
 	Integrations []EventOrchestrationIntegrationType `pulumi:"integrations"`
 	// Name of the Event Orchestration.
 	Name *string `pulumi:"name"`
@@ -140,7 +140,7 @@ type eventOrchestrationArgs struct {
 type EventOrchestrationArgs struct {
 	// A human-friendly description of the Event Orchestration.
 	Description pulumi.StringPtrInput
-	// An integration for the Event Orchestration.
+	// A list of integrations for the Event Orchestration.
 	Integrations EventOrchestrationIntegrationTypeArrayInput
 	// Name of the Event Orchestration.
 	Name pulumi.StringPtrInput
@@ -240,7 +240,7 @@ func (o EventOrchestrationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// An integration for the Event Orchestration.
+// A list of integrations for the Event Orchestration.
 func (o EventOrchestrationOutput) Integrations() EventOrchestrationIntegrationTypeArrayOutput {
 	return o.ApplyT(func(v *EventOrchestration) EventOrchestrationIntegrationTypeArrayOutput { return v.Integrations }).(EventOrchestrationIntegrationTypeArrayOutput)
 }

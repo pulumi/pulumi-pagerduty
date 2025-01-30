@@ -1212,6 +1212,67 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.EventOrchestration;
+     * import com.pulumi.pagerduty.EventOrchestrationArgs;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationArgs;
+     * import com.pulumi.pagerduty.EventOrchestrationUnrouted;
+     * import com.pulumi.pagerduty.EventOrchestrationUnroutedArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedCatchAllArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedCatchAllActionsArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var tfOrchA = new EventOrchestration("tfOrchA", EventOrchestrationArgs.builder()
+     *             .name("Test Event Orchestration")
+     *             .build());
+     * 
+     *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestration(GetEventOrchestrationArgs.builder()
+     *             .name(tfOrchA.name())
+     *             .build());
+     * 
+     *         var unrouted = new EventOrchestrationUnrouted("unrouted", EventOrchestrationUnroutedArgs.builder()
+     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.id())))
+     *             .catchAll(EventOrchestrationUnroutedCatchAllArgs.builder()
+     *                 .actions(EventOrchestrationUnroutedCatchAllActionsArgs.builder()
+     *                     .severity("info")
+     *                     .build())
+     *                 .build())
+     *             .sets(EventOrchestrationUnroutedSetArgs.builder()
+     *                 .id("start")
+     *                 .rules(EventOrchestrationUnroutedSetRuleArgs.builder()
+     *                     .actions(EventOrchestrationUnroutedSetRuleActionsArgs.builder()
+     *                         .extractions(EventOrchestrationUnroutedSetRuleActionsExtractionArgs.builder()
+     *                             .target("event.custom_details.integration_type")
+     *                             .template(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.integrationDetail()[0].parameters()[0].type())))
+     *                             .build())
+     *                         .build())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1224,6 +1285,67 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.EventOrchestration;
+     * import com.pulumi.pagerduty.EventOrchestrationArgs;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationArgs;
+     * import com.pulumi.pagerduty.EventOrchestrationUnrouted;
+     * import com.pulumi.pagerduty.EventOrchestrationUnroutedArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedCatchAllArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedCatchAllActionsArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var tfOrchA = new EventOrchestration("tfOrchA", EventOrchestrationArgs.builder()
+     *             .name("Test Event Orchestration")
+     *             .build());
+     * 
+     *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestration(GetEventOrchestrationArgs.builder()
+     *             .name(tfOrchA.name())
+     *             .build());
+     * 
+     *         var unrouted = new EventOrchestrationUnrouted("unrouted", EventOrchestrationUnroutedArgs.builder()
+     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.id())))
+     *             .catchAll(EventOrchestrationUnroutedCatchAllArgs.builder()
+     *                 .actions(EventOrchestrationUnroutedCatchAllActionsArgs.builder()
+     *                     .severity("info")
+     *                     .build())
+     *                 .build())
+     *             .sets(EventOrchestrationUnroutedSetArgs.builder()
+     *                 .id("start")
+     *                 .rules(EventOrchestrationUnroutedSetRuleArgs.builder()
+     *                     .actions(EventOrchestrationUnroutedSetRuleActionsArgs.builder()
+     *                         .extractions(EventOrchestrationUnroutedSetRuleActionsExtractionArgs.builder()
+     *                             .target("event.custom_details.integration_type")
+     *                             .template(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.integrationDetail()[0].parameters()[0].type())))
+     *                             .build())
+     *                         .build())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1236,6 +1358,67 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.EventOrchestration;
+     * import com.pulumi.pagerduty.EventOrchestrationArgs;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationArgs;
+     * import com.pulumi.pagerduty.EventOrchestrationUnrouted;
+     * import com.pulumi.pagerduty.EventOrchestrationUnroutedArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedCatchAllArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedCatchAllActionsArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var tfOrchA = new EventOrchestration("tfOrchA", EventOrchestrationArgs.builder()
+     *             .name("Test Event Orchestration")
+     *             .build());
+     * 
+     *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestration(GetEventOrchestrationArgs.builder()
+     *             .name(tfOrchA.name())
+     *             .build());
+     * 
+     *         var unrouted = new EventOrchestrationUnrouted("unrouted", EventOrchestrationUnroutedArgs.builder()
+     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.id())))
+     *             .catchAll(EventOrchestrationUnroutedCatchAllArgs.builder()
+     *                 .actions(EventOrchestrationUnroutedCatchAllActionsArgs.builder()
+     *                     .severity("info")
+     *                     .build())
+     *                 .build())
+     *             .sets(EventOrchestrationUnroutedSetArgs.builder()
+     *                 .id("start")
+     *                 .rules(EventOrchestrationUnroutedSetRuleArgs.builder()
+     *                     .actions(EventOrchestrationUnroutedSetRuleActionsArgs.builder()
+     *                         .extractions(EventOrchestrationUnroutedSetRuleActionsExtractionArgs.builder()
+     *                             .target("event.custom_details.integration_type")
+     *                             .template(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.integrationDetail()[0].parameters()[0].type())))
+     *                             .build())
+     *                         .build())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1248,6 +1431,67 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.EventOrchestration;
+     * import com.pulumi.pagerduty.EventOrchestrationArgs;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationArgs;
+     * import com.pulumi.pagerduty.EventOrchestrationUnrouted;
+     * import com.pulumi.pagerduty.EventOrchestrationUnroutedArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedCatchAllArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedCatchAllActionsArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var tfOrchA = new EventOrchestration("tfOrchA", EventOrchestrationArgs.builder()
+     *             .name("Test Event Orchestration")
+     *             .build());
+     * 
+     *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestration(GetEventOrchestrationArgs.builder()
+     *             .name(tfOrchA.name())
+     *             .build());
+     * 
+     *         var unrouted = new EventOrchestrationUnrouted("unrouted", EventOrchestrationUnroutedArgs.builder()
+     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.id())))
+     *             .catchAll(EventOrchestrationUnroutedCatchAllArgs.builder()
+     *                 .actions(EventOrchestrationUnroutedCatchAllActionsArgs.builder()
+     *                     .severity("info")
+     *                     .build())
+     *                 .build())
+     *             .sets(EventOrchestrationUnroutedSetArgs.builder()
+     *                 .id("start")
+     *                 .rules(EventOrchestrationUnroutedSetRuleArgs.builder()
+     *                     .actions(EventOrchestrationUnroutedSetRuleActionsArgs.builder()
+     *                         .extractions(EventOrchestrationUnroutedSetRuleActionsExtractionArgs.builder()
+     *                             .target("event.custom_details.integration_type")
+     *                             .template(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.integrationDetail()[0].parameters()[0].type())))
+     *                             .build())
+     *                         .build())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1260,6 +1504,67 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.EventOrchestration;
+     * import com.pulumi.pagerduty.EventOrchestrationArgs;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationArgs;
+     * import com.pulumi.pagerduty.EventOrchestrationUnrouted;
+     * import com.pulumi.pagerduty.EventOrchestrationUnroutedArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedCatchAllArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedCatchAllActionsArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var tfOrchA = new EventOrchestration("tfOrchA", EventOrchestrationArgs.builder()
+     *             .name("Test Event Orchestration")
+     *             .build());
+     * 
+     *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestration(GetEventOrchestrationArgs.builder()
+     *             .name(tfOrchA.name())
+     *             .build());
+     * 
+     *         var unrouted = new EventOrchestrationUnrouted("unrouted", EventOrchestrationUnroutedArgs.builder()
+     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.id())))
+     *             .catchAll(EventOrchestrationUnroutedCatchAllArgs.builder()
+     *                 .actions(EventOrchestrationUnroutedCatchAllActionsArgs.builder()
+     *                     .severity("info")
+     *                     .build())
+     *                 .build())
+     *             .sets(EventOrchestrationUnroutedSetArgs.builder()
+     *                 .id("start")
+     *                 .rules(EventOrchestrationUnroutedSetRuleArgs.builder()
+     *                     .actions(EventOrchestrationUnroutedSetRuleActionsArgs.builder()
+     *                         .extractions(EventOrchestrationUnroutedSetRuleActionsExtractionArgs.builder()
+     *                             .target("event.custom_details.integration_type")
+     *                             .template(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.integrationDetail()[0].parameters()[0].type())))
+     *                             .build())
+     *                         .build())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2183,6 +2488,10 @@ public final class PagerdutyFunctions {
      * import com.pulumi.pagerduty.EventOrchestrationArgs;
      * import com.pulumi.pagerduty.PagerdutyFunctions;
      * import com.pulumi.pagerduty.inputs.GetEventOrchestrationsArgs;
+     * import com.pulumi.pagerduty.EventOrchestrationGlobalCacheVariable;
+     * import com.pulumi.pagerduty.EventOrchestrationGlobalCacheVariableArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCacheVariableConditionArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCacheVariableConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2206,6 +2515,19 @@ public final class PagerdutyFunctions {
      * 
      *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestrations(GetEventOrchestrationsArgs.builder()
      *             .nameFilter(".*Orchestration$")
+     *             .build());
+     * 
+     *         var cacheVar = new EventOrchestrationGlobalCacheVariable("cacheVar", EventOrchestrationGlobalCacheVariableArgs.builder()
+     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationsResult -> getEventOrchestrationsResult.eventOrchestrations()[0].id()))
+     *             .name("recent_host")
+     *             .conditions(EventOrchestrationGlobalCacheVariableConditionArgs.builder()
+     *                 .expression("event.source exists")
+     *                 .build())
+     *             .configuration(EventOrchestrationGlobalCacheVariableConfigurationArgs.builder()
+     *                 .type("recent_value")
+     *                 .source("event.source")
+     *                 .regex(".*")
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -2235,6 +2557,10 @@ public final class PagerdutyFunctions {
      * import com.pulumi.pagerduty.EventOrchestrationArgs;
      * import com.pulumi.pagerduty.PagerdutyFunctions;
      * import com.pulumi.pagerduty.inputs.GetEventOrchestrationsArgs;
+     * import com.pulumi.pagerduty.EventOrchestrationGlobalCacheVariable;
+     * import com.pulumi.pagerduty.EventOrchestrationGlobalCacheVariableArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCacheVariableConditionArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCacheVariableConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2258,6 +2584,19 @@ public final class PagerdutyFunctions {
      * 
      *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestrations(GetEventOrchestrationsArgs.builder()
      *             .nameFilter(".*Orchestration$")
+     *             .build());
+     * 
+     *         var cacheVar = new EventOrchestrationGlobalCacheVariable("cacheVar", EventOrchestrationGlobalCacheVariableArgs.builder()
+     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationsResult -> getEventOrchestrationsResult.eventOrchestrations()[0].id()))
+     *             .name("recent_host")
+     *             .conditions(EventOrchestrationGlobalCacheVariableConditionArgs.builder()
+     *                 .expression("event.source exists")
+     *                 .build())
+     *             .configuration(EventOrchestrationGlobalCacheVariableConfigurationArgs.builder()
+     *                 .type("recent_value")
+     *                 .source("event.source")
+     *                 .regex(".*")
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -2287,6 +2626,10 @@ public final class PagerdutyFunctions {
      * import com.pulumi.pagerduty.EventOrchestrationArgs;
      * import com.pulumi.pagerduty.PagerdutyFunctions;
      * import com.pulumi.pagerduty.inputs.GetEventOrchestrationsArgs;
+     * import com.pulumi.pagerduty.EventOrchestrationGlobalCacheVariable;
+     * import com.pulumi.pagerduty.EventOrchestrationGlobalCacheVariableArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCacheVariableConditionArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCacheVariableConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2310,6 +2653,19 @@ public final class PagerdutyFunctions {
      * 
      *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestrations(GetEventOrchestrationsArgs.builder()
      *             .nameFilter(".*Orchestration$")
+     *             .build());
+     * 
+     *         var cacheVar = new EventOrchestrationGlobalCacheVariable("cacheVar", EventOrchestrationGlobalCacheVariableArgs.builder()
+     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationsResult -> getEventOrchestrationsResult.eventOrchestrations()[0].id()))
+     *             .name("recent_host")
+     *             .conditions(EventOrchestrationGlobalCacheVariableConditionArgs.builder()
+     *                 .expression("event.source exists")
+     *                 .build())
+     *             .configuration(EventOrchestrationGlobalCacheVariableConfigurationArgs.builder()
+     *                 .type("recent_value")
+     *                 .source("event.source")
+     *                 .regex(".*")
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -2339,6 +2695,10 @@ public final class PagerdutyFunctions {
      * import com.pulumi.pagerduty.EventOrchestrationArgs;
      * import com.pulumi.pagerduty.PagerdutyFunctions;
      * import com.pulumi.pagerduty.inputs.GetEventOrchestrationsArgs;
+     * import com.pulumi.pagerduty.EventOrchestrationGlobalCacheVariable;
+     * import com.pulumi.pagerduty.EventOrchestrationGlobalCacheVariableArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCacheVariableConditionArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCacheVariableConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2362,6 +2722,19 @@ public final class PagerdutyFunctions {
      * 
      *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestrations(GetEventOrchestrationsArgs.builder()
      *             .nameFilter(".*Orchestration$")
+     *             .build());
+     * 
+     *         var cacheVar = new EventOrchestrationGlobalCacheVariable("cacheVar", EventOrchestrationGlobalCacheVariableArgs.builder()
+     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationsResult -> getEventOrchestrationsResult.eventOrchestrations()[0].id()))
+     *             .name("recent_host")
+     *             .conditions(EventOrchestrationGlobalCacheVariableConditionArgs.builder()
+     *                 .expression("event.source exists")
+     *                 .build())
+     *             .configuration(EventOrchestrationGlobalCacheVariableConfigurationArgs.builder()
+     *                 .type("recent_value")
+     *                 .source("event.source")
+     *                 .regex(".*")
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -2391,6 +2764,10 @@ public final class PagerdutyFunctions {
      * import com.pulumi.pagerduty.EventOrchestrationArgs;
      * import com.pulumi.pagerduty.PagerdutyFunctions;
      * import com.pulumi.pagerduty.inputs.GetEventOrchestrationsArgs;
+     * import com.pulumi.pagerduty.EventOrchestrationGlobalCacheVariable;
+     * import com.pulumi.pagerduty.EventOrchestrationGlobalCacheVariableArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCacheVariableConditionArgs;
+     * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCacheVariableConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2414,6 +2791,19 @@ public final class PagerdutyFunctions {
      * 
      *         final var tfMyMonitor = PagerdutyFunctions.getEventOrchestrations(GetEventOrchestrationsArgs.builder()
      *             .nameFilter(".*Orchestration$")
+     *             .build());
+     * 
+     *         var cacheVar = new EventOrchestrationGlobalCacheVariable("cacheVar", EventOrchestrationGlobalCacheVariableArgs.builder()
+     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationsResult -> getEventOrchestrationsResult.eventOrchestrations()[0].id()))
+     *             .name("recent_host")
+     *             .conditions(EventOrchestrationGlobalCacheVariableConditionArgs.builder()
+     *                 .expression("event.source exists")
+     *                 .build())
+     *             .configuration(EventOrchestrationGlobalCacheVariableConfigurationArgs.builder()
+     *                 .type("recent_value")
+     *                 .source("event.source")
+     *                 .regex(".*")
+     *                 .build())
      *             .build());
      * 
      *     }

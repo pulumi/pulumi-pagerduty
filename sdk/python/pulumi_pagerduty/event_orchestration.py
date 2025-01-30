@@ -28,7 +28,7 @@ class EventOrchestrationArgs:
         """
         The set of arguments for constructing a EventOrchestration resource.
         :param pulumi.Input[str] description: A human-friendly description of the Event Orchestration.
-        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]] integrations: An integration for the Event Orchestration.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]] integrations: A list of integrations for the Event Orchestration.
         :param pulumi.Input[str] name: Name of the Event Orchestration.
         :param pulumi.Input[str] team: ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
         """
@@ -57,7 +57,7 @@ class EventOrchestrationArgs:
     @pulumi.getter
     def integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]]:
         """
-        An integration for the Event Orchestration.
+        A list of integrations for the Event Orchestration.
         """
         return pulumi.get(self, "integrations")
 
@@ -101,7 +101,7 @@ class _EventOrchestrationState:
         """
         Input properties used for looking up and filtering EventOrchestration resources.
         :param pulumi.Input[str] description: A human-friendly description of the Event Orchestration.
-        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]] integrations: An integration for the Event Orchestration.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]] integrations: A list of integrations for the Event Orchestration.
         :param pulumi.Input[str] name: Name of the Event Orchestration.
         :param pulumi.Input[str] team: ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
         """
@@ -132,7 +132,7 @@ class _EventOrchestrationState:
     @pulumi.getter
     def integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]]:
         """
-        An integration for the Event Orchestration.
+        A list of integrations for the Event Orchestration.
         """
         return pulumi.get(self, "integrations")
 
@@ -211,7 +211,7 @@ class EventOrchestration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A human-friendly description of the Event Orchestration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict']]]] integrations: An integration for the Event Orchestration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict']]]] integrations: A list of integrations for the Event Orchestration.
         :param pulumi.Input[str] name: Name of the Event Orchestration.
         :param pulumi.Input[str] team: ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
         """
@@ -301,7 +301,7 @@ class EventOrchestration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A human-friendly description of the Event Orchestration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict']]]] integrations: An integration for the Event Orchestration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict']]]] integrations: A list of integrations for the Event Orchestration.
         :param pulumi.Input[str] name: Name of the Event Orchestration.
         :param pulumi.Input[str] team: ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
         """
@@ -328,7 +328,7 @@ class EventOrchestration(pulumi.CustomResource):
     @pulumi.getter
     def integrations(self) -> pulumi.Output[Sequence['outputs.EventOrchestrationIntegration']]:
         """
-        An integration for the Event Orchestration.
+        A list of integrations for the Event Orchestration.
         """
         return pulumi.get(self, "integrations")
 

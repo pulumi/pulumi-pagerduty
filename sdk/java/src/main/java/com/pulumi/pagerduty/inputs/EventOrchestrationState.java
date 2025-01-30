@@ -34,14 +34,14 @@ public final class EventOrchestrationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * An integration for the Event Orchestration.
+     * A list of integrations for the Event Orchestration.
      * 
      */
     @Import(name="integrations")
     private @Nullable Output<List<EventOrchestrationIntegrationArgs>> integrations;
 
     /**
-     * @return An integration for the Event Orchestration.
+     * @return A list of integrations for the Event Orchestration.
      * 
      */
     public Optional<Output<List<EventOrchestrationIntegrationArgs>>> integrations() {
@@ -135,7 +135,7 @@ public final class EventOrchestrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param integrations An integration for the Event Orchestration.
+         * @param integrations A list of integrations for the Event Orchestration.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class EventOrchestrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param integrations An integration for the Event Orchestration.
+         * @param integrations A list of integrations for the Event Orchestration.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class EventOrchestrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param integrations An integration for the Event Orchestration.
+         * @param integrations A list of integrations for the Event Orchestration.
          * 
          * @return builder
          * 

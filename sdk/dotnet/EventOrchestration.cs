@@ -55,7 +55,7 @@ namespace Pulumi.Pagerduty
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An integration for the Event Orchestration.
+        /// A list of integrations for the Event Orchestration.
         /// </summary>
         [Output("integrations")]
         public Output<ImmutableArray<Outputs.EventOrchestrationIntegration>> Integrations { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Pagerduty
         private InputList<Inputs.EventOrchestrationIntegrationArgs>? _integrations;
 
         /// <summary>
-        /// An integration for the Event Orchestration.
+        /// A list of integrations for the Event Orchestration.
         /// </summary>
         public InputList<Inputs.EventOrchestrationIntegrationArgs> Integrations
         {
@@ -169,7 +169,7 @@ namespace Pulumi.Pagerduty
         private InputList<Inputs.EventOrchestrationIntegrationGetArgs>? _integrations;
 
         /// <summary>
-        /// An integration for the Event Orchestration.
+        /// A list of integrations for the Event Orchestration.
         /// </summary>
         public InputList<Inputs.EventOrchestrationIntegrationGetArgs> Integrations
         {

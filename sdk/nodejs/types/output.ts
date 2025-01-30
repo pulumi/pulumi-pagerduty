@@ -460,6 +460,9 @@ export interface EventOrchestrationIntegration {
      */
     id: string;
     label: string;
+    /**
+     * A single-item list containing a parameter object describing the integration
+     */
     parameters: outputs.EventOrchestrationIntegrationParameter[];
 }
 
@@ -1180,6 +1183,9 @@ export interface GetEventOrchestrationIntegrationDetail {
      */
     id: string;
     label: string;
+    /**
+     * A single-item list containing a parameter object describing the integration
+     */
     parameters: outputs.GetEventOrchestrationIntegrationDetailParameter[];
 }
 
@@ -1237,7 +1243,7 @@ export interface GetEventOrchestrationsEventOrchestration {
      */
     id: string;
     /**
-     * An integration for the Event Orchestration.
+     * A list of integrations for the Event Orchestration.
      */
     integrations: outputs.GetEventOrchestrationsEventOrchestrationIntegration[];
     /**
@@ -1252,6 +1258,9 @@ export interface GetEventOrchestrationsEventOrchestrationIntegration {
      */
     id: string;
     label: string;
+    /**
+     * A single-item list containing a parameter object describing the integration
+     */
     parameters: outputs.GetEventOrchestrationsEventOrchestrationIntegrationParameter[];
 }
 

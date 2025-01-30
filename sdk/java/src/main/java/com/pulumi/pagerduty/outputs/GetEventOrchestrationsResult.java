@@ -12,6 +12,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEventOrchestrationsResult {
+    /**
+     * @return The list of the Event Orchestrations with a name that matches the `name_filter` argument.
+     * 
+     */
     private List<GetEventOrchestrationsEventOrchestration> eventOrchestrations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -19,12 +23,16 @@ public final class GetEventOrchestrationsResult {
      */
     private String id;
     /**
-     * @return The list of the Event Orchestrations which name match `name_filter` argument.
+     * @return The regex supplied to find the list of Global Event Orchestrations
      * 
      */
     private String nameFilter;
 
     private GetEventOrchestrationsResult() {}
+    /**
+     * @return The list of the Event Orchestrations with a name that matches the `name_filter` argument.
+     * 
+     */
     public List<GetEventOrchestrationsEventOrchestration> eventOrchestrations() {
         return this.eventOrchestrations;
     }
@@ -36,7 +44,7 @@ public final class GetEventOrchestrationsResult {
         return this.id;
     }
     /**
-     * @return The list of the Event Orchestrations which name match `name_filter` argument.
+     * @return The regex supplied to find the list of Global Event Orchestrations
      * 
      */
     public String nameFilter() {

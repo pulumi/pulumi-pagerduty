@@ -3670,8 +3670,9 @@ func (o EventOrchestrationGlobalSetRuleConditionArrayOutput) Index(i pulumi.IntI
 
 type EventOrchestrationIntegrationType struct {
 	// ID of the integration
-	Id         *string                                  `pulumi:"id"`
-	Label      *string                                  `pulumi:"label"`
+	Id    *string `pulumi:"id"`
+	Label *string `pulumi:"label"`
+	// A single-item list containing a parameter object describing the integration
 	Parameters []EventOrchestrationIntegrationParameter `pulumi:"parameters"`
 }
 
@@ -3688,8 +3689,9 @@ type EventOrchestrationIntegrationTypeInput interface {
 
 type EventOrchestrationIntegrationTypeArgs struct {
 	// ID of the integration
-	Id         pulumi.StringPtrInput                            `pulumi:"id"`
-	Label      pulumi.StringPtrInput                            `pulumi:"label"`
+	Id    pulumi.StringPtrInput `pulumi:"id"`
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// A single-item list containing a parameter object describing the integration
 	Parameters EventOrchestrationIntegrationParameterArrayInput `pulumi:"parameters"`
 }
 
@@ -3753,6 +3755,7 @@ func (o EventOrchestrationIntegrationTypeOutput) Label() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v EventOrchestrationIntegrationType) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
+// A single-item list containing a parameter object describing the integration
 func (o EventOrchestrationIntegrationTypeOutput) Parameters() EventOrchestrationIntegrationParameterArrayOutput {
 	return o.ApplyT(func(v EventOrchestrationIntegrationType) []EventOrchestrationIntegrationParameter {
 		return v.Parameters
@@ -20941,8 +20944,9 @@ func (o GetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput) Index(
 
 type GetEventOrchestrationIntegrationDetail struct {
 	// ID of the integration
-	Id         string                                            `pulumi:"id"`
-	Label      string                                            `pulumi:"label"`
+	Id    string `pulumi:"id"`
+	Label string `pulumi:"label"`
+	// A single-item list containing a parameter object describing the integration
 	Parameters []GetEventOrchestrationIntegrationDetailParameter `pulumi:"parameters"`
 }
 
@@ -20959,8 +20963,9 @@ type GetEventOrchestrationIntegrationDetailInput interface {
 
 type GetEventOrchestrationIntegrationDetailArgs struct {
 	// ID of the integration
-	Id         pulumi.StringInput                                        `pulumi:"id"`
-	Label      pulumi.StringInput                                        `pulumi:"label"`
+	Id    pulumi.StringInput `pulumi:"id"`
+	Label pulumi.StringInput `pulumi:"label"`
+	// A single-item list containing a parameter object describing the integration
 	Parameters GetEventOrchestrationIntegrationDetailParameterArrayInput `pulumi:"parameters"`
 }
 
@@ -21024,6 +21029,7 @@ func (o GetEventOrchestrationIntegrationDetailOutput) Label() pulumi.StringOutpu
 	return o.ApplyT(func(v GetEventOrchestrationIntegrationDetail) string { return v.Label }).(pulumi.StringOutput)
 }
 
+// A single-item list containing a parameter object describing the integration
 func (o GetEventOrchestrationIntegrationDetailOutput) Parameters() GetEventOrchestrationIntegrationDetailParameterArrayOutput {
 	return o.ApplyT(func(v GetEventOrchestrationIntegrationDetail) []GetEventOrchestrationIntegrationDetailParameter {
 		return v.Parameters
@@ -21486,7 +21492,7 @@ func (o GetEventOrchestrationServiceCacheVariableConfigurationArrayOutput) Index
 type GetEventOrchestrationsEventOrchestration struct {
 	// ID of the integration
 	Id string `pulumi:"id"`
-	// An integration for the Event Orchestration.
+	// A list of integrations for the Event Orchestration.
 	Integrations []GetEventOrchestrationsEventOrchestrationIntegration `pulumi:"integrations"`
 	// The name of the found Event Orchestration.
 	Name string `pulumi:"name"`
@@ -21506,7 +21512,7 @@ type GetEventOrchestrationsEventOrchestrationInput interface {
 type GetEventOrchestrationsEventOrchestrationArgs struct {
 	// ID of the integration
 	Id pulumi.StringInput `pulumi:"id"`
-	// An integration for the Event Orchestration.
+	// A list of integrations for the Event Orchestration.
 	Integrations GetEventOrchestrationsEventOrchestrationIntegrationArrayInput `pulumi:"integrations"`
 	// The name of the found Event Orchestration.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -21568,7 +21574,7 @@ func (o GetEventOrchestrationsEventOrchestrationOutput) Id() pulumi.StringOutput
 	return o.ApplyT(func(v GetEventOrchestrationsEventOrchestration) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// An integration for the Event Orchestration.
+// A list of integrations for the Event Orchestration.
 func (o GetEventOrchestrationsEventOrchestrationOutput) Integrations() GetEventOrchestrationsEventOrchestrationIntegrationArrayOutput {
 	return o.ApplyT(func(v GetEventOrchestrationsEventOrchestration) []GetEventOrchestrationsEventOrchestrationIntegration {
 		return v.Integrations
@@ -21602,8 +21608,9 @@ func (o GetEventOrchestrationsEventOrchestrationArrayOutput) Index(i pulumi.IntI
 
 type GetEventOrchestrationsEventOrchestrationIntegration struct {
 	// ID of the integration
-	Id         string                                                         `pulumi:"id"`
-	Label      string                                                         `pulumi:"label"`
+	Id    string `pulumi:"id"`
+	Label string `pulumi:"label"`
+	// A single-item list containing a parameter object describing the integration
 	Parameters []GetEventOrchestrationsEventOrchestrationIntegrationParameter `pulumi:"parameters"`
 }
 
@@ -21620,8 +21627,9 @@ type GetEventOrchestrationsEventOrchestrationIntegrationInput interface {
 
 type GetEventOrchestrationsEventOrchestrationIntegrationArgs struct {
 	// ID of the integration
-	Id         pulumi.StringInput                                                     `pulumi:"id"`
-	Label      pulumi.StringInput                                                     `pulumi:"label"`
+	Id    pulumi.StringInput `pulumi:"id"`
+	Label pulumi.StringInput `pulumi:"label"`
+	// A single-item list containing a parameter object describing the integration
 	Parameters GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayInput `pulumi:"parameters"`
 }
 
@@ -21685,6 +21693,7 @@ func (o GetEventOrchestrationsEventOrchestrationIntegrationOutput) Label() pulum
 	return o.ApplyT(func(v GetEventOrchestrationsEventOrchestrationIntegration) string { return v.Label }).(pulumi.StringOutput)
 }
 
+// A single-item list containing a parameter object describing the integration
 func (o GetEventOrchestrationsEventOrchestrationIntegrationOutput) Parameters() GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayOutput {
 	return o.ApplyT(func(v GetEventOrchestrationsEventOrchestrationIntegration) []GetEventOrchestrationsEventOrchestrationIntegrationParameter {
 		return v.Parameters

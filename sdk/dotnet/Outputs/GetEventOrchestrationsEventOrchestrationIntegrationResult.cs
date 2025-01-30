@@ -18,6 +18,9 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string Id;
         public readonly string Label;
+        /// <summary>
+        /// A single-item list containing a parameter object describing the integration
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetEventOrchestrationsEventOrchestrationIntegrationParameterResult> Parameters;
 
         [OutputConstructor]

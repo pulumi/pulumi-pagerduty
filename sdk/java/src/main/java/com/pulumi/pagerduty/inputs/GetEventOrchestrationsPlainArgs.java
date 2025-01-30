@@ -14,14 +14,14 @@ public final class GetEventOrchestrationsPlainArgs extends com.pulumi.resources.
     public static final GetEventOrchestrationsPlainArgs Empty = new GetEventOrchestrationsPlainArgs();
 
     /**
-     * The regex name of Global Event orchestrations to find in the PagerDuty API.
+     * The regex name of Global Event Orchestrations to find in the PagerDuty API.
      * 
      */
     @Import(name="nameFilter", required=true)
     private String nameFilter;
 
     /**
-     * @return The regex name of Global Event orchestrations to find in the PagerDuty API.
+     * @return The regex name of Global Event Orchestrations to find in the PagerDuty API.
      * 
      */
     public String nameFilter() {
@@ -53,7 +53,7 @@ public final class GetEventOrchestrationsPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param nameFilter The regex name of Global Event orchestrations to find in the PagerDuty API.
+         * @param nameFilter The regex name of Global Event Orchestrations to find in the PagerDuty API.
          * 
          * @return builder
          * 

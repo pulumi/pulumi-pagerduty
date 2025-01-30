@@ -18,7 +18,7 @@ public final class GetEventOrchestrationsEventOrchestration {
      */
     private String id;
     /**
-     * @return An integration for the Event Orchestration.
+     * @return A list of integrations for the Event Orchestration.
      * 
      */
     private List<GetEventOrchestrationsEventOrchestrationIntegration> integrations;
@@ -37,7 +37,7 @@ public final class GetEventOrchestrationsEventOrchestration {
         return this.id;
     }
     /**
-     * @return An integration for the Event Orchestration.
+     * @return A list of integrations for the Event Orchestration.
      * 
      */
     public List<GetEventOrchestrationsEventOrchestrationIntegration> integrations() {

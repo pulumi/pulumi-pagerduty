@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An integration for the Event Orchestration.
+        /// A list of integrations for the Event Orchestration.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEventOrchestrationsEventOrchestrationIntegrationResult> Integrations;
         /// <summary>

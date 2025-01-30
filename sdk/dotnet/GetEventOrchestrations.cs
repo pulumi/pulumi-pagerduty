@@ -39,6 +39,25 @@ namespace Pulumi.Pagerduty
         ///         NameFilter = ".*Orchestration$",
         ///     });
         /// 
+        ///     var cacheVar = new Pagerduty.EventOrchestrationGlobalCacheVariable("cache_var", new()
+        ///     {
+        ///         EventOrchestration = tfMyMonitor.Apply(getEventOrchestrationsResult =&gt; getEventOrchestrationsResult.EventOrchestrations[0]?.Id),
+        ///         Name = "recent_host",
+        ///         Conditions = new[]
+        ///         {
+        ///             new Pagerduty.Inputs.EventOrchestrationGlobalCacheVariableConditionArgs
+        ///             {
+        ///                 Expression = "event.source exists",
+        ///             },
+        ///         },
+        ///         Configuration = new Pagerduty.Inputs.EventOrchestrationGlobalCacheVariableConfigurationArgs
+        ///         {
+        ///             Type = "recent_value",
+        ///             Source = "event.source",
+        ///             Regex = ".*",
+        ///         },
+        ///     });
+        /// 
         /// });
         /// ```
         /// </summary>
@@ -71,6 +90,25 @@ namespace Pulumi.Pagerduty
         ///     var tfMyMonitor = Pagerduty.GetEventOrchestrations.Invoke(new()
         ///     {
         ///         NameFilter = ".*Orchestration$",
+        ///     });
+        /// 
+        ///     var cacheVar = new Pagerduty.EventOrchestrationGlobalCacheVariable("cache_var", new()
+        ///     {
+        ///         EventOrchestration = tfMyMonitor.Apply(getEventOrchestrationsResult =&gt; getEventOrchestrationsResult.EventOrchestrations[0]?.Id),
+        ///         Name = "recent_host",
+        ///         Conditions = new[]
+        ///         {
+        ///             new Pagerduty.Inputs.EventOrchestrationGlobalCacheVariableConditionArgs
+        ///             {
+        ///                 Expression = "event.source exists",
+        ///             },
+        ///         },
+        ///         Configuration = new Pagerduty.Inputs.EventOrchestrationGlobalCacheVariableConfigurationArgs
+        ///         {
+        ///             Type = "recent_value",
+        ///             Source = "event.source",
+        ///             Regex = ".*",
+        ///         },
         ///     });
         /// 
         /// });
@@ -107,6 +145,25 @@ namespace Pulumi.Pagerduty
         ///         NameFilter = ".*Orchestration$",
         ///     });
         /// 
+        ///     var cacheVar = new Pagerduty.EventOrchestrationGlobalCacheVariable("cache_var", new()
+        ///     {
+        ///         EventOrchestration = tfMyMonitor.Apply(getEventOrchestrationsResult =&gt; getEventOrchestrationsResult.EventOrchestrations[0]?.Id),
+        ///         Name = "recent_host",
+        ///         Conditions = new[]
+        ///         {
+        ///             new Pagerduty.Inputs.EventOrchestrationGlobalCacheVariableConditionArgs
+        ///             {
+        ///                 Expression = "event.source exists",
+        ///             },
+        ///         },
+        ///         Configuration = new Pagerduty.Inputs.EventOrchestrationGlobalCacheVariableConfigurationArgs
+        ///         {
+        ///             Type = "recent_value",
+        ///             Source = "event.source",
+        ///             Regex = ".*",
+        ///         },
+        ///     });
+        /// 
         /// });
         /// ```
         /// </summary>
@@ -118,7 +175,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetEventOrchestrationsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The regex name of Global Event orchestrations to find in the PagerDuty API.
+        /// The regex name of Global Event Orchestrations to find in the PagerDuty API.
         /// </summary>
         [Input("nameFilter", required: true)]
         public string NameFilter { get; set; } = null!;
@@ -132,7 +189,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetEventOrchestrationsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The regex name of Global Event orchestrations to find in the PagerDuty API.
+        /// The regex name of Global Event Orchestrations to find in the PagerDuty API.
         /// </summary>
         [Input("nameFilter", required: true)]
         public Input<string> NameFilter { get; set; } = null!;
@@ -147,13 +204,16 @@ namespace Pulumi.Pagerduty
     [OutputType]
     public sealed class GetEventOrchestrationsResult
     {
+        /// <summary>
+        /// The list of the Event Orchestrations with a name that matches the `name_filter` argument.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetEventOrchestrationsEventOrchestrationResult> EventOrchestrations;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The list of the Event Orchestrations which name match `name_filter` argument.
+        /// The regex supplied to find the list of Global Event Orchestrations
         /// </summary>
         public readonly string NameFilter;
 

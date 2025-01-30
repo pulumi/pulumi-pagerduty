@@ -51,7 +51,7 @@ class GetEventOrchestrationResult:
     @pulumi.getter(name="integrationDetail")
     def integration_detail(self) -> Sequence['outputs.GetEventOrchestrationIntegrationDetailResult']:
         """
-        An integration for the Event Orchestration.
+        A list of integrations for the Event Orchestration.
         """
         return pulumi.get(self, "integration_detail")
 
@@ -81,9 +81,37 @@ def get_event_orchestration(integration_detail: Optional[Sequence[Union['GetEven
     """
     Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
 
+    ## Example Usage
 
-    :param Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']] integration_detail: An integration for the Event Orchestration.
-    :param str name: The name of the Global Event orchestration to find in the PagerDuty API.
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    tf_orch_a = pagerduty.EventOrchestration("tf_orch_a", name="Test Event Orchestration")
+    tf_my_monitor = pagerduty.get_event_orchestration_output(name=tf_orch_a.name)
+    unrouted = pagerduty.EventOrchestrationUnrouted("unrouted",
+        event_orchestration=tf_my_monitor.id,
+        catch_all={
+            "actions": {
+                "severity": "info",
+            },
+        },
+        sets=[{
+            "id": "start",
+            "rules": [{
+                "actions": {
+                    "extractions": [{
+                        "target": "event.custom_details.integration_type",
+                        "template": tf_my_monitor.integration_detail[0].parameters[0].type,
+                    }],
+                },
+            }],
+        }])
+    ```
+
+
+    :param Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']] integration_detail: A list of integrations for the Event Orchestration.
+    :param str name: The name of the Global Event Orchestration to find in the PagerDuty API.
     """
     __args__ = dict()
     __args__['integrationDetail'] = integration_detail
@@ -101,9 +129,37 @@ def get_event_orchestration_output(integration_detail: Optional[pulumi.Input[Opt
     """
     Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
 
+    ## Example Usage
 
-    :param Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']] integration_detail: An integration for the Event Orchestration.
-    :param str name: The name of the Global Event orchestration to find in the PagerDuty API.
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    tf_orch_a = pagerduty.EventOrchestration("tf_orch_a", name="Test Event Orchestration")
+    tf_my_monitor = pagerduty.get_event_orchestration_output(name=tf_orch_a.name)
+    unrouted = pagerduty.EventOrchestrationUnrouted("unrouted",
+        event_orchestration=tf_my_monitor.id,
+        catch_all={
+            "actions": {
+                "severity": "info",
+            },
+        },
+        sets=[{
+            "id": "start",
+            "rules": [{
+                "actions": {
+                    "extractions": [{
+                        "target": "event.custom_details.integration_type",
+                        "template": tf_my_monitor.integration_detail[0].parameters[0].type,
+                    }],
+                },
+            }],
+        }])
+    ```
+
+
+    :param Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']] integration_detail: A list of integrations for the Event Orchestration.
+    :param str name: The name of the Global Event Orchestration to find in the PagerDuty API.
     """
     __args__ = dict()
     __args__['integrationDetail'] = integration_detail

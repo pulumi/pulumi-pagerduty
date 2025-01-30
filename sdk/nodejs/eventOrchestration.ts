@@ -64,7 +64,7 @@ export class EventOrchestration extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * An integration for the Event Orchestration.
+     * A list of integrations for the Event Orchestration.
      */
     public readonly integrations!: pulumi.Output<outputs.EventOrchestrationIntegration[]>;
     /**
@@ -117,7 +117,7 @@ export interface EventOrchestrationState {
      */
     description?: pulumi.Input<string>;
     /**
-     * An integration for the Event Orchestration.
+     * A list of integrations for the Event Orchestration.
      */
     integrations?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationIntegration>[]>;
     /**
@@ -140,7 +140,7 @@ export interface EventOrchestrationArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * An integration for the Event Orchestration.
+     * A list of integrations for the Event Orchestration.
      */
     integrations?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationIntegration>[]>;
     /**

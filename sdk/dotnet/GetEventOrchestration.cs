@@ -13,18 +13,195 @@ namespace Pulumi.Pagerduty
     {
         /// <summary>
         /// Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var tfOrchA = new Pagerduty.EventOrchestration("tf_orch_a", new()
+        ///     {
+        ///         Name = "Test Event Orchestration",
+        ///     });
+        /// 
+        ///     var tfMyMonitor = Pagerduty.GetEventOrchestration.Invoke(new()
+        ///     {
+        ///         Name = tfOrchA.Name,
+        ///     });
+        /// 
+        ///     var unrouted = new Pagerduty.EventOrchestrationUnrouted("unrouted", new()
+        ///     {
+        ///         EventOrchestration = tfMyMonitor.Apply(getEventOrchestrationResult =&gt; getEventOrchestrationResult.Id),
+        ///         CatchAll = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllArgs
+        ///         {
+        ///             Actions = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllActionsArgs
+        ///             {
+        ///                 Severity = "info",
+        ///             },
+        ///         },
+        ///         Sets = new[]
+        ///         {
+        ///             new Pagerduty.Inputs.EventOrchestrationUnroutedSetArgs
+        ///             {
+        ///                 Id = "start",
+        ///                 Rules = new[]
+        ///                 {
+        ///                     new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleArgs
+        ///                     {
+        ///                         Actions = new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleActionsArgs
+        ///                         {
+        ///                             Extractions = new[]
+        ///                             {
+        ///                                 new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleActionsExtractionArgs
+        ///                                 {
+        ///                                     Target = "event.custom_details.integration_type",
+        ///                                     Template = tfMyMonitor.Apply(getEventOrchestrationResult =&gt; getEventOrchestrationResult.IntegrationDetail[0]?.Parameters[0]?.Type),
+        ///                                 },
+        ///                             },
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetEventOrchestrationResult> InvokeAsync(GetEventOrchestrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventOrchestrationResult>("pagerduty:index/getEventOrchestration:getEventOrchestration", args ?? new GetEventOrchestrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var tfOrchA = new Pagerduty.EventOrchestration("tf_orch_a", new()
+        ///     {
+        ///         Name = "Test Event Orchestration",
+        ///     });
+        /// 
+        ///     var tfMyMonitor = Pagerduty.GetEventOrchestration.Invoke(new()
+        ///     {
+        ///         Name = tfOrchA.Name,
+        ///     });
+        /// 
+        ///     var unrouted = new Pagerduty.EventOrchestrationUnrouted("unrouted", new()
+        ///     {
+        ///         EventOrchestration = tfMyMonitor.Apply(getEventOrchestrationResult =&gt; getEventOrchestrationResult.Id),
+        ///         CatchAll = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllArgs
+        ///         {
+        ///             Actions = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllActionsArgs
+        ///             {
+        ///                 Severity = "info",
+        ///             },
+        ///         },
+        ///         Sets = new[]
+        ///         {
+        ///             new Pagerduty.Inputs.EventOrchestrationUnroutedSetArgs
+        ///             {
+        ///                 Id = "start",
+        ///                 Rules = new[]
+        ///                 {
+        ///                     new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleArgs
+        ///                     {
+        ///                         Actions = new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleActionsArgs
+        ///                         {
+        ///                             Extractions = new[]
+        ///                             {
+        ///                                 new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleActionsExtractionArgs
+        ///                                 {
+        ///                                     Target = "event.custom_details.integration_type",
+        ///                                     Template = tfMyMonitor.Apply(getEventOrchestrationResult =&gt; getEventOrchestrationResult.IntegrationDetail[0]?.Parameters[0]?.Type),
+        ///                                 },
+        ///                             },
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetEventOrchestrationResult> Invoke(GetEventOrchestrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationResult>("pagerduty:index/getEventOrchestration:getEventOrchestration", args ?? new GetEventOrchestrationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var tfOrchA = new Pagerduty.EventOrchestration("tf_orch_a", new()
+        ///     {
+        ///         Name = "Test Event Orchestration",
+        ///     });
+        /// 
+        ///     var tfMyMonitor = Pagerduty.GetEventOrchestration.Invoke(new()
+        ///     {
+        ///         Name = tfOrchA.Name,
+        ///     });
+        /// 
+        ///     var unrouted = new Pagerduty.EventOrchestrationUnrouted("unrouted", new()
+        ///     {
+        ///         EventOrchestration = tfMyMonitor.Apply(getEventOrchestrationResult =&gt; getEventOrchestrationResult.Id),
+        ///         CatchAll = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllArgs
+        ///         {
+        ///             Actions = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllActionsArgs
+        ///             {
+        ///                 Severity = "info",
+        ///             },
+        ///         },
+        ///         Sets = new[]
+        ///         {
+        ///             new Pagerduty.Inputs.EventOrchestrationUnroutedSetArgs
+        ///             {
+        ///                 Id = "start",
+        ///                 Rules = new[]
+        ///                 {
+        ///                     new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleArgs
+        ///                     {
+        ///                         Actions = new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleActionsArgs
+        ///                         {
+        ///                             Extractions = new[]
+        ///                             {
+        ///                                 new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleActionsExtractionArgs
+        ///                                 {
+        ///                                     Target = "event.custom_details.integration_type",
+        ///                                     Template = tfMyMonitor.Apply(getEventOrchestrationResult =&gt; getEventOrchestrationResult.IntegrationDetail[0]?.Parameters[0]?.Type),
+        ///                                 },
+        ///                             },
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetEventOrchestrationResult> Invoke(GetEventOrchestrationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationResult>("pagerduty:index/getEventOrchestration:getEventOrchestration", args ?? new GetEventOrchestrationInvokeArgs(), options.WithDefaults());
@@ -37,7 +214,7 @@ namespace Pulumi.Pagerduty
         private List<Inputs.GetEventOrchestrationIntegrationDetailArgs>? _integrationDetail;
 
         /// <summary>
-        /// An integration for the Event Orchestration.
+        /// A list of integrations for the Event Orchestration.
         /// </summary>
         public List<Inputs.GetEventOrchestrationIntegrationDetailArgs> IntegrationDetail
         {
@@ -46,7 +223,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// The name of the Global Event orchestration to find in the PagerDuty API.
+        /// The name of the Global Event Orchestration to find in the PagerDuty API.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -63,7 +240,7 @@ namespace Pulumi.Pagerduty
         private InputList<Inputs.GetEventOrchestrationIntegrationDetailInputArgs>? _integrationDetail;
 
         /// <summary>
-        /// An integration for the Event Orchestration.
+        /// A list of integrations for the Event Orchestration.
         /// </summary>
         public InputList<Inputs.GetEventOrchestrationIntegrationDetailInputArgs> IntegrationDetail
         {
@@ -72,7 +249,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// The name of the Global Event orchestration to find in the PagerDuty API.
+        /// The name of the Global Event Orchestration to find in the PagerDuty API.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -92,7 +269,7 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An integration for the Event Orchestration.
+        /// A list of integrations for the Event Orchestration.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEventOrchestrationIntegrationDetailResult> IntegrationDetail;
         /// <summary>

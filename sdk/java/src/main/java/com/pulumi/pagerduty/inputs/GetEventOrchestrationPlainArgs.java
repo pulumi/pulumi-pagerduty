@@ -18,14 +18,14 @@ public final class GetEventOrchestrationPlainArgs extends com.pulumi.resources.I
     public static final GetEventOrchestrationPlainArgs Empty = new GetEventOrchestrationPlainArgs();
 
     /**
-     * An integration for the Event Orchestration.
+     * A list of integrations for the Event Orchestration.
      * 
      */
     @Import(name="integrationDetail")
     private @Nullable List<GetEventOrchestrationIntegrationDetail> integrationDetail;
 
     /**
-     * @return An integration for the Event Orchestration.
+     * @return A list of integrations for the Event Orchestration.
      * 
      */
     public Optional<List<GetEventOrchestrationIntegrationDetail>> integrationDetail() {
@@ -33,14 +33,14 @@ public final class GetEventOrchestrationPlainArgs extends com.pulumi.resources.I
     }
 
     /**
-     * The name of the Global Event orchestration to find in the PagerDuty API.
+     * The name of the Global Event Orchestration to find in the PagerDuty API.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the Global Event orchestration to find in the PagerDuty API.
+     * @return The name of the Global Event Orchestration to find in the PagerDuty API.
      * 
      */
     public String name() {
@@ -73,7 +73,7 @@ public final class GetEventOrchestrationPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param integrationDetail An integration for the Event Orchestration.
+         * @param integrationDetail A list of integrations for the Event Orchestration.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class GetEventOrchestrationPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param integrationDetail An integration for the Event Orchestration.
+         * @param integrationDetail A list of integrations for the Event Orchestration.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class GetEventOrchestrationPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param name The name of the Global Event orchestration to find in the PagerDuty API.
+         * @param name The name of the Global Event Orchestration to find in the PagerDuty API.
          * 
          * @return builder
          * 

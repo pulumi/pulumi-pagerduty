@@ -8,6 +8,37 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const tfOrchA = new pagerduty.EventOrchestration("tf_orch_a", {name: "Test Event Orchestration"});
+ * const tfMyMonitor = pagerduty.getEventOrchestrationOutput({
+ *     name: tfOrchA.name,
+ * });
+ * const unrouted = new pagerduty.EventOrchestrationUnrouted("unrouted", {
+ *     eventOrchestration: tfMyMonitor.apply(tfMyMonitor => tfMyMonitor.id),
+ *     catchAll: {
+ *         actions: {
+ *             severity: "info",
+ *         },
+ *     },
+ *     sets: [{
+ *         id: "start",
+ *         rules: [{
+ *             actions: {
+ *                 extractions: [{
+ *                     target: "event.custom_details.integration_type",
+ *                     template: tfMyMonitor.apply(tfMyMonitor => tfMyMonitor.integrationDetail?.[0]?.parameters?.[0]?.type),
+ *                 }],
+ *             },
+ *         }],
+ *     }],
+ * });
+ * ```
  */
 export function getEventOrchestration(args: GetEventOrchestrationArgs, opts?: pulumi.InvokeOptions): Promise<GetEventOrchestrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -22,11 +53,11 @@ export function getEventOrchestration(args: GetEventOrchestrationArgs, opts?: pu
  */
 export interface GetEventOrchestrationArgs {
     /**
-     * An integration for the Event Orchestration.
+     * A list of integrations for the Event Orchestration.
      */
     integrationDetail?: inputs.GetEventOrchestrationIntegrationDetail[];
     /**
-     * The name of the Global Event orchestration to find in the PagerDuty API.
+     * The name of the Global Event Orchestration to find in the PagerDuty API.
      */
     name: string;
 }
@@ -40,7 +71,7 @@ export interface GetEventOrchestrationResult {
      */
     readonly id: string;
     /**
-     * An integration for the Event Orchestration.
+     * A list of integrations for the Event Orchestration.
      */
     readonly integrationDetail: outputs.GetEventOrchestrationIntegrationDetail[];
     /**
@@ -50,6 +81,37 @@ export interface GetEventOrchestrationResult {
 }
 /**
  * Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const tfOrchA = new pagerduty.EventOrchestration("tf_orch_a", {name: "Test Event Orchestration"});
+ * const tfMyMonitor = pagerduty.getEventOrchestrationOutput({
+ *     name: tfOrchA.name,
+ * });
+ * const unrouted = new pagerduty.EventOrchestrationUnrouted("unrouted", {
+ *     eventOrchestration: tfMyMonitor.apply(tfMyMonitor => tfMyMonitor.id),
+ *     catchAll: {
+ *         actions: {
+ *             severity: "info",
+ *         },
+ *     },
+ *     sets: [{
+ *         id: "start",
+ *         rules: [{
+ *             actions: {
+ *                 extractions: [{
+ *                     target: "event.custom_details.integration_type",
+ *                     template: tfMyMonitor.apply(tfMyMonitor => tfMyMonitor.integrationDetail?.[0]?.parameters?.[0]?.type),
+ *                 }],
+ *             },
+ *         }],
+ *     }],
+ * });
+ * ```
  */
 export function getEventOrchestrationOutput(args: GetEventOrchestrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventOrchestrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -64,11 +126,11 @@ export function getEventOrchestrationOutput(args: GetEventOrchestrationOutputArg
  */
 export interface GetEventOrchestrationOutputArgs {
     /**
-     * An integration for the Event Orchestration.
+     * A list of integrations for the Event Orchestration.
      */
     integrationDetail?: pulumi.Input<pulumi.Input<inputs.GetEventOrchestrationIntegrationDetailArgs>[]>;
     /**
-     * The name of the Global Event orchestration to find in the PagerDuty API.
+     * The name of the Global Event Orchestration to find in the PagerDuty API.
      */
     name: pulumi.Input<string>;
 }

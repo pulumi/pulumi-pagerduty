@@ -1632,6 +1632,7 @@ class EventOrchestrationIntegration(dict):
                  parameters: Optional[Sequence['outputs.EventOrchestrationIntegrationParameter']] = None):
         """
         :param str id: ID of the integration
+        :param Sequence['EventOrchestrationIntegrationParameterArgs'] parameters: A single-item list containing a parameter object describing the integration
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -1656,6 +1657,9 @@ class EventOrchestrationIntegration(dict):
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Sequence['outputs.EventOrchestrationIntegrationParameter']]:
+        """
+        A single-item list containing a parameter object describing the integration
+        """
         return pulumi.get(self, "parameters")
 
 
@@ -7866,6 +7870,7 @@ class GetEventOrchestrationIntegrationDetailResult(dict):
                  parameters: Sequence['outputs.GetEventOrchestrationIntegrationDetailParameterResult']):
         """
         :param str id: ID of the integration
+        :param Sequence['GetEventOrchestrationIntegrationDetailParameterArgs'] parameters: A single-item list containing a parameter object describing the integration
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "label", label)
@@ -7887,6 +7892,9 @@ class GetEventOrchestrationIntegrationDetailResult(dict):
     @property
     @pulumi.getter
     def parameters(self) -> Sequence['outputs.GetEventOrchestrationIntegrationDetailParameterResult']:
+        """
+        A single-item list containing a parameter object describing the integration
+        """
         return pulumi.get(self, "parameters")
 
 
@@ -8025,7 +8033,7 @@ class GetEventOrchestrationsEventOrchestrationResult(dict):
                  name: str):
         """
         :param str id: ID of the integration
-        :param Sequence['GetEventOrchestrationsEventOrchestrationIntegrationArgs'] integrations: An integration for the Event Orchestration.
+        :param Sequence['GetEventOrchestrationsEventOrchestrationIntegrationArgs'] integrations: A list of integrations for the Event Orchestration.
         :param str name: The name of the found Event Orchestration.
         """
         pulumi.set(__self__, "id", id)
@@ -8044,7 +8052,7 @@ class GetEventOrchestrationsEventOrchestrationResult(dict):
     @pulumi.getter
     def integrations(self) -> Sequence['outputs.GetEventOrchestrationsEventOrchestrationIntegrationResult']:
         """
-        An integration for the Event Orchestration.
+        A list of integrations for the Event Orchestration.
         """
         return pulumi.get(self, "integrations")
 
@@ -8065,6 +8073,7 @@ class GetEventOrchestrationsEventOrchestrationIntegrationResult(dict):
                  parameters: Sequence['outputs.GetEventOrchestrationsEventOrchestrationIntegrationParameterResult']):
         """
         :param str id: ID of the integration
+        :param Sequence['GetEventOrchestrationsEventOrchestrationIntegrationParameterArgs'] parameters: A single-item list containing a parameter object describing the integration
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "label", label)
@@ -8086,6 +8095,9 @@ class GetEventOrchestrationsEventOrchestrationIntegrationResult(dict):
     @property
     @pulumi.getter
     def parameters(self) -> Sequence['outputs.GetEventOrchestrationsEventOrchestrationIntegrationParameterResult']:
+        """
+        A single-item list containing a parameter object describing the integration
+        """
         return pulumi.get(self, "parameters")
 
 

@@ -19,14 +19,14 @@ public final class GetEventOrchestrationArgs extends com.pulumi.resources.Invoke
     public static final GetEventOrchestrationArgs Empty = new GetEventOrchestrationArgs();
 
     /**
-     * An integration for the Event Orchestration.
+     * A list of integrations for the Event Orchestration.
      * 
      */
     @Import(name="integrationDetail")
     private @Nullable Output<List<GetEventOrchestrationIntegrationDetailArgs>> integrationDetail;
 
     /**
-     * @return An integration for the Event Orchestration.
+     * @return A list of integrations for the Event Orchestration.
      * 
      */
     public Optional<Output<List<GetEventOrchestrationIntegrationDetailArgs>>> integrationDetail() {
@@ -34,14 +34,14 @@ public final class GetEventOrchestrationArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The name of the Global Event orchestration to find in the PagerDuty API.
+     * The name of the Global Event Orchestration to find in the PagerDuty API.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Global Event orchestration to find in the PagerDuty API.
+     * @return The name of the Global Event Orchestration to find in the PagerDuty API.
      * 
      */
     public Output<String> name() {
@@ -74,7 +74,7 @@ public final class GetEventOrchestrationArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param integrationDetail An integration for the Event Orchestration.
+         * @param integrationDetail A list of integrations for the Event Orchestration.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class GetEventOrchestrationArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param integrationDetail An integration for the Event Orchestration.
+         * @param integrationDetail A list of integrations for the Event Orchestration.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class GetEventOrchestrationArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param integrationDetail An integration for the Event Orchestration.
+         * @param integrationDetail A list of integrations for the Event Orchestration.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class GetEventOrchestrationArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param name The name of the Global Event orchestration to find in the PagerDuty API.
+         * @param name The name of the Global Event Orchestration to find in the PagerDuty API.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class GetEventOrchestrationArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param name The name of the Global Event orchestration to find in the PagerDuty API.
+         * @param name The name of the Global Event Orchestration to find in the PagerDuty API.
          * 
          * @return builder
          * 

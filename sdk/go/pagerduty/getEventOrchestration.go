@@ -12,6 +12,67 @@ import (
 )
 
 // Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tfOrchA, err := pagerduty.NewEventOrchestration(ctx, "tf_orch_a", &pagerduty.EventOrchestrationArgs{
+//				Name: pulumi.String("Test Event Orchestration"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tfMyMonitor := pagerduty.LookupEventOrchestrationOutput(ctx, pagerduty.GetEventOrchestrationOutputArgs{
+//				Name: tfOrchA.Name,
+//			}, nil)
+//			_, err = pagerduty.NewEventOrchestrationUnrouted(ctx, "unrouted", &pagerduty.EventOrchestrationUnroutedArgs{
+//				EventOrchestration: pulumi.String(tfMyMonitor.ApplyT(func(tfMyMonitor pagerduty.GetEventOrchestrationResult) (*string, error) {
+//					return &tfMyMonitor.Id, nil
+//				}).(pulumi.StringPtrOutput)),
+//				CatchAll: &pagerduty.EventOrchestrationUnroutedCatchAllArgs{
+//					Actions: &pagerduty.EventOrchestrationUnroutedCatchAllActionsArgs{
+//						Severity: pulumi.String("info"),
+//					},
+//				},
+//				Sets: pagerduty.EventOrchestrationUnroutedSetArray{
+//					&pagerduty.EventOrchestrationUnroutedSetArgs{
+//						Id: pulumi.String("start"),
+//						Rules: pagerduty.EventOrchestrationUnroutedSetRuleArray{
+//							&pagerduty.EventOrchestrationUnroutedSetRuleArgs{
+//								Actions: &pagerduty.EventOrchestrationUnroutedSetRuleActionsArgs{
+//									Extractions: pagerduty.EventOrchestrationUnroutedSetRuleActionsExtractionArray{
+//										&pagerduty.EventOrchestrationUnroutedSetRuleActionsExtractionArgs{
+//											Target: pulumi.String("event.custom_details.integration_type"),
+//											Template: tfMyMonitor.ApplyT(func(tfMyMonitor pagerduty.GetEventOrchestrationResult) (*string, error) {
+//												return &tfMyMonitor.IntegrationDetail[0].Parameters[0].Type, nil
+//											}).(pulumi.StringPtrOutput),
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupEventOrchestration(ctx *pulumi.Context, args *LookupEventOrchestrationArgs, opts ...pulumi.InvokeOption) (*LookupEventOrchestrationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventOrchestrationResult
@@ -24,9 +85,9 @@ func LookupEventOrchestration(ctx *pulumi.Context, args *LookupEventOrchestratio
 
 // A collection of arguments for invoking getEventOrchestration.
 type LookupEventOrchestrationArgs struct {
-	// An integration for the Event Orchestration.
+	// A list of integrations for the Event Orchestration.
 	IntegrationDetail []GetEventOrchestrationIntegrationDetail `pulumi:"integrationDetail"`
-	// The name of the Global Event orchestration to find in the PagerDuty API.
+	// The name of the Global Event Orchestration to find in the PagerDuty API.
 	Name string `pulumi:"name"`
 }
 
@@ -34,7 +95,7 @@ type LookupEventOrchestrationArgs struct {
 type LookupEventOrchestrationResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// An integration for the Event Orchestration.
+	// A list of integrations for the Event Orchestration.
 	IntegrationDetail []GetEventOrchestrationIntegrationDetail `pulumi:"integrationDetail"`
 	// The name of the found Event Orchestration.
 	Name string `pulumi:"name"`
@@ -51,9 +112,9 @@ func LookupEventOrchestrationOutput(ctx *pulumi.Context, args LookupEventOrchest
 
 // A collection of arguments for invoking getEventOrchestration.
 type LookupEventOrchestrationOutputArgs struct {
-	// An integration for the Event Orchestration.
+	// A list of integrations for the Event Orchestration.
 	IntegrationDetail GetEventOrchestrationIntegrationDetailArrayInput `pulumi:"integrationDetail"`
-	// The name of the Global Event orchestration to find in the PagerDuty API.
+	// The name of the Global Event Orchestration to find in the PagerDuty API.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -81,7 +142,7 @@ func (o LookupEventOrchestrationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventOrchestrationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// An integration for the Event Orchestration.
+// A list of integrations for the Event Orchestration.
 func (o LookupEventOrchestrationResultOutput) IntegrationDetail() GetEventOrchestrationIntegrationDetailArrayOutput {
 	return o.ApplyT(func(v LookupEventOrchestrationResult) []GetEventOrchestrationIntegrationDetail {
 		return v.IntegrationDetail

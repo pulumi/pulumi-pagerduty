@@ -38,9 +38,17 @@ public final class GetEventOrchestrationIntegrationDetailArgs extends com.pulumi
         return this.label;
     }
 
+    /**
+     * A single-item list containing a parameter object describing the integration
+     * 
+     */
     @Import(name="parameters", required=true)
     private Output<List<GetEventOrchestrationIntegrationDetailParameterArgs>> parameters;
 
+    /**
+     * @return A single-item list containing a parameter object describing the integration
+     * 
+     */
     public Output<List<GetEventOrchestrationIntegrationDetailParameterArgs>> parameters() {
         return this.parameters;
     }
@@ -101,15 +109,33 @@ public final class GetEventOrchestrationIntegrationDetailArgs extends com.pulumi
             return label(Output.of(label));
         }
 
+        /**
+         * @param parameters A single-item list containing a parameter object describing the integration
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameters(Output<List<GetEventOrchestrationIntegrationDetailParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
+        /**
+         * @param parameters A single-item list containing a parameter object describing the integration
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameters(List<GetEventOrchestrationIntegrationDetailParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
+        /**
+         * @param parameters A single-item list containing a parameter object describing the integration
+         * 
+         * @return builder
+         * 
+         */
         public Builder parameters(GetEventOrchestrationIntegrationDetailParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }

@@ -460,6 +460,9 @@ export interface EventOrchestrationIntegration {
      */
     id?: pulumi.Input<string>;
     label?: pulumi.Input<string>;
+    /**
+     * A single-item list containing a parameter object describing the integration
+     */
     parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationIntegrationParameter>[]>;
 }
 
@@ -1150,6 +1153,9 @@ export interface GetEventOrchestrationIntegrationDetail {
      */
     id?: string;
     label?: string;
+    /**
+     * A single-item list containing a parameter object describing the integration
+     */
     parameters?: inputs.GetEventOrchestrationIntegrationDetailParameter[];
 }
 
@@ -1159,6 +1165,9 @@ export interface GetEventOrchestrationIntegrationDetailArgs {
      */
     id?: pulumi.Input<string>;
     label?: pulumi.Input<string>;
+    /**
+     * A single-item list containing a parameter object describing the integration
+     */
     parameters?: pulumi.Input<pulumi.Input<inputs.GetEventOrchestrationIntegrationDetailParameterArgs>[]>;
 }
 

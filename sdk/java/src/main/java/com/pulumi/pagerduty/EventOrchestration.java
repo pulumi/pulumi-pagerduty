@@ -89,14 +89,14 @@ public class EventOrchestration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * An integration for the Event Orchestration.
+     * A list of integrations for the Event Orchestration.
      * 
      */
     @Export(name="integrations", refs={List.class,EventOrchestrationIntegration.class}, tree="[0,1]")
     private Output<List<EventOrchestrationIntegration>> integrations;
 
     /**
-     * @return An integration for the Event Orchestration.
+     * @return A list of integrations for the Event Orchestration.
      * 
      */
     public Output<List<EventOrchestrationIntegration>> integrations() {

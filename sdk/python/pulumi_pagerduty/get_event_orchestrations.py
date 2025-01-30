@@ -41,6 +41,9 @@ class GetEventOrchestrationsResult:
     @property
     @pulumi.getter(name="eventOrchestrations")
     def event_orchestrations(self) -> Sequence['outputs.GetEventOrchestrationsEventOrchestrationResult']:
+        """
+        The list of the Event Orchestrations with a name that matches the `name_filter` argument.
+        """
         return pulumi.get(self, "event_orchestrations")
 
     @property
@@ -55,7 +58,7 @@ class GetEventOrchestrationsResult:
     @pulumi.getter(name="nameFilter")
     def name_filter(self) -> str:
         """
-        The list of the Event Orchestrations which name match `name_filter` argument.
+        The regex supplied to find the list of Global Event Orchestrations
         """
         return pulumi.get(self, "name_filter")
 
@@ -85,10 +88,21 @@ def get_event_orchestrations(name_filter: Optional[str] = None,
     tf_orch_a = pagerduty.EventOrchestration("tf_orch_a", name="Test Event A Orchestration")
     tf_orch_b = pagerduty.EventOrchestration("tf_orch_b", name="Test Event B Orchestration")
     tf_my_monitor = pagerduty.get_event_orchestrations(name_filter=".*Orchestration$")
+    cache_var = pagerduty.EventOrchestrationGlobalCacheVariable("cache_var",
+        event_orchestration=tf_my_monitor.event_orchestrations[0].id,
+        name="recent_host",
+        conditions=[{
+            "expression": "event.source exists",
+        }],
+        configuration={
+            "type": "recent_value",
+            "source": "event.source",
+            "regex": ".*",
+        })
     ```
 
 
-    :param str name_filter: The regex name of Global Event orchestrations to find in the PagerDuty API.
+    :param str name_filter: The regex name of Global Event Orchestrations to find in the PagerDuty API.
     """
     __args__ = dict()
     __args__['nameFilter'] = name_filter
@@ -113,10 +127,21 @@ def get_event_orchestrations_output(name_filter: Optional[pulumi.Input[str]] = N
     tf_orch_a = pagerduty.EventOrchestration("tf_orch_a", name="Test Event A Orchestration")
     tf_orch_b = pagerduty.EventOrchestration("tf_orch_b", name="Test Event B Orchestration")
     tf_my_monitor = pagerduty.get_event_orchestrations(name_filter=".*Orchestration$")
+    cache_var = pagerduty.EventOrchestrationGlobalCacheVariable("cache_var",
+        event_orchestration=tf_my_monitor.event_orchestrations[0].id,
+        name="recent_host",
+        conditions=[{
+            "expression": "event.source exists",
+        }],
+        configuration={
+            "type": "recent_value",
+            "source": "event.source",
+            "regex": ".*",
+        })
     ```
 
 
-    :param str name_filter: The regex name of Global Event orchestrations to find in the PagerDuty API.
+    :param str name_filter: The regex name of Global Event Orchestrations to find in the PagerDuty API.
     """
     __args__ = dict()
     __args__['nameFilter'] = name_filter

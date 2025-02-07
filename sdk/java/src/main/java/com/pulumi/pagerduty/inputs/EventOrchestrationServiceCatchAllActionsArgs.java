@@ -146,14 +146,22 @@ public final class EventOrchestrationServiceCatchAllActionsArgs extends com.pulu
     /**
      * The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
      * 
+     * @deprecated
+     * The &#39;route_to&#39; attribute is no longer supported for catch-all rules.
+     * 
      */
+    @Deprecated /* The 'route_to' attribute is no longer supported for catch-all rules. */
     @Import(name="routeTo")
     private @Nullable Output<String> routeTo;
 
     /**
      * @return The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
      * 
+     * @deprecated
+     * The &#39;route_to&#39; attribute is no longer supported for catch-all rules.
+     * 
      */
+    @Deprecated /* The 'route_to' attribute is no longer supported for catch-all rules. */
     public Optional<Output<String>> routeTo() {
         return Optional.ofNullable(this.routeTo);
     }
@@ -447,7 +455,11 @@ public final class EventOrchestrationServiceCatchAllActionsArgs extends com.pulu
          * 
          * @return builder
          * 
+         * @deprecated
+         * The &#39;route_to&#39; attribute is no longer supported for catch-all rules.
+         * 
          */
+        @Deprecated /* The 'route_to' attribute is no longer supported for catch-all rules. */
         public Builder routeTo(@Nullable Output<String> routeTo) {
             $.routeTo = routeTo;
             return this;
@@ -458,7 +470,11 @@ public final class EventOrchestrationServiceCatchAllActionsArgs extends com.pulu
          * 
          * @return builder
          * 
+         * @deprecated
+         * The &#39;route_to&#39; attribute is no longer supported for catch-all rules.
+         * 
          */
+        @Deprecated /* The 'route_to' attribute is no longer supported for catch-all rules. */
         public Builder routeTo(String routeTo) {
             return routeTo(Output.of(routeTo));
         }

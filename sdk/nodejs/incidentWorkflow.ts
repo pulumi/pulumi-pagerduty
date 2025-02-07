@@ -70,6 +70,10 @@ export class IncidentWorkflow extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
+     */
+    public readonly isEnabled!: pulumi.Output<string>;
+    /**
      * The name of the workflow.
      */
     public readonly name!: pulumi.Output<string>;
@@ -96,12 +100,14 @@ export class IncidentWorkflow extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as IncidentWorkflowState | undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["steps"] = state ? state.steps : undefined;
             resourceInputs["team"] = state ? state.team : undefined;
         } else {
             const args = argsOrState as IncidentWorkflowArgs | undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["steps"] = args ? args.steps : undefined;
             resourceInputs["team"] = args ? args.team : undefined;
@@ -119,6 +125,10 @@ export interface IncidentWorkflowState {
      * The description of the workflow.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
+     */
+    isEnabled?: pulumi.Input<string>;
     /**
      * The name of the workflow.
      */
@@ -141,6 +151,10 @@ export interface IncidentWorkflowArgs {
      * The description of the workflow.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
+     */
+    isEnabled?: pulumi.Input<string>;
     /**
      * The name of the workflow.
      */

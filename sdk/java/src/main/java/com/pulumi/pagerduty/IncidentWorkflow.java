@@ -90,6 +90,20 @@ public class IncidentWorkflow extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
+     * Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account&#39;s enabled workflow limit.
+     * 
+     */
+    @Export(name="isEnabled", refs={String.class}, tree="[0]")
+    private Output<String> isEnabled;
+
+    /**
+     * @return Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account&#39;s enabled workflow limit.
+     * 
+     */
+    public Output<String> isEnabled() {
+        return this.isEnabled;
+    }
+    /**
      * The name of the workflow.
      * 
      */

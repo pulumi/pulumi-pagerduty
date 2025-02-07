@@ -33,6 +33,21 @@ public final class IncidentWorkflowArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account&#39;s enabled workflow limit.
+     * 
+     */
+    @Import(name="isEnabled")
+    private @Nullable Output<String> isEnabled;
+
+    /**
+     * @return Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account&#39;s enabled workflow limit.
+     * 
+     */
+    public Optional<Output<String>> isEnabled() {
+        return Optional.ofNullable(this.isEnabled);
+    }
+
+    /**
      * The name of the workflow.
      * 
      */
@@ -81,6 +96,7 @@ public final class IncidentWorkflowArgs extends com.pulumi.resources.ResourceArg
 
     private IncidentWorkflowArgs(IncidentWorkflowArgs $) {
         this.description = $.description;
+        this.isEnabled = $.isEnabled;
         this.name = $.name;
         this.steps = $.steps;
         this.team = $.team;
@@ -123,6 +139,27 @@ public final class IncidentWorkflowArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param isEnabled Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account&#39;s enabled workflow limit.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isEnabled(@Nullable Output<String> isEnabled) {
+            $.isEnabled = isEnabled;
+            return this;
+        }
+
+        /**
+         * @param isEnabled Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account&#39;s enabled workflow limit.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isEnabled(String isEnabled) {
+            return isEnabled(Output.of(isEnabled));
         }
 
         /**

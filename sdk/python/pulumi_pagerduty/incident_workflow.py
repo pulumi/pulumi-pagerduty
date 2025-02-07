@@ -22,18 +22,22 @@ __all__ = ['IncidentWorkflowArgs', 'IncidentWorkflow']
 class IncidentWorkflowArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
+                 is_enabled: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]] = None,
                  team: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IncidentWorkflow resource.
         :param pulumi.Input[str] description: The description of the workflow.
+        :param pulumi.Input[str] is_enabled: Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
         :param pulumi.Input[str] name: The name of the workflow.
         :param pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]] steps: The steps in the workflow.
         :param pulumi.Input[str] team: A team ID. If specified then workflow edit permissions will be scoped to members of this team.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if steps is not None:
@@ -52,6 +56,18 @@ class IncidentWorkflowArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "is_enabled", value)
 
     @property
     @pulumi.getter
@@ -94,18 +110,22 @@ class IncidentWorkflowArgs:
 class _IncidentWorkflowState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
+                 is_enabled: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]] = None,
                  team: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering IncidentWorkflow resources.
         :param pulumi.Input[str] description: The description of the workflow.
+        :param pulumi.Input[str] is_enabled: Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
         :param pulumi.Input[str] name: The name of the workflow.
         :param pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]] steps: The steps in the workflow.
         :param pulumi.Input[str] team: A team ID. If specified then workflow edit permissions will be scoped to members of this team.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if steps is not None:
@@ -124,6 +144,18 @@ class _IncidentWorkflowState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "is_enabled", value)
 
     @property
     @pulumi.getter
@@ -168,6 +200,7 @@ class IncidentWorkflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 is_enabled: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]]] = None,
                  team: Optional[pulumi.Input[str]] = None,
@@ -205,6 +238,7 @@ class IncidentWorkflow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the workflow.
+        :param pulumi.Input[str] is_enabled: Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
         :param pulumi.Input[str] name: The name of the workflow.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]] steps: The steps in the workflow.
         :param pulumi.Input[str] team: A team ID. If specified then workflow edit permissions will be scoped to members of this team.
@@ -261,6 +295,7 @@ class IncidentWorkflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 is_enabled: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]]] = None,
                  team: Optional[pulumi.Input[str]] = None,
@@ -274,6 +309,7 @@ class IncidentWorkflow(pulumi.CustomResource):
             __props__ = IncidentWorkflowArgs.__new__(IncidentWorkflowArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["is_enabled"] = is_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["steps"] = steps
             __props__.__dict__["team"] = team
@@ -288,6 +324,7 @@ class IncidentWorkflow(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
+            is_enabled: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]]] = None,
             team: Optional[pulumi.Input[str]] = None) -> 'IncidentWorkflow':
@@ -299,6 +336,7 @@ class IncidentWorkflow(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the workflow.
+        :param pulumi.Input[str] is_enabled: Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
         :param pulumi.Input[str] name: The name of the workflow.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]] steps: The steps in the workflow.
         :param pulumi.Input[str] team: A team ID. If specified then workflow edit permissions will be scoped to members of this team.
@@ -308,6 +346,7 @@ class IncidentWorkflow(pulumi.CustomResource):
         __props__ = _IncidentWorkflowState.__new__(_IncidentWorkflowState)
 
         __props__.__dict__["description"] = description
+        __props__.__dict__["is_enabled"] = is_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["steps"] = steps
         __props__.__dict__["team"] = team
@@ -320,6 +359,14 @@ class IncidentWorkflow(pulumi.CustomResource):
         The description of the workflow.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> pulumi.Output[str]:
+        """
+        Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
+        """
+        return pulumi.get(self, "is_enabled")
 
     @property
     @pulumi.getter

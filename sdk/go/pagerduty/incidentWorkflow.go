@@ -64,6 +64,8 @@ type IncidentWorkflow struct {
 
 	// The description of the workflow.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
+	IsEnabled pulumi.StringOutput `pulumi:"isEnabled"`
 	// The name of the workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The steps in the workflow.
@@ -104,6 +106,8 @@ func GetIncidentWorkflow(ctx *pulumi.Context,
 type incidentWorkflowState struct {
 	// The description of the workflow.
 	Description *string `pulumi:"description"`
+	// Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
+	IsEnabled *string `pulumi:"isEnabled"`
 	// The name of the workflow.
 	Name *string `pulumi:"name"`
 	// The steps in the workflow.
@@ -115,6 +119,8 @@ type incidentWorkflowState struct {
 type IncidentWorkflowState struct {
 	// The description of the workflow.
 	Description pulumi.StringPtrInput
+	// Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
+	IsEnabled pulumi.StringPtrInput
 	// The name of the workflow.
 	Name pulumi.StringPtrInput
 	// The steps in the workflow.
@@ -130,6 +136,8 @@ func (IncidentWorkflowState) ElementType() reflect.Type {
 type incidentWorkflowArgs struct {
 	// The description of the workflow.
 	Description *string `pulumi:"description"`
+	// Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
+	IsEnabled *string `pulumi:"isEnabled"`
 	// The name of the workflow.
 	Name *string `pulumi:"name"`
 	// The steps in the workflow.
@@ -142,6 +150,8 @@ type incidentWorkflowArgs struct {
 type IncidentWorkflowArgs struct {
 	// The description of the workflow.
 	Description pulumi.StringPtrInput
+	// Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
+	IsEnabled pulumi.StringPtrInput
 	// The name of the workflow.
 	Name pulumi.StringPtrInput
 	// The steps in the workflow.
@@ -240,6 +250,11 @@ func (o IncidentWorkflowOutput) ToIncidentWorkflowOutputWithContext(ctx context.
 // The description of the workflow.
 func (o IncidentWorkflowOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentWorkflow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
+func (o IncidentWorkflowOutput) IsEnabled() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentWorkflow) pulumi.StringOutput { return v.IsEnabled }).(pulumi.StringOutput)
 }
 
 // The name of the workflow.

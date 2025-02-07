@@ -5173,6 +5173,8 @@ type EventOrchestrationServiceCatchAllActions struct {
 	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 	Priority *string `pulumi:"priority"`
 	// The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
+	//
+	// Deprecated: The 'route_to' attribute is no longer supported for catch-all rules.
 	RouteTo *string `pulumi:"routeTo"`
 	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
 	Severity *string `pulumi:"severity"`
@@ -5213,6 +5215,8 @@ type EventOrchestrationServiceCatchAllActionsArgs struct {
 	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 	Priority pulumi.StringPtrInput `pulumi:"priority"`
 	// The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
+	//
+	// Deprecated: The 'route_to' attribute is no longer supported for catch-all rules.
 	RouteTo pulumi.StringPtrInput `pulumi:"routeTo"`
 	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
 	Severity pulumi.StringPtrInput `pulumi:"severity"`
@@ -5350,6 +5354,8 @@ func (o EventOrchestrationServiceCatchAllActionsOutput) Priority() pulumi.String
 }
 
 // The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
+//
+// Deprecated: The 'route_to' attribute is no longer supported for catch-all rules.
 func (o EventOrchestrationServiceCatchAllActionsOutput) RouteTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *string { return v.RouteTo }).(pulumi.StringPtrOutput)
 }
@@ -5481,6 +5487,8 @@ func (o EventOrchestrationServiceCatchAllActionsPtrOutput) Priority() pulumi.Str
 }
 
 // The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
+//
+// Deprecated: The 'route_to' attribute is no longer supported for catch-all rules.
 func (o EventOrchestrationServiceCatchAllActionsPtrOutput) RouteTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) *string {
 		if v == nil {

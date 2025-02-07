@@ -3209,6 +3209,9 @@ class EventOrchestrationServiceCatchAllActionsArgs:
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if route_to is not None:
+            warnings.warn("""The 'route_to' attribute is no longer supported for catch-all rules.""", DeprecationWarning)
+            pulumi.log.warn("""route_to is deprecated: The 'route_to' attribute is no longer supported for catch-all rules.""")
+        if route_to is not None:
             pulumi.set(__self__, "route_to", route_to)
         if severity is not None:
             pulumi.set(__self__, "severity", severity)
@@ -3317,6 +3320,7 @@ class EventOrchestrationServiceCatchAllActionsArgs:
 
     @property
     @pulumi.getter(name="routeTo")
+    @_utilities.deprecated("""The 'route_to' attribute is no longer supported for catch-all rules.""")
     def route_to(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.

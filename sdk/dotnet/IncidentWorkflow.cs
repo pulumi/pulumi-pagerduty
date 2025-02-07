@@ -65,6 +65,12 @@ namespace Pulumi.Pagerduty
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
+        /// </summary>
+        [Output("isEnabled")]
+        public Output<string> IsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the workflow.
         /// </summary>
         [Output("name")]
@@ -135,6 +141,12 @@ namespace Pulumi.Pagerduty
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
+        /// </summary>
+        [Input("isEnabled")]
+        public Input<string>? IsEnabled { get; set; }
+
+        /// <summary>
         /// The name of the workflow.
         /// </summary>
         [Input("name")]
@@ -171,6 +183,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
+        /// </summary>
+        [Input("isEnabled")]
+        public Input<string>? IsEnabled { get; set; }
 
         /// <summary>
         /// The name of the workflow.

@@ -2239,6 +2239,7 @@ class EventOrchestrationServiceCatchAllActions(dict):
 
     @property
     @pulumi.getter(name="routeTo")
+    @_utilities.deprecated("""The 'route_to' attribute is no longer supported for catch-all rules.""")
     def route_to(self) -> Optional[str]:
         """
         The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.

@@ -62,7 +62,11 @@ public final class EventOrchestrationServiceCatchAllActions {
     /**
      * @return The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
      * 
+     * @deprecated
+     * The &#39;route_to&#39; attribute is no longer supported for catch-all rules.
+     * 
      */
+    @Deprecated /* The 'route_to' attribute is no longer supported for catch-all rules. */
     private @Nullable String routeTo;
     /**
      * @return sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
@@ -145,7 +149,11 @@ public final class EventOrchestrationServiceCatchAllActions {
     /**
      * @return The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
      * 
+     * @deprecated
+     * The &#39;route_to&#39; attribute is no longer supported for catch-all rules.
+     * 
      */
+    @Deprecated /* The 'route_to' attribute is no longer supported for catch-all rules. */
     public Optional<String> routeTo() {
         return Optional.ofNullable(this.routeTo);
     }

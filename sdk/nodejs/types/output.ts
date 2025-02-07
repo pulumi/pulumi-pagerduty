@@ -622,6 +622,8 @@ export interface EventOrchestrationServiceCatchAllActions {
     priority?: string;
     /**
      * The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
+     *
+     * @deprecated The 'route_to' attribute is no longer supported for catch-all rules.
      */
     routeTo?: string;
     /**

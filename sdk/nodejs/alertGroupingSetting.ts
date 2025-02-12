@@ -35,7 +35,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const default = pagerduty.getEscalationPolicy({
+ * const _default = pagerduty.getEscalationPolicy({
  *     name: "Default",
  * });
  * const foo = new pagerduty.Service("foo", {

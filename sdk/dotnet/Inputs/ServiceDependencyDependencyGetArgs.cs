@@ -12,11 +12,11 @@ namespace Pulumi.Pagerduty.Inputs
 
     public sealed class ServiceDependencyDependencyGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("dependentServices")]
+        [Input("dependentServices", required: true)]
         private InputList<Inputs.ServiceDependencyDependencyDependentServiceGetArgs>? _dependentServices;
 
         /// <summary>
-        /// The service that dependents on the supporting service. Dependency dependent service documented below.
+        /// The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
         /// </summary>
         public InputList<Inputs.ServiceDependencyDependencyDependentServiceGetArgs> DependentServices
         {
@@ -24,11 +24,11 @@ namespace Pulumi.Pagerduty.Inputs
             set => _dependentServices = value;
         }
 
-        [Input("supportingServices")]
+        [Input("supportingServices", required: true)]
         private InputList<Inputs.ServiceDependencyDependencySupportingServiceGetArgs>? _supportingServices;
 
         /// <summary>
-        /// The service that supports the dependent service. Dependency supporting service documented below.
+        /// The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
         /// </summary>
         public InputList<Inputs.ServiceDependencyDependencySupportingServiceGetArgs> SupportingServices
         {

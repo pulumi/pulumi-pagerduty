@@ -220,7 +220,7 @@ class AlertGroupingSettingConfig(dict):
         :param str aggregate: One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
         :param Sequence[str] fields: Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
         :param int time_window: The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
-        :param int timeout: The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+        :param int timeout: The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
         """
         if aggregate is not None:
             pulumi.set(__self__, "aggregate", aggregate)
@@ -259,7 +259,7 @@ class AlertGroupingSettingConfig(dict):
     @pulumi.getter
     def timeout(self) -> Optional[int]:
         """
-        The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+        The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
         """
         return pulumi.get(self, "timeout")
 
@@ -5911,34 +5911,32 @@ class ServiceDependencyDependency(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 dependent_services: Optional[Sequence['outputs.ServiceDependencyDependencyDependentService']] = None,
-                 supporting_services: Optional[Sequence['outputs.ServiceDependencyDependencySupportingService']] = None,
+                 dependent_services: Sequence['outputs.ServiceDependencyDependencyDependentService'],
+                 supporting_services: Sequence['outputs.ServiceDependencyDependencySupportingService'],
                  type: Optional[str] = None):
         """
-        :param Sequence['ServiceDependencyDependencyDependentServiceArgs'] dependent_services: The service that dependents on the supporting service. Dependency dependent service documented below.
-        :param Sequence['ServiceDependencyDependencySupportingServiceArgs'] supporting_services: The service that supports the dependent service. Dependency supporting service documented below.
+        :param Sequence['ServiceDependencyDependencyDependentServiceArgs'] dependent_services: The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
+        :param Sequence['ServiceDependencyDependencySupportingServiceArgs'] supporting_services: The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
         :param str type: Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
         """
-        if dependent_services is not None:
-            pulumi.set(__self__, "dependent_services", dependent_services)
-        if supporting_services is not None:
-            pulumi.set(__self__, "supporting_services", supporting_services)
+        pulumi.set(__self__, "dependent_services", dependent_services)
+        pulumi.set(__self__, "supporting_services", supporting_services)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="dependentServices")
-    def dependent_services(self) -> Optional[Sequence['outputs.ServiceDependencyDependencyDependentService']]:
+    def dependent_services(self) -> Sequence['outputs.ServiceDependencyDependencyDependentService']:
         """
-        The service that dependents on the supporting service. Dependency dependent service documented below.
+        The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
         """
         return pulumi.get(self, "dependent_services")
 
     @property
     @pulumi.getter(name="supportingServices")
-    def supporting_services(self) -> Optional[Sequence['outputs.ServiceDependencyDependencySupportingService']]:
+    def supporting_services(self) -> Sequence['outputs.ServiceDependencyDependencySupportingService']:
         """
-        The service that supports the dependent service. Dependency supporting service documented below.
+        The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
         """
         return pulumi.get(self, "supporting_services")
 

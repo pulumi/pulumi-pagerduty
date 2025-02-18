@@ -204,7 +204,7 @@ class AlertGroupingSetting(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        An [alert grouping setting](https://developer.pagerduty.com/api-reference/create-an-alert-grouping-setting)
+        An [alert grouping setting](https://developer.pagerduty.com/api-reference/587edbc8ff416-create-an-alert-grouping-setting)
         stores and centralize the configuration used during grouping of the alerts.
 
         ## Migration from `alert_grouping_parameters`
@@ -268,7 +268,7 @@ class AlertGroupingSetting(pulumi.CustomResource):
                  args: AlertGroupingSettingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An [alert grouping setting](https://developer.pagerduty.com/api-reference/create-an-alert-grouping-setting)
+        An [alert grouping setting](https://developer.pagerduty.com/api-reference/587edbc8ff416-create-an-alert-grouping-setting)
         stores and centralize the configuration used during grouping of the alerts.
 
         ## Migration from `alert_grouping_parameters`

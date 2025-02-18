@@ -339,7 +339,7 @@ if not MYPY:
         """
         timeout: NotRequired[pulumi.Input[int]]
         """
-        The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+        The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
         """
 elif False:
     AlertGroupingSettingConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -355,7 +355,7 @@ class AlertGroupingSettingConfigArgs:
         :param pulumi.Input[str] aggregate: One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fields: Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
         :param pulumi.Input[int] time_window: The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
-        :param pulumi.Input[int] timeout: The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+        :param pulumi.Input[int] timeout: The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
         """
         if aggregate is not None:
             pulumi.set(__self__, "aggregate", aggregate)
@@ -406,7 +406,7 @@ class AlertGroupingSettingConfigArgs:
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+        The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
         """
         return pulumi.get(self, "timeout")
 
@@ -8785,13 +8785,13 @@ class ServiceAutoPauseNotificationsParametersArgs:
 
 if not MYPY:
     class ServiceDependencyDependencyArgsDict(TypedDict):
-        dependent_services: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgsDict']]]]
+        dependent_services: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgsDict']]]
         """
-        The service that dependents on the supporting service. Dependency dependent service documented below.
+        The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
         """
-        supporting_services: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgsDict']]]]
+        supporting_services: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgsDict']]]
         """
-        The service that supports the dependent service. Dependency supporting service documented below.
+        The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
         """
         type: NotRequired[pulumi.Input[str]]
         """
@@ -8803,43 +8803,41 @@ elif False:
 @pulumi.input_type
 class ServiceDependencyDependencyArgs:
     def __init__(__self__, *,
-                 dependent_services: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]]] = None,
-                 supporting_services: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]]] = None,
+                 dependent_services: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]],
+                 supporting_services: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]],
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]] dependent_services: The service that dependents on the supporting service. Dependency dependent service documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]] supporting_services: The service that supports the dependent service. Dependency supporting service documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]] dependent_services: The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]] supporting_services: The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
         :param pulumi.Input[str] type: Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
         """
-        if dependent_services is not None:
-            pulumi.set(__self__, "dependent_services", dependent_services)
-        if supporting_services is not None:
-            pulumi.set(__self__, "supporting_services", supporting_services)
+        pulumi.set(__self__, "dependent_services", dependent_services)
+        pulumi.set(__self__, "supporting_services", supporting_services)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="dependentServices")
-    def dependent_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]]]:
+    def dependent_services(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]]:
         """
-        The service that dependents on the supporting service. Dependency dependent service documented below.
+        The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
         """
         return pulumi.get(self, "dependent_services")
 
     @dependent_services.setter
-    def dependent_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]]]):
+    def dependent_services(self, value: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]]):
         pulumi.set(self, "dependent_services", value)
 
     @property
     @pulumi.getter(name="supportingServices")
-    def supporting_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]]]:
+    def supporting_services(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]]:
         """
-        The service that supports the dependent service. Dependency supporting service documented below.
+        The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
         """
         return pulumi.get(self, "supporting_services")
 
     @supporting_services.setter
-    def supporting_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]]]):
+    def supporting_services(self, value: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]]):
         pulumi.set(self, "supporting_services", value)
 
     @property

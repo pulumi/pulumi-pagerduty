@@ -74,6 +74,10 @@ import (
 //
 // ```
 //
+// ## Known issues
+//
+// Block `escalationRuleAssignmentStrategy` inside `rule` cannot be set explicitly when a PagerDuty account doesn't have access to the "Teams" feature, it will cause an error `POST API call to https://api.pagerduty.com/escalation_policies failed: 403 Forbidden`, please delete this block.
+//
 // ## Import
 //
 // Escalation policies can be imported using the `id`, e.g.

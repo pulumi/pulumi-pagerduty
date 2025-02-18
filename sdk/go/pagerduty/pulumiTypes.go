@@ -20,7 +20,7 @@ type AlertGroupingSettingConfig struct {
 	Fields []string `pulumi:"fields"`
 	// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
 	TimeWindow *int `pulumi:"timeWindow"`
-	// The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+	// The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
 	Timeout *int `pulumi:"timeout"`
 }
 
@@ -42,7 +42,7 @@ type AlertGroupingSettingConfigArgs struct {
 	Fields pulumi.StringArrayInput `pulumi:"fields"`
 	// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
 	TimeWindow pulumi.IntPtrInput `pulumi:"timeWindow"`
-	// The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+	// The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
 
@@ -138,7 +138,7 @@ func (o AlertGroupingSettingConfigOutput) TimeWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AlertGroupingSettingConfig) *int { return v.TimeWindow }).(pulumi.IntPtrOutput)
 }
 
-// The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+// The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
 func (o AlertGroupingSettingConfigOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AlertGroupingSettingConfig) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -197,7 +197,7 @@ func (o AlertGroupingSettingConfigPtrOutput) TimeWindow() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+// The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
 func (o AlertGroupingSettingConfigPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AlertGroupingSettingConfig) *int {
 		if v == nil {
@@ -15554,9 +15554,9 @@ func (o ServiceAutoPauseNotificationsParametersPtrOutput) Timeout() pulumi.IntPt
 }
 
 type ServiceDependencyDependency struct {
-	// The service that dependents on the supporting service. Dependency dependent service documented below.
+	// The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependentService` dependency block must be defined.
 	DependentServices []ServiceDependencyDependencyDependentService `pulumi:"dependentServices"`
-	// The service that supports the dependent service. Dependency supporting service documented below.
+	// The service that supports the dependent service. Dependency supporting service documented below. One and only one `supportingService` dependency block must be defined.
 	SupportingServices []ServiceDependencyDependencySupportingService `pulumi:"supportingServices"`
 	// Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
 	Type *string `pulumi:"type"`
@@ -15574,9 +15574,9 @@ type ServiceDependencyDependencyInput interface {
 }
 
 type ServiceDependencyDependencyArgs struct {
-	// The service that dependents on the supporting service. Dependency dependent service documented below.
+	// The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependentService` dependency block must be defined.
 	DependentServices ServiceDependencyDependencyDependentServiceArrayInput `pulumi:"dependentServices"`
-	// The service that supports the dependent service. Dependency supporting service documented below.
+	// The service that supports the dependent service. Dependency supporting service documented below. One and only one `supportingService` dependency block must be defined.
 	SupportingServices ServiceDependencyDependencySupportingServiceArrayInput `pulumi:"supportingServices"`
 	// Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -15659,14 +15659,14 @@ func (o ServiceDependencyDependencyOutput) ToServiceDependencyDependencyPtrOutpu
 	}).(ServiceDependencyDependencyPtrOutput)
 }
 
-// The service that dependents on the supporting service. Dependency dependent service documented below.
+// The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependentService` dependency block must be defined.
 func (o ServiceDependencyDependencyOutput) DependentServices() ServiceDependencyDependencyDependentServiceArrayOutput {
 	return o.ApplyT(func(v ServiceDependencyDependency) []ServiceDependencyDependencyDependentService {
 		return v.DependentServices
 	}).(ServiceDependencyDependencyDependentServiceArrayOutput)
 }
 
-// The service that supports the dependent service. Dependency supporting service documented below.
+// The service that supports the dependent service. Dependency supporting service documented below. One and only one `supportingService` dependency block must be defined.
 func (o ServiceDependencyDependencyOutput) SupportingServices() ServiceDependencyDependencySupportingServiceArrayOutput {
 	return o.ApplyT(func(v ServiceDependencyDependency) []ServiceDependencyDependencySupportingService {
 		return v.SupportingServices
@@ -15702,7 +15702,7 @@ func (o ServiceDependencyDependencyPtrOutput) Elem() ServiceDependencyDependency
 	}).(ServiceDependencyDependencyOutput)
 }
 
-// The service that dependents on the supporting service. Dependency dependent service documented below.
+// The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependentService` dependency block must be defined.
 func (o ServiceDependencyDependencyPtrOutput) DependentServices() ServiceDependencyDependencyDependentServiceArrayOutput {
 	return o.ApplyT(func(v *ServiceDependencyDependency) []ServiceDependencyDependencyDependentService {
 		if v == nil {
@@ -15712,7 +15712,7 @@ func (o ServiceDependencyDependencyPtrOutput) DependentServices() ServiceDepende
 	}).(ServiceDependencyDependencyDependentServiceArrayOutput)
 }
 
-// The service that supports the dependent service. Dependency supporting service documented below.
+// The service that supports the dependent service. Dependency supporting service documented below. One and only one `supportingService` dependency block must be defined.
 func (o ServiceDependencyDependencyPtrOutput) SupportingServices() ServiceDependencyDependencySupportingServiceArrayOutput {
 	return o.ApplyT(func(v *ServiceDependencyDependency) []ServiceDependencyDependencySupportingService {
 		if v == nil {

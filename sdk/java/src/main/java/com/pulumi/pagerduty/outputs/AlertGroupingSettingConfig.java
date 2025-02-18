@@ -29,7 +29,7 @@ public final class AlertGroupingSettingConfig {
      */
     private @Nullable Integer timeWindow;
     /**
-     * @return The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+     * @return The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
      * 
      */
     private @Nullable Integer timeout;
@@ -57,7 +57,7 @@ public final class AlertGroupingSettingConfig {
         return Optional.ofNullable(this.timeWindow);
     }
     /**
-     * @return The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+     * @return The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
      * 
      */
     public Optional<Integer> timeout() {

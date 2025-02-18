@@ -5,9 +5,10 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.ServiceDependencyDependencyArgs;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ServiceDependencyArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,15 +19,15 @@ public final class ServiceDependencyArgs extends com.pulumi.resources.ResourceAr
      * The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
      * 
      */
-    @Import(name="dependency", required=true)
-    private Output<ServiceDependencyDependencyArgs> dependency;
+    @Import(name="dependency")
+    private @Nullable Output<ServiceDependencyDependencyArgs> dependency;
 
     /**
      * @return The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
      * 
      */
-    public Output<ServiceDependencyDependencyArgs> dependency() {
-        return this.dependency;
+    public Optional<Output<ServiceDependencyDependencyArgs>> dependency() {
+        return Optional.ofNullable(this.dependency);
     }
 
     private ServiceDependencyArgs() {}
@@ -59,7 +60,7 @@ public final class ServiceDependencyArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder dependency(Output<ServiceDependencyDependencyArgs> dependency) {
+        public Builder dependency(@Nullable Output<ServiceDependencyDependencyArgs> dependency) {
             $.dependency = dependency;
             return this;
         }
@@ -75,9 +76,6 @@ public final class ServiceDependencyArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ServiceDependencyArgs build() {
-            if ($.dependency == null) {
-                throw new MissingRequiredPropertyException("ServiceDependencyArgs", "dependency");
-            }
             return $;
         }
     }

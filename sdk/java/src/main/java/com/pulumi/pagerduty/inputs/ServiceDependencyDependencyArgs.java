@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.ServiceDependencyDependencyDependentServiceArgs;
 import com.pulumi.pagerduty.inputs.ServiceDependencyDependencySupportingServiceArgs;
 import java.lang.String;
@@ -19,33 +20,33 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
     public static final ServiceDependencyDependencyArgs Empty = new ServiceDependencyDependencyArgs();
 
     /**
-     * The service that dependents on the supporting service. Dependency dependent service documented below.
+     * The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
      * 
      */
-    @Import(name="dependentServices")
-    private @Nullable Output<List<ServiceDependencyDependencyDependentServiceArgs>> dependentServices;
+    @Import(name="dependentServices", required=true)
+    private Output<List<ServiceDependencyDependencyDependentServiceArgs>> dependentServices;
 
     /**
-     * @return The service that dependents on the supporting service. Dependency dependent service documented below.
+     * @return The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
      * 
      */
-    public Optional<Output<List<ServiceDependencyDependencyDependentServiceArgs>>> dependentServices() {
-        return Optional.ofNullable(this.dependentServices);
+    public Output<List<ServiceDependencyDependencyDependentServiceArgs>> dependentServices() {
+        return this.dependentServices;
     }
 
     /**
-     * The service that supports the dependent service. Dependency supporting service documented below.
+     * The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
      * 
      */
-    @Import(name="supportingServices")
-    private @Nullable Output<List<ServiceDependencyDependencySupportingServiceArgs>> supportingServices;
+    @Import(name="supportingServices", required=true)
+    private Output<List<ServiceDependencyDependencySupportingServiceArgs>> supportingServices;
 
     /**
-     * @return The service that supports the dependent service. Dependency supporting service documented below.
+     * @return The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
      * 
      */
-    public Optional<Output<List<ServiceDependencyDependencySupportingServiceArgs>>> supportingServices() {
-        return Optional.ofNullable(this.supportingServices);
+    public Output<List<ServiceDependencyDependencySupportingServiceArgs>> supportingServices() {
+        return this.supportingServices;
     }
 
     /**
@@ -90,18 +91,18 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param dependentServices The service that dependents on the supporting service. Dependency dependent service documented below.
+         * @param dependentServices The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
          * 
          * @return builder
          * 
          */
-        public Builder dependentServices(@Nullable Output<List<ServiceDependencyDependencyDependentServiceArgs>> dependentServices) {
+        public Builder dependentServices(Output<List<ServiceDependencyDependencyDependentServiceArgs>> dependentServices) {
             $.dependentServices = dependentServices;
             return this;
         }
 
         /**
-         * @param dependentServices The service that dependents on the supporting service. Dependency dependent service documented below.
+         * @param dependentServices The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
          * 
          * @return builder
          * 
@@ -111,7 +112,7 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param dependentServices The service that dependents on the supporting service. Dependency dependent service documented below.
+         * @param dependentServices The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
          * 
          * @return builder
          * 
@@ -121,18 +122,18 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param supportingServices The service that supports the dependent service. Dependency supporting service documented below.
+         * @param supportingServices The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
          * 
          * @return builder
          * 
          */
-        public Builder supportingServices(@Nullable Output<List<ServiceDependencyDependencySupportingServiceArgs>> supportingServices) {
+        public Builder supportingServices(Output<List<ServiceDependencyDependencySupportingServiceArgs>> supportingServices) {
             $.supportingServices = supportingServices;
             return this;
         }
 
         /**
-         * @param supportingServices The service that supports the dependent service. Dependency supporting service documented below.
+         * @param supportingServices The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
          * 
          * @return builder
          * 
@@ -142,7 +143,7 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param supportingServices The service that supports the dependent service. Dependency supporting service documented below.
+         * @param supportingServices The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
          * 
          * @return builder
          * 
@@ -173,6 +174,12 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
         }
 
         public ServiceDependencyDependencyArgs build() {
+            if ($.dependentServices == null) {
+                throw new MissingRequiredPropertyException("ServiceDependencyDependencyArgs", "dependentServices");
+            }
+            if ($.supportingServices == null) {
+                throw new MissingRequiredPropertyException("ServiceDependencyDependencyArgs", "supportingServices");
+            }
             return $;
         }
     }

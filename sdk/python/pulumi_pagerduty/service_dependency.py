@@ -21,23 +21,24 @@ __all__ = ['ServiceDependencyArgs', 'ServiceDependency']
 @pulumi.input_type
 class ServiceDependencyArgs:
     def __init__(__self__, *,
-                 dependency: pulumi.Input['ServiceDependencyDependencyArgs']):
+                 dependency: Optional[pulumi.Input['ServiceDependencyDependencyArgs']] = None):
         """
         The set of arguments for constructing a ServiceDependency resource.
         :param pulumi.Input['ServiceDependencyDependencyArgs'] dependency: The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
-        pulumi.set(__self__, "dependency", dependency)
+        if dependency is not None:
+            pulumi.set(__self__, "dependency", dependency)
 
     @property
     @pulumi.getter
-    def dependency(self) -> pulumi.Input['ServiceDependencyDependencyArgs']:
+    def dependency(self) -> Optional[pulumi.Input['ServiceDependencyDependencyArgs']]:
         """
         The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
         return pulumi.get(self, "dependency")
 
     @dependency.setter
-    def dependency(self, value: pulumi.Input['ServiceDependencyDependencyArgs']):
+    def dependency(self, value: Optional[pulumi.Input['ServiceDependencyDependencyArgs']]):
         pulumi.set(self, "dependency", value)
 
 
@@ -75,34 +76,6 @@ class ServiceDependency(pulumi.CustomResource):
         """
         A [service dependency](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Mg-associate-service-dependencies) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        foo = pagerduty.ServiceDependency("foo", dependency={
-            "dependent_services": [{
-                "id": foo_pagerduty_business_service["id"],
-                "type": foo_pagerduty_business_service["type"],
-            }],
-            "supporting_services": [{
-                "id": foo_pagerduty_service["id"],
-                "type": foo_pagerduty_service["type"],
-            }],
-        })
-        bar = pagerduty.ServiceDependency("bar", dependency={
-            "dependent_services": [{
-                "id": foo_pagerduty_business_service["id"],
-                "type": foo_pagerduty_business_service["type"],
-            }],
-            "supporting_services": [{
-                "id": two["id"],
-                "type": two["type"],
-            }],
-        })
-        ```
-
         ## Import
 
         Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.
@@ -119,38 +92,10 @@ class ServiceDependency(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceDependencyArgs,
+                 args: Optional[ServiceDependencyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [service dependency](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Mg-associate-service-dependencies) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        foo = pagerduty.ServiceDependency("foo", dependency={
-            "dependent_services": [{
-                "id": foo_pagerduty_business_service["id"],
-                "type": foo_pagerduty_business_service["type"],
-            }],
-            "supporting_services": [{
-                "id": foo_pagerduty_service["id"],
-                "type": foo_pagerduty_service["type"],
-            }],
-        })
-        bar = pagerduty.ServiceDependency("bar", dependency={
-            "dependent_services": [{
-                "id": foo_pagerduty_business_service["id"],
-                "type": foo_pagerduty_business_service["type"],
-            }],
-            "supporting_services": [{
-                "id": two["id"],
-                "type": two["type"],
-            }],
-        })
-        ```
 
         ## Import
 
@@ -185,8 +130,6 @@ class ServiceDependency(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceDependencyArgs.__new__(ServiceDependencyArgs)
 
-            if dependency is None and not opts.urn:
-                raise TypeError("Missing required property 'dependency'")
             __props__.__dict__["dependency"] = dependency
         super(ServiceDependency, __self__).__init__(
             'pagerduty:index/serviceDependency:ServiceDependency',
@@ -217,7 +160,7 @@ class ServiceDependency(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def dependency(self) -> pulumi.Output['outputs.ServiceDependencyDependency']:
+    def dependency(self) -> pulumi.Output[Optional['outputs.ServiceDependencyDependency']]:
         """
         The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """

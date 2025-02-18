@@ -37,7 +37,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<int>? TimeWindow { get; set; }
 
         /// <summary>
-        /// The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+        /// The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }

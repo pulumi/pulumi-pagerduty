@@ -9,34 +9,6 @@ import * as utilities from "./utilities";
 /**
  * A [service dependency](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Mg-associate-service-dependencies) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const foo = new pagerduty.ServiceDependency("foo", {dependency: {
- *     dependentServices: [{
- *         id: fooPagerdutyBusinessService.id,
- *         type: fooPagerdutyBusinessService.type,
- *     }],
- *     supportingServices: [{
- *         id: fooPagerdutyService.id,
- *         type: fooPagerdutyService.type,
- *     }],
- * }});
- * const bar = new pagerduty.ServiceDependency("bar", {dependency: {
- *     dependentServices: [{
- *         id: fooPagerdutyBusinessService.id,
- *         type: fooPagerdutyBusinessService.type,
- *     }],
- *     supportingServices: [{
- *         id: two.id,
- *         type: two.type,
- *     }],
- * }});
- * ```
- *
  * ## Import
  *
  * Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.
@@ -76,7 +48,7 @@ export class ServiceDependency extends pulumi.CustomResource {
     /**
      * The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
      */
-    public readonly dependency!: pulumi.Output<outputs.ServiceDependencyDependency>;
+    public readonly dependency!: pulumi.Output<outputs.ServiceDependencyDependency | undefined>;
 
     /**
      * Create a ServiceDependency resource with the given unique name, arguments, and options.
@@ -85,7 +57,7 @@ export class ServiceDependency extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServiceDependencyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ServiceDependencyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceDependencyArgs | ServiceDependencyState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -94,9 +66,6 @@ export class ServiceDependency extends pulumi.CustomResource {
             resourceInputs["dependency"] = state ? state.dependency : undefined;
         } else {
             const args = argsOrState as ServiceDependencyArgs | undefined;
-            if ((!args || args.dependency === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dependency'");
-            }
             resourceInputs["dependency"] = args ? args.dependency : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -121,5 +90,5 @@ export interface ServiceDependencyArgs {
     /**
      * The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
      */
-    dependency: pulumi.Input<inputs.ServiceDependencyDependency>;
+    dependency?: pulumi.Input<inputs.ServiceDependencyDependency>;
 }

@@ -19,7 +19,7 @@ export interface AlertGroupingSettingConfig {
      */
     timeWindow?: pulumi.Input<number>;
     /**
-     * The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+     * The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
      */
     timeout?: pulumi.Input<number>;
 }
@@ -1851,13 +1851,13 @@ export interface ServiceAutoPauseNotificationsParameters {
 
 export interface ServiceDependencyDependency {
     /**
-     * The service that dependents on the supporting service. Dependency dependent service documented below.
+     * The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependentService` dependency block must be defined.
      */
-    dependentServices?: pulumi.Input<pulumi.Input<inputs.ServiceDependencyDependencyDependentService>[]>;
+    dependentServices: pulumi.Input<pulumi.Input<inputs.ServiceDependencyDependencyDependentService>[]>;
     /**
-     * The service that supports the dependent service. Dependency supporting service documented below.
+     * The service that supports the dependent service. Dependency supporting service documented below. One and only one `supportingService` dependency block must be defined.
      */
-    supportingServices?: pulumi.Input<pulumi.Input<inputs.ServiceDependencyDependencySupportingService>[]>;
+    supportingServices: pulumi.Input<pulumi.Input<inputs.ServiceDependencyDependencySupportingService>[]>;
     /**
      * Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
      */

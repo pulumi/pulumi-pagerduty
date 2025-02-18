@@ -12,65 +12,6 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [service dependency](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Mg-associate-service-dependencies) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Pagerduty = Pulumi.Pagerduty;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Pagerduty.ServiceDependency("foo", new()
-    ///     {
-    ///         Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs
-    ///         {
-    ///             DependentServices = new[]
-    ///             {
-    ///                 new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
-    ///                 {
-    ///                     Id = fooPagerdutyBusinessService.Id,
-    ///                     Type = fooPagerdutyBusinessService.Type,
-    ///                 },
-    ///             },
-    ///             SupportingServices = new[]
-    ///             {
-    ///                 new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
-    ///                 {
-    ///                     Id = fooPagerdutyService.Id,
-    ///                     Type = fooPagerdutyService.Type,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var bar = new Pagerduty.ServiceDependency("bar", new()
-    ///     {
-    ///         Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs
-    ///         {
-    ///             DependentServices = new[]
-    ///             {
-    ///                 new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
-    ///                 {
-    ///                     Id = fooPagerdutyBusinessService.Id,
-    ///                     Type = fooPagerdutyBusinessService.Type,
-    ///                 },
-    ///             },
-    ///             SupportingServices = new[]
-    ///             {
-    ///                 new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
-    ///                 {
-    ///                     Id = two.Id,
-    ///                     Type = two.Type,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.
@@ -86,7 +27,7 @@ namespace Pulumi.Pagerduty
         /// The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         /// </summary>
         [Output("dependency")]
-        public Output<Outputs.ServiceDependencyDependency> Dependency { get; private set; } = null!;
+        public Output<Outputs.ServiceDependencyDependency?> Dependency { get; private set; } = null!;
 
 
         /// <summary>
@@ -96,7 +37,7 @@ namespace Pulumi.Pagerduty
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ServiceDependency(string name, ServiceDependencyArgs args, CustomResourceOptions? options = null)
+        public ServiceDependency(string name, ServiceDependencyArgs? args = null, CustomResourceOptions? options = null)
             : base("pagerduty:index/serviceDependency:ServiceDependency", name, args ?? new ServiceDependencyArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -137,8 +78,8 @@ namespace Pulumi.Pagerduty
         /// <summary>
         /// The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         /// </summary>
-        [Input("dependency", required: true)]
-        public Input<Inputs.ServiceDependencyDependencyArgs> Dependency { get; set; } = null!;
+        [Input("dependency")]
+        public Input<Inputs.ServiceDependencyDependencyArgs>? Dependency { get; set; }
 
         public ServiceDependencyArgs()
         {

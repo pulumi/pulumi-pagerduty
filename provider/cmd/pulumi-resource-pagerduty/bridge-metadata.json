@@ -1239,7 +1239,17 @@
             }
         }
     },
-    "auto-settings": {},
+    "auto-settings": {
+        "resources": {
+            "pagerduty_service_dependency": {
+                "maxItemsOneOverrides": {
+                    "dependency": true,
+                    "dependency.$.dependent_service": false,
+                    "dependency.$.supporting_service": false
+                }
+            }
+        }
+    },
     "mux": {
         "resources": {
             "pagerduty:index/addon:Addon": 1,

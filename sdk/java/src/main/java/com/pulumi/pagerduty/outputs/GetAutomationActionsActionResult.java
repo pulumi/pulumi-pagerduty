@@ -29,6 +29,16 @@ public final class GetAutomationActionsActionResult {
      */
     private String actionType;
     /**
+     * @return (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+     * 
+     */
+    private Boolean allowInvocationFromEventOrchestration;
+    /**
+     * @return (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+     * 
+     */
+    private Boolean allowInvocationManually;
+    /**
      * @return The time action was created. Represented as an ISO 8601 timestamp.
      * 
      */
@@ -43,6 +53,11 @@ public final class GetAutomationActionsActionResult {
      * 
      */
     private String id;
+    /**
+     * @return (Optional) If the action should be able to be run against all services or just specified ones.
+     * 
+     */
+    private Boolean mapToAllServices;
     /**
      * @return (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      * 
@@ -97,6 +112,20 @@ public final class GetAutomationActionsActionResult {
         return this.actionType;
     }
     /**
+     * @return (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+     * 
+     */
+    public Boolean allowInvocationFromEventOrchestration() {
+        return this.allowInvocationFromEventOrchestration;
+    }
+    /**
+     * @return (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+     * 
+     */
+    public Boolean allowInvocationManually() {
+        return this.allowInvocationManually;
+    }
+    /**
      * @return The time action was created. Represented as an ISO 8601 timestamp.
      * 
      */
@@ -116,6 +145,13 @@ public final class GetAutomationActionsActionResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return (Optional) If the action should be able to be run against all services or just specified ones.
+     * 
+     */
+    public Boolean mapToAllServices() {
+        return this.mapToAllServices;
     }
     /**
      * @return (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
@@ -172,9 +208,12 @@ public final class GetAutomationActionsActionResult {
         private String actionClassification;
         private List<GetAutomationActionsActionActionDataReference> actionDataReferences;
         private String actionType;
+        private Boolean allowInvocationFromEventOrchestration;
+        private Boolean allowInvocationManually;
         private String creationTime;
         private String description;
         private String id;
+        private Boolean mapToAllServices;
         private String modifyTime;
         private String name;
         private Boolean onlyInvocableOnUnresolvedIncidents;
@@ -187,9 +226,12 @@ public final class GetAutomationActionsActionResult {
     	      this.actionClassification = defaults.actionClassification;
     	      this.actionDataReferences = defaults.actionDataReferences;
     	      this.actionType = defaults.actionType;
+    	      this.allowInvocationFromEventOrchestration = defaults.allowInvocationFromEventOrchestration;
+    	      this.allowInvocationManually = defaults.allowInvocationManually;
     	      this.creationTime = defaults.creationTime;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
+    	      this.mapToAllServices = defaults.mapToAllServices;
     	      this.modifyTime = defaults.modifyTime;
     	      this.name = defaults.name;
     	      this.onlyInvocableOnUnresolvedIncidents = defaults.onlyInvocableOnUnresolvedIncidents;
@@ -226,6 +268,22 @@ public final class GetAutomationActionsActionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder allowInvocationFromEventOrchestration(Boolean allowInvocationFromEventOrchestration) {
+            if (allowInvocationFromEventOrchestration == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsActionResult", "allowInvocationFromEventOrchestration");
+            }
+            this.allowInvocationFromEventOrchestration = allowInvocationFromEventOrchestration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder allowInvocationManually(Boolean allowInvocationManually) {
+            if (allowInvocationManually == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsActionResult", "allowInvocationManually");
+            }
+            this.allowInvocationManually = allowInvocationManually;
+            return this;
+        }
+        @CustomType.Setter
         public Builder creationTime(String creationTime) {
             if (creationTime == null) {
               throw new MissingRequiredPropertyException("GetAutomationActionsActionResult", "creationTime");
@@ -247,6 +305,14 @@ public final class GetAutomationActionsActionResult {
               throw new MissingRequiredPropertyException("GetAutomationActionsActionResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder mapToAllServices(Boolean mapToAllServices) {
+            if (mapToAllServices == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsActionResult", "mapToAllServices");
+            }
+            this.mapToAllServices = mapToAllServices;
             return this;
         }
         @CustomType.Setter
@@ -302,9 +368,12 @@ public final class GetAutomationActionsActionResult {
             _resultValue.actionClassification = actionClassification;
             _resultValue.actionDataReferences = actionDataReferences;
             _resultValue.actionType = actionType;
+            _resultValue.allowInvocationFromEventOrchestration = allowInvocationFromEventOrchestration;
+            _resultValue.allowInvocationManually = allowInvocationManually;
             _resultValue.creationTime = creationTime;
             _resultValue.description = description;
             _resultValue.id = id;
+            _resultValue.mapToAllServices = mapToAllServices;
             _resultValue.modifyTime = modifyTime;
             _resultValue.name = name;
             _resultValue.onlyInvocableOnUnresolvedIncidents = onlyInvocableOnUnresolvedIncidents;

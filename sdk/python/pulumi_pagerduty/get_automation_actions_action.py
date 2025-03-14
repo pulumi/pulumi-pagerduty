@@ -27,7 +27,7 @@ class GetAutomationActionsActionResult:
     """
     A collection of values returned by getAutomationActionsAction.
     """
-    def __init__(__self__, action_classification=None, action_data_references=None, action_type=None, creation_time=None, description=None, id=None, modify_time=None, name=None, only_invocable_on_unresolved_incidents=None, runner_id=None, runner_type=None, type=None):
+    def __init__(__self__, action_classification=None, action_data_references=None, action_type=None, allow_invocation_from_event_orchestration=None, allow_invocation_manually=None, creation_time=None, description=None, id=None, map_to_all_services=None, modify_time=None, name=None, only_invocable_on_unresolved_incidents=None, runner_id=None, runner_type=None, type=None):
         if action_classification and not isinstance(action_classification, str):
             raise TypeError("Expected argument 'action_classification' to be a str")
         pulumi.set(__self__, "action_classification", action_classification)
@@ -37,6 +37,12 @@ class GetAutomationActionsActionResult:
         if action_type and not isinstance(action_type, str):
             raise TypeError("Expected argument 'action_type' to be a str")
         pulumi.set(__self__, "action_type", action_type)
+        if allow_invocation_from_event_orchestration and not isinstance(allow_invocation_from_event_orchestration, bool):
+            raise TypeError("Expected argument 'allow_invocation_from_event_orchestration' to be a bool")
+        pulumi.set(__self__, "allow_invocation_from_event_orchestration", allow_invocation_from_event_orchestration)
+        if allow_invocation_manually and not isinstance(allow_invocation_manually, bool):
+            raise TypeError("Expected argument 'allow_invocation_manually' to be a bool")
+        pulumi.set(__self__, "allow_invocation_manually", allow_invocation_manually)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -46,6 +52,9 @@ class GetAutomationActionsActionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if map_to_all_services and not isinstance(map_to_all_services, bool):
+            raise TypeError("Expected argument 'map_to_all_services' to be a bool")
+        pulumi.set(__self__, "map_to_all_services", map_to_all_services)
         if modify_time and not isinstance(modify_time, str):
             raise TypeError("Expected argument 'modify_time' to be a str")
         pulumi.set(__self__, "modify_time", modify_time)
@@ -90,6 +99,22 @@ class GetAutomationActionsActionResult:
         return pulumi.get(self, "action_type")
 
     @property
+    @pulumi.getter(name="allowInvocationFromEventOrchestration")
+    def allow_invocation_from_event_orchestration(self) -> bool:
+        """
+        (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+        """
+        return pulumi.get(self, "allow_invocation_from_event_orchestration")
+
+    @property
+    @pulumi.getter(name="allowInvocationManually")
+    def allow_invocation_manually(self) -> bool:
+        """
+        (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+        """
+        return pulumi.get(self, "allow_invocation_manually")
+
+    @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> str:
         """
@@ -112,6 +137,14 @@ class GetAutomationActionsActionResult:
         The ID of the action.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="mapToAllServices")
+    def map_to_all_services(self) -> bool:
+        """
+        (Optional) If the action should be able to be run against all services or just specified ones.
+        """
+        return pulumi.get(self, "map_to_all_services")
 
     @property
     @pulumi.getter(name="modifyTime")
@@ -171,9 +204,12 @@ class AwaitableGetAutomationActionsActionResult(GetAutomationActionsActionResult
             action_classification=self.action_classification,
             action_data_references=self.action_data_references,
             action_type=self.action_type,
+            allow_invocation_from_event_orchestration=self.allow_invocation_from_event_orchestration,
+            allow_invocation_manually=self.allow_invocation_manually,
             creation_time=self.creation_time,
             description=self.description,
             id=self.id,
+            map_to_all_services=self.map_to_all_services,
             modify_time=self.modify_time,
             name=self.name,
             only_invocable_on_unresolved_incidents=self.only_invocable_on_unresolved_incidents,
@@ -183,9 +219,12 @@ class AwaitableGetAutomationActionsActionResult(GetAutomationActionsActionResult
 
 
 def get_automation_actions_action(action_classification: Optional[str] = None,
+                                  allow_invocation_from_event_orchestration: Optional[bool] = None,
+                                  allow_invocation_manually: Optional[bool] = None,
                                   creation_time: Optional[str] = None,
                                   description: Optional[str] = None,
                                   id: Optional[str] = None,
+                                  map_to_all_services: Optional[bool] = None,
                                   modify_time: Optional[str] = None,
                                   only_invocable_on_unresolved_incidents: Optional[bool] = None,
                                   runner_id: Optional[str] = None,
@@ -206,9 +245,12 @@ def get_automation_actions_action(action_classification: Optional[str] = None,
 
 
     :param str action_classification: (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+    :param bool allow_invocation_from_event_orchestration: (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+    :param bool allow_invocation_manually: (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
     :param str creation_time: The time action was created. Represented as an ISO 8601 timestamp.
     :param str description: (Optional) The description of the action.
     :param str id: The id of the automation actions action in the PagerDuty API.
+    :param bool map_to_all_services: (Optional) If the action should be able to be run against all services or just specified ones.
     :param str modify_time: (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
     :param bool only_invocable_on_unresolved_incidents: (Optional) Whether or not the action can be invoked on unresolved incidents.
     :param str runner_id: (Optional) The Process Automation Actions runner to associate the action with.
@@ -217,9 +259,12 @@ def get_automation_actions_action(action_classification: Optional[str] = None,
     """
     __args__ = dict()
     __args__['actionClassification'] = action_classification
+    __args__['allowInvocationFromEventOrchestration'] = allow_invocation_from_event_orchestration
+    __args__['allowInvocationManually'] = allow_invocation_manually
     __args__['creationTime'] = creation_time
     __args__['description'] = description
     __args__['id'] = id
+    __args__['mapToAllServices'] = map_to_all_services
     __args__['modifyTime'] = modify_time
     __args__['onlyInvocableOnUnresolvedIncidents'] = only_invocable_on_unresolved_incidents
     __args__['runnerId'] = runner_id
@@ -232,9 +277,12 @@ def get_automation_actions_action(action_classification: Optional[str] = None,
         action_classification=pulumi.get(__ret__, 'action_classification'),
         action_data_references=pulumi.get(__ret__, 'action_data_references'),
         action_type=pulumi.get(__ret__, 'action_type'),
+        allow_invocation_from_event_orchestration=pulumi.get(__ret__, 'allow_invocation_from_event_orchestration'),
+        allow_invocation_manually=pulumi.get(__ret__, 'allow_invocation_manually'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
+        map_to_all_services=pulumi.get(__ret__, 'map_to_all_services'),
         modify_time=pulumi.get(__ret__, 'modify_time'),
         name=pulumi.get(__ret__, 'name'),
         only_invocable_on_unresolved_incidents=pulumi.get(__ret__, 'only_invocable_on_unresolved_incidents'),
@@ -242,9 +290,12 @@ def get_automation_actions_action(action_classification: Optional[str] = None,
         runner_type=pulumi.get(__ret__, 'runner_type'),
         type=pulumi.get(__ret__, 'type'))
 def get_automation_actions_action_output(action_classification: Optional[pulumi.Input[Optional[str]]] = None,
+                                         allow_invocation_from_event_orchestration: Optional[pulumi.Input[Optional[bool]]] = None,
+                                         allow_invocation_manually: Optional[pulumi.Input[Optional[bool]]] = None,
                                          creation_time: Optional[pulumi.Input[Optional[str]]] = None,
                                          description: Optional[pulumi.Input[Optional[str]]] = None,
                                          id: Optional[pulumi.Input[str]] = None,
+                                         map_to_all_services: Optional[pulumi.Input[Optional[bool]]] = None,
                                          modify_time: Optional[pulumi.Input[Optional[str]]] = None,
                                          only_invocable_on_unresolved_incidents: Optional[pulumi.Input[Optional[bool]]] = None,
                                          runner_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -265,9 +316,12 @@ def get_automation_actions_action_output(action_classification: Optional[pulumi.
 
 
     :param str action_classification: (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+    :param bool allow_invocation_from_event_orchestration: (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+    :param bool allow_invocation_manually: (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
     :param str creation_time: The time action was created. Represented as an ISO 8601 timestamp.
     :param str description: (Optional) The description of the action.
     :param str id: The id of the automation actions action in the PagerDuty API.
+    :param bool map_to_all_services: (Optional) If the action should be able to be run against all services or just specified ones.
     :param str modify_time: (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
     :param bool only_invocable_on_unresolved_incidents: (Optional) Whether or not the action can be invoked on unresolved incidents.
     :param str runner_id: (Optional) The Process Automation Actions runner to associate the action with.
@@ -276,9 +330,12 @@ def get_automation_actions_action_output(action_classification: Optional[pulumi.
     """
     __args__ = dict()
     __args__['actionClassification'] = action_classification
+    __args__['allowInvocationFromEventOrchestration'] = allow_invocation_from_event_orchestration
+    __args__['allowInvocationManually'] = allow_invocation_manually
     __args__['creationTime'] = creation_time
     __args__['description'] = description
     __args__['id'] = id
+    __args__['mapToAllServices'] = map_to_all_services
     __args__['modifyTime'] = modify_time
     __args__['onlyInvocableOnUnresolvedIncidents'] = only_invocable_on_unresolved_incidents
     __args__['runnerId'] = runner_id
@@ -290,9 +347,12 @@ def get_automation_actions_action_output(action_classification: Optional[pulumi.
         action_classification=pulumi.get(__response__, 'action_classification'),
         action_data_references=pulumi.get(__response__, 'action_data_references'),
         action_type=pulumi.get(__response__, 'action_type'),
+        allow_invocation_from_event_orchestration=pulumi.get(__response__, 'allow_invocation_from_event_orchestration'),
+        allow_invocation_manually=pulumi.get(__response__, 'allow_invocation_manually'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
+        map_to_all_services=pulumi.get(__response__, 'map_to_all_services'),
         modify_time=pulumi.get(__response__, 'modify_time'),
         name=pulumi.get(__response__, 'name'),
         only_invocable_on_unresolved_incidents=pulumi.get(__response__, 'only_invocable_on_unresolved_incidents'),

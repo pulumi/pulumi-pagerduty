@@ -72,11 +72,14 @@ type AutomationActionsAction struct {
 	// Action Data block. Action Data is documented below.
 	ActionDataReference AutomationActionsActionActionDataReferenceOutput `pulumi:"actionDataReference"`
 	// The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
-	ActionType pulumi.StringOutput `pulumi:"actionType"`
+	ActionType                            pulumi.StringOutput `pulumi:"actionType"`
+	AllowInvocationFromEventOrchestration pulumi.StringOutput `pulumi:"allowInvocationFromEventOrchestration"`
+	AllowInvocationManually               pulumi.StringOutput `pulumi:"allowInvocationManually"`
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The description of the action. Max length is 1024 characters.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description      pulumi.StringPtrOutput `pulumi:"description"`
+	MapToAllServices pulumi.BoolOutput      `pulumi:"mapToAllServices"`
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime pulumi.StringOutput `pulumi:"modifyTime"`
 	// The name of the action. Max length is 255 characters.
@@ -131,11 +134,14 @@ type automationActionsActionState struct {
 	// Action Data block. Action Data is documented below.
 	ActionDataReference *AutomationActionsActionActionDataReference `pulumi:"actionDataReference"`
 	// The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
-	ActionType *string `pulumi:"actionType"`
+	ActionType                            *string `pulumi:"actionType"`
+	AllowInvocationFromEventOrchestration *string `pulumi:"allowInvocationFromEventOrchestration"`
+	AllowInvocationManually               *string `pulumi:"allowInvocationManually"`
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime *string `pulumi:"creationTime"`
 	// The description of the action. Max length is 1024 characters.
-	Description *string `pulumi:"description"`
+	Description      *string `pulumi:"description"`
+	MapToAllServices *bool   `pulumi:"mapToAllServices"`
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime *string `pulumi:"modifyTime"`
 	// The name of the action. Max length is 255 characters.
@@ -155,11 +161,14 @@ type AutomationActionsActionState struct {
 	// Action Data block. Action Data is documented below.
 	ActionDataReference AutomationActionsActionActionDataReferencePtrInput
 	// The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
-	ActionType pulumi.StringPtrInput
+	ActionType                            pulumi.StringPtrInput
+	AllowInvocationFromEventOrchestration pulumi.StringPtrInput
+	AllowInvocationManually               pulumi.StringPtrInput
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime pulumi.StringPtrInput
 	// The description of the action. Max length is 1024 characters.
-	Description pulumi.StringPtrInput
+	Description      pulumi.StringPtrInput
+	MapToAllServices pulumi.BoolPtrInput
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime pulumi.StringPtrInput
 	// The name of the action. Max length is 255 characters.
@@ -183,11 +192,14 @@ type automationActionsActionArgs struct {
 	// Action Data block. Action Data is documented below.
 	ActionDataReference AutomationActionsActionActionDataReference `pulumi:"actionDataReference"`
 	// The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
-	ActionType string `pulumi:"actionType"`
+	ActionType                            string  `pulumi:"actionType"`
+	AllowInvocationFromEventOrchestration *string `pulumi:"allowInvocationFromEventOrchestration"`
+	AllowInvocationManually               *string `pulumi:"allowInvocationManually"`
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime *string `pulumi:"creationTime"`
 	// The description of the action. Max length is 1024 characters.
-	Description *string `pulumi:"description"`
+	Description      *string `pulumi:"description"`
+	MapToAllServices *bool   `pulumi:"mapToAllServices"`
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime *string `pulumi:"modifyTime"`
 	// The name of the action. Max length is 255 characters.
@@ -208,11 +220,14 @@ type AutomationActionsActionArgs struct {
 	// Action Data block. Action Data is documented below.
 	ActionDataReference AutomationActionsActionActionDataReferenceInput
 	// The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
-	ActionType pulumi.StringInput
+	ActionType                            pulumi.StringInput
+	AllowInvocationFromEventOrchestration pulumi.StringPtrInput
+	AllowInvocationManually               pulumi.StringPtrInput
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime pulumi.StringPtrInput
 	// The description of the action. Max length is 1024 characters.
-	Description pulumi.StringPtrInput
+	Description      pulumi.StringPtrInput
+	MapToAllServices pulumi.BoolPtrInput
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime pulumi.StringPtrInput
 	// The name of the action. Max length is 255 characters.
@@ -330,6 +345,14 @@ func (o AutomationActionsActionOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringOutput { return v.ActionType }).(pulumi.StringOutput)
 }
 
+func (o AutomationActionsActionOutput) AllowInvocationFromEventOrchestration() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringOutput { return v.AllowInvocationFromEventOrchestration }).(pulumi.StringOutput)
+}
+
+func (o AutomationActionsActionOutput) AllowInvocationManually() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringOutput { return v.AllowInvocationManually }).(pulumi.StringOutput)
+}
+
 // The time action was created. Represented as an ISO 8601 timestamp.
 func (o AutomationActionsActionOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
@@ -338,6 +361,10 @@ func (o AutomationActionsActionOutput) CreationTime() pulumi.StringOutput {
 // The description of the action. Max length is 1024 characters.
 func (o AutomationActionsActionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AutomationActionsActionOutput) MapToAllServices() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AutomationActionsAction) pulumi.BoolOutput { return v.MapToAllServices }).(pulumi.BoolOutput)
 }
 
 // (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.

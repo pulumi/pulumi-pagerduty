@@ -33,6 +33,36 @@ public final class GetAutomationActionsActionArgs extends com.pulumi.resources.I
     }
 
     /**
+     * (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+     * 
+     */
+    @Import(name="allowInvocationFromEventOrchestration")
+    private @Nullable Output<Boolean> allowInvocationFromEventOrchestration;
+
+    /**
+     * @return (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+     * 
+     */
+    public Optional<Output<Boolean>> allowInvocationFromEventOrchestration() {
+        return Optional.ofNullable(this.allowInvocationFromEventOrchestration);
+    }
+
+    /**
+     * (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+     * 
+     */
+    @Import(name="allowInvocationManually")
+    private @Nullable Output<Boolean> allowInvocationManually;
+
+    /**
+     * @return (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+     * 
+     */
+    public Optional<Output<Boolean>> allowInvocationManually() {
+        return Optional.ofNullable(this.allowInvocationManually);
+    }
+
+    /**
      * The time action was created. Represented as an ISO 8601 timestamp.
      * 
      */
@@ -75,6 +105,21 @@ public final class GetAutomationActionsActionArgs extends com.pulumi.resources.I
      */
     public Output<String> id() {
         return this.id;
+    }
+
+    /**
+     * (Optional) If the action should be able to be run against all services or just specified ones.
+     * 
+     */
+    @Import(name="mapToAllServices")
+    private @Nullable Output<Boolean> mapToAllServices;
+
+    /**
+     * @return (Optional) If the action should be able to be run against all services or just specified ones.
+     * 
+     */
+    public Optional<Output<Boolean>> mapToAllServices() {
+        return Optional.ofNullable(this.mapToAllServices);
     }
 
     /**
@@ -156,9 +201,12 @@ public final class GetAutomationActionsActionArgs extends com.pulumi.resources.I
 
     private GetAutomationActionsActionArgs(GetAutomationActionsActionArgs $) {
         this.actionClassification = $.actionClassification;
+        this.allowInvocationFromEventOrchestration = $.allowInvocationFromEventOrchestration;
+        this.allowInvocationManually = $.allowInvocationManually;
         this.creationTime = $.creationTime;
         this.description = $.description;
         this.id = $.id;
+        this.mapToAllServices = $.mapToAllServices;
         this.modifyTime = $.modifyTime;
         this.onlyInvocableOnUnresolvedIncidents = $.onlyInvocableOnUnresolvedIncidents;
         this.runnerId = $.runnerId;
@@ -203,6 +251,48 @@ public final class GetAutomationActionsActionArgs extends com.pulumi.resources.I
          */
         public Builder actionClassification(String actionClassification) {
             return actionClassification(Output.of(actionClassification));
+        }
+
+        /**
+         * @param allowInvocationFromEventOrchestration (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowInvocationFromEventOrchestration(@Nullable Output<Boolean> allowInvocationFromEventOrchestration) {
+            $.allowInvocationFromEventOrchestration = allowInvocationFromEventOrchestration;
+            return this;
+        }
+
+        /**
+         * @param allowInvocationFromEventOrchestration (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowInvocationFromEventOrchestration(Boolean allowInvocationFromEventOrchestration) {
+            return allowInvocationFromEventOrchestration(Output.of(allowInvocationFromEventOrchestration));
+        }
+
+        /**
+         * @param allowInvocationManually (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowInvocationManually(@Nullable Output<Boolean> allowInvocationManually) {
+            $.allowInvocationManually = allowInvocationManually;
+            return this;
+        }
+
+        /**
+         * @param allowInvocationManually (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowInvocationManually(Boolean allowInvocationManually) {
+            return allowInvocationManually(Output.of(allowInvocationManually));
         }
 
         /**
@@ -266,6 +356,27 @@ public final class GetAutomationActionsActionArgs extends com.pulumi.resources.I
          */
         public Builder id(String id) {
             return id(Output.of(id));
+        }
+
+        /**
+         * @param mapToAllServices (Optional) If the action should be able to be run against all services or just specified ones.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mapToAllServices(@Nullable Output<Boolean> mapToAllServices) {
+            $.mapToAllServices = mapToAllServices;
+            return this;
+        }
+
+        /**
+         * @param mapToAllServices (Optional) If the action should be able to be run against all services or just specified ones.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mapToAllServices(Boolean mapToAllServices) {
+            return mapToAllServices(Output.of(mapToAllServices));
         }
 
         /**

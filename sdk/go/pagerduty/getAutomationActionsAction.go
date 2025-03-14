@@ -52,12 +52,18 @@ func LookupAutomationActionsAction(ctx *pulumi.Context, args *LookupAutomationAc
 type LookupAutomationActionsActionArgs struct {
 	// (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
 	ActionClassification *string `pulumi:"actionClassification"`
+	// (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+	AllowInvocationFromEventOrchestration *bool `pulumi:"allowInvocationFromEventOrchestration"`
+	// (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+	AllowInvocationManually *bool `pulumi:"allowInvocationManually"`
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime *string `pulumi:"creationTime"`
 	// (Optional) The description of the action.
 	Description *string `pulumi:"description"`
 	// The id of the automation actions action in the PagerDuty API.
 	Id string `pulumi:"id"`
+	// (Optional) If the action should be able to be run against all services or just specified ones.
+	MapToAllServices *bool `pulumi:"mapToAllServices"`
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime *string `pulumi:"modifyTime"`
 	// (Optional) Whether or not the action can be invoked on unresolved incidents.
@@ -78,12 +84,18 @@ type LookupAutomationActionsActionResult struct {
 	ActionDataReferences []GetAutomationActionsActionActionDataReference `pulumi:"actionDataReferences"`
 	// The type of the action. The only allowed values are `processAutomation` and `script`.
 	ActionType string `pulumi:"actionType"`
+	// (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+	AllowInvocationFromEventOrchestration bool `pulumi:"allowInvocationFromEventOrchestration"`
+	// (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+	AllowInvocationManually bool `pulumi:"allowInvocationManually"`
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime string `pulumi:"creationTime"`
 	// (Optional) The description of the action.
 	Description string `pulumi:"description"`
 	// The ID of the action.
 	Id string `pulumi:"id"`
+	// (Optional) If the action should be able to be run against all services or just specified ones.
+	MapToAllServices bool `pulumi:"mapToAllServices"`
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime string `pulumi:"modifyTime"`
 	// The name of the action.
@@ -111,12 +123,18 @@ func LookupAutomationActionsActionOutput(ctx *pulumi.Context, args LookupAutomat
 type LookupAutomationActionsActionOutputArgs struct {
 	// (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
 	ActionClassification pulumi.StringPtrInput `pulumi:"actionClassification"`
+	// (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+	AllowInvocationFromEventOrchestration pulumi.BoolPtrInput `pulumi:"allowInvocationFromEventOrchestration"`
+	// (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+	AllowInvocationManually pulumi.BoolPtrInput `pulumi:"allowInvocationManually"`
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
 	// (Optional) The description of the action.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The id of the automation actions action in the PagerDuty API.
 	Id pulumi.StringInput `pulumi:"id"`
+	// (Optional) If the action should be able to be run against all services or just specified ones.
+	MapToAllServices pulumi.BoolPtrInput `pulumi:"mapToAllServices"`
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime pulumi.StringPtrInput `pulumi:"modifyTime"`
 	// (Optional) Whether or not the action can be invoked on unresolved incidents.
@@ -165,6 +183,16 @@ func (o LookupAutomationActionsActionResultOutput) ActionType() pulumi.StringOut
 	return o.ApplyT(func(v LookupAutomationActionsActionResult) string { return v.ActionType }).(pulumi.StringOutput)
 }
 
+// (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+func (o LookupAutomationActionsActionResultOutput) AllowInvocationFromEventOrchestration() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAutomationActionsActionResult) bool { return v.AllowInvocationFromEventOrchestration }).(pulumi.BoolOutput)
+}
+
+// (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+func (o LookupAutomationActionsActionResultOutput) AllowInvocationManually() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAutomationActionsActionResult) bool { return v.AllowInvocationManually }).(pulumi.BoolOutput)
+}
+
 // The time action was created. Represented as an ISO 8601 timestamp.
 func (o LookupAutomationActionsActionResultOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAutomationActionsActionResult) string { return v.CreationTime }).(pulumi.StringOutput)
@@ -178,6 +206,11 @@ func (o LookupAutomationActionsActionResultOutput) Description() pulumi.StringOu
 // The ID of the action.
 func (o LookupAutomationActionsActionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAutomationActionsActionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Optional) If the action should be able to be run against all services or just specified ones.
+func (o LookupAutomationActionsActionResultOutput) MapToAllServices() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAutomationActionsActionResult) bool { return v.MapToAllServices }).(pulumi.BoolOutput)
 }
 
 // (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.

@@ -77,6 +77,12 @@ namespace Pulumi.Pagerduty
         [Output("actionType")]
         public Output<string> ActionType { get; private set; } = null!;
 
+        [Output("allowInvocationFromEventOrchestration")]
+        public Output<string> AllowInvocationFromEventOrchestration { get; private set; } = null!;
+
+        [Output("allowInvocationManually")]
+        public Output<string> AllowInvocationManually { get; private set; } = null!;
+
         /// <summary>
         /// The time action was created. Represented as an ISO 8601 timestamp.
         /// </summary>
@@ -88,6 +94,9 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        [Output("mapToAllServices")]
+        public Output<bool> MapToAllServices { get; private set; } = null!;
 
         /// <summary>
         /// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
@@ -186,6 +195,12 @@ namespace Pulumi.Pagerduty
         [Input("actionType", required: true)]
         public Input<string> ActionType { get; set; } = null!;
 
+        [Input("allowInvocationFromEventOrchestration")]
+        public Input<string>? AllowInvocationFromEventOrchestration { get; set; }
+
+        [Input("allowInvocationManually")]
+        public Input<string>? AllowInvocationManually { get; set; }
+
         /// <summary>
         /// The time action was created. Represented as an ISO 8601 timestamp.
         /// </summary>
@@ -197,6 +212,9 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("mapToAllServices")]
+        public Input<bool>? MapToAllServices { get; set; }
 
         /// <summary>
         /// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
@@ -257,6 +275,12 @@ namespace Pulumi.Pagerduty
         [Input("actionType")]
         public Input<string>? ActionType { get; set; }
 
+        [Input("allowInvocationFromEventOrchestration")]
+        public Input<string>? AllowInvocationFromEventOrchestration { get; set; }
+
+        [Input("allowInvocationManually")]
+        public Input<string>? AllowInvocationManually { get; set; }
+
         /// <summary>
         /// The time action was created. Represented as an ISO 8601 timestamp.
         /// </summary>
@@ -268,6 +292,9 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("mapToAllServices")]
+        public Input<bool>? MapToAllServices { get; set; }
 
         /// <summary>
         /// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.

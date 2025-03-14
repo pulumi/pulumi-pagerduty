@@ -24,8 +24,11 @@ class AutomationActionsActionArgs:
                  action_data_reference: pulumi.Input['AutomationActionsActionActionDataReferenceArgs'],
                  action_type: pulumi.Input[str],
                  action_classification: Optional[pulumi.Input[str]] = None,
+                 allow_invocation_from_event_orchestration: Optional[pulumi.Input[str]] = None,
+                 allow_invocation_manually: Optional[pulumi.Input[str]] = None,
                  creation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 map_to_all_services: Optional[pulumi.Input[bool]] = None,
                  modify_time: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  only_invocable_on_unresolved_incidents: Optional[pulumi.Input[bool]] = None,
@@ -49,10 +52,16 @@ class AutomationActionsActionArgs:
         pulumi.set(__self__, "action_type", action_type)
         if action_classification is not None:
             pulumi.set(__self__, "action_classification", action_classification)
+        if allow_invocation_from_event_orchestration is not None:
+            pulumi.set(__self__, "allow_invocation_from_event_orchestration", allow_invocation_from_event_orchestration)
+        if allow_invocation_manually is not None:
+            pulumi.set(__self__, "allow_invocation_manually", allow_invocation_manually)
         if creation_time is not None:
             pulumi.set(__self__, "creation_time", creation_time)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if map_to_all_services is not None:
+            pulumi.set(__self__, "map_to_all_services", map_to_all_services)
         if modify_time is not None:
             pulumi.set(__self__, "modify_time", modify_time)
         if name is not None:
@@ -103,6 +112,24 @@ class AutomationActionsActionArgs:
         pulumi.set(self, "action_classification", value)
 
     @property
+    @pulumi.getter(name="allowInvocationFromEventOrchestration")
+    def allow_invocation_from_event_orchestration(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "allow_invocation_from_event_orchestration")
+
+    @allow_invocation_from_event_orchestration.setter
+    def allow_invocation_from_event_orchestration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "allow_invocation_from_event_orchestration", value)
+
+    @property
+    @pulumi.getter(name="allowInvocationManually")
+    def allow_invocation_manually(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "allow_invocation_manually")
+
+    @allow_invocation_manually.setter
+    def allow_invocation_manually(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "allow_invocation_manually", value)
+
+    @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[pulumi.Input[str]]:
         """
@@ -125,6 +152,15 @@ class AutomationActionsActionArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="mapToAllServices")
+    def map_to_all_services(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "map_to_all_services")
+
+    @map_to_all_services.setter
+    def map_to_all_services(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "map_to_all_services", value)
 
     @property
     @pulumi.getter(name="modifyTime")
@@ -202,8 +238,11 @@ class _AutomationActionsActionState:
                  action_classification: Optional[pulumi.Input[str]] = None,
                  action_data_reference: Optional[pulumi.Input['AutomationActionsActionActionDataReferenceArgs']] = None,
                  action_type: Optional[pulumi.Input[str]] = None,
+                 allow_invocation_from_event_orchestration: Optional[pulumi.Input[str]] = None,
+                 allow_invocation_manually: Optional[pulumi.Input[str]] = None,
                  creation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 map_to_all_services: Optional[pulumi.Input[bool]] = None,
                  modify_time: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  only_invocable_on_unresolved_incidents: Optional[pulumi.Input[bool]] = None,
@@ -229,10 +268,16 @@ class _AutomationActionsActionState:
             pulumi.set(__self__, "action_data_reference", action_data_reference)
         if action_type is not None:
             pulumi.set(__self__, "action_type", action_type)
+        if allow_invocation_from_event_orchestration is not None:
+            pulumi.set(__self__, "allow_invocation_from_event_orchestration", allow_invocation_from_event_orchestration)
+        if allow_invocation_manually is not None:
+            pulumi.set(__self__, "allow_invocation_manually", allow_invocation_manually)
         if creation_time is not None:
             pulumi.set(__self__, "creation_time", creation_time)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if map_to_all_services is not None:
+            pulumi.set(__self__, "map_to_all_services", map_to_all_services)
         if modify_time is not None:
             pulumi.set(__self__, "modify_time", modify_time)
         if name is not None:
@@ -283,6 +328,24 @@ class _AutomationActionsActionState:
         pulumi.set(self, "action_type", value)
 
     @property
+    @pulumi.getter(name="allowInvocationFromEventOrchestration")
+    def allow_invocation_from_event_orchestration(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "allow_invocation_from_event_orchestration")
+
+    @allow_invocation_from_event_orchestration.setter
+    def allow_invocation_from_event_orchestration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "allow_invocation_from_event_orchestration", value)
+
+    @property
+    @pulumi.getter(name="allowInvocationManually")
+    def allow_invocation_manually(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "allow_invocation_manually")
+
+    @allow_invocation_manually.setter
+    def allow_invocation_manually(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "allow_invocation_manually", value)
+
+    @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[pulumi.Input[str]]:
         """
@@ -305,6 +368,15 @@ class _AutomationActionsActionState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="mapToAllServices")
+    def map_to_all_services(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "map_to_all_services")
+
+    @map_to_all_services.setter
+    def map_to_all_services(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "map_to_all_services", value)
 
     @property
     @pulumi.getter(name="modifyTime")
@@ -384,8 +456,11 @@ class AutomationActionsAction(pulumi.CustomResource):
                  action_classification: Optional[pulumi.Input[str]] = None,
                  action_data_reference: Optional[pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']]] = None,
                  action_type: Optional[pulumi.Input[str]] = None,
+                 allow_invocation_from_event_orchestration: Optional[pulumi.Input[str]] = None,
+                 allow_invocation_manually: Optional[pulumi.Input[str]] = None,
                  creation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 map_to_all_services: Optional[pulumi.Input[bool]] = None,
                  modify_time: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  only_invocable_on_unresolved_incidents: Optional[pulumi.Input[bool]] = None,
@@ -498,8 +573,11 @@ class AutomationActionsAction(pulumi.CustomResource):
                  action_classification: Optional[pulumi.Input[str]] = None,
                  action_data_reference: Optional[pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']]] = None,
                  action_type: Optional[pulumi.Input[str]] = None,
+                 allow_invocation_from_event_orchestration: Optional[pulumi.Input[str]] = None,
+                 allow_invocation_manually: Optional[pulumi.Input[str]] = None,
                  creation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 map_to_all_services: Optional[pulumi.Input[bool]] = None,
                  modify_time: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  only_invocable_on_unresolved_incidents: Optional[pulumi.Input[bool]] = None,
@@ -522,8 +600,11 @@ class AutomationActionsAction(pulumi.CustomResource):
             if action_type is None and not opts.urn:
                 raise TypeError("Missing required property 'action_type'")
             __props__.__dict__["action_type"] = action_type
+            __props__.__dict__["allow_invocation_from_event_orchestration"] = allow_invocation_from_event_orchestration
+            __props__.__dict__["allow_invocation_manually"] = allow_invocation_manually
             __props__.__dict__["creation_time"] = creation_time
             __props__.__dict__["description"] = description
+            __props__.__dict__["map_to_all_services"] = map_to_all_services
             __props__.__dict__["modify_time"] = modify_time
             __props__.__dict__["name"] = name
             __props__.__dict__["only_invocable_on_unresolved_incidents"] = only_invocable_on_unresolved_incidents
@@ -543,8 +624,11 @@ class AutomationActionsAction(pulumi.CustomResource):
             action_classification: Optional[pulumi.Input[str]] = None,
             action_data_reference: Optional[pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']]] = None,
             action_type: Optional[pulumi.Input[str]] = None,
+            allow_invocation_from_event_orchestration: Optional[pulumi.Input[str]] = None,
+            allow_invocation_manually: Optional[pulumi.Input[str]] = None,
             creation_time: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            map_to_all_services: Optional[pulumi.Input[bool]] = None,
             modify_time: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             only_invocable_on_unresolved_incidents: Optional[pulumi.Input[bool]] = None,
@@ -576,8 +660,11 @@ class AutomationActionsAction(pulumi.CustomResource):
         __props__.__dict__["action_classification"] = action_classification
         __props__.__dict__["action_data_reference"] = action_data_reference
         __props__.__dict__["action_type"] = action_type
+        __props__.__dict__["allow_invocation_from_event_orchestration"] = allow_invocation_from_event_orchestration
+        __props__.__dict__["allow_invocation_manually"] = allow_invocation_manually
         __props__.__dict__["creation_time"] = creation_time
         __props__.__dict__["description"] = description
+        __props__.__dict__["map_to_all_services"] = map_to_all_services
         __props__.__dict__["modify_time"] = modify_time
         __props__.__dict__["name"] = name
         __props__.__dict__["only_invocable_on_unresolved_incidents"] = only_invocable_on_unresolved_incidents
@@ -611,6 +698,16 @@ class AutomationActionsAction(pulumi.CustomResource):
         return pulumi.get(self, "action_type")
 
     @property
+    @pulumi.getter(name="allowInvocationFromEventOrchestration")
+    def allow_invocation_from_event_orchestration(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "allow_invocation_from_event_orchestration")
+
+    @property
+    @pulumi.getter(name="allowInvocationManually")
+    def allow_invocation_manually(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "allow_invocation_manually")
+
+    @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
         """
@@ -625,6 +722,11 @@ class AutomationActionsAction(pulumi.CustomResource):
         The description of the action. Max length is 1024 characters.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="mapToAllServices")
+    def map_to_all_services(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "map_to_all_services")
 
     @property
     @pulumi.getter(name="modifyTime")

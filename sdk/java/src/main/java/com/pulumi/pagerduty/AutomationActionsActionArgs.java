@@ -63,6 +63,20 @@ public final class AutomationActionsActionArgs extends com.pulumi.resources.Reso
         return this.actionType;
     }
 
+    @Import(name="allowInvocationFromEventOrchestration")
+    private @Nullable Output<String> allowInvocationFromEventOrchestration;
+
+    public Optional<Output<String>> allowInvocationFromEventOrchestration() {
+        return Optional.ofNullable(this.allowInvocationFromEventOrchestration);
+    }
+
+    @Import(name="allowInvocationManually")
+    private @Nullable Output<String> allowInvocationManually;
+
+    public Optional<Output<String>> allowInvocationManually() {
+        return Optional.ofNullable(this.allowInvocationManually);
+    }
+
     /**
      * The time action was created. Represented as an ISO 8601 timestamp.
      * 
@@ -91,6 +105,13 @@ public final class AutomationActionsActionArgs extends com.pulumi.resources.Reso
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    @Import(name="mapToAllServices")
+    private @Nullable Output<Boolean> mapToAllServices;
+
+    public Optional<Output<Boolean>> mapToAllServices() {
+        return Optional.ofNullable(this.mapToAllServices);
     }
 
     /**
@@ -181,8 +202,11 @@ public final class AutomationActionsActionArgs extends com.pulumi.resources.Reso
         this.actionClassification = $.actionClassification;
         this.actionDataReference = $.actionDataReference;
         this.actionType = $.actionType;
+        this.allowInvocationFromEventOrchestration = $.allowInvocationFromEventOrchestration;
+        this.allowInvocationManually = $.allowInvocationManually;
         this.creationTime = $.creationTime;
         this.description = $.description;
+        this.mapToAllServices = $.mapToAllServices;
         this.modifyTime = $.modifyTime;
         this.name = $.name;
         this.onlyInvocableOnUnresolvedIncidents = $.onlyInvocableOnUnresolvedIncidents;
@@ -272,6 +296,24 @@ public final class AutomationActionsActionArgs extends com.pulumi.resources.Reso
             return actionType(Output.of(actionType));
         }
 
+        public Builder allowInvocationFromEventOrchestration(@Nullable Output<String> allowInvocationFromEventOrchestration) {
+            $.allowInvocationFromEventOrchestration = allowInvocationFromEventOrchestration;
+            return this;
+        }
+
+        public Builder allowInvocationFromEventOrchestration(String allowInvocationFromEventOrchestration) {
+            return allowInvocationFromEventOrchestration(Output.of(allowInvocationFromEventOrchestration));
+        }
+
+        public Builder allowInvocationManually(@Nullable Output<String> allowInvocationManually) {
+            $.allowInvocationManually = allowInvocationManually;
+            return this;
+        }
+
+        public Builder allowInvocationManually(String allowInvocationManually) {
+            return allowInvocationManually(Output.of(allowInvocationManually));
+        }
+
         /**
          * @param creationTime The time action was created. Represented as an ISO 8601 timestamp.
          * 
@@ -312,6 +354,15 @@ public final class AutomationActionsActionArgs extends com.pulumi.resources.Reso
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        public Builder mapToAllServices(@Nullable Output<Boolean> mapToAllServices) {
+            $.mapToAllServices = mapToAllServices;
+            return this;
+        }
+
+        public Builder mapToAllServices(Boolean mapToAllServices) {
+            return mapToAllServices(Output.of(mapToAllServices));
         }
 
         /**

@@ -24,9 +24,12 @@ export function getAutomationActionsAction(args: GetAutomationActionsActionArgs,
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getAutomationActionsAction:getAutomationActionsAction", {
         "actionClassification": args.actionClassification,
+        "allowInvocationFromEventOrchestration": args.allowInvocationFromEventOrchestration,
+        "allowInvocationManually": args.allowInvocationManually,
         "creationTime": args.creationTime,
         "description": args.description,
         "id": args.id,
+        "mapToAllServices": args.mapToAllServices,
         "modifyTime": args.modifyTime,
         "onlyInvocableOnUnresolvedIncidents": args.onlyInvocableOnUnresolvedIncidents,
         "runnerId": args.runnerId,
@@ -44,6 +47,14 @@ export interface GetAutomationActionsActionArgs {
      */
     actionClassification?: string;
     /**
+     * (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+     */
+    allowInvocationFromEventOrchestration?: boolean;
+    /**
+     * (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+     */
+    allowInvocationManually?: boolean;
+    /**
      * The time action was created. Represented as an ISO 8601 timestamp.
      */
     creationTime?: string;
@@ -55,6 +66,10 @@ export interface GetAutomationActionsActionArgs {
      * The id of the automation actions action in the PagerDuty API.
      */
     id: string;
+    /**
+     * (Optional) If the action should be able to be run against all services or just specified ones.
+     */
+    mapToAllServices?: boolean;
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      */
@@ -94,6 +109,14 @@ export interface GetAutomationActionsActionResult {
      */
     readonly actionType: string;
     /**
+     * (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+     */
+    readonly allowInvocationFromEventOrchestration: boolean;
+    /**
+     * (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+     */
+    readonly allowInvocationManually: boolean;
+    /**
      * The time action was created. Represented as an ISO 8601 timestamp.
      */
     readonly creationTime: string;
@@ -105,6 +128,10 @@ export interface GetAutomationActionsActionResult {
      * The ID of the action.
      */
     readonly id: string;
+    /**
+     * (Optional) If the action should be able to be run against all services or just specified ones.
+     */
+    readonly mapToAllServices: boolean;
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      */
@@ -148,9 +175,12 @@ export function getAutomationActionsActionOutput(args: GetAutomationActionsActio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("pagerduty:index/getAutomationActionsAction:getAutomationActionsAction", {
         "actionClassification": args.actionClassification,
+        "allowInvocationFromEventOrchestration": args.allowInvocationFromEventOrchestration,
+        "allowInvocationManually": args.allowInvocationManually,
         "creationTime": args.creationTime,
         "description": args.description,
         "id": args.id,
+        "mapToAllServices": args.mapToAllServices,
         "modifyTime": args.modifyTime,
         "onlyInvocableOnUnresolvedIncidents": args.onlyInvocableOnUnresolvedIncidents,
         "runnerId": args.runnerId,
@@ -168,6 +198,14 @@ export interface GetAutomationActionsActionOutputArgs {
      */
     actionClassification?: pulumi.Input<string>;
     /**
+     * (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+     */
+    allowInvocationFromEventOrchestration?: pulumi.Input<boolean>;
+    /**
+     * (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+     */
+    allowInvocationManually?: pulumi.Input<boolean>;
+    /**
      * The time action was created. Represented as an ISO 8601 timestamp.
      */
     creationTime?: pulumi.Input<string>;
@@ -179,6 +217,10 @@ export interface GetAutomationActionsActionOutputArgs {
      * The id of the automation actions action in the PagerDuty API.
      */
     id: pulumi.Input<string>;
+    /**
+     * (Optional) If the action should be able to be run against all services or just specified ones.
+     */
+    mapToAllServices?: pulumi.Input<boolean>;
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      */

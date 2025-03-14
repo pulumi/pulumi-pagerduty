@@ -82,6 +82,8 @@ export class AutomationActionsAction extends pulumi.CustomResource {
      * The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
      */
     public readonly actionType!: pulumi.Output<string>;
+    public readonly allowInvocationFromEventOrchestration!: pulumi.Output<string>;
+    public readonly allowInvocationManually!: pulumi.Output<string>;
     /**
      * The time action was created. Represented as an ISO 8601 timestamp.
      */
@@ -90,6 +92,7 @@ export class AutomationActionsAction extends pulumi.CustomResource {
      * The description of the action. Max length is 1024 characters.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    public readonly mapToAllServices!: pulumi.Output<boolean>;
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      */
@@ -128,8 +131,11 @@ export class AutomationActionsAction extends pulumi.CustomResource {
             resourceInputs["actionClassification"] = state ? state.actionClassification : undefined;
             resourceInputs["actionDataReference"] = state ? state.actionDataReference : undefined;
             resourceInputs["actionType"] = state ? state.actionType : undefined;
+            resourceInputs["allowInvocationFromEventOrchestration"] = state ? state.allowInvocationFromEventOrchestration : undefined;
+            resourceInputs["allowInvocationManually"] = state ? state.allowInvocationManually : undefined;
             resourceInputs["creationTime"] = state ? state.creationTime : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["mapToAllServices"] = state ? state.mapToAllServices : undefined;
             resourceInputs["modifyTime"] = state ? state.modifyTime : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["onlyInvocableOnUnresolvedIncidents"] = state ? state.onlyInvocableOnUnresolvedIncidents : undefined;
@@ -147,8 +153,11 @@ export class AutomationActionsAction extends pulumi.CustomResource {
             resourceInputs["actionClassification"] = args ? args.actionClassification : undefined;
             resourceInputs["actionDataReference"] = args ? args.actionDataReference : undefined;
             resourceInputs["actionType"] = args ? args.actionType : undefined;
+            resourceInputs["allowInvocationFromEventOrchestration"] = args ? args.allowInvocationFromEventOrchestration : undefined;
+            resourceInputs["allowInvocationManually"] = args ? args.allowInvocationManually : undefined;
             resourceInputs["creationTime"] = args ? args.creationTime : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["mapToAllServices"] = args ? args.mapToAllServices : undefined;
             resourceInputs["modifyTime"] = args ? args.modifyTime : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["onlyInvocableOnUnresolvedIncidents"] = args ? args.onlyInvocableOnUnresolvedIncidents : undefined;
@@ -177,6 +186,8 @@ export interface AutomationActionsActionState {
      * The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
      */
     actionType?: pulumi.Input<string>;
+    allowInvocationFromEventOrchestration?: pulumi.Input<string>;
+    allowInvocationManually?: pulumi.Input<string>;
     /**
      * The time action was created. Represented as an ISO 8601 timestamp.
      */
@@ -185,6 +196,7 @@ export interface AutomationActionsActionState {
      * The description of the action. Max length is 1024 characters.
      */
     description?: pulumi.Input<string>;
+    mapToAllServices?: pulumi.Input<boolean>;
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      */
@@ -224,6 +236,8 @@ export interface AutomationActionsActionArgs {
      * The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
      */
     actionType: pulumi.Input<string>;
+    allowInvocationFromEventOrchestration?: pulumi.Input<string>;
+    allowInvocationManually?: pulumi.Input<string>;
     /**
      * The time action was created. Represented as an ISO 8601 timestamp.
      */
@@ -232,6 +246,7 @@ export interface AutomationActionsActionArgs {
      * The description of the action. Max length is 1024 characters.
      */
     description?: pulumi.Input<string>;
+    mapToAllServices?: pulumi.Input<boolean>;
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      */

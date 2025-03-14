@@ -123,6 +123,18 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
     public Output<String> actionType() {
         return this.actionType;
     }
+    @Export(name="allowInvocationFromEventOrchestration", refs={String.class}, tree="[0]")
+    private Output<String> allowInvocationFromEventOrchestration;
+
+    public Output<String> allowInvocationFromEventOrchestration() {
+        return this.allowInvocationFromEventOrchestration;
+    }
+    @Export(name="allowInvocationManually", refs={String.class}, tree="[0]")
+    private Output<String> allowInvocationManually;
+
+    public Output<String> allowInvocationManually() {
+        return this.allowInvocationManually;
+    }
     /**
      * The time action was created. Represented as an ISO 8601 timestamp.
      * 
@@ -150,6 +162,12 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    @Export(name="mapToAllServices", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> mapToAllServices;
+
+    public Output<Boolean> mapToAllServices() {
+        return this.mapToAllServices;
     }
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.

@@ -94,6 +94,18 @@ namespace Pulumi.Pagerduty
         public string? ActionClassification { get; set; }
 
         /// <summary>
+        /// (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+        /// </summary>
+        [Input("allowInvocationFromEventOrchestration")]
+        public bool? AllowInvocationFromEventOrchestration { get; set; }
+
+        /// <summary>
+        /// (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+        /// </summary>
+        [Input("allowInvocationManually")]
+        public bool? AllowInvocationManually { get; set; }
+
+        /// <summary>
         /// The time action was created. Represented as an ISO 8601 timestamp.
         /// </summary>
         [Input("creationTime")]
@@ -110,6 +122,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
+
+        /// <summary>
+        /// (Optional) If the action should be able to be run against all services or just specified ones.
+        /// </summary>
+        [Input("mapToAllServices")]
+        public bool? MapToAllServices { get; set; }
 
         /// <summary>
         /// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
@@ -156,6 +174,18 @@ namespace Pulumi.Pagerduty
         public Input<string>? ActionClassification { get; set; }
 
         /// <summary>
+        /// (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+        /// </summary>
+        [Input("allowInvocationFromEventOrchestration")]
+        public Input<bool>? AllowInvocationFromEventOrchestration { get; set; }
+
+        /// <summary>
+        /// (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+        /// </summary>
+        [Input("allowInvocationManually")]
+        public Input<bool>? AllowInvocationManually { get; set; }
+
+        /// <summary>
         /// The time action was created. Represented as an ISO 8601 timestamp.
         /// </summary>
         [Input("creationTime")]
@@ -172,6 +202,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// (Optional) If the action should be able to be run against all services or just specified ones.
+        /// </summary>
+        [Input("mapToAllServices")]
+        public Input<bool>? MapToAllServices { get; set; }
 
         /// <summary>
         /// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
@@ -226,6 +262,14 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly string ActionType;
         /// <summary>
+        /// (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
+        /// </summary>
+        public readonly bool AllowInvocationFromEventOrchestration;
+        /// <summary>
+        /// (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
+        /// </summary>
+        public readonly bool AllowInvocationManually;
+        /// <summary>
         /// The time action was created. Represented as an ISO 8601 timestamp.
         /// </summary>
         public readonly string CreationTime;
@@ -237,6 +281,10 @@ namespace Pulumi.Pagerduty
         /// The ID of the action.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// (Optional) If the action should be able to be run against all services or just specified ones.
+        /// </summary>
+        public readonly bool MapToAllServices;
         /// <summary>
         /// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
         /// </summary>
@@ -270,11 +318,17 @@ namespace Pulumi.Pagerduty
 
             string actionType,
 
+            bool allowInvocationFromEventOrchestration,
+
+            bool allowInvocationManually,
+
             string creationTime,
 
             string description,
 
             string id,
+
+            bool mapToAllServices,
 
             string modifyTime,
 
@@ -291,9 +345,12 @@ namespace Pulumi.Pagerduty
             ActionClassification = actionClassification;
             ActionDataReferences = actionDataReferences;
             ActionType = actionType;
+            AllowInvocationFromEventOrchestration = allowInvocationFromEventOrchestration;
+            AllowInvocationManually = allowInvocationManually;
             CreationTime = creationTime;
             Description = description;
             Id = id;
+            MapToAllServices = mapToAllServices;
             ModifyTime = modifyTime;
             Name = name;
             OnlyInvocableOnUnresolvedIncidents = onlyInvocableOnUnresolvedIncidents;

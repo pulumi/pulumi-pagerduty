@@ -4509,6 +4509,12 @@
                     "type": "string",
                     "description": "The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.\n"
                 },
+                "allowInvocationFromEventOrchestration": {
+                    "type": "string"
+                },
+                "allowInvocationManually": {
+                    "type": "string"
+                },
                 "creationTime": {
                     "type": "string",
                     "description": "The time action was created. Represented as an ISO 8601 timestamp.\n"
@@ -4516,6 +4522,9 @@
                 "description": {
                     "type": "string",
                     "description": "The description of the action. Max length is 1024 characters.\n"
+                },
+                "mapToAllServices": {
+                    "type": "boolean"
                 },
                 "modifyTime": {
                     "type": "string",
@@ -4544,7 +4553,10 @@
             "required": [
                 "actionDataReference",
                 "actionType",
+                "allowInvocationFromEventOrchestration",
+                "allowInvocationManually",
                 "creationTime",
+                "mapToAllServices",
                 "modifyTime",
                 "name",
                 "onlyInvocableOnUnresolvedIncidents",
@@ -4565,6 +4577,12 @@
                     "description": "The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.\n",
                     "willReplaceOnChanges": true
                 },
+                "allowInvocationFromEventOrchestration": {
+                    "type": "string"
+                },
+                "allowInvocationManually": {
+                    "type": "string"
+                },
                 "creationTime": {
                     "type": "string",
                     "description": "The time action was created. Represented as an ISO 8601 timestamp.\n"
@@ -4572,6 +4590,9 @@
                 "description": {
                     "type": "string",
                     "description": "The description of the action. Max length is 1024 characters.\n"
+                },
+                "mapToAllServices": {
+                    "type": "boolean"
                 },
                 "modifyTime": {
                     "type": "string",
@@ -4617,6 +4638,12 @@
                         "description": "The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.\n",
                         "willReplaceOnChanges": true
                     },
+                    "allowInvocationFromEventOrchestration": {
+                        "type": "string"
+                    },
+                    "allowInvocationManually": {
+                        "type": "string"
+                    },
                     "creationTime": {
                         "type": "string",
                         "description": "The time action was created. Represented as an ISO 8601 timestamp.\n"
@@ -4624,6 +4651,9 @@
                     "description": {
                         "type": "string",
                         "description": "The description of the action. Max length is 1024 characters.\n"
+                    },
+                    "mapToAllServices": {
+                        "type": "boolean"
                     },
                     "modifyTime": {
                         "type": "string",
@@ -9036,6 +9066,14 @@
                         "type": "string",
                         "description": "(Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.\n"
                     },
+                    "allowInvocationFromEventOrchestration": {
+                        "type": "boolean",
+                        "description": "(Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.\n"
+                    },
+                    "allowInvocationManually": {
+                        "type": "boolean",
+                        "description": "(Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.\n"
+                    },
                     "creationTime": {
                         "type": "string",
                         "description": "The time action was created. Represented as an ISO 8601 timestamp.\n"
@@ -9047,6 +9085,10 @@
                     "id": {
                         "type": "string",
                         "description": "The id of the automation actions action in the PagerDuty API.\n"
+                    },
+                    "mapToAllServices": {
+                        "type": "boolean",
+                        "description": "(Optional) If the action should be able to be run against all services or just specified ones.\n"
                     },
                     "modifyTime": {
                         "type": "string",
@@ -9092,6 +9134,14 @@
                         "description": "The type of the action. The only allowed values are `process_automation` and `script`.\n",
                         "type": "string"
                     },
+                    "allowInvocationFromEventOrchestration": {
+                        "description": "(Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.\n",
+                        "type": "boolean"
+                    },
+                    "allowInvocationManually": {
+                        "description": "(Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.\n",
+                        "type": "boolean"
+                    },
                     "creationTime": {
                         "description": "The time action was created. Represented as an ISO 8601 timestamp.\n",
                         "type": "string"
@@ -9103,6 +9153,10 @@
                     "id": {
                         "description": "The ID of the action.\n",
                         "type": "string"
+                    },
+                    "mapToAllServices": {
+                        "description": "(Optional) If the action should be able to be run against all services or just specified ones.\n",
+                        "type": "boolean"
                     },
                     "modifyTime": {
                         "description": "(Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.\n",
@@ -9133,9 +9187,12 @@
                     "actionClassification",
                     "actionDataReferences",
                     "actionType",
+                    "allowInvocationFromEventOrchestration",
+                    "allowInvocationManually",
                     "creationTime",
                     "description",
                     "id",
+                    "mapToAllServices",
                     "modifyTime",
                     "name",
                     "onlyInvocableOnUnresolvedIncidents",

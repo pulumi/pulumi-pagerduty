@@ -14,80 +14,6 @@ import (
 
 // A [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) can be created on a Global Event Orchestration, in order to temporarily store event data to be referenced later within the Global Event Orchestration
 //
-// ## Example of configuring a Cache Variable for a Global Event Orchestration
-//
-// This example shows creating a global `Event Orchestration` and a `Cache Variable`. All events that have the `event.source` field will have its `source` value stored in this Cache Variable, and appended as a note for the subsequent incident created by this Event Orchestration.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			databaseTeam, err := pagerduty.NewTeam(ctx, "database_team", &pagerduty.TeamArgs{
-//				Name: pulumi.String("Database Team"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			eventOrchestration, err := pagerduty.NewEventOrchestration(ctx, "event_orchestration", &pagerduty.EventOrchestrationArgs{
-//				Name: pulumi.String("Example Orchestration"),
-//				Team: databaseTeam.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewEventOrchestrationGlobalCacheVariable(ctx, "cache_var", &pagerduty.EventOrchestrationGlobalCacheVariableArgs{
-//				EventOrchestration: eventOrchestration.ID(),
-//				Name:               pulumi.String("recent_host"),
-//				Conditions: pagerduty.EventOrchestrationGlobalCacheVariableConditionArray{
-//					&pagerduty.EventOrchestrationGlobalCacheVariableConditionArgs{
-//						Expression: pulumi.String("event.source exists"),
-//					},
-//				},
-//				Configuration: &pagerduty.EventOrchestrationGlobalCacheVariableConfigurationArgs{
-//					Type:   pulumi.String("recent_value"),
-//					Source: pulumi.String("event.source"),
-//					Regex:  pulumi.String(".*"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewEventOrchestrationGlobal(ctx, "global", &pagerduty.EventOrchestrationGlobalArgs{
-//				EventOrchestration: eventOrchestration.ID(),
-//				Sets: pagerduty.EventOrchestrationGlobalSetArray{
-//					&pagerduty.EventOrchestrationGlobalSetArgs{
-//						Id: pulumi.String("start"),
-//						Rules: pagerduty.EventOrchestrationGlobalSetRuleArray{
-//							&pagerduty.EventOrchestrationGlobalSetRuleArgs{
-//								Label: pulumi.String("Always annotate the incident with the event source for all events"),
-//								Actions: &pagerduty.EventOrchestrationGlobalSetRuleActionsArgs{
-//									Annotate: pulumi.String("Last time, we saw this incident occur on host: {{cache_var.recent_host}}"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//				CatchAll: &pagerduty.EventOrchestrationGlobalCatchAllArgs{
-//					Actions: &pagerduty.EventOrchestrationGlobalCatchAllActionsArgs{},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Cache Variables can be imported using colon-separated IDs, which is the combination of the Global Event Orchestration ID followed by the Cache Variable ID, e.g.
@@ -98,7 +24,7 @@ import (
 type EventOrchestrationGlobalCacheVariable struct {
 	pulumi.CustomResourceState
 
-	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
 	Conditions EventOrchestrationGlobalCacheVariableConditionArrayOutput `pulumi:"conditions"`
 	// A configuration object to define what and how values will be stored in the Cache Variable.
 	Configuration EventOrchestrationGlobalCacheVariableConfigurationOutput `pulumi:"configuration"`
@@ -146,7 +72,7 @@ func GetEventOrchestrationGlobalCacheVariable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventOrchestrationGlobalCacheVariable resources.
 type eventOrchestrationGlobalCacheVariableState struct {
-	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
 	Conditions []EventOrchestrationGlobalCacheVariableCondition `pulumi:"conditions"`
 	// A configuration object to define what and how values will be stored in the Cache Variable.
 	Configuration *EventOrchestrationGlobalCacheVariableConfiguration `pulumi:"configuration"`
@@ -159,7 +85,7 @@ type eventOrchestrationGlobalCacheVariableState struct {
 }
 
 type EventOrchestrationGlobalCacheVariableState struct {
-	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
 	Conditions EventOrchestrationGlobalCacheVariableConditionArrayInput
 	// A configuration object to define what and how values will be stored in the Cache Variable.
 	Configuration EventOrchestrationGlobalCacheVariableConfigurationPtrInput
@@ -176,7 +102,7 @@ func (EventOrchestrationGlobalCacheVariableState) ElementType() reflect.Type {
 }
 
 type eventOrchestrationGlobalCacheVariableArgs struct {
-	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
 	Conditions []EventOrchestrationGlobalCacheVariableCondition `pulumi:"conditions"`
 	// A configuration object to define what and how values will be stored in the Cache Variable.
 	Configuration EventOrchestrationGlobalCacheVariableConfiguration `pulumi:"configuration"`
@@ -190,7 +116,7 @@ type eventOrchestrationGlobalCacheVariableArgs struct {
 
 // The set of arguments for constructing a EventOrchestrationGlobalCacheVariable resource.
 type EventOrchestrationGlobalCacheVariableArgs struct {
-	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
 	Conditions EventOrchestrationGlobalCacheVariableConditionArrayInput
 	// A configuration object to define what and how values will be stored in the Cache Variable.
 	Configuration EventOrchestrationGlobalCacheVariableConfigurationInput
@@ -289,7 +215,7 @@ func (o EventOrchestrationGlobalCacheVariableOutput) ToEventOrchestrationGlobalC
 	return o
 }
 
-// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
 func (o EventOrchestrationGlobalCacheVariableOutput) Conditions() EventOrchestrationGlobalCacheVariableConditionArrayOutput {
 	return o.ApplyT(func(v *EventOrchestrationGlobalCacheVariable) EventOrchestrationGlobalCacheVariableConditionArrayOutput {
 		return v.Conditions

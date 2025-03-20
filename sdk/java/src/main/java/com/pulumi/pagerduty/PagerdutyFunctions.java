@@ -67,6 +67,8 @@ import com.pulumi.pagerduty.inputs.GetTeamArgs;
 import com.pulumi.pagerduty.inputs.GetTeamMembersArgs;
 import com.pulumi.pagerduty.inputs.GetTeamMembersPlainArgs;
 import com.pulumi.pagerduty.inputs.GetTeamPlainArgs;
+import com.pulumi.pagerduty.inputs.GetTeamsArgs;
+import com.pulumi.pagerduty.inputs.GetTeamsPlainArgs;
 import com.pulumi.pagerduty.inputs.GetUserArgs;
 import com.pulumi.pagerduty.inputs.GetUserContactMethodArgs;
 import com.pulumi.pagerduty.inputs.GetUserContactMethodPlainArgs;
@@ -104,6 +106,7 @@ import com.pulumi.pagerduty.outputs.GetStandardsResult;
 import com.pulumi.pagerduty.outputs.GetTagResult;
 import com.pulumi.pagerduty.outputs.GetTeamMembersResult;
 import com.pulumi.pagerduty.outputs.GetTeamResult;
+import com.pulumi.pagerduty.outputs.GetTeamsResult;
 import com.pulumi.pagerduty.outputs.GetUserContactMethodResult;
 import com.pulumi.pagerduty.outputs.GetUserResult;
 import com.pulumi.pagerduty.outputs.GetUsersResult;
@@ -8146,6 +8149,321 @@ public final class PagerdutyFunctions {
      */
     public static CompletableFuture<GetTeamMembersResult> getTeamMembersPlain(GetTeamMembersPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getTeamMembers:getTeamMembers", TypeShape.of(GetTeamMembersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to [list teams](https://developer.pagerduty.com/api-reference/0138639504311-list-teams) in your PagerDuty account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var allTeams = PagerdutyFunctions.getTeams();
+     * 
+     *         // Fetch only teams whose name matches "devops"
+     *         final var devops = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
+     *             .query("devops")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTeamsResult> getTeams() {
+        return getTeams(GetTeamsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to [list teams](https://developer.pagerduty.com/api-reference/0138639504311-list-teams) in your PagerDuty account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var allTeams = PagerdutyFunctions.getTeams();
+     * 
+     *         // Fetch only teams whose name matches "devops"
+     *         final var devops = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
+     *             .query("devops")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTeamsResult> getTeamsPlain() {
+        return getTeamsPlain(GetTeamsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to [list teams](https://developer.pagerduty.com/api-reference/0138639504311-list-teams) in your PagerDuty account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var allTeams = PagerdutyFunctions.getTeams();
+     * 
+     *         // Fetch only teams whose name matches "devops"
+     *         final var devops = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
+     *             .query("devops")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTeamsResult> getTeams(GetTeamsArgs args) {
+        return getTeams(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to [list teams](https://developer.pagerduty.com/api-reference/0138639504311-list-teams) in your PagerDuty account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var allTeams = PagerdutyFunctions.getTeams();
+     * 
+     *         // Fetch only teams whose name matches "devops"
+     *         final var devops = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
+     *             .query("devops")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTeamsResult> getTeamsPlain(GetTeamsPlainArgs args) {
+        return getTeamsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to [list teams](https://developer.pagerduty.com/api-reference/0138639504311-list-teams) in your PagerDuty account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var allTeams = PagerdutyFunctions.getTeams();
+     * 
+     *         // Fetch only teams whose name matches "devops"
+     *         final var devops = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
+     *             .query("devops")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTeamsResult> getTeams(GetTeamsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getTeams:getTeams", TypeShape.of(GetTeamsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to [list teams](https://developer.pagerduty.com/api-reference/0138639504311-list-teams) in your PagerDuty account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var allTeams = PagerdutyFunctions.getTeams();
+     * 
+     *         // Fetch only teams whose name matches "devops"
+     *         final var devops = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
+     *             .query("devops")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTeamsResult> getTeams(GetTeamsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getTeams:getTeams", TypeShape.of(GetTeamsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to [list teams](https://developer.pagerduty.com/api-reference/0138639504311-list-teams) in your PagerDuty account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var allTeams = PagerdutyFunctions.getTeams();
+     * 
+     *         // Fetch only teams whose name matches "devops"
+     *         final var devops = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
+     *             .query("devops")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTeamsResult> getTeamsPlain(GetTeamsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getTeams:getTeams", TypeShape.of(GetTeamsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.

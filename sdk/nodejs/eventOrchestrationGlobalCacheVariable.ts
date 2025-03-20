@@ -9,48 +9,6 @@ import * as utilities from "./utilities";
 /**
  * A [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) can be created on a Global Event Orchestration, in order to temporarily store event data to be referenced later within the Global Event Orchestration
  *
- * ## Example of configuring a Cache Variable for a Global Event Orchestration
- *
- * This example shows creating a global `Event Orchestration` and a `Cache Variable`. All events that have the `event.source` field will have its `source` value stored in this Cache Variable, and appended as a note for the subsequent incident created by this Event Orchestration.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const databaseTeam = new pagerduty.Team("database_team", {name: "Database Team"});
- * const eventOrchestration = new pagerduty.EventOrchestration("event_orchestration", {
- *     name: "Example Orchestration",
- *     team: databaseTeam.id,
- * });
- * const cacheVar = new pagerduty.EventOrchestrationGlobalCacheVariable("cache_var", {
- *     eventOrchestration: eventOrchestration.id,
- *     name: "recent_host",
- *     conditions: [{
- *         expression: "event.source exists",
- *     }],
- *     configuration: {
- *         type: "recent_value",
- *         source: "event.source",
- *         regex: ".*",
- *     },
- * });
- * const global = new pagerduty.EventOrchestrationGlobal("global", {
- *     eventOrchestration: eventOrchestration.id,
- *     sets: [{
- *         id: "start",
- *         rules: [{
- *             label: "Always annotate the incident with the event source for all events",
- *             actions: {
- *                 annotate: "Last time, we saw this incident occur on host: {{cache_var.recent_host}}",
- *             },
- *         }],
- *     }],
- *     catchAll: {
- *         actions: {},
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Cache Variables can be imported using colon-separated IDs, which is the combination of the Global Event Orchestration ID followed by the Cache Variable ID, e.g.
@@ -88,7 +46,7 @@ export class EventOrchestrationGlobalCacheVariable extends pulumi.CustomResource
     }
 
     /**
-     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      */
     public readonly conditions!: pulumi.Output<outputs.EventOrchestrationGlobalCacheVariableCondition[] | undefined>;
     /**
@@ -150,7 +108,7 @@ export class EventOrchestrationGlobalCacheVariable extends pulumi.CustomResource
  */
 export interface EventOrchestrationGlobalCacheVariableState {
     /**
-     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalCacheVariableCondition>[]>;
     /**
@@ -176,7 +134,7 @@ export interface EventOrchestrationGlobalCacheVariableState {
  */
 export interface EventOrchestrationGlobalCacheVariableArgs {
     /**
-     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalCacheVariableCondition>[]>;
     /**

@@ -55,6 +55,7 @@ from .get_standards_resources_scores import *
 from .get_tag import *
 from .get_team import *
 from .get_team_members import *
+from .get_teams import *
 from .get_user import *
 from .get_user_contact_method import *
 from .get_users import *

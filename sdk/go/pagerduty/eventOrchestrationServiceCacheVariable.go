@@ -90,6 +90,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = pagerduty.NewEventOrchestrationServiceCacheVariable(ctx, "is_maintenance", &pagerduty.EventOrchestrationServiceCacheVariableArgs{
+//				Service: svc.ID(),
+//				Name:    pulumi.String("is_maintenance"),
+//				Configuration: &pagerduty.EventOrchestrationServiceCacheVariableConfigurationArgs{
+//					Type:       pulumi.String("external_data"),
+//					DataType:   pulumi.String("boolean"),
+//					TtlSeconds: pulumi.Int(7200),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = pagerduty.NewEventOrchestrationService(ctx, "event_orchestration", &pagerduty.EventOrchestrationServiceArgs{
 //				Service:                            svc.ID(),
 //				EnableEventOrchestrationForService: pulumi.Bool(true),
@@ -97,6 +109,17 @@ import (
 //					&pagerduty.EventOrchestrationServiceSetArgs{
 //						Id: pulumi.String("start"),
 //						Rules: pagerduty.EventOrchestrationServiceSetRuleArray{
+//							&pagerduty.EventOrchestrationServiceSetRuleArgs{
+//								Label: pulumi.String("Suppress alerts if the service is in maintenance"),
+//								Conditions: pagerduty.EventOrchestrationServiceSetRuleConditionArray{
+//									&pagerduty.EventOrchestrationServiceSetRuleConditionArgs{
+//										Expression: pulumi.String("cache_var.is_maintenance == true"),
+//									},
+//								},
+//								Actions: &pagerduty.EventOrchestrationServiceSetRuleActionsArgs{
+//									Suppress: pulumi.Bool(true),
+//								},
+//							},
 //							&pagerduty.EventOrchestrationServiceSetRuleArgs{
 //								Label: pulumi.String("Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute"),
 //								Conditions: pagerduty.EventOrchestrationServiceSetRuleConditionArray{
@@ -134,7 +157,7 @@ import (
 type EventOrchestrationServiceCacheVariable struct {
 	pulumi.CustomResourceState
 
-	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
 	Conditions EventOrchestrationServiceCacheVariableConditionArrayOutput `pulumi:"conditions"`
 	// A configuration object to define what and how values will be stored in the Cache Variable.
 	Configuration EventOrchestrationServiceCacheVariableConfigurationOutput `pulumi:"configuration"`
@@ -182,7 +205,7 @@ func GetEventOrchestrationServiceCacheVariable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventOrchestrationServiceCacheVariable resources.
 type eventOrchestrationServiceCacheVariableState struct {
-	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
 	Conditions []EventOrchestrationServiceCacheVariableCondition `pulumi:"conditions"`
 	// A configuration object to define what and how values will be stored in the Cache Variable.
 	Configuration *EventOrchestrationServiceCacheVariableConfiguration `pulumi:"configuration"`
@@ -195,7 +218,7 @@ type eventOrchestrationServiceCacheVariableState struct {
 }
 
 type EventOrchestrationServiceCacheVariableState struct {
-	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
 	Conditions EventOrchestrationServiceCacheVariableConditionArrayInput
 	// A configuration object to define what and how values will be stored in the Cache Variable.
 	Configuration EventOrchestrationServiceCacheVariableConfigurationPtrInput
@@ -212,7 +235,7 @@ func (EventOrchestrationServiceCacheVariableState) ElementType() reflect.Type {
 }
 
 type eventOrchestrationServiceCacheVariableArgs struct {
-	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
 	Conditions []EventOrchestrationServiceCacheVariableCondition `pulumi:"conditions"`
 	// A configuration object to define what and how values will be stored in the Cache Variable.
 	Configuration EventOrchestrationServiceCacheVariableConfiguration `pulumi:"configuration"`
@@ -226,7 +249,7 @@ type eventOrchestrationServiceCacheVariableArgs struct {
 
 // The set of arguments for constructing a EventOrchestrationServiceCacheVariable resource.
 type EventOrchestrationServiceCacheVariableArgs struct {
-	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
 	Conditions EventOrchestrationServiceCacheVariableConditionArrayInput
 	// A configuration object to define what and how values will be stored in the Cache Variable.
 	Configuration EventOrchestrationServiceCacheVariableConfigurationInput
@@ -325,7 +348,7 @@ func (o EventOrchestrationServiceCacheVariableOutput) ToEventOrchestrationServic
 	return o
 }
 
-// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
 func (o EventOrchestrationServiceCacheVariableOutput) Conditions() EventOrchestrationServiceCacheVariableConditionArrayOutput {
 	return o.ApplyT(func(v *EventOrchestrationServiceCacheVariable) EventOrchestrationServiceCacheVariableConditionArrayOutput {
 		return v.Conditions

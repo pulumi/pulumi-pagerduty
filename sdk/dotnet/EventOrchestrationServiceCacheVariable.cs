@@ -87,6 +87,18 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
+    ///     var isMaintenance = new Pagerduty.EventOrchestrationServiceCacheVariable("is_maintenance", new()
+    ///     {
+    ///         Service = svc.Id,
+    ///         Name = "is_maintenance",
+    ///         Configuration = new Pagerduty.Inputs.EventOrchestrationServiceCacheVariableConfigurationArgs
+    ///         {
+    ///             Type = "external_data",
+    ///             DataType = "boolean",
+    ///             TtlSeconds = 7200,
+    ///         },
+    ///     });
+    /// 
     ///     var eventOrchestration = new Pagerduty.EventOrchestrationService("event_orchestration", new()
     ///     {
     ///         Service = svc.Id,
@@ -98,6 +110,21 @@ namespace Pulumi.Pagerduty
     ///                 Id = "start",
     ///                 Rules = new[]
     ///                 {
+    ///                     new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs
+    ///                     {
+    ///                         Label = "Suppress alerts if the service is in maintenance",
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new Pagerduty.Inputs.EventOrchestrationServiceSetRuleConditionArgs
+    ///                             {
+    ///                                 Expression = "cache_var.is_maintenance == true",
+    ///                             },
+    ///                         },
+    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsArgs
+    ///                         {
+    ///                             Suppress = true,
+    ///                         },
+    ///                     },
     ///                     new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs
     ///                     {
     ///                         Label = "Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute",
@@ -137,7 +164,7 @@ namespace Pulumi.Pagerduty
     public partial class EventOrchestrationServiceCacheVariable : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
         /// </summary>
         [Output("conditions")]
         public Output<ImmutableArray<Outputs.EventOrchestrationServiceCacheVariableCondition>> Conditions { get; private set; } = null!;
@@ -216,7 +243,7 @@ namespace Pulumi.Pagerduty
         private InputList<Inputs.EventOrchestrationServiceCacheVariableConditionArgs>? _conditions;
 
         /// <summary>
-        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
         /// </summary>
         public InputList<Inputs.EventOrchestrationServiceCacheVariableConditionArgs> Conditions
         {
@@ -260,7 +287,7 @@ namespace Pulumi.Pagerduty
         private InputList<Inputs.EventOrchestrationServiceCacheVariableConditionGetArgs>? _conditions;
 
         /// <summary>
-        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
         /// </summary>
         public InputList<Inputs.EventOrchestrationServiceCacheVariableConditionGetArgs> Conditions
         {

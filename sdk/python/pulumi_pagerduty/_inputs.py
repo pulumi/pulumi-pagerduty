@@ -728,7 +728,11 @@ if not MYPY:
     class EventOrchestrationGlobalCacheVariableConfigurationArgsDict(TypedDict):
         type: pulumi.Input[str]
         """
-        The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+        The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
+        """
+        data_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
         """
         regex: NotRequired[pulumi.Input[str]]
         """
@@ -740,7 +744,7 @@ if not MYPY:
         """
         ttl_seconds: NotRequired[pulumi.Input[int]]
         """
-        The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
         """
 elif False:
     EventOrchestrationGlobalCacheVariableConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -749,16 +753,20 @@ elif False:
 class EventOrchestrationGlobalCacheVariableConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 data_type: Optional[pulumi.Input[str]] = None,
                  regex: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  ttl_seconds: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] type: The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+        :param pulumi.Input[str] type: The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
+        :param pulumi.Input[str] data_type: The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
         :param pulumi.Input[str] regex: A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
         :param pulumi.Input[str] source: The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
-        :param pulumi.Input[int] ttl_seconds: The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        :param pulumi.Input[int] ttl_seconds: The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
         """
         pulumi.set(__self__, "type", type)
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
         if regex is not None:
             pulumi.set(__self__, "regex", regex)
         if source is not None:
@@ -770,13 +778,25 @@ class EventOrchestrationGlobalCacheVariableConfigurationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+        The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
+        """
+        return pulumi.get(self, "data_type")
+
+    @data_type.setter
+    def data_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_type", value)
 
     @property
     @pulumi.getter
@@ -806,7 +826,7 @@ class EventOrchestrationGlobalCacheVariableConfigurationArgs:
     @pulumi.getter(name="ttlSeconds")
     def ttl_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
         """
         return pulumi.get(self, "ttl_seconds")
 
@@ -2986,7 +3006,11 @@ if not MYPY:
     class EventOrchestrationServiceCacheVariableConfigurationArgsDict(TypedDict):
         type: pulumi.Input[str]
         """
-        The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+        The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
+        """
+        data_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
         """
         regex: NotRequired[pulumi.Input[str]]
         """
@@ -2998,7 +3022,7 @@ if not MYPY:
         """
         ttl_seconds: NotRequired[pulumi.Input[int]]
         """
-        The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
         """
 elif False:
     EventOrchestrationServiceCacheVariableConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -3007,16 +3031,20 @@ elif False:
 class EventOrchestrationServiceCacheVariableConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 data_type: Optional[pulumi.Input[str]] = None,
                  regex: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  ttl_seconds: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] type: The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+        :param pulumi.Input[str] type: The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
+        :param pulumi.Input[str] data_type: The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
         :param pulumi.Input[str] regex: A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
         :param pulumi.Input[str] source: The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
-        :param pulumi.Input[int] ttl_seconds: The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        :param pulumi.Input[int] ttl_seconds: The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
         """
         pulumi.set(__self__, "type", type)
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
         if regex is not None:
             pulumi.set(__self__, "regex", regex)
         if source is not None:
@@ -3028,13 +3056,25 @@ class EventOrchestrationServiceCacheVariableConfigurationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+        The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
+        """
+        return pulumi.get(self, "data_type")
+
+    @data_type.setter
+    def data_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_type", value)
 
     @property
     @pulumi.getter
@@ -3064,7 +3104,7 @@ class EventOrchestrationServiceCacheVariableConfigurationArgs:
     @pulumi.getter(name="ttlSeconds")
     def ttl_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
         """
         return pulumi.get(self, "ttl_seconds")
 

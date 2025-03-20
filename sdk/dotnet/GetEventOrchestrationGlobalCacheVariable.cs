@@ -160,7 +160,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetEventOrchestrationGlobalCacheVariableResult
     {
         /// <summary>
-        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEventOrchestrationGlobalCacheVariableConditionResult> Conditions;
         /// <summary>

@@ -26,81 +26,6 @@ import javax.annotation.Nullable;
  * This example shows creating a global `Event Orchestration` and a `Cache Variable`. All events that have the `event.source` field will have its `source` value stored in this Cache Variable, and appended as a note for the subsequent incident created by this Event Orchestration.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.pagerduty.Team;
- * import com.pulumi.pagerduty.TeamArgs;
- * import com.pulumi.pagerduty.EventOrchestration;
- * import com.pulumi.pagerduty.EventOrchestrationArgs;
- * import com.pulumi.pagerduty.EventOrchestrationGlobalCacheVariable;
- * import com.pulumi.pagerduty.EventOrchestrationGlobalCacheVariableArgs;
- * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCacheVariableConditionArgs;
- * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCacheVariableConfigurationArgs;
- * import com.pulumi.pagerduty.EventOrchestrationGlobal;
- * import com.pulumi.pagerduty.EventOrchestrationGlobalArgs;
- * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalSetArgs;
- * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCatchAllArgs;
- * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCatchAllActionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var databaseTeam = new Team("databaseTeam", TeamArgs.builder()
- *             .name("Database Team")
- *             .build());
- * 
- *         var eventOrchestration = new EventOrchestration("eventOrchestration", EventOrchestrationArgs.builder()
- *             .name("Example Orchestration")
- *             .team(databaseTeam.id())
- *             .build());
- * 
- *         var cacheVar = new EventOrchestrationGlobalCacheVariable("cacheVar", EventOrchestrationGlobalCacheVariableArgs.builder()
- *             .eventOrchestration(eventOrchestration.id())
- *             .name("recent_host")
- *             .conditions(EventOrchestrationGlobalCacheVariableConditionArgs.builder()
- *                 .expression("event.source exists")
- *                 .build())
- *             .configuration(EventOrchestrationGlobalCacheVariableConfigurationArgs.builder()
- *                 .type("recent_value")
- *                 .source("event.source")
- *                 .regex(".*")
- *                 .build())
- *             .build());
- * 
- *         var global = new EventOrchestrationGlobal("global", EventOrchestrationGlobalArgs.builder()
- *             .eventOrchestration(eventOrchestration.id())
- *             .sets(EventOrchestrationGlobalSetArgs.builder()
- *                 .id("start")
- *                 .rules(EventOrchestrationGlobalSetRuleArgs.builder()
- *                     .label("Always annotate the incident with the event source for all events")
- *                     .actions(EventOrchestrationGlobalSetRuleActionsArgs.builder()
- *                         .annotate("Last time, we saw this incident occur on host: {{cache_var.recent_host}}")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .catchAll(EventOrchestrationGlobalCatchAllArgs.builder()
- *                 .actions()
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -115,14 +40,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable")
 public class EventOrchestrationGlobalCacheVariable extends com.pulumi.resources.CustomResource {
     /**
-     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value.
+     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
      * 
      */
     @Export(name="conditions", refs={List.class,EventOrchestrationGlobalCacheVariableCondition.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EventOrchestrationGlobalCacheVariableCondition>> conditions;
 
     /**
-     * @return Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value.
+     * @return Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
      * 
      */
     public Output<Optional<List<EventOrchestrationGlobalCacheVariableCondition>>> conditions() {

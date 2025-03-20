@@ -14,6 +14,10 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class EventOrchestrationServiceCacheVariableConfiguration
     {
         /// <summary>
+        /// The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
+        /// </summary>
+        public readonly string? DataType;
+        /// <summary>
         /// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
         /// </summary>
         public readonly string? Regex;
@@ -22,16 +26,18 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string? Source;
         /// <summary>
-        /// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        /// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
         /// </summary>
         public readonly int? TtlSeconds;
         /// <summary>
-        /// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+        /// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private EventOrchestrationServiceCacheVariableConfiguration(
+            string? dataType,
+
             string? regex,
 
             string? source,
@@ -40,6 +46,7 @@ namespace Pulumi.Pagerduty.Outputs
 
             string type)
         {
+            DataType = dataType;
             Regex = regex;
             Source = source;
             TtlSeconds = ttlSeconds;

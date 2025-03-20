@@ -30,7 +30,7 @@ class EventOrchestrationServiceCacheVariableArgs:
         The set of arguments for constructing a EventOrchestrationServiceCacheVariable resource.
         :param pulumi.Input['EventOrchestrationServiceCacheVariableConfigurationArgs'] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
         :param pulumi.Input[str] service: ID of the Service Event Orchestration to which this Cache Variable belongs.
-        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
         :param pulumi.Input[bool] disabled: Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
         :param pulumi.Input[str] name: Name of the Cache Variable associated with the Service Event Orchestration.
         """
@@ -71,7 +71,7 @@ class EventOrchestrationServiceCacheVariableArgs:
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]]]:
         """
-        Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+        Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
         """
         return pulumi.get(self, "conditions")
 
@@ -114,7 +114,7 @@ class _EventOrchestrationServiceCacheVariableState:
                  service: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EventOrchestrationServiceCacheVariable resources.
-        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
         :param pulumi.Input['EventOrchestrationServiceCacheVariableConfigurationArgs'] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
         :param pulumi.Input[bool] disabled: Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
         :param pulumi.Input[str] name: Name of the Cache Variable associated with the Service Event Orchestration.
@@ -135,7 +135,7 @@ class _EventOrchestrationServiceCacheVariableState:
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]]]:
         """
-        Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+        Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
         """
         return pulumi.get(self, "conditions")
 
@@ -245,20 +245,39 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
                 "type": "trigger_event_count",
                 "ttl_seconds": 60,
             })
+        is_maintenance = pagerduty.EventOrchestrationServiceCacheVariable("is_maintenance",
+            service=svc.id,
+            name="is_maintenance",
+            configuration={
+                "type": "external_data",
+                "data_type": "boolean",
+                "ttl_seconds": 7200,
+            })
         event_orchestration = pagerduty.EventOrchestrationService("event_orchestration",
             service=svc.id,
             enable_event_orchestration_for_service=True,
             sets=[{
                 "id": "start",
-                "rules": [{
-                    "label": "Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute",
-                    "conditions": [{
-                        "expression": "cache_var.num_db_triggers >= 5",
-                    }],
-                    "actions": {
-                        "severity": "critical",
+                "rules": [
+                    {
+                        "label": "Suppress alerts if the service is in maintenance",
+                        "conditions": [{
+                            "expression": "cache_var.is_maintenance == true",
+                        }],
+                        "actions": {
+                            "suppress": True,
+                        },
                     },
-                }],
+                    {
+                        "label": "Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute",
+                        "conditions": [{
+                            "expression": "cache_var.num_db_triggers >= 5",
+                        }],
+                        "actions": {
+                            "severity": "critical",
+                        },
+                    },
+                ],
             }],
             catch_all={
                 "actions": {},
@@ -275,7 +294,7 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
         :param pulumi.Input[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
         :param pulumi.Input[bool] disabled: Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
         :param pulumi.Input[str] name: Name of the Cache Variable associated with the Service Event Orchestration.
@@ -329,20 +348,39 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
                 "type": "trigger_event_count",
                 "ttl_seconds": 60,
             })
+        is_maintenance = pagerduty.EventOrchestrationServiceCacheVariable("is_maintenance",
+            service=svc.id,
+            name="is_maintenance",
+            configuration={
+                "type": "external_data",
+                "data_type": "boolean",
+                "ttl_seconds": 7200,
+            })
         event_orchestration = pagerduty.EventOrchestrationService("event_orchestration",
             service=svc.id,
             enable_event_orchestration_for_service=True,
             sets=[{
                 "id": "start",
-                "rules": [{
-                    "label": "Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute",
-                    "conditions": [{
-                        "expression": "cache_var.num_db_triggers >= 5",
-                    }],
-                    "actions": {
-                        "severity": "critical",
+                "rules": [
+                    {
+                        "label": "Suppress alerts if the service is in maintenance",
+                        "conditions": [{
+                            "expression": "cache_var.is_maintenance == true",
+                        }],
+                        "actions": {
+                            "suppress": True,
+                        },
                     },
-                }],
+                    {
+                        "label": "Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute",
+                        "conditions": [{
+                            "expression": "cache_var.num_db_triggers >= 5",
+                        }],
+                        "actions": {
+                            "severity": "critical",
+                        },
+                    },
+                ],
             }],
             catch_all={
                 "actions": {},
@@ -417,7 +455,7 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
         :param pulumi.Input[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
         :param pulumi.Input[bool] disabled: Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
         :param pulumi.Input[str] name: Name of the Cache Variable associated with the Service Event Orchestration.
@@ -438,7 +476,7 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
     @pulumi.getter
     def conditions(self) -> pulumi.Output[Optional[Sequence['outputs.EventOrchestrationServiceCacheVariableCondition']]]:
         """
-        Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+        Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
         """
         return pulumi.get(self, "conditions")
 

@@ -52,20 +52,40 @@ import * as utilities from "./utilities";
  *         ttlSeconds: 60,
  *     },
  * });
+ * const isMaintenance = new pagerduty.EventOrchestrationServiceCacheVariable("is_maintenance", {
+ *     service: svc.id,
+ *     name: "is_maintenance",
+ *     configuration: {
+ *         type: "external_data",
+ *         dataType: "boolean",
+ *         ttlSeconds: 7200,
+ *     },
+ * });
  * const eventOrchestration = new pagerduty.EventOrchestrationService("event_orchestration", {
  *     service: svc.id,
  *     enableEventOrchestrationForService: true,
  *     sets: [{
  *         id: "start",
- *         rules: [{
- *             label: "Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute",
- *             conditions: [{
- *                 expression: "cache_var.num_db_triggers >= 5",
- *             }],
- *             actions: {
- *                 severity: "critical",
+ *         rules: [
+ *             {
+ *                 label: "Suppress alerts if the service is in maintenance",
+ *                 conditions: [{
+ *                     expression: "cache_var.is_maintenance == true",
+ *                 }],
+ *                 actions: {
+ *                     suppress: true,
+ *                 },
  *             },
- *         }],
+ *             {
+ *                 label: "Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute",
+ *                 conditions: [{
+ *                     expression: "cache_var.num_db_triggers >= 5",
+ *                 }],
+ *                 actions: {
+ *                     severity: "critical",
+ *                 },
+ *             },
+ *         ],
  *     }],
  *     catchAll: {
  *         actions: {},
@@ -110,7 +130,7 @@ export class EventOrchestrationServiceCacheVariable extends pulumi.CustomResourc
     }
 
     /**
-     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      */
     public readonly conditions!: pulumi.Output<outputs.EventOrchestrationServiceCacheVariableCondition[] | undefined>;
     /**
@@ -172,7 +192,7 @@ export class EventOrchestrationServiceCacheVariable extends pulumi.CustomResourc
  */
 export interface EventOrchestrationServiceCacheVariableState {
     /**
-     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCacheVariableCondition>[]>;
     /**
@@ -198,7 +218,7 @@ export interface EventOrchestrationServiceCacheVariableState {
  */
 export interface EventOrchestrationServiceCacheVariableArgs {
     /**
-     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCacheVariableCondition>[]>;
     /**

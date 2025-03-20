@@ -1213,6 +1213,15 @@
                     }
                 }
             },
+            "pagerduty_teams": {
+                "current": "pagerduty:index/getTeams:getTeams",
+                "majorVersion": 4,
+                "fields": {
+                    "teams": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "pagerduty_user": {
                 "current": "pagerduty:index/getUser:getUser",
                 "majorVersion": 4
@@ -1330,6 +1339,7 @@
             "pagerduty:index/getTag:getTag": 1,
             "pagerduty:index/getTeam:getTeam": 0,
             "pagerduty:index/getTeamMembers:getTeamMembers": 0,
+            "pagerduty:index/getTeams:getTeams": 0,
             "pagerduty:index/getUser:getUser": 0,
             "pagerduty:index/getUserContactMethod:getUserContactMethod": 0,
             "pagerduty:index/getUsers:getUsers": 0,

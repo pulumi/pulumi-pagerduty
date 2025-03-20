@@ -884,13 +884,15 @@ func (o EventOrchestrationGlobalCacheVariableConditionArrayOutput) Index(i pulum
 }
 
 type EventOrchestrationGlobalCacheVariableConfiguration struct {
+	// The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+	DataType *string `pulumi:"dataType"`
 	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 	Regex *string `pulumi:"regex"`
 	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
 	Source *string `pulumi:"source"`
-	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
 	TtlSeconds *int `pulumi:"ttlSeconds"`
-	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
 	Type string `pulumi:"type"`
 }
 
@@ -906,13 +908,15 @@ type EventOrchestrationGlobalCacheVariableConfigurationInput interface {
 }
 
 type EventOrchestrationGlobalCacheVariableConfigurationArgs struct {
+	// The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
 	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
 	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
 	Source pulumi.StringPtrInput `pulumi:"source"`
-	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
 	TtlSeconds pulumi.IntPtrInput `pulumi:"ttlSeconds"`
-	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -993,6 +997,11 @@ func (o EventOrchestrationGlobalCacheVariableConfigurationOutput) ToEventOrchest
 	}).(EventOrchestrationGlobalCacheVariableConfigurationPtrOutput)
 }
 
+// The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+func (o EventOrchestrationGlobalCacheVariableConfigurationOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationGlobalCacheVariableConfiguration) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
 // A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 func (o EventOrchestrationGlobalCacheVariableConfigurationOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCacheVariableConfiguration) *string { return v.Regex }).(pulumi.StringPtrOutput)
@@ -1003,12 +1012,12 @@ func (o EventOrchestrationGlobalCacheVariableConfigurationOutput) Source() pulum
 	return o.ApplyT(func(v EventOrchestrationGlobalCacheVariableConfiguration) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
 func (o EventOrchestrationGlobalCacheVariableConfigurationOutput) TtlSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCacheVariableConfiguration) *int { return v.TtlSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
 func (o EventOrchestrationGlobalCacheVariableConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCacheVariableConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1037,6 +1046,16 @@ func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) Elem() Even
 	}).(EventOrchestrationGlobalCacheVariableConfigurationOutput)
 }
 
+// The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationGlobalCacheVariableConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataType
+	}).(pulumi.StringPtrOutput)
+}
+
 // A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationGlobalCacheVariableConfiguration) *string {
@@ -1057,7 +1076,7 @@ func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) Source() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
 func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) TtlSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationGlobalCacheVariableConfiguration) *int {
 		if v == nil {
@@ -1067,7 +1086,7 @@ func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) TtlSeconds(
 	}).(pulumi.IntPtrOutput)
 }
 
-// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
 func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationGlobalCacheVariableConfiguration) *string {
 		if v == nil {
@@ -4825,13 +4844,15 @@ func (o EventOrchestrationServiceCacheVariableConditionArrayOutput) Index(i pulu
 }
 
 type EventOrchestrationServiceCacheVariableConfiguration struct {
+	// The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+	DataType *string `pulumi:"dataType"`
 	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 	Regex *string `pulumi:"regex"`
 	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
 	Source *string `pulumi:"source"`
-	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
 	TtlSeconds *int `pulumi:"ttlSeconds"`
-	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
 	Type string `pulumi:"type"`
 }
 
@@ -4847,13 +4868,15 @@ type EventOrchestrationServiceCacheVariableConfigurationInput interface {
 }
 
 type EventOrchestrationServiceCacheVariableConfigurationArgs struct {
+	// The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
 	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
 	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
 	Source pulumi.StringPtrInput `pulumi:"source"`
-	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
 	TtlSeconds pulumi.IntPtrInput `pulumi:"ttlSeconds"`
-	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4934,6 +4957,11 @@ func (o EventOrchestrationServiceCacheVariableConfigurationOutput) ToEventOrches
 	}).(EventOrchestrationServiceCacheVariableConfigurationPtrOutput)
 }
 
+// The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+func (o EventOrchestrationServiceCacheVariableConfigurationOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCacheVariableConfiguration) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
 // A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 func (o EventOrchestrationServiceCacheVariableConfigurationOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCacheVariableConfiguration) *string { return v.Regex }).(pulumi.StringPtrOutput)
@@ -4944,12 +4972,12 @@ func (o EventOrchestrationServiceCacheVariableConfigurationOutput) Source() pulu
 	return o.ApplyT(func(v EventOrchestrationServiceCacheVariableConfiguration) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
 func (o EventOrchestrationServiceCacheVariableConfigurationOutput) TtlSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCacheVariableConfiguration) *int { return v.TtlSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
 func (o EventOrchestrationServiceCacheVariableConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCacheVariableConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4978,6 +5006,16 @@ func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) Elem() Eve
 	}).(EventOrchestrationServiceCacheVariableConfigurationOutput)
 }
 
+// The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCacheVariableConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataType
+	}).(pulumi.StringPtrOutput)
+}
+
 // A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationServiceCacheVariableConfiguration) *string {
@@ -4998,7 +5036,7 @@ func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) Source() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
 func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) TtlSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationServiceCacheVariableConfiguration) *int {
 		if v == nil {
@@ -5008,7 +5046,7 @@ func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) TtlSeconds
 	}).(pulumi.IntPtrOutput)
 }
 
-// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
 func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationServiceCacheVariableConfiguration) *string {
 		if v == nil {
@@ -20827,13 +20865,15 @@ func (o GetEventOrchestrationGlobalCacheVariableConditionArrayOutput) Index(i pu
 }
 
 type GetEventOrchestrationGlobalCacheVariableConfiguration struct {
+	// The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+	DataType *string `pulumi:"dataType"`
 	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 	Regex string `pulumi:"regex"`
 	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
 	Source string `pulumi:"source"`
-	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
 	TtlSeconds int `pulumi:"ttlSeconds"`
-	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
 	Type string `pulumi:"type"`
 }
 
@@ -20849,13 +20889,15 @@ type GetEventOrchestrationGlobalCacheVariableConfigurationInput interface {
 }
 
 type GetEventOrchestrationGlobalCacheVariableConfigurationArgs struct {
+	// The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
 	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 	Regex pulumi.StringInput `pulumi:"regex"`
 	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
 	Source pulumi.StringInput `pulumi:"source"`
-	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
 	TtlSeconds pulumi.IntInput `pulumi:"ttlSeconds"`
-	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -20910,6 +20952,11 @@ func (o GetEventOrchestrationGlobalCacheVariableConfigurationOutput) ToGetEventO
 	return o
 }
 
+// The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+func (o GetEventOrchestrationGlobalCacheVariableConfigurationOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEventOrchestrationGlobalCacheVariableConfiguration) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
 // A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 func (o GetEventOrchestrationGlobalCacheVariableConfigurationOutput) Regex() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventOrchestrationGlobalCacheVariableConfiguration) string { return v.Regex }).(pulumi.StringOutput)
@@ -20920,12 +20967,12 @@ func (o GetEventOrchestrationGlobalCacheVariableConfigurationOutput) Source() pu
 	return o.ApplyT(func(v GetEventOrchestrationGlobalCacheVariableConfiguration) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
 func (o GetEventOrchestrationGlobalCacheVariableConfigurationOutput) TtlSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetEventOrchestrationGlobalCacheVariableConfiguration) int { return v.TtlSeconds }).(pulumi.IntOutput)
 }
 
-// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
 func (o GetEventOrchestrationGlobalCacheVariableConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventOrchestrationGlobalCacheVariableConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -21374,13 +21421,15 @@ func (o GetEventOrchestrationServiceCacheVariableConditionArrayOutput) Index(i p
 }
 
 type GetEventOrchestrationServiceCacheVariableConfiguration struct {
+	// The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+	DataType *string `pulumi:"dataType"`
 	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 	Regex string `pulumi:"regex"`
 	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
 	Source string `pulumi:"source"`
-	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
 	TtlSeconds int `pulumi:"ttlSeconds"`
-	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
 	Type string `pulumi:"type"`
 }
 
@@ -21396,13 +21445,15 @@ type GetEventOrchestrationServiceCacheVariableConfigurationInput interface {
 }
 
 type GetEventOrchestrationServiceCacheVariableConfigurationArgs struct {
+	// The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
 	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 	Regex pulumi.StringInput `pulumi:"regex"`
 	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
 	Source pulumi.StringInput `pulumi:"source"`
-	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
 	TtlSeconds pulumi.IntInput `pulumi:"ttlSeconds"`
-	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -21457,6 +21508,11 @@ func (o GetEventOrchestrationServiceCacheVariableConfigurationOutput) ToGetEvent
 	return o
 }
 
+// The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+func (o GetEventOrchestrationServiceCacheVariableConfigurationOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEventOrchestrationServiceCacheVariableConfiguration) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
 // A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
 func (o GetEventOrchestrationServiceCacheVariableConfigurationOutput) Regex() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventOrchestrationServiceCacheVariableConfiguration) string { return v.Regex }).(pulumi.StringOutput)
@@ -21467,12 +21523,12 @@ func (o GetEventOrchestrationServiceCacheVariableConfigurationOutput) Source() p
 	return o.ApplyT(func(v GetEventOrchestrationServiceCacheVariableConfiguration) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
 func (o GetEventOrchestrationServiceCacheVariableConfigurationOutput) TtlSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetEventOrchestrationServiceCacheVariableConfiguration) int { return v.TtlSeconds }).(pulumi.IntOutput)
 }
 
-// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
 func (o GetEventOrchestrationServiceCacheVariableConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventOrchestrationServiceCacheVariableConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23307,6 +23363,130 @@ func (o GetTeamMembersMemberArrayOutput) Index(i pulumi.IntInput) GetTeamMembers
 	}).(GetTeamMembersMemberOutput)
 }
 
+type GetTeamsTeam struct {
+	// The description of the team.
+	Description string `pulumi:"description"`
+	// The ID of the team.
+	Id string `pulumi:"id"`
+	// The name of the team.
+	Name string `pulumi:"name"`
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+	Summary string `pulumi:"summary"`
+}
+
+// GetTeamsTeamInput is an input type that accepts GetTeamsTeamArgs and GetTeamsTeamOutput values.
+// You can construct a concrete instance of `GetTeamsTeamInput` via:
+//
+//	GetTeamsTeamArgs{...}
+type GetTeamsTeamInput interface {
+	pulumi.Input
+
+	ToGetTeamsTeamOutput() GetTeamsTeamOutput
+	ToGetTeamsTeamOutputWithContext(context.Context) GetTeamsTeamOutput
+}
+
+type GetTeamsTeamArgs struct {
+	// The description of the team.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The ID of the team.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the team.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+	Summary pulumi.StringInput `pulumi:"summary"`
+}
+
+func (GetTeamsTeamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTeamsTeam)(nil)).Elem()
+}
+
+func (i GetTeamsTeamArgs) ToGetTeamsTeamOutput() GetTeamsTeamOutput {
+	return i.ToGetTeamsTeamOutputWithContext(context.Background())
+}
+
+func (i GetTeamsTeamArgs) ToGetTeamsTeamOutputWithContext(ctx context.Context) GetTeamsTeamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTeamsTeamOutput)
+}
+
+// GetTeamsTeamArrayInput is an input type that accepts GetTeamsTeamArray and GetTeamsTeamArrayOutput values.
+// You can construct a concrete instance of `GetTeamsTeamArrayInput` via:
+//
+//	GetTeamsTeamArray{ GetTeamsTeamArgs{...} }
+type GetTeamsTeamArrayInput interface {
+	pulumi.Input
+
+	ToGetTeamsTeamArrayOutput() GetTeamsTeamArrayOutput
+	ToGetTeamsTeamArrayOutputWithContext(context.Context) GetTeamsTeamArrayOutput
+}
+
+type GetTeamsTeamArray []GetTeamsTeamInput
+
+func (GetTeamsTeamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTeamsTeam)(nil)).Elem()
+}
+
+func (i GetTeamsTeamArray) ToGetTeamsTeamArrayOutput() GetTeamsTeamArrayOutput {
+	return i.ToGetTeamsTeamArrayOutputWithContext(context.Background())
+}
+
+func (i GetTeamsTeamArray) ToGetTeamsTeamArrayOutputWithContext(ctx context.Context) GetTeamsTeamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTeamsTeamArrayOutput)
+}
+
+type GetTeamsTeamOutput struct{ *pulumi.OutputState }
+
+func (GetTeamsTeamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTeamsTeam)(nil)).Elem()
+}
+
+func (o GetTeamsTeamOutput) ToGetTeamsTeamOutput() GetTeamsTeamOutput {
+	return o
+}
+
+func (o GetTeamsTeamOutput) ToGetTeamsTeamOutputWithContext(ctx context.Context) GetTeamsTeamOutput {
+	return o
+}
+
+// The description of the team.
+func (o GetTeamsTeamOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamsTeam) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The ID of the team.
+func (o GetTeamsTeamOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamsTeam) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the team.
+func (o GetTeamsTeamOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamsTeam) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+func (o GetTeamsTeamOutput) Summary() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamsTeam) string { return v.Summary }).(pulumi.StringOutput)
+}
+
+type GetTeamsTeamArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTeamsTeamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTeamsTeam)(nil)).Elem()
+}
+
+func (o GetTeamsTeamArrayOutput) ToGetTeamsTeamArrayOutput() GetTeamsTeamArrayOutput {
+	return o
+}
+
+func (o GetTeamsTeamArrayOutput) ToGetTeamsTeamArrayOutputWithContext(ctx context.Context) GetTeamsTeamArrayOutput {
+	return o
+}
+
+func (o GetTeamsTeamArrayOutput) Index(i pulumi.IntInput) GetTeamsTeamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTeamsTeam {
+		return vs[0].([]GetTeamsTeam)[vs[1].(int)]
+	}).(GetTeamsTeamOutput)
+}
+
 type GetUsersUser struct {
 	// The human-friendly description of the found user.
 	Description string `pulumi:"description"`
@@ -23805,6 +23985,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsStandardInclusionArrayInput)(nil)).Elem(), GetStandardsStandardInclusionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembersMemberInput)(nil)).Elem(), GetTeamMembersMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembersMemberArrayInput)(nil)).Elem(), GetTeamMembersMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamInput)(nil)).Elem(), GetTeamsTeamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
 	pulumi.RegisterOutputType(AlertGroupingSettingConfigOutput{})
@@ -24147,6 +24329,8 @@ func init() {
 	pulumi.RegisterOutputType(GetStandardsStandardInclusionArrayOutput{})
 	pulumi.RegisterOutputType(GetTeamMembersMemberOutput{})
 	pulumi.RegisterOutputType(GetTeamMembersMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetTeamsTeamOutput{})
+	pulumi.RegisterOutputType(GetTeamsTeamArrayOutput{})
 	pulumi.RegisterOutputType(GetUsersUserOutput{})
 	pulumi.RegisterOutputType(GetUsersUserArrayOutput{})
 }

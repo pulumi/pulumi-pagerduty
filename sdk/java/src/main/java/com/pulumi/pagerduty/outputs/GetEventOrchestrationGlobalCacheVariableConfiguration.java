@@ -8,9 +8,16 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEventOrchestrationGlobalCacheVariableConfiguration {
+    /**
+     * @return The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
+     * 
+     */
+    private @Nullable String dataType;
     /**
      * @return A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
      * 
@@ -22,17 +29,24 @@ public final class GetEventOrchestrationGlobalCacheVariableConfiguration {
      */
     private String source;
     /**
-     * @return The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+     * @return The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
      * 
      */
     private Integer ttlSeconds;
     /**
-     * @return The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+     * @return The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
      * 
      */
     private String type;
 
     private GetEventOrchestrationGlobalCacheVariableConfiguration() {}
+    /**
+     * @return The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
+     * 
+     */
+    public Optional<String> dataType() {
+        return Optional.ofNullable(this.dataType);
+    }
     /**
      * @return A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
      * 
@@ -48,14 +62,14 @@ public final class GetEventOrchestrationGlobalCacheVariableConfiguration {
         return this.source;
     }
     /**
-     * @return The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+     * @return The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
      * 
      */
     public Integer ttlSeconds() {
         return this.ttlSeconds;
     }
     /**
-     * @return The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+     * @return The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
      * 
      */
     public String type() {
@@ -71,6 +85,7 @@ public final class GetEventOrchestrationGlobalCacheVariableConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String dataType;
         private String regex;
         private String source;
         private Integer ttlSeconds;
@@ -78,12 +93,19 @@ public final class GetEventOrchestrationGlobalCacheVariableConfiguration {
         public Builder() {}
         public Builder(GetEventOrchestrationGlobalCacheVariableConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dataType = defaults.dataType;
     	      this.regex = defaults.regex;
     	      this.source = defaults.source;
     	      this.ttlSeconds = defaults.ttlSeconds;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder dataType(@Nullable String dataType) {
+
+            this.dataType = dataType;
+            return this;
+        }
         @CustomType.Setter
         public Builder regex(String regex) {
             if (regex == null) {
@@ -118,6 +140,7 @@ public final class GetEventOrchestrationGlobalCacheVariableConfiguration {
         }
         public GetEventOrchestrationGlobalCacheVariableConfiguration build() {
             final var _resultValue = new GetEventOrchestrationGlobalCacheVariableConfiguration();
+            _resultValue.dataType = dataType;
             _resultValue.regex = regex;
             _resultValue.source = source;
             _resultValue.ttlSeconds = ttlSeconds;

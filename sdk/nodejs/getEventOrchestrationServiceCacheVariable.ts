@@ -77,7 +77,7 @@ export interface GetEventOrchestrationServiceCacheVariableArgs {
  */
 export interface GetEventOrchestrationServiceCacheVariableResult {
     /**
-     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      */
     readonly conditions: outputs.GetEventOrchestrationServiceCacheVariableCondition[];
     /**

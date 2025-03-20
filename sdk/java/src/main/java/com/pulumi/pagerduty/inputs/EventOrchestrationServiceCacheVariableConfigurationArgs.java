@@ -18,6 +18,21 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
     public static final EventOrchestrationServiceCacheVariableConfigurationArgs Empty = new EventOrchestrationServiceCacheVariableConfigurationArgs();
 
     /**
+     * The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
+     * 
+     */
+    @Import(name="dataType")
+    private @Nullable Output<String> dataType;
+
+    /**
+     * @return The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
+     * 
+     */
+    public Optional<Output<String>> dataType() {
+        return Optional.ofNullable(this.dataType);
+    }
+
+    /**
      * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
      * 
      */
@@ -48,14 +63,14 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
     }
 
     /**
-     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
      * 
      */
     @Import(name="ttlSeconds")
     private @Nullable Output<Integer> ttlSeconds;
 
     /**
-     * @return The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+     * @return The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
      * 
      */
     public Optional<Output<Integer>> ttlSeconds() {
@@ -63,14 +78,14 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
     }
 
     /**
-     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+     * @return The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
      * 
      */
     public Output<String> type() {
@@ -80,6 +95,7 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
     private EventOrchestrationServiceCacheVariableConfigurationArgs() {}
 
     private EventOrchestrationServiceCacheVariableConfigurationArgs(EventOrchestrationServiceCacheVariableConfigurationArgs $) {
+        this.dataType = $.dataType;
         this.regex = $.regex;
         this.source = $.source;
         this.ttlSeconds = $.ttlSeconds;
@@ -102,6 +118,27 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
 
         public Builder(EventOrchestrationServiceCacheVariableConfigurationArgs defaults) {
             $ = new EventOrchestrationServiceCacheVariableConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param dataType The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataType(@Nullable Output<String> dataType) {
+            $.dataType = dataType;
+            return this;
+        }
+
+        /**
+         * @param dataType The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataType(String dataType) {
+            return dataType(Output.of(dataType));
         }
 
         /**
@@ -147,7 +184,7 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
         }
 
         /**
-         * @param ttlSeconds The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+         * @param ttlSeconds The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
          * 
          * @return builder
          * 
@@ -158,7 +195,7 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
         }
 
         /**
-         * @param ttlSeconds The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+         * @param ttlSeconds The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
          * 
          * @return builder
          * 
@@ -168,7 +205,7 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
         }
 
         /**
-         * @param type The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+         * @param type The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
          * 
          * @return builder
          * 
@@ -179,7 +216,7 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
         }
 
         /**
-         * @param type The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+         * @param type The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
          * 
          * @return builder
          * 

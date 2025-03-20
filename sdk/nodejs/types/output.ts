@@ -90,6 +90,10 @@ export interface EventOrchestrationGlobalCacheVariableCondition {
 
 export interface EventOrchestrationGlobalCacheVariableConfiguration {
     /**
+     * The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+     */
+    dataType?: string;
+    /**
      * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
      */
     regex?: string;
@@ -98,11 +102,11 @@ export interface EventOrchestrationGlobalCacheVariableConfiguration {
      */
     source?: string;
     /**
-     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
      */
     ttlSeconds?: number;
     /**
-     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
      */
     type: string;
 }
@@ -563,6 +567,10 @@ export interface EventOrchestrationServiceCacheVariableCondition {
 
 export interface EventOrchestrationServiceCacheVariableConfiguration {
     /**
+     * The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+     */
+    dataType?: string;
+    /**
      * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
      */
     regex?: string;
@@ -571,11 +579,11 @@ export interface EventOrchestrationServiceCacheVariableConfiguration {
      */
     source?: string;
     /**
-     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
      */
     ttlSeconds?: number;
     /**
-     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
      */
     type: string;
 }
@@ -1162,6 +1170,10 @@ export interface GetEventOrchestrationGlobalCacheVariableCondition {
 
 export interface GetEventOrchestrationGlobalCacheVariableConfiguration {
     /**
+     * The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+     */
+    dataType?: string;
+    /**
      * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
      */
     regex: string;
@@ -1170,11 +1182,11 @@ export interface GetEventOrchestrationGlobalCacheVariableConfiguration {
      */
     source: string;
     /**
-     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
      */
     ttlSeconds: number;
     /**
-     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
      */
     type: string;
 }
@@ -1222,6 +1234,10 @@ export interface GetEventOrchestrationServiceCacheVariableCondition {
 
 export interface GetEventOrchestrationServiceCacheVariableConfiguration {
     /**
+     * The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+     */
+    dataType?: string;
+    /**
      * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
      */
     regex: string;
@@ -1230,11 +1246,11 @@ export interface GetEventOrchestrationServiceCacheVariableConfiguration {
      */
     source: string;
     /**
-     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
      */
     ttlSeconds: number;
     /**
-     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
      */
     type: string;
 }
@@ -1506,6 +1522,25 @@ export interface GetTeamMembersMember {
      * The type of object. The value returned will be `userReference`. Can be used for passing to another object as dependency.
      */
     type: string;
+}
+
+export interface GetTeamsTeam {
+    /**
+     * The description of the team.
+     */
+    description: string;
+    /**
+     * The ID of the team.
+     */
+    id: string;
+    /**
+     * The name of the team.
+     */
+    name: string;
+    /**
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+     */
+    summary: string;
 }
 
 export interface GetUsersUser {

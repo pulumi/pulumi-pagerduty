@@ -65,6 +65,7 @@
         "getTag.ts",
         "getTeam.ts",
         "getTeamMembers.ts",
+        "getTeams.ts",
         "getUser.ts",
         "getUserContactMethod.ts",
         "getUsers.ts",

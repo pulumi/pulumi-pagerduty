@@ -90,6 +90,10 @@ export interface EventOrchestrationGlobalCacheVariableCondition {
 
 export interface EventOrchestrationGlobalCacheVariableConfiguration {
     /**
+     * The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+     */
+    dataType?: pulumi.Input<string>;
+    /**
      * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
      */
     regex?: pulumi.Input<string>;
@@ -98,11 +102,11 @@ export interface EventOrchestrationGlobalCacheVariableConfiguration {
      */
     source?: pulumi.Input<string>;
     /**
-     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
      */
     ttlSeconds?: pulumi.Input<number>;
     /**
-     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
      */
     type: pulumi.Input<string>;
 }
@@ -563,6 +567,10 @@ export interface EventOrchestrationServiceCacheVariableCondition {
 
 export interface EventOrchestrationServiceCacheVariableConfiguration {
     /**
+     * The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
+     */
+    dataType?: pulumi.Input<string>;
+    /**
      * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
      */
     regex?: pulumi.Input<string>;
@@ -571,11 +579,11 @@ export interface EventOrchestrationServiceCacheVariableConfiguration {
      */
     source?: pulumi.Input<string>;
     /**
-     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
      */
     ttlSeconds?: pulumi.Input<number>;
     /**
-     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
      */
     type: pulumi.Input<string>;
 }

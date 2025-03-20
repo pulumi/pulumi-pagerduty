@@ -64,7 +64,7 @@ type LookupEventOrchestrationGlobalCacheVariableArgs struct {
 
 // A collection of values returned by getEventOrchestrationGlobalCacheVariable.
 type LookupEventOrchestrationGlobalCacheVariableResult struct {
-	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
 	Conditions []GetEventOrchestrationGlobalCacheVariableCondition `pulumi:"conditions"`
 	// A configuration object to define what and how values will be stored in the Cache Variable.
 	Configurations []GetEventOrchestrationGlobalCacheVariableConfiguration `pulumi:"configurations"`
@@ -113,7 +113,7 @@ func (o LookupEventOrchestrationGlobalCacheVariableResultOutput) ToLookupEventOr
 	return o
 }
 
-// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.
+// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
 func (o LookupEventOrchestrationGlobalCacheVariableResultOutput) Conditions() GetEventOrchestrationGlobalCacheVariableConditionArrayOutput {
 	return o.ApplyT(func(v LookupEventOrchestrationGlobalCacheVariableResult) []GetEventOrchestrationGlobalCacheVariableCondition {
 		return v.Conditions

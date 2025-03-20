@@ -106,20 +106,40 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         var isMaintenance = new EventOrchestrationServiceCacheVariable("isMaintenance", EventOrchestrationServiceCacheVariableArgs.builder()
+ *             .service(svc.id())
+ *             .name("is_maintenance")
+ *             .configuration(EventOrchestrationServiceCacheVariableConfigurationArgs.builder()
+ *                 .type("external_data")
+ *                 .dataType("boolean")
+ *                 .ttlSeconds(7200)
+ *                 .build())
+ *             .build());
+ * 
  *         var eventOrchestration = new EventOrchestrationService("eventOrchestration", EventOrchestrationServiceArgs.builder()
  *             .service(svc.id())
  *             .enableEventOrchestrationForService(true)
  *             .sets(EventOrchestrationServiceSetArgs.builder()
  *                 .id("start")
- *                 .rules(EventOrchestrationServiceSetRuleArgs.builder()
- *                     .label("Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute")
- *                     .conditions(EventOrchestrationServiceSetRuleConditionArgs.builder()
- *                         .expression("cache_var.num_db_triggers >= 5")
+ *                 .rules(                
+ *                     EventOrchestrationServiceSetRuleArgs.builder()
+ *                         .label("Suppress alerts if the service is in maintenance")
+ *                         .conditions(EventOrchestrationServiceSetRuleConditionArgs.builder()
+ *                             .expression("cache_var.is_maintenance == true")
+ *                             .build())
+ *                         .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()
+ *                             .suppress(true)
+ *                             .build())
+ *                         .build(),
+ *                     EventOrchestrationServiceSetRuleArgs.builder()
+ *                         .label("Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute")
+ *                         .conditions(EventOrchestrationServiceSetRuleConditionArgs.builder()
+ *                             .expression("cache_var.num_db_triggers >= 5")
+ *                             .build())
+ *                         .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()
+ *                             .severity("critical")
+ *                             .build())
  *                         .build())
- *                     .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()
- *                         .severity("critical")
- *                         .build())
- *                     .build())
  *                 .build())
  *             .catchAll(EventOrchestrationServiceCatchAllArgs.builder()
  *                 .actions()
@@ -144,14 +164,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable")
 public class EventOrchestrationServiceCacheVariable extends com.pulumi.resources.CustomResource {
     /**
-     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value.
+     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
      * 
      */
     @Export(name="conditions", refs={List.class,EventOrchestrationServiceCacheVariableCondition.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EventOrchestrationServiceCacheVariableCondition>> conditions;
 
     /**
-     * @return Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value.
+     * @return Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
      * 
      */
     public Output<Optional<List<EventOrchestrationServiceCacheVariableCondition>>> conditions() {

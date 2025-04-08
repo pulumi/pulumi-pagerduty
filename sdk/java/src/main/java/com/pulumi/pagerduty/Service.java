@@ -73,8 +73,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("My Web App")
- *             .autoResolveTimeout(14400)
- *             .acknowledgementTimeout(600)
+ *             .autoResolveTimeout("14400")
+ *             .acknowledgementTimeout("600")
  *             .escalationPolicy(foo.id())
  *             .alertCreation("create_alerts_and_incidents")
  *             .autoPauseNotificationsParameters(ServiceAutoPauseNotificationsParametersArgs.builder()

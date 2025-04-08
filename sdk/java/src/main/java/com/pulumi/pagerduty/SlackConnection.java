@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *                     "incident.responder.replied",
  *                     "incident.status_update_published",
  *                     "incident.reopened")
- *                 .priorities(p1.applyValue(getPriorityResult -> getPriorityResult.id()))
+ *                 .priorities(p1.id())
  *                 .build())
  *             .build());
  * 

@@ -37,8 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.Ruleset;
  * import com.pulumi.pagerduty.RulesetArgs;
  * import com.pulumi.pagerduty.inputs.RulesetTeamArgs;
- * import com.pulumi.time.Static;
- * import com.pulumi.time.StaticArgs;
+ * import com.pulumiverse.time.Static;
+ * import com.pulumiverse.time.StaticArgs;
  * import com.pulumi.pagerduty.RulesetRule;
  * import com.pulumi.pagerduty.RulesetRuleArgs;
  * import com.pulumi.pagerduty.inputs.RulesetRuleTimeFrameArgs;
@@ -80,14 +80,14 @@ import javax.annotation.Nullable;
  *         var fooRulesetRule = new RulesetRule("fooRulesetRule", RulesetRuleArgs.builder()
  *             .ruleset(fooRuleset.id())
  *             .position(0)
- *             .disabled("false")
+ *             .disabled(false)
  *             .timeFrame(RulesetRuleTimeFrameArgs.builder()
  *                 .scheduledWeeklies(RulesetRuleTimeFrameScheduledWeeklyArgs.builder()
  *                     .weekdays(                    
  *                         2,
  *                         4,
  *                         6)
- *                     .startTime(easternTimeAt0930.unix().applyValue(unix -> unix * 1000))
+ *                     .startTime(easternTimeAt0930.unix().applyValue(_unix -> _unix * 1000))
  *                     .duration(2 * 60 * 60 * 1000)
  *                     .timezone("America/New_York")
  *                     .build())

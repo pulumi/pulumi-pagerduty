@@ -103,8 +103,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("My Web App")
- *             .autoResolveTimeout(14400)
- *             .acknowledgementTimeout(600)
+ *             .autoResolveTimeout("14400")
+ *             .acknowledgementTimeout("600")
  *             .escalationPolicy(exampleEscalationPolicy.id())
  *             .alertCreation("create_alerts_and_incidents")
  *             .build());
@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  *                                 .build())
  *                             .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()
  *                                 .annotate("Please use our P1 runbook: https://docs.test/p1-runbook")
- *                                 .priority(p1.applyValue(getPriorityResult -> getPriorityResult.id()))
+ *                                 .priority(p1.id())
  *                                 .incidentCustomFieldUpdates(EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs.builder()
  *                                     .id(csImpact.id())
  *                                     .value("High Impact")
@@ -175,7 +175,7 @@ import javax.annotation.Nullable;
  *                                 .expression("event.custom_details.service_name matches part '-api' and event.custom_details.status_code matches '502'")
  *                                 .build())
  *                             .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()
- *                                 .escalationPolicy(sreEscPolicy.applyValue(getEscalationPolicyResult -> getEscalationPolicyResult.id()))
+ *                                 .escalationPolicy(sreEscPolicy.id())
  *                                 .build())
  *                             .build(),
  *                         EventOrchestrationServiceSetRuleArgs.builder()
@@ -215,7 +215,8 @@ import javax.annotation.Nullable;
  *                             .build())
  *                     .build())
  *             .catchAll(EventOrchestrationServiceCatchAllArgs.builder()
- *                 .actions()
+ *                 .actions(EventOrchestrationServiceCatchAllActionsArgs.builder()
+ *                     .build())
  *                 .build())
  *             .build());
  * 

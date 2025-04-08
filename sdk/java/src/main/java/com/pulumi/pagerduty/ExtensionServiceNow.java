@@ -75,14 +75,14 @@ import javax.annotation.Nullable;
  * 
  *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("My Web App")
- *             .autoResolveTimeout(14400)
- *             .acknowledgementTimeout(600)
+ *             .autoResolveTimeout("14400")
+ *             .acknowledgementTimeout("600")
  *             .escalationPolicy(exampleEscalationPolicy.id())
  *             .build());
  * 
  *         var snow = new ExtensionServiceNow("snow", ExtensionServiceNowArgs.builder()
  *             .name("My Web App Extension")
- *             .extensionSchema(servicenow.applyValue(getExtensionSchemaResult -> getExtensionSchemaResult.id()))
+ *             .extensionSchema(servicenow.id())
  *             .extensionObjects(exampleService.id())
  *             .snowUser("meeps")
  *             .snowPassword("zorz")

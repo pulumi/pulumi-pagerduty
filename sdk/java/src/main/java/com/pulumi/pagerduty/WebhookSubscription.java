@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *                 "incident.unacknowledged")
  *             .active(true)
  *             .filters(WebhookSubscriptionFilterArgs.builder()
- *                 .id(example.applyValue(getServiceResult -> getServiceResult.id()))
+ *                 .id(example.id())
  *                 .type("service_reference")
  *                 .build())
  *             .type("webhook_subscription")

@@ -74,15 +74,15 @@ import javax.annotation.Nullable;
  * 
  *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("My Web App")
- *             .autoResolveTimeout(14400)
- *             .acknowledgementTimeout(600)
+ *             .autoResolveTimeout("14400")
+ *             .acknowledgementTimeout("600")
  *             .escalationPolicy(exampleEscalationPolicy.id())
  *             .build());
  * 
  *         var slack = new Extension("slack", ExtensionArgs.builder()
  *             .name("My Web App Extension")
  *             .endpointUrl("https://generic_webhook_url/XXXXXX/BBBBBB")
- *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -> getExtensionSchemaResult.id()))
+ *             .extensionSchema(webhook.id())
  *             .extensionObjects(exampleService.id())
  *             .config("""
  * }{{@code

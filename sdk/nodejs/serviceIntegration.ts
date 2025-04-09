@@ -82,7 +82,7 @@ import * as utilities from "./utilities";
  *     emailFilters: [
  *         {
  *             bodyMode: "always",
- *             bodyRegex: undefined,
+ *             bodyRegex: null,
  *             fromEmailMode: "match",
  *             fromEmailRegex: "(@foo.test*)",
  *             subjectMode: "match",
@@ -90,7 +90,7 @@ import * as utilities from "./utilities";
  *         },
  *         {
  *             bodyMode: "always",
- *             bodyRegex: undefined,
+ *             bodyRegex: null,
  *             fromEmailMode: "match",
  *             fromEmailRegex: "(@bar.com*)",
  *             subjectMode: "match",

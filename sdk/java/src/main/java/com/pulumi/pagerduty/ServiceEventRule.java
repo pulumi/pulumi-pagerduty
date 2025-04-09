@@ -54,8 +54,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Service("example", ServiceArgs.builder()
  *             .name("Checkout API Service")
- *             .autoResolveTimeout(14400)
- *             .acknowledgementTimeout(600)
+ *             .autoResolveTimeout("14400")
+ *             .acknowledgementTimeout("600")
  *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
  *             .alertCreation("create_alerts_and_incidents")
  *             .build());

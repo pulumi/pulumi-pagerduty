@@ -88,8 +88,8 @@ import javax.annotation.Nullable;
  * 
  *         var svc = new Service("svc", ServiceArgs.builder()
  *             .name("My Database Service")
- *             .autoResolveTimeout(14400)
- *             .acknowledgementTimeout(600)
+ *             .autoResolveTimeout("14400")
+ *             .acknowledgementTimeout("600")
  *             .escalationPolicy(dbEp.id())
  *             .alertCreation("create_alerts_and_incidents")
  *             .build());
@@ -142,7 +142,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                 .build())
  *             .catchAll(EventOrchestrationServiceCatchAllArgs.builder()
- *                 .actions()
+ *                 .actions(EventOrchestrationServiceCatchAllActionsArgs.builder()
+ *                     .build())
  *                 .build())
  *             .build());
  * 

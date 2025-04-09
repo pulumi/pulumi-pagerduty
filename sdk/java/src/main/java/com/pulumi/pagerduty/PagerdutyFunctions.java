@@ -990,9 +990,9 @@ public final class PagerdutyFunctions {
      * 
      *         var testService = new Service("testService", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
-     *             .escalationPolicy(test.applyValue(getEscalationPolicyResult -> getEscalationPolicyResult.id()))
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
+     *             .escalationPolicy(test.id())
      *             .build());
      * 
      *     }
@@ -1041,9 +1041,9 @@ public final class PagerdutyFunctions {
      * 
      *         var testService = new Service("testService", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
-     *             .escalationPolicy(test.applyValue(getEscalationPolicyResult -> getEscalationPolicyResult.id()))
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
+     *             .escalationPolicy(test.id())
      *             .build());
      * 
      *     }
@@ -1092,9 +1092,9 @@ public final class PagerdutyFunctions {
      * 
      *         var testService = new Service("testService", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
-     *             .escalationPolicy(test.applyValue(getEscalationPolicyResult -> getEscalationPolicyResult.id()))
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
+     *             .escalationPolicy(test.id())
      *             .build());
      * 
      *     }
@@ -1143,9 +1143,9 @@ public final class PagerdutyFunctions {
      * 
      *         var testService = new Service("testService", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
-     *             .escalationPolicy(test.applyValue(getEscalationPolicyResult -> getEscalationPolicyResult.id()))
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
+     *             .escalationPolicy(test.id())
      *             .build());
      * 
      *     }
@@ -1194,9 +1194,9 @@ public final class PagerdutyFunctions {
      * 
      *         var testService = new Service("testService", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
-     *             .escalationPolicy(test.applyValue(getEscalationPolicyResult -> getEscalationPolicyResult.id()))
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
+     *             .escalationPolicy(test.id())
      *             .build());
      * 
      *     }
@@ -1253,7 +1253,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var unrouted = new EventOrchestrationUnrouted("unrouted", EventOrchestrationUnroutedArgs.builder()
-     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.id())))
+     *             .eventOrchestration(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.id()))
      *             .catchAll(EventOrchestrationUnroutedCatchAllArgs.builder()
      *                 .actions(EventOrchestrationUnroutedCatchAllActionsArgs.builder()
      *                     .severity("info")
@@ -1265,7 +1265,7 @@ public final class PagerdutyFunctions {
      *                     .actions(EventOrchestrationUnroutedSetRuleActionsArgs.builder()
      *                         .extractions(EventOrchestrationUnroutedSetRuleActionsExtractionArgs.builder()
      *                             .target("event.custom_details.integration_type")
-     *                             .template(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.integrationDetail()[0].parameters()[0].type())))
+     *                             .template(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.integrationDetail()[0].parameters()[0].type()))
      *                             .build())
      *                         .build())
      *                     .build())
@@ -1326,7 +1326,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var unrouted = new EventOrchestrationUnrouted("unrouted", EventOrchestrationUnroutedArgs.builder()
-     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.id())))
+     *             .eventOrchestration(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.id()))
      *             .catchAll(EventOrchestrationUnroutedCatchAllArgs.builder()
      *                 .actions(EventOrchestrationUnroutedCatchAllActionsArgs.builder()
      *                     .severity("info")
@@ -1338,7 +1338,7 @@ public final class PagerdutyFunctions {
      *                     .actions(EventOrchestrationUnroutedSetRuleActionsArgs.builder()
      *                         .extractions(EventOrchestrationUnroutedSetRuleActionsExtractionArgs.builder()
      *                             .target("event.custom_details.integration_type")
-     *                             .template(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.integrationDetail()[0].parameters()[0].type())))
+     *                             .template(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.integrationDetail()[0].parameters()[0].type()))
      *                             .build())
      *                         .build())
      *                     .build())
@@ -1399,7 +1399,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var unrouted = new EventOrchestrationUnrouted("unrouted", EventOrchestrationUnroutedArgs.builder()
-     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.id())))
+     *             .eventOrchestration(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.id()))
      *             .catchAll(EventOrchestrationUnroutedCatchAllArgs.builder()
      *                 .actions(EventOrchestrationUnroutedCatchAllActionsArgs.builder()
      *                     .severity("info")
@@ -1411,7 +1411,7 @@ public final class PagerdutyFunctions {
      *                     .actions(EventOrchestrationUnroutedSetRuleActionsArgs.builder()
      *                         .extractions(EventOrchestrationUnroutedSetRuleActionsExtractionArgs.builder()
      *                             .target("event.custom_details.integration_type")
-     *                             .template(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.integrationDetail()[0].parameters()[0].type())))
+     *                             .template(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.integrationDetail()[0].parameters()[0].type()))
      *                             .build())
      *                         .build())
      *                     .build())
@@ -1472,7 +1472,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var unrouted = new EventOrchestrationUnrouted("unrouted", EventOrchestrationUnroutedArgs.builder()
-     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.id())))
+     *             .eventOrchestration(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.id()))
      *             .catchAll(EventOrchestrationUnroutedCatchAllArgs.builder()
      *                 .actions(EventOrchestrationUnroutedCatchAllActionsArgs.builder()
      *                     .severity("info")
@@ -1484,7 +1484,7 @@ public final class PagerdutyFunctions {
      *                     .actions(EventOrchestrationUnroutedSetRuleActionsArgs.builder()
      *                         .extractions(EventOrchestrationUnroutedSetRuleActionsExtractionArgs.builder()
      *                             .target("event.custom_details.integration_type")
-     *                             .template(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.integrationDetail()[0].parameters()[0].type())))
+     *                             .template(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.integrationDetail()[0].parameters()[0].type()))
      *                             .build())
      *                         .build())
      *                     .build())
@@ -1545,7 +1545,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var unrouted = new EventOrchestrationUnrouted("unrouted", EventOrchestrationUnroutedArgs.builder()
-     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.id())))
+     *             .eventOrchestration(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.id()))
      *             .catchAll(EventOrchestrationUnroutedCatchAllArgs.builder()
      *                 .actions(EventOrchestrationUnroutedCatchAllActionsArgs.builder()
      *                     .severity("info")
@@ -1557,7 +1557,7 @@ public final class PagerdutyFunctions {
      *                     .actions(EventOrchestrationUnroutedSetRuleActionsArgs.builder()
      *                         .extractions(EventOrchestrationUnroutedSetRuleActionsExtractionArgs.builder()
      *                             .target("event.custom_details.integration_type")
-     *                             .template(tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult).applyValue(tfMyMonitor -> tfMyMonitor.applyValue(getEventOrchestrationResult -> getEventOrchestrationResult.integrationDetail()[0].parameters()[0].type())))
+     *                             .template(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.integrationDetail()[0].parameters()[0].type()))
      *                             .build())
      *                         .build())
      *                     .build())
@@ -2125,8 +2125,8 @@ public final class PagerdutyFunctions {
      * 
      *         var service = new Service("service", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
      *             .escalationPolicy(exampleEscalationPolicy.id())
      *             .alertCreation("create_alerts_and_incidents")
      *             .build());
@@ -2207,8 +2207,8 @@ public final class PagerdutyFunctions {
      * 
      *         var service = new Service("service", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
      *             .escalationPolicy(exampleEscalationPolicy.id())
      *             .alertCreation("create_alerts_and_incidents")
      *             .build());
@@ -2289,8 +2289,8 @@ public final class PagerdutyFunctions {
      * 
      *         var service = new Service("service", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
      *             .escalationPolicy(exampleEscalationPolicy.id())
      *             .alertCreation("create_alerts_and_incidents")
      *             .build());
@@ -2371,8 +2371,8 @@ public final class PagerdutyFunctions {
      * 
      *         var service = new Service("service", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
      *             .escalationPolicy(exampleEscalationPolicy.id())
      *             .alertCreation("create_alerts_and_incidents")
      *             .build());
@@ -2453,8 +2453,8 @@ public final class PagerdutyFunctions {
      * 
      *         var service = new Service("service", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
      *             .escalationPolicy(exampleEscalationPolicy.id())
      *             .alertCreation("create_alerts_and_incidents")
      *             .build());
@@ -2521,7 +2521,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var cacheVar = new EventOrchestrationGlobalCacheVariable("cacheVar", EventOrchestrationGlobalCacheVariableArgs.builder()
-     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationsResult -> getEventOrchestrationsResult.eventOrchestrations()[0].id()))
+     *             .eventOrchestration(tfMyMonitor.eventOrchestrations()[0].id())
      *             .name("recent_host")
      *             .conditions(EventOrchestrationGlobalCacheVariableConditionArgs.builder()
      *                 .expression("event.source exists")
@@ -2590,7 +2590,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var cacheVar = new EventOrchestrationGlobalCacheVariable("cacheVar", EventOrchestrationGlobalCacheVariableArgs.builder()
-     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationsResult -> getEventOrchestrationsResult.eventOrchestrations()[0].id()))
+     *             .eventOrchestration(tfMyMonitor.eventOrchestrations()[0].id())
      *             .name("recent_host")
      *             .conditions(EventOrchestrationGlobalCacheVariableConditionArgs.builder()
      *                 .expression("event.source exists")
@@ -2659,7 +2659,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var cacheVar = new EventOrchestrationGlobalCacheVariable("cacheVar", EventOrchestrationGlobalCacheVariableArgs.builder()
-     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationsResult -> getEventOrchestrationsResult.eventOrchestrations()[0].id()))
+     *             .eventOrchestration(tfMyMonitor.eventOrchestrations()[0].id())
      *             .name("recent_host")
      *             .conditions(EventOrchestrationGlobalCacheVariableConditionArgs.builder()
      *                 .expression("event.source exists")
@@ -2728,7 +2728,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var cacheVar = new EventOrchestrationGlobalCacheVariable("cacheVar", EventOrchestrationGlobalCacheVariableArgs.builder()
-     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationsResult -> getEventOrchestrationsResult.eventOrchestrations()[0].id()))
+     *             .eventOrchestration(tfMyMonitor.eventOrchestrations()[0].id())
      *             .name("recent_host")
      *             .conditions(EventOrchestrationGlobalCacheVariableConditionArgs.builder()
      *                 .expression("event.source exists")
@@ -2797,7 +2797,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var cacheVar = new EventOrchestrationGlobalCacheVariable("cacheVar", EventOrchestrationGlobalCacheVariableArgs.builder()
-     *             .eventOrchestration(tfMyMonitor.applyValue(getEventOrchestrationsResult -> getEventOrchestrationsResult.eventOrchestrations()[0].id()))
+     *             .eventOrchestration(tfMyMonitor.eventOrchestrations()[0].id())
      *             .name("recent_host")
      *             .conditions(EventOrchestrationGlobalCacheVariableConditionArgs.builder()
      *                 .expression("event.source exists")
@@ -2880,15 +2880,15 @@ public final class PagerdutyFunctions {
      * 
      *         var exampleService = new Service("exampleService", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
      *         var slack = new Extension("slack", ExtensionArgs.builder()
      *             .name("My Web App Extension")
      *             .endpointUrl("https://generic_webhook_url/XXXXXX/BBBBBB")
-     *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -> getExtensionSchemaResult.id()))
+     *             .extensionSchema(webhook.id())
      *             .extensionObjects(exampleService.id())
      *             .build());
      * 
@@ -2963,15 +2963,15 @@ public final class PagerdutyFunctions {
      * 
      *         var exampleService = new Service("exampleService", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
      *         var slack = new Extension("slack", ExtensionArgs.builder()
      *             .name("My Web App Extension")
      *             .endpointUrl("https://generic_webhook_url/XXXXXX/BBBBBB")
-     *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -> getExtensionSchemaResult.id()))
+     *             .extensionSchema(webhook.id())
      *             .extensionObjects(exampleService.id())
      *             .build());
      * 
@@ -3046,15 +3046,15 @@ public final class PagerdutyFunctions {
      * 
      *         var exampleService = new Service("exampleService", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
      *         var slack = new Extension("slack", ExtensionArgs.builder()
      *             .name("My Web App Extension")
      *             .endpointUrl("https://generic_webhook_url/XXXXXX/BBBBBB")
-     *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -> getExtensionSchemaResult.id()))
+     *             .extensionSchema(webhook.id())
      *             .extensionObjects(exampleService.id())
      *             .build());
      * 
@@ -3129,15 +3129,15 @@ public final class PagerdutyFunctions {
      * 
      *         var exampleService = new Service("exampleService", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
      *         var slack = new Extension("slack", ExtensionArgs.builder()
      *             .name("My Web App Extension")
      *             .endpointUrl("https://generic_webhook_url/XXXXXX/BBBBBB")
-     *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -> getExtensionSchemaResult.id()))
+     *             .extensionSchema(webhook.id())
      *             .extensionObjects(exampleService.id())
      *             .build());
      * 
@@ -3212,15 +3212,15 @@ public final class PagerdutyFunctions {
      * 
      *         var exampleService = new Service("exampleService", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
      *         var slack = new Extension("slack", ExtensionArgs.builder()
      *             .name("My Web App Extension")
      *             .endpointUrl("https://generic_webhook_url/XXXXXX/BBBBBB")
-     *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -> getExtensionSchemaResult.id()))
+     *             .extensionSchema(webhook.id())
      *             .extensionObjects(exampleService.id())
      *             .build());
      * 
@@ -3269,7 +3269,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var devEnvironment = new IncidentCustomFieldOption("devEnvironment", IncidentCustomFieldOptionArgs.builder()
-     *             .field(environment.applyValue(getIncidentCustomFieldResult -> getIncidentCustomFieldResult.id()))
+     *             .field(environment.id())
      *             .datatype("string")
      *             .value("dev")
      *             .build());
@@ -3319,7 +3319,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var devEnvironment = new IncidentCustomFieldOption("devEnvironment", IncidentCustomFieldOptionArgs.builder()
-     *             .field(environment.applyValue(getIncidentCustomFieldResult -> getIncidentCustomFieldResult.id()))
+     *             .field(environment.id())
      *             .datatype("string")
      *             .value("dev")
      *             .build());
@@ -3369,7 +3369,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var devEnvironment = new IncidentCustomFieldOption("devEnvironment", IncidentCustomFieldOptionArgs.builder()
-     *             .field(environment.applyValue(getIncidentCustomFieldResult -> getIncidentCustomFieldResult.id()))
+     *             .field(environment.id())
      *             .datatype("string")
      *             .value("dev")
      *             .build());
@@ -3419,7 +3419,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var devEnvironment = new IncidentCustomFieldOption("devEnvironment", IncidentCustomFieldOptionArgs.builder()
-     *             .field(environment.applyValue(getIncidentCustomFieldResult -> getIncidentCustomFieldResult.id()))
+     *             .field(environment.id())
      *             .datatype("string")
      *             .value("dev")
      *             .build());
@@ -3469,7 +3469,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var devEnvironment = new IncidentCustomFieldOption("devEnvironment", IncidentCustomFieldOptionArgs.builder()
-     *             .field(environment.applyValue(getIncidentCustomFieldResult -> getIncidentCustomFieldResult.id()))
+     *             .field(environment.id())
      *             .datatype("string")
      *             .value("dev")
      *             .build());
@@ -3555,8 +3555,8 @@ public final class PagerdutyFunctions {
      * 
      *         var automaticTrigger = new IncidentWorkflowTrigger("automaticTrigger", IncidentWorkflowTriggerArgs.builder()
      *             .type("conditional")
-     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -> getIncidentWorkflowResult.id()))
-     *             .services(firstService.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .workflow(myWorkflow.id())
+     *             .services(firstService.id())
      *             .condition("incident.priority matches 'P1'")
      *             .build());
      * 
@@ -3611,8 +3611,8 @@ public final class PagerdutyFunctions {
      * 
      *         var automaticTrigger = new IncidentWorkflowTrigger("automaticTrigger", IncidentWorkflowTriggerArgs.builder()
      *             .type("conditional")
-     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -> getIncidentWorkflowResult.id()))
-     *             .services(firstService.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .workflow(myWorkflow.id())
+     *             .services(firstService.id())
      *             .condition("incident.priority matches 'P1'")
      *             .build());
      * 
@@ -3667,8 +3667,8 @@ public final class PagerdutyFunctions {
      * 
      *         var automaticTrigger = new IncidentWorkflowTrigger("automaticTrigger", IncidentWorkflowTriggerArgs.builder()
      *             .type("conditional")
-     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -> getIncidentWorkflowResult.id()))
-     *             .services(firstService.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .workflow(myWorkflow.id())
+     *             .services(firstService.id())
      *             .condition("incident.priority matches 'P1'")
      *             .build());
      * 
@@ -3723,8 +3723,8 @@ public final class PagerdutyFunctions {
      * 
      *         var automaticTrigger = new IncidentWorkflowTrigger("automaticTrigger", IncidentWorkflowTriggerArgs.builder()
      *             .type("conditional")
-     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -> getIncidentWorkflowResult.id()))
-     *             .services(firstService.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .workflow(myWorkflow.id())
+     *             .services(firstService.id())
      *             .condition("incident.priority matches 'P1'")
      *             .build());
      * 
@@ -3779,8 +3779,8 @@ public final class PagerdutyFunctions {
      * 
      *         var automaticTrigger = new IncidentWorkflowTrigger("automaticTrigger", IncidentWorkflowTriggerArgs.builder()
      *             .type("conditional")
-     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -> getIncidentWorkflowResult.id()))
-     *             .services(firstService.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .workflow(myWorkflow.id())
+     *             .services(firstService.id())
      *             .condition("incident.priority matches 'P1'")
      *             .build());
      * 
@@ -3800,36 +3800,6 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.pagerduty.PagerdutyFunctions;
-     * import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var circular = PagerdutyFunctions.getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs.builder()
-     *             .name("pdt-circular")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3842,36 +3812,6 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.pagerduty.PagerdutyFunctions;
-     * import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var circular = PagerdutyFunctions.getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs.builder()
-     *             .name("pdt-circular")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3884,36 +3824,6 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.pagerduty.PagerdutyFunctions;
-     * import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var circular = PagerdutyFunctions.getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs.builder()
-     *             .name("pdt-circular")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3926,36 +3836,6 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.pagerduty.PagerdutyFunctions;
-     * import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var circular = PagerdutyFunctions.getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs.builder()
-     *             .name("pdt-circular")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3968,36 +3848,6 @@ public final class PagerdutyFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.pagerduty.PagerdutyFunctions;
-     * import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var circular = PagerdutyFunctions.getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs.builder()
-     *             .name("pdt-circular")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4036,7 +3886,7 @@ public final class PagerdutyFunctions {
      *     }}{@code
      * 
      *     public static void stack(Context ctx) }{{@code
-     *         final var invalidRoles = "owner";
+     *         final var invalidRoles = List.of("owner");
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
      *             .name("Full User")
@@ -4046,7 +3896,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
+     *             .license(fullUser.id())
      *             .role("user")
      *             .build());
      * 
@@ -4092,7 +3942,7 @@ public final class PagerdutyFunctions {
      *     }}{@code
      * 
      *     public static void stack(Context ctx) }{{@code
-     *         final var invalidRoles = "owner";
+     *         final var invalidRoles = List.of("owner");
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
      *             .name("Full User")
@@ -4102,7 +3952,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
+     *             .license(fullUser.id())
      *             .role("user")
      *             .build());
      * 
@@ -4148,7 +3998,7 @@ public final class PagerdutyFunctions {
      *     }}{@code
      * 
      *     public static void stack(Context ctx) }{{@code
-     *         final var invalidRoles = "owner";
+     *         final var invalidRoles = List.of("owner");
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
      *             .name("Full User")
@@ -4158,7 +4008,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
+     *             .license(fullUser.id())
      *             .role("user")
      *             .build());
      * 
@@ -4204,7 +4054,7 @@ public final class PagerdutyFunctions {
      *     }}{@code
      * 
      *     public static void stack(Context ctx) }{{@code
-     *         final var invalidRoles = "owner";
+     *         final var invalidRoles = List.of("owner");
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
      *             .name("Full User")
@@ -4214,7 +4064,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
+     *             .license(fullUser.id())
      *             .role("user")
      *             .build());
      * 
@@ -4260,7 +4110,7 @@ public final class PagerdutyFunctions {
      *     }}{@code
      * 
      *     public static void stack(Context ctx) }{{@code
-     *         final var invalidRoles = "owner";
+     *         final var invalidRoles = List.of("owner");
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
      *             .name("Full User")
@@ -4270,7 +4120,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
+     *             .license(fullUser.id())
      *             .role("user")
      *             .build());
      * 
@@ -4316,7 +4166,7 @@ public final class PagerdutyFunctions {
      *     }}{@code
      * 
      *     public static void stack(Context ctx) }{{@code
-     *         final var invalidRoles = "owner";
+     *         final var invalidRoles = List.of("owner");
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
      *             .name("Full User")
@@ -4326,7 +4176,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
+     *             .license(fullUser.id())
      *             .role("user")
      *             .build());
      * 
@@ -4372,7 +4222,7 @@ public final class PagerdutyFunctions {
      *     }}{@code
      * 
      *     public static void stack(Context ctx) }{{@code
-     *         final var invalidRoles = "owner";
+     *         final var invalidRoles = List.of("owner");
      * 
      *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
      *             .name("Full User")
@@ -4382,7 +4232,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .license(fullUser.applyValue(getLicenseResult -> getLicenseResult.id()))
+     *             .license(fullUser.id())
      *             .role("user")
      *             .build());
      * 
@@ -4426,14 +4276,15 @@ public final class PagerdutyFunctions {
      *     }}{@code
      * 
      *     public static void stack(Context ctx) }{{@code
-     *         final var invalidRoles = "owner";
+     *         final var invalidRoles = List.of("owner");
      * 
-     *         final var licenses = PagerdutyFunctions.getLicenses();
+     *         final var licenses = PagerdutyFunctions.getLicenses(GetLicensesArgs.builder()
+     *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
+     *             .license(licenses.licenses()[0].id())
      *             .role("user")
      *             .build());
      * 
@@ -4477,14 +4328,15 @@ public final class PagerdutyFunctions {
      *     }}{@code
      * 
      *     public static void stack(Context ctx) }{{@code
-     *         final var invalidRoles = "owner";
+     *         final var invalidRoles = List.of("owner");
      * 
-     *         final var licenses = PagerdutyFunctions.getLicenses();
+     *         final var licenses = PagerdutyFunctions.getLicenses(GetLicensesArgs.builder()
+     *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
+     *             .license(licenses.licenses()[0].id())
      *             .role("user")
      *             .build());
      * 
@@ -4528,14 +4380,15 @@ public final class PagerdutyFunctions {
      *     }}{@code
      * 
      *     public static void stack(Context ctx) }{{@code
-     *         final var invalidRoles = "owner";
+     *         final var invalidRoles = List.of("owner");
      * 
-     *         final var licenses = PagerdutyFunctions.getLicenses();
+     *         final var licenses = PagerdutyFunctions.getLicenses(GetLicensesArgs.builder()
+     *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
+     *             .license(licenses.licenses()[0].id())
      *             .role("user")
      *             .build());
      * 
@@ -4579,14 +4432,15 @@ public final class PagerdutyFunctions {
      *     }}{@code
      * 
      *     public static void stack(Context ctx) }{{@code
-     *         final var invalidRoles = "owner";
+     *         final var invalidRoles = List.of("owner");
      * 
-     *         final var licenses = PagerdutyFunctions.getLicenses();
+     *         final var licenses = PagerdutyFunctions.getLicenses(GetLicensesArgs.builder()
+     *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
+     *             .license(licenses.licenses()[0].id())
      *             .role("user")
      *             .build());
      * 
@@ -4630,14 +4484,15 @@ public final class PagerdutyFunctions {
      *     }}{@code
      * 
      *     public static void stack(Context ctx) }{{@code
-     *         final var invalidRoles = "owner";
+     *         final var invalidRoles = List.of("owner");
      * 
-     *         final var licenses = PagerdutyFunctions.getLicenses();
+     *         final var licenses = PagerdutyFunctions.getLicenses(GetLicensesArgs.builder()
+     *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
+     *             .license(licenses.licenses()[0].id())
      *             .role("user")
      *             .build());
      * 
@@ -4681,14 +4536,15 @@ public final class PagerdutyFunctions {
      *     }}{@code
      * 
      *     public static void stack(Context ctx) }{{@code
-     *         final var invalidRoles = "owner";
+     *         final var invalidRoles = List.of("owner");
      * 
-     *         final var licenses = PagerdutyFunctions.getLicenses();
+     *         final var licenses = PagerdutyFunctions.getLicenses(GetLicensesArgs.builder()
+     *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
+     *             .license(licenses.licenses()[0].id())
      *             .role("user")
      *             .build());
      * 
@@ -4732,14 +4588,15 @@ public final class PagerdutyFunctions {
      *     }}{@code
      * 
      *     public static void stack(Context ctx) }{{@code
-     *         final var invalidRoles = "owner";
+     *         final var invalidRoles = List.of("owner");
      * 
-     *         final var licenses = PagerdutyFunctions.getLicenses();
+     *         final var licenses = PagerdutyFunctions.getLicenses(GetLicensesArgs.builder()
+     *             .build());
      * 
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .license(licenses.applyValue(getLicensesResult -> getLicensesResult.licenses()[0].id()))
+     *             .license(licenses.licenses()[0].id())
      *             .role("user")
      *             .build());
      * 
@@ -4798,7 +4655,7 @@ public final class PagerdutyFunctions {
      *         var fooRulesetRule = new RulesetRule("fooRulesetRule", RulesetRuleArgs.builder()
      *             .ruleset(foo.id())
      *             .position(0)
-     *             .disabled("false")
+     *             .disabled(false)
      *             .conditions(RulesetRuleConditionsArgs.builder()
      *                 .operator("and")
      *                 .subconditions(                
@@ -4822,7 +4679,7 @@ public final class PagerdutyFunctions {
      *                     .value("P5DTL0K")
      *                     .build())
      *                 .priorities(RulesetRuleActionsPriorityArgs.builder()
-     *                     .value(p1.applyValue(getPriorityResult -> getPriorityResult.id()))
+     *                     .value(p1.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -4882,7 +4739,7 @@ public final class PagerdutyFunctions {
      *         var fooRulesetRule = new RulesetRule("fooRulesetRule", RulesetRuleArgs.builder()
      *             .ruleset(foo.id())
      *             .position(0)
-     *             .disabled("false")
+     *             .disabled(false)
      *             .conditions(RulesetRuleConditionsArgs.builder()
      *                 .operator("and")
      *                 .subconditions(                
@@ -4906,7 +4763,7 @@ public final class PagerdutyFunctions {
      *                     .value("P5DTL0K")
      *                     .build())
      *                 .priorities(RulesetRuleActionsPriorityArgs.builder()
-     *                     .value(p1.applyValue(getPriorityResult -> getPriorityResult.id()))
+     *                     .value(p1.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -4966,7 +4823,7 @@ public final class PagerdutyFunctions {
      *         var fooRulesetRule = new RulesetRule("fooRulesetRule", RulesetRuleArgs.builder()
      *             .ruleset(foo.id())
      *             .position(0)
-     *             .disabled("false")
+     *             .disabled(false)
      *             .conditions(RulesetRuleConditionsArgs.builder()
      *                 .operator("and")
      *                 .subconditions(                
@@ -4990,7 +4847,7 @@ public final class PagerdutyFunctions {
      *                     .value("P5DTL0K")
      *                     .build())
      *                 .priorities(RulesetRuleActionsPriorityArgs.builder()
-     *                     .value(p1.applyValue(getPriorityResult -> getPriorityResult.id()))
+     *                     .value(p1.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -5050,7 +4907,7 @@ public final class PagerdutyFunctions {
      *         var fooRulesetRule = new RulesetRule("fooRulesetRule", RulesetRuleArgs.builder()
      *             .ruleset(foo.id())
      *             .position(0)
-     *             .disabled("false")
+     *             .disabled(false)
      *             .conditions(RulesetRuleConditionsArgs.builder()
      *                 .operator("and")
      *                 .subconditions(                
@@ -5074,7 +4931,7 @@ public final class PagerdutyFunctions {
      *                     .value("P5DTL0K")
      *                     .build())
      *                 .priorities(RulesetRuleActionsPriorityArgs.builder()
-     *                     .value(p1.applyValue(getPriorityResult -> getPriorityResult.id()))
+     *                     .value(p1.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -5134,7 +4991,7 @@ public final class PagerdutyFunctions {
      *         var fooRulesetRule = new RulesetRule("fooRulesetRule", RulesetRuleArgs.builder()
      *             .ruleset(foo.id())
      *             .position(0)
-     *             .disabled("false")
+     *             .disabled(false)
      *             .conditions(RulesetRuleConditionsArgs.builder()
      *                 .operator("and")
      *                 .subconditions(                
@@ -5158,7 +5015,7 @@ public final class PagerdutyFunctions {
      *                     .value("P5DTL0K")
      *                     .build())
      *                 .priorities(RulesetRuleActionsPriorityArgs.builder()
-     *                     .value(p1.applyValue(getPriorityResult -> getPriorityResult.id()))
+     *                     .value(p1.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -5208,9 +5065,9 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var foo = new RulesetRule("foo", RulesetRuleArgs.builder()
-     *             .ruleset(example.applyValue(getRulesetResult -> getRulesetResult.id()))
+     *             .ruleset(example.id())
      *             .position(0)
-     *             .disabled("false")
+     *             .disabled(false)
      *             .conditions(RulesetRuleConditionsArgs.builder()
      *                 .operator("and")
      *                 .subconditions(                
@@ -5316,9 +5173,9 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var foo = new RulesetRule("foo", RulesetRuleArgs.builder()
-     *             .ruleset(example.applyValue(getRulesetResult -> getRulesetResult.id()))
+     *             .ruleset(example.id())
      *             .position(0)
-     *             .disabled("false")
+     *             .disabled(false)
      *             .conditions(RulesetRuleConditionsArgs.builder()
      *                 .operator("and")
      *                 .subconditions(                
@@ -5424,9 +5281,9 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var foo = new RulesetRule("foo", RulesetRuleArgs.builder()
-     *             .ruleset(example.applyValue(getRulesetResult -> getRulesetResult.id()))
+     *             .ruleset(example.id())
      *             .position(0)
-     *             .disabled("false")
+     *             .disabled(false)
      *             .conditions(RulesetRuleConditionsArgs.builder()
      *                 .operator("and")
      *                 .subconditions(                
@@ -5532,9 +5389,9 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var foo = new RulesetRule("foo", RulesetRuleArgs.builder()
-     *             .ruleset(example.applyValue(getRulesetResult -> getRulesetResult.id()))
+     *             .ruleset(example.id())
      *             .position(0)
-     *             .disabled("false")
+     *             .disabled(false)
      *             .conditions(RulesetRuleConditionsArgs.builder()
      *                 .operator("and")
      *                 .subconditions(                
@@ -5640,9 +5497,9 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var foo = new RulesetRule("foo", RulesetRuleArgs.builder()
-     *             .ruleset(example.applyValue(getRulesetResult -> getRulesetResult.id()))
+     *             .ruleset(example.id())
      *             .position(0)
-     *             .disabled("false")
+     *             .disabled(false)
      *             .conditions(RulesetRuleConditionsArgs.builder()
      *                 .operator("and")
      *                 .subconditions(                
@@ -5755,7 +5612,7 @@ public final class PagerdutyFunctions {
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
      *                     .type("schedule")
-     *                     .id(test.applyValue(getScheduleResult -> getScheduleResult.id()))
+     *                     .id(test.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -5812,7 +5669,7 @@ public final class PagerdutyFunctions {
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
      *                     .type("schedule")
-     *                     .id(test.applyValue(getScheduleResult -> getScheduleResult.id()))
+     *                     .id(test.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -5869,7 +5726,7 @@ public final class PagerdutyFunctions {
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
      *                     .type("schedule")
-     *                     .id(test.applyValue(getScheduleResult -> getScheduleResult.id()))
+     *                     .id(test.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -5926,7 +5783,7 @@ public final class PagerdutyFunctions {
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
      *                     .type("schedule")
-     *                     .id(test.applyValue(getScheduleResult -> getScheduleResult.id()))
+     *                     .id(test.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -5983,7 +5840,7 @@ public final class PagerdutyFunctions {
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
      *                     .type("schedule")
-     *                     .id(test.applyValue(getScheduleResult -> getScheduleResult.id()))
+     *                     .id(test.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -6039,8 +5896,8 @@ public final class PagerdutyFunctions {
      * 
      *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
      *             .name("Datadog Integration")
-     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
-     *             .service(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .vendor(datadog.id())
+     *             .service(example.id())
      *             .type("generic_events_api_inbound_integration")
      *             .build());
      * 
@@ -6095,8 +5952,8 @@ public final class PagerdutyFunctions {
      * 
      *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
      *             .name("Datadog Integration")
-     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
-     *             .service(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .vendor(datadog.id())
+     *             .service(example.id())
      *             .type("generic_events_api_inbound_integration")
      *             .build());
      * 
@@ -6151,8 +6008,8 @@ public final class PagerdutyFunctions {
      * 
      *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
      *             .name("Datadog Integration")
-     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
-     *             .service(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .vendor(datadog.id())
+     *             .service(example.id())
      *             .type("generic_events_api_inbound_integration")
      *             .build());
      * 
@@ -6207,8 +6064,8 @@ public final class PagerdutyFunctions {
      * 
      *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
      *             .name("Datadog Integration")
-     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
-     *             .service(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .vendor(datadog.id())
+     *             .service(example.id())
      *             .type("generic_events_api_inbound_integration")
      *             .build());
      * 
@@ -6263,8 +6120,8 @@ public final class PagerdutyFunctions {
      * 
      *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
      *             .name("Datadog Integration")
-     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
-     *             .service(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .vendor(datadog.id())
+     *             .service(example.id())
      *             .type("generic_events_api_inbound_integration")
      *             .build());
      * 
@@ -6522,7 +6379,8 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var standards = PagerdutyFunctions.getStandards();
+     *         final var standards = PagerdutyFunctions.getStandards(GetStandardsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -6563,7 +6421,8 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var standards = PagerdutyFunctions.getStandards();
+     *         final var standards = PagerdutyFunctions.getStandards(GetStandardsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -6604,7 +6463,8 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var standards = PagerdutyFunctions.getStandards();
+     *         final var standards = PagerdutyFunctions.getStandards(GetStandardsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -6645,7 +6505,8 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var standards = PagerdutyFunctions.getStandards();
+     *         final var standards = PagerdutyFunctions.getStandards(GetStandardsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -6686,7 +6547,8 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var standards = PagerdutyFunctions.getStandards();
+     *         final var standards = PagerdutyFunctions.getStandards(GetStandardsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -6727,7 +6589,8 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var standards = PagerdutyFunctions.getStandards();
+     *         final var standards = PagerdutyFunctions.getStandards(GetStandardsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -6768,7 +6631,8 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var standards = PagerdutyFunctions.getStandards();
+     *         final var standards = PagerdutyFunctions.getStandards(GetStandardsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -6816,7 +6680,7 @@ public final class PagerdutyFunctions {
      * 
      *         final var scores = PagerdutyFunctions.getStandardsResourceScores(GetStandardsResourceScoresArgs.builder()
      *             .resourceType("technical_services")
-     *             .id(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .id(example.id())
      *             .build());
      * 
      *     }
@@ -6865,7 +6729,7 @@ public final class PagerdutyFunctions {
      * 
      *         final var scores = PagerdutyFunctions.getStandardsResourceScores(GetStandardsResourceScoresArgs.builder()
      *             .resourceType("technical_services")
-     *             .id(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .id(example.id())
      *             .build());
      * 
      *     }
@@ -6914,7 +6778,7 @@ public final class PagerdutyFunctions {
      * 
      *         final var scores = PagerdutyFunctions.getStandardsResourceScores(GetStandardsResourceScoresArgs.builder()
      *             .resourceType("technical_services")
-     *             .id(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .id(example.id())
      *             .build());
      * 
      *     }
@@ -6963,7 +6827,7 @@ public final class PagerdutyFunctions {
      * 
      *         final var scores = PagerdutyFunctions.getStandardsResourceScores(GetStandardsResourceScoresArgs.builder()
      *             .resourceType("technical_services")
-     *             .id(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .id(example.id())
      *             .build());
      * 
      *     }
@@ -7012,7 +6876,7 @@ public final class PagerdutyFunctions {
      * 
      *         final var scores = PagerdutyFunctions.getStandardsResourceScores(GetStandardsResourceScoresArgs.builder()
      *             .resourceType("technical_services")
-     *             .id(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .id(example.id())
      *             .build());
      * 
      *     }
@@ -7070,9 +6934,9 @@ public final class PagerdutyFunctions {
      *         final var scores = PagerdutyFunctions.getStandardsResourcesScores(GetStandardsResourcesScoresArgs.builder()
      *             .resourceType("technical_services")
      *             .ids(            
-     *                 foo.applyValue(getServiceResult -> getServiceResult.id()),
-     *                 bar.applyValue(getServiceResult -> getServiceResult.id()),
-     *                 baz.applyValue(getServiceResult -> getServiceResult.id()))
+     *                 foo.id(),
+     *                 bar.id(),
+     *                 baz.id())
      *             .build());
      * 
      *     }
@@ -7130,9 +6994,9 @@ public final class PagerdutyFunctions {
      *         final var scores = PagerdutyFunctions.getStandardsResourcesScores(GetStandardsResourcesScoresArgs.builder()
      *             .resourceType("technical_services")
      *             .ids(            
-     *                 foo.applyValue(getServiceResult -> getServiceResult.id()),
-     *                 bar.applyValue(getServiceResult -> getServiceResult.id()),
-     *                 baz.applyValue(getServiceResult -> getServiceResult.id()))
+     *                 foo.id(),
+     *                 bar.id(),
+     *                 baz.id())
      *             .build());
      * 
      *     }
@@ -7190,9 +7054,9 @@ public final class PagerdutyFunctions {
      *         final var scores = PagerdutyFunctions.getStandardsResourcesScores(GetStandardsResourcesScoresArgs.builder()
      *             .resourceType("technical_services")
      *             .ids(            
-     *                 foo.applyValue(getServiceResult -> getServiceResult.id()),
-     *                 bar.applyValue(getServiceResult -> getServiceResult.id()),
-     *                 baz.applyValue(getServiceResult -> getServiceResult.id()))
+     *                 foo.id(),
+     *                 bar.id(),
+     *                 baz.id())
      *             .build());
      * 
      *     }
@@ -7250,9 +7114,9 @@ public final class PagerdutyFunctions {
      *         final var scores = PagerdutyFunctions.getStandardsResourcesScores(GetStandardsResourcesScoresArgs.builder()
      *             .resourceType("technical_services")
      *             .ids(            
-     *                 foo.applyValue(getServiceResult -> getServiceResult.id()),
-     *                 bar.applyValue(getServiceResult -> getServiceResult.id()),
-     *                 baz.applyValue(getServiceResult -> getServiceResult.id()))
+     *                 foo.id(),
+     *                 bar.id(),
+     *                 baz.id())
      *             .build());
      * 
      *     }
@@ -7310,9 +7174,9 @@ public final class PagerdutyFunctions {
      *         final var scores = PagerdutyFunctions.getStandardsResourcesScores(GetStandardsResourcesScoresArgs.builder()
      *             .resourceType("technical_services")
      *             .ids(            
-     *                 foo.applyValue(getServiceResult -> getServiceResult.id()),
-     *                 bar.applyValue(getServiceResult -> getServiceResult.id()),
-     *                 baz.applyValue(getServiceResult -> getServiceResult.id()))
+     *                 foo.id(),
+     *                 bar.id(),
+     *                 baz.id())
      *             .build());
      * 
      *     }
@@ -7365,8 +7229,8 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var foo = new TagAssignment("foo", TagAssignmentArgs.builder()
-     *             .tagId(devops.applyValue(getTagResult -> getTagResult.id()))
-     *             .entityId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .tagId(devops.id())
+     *             .entityId(me.id())
      *             .entityType("users")
      *             .build());
      * 
@@ -7420,8 +7284,8 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var foo = new TagAssignment("foo", TagAssignmentArgs.builder()
-     *             .tagId(devops.applyValue(getTagResult -> getTagResult.id()))
-     *             .entityId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .tagId(devops.id())
+     *             .entityId(me.id())
      *             .entityType("users")
      *             .build());
      * 
@@ -7475,8 +7339,8 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var foo = new TagAssignment("foo", TagAssignmentArgs.builder()
-     *             .tagId(devops.applyValue(getTagResult -> getTagResult.id()))
-     *             .entityId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .tagId(devops.id())
+     *             .entityId(me.id())
      *             .entityType("users")
      *             .build());
      * 
@@ -7530,8 +7394,8 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var foo = new TagAssignment("foo", TagAssignmentArgs.builder()
-     *             .tagId(devops.applyValue(getTagResult -> getTagResult.id()))
-     *             .entityId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .tagId(devops.id())
+     *             .entityId(me.id())
      *             .entityType("users")
      *             .build());
      * 
@@ -7585,8 +7449,8 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var foo = new TagAssignment("foo", TagAssignmentArgs.builder()
-     *             .tagId(devops.applyValue(getTagResult -> getTagResult.id()))
-     *             .entityId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .tagId(devops.id())
+     *             .entityId(me.id())
      *             .entityType("users")
      *             .build());
      * 
@@ -7643,12 +7507,12 @@ public final class PagerdutyFunctions {
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
      *             .name("DevOps Escalation Policy")
      *             .numLoops(2)
-     *             .teams(devops.applyValue(getTeamResult -> getTeamResult.id()))
+     *             .teams(devops.id())
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
      *                     .type("user")
-     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
+     *                     .id(me.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -7706,12 +7570,12 @@ public final class PagerdutyFunctions {
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
      *             .name("DevOps Escalation Policy")
      *             .numLoops(2)
-     *             .teams(devops.applyValue(getTeamResult -> getTeamResult.id()))
+     *             .teams(devops.id())
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
      *                     .type("user")
-     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
+     *                     .id(me.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -7769,12 +7633,12 @@ public final class PagerdutyFunctions {
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
      *             .name("DevOps Escalation Policy")
      *             .numLoops(2)
-     *             .teams(devops.applyValue(getTeamResult -> getTeamResult.id()))
+     *             .teams(devops.id())
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
      *                     .type("user")
-     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
+     *                     .id(me.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -7832,12 +7696,12 @@ public final class PagerdutyFunctions {
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
      *             .name("DevOps Escalation Policy")
      *             .numLoops(2)
-     *             .teams(devops.applyValue(getTeamResult -> getTeamResult.id()))
+     *             .teams(devops.id())
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
      *                     .type("user")
-     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
+     *                     .id(me.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -7895,12 +7759,12 @@ public final class PagerdutyFunctions {
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
      *             .name("DevOps Escalation Policy")
      *             .numLoops(2)
-     *             .teams(devops.applyValue(getTeamResult -> getTeamResult.id()))
+     *             .teams(devops.id())
      *             .rules(EscalationPolicyRuleArgs.builder()
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
      *                     .type("user")
-     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
+     *                     .id(me.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -7949,7 +7813,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var devopsMembers = PagerdutyFunctions.getTeamMembers(GetTeamMembersArgs.builder()
-     *             .teamId(devops.applyValue(getTeamResult -> getTeamResult.id()))
+     *             .teamId(devops.id())
      *             .build());
      * 
      *     }
@@ -7996,7 +7860,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var devopsMembers = PagerdutyFunctions.getTeamMembers(GetTeamMembersArgs.builder()
-     *             .teamId(devops.applyValue(getTeamResult -> getTeamResult.id()))
+     *             .teamId(devops.id())
      *             .build());
      * 
      *     }
@@ -8043,7 +7907,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var devopsMembers = PagerdutyFunctions.getTeamMembers(GetTeamMembersArgs.builder()
-     *             .teamId(devops.applyValue(getTeamResult -> getTeamResult.id()))
+     *             .teamId(devops.id())
      *             .build());
      * 
      *     }
@@ -8090,7 +7954,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var devopsMembers = PagerdutyFunctions.getTeamMembers(GetTeamMembersArgs.builder()
-     *             .teamId(devops.applyValue(getTeamResult -> getTeamResult.id()))
+     *             .teamId(devops.id())
      *             .build());
      * 
      *     }
@@ -8137,7 +8001,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var devopsMembers = PagerdutyFunctions.getTeamMembers(GetTeamMembersArgs.builder()
-     *             .teamId(devops.applyValue(getTeamResult -> getTeamResult.id()))
+     *             .teamId(devops.id())
      *             .build());
      * 
      *     }
@@ -8178,7 +8042,8 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var allTeams = PagerdutyFunctions.getTeams();
+     *         final var allTeams = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
+     *             .build());
      * 
      *         // Fetch only teams whose name matches "devops"
      *         final var devops = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
@@ -8223,7 +8088,8 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var allTeams = PagerdutyFunctions.getTeams();
+     *         final var allTeams = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
+     *             .build());
      * 
      *         // Fetch only teams whose name matches "devops"
      *         final var devops = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
@@ -8268,7 +8134,8 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var allTeams = PagerdutyFunctions.getTeams();
+     *         final var allTeams = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
+     *             .build());
      * 
      *         // Fetch only teams whose name matches "devops"
      *         final var devops = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
@@ -8313,7 +8180,8 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var allTeams = PagerdutyFunctions.getTeams();
+     *         final var allTeams = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
+     *             .build());
      * 
      *         // Fetch only teams whose name matches "devops"
      *         final var devops = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
@@ -8358,7 +8226,8 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var allTeams = PagerdutyFunctions.getTeams();
+     *         final var allTeams = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
+     *             .build());
      * 
      *         // Fetch only teams whose name matches "devops"
      *         final var devops = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
@@ -8403,7 +8272,8 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var allTeams = PagerdutyFunctions.getTeams();
+     *         final var allTeams = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
+     *             .build());
      * 
      *         // Fetch only teams whose name matches "devops"
      *         final var devops = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
@@ -8448,7 +8318,8 @@ public final class PagerdutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var allTeams = PagerdutyFunctions.getTeams();
+     *         final var allTeams = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
+     *             .build());
      * 
      *         // Fetch only teams whose name matches "devops"
      *         final var devops = PagerdutyFunctions.getTeams(GetTeamsArgs.builder()
@@ -8507,7 +8378,7 @@ public final class PagerdutyFunctions {
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
      *                     .type("user_reference")
-     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
+     *                     .id(me.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -8564,7 +8435,7 @@ public final class PagerdutyFunctions {
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
      *                     .type("user_reference")
-     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
+     *                     .id(me.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -8621,7 +8492,7 @@ public final class PagerdutyFunctions {
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
      *                     .type("user_reference")
-     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
+     *                     .id(me.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -8678,7 +8549,7 @@ public final class PagerdutyFunctions {
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
      *                     .type("user_reference")
-     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
+     *                     .id(me.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -8735,7 +8606,7 @@ public final class PagerdutyFunctions {
      *                 .escalationDelayInMinutes(10)
      *                 .targets(EscalationPolicyRuleTargetArgs.builder()
      *                     .type("user_reference")
-     *                     .id(me.applyValue(getUserResult -> getUserResult.id()))
+     *                     .id(me.id())
      *                     .build())
      *                 .build())
      *             .build());
@@ -8786,18 +8657,18 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var phonePush = PagerdutyFunctions.getUserContactMethod(GetUserContactMethodArgs.builder()
-     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .userId(me.id())
      *             .type("push_notification_contact_method")
      *             .label("iPhone (John)")
      *             .build());
      * 
      *         var lowUrgencySms = new UserNotificationRule("lowUrgencySms", UserNotificationRuleArgs.builder()
-     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .userId(me.id())
      *             .startDelayInMinutes(5)
      *             .urgency("high")
      *             .contactMethod(Map.ofEntries(
      *                 Map.entry("type", "push_notification_contact_method"),
-     *                 Map.entry("id", phonePush.applyValue(getUserContactMethodResult -> getUserContactMethodResult.id()))
+     *                 Map.entry("id", phonePush.id())
      *             ))
      *             .build());
      * 
@@ -8847,18 +8718,18 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var phonePush = PagerdutyFunctions.getUserContactMethod(GetUserContactMethodArgs.builder()
-     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .userId(me.id())
      *             .type("push_notification_contact_method")
      *             .label("iPhone (John)")
      *             .build());
      * 
      *         var lowUrgencySms = new UserNotificationRule("lowUrgencySms", UserNotificationRuleArgs.builder()
-     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .userId(me.id())
      *             .startDelayInMinutes(5)
      *             .urgency("high")
      *             .contactMethod(Map.ofEntries(
      *                 Map.entry("type", "push_notification_contact_method"),
-     *                 Map.entry("id", phonePush.applyValue(getUserContactMethodResult -> getUserContactMethodResult.id()))
+     *                 Map.entry("id", phonePush.id())
      *             ))
      *             .build());
      * 
@@ -8908,18 +8779,18 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var phonePush = PagerdutyFunctions.getUserContactMethod(GetUserContactMethodArgs.builder()
-     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .userId(me.id())
      *             .type("push_notification_contact_method")
      *             .label("iPhone (John)")
      *             .build());
      * 
      *         var lowUrgencySms = new UserNotificationRule("lowUrgencySms", UserNotificationRuleArgs.builder()
-     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .userId(me.id())
      *             .startDelayInMinutes(5)
      *             .urgency("high")
      *             .contactMethod(Map.ofEntries(
      *                 Map.entry("type", "push_notification_contact_method"),
-     *                 Map.entry("id", phonePush.applyValue(getUserContactMethodResult -> getUserContactMethodResult.id()))
+     *                 Map.entry("id", phonePush.id())
      *             ))
      *             .build());
      * 
@@ -8969,18 +8840,18 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var phonePush = PagerdutyFunctions.getUserContactMethod(GetUserContactMethodArgs.builder()
-     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .userId(me.id())
      *             .type("push_notification_contact_method")
      *             .label("iPhone (John)")
      *             .build());
      * 
      *         var lowUrgencySms = new UserNotificationRule("lowUrgencySms", UserNotificationRuleArgs.builder()
-     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .userId(me.id())
      *             .startDelayInMinutes(5)
      *             .urgency("high")
      *             .contactMethod(Map.ofEntries(
      *                 Map.entry("type", "push_notification_contact_method"),
-     *                 Map.entry("id", phonePush.applyValue(getUserContactMethodResult -> getUserContactMethodResult.id()))
+     *                 Map.entry("id", phonePush.id())
      *             ))
      *             .build());
      * 
@@ -9030,18 +8901,18 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var phonePush = PagerdutyFunctions.getUserContactMethod(GetUserContactMethodArgs.builder()
-     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .userId(me.id())
      *             .type("push_notification_contact_method")
      *             .label("iPhone (John)")
      *             .build());
      * 
      *         var lowUrgencySms = new UserNotificationRule("lowUrgencySms", UserNotificationRuleArgs.builder()
-     *             .userId(me.applyValue(getUserResult -> getUserResult.id()))
+     *             .userId(me.id())
      *             .startDelayInMinutes(5)
      *             .urgency("high")
      *             .contactMethod(Map.ofEntries(
      *                 Map.entry("type", "push_notification_contact_method"),
-     *                 Map.entry("id", phonePush.applyValue(getUserContactMethodResult -> getUserContactMethodResult.id()))
+     *                 Map.entry("id", phonePush.id())
      *             ))
      *             .build());
      * 
@@ -9107,7 +8978,8 @@ public final class PagerdutyFunctions {
      *             .userId(exampleWTeam.id())
      *             .build());
      * 
-     *         final var allUsers = PagerdutyFunctions.getUsers();
+     *         final var allUsers = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
+     *             .build());
      * 
      *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
      *             .teamIds(devopsPagerdutyTeam.id())
@@ -9175,7 +9047,8 @@ public final class PagerdutyFunctions {
      *             .userId(exampleWTeam.id())
      *             .build());
      * 
-     *         final var allUsers = PagerdutyFunctions.getUsers();
+     *         final var allUsers = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
+     *             .build());
      * 
      *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
      *             .teamIds(devopsPagerdutyTeam.id())
@@ -9243,7 +9116,8 @@ public final class PagerdutyFunctions {
      *             .userId(exampleWTeam.id())
      *             .build());
      * 
-     *         final var allUsers = PagerdutyFunctions.getUsers();
+     *         final var allUsers = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
+     *             .build());
      * 
      *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
      *             .teamIds(devopsPagerdutyTeam.id())
@@ -9311,7 +9185,8 @@ public final class PagerdutyFunctions {
      *             .userId(exampleWTeam.id())
      *             .build());
      * 
-     *         final var allUsers = PagerdutyFunctions.getUsers();
+     *         final var allUsers = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
+     *             .build());
      * 
      *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
      *             .teamIds(devopsPagerdutyTeam.id())
@@ -9379,7 +9254,8 @@ public final class PagerdutyFunctions {
      *             .userId(exampleWTeam.id())
      *             .build());
      * 
-     *         final var allUsers = PagerdutyFunctions.getUsers();
+     *         final var allUsers = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
+     *             .build());
      * 
      *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
      *             .teamIds(devopsPagerdutyTeam.id())
@@ -9447,7 +9323,8 @@ public final class PagerdutyFunctions {
      *             .userId(exampleWTeam.id())
      *             .build());
      * 
-     *         final var allUsers = PagerdutyFunctions.getUsers();
+     *         final var allUsers = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
+     *             .build());
      * 
      *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
      *             .teamIds(devopsPagerdutyTeam.id())
@@ -9515,7 +9392,8 @@ public final class PagerdutyFunctions {
      *             .userId(exampleWTeam.id())
      *             .build());
      * 
-     *         final var allUsers = PagerdutyFunctions.getUsers();
+     *         final var allUsers = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
+     *             .build());
      * 
      *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
      *             .teamIds(devopsPagerdutyTeam.id())
@@ -9594,14 +9472,14 @@ public final class PagerdutyFunctions {
      * 
      *         var exampleService = new Service("exampleService", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
      *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
      *             .name("Datadog Integration")
-     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
+     *             .vendor(datadog.id())
      *             .service(exampleService.id())
      *             .build());
      * 
@@ -9678,14 +9556,14 @@ public final class PagerdutyFunctions {
      * 
      *         var exampleService = new Service("exampleService", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
      *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
      *             .name("Datadog Integration")
-     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
+     *             .vendor(datadog.id())
      *             .service(exampleService.id())
      *             .build());
      * 
@@ -9762,14 +9640,14 @@ public final class PagerdutyFunctions {
      * 
      *         var exampleService = new Service("exampleService", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
      *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
      *             .name("Datadog Integration")
-     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
+     *             .vendor(datadog.id())
      *             .service(exampleService.id())
      *             .build());
      * 
@@ -9846,14 +9724,14 @@ public final class PagerdutyFunctions {
      * 
      *         var exampleService = new Service("exampleService", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
      *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
      *             .name("Datadog Integration")
-     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
+     *             .vendor(datadog.id())
      *             .service(exampleService.id())
      *             .build());
      * 
@@ -9930,14 +9808,14 @@ public final class PagerdutyFunctions {
      * 
      *         var exampleService = new Service("exampleService", ServiceArgs.builder()
      *             .name("My Web App")
-     *             .autoResolveTimeout(14400)
-     *             .acknowledgementTimeout(600)
+     *             .autoResolveTimeout("14400")
+     *             .acknowledgementTimeout("600")
      *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
      *             .build());
      * 
      *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
      *             .name("Datadog Integration")
-     *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
+     *             .vendor(datadog.id())
      *             .service(exampleService.id())
      *             .build());
      * 

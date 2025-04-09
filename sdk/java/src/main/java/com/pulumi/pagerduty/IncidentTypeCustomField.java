@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  *         var level = new IncidentTypeCustomField("level", IncidentTypeCustomFieldArgs.builder()
  *             .name("level")
- *             .incidentType(foo.applyValue(getIncidentTypeResult -> getIncidentTypeResult.id()))
+ *             .incidentType(foo.id())
  *             .displayName("Level")
  *             .dataType("string")
  *             .fieldType("single_value_fixed")
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * 
  *         var csImpact = new IncidentTypeCustomField("csImpact", IncidentTypeCustomFieldArgs.builder()
  *             .name("impact")
- *             .incidentType(foo.applyValue(getIncidentTypeResult -> getIncidentTypeResult.id()))
+ *             .incidentType(foo.id())
  *             .displayName("Customer Impact")
  *             .dataType("string")
  *             .fieldType("multi_value")

@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *                                 .expression("event.source matches regex 'db[0-9]+-server'")
  *                                 .build())
  *                         .actions(EventOrchestrationRouterSetRuleActionsArgs.builder()
- *                             .routeTo(database.applyValue(getServiceResult -> getServiceResult.id()))
+ *                             .routeTo(database.id())
  *                             .build())
  *                         .build(),
  *                     EventOrchestrationRouterSetRuleArgs.builder()
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *                             .expression("event.summary matches part 'www'")
  *                             .build())
  *                         .actions(EventOrchestrationRouterSetRuleActionsArgs.builder()
- *                             .routeTo(www.applyValue(getServiceResult -> getServiceResult.id()))
+ *                             .routeTo(www.id())
  *                             .build())
  *                         .build())
  *                 .build())

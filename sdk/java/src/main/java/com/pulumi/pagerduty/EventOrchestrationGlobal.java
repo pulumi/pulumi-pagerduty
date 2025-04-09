@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *                                 .expression("event.summary matches part 'running out of space'")
  *                                 .build())
  *                             .actions(EventOrchestrationGlobalSetRuleActionsArgs.builder()
- *                                 .escalationPolicy(sreEscPolicy.applyValue(getEscalationPolicyResult -> getEscalationPolicyResult.id()))
+ *                                 .escalationPolicy(sreEscPolicy.id())
  *                                 .build())
  *                             .build(),
  *                         EventOrchestrationGlobalSetRuleArgs.builder()
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *                         EventOrchestrationGlobalSetRuleArgs.builder()
  *                             .label("Otherwise, set the incident to P1 and run a diagnostic")
  *                             .actions(EventOrchestrationGlobalSetRuleActionsArgs.builder()
- *                                 .priority(p1.applyValue(getPriorityResult -> getPriorityResult.id()))
+ *                                 .priority(p1.id())
  *                                 .automationAction(EventOrchestrationGlobalSetRuleActionsAutomationActionArgs.builder()
  *                                     .name("db-diagnostic")
  *                                     .url("https://example.com/run-diagnostic")
@@ -135,7 +135,8 @@ import javax.annotation.Nullable;
  *                             .build())
  *                     .build())
  *             .catchAll(EventOrchestrationGlobalCatchAllArgs.builder()
- *                 .actions()
+ *                 .actions(EventOrchestrationGlobalCatchAllActionsArgs.builder()
+ *                     .build())
  *                 .build())
  *             .build());
  * 

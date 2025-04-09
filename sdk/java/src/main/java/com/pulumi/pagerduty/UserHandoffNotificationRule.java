@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *         var phone = new UserContactMethod("phone", UserContactMethodArgs.builder()
  *             .userId(example.id())
  *             .type("phone_contact_method")
- *             .countryCode("+1")
+ *             .countryCode(1)
  *             .address("2025550199")
  *             .label("Work")
  *             .build());

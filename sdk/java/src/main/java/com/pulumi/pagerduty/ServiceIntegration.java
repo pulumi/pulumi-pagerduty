@@ -77,8 +77,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("My Web App")
- *             .autoResolveTimeout(14400)
- *             .acknowledgementTimeout(600)
+ *             .autoResolveTimeout("14400")
+ *             .acknowledgementTimeout("600")
  *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
  *             .build());
  * 
@@ -106,9 +106,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var datadogServiceIntegration = new ServiceIntegration("datadogServiceIntegration", ServiceIntegrationArgs.builder()
- *             .name(datadog.applyValue(getVendorResult -> getVendorResult.name()))
+ *             .name(datadog.name())
  *             .service(exampleService.id())
- *             .vendor(datadog.applyValue(getVendorResult -> getVendorResult.id()))
+ *             .vendor(datadog.id())
  *             .build());
  * 
  *         final var cloudwatch = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
@@ -116,9 +116,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var cloudwatchServiceIntegration = new ServiceIntegration("cloudwatchServiceIntegration", ServiceIntegrationArgs.builder()
- *             .name(cloudwatch.applyValue(getVendorResult -> getVendorResult.name()))
+ *             .name(cloudwatch.name())
  *             .service(exampleService.id())
- *             .vendor(cloudwatch.applyValue(getVendorResult -> getVendorResult.id()))
+ *             .vendor(cloudwatch.id())
  *             .build());
  * 
  *         final var email = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
@@ -126,9 +126,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var emailServiceIntegration = new ServiceIntegration("emailServiceIntegration", ServiceIntegrationArgs.builder()
- *             .name(email.applyValue(getVendorResult -> getVendorResult.name()))
+ *             .name(email.name())
  *             .service(exampleService.id())
- *             .vendor(email.applyValue(getVendorResult -> getVendorResult.id()))
+ *             .vendor(email.id())
  *             .integrationEmail("s1}{@literal @}{@code your_account.pagerduty.com")
  *             .emailIncidentCreation("use_rules")
  *             .emailFilterMode("and-rules-email")

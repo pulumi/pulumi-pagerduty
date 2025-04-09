@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *         var example = new IncidentType("example", IncidentTypeArgs.builder()
  *             .name("backoffice")
  *             .displayName("Backoffice Incident")
- *             .parentType(base.applyValue(getIncidentTypeResult -> getIncidentTypeResult.id()))
+ *             .parentType(base.id())
  *             .description("Internal incidents not facing customer")
  *             .build());
  * 

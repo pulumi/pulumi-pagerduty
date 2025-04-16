@@ -16,14 +16,14 @@ public final class ServiceIntegrationEmailFilterArgs extends com.pulumi.resource
     public static final ServiceIntegrationEmailFilterArgs Empty = new ServiceIntegrationEmailFilterArgs();
 
     /**
-     * Can be `always` or `match`.
+     * Can be `always`, `match` or `no-match`.
      * 
      */
     @Import(name="bodyMode")
     private @Nullable Output<String> bodyMode;
 
     /**
-     * @return Can be `always` or `match`.
+     * @return Can be `always`, `match` or `no-match`.
      * 
      */
     public Optional<Output<String>> bodyMode() {
@@ -46,14 +46,14 @@ public final class ServiceIntegrationEmailFilterArgs extends com.pulumi.resource
     }
 
     /**
-     * Can be `always` or `match`.
+     * Can be `always`, `match` or `no-match`.
      * 
      */
     @Import(name="fromEmailMode")
     private @Nullable Output<String> fromEmailMode;
 
     /**
-     * @return Can be `always` or `match`.
+     * @return Can be `always`, `match` or `no-match`.
      * 
      */
     public Optional<Output<String>> fromEmailMode() {
@@ -91,14 +91,14 @@ public final class ServiceIntegrationEmailFilterArgs extends com.pulumi.resource
     }
 
     /**
-     * Can be `always` or `match`.
+     * Can be `always`, `match` or `no-match`.
      * 
      */
     @Import(name="subjectMode")
     private @Nullable Output<String> subjectMode;
 
     /**
-     * @return Can be `always` or `match`.
+     * @return Can be `always`, `match` or `no-match`.
      * 
      */
     public Optional<Output<String>> subjectMode() {
@@ -151,7 +151,7 @@ public final class ServiceIntegrationEmailFilterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param bodyMode Can be `always` or `match`.
+         * @param bodyMode Can be `always`, `match` or `no-match`.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ServiceIntegrationEmailFilterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param bodyMode Can be `always` or `match`.
+         * @param bodyMode Can be `always`, `match` or `no-match`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ServiceIntegrationEmailFilterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param fromEmailMode Can be `always` or `match`.
+         * @param fromEmailMode Can be `always`, `match` or `no-match`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ServiceIntegrationEmailFilterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param fromEmailMode Can be `always` or `match`.
+         * @param fromEmailMode Can be `always`, `match` or `no-match`.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class ServiceIntegrationEmailFilterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param subjectMode Can be `always` or `match`.
+         * @param subjectMode Can be `always`, `match` or `no-match`.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class ServiceIntegrationEmailFilterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param subjectMode Can be `always` or `match`.
+         * @param subjectMode Can be `always`, `match` or `no-match`.
          * 
          * @return builder
          * 

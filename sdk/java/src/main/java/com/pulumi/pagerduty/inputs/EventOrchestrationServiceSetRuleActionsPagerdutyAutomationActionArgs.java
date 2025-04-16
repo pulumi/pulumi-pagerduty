@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,10 +31,26 @@ public final class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAct
         return this.actionId;
     }
 
+    /**
+     * The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`
+     * 
+     */
+    @Import(name="triggerTypes")
+    private @Nullable Output<String> triggerTypes;
+
+    /**
+     * @return The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`
+     * 
+     */
+    public Optional<Output<String>> triggerTypes() {
+        return Optional.ofNullable(this.triggerTypes);
+    }
+
     private EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs() {}
 
     private EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs $) {
         this.actionId = $.actionId;
+        this.triggerTypes = $.triggerTypes;
     }
 
     public static Builder builder() {
@@ -72,6 +90,27 @@ public final class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAct
          */
         public Builder actionId(String actionId) {
             return actionId(Output.of(actionId));
+        }
+
+        /**
+         * @param triggerTypes The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggerTypes(@Nullable Output<String> triggerTypes) {
+            $.triggerTypes = triggerTypes;
+            return this;
+        }
+
+        /**
+         * @param triggerTypes The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggerTypes(String triggerTypes) {
+            return triggerTypes(Output.of(triggerTypes));
         }
 
         public EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs build() {

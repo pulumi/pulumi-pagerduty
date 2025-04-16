@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction {
@@ -15,6 +17,11 @@ public final class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAc
      * 
      */
     private String actionId;
+    /**
+     * @return The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`
+     * 
+     */
+    private @Nullable String triggerTypes;
 
     private EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction() {}
     /**
@@ -23,6 +30,13 @@ public final class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAc
      */
     public String actionId() {
         return this.actionId;
+    }
+    /**
+     * @return The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`
+     * 
+     */
+    public Optional<String> triggerTypes() {
+        return Optional.ofNullable(this.triggerTypes);
     }
 
     public static Builder builder() {
@@ -35,10 +49,12 @@ public final class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAc
     @CustomType.Builder
     public static final class Builder {
         private String actionId;
+        private @Nullable String triggerTypes;
         public Builder() {}
         public Builder(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionId = defaults.actionId;
+    	      this.triggerTypes = defaults.triggerTypes;
         }
 
         @CustomType.Setter
@@ -49,9 +65,16 @@ public final class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAc
             this.actionId = actionId;
             return this;
         }
+        @CustomType.Setter
+        public Builder triggerTypes(@Nullable String triggerTypes) {
+
+            this.triggerTypes = triggerTypes;
+            return this;
+        }
         public EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction build() {
             final var _resultValue = new EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction();
             _resultValue.actionId = actionId;
+            _resultValue.triggerTypes = triggerTypes;
             return _resultValue;
         }
     }

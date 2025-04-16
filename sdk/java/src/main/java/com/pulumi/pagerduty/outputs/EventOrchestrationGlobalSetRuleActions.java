@@ -24,7 +24,7 @@ public final class EventOrchestrationGlobalSetRuleActions {
      */
     private @Nullable String annotate;
     /**
-     * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      * 
      */
     private @Nullable EventOrchestrationGlobalSetRuleActionsAutomationAction automationAction;
@@ -93,7 +93,7 @@ public final class EventOrchestrationGlobalSetRuleActions {
         return Optional.ofNullable(this.annotate);
     }
     /**
-     * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      * 
      */
     public Optional<EventOrchestrationGlobalSetRuleActionsAutomationAction> automationAction() {

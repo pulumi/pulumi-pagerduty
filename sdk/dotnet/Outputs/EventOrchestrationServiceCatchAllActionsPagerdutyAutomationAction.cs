@@ -17,11 +17,19 @@ namespace Pulumi.Pagerduty.Outputs
         /// Id of the Process Automation action to be triggered.
         /// </summary>
         public readonly string ActionId;
+        /// <summary>
+        /// The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`
+        /// </summary>
+        public readonly string? TriggerTypes;
 
         [OutputConstructor]
-        private EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction(string actionId)
+        private EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction(
+            string actionId,
+
+            string? triggerTypes)
         {
             ActionId = actionId;
+            TriggerTypes = triggerTypes;
         }
     }
 }

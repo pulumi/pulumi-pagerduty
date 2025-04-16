@@ -39,14 +39,14 @@ public final class EventOrchestrationServiceSetRuleActionsArgs extends com.pulum
     }
 
     /**
-     * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      * 
      */
     @Import(name="automationAction")
     private @Nullable Output<EventOrchestrationServiceSetRuleActionsAutomationActionArgs> automationAction;
 
     /**
-     * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      * 
      */
     public Optional<Output<EventOrchestrationServiceSetRuleActionsAutomationActionArgs>> automationAction() {
@@ -114,14 +114,14 @@ public final class EventOrchestrationServiceSetRuleActionsArgs extends com.pulum
     }
 
     /**
-     * Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+     * Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
      * 
      */
     @Import(name="pagerdutyAutomationAction")
     private @Nullable Output<EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs> pagerdutyAutomationAction;
 
     /**
-     * @return Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+     * @return Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
      * 
      */
     public Optional<Output<EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs>> pagerdutyAutomationAction() {
@@ -276,7 +276,7 @@ public final class EventOrchestrationServiceSetRuleActionsArgs extends com.pulum
         }
 
         /**
-         * @param automationAction Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+         * @param automationAction Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class EventOrchestrationServiceSetRuleActionsArgs extends com.pulum
         }
 
         /**
-         * @param automationAction Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+         * @param automationAction Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class EventOrchestrationServiceSetRuleActionsArgs extends com.pulum
         }
 
         /**
-         * @param pagerdutyAutomationAction Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+         * @param pagerdutyAutomationAction Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class EventOrchestrationServiceSetRuleActionsArgs extends com.pulum
         }
 
         /**
-         * @param pagerdutyAutomationAction Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+         * @param pagerdutyAutomationAction Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
          * 
          * @return builder
          * 

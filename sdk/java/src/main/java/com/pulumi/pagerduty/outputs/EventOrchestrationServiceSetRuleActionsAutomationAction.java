@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventOrchestrationServiceSetRuleActionsAutomationAction {
     /**
-     * @return When true, PagerDuty&#39;s servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+     * @return When true, PagerDuty&#39;s servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
      * 
      */
     private @Nullable Boolean autoSend;
@@ -37,6 +37,11 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationAction {
      */
     private @Nullable List<EventOrchestrationServiceSetRuleActionsAutomationActionParameter> parameters;
     /**
+     * @return The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`. NOTE: `auto_send` must be `true` for trigger types of `[&#34;alert_suspended&#34;]` and `[&#34;alert_suppressed&#34;]`
+     * 
+     */
+    private @Nullable String triggerTypes;
+    /**
      * @return The API endpoint where PagerDuty&#39;s servers will send the webhook request.
      * 
      */
@@ -44,7 +49,7 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationAction {
 
     private EventOrchestrationServiceSetRuleActionsAutomationAction() {}
     /**
-     * @return When true, PagerDuty&#39;s servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+     * @return When true, PagerDuty&#39;s servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
      * 
      */
     public Optional<Boolean> autoSend() {
@@ -72,6 +77,13 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationAction {
         return this.parameters == null ? List.of() : this.parameters;
     }
     /**
+     * @return The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`. NOTE: `auto_send` must be `true` for trigger types of `[&#34;alert_suspended&#34;]` and `[&#34;alert_suppressed&#34;]`
+     * 
+     */
+    public Optional<String> triggerTypes() {
+        return Optional.ofNullable(this.triggerTypes);
+    }
+    /**
      * @return The API endpoint where PagerDuty&#39;s servers will send the webhook request.
      * 
      */
@@ -92,6 +104,7 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationAction {
         private @Nullable List<EventOrchestrationServiceSetRuleActionsAutomationActionHeader> headers;
         private String name;
         private @Nullable List<EventOrchestrationServiceSetRuleActionsAutomationActionParameter> parameters;
+        private @Nullable String triggerTypes;
         private String url;
         public Builder() {}
         public Builder(EventOrchestrationServiceSetRuleActionsAutomationAction defaults) {
@@ -100,6 +113,7 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationAction {
     	      this.headers = defaults.headers;
     	      this.name = defaults.name;
     	      this.parameters = defaults.parameters;
+    	      this.triggerTypes = defaults.triggerTypes;
     	      this.url = defaults.url;
         }
 
@@ -136,6 +150,12 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationAction {
             return parameters(List.of(parameters));
         }
         @CustomType.Setter
+        public Builder triggerTypes(@Nullable String triggerTypes) {
+
+            this.triggerTypes = triggerTypes;
+            return this;
+        }
+        @CustomType.Setter
         public Builder url(String url) {
             if (url == null) {
               throw new MissingRequiredPropertyException("EventOrchestrationServiceSetRuleActionsAutomationAction", "url");
@@ -149,6 +169,7 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationAction {
             _resultValue.headers = headers;
             _resultValue.name = name;
             _resultValue.parameters = parameters;
+            _resultValue.triggerTypes = triggerTypes;
             _resultValue.url = url;
             return _resultValue;
         }

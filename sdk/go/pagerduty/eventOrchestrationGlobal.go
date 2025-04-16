@@ -113,13 +113,15 @@ import (
 //								},
 //							},
 //							&pagerduty.EventOrchestrationGlobalSetRuleArgs{
-//								Label: pulumi.String("Otherwise, set the incident to P1 and run a diagnostic"),
+//								Label: pulumi.String("Otherwise, set the incident to P1, pause for 10 mins and run a diagnostic once the alert is suspended"),
 //								Actions: &pagerduty.EventOrchestrationGlobalSetRuleActionsArgs{
 //									Priority: pulumi.String(p1.Id),
+//									Suspend:  pulumi.Int(600),
 //									AutomationAction: &pagerduty.EventOrchestrationGlobalSetRuleActionsAutomationActionArgs{
-//										Name:     pulumi.String("db-diagnostic"),
-//										Url:      pulumi.String("https://example.com/run-diagnostic"),
-//										AutoSend: pulumi.Bool(true),
+//										Name:         pulumi.String("db-diagnostic"),
+//										Url:          pulumi.String("https://example.com/run-diagnostic"),
+//										AutoSend:     pulumi.Bool(true),
+//										TriggerTypes: pulumi.String("alert_suspended"),
 //									},
 //								},
 //							},

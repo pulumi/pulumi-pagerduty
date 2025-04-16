@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class EventOrchestrationServiceSetRuleActionsAutomationAction
     {
         /// <summary>
-        /// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        /// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         /// </summary>
         public readonly bool? AutoSend;
         /// <summary>
@@ -30,6 +30,10 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.EventOrchestrationServiceSetRuleActionsAutomationActionParameter> Parameters;
         /// <summary>
+        /// The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`. NOTE: `auto_send` must be `true` for trigger types of `["alert_suspended"]` and `["alert_suppressed"]`
+        /// </summary>
+        public readonly string? TriggerTypes;
+        /// <summary>
         /// The API endpoint where PagerDuty's servers will send the webhook request.
         /// </summary>
         public readonly string Url;
@@ -44,12 +48,15 @@ namespace Pulumi.Pagerduty.Outputs
 
             ImmutableArray<Outputs.EventOrchestrationServiceSetRuleActionsAutomationActionParameter> parameters,
 
+            string? triggerTypes,
+
             string url)
         {
             AutoSend = autoSend;
             Headers = headers;
             Name = name;
             Parameters = parameters;
+            TriggerTypes = triggerTypes;
             Url = url;
         }
     }

@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string? Annotate;
         /// <summary>
-        /// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        /// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
         /// </summary>
         public readonly Outputs.EventOrchestrationServiceSetRuleActionsAutomationAction? AutomationAction;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate> IncidentCustomFieldUpdates;
         /// <summary>
-        /// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+        /// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
         /// </summary>
         public readonly Outputs.EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction? PagerdutyAutomationAction;
         /// <summary>

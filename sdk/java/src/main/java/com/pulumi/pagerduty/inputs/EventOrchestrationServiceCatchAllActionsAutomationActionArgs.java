@@ -21,14 +21,14 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationActionArgs 
     public static final EventOrchestrationServiceCatchAllActionsAutomationActionArgs Empty = new EventOrchestrationServiceCatchAllActionsAutomationActionArgs();
 
     /**
-     * When true, PagerDuty&#39;s servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+     * When true, PagerDuty&#39;s servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
      * 
      */
     @Import(name="autoSend")
     private @Nullable Output<Boolean> autoSend;
 
     /**
-     * @return When true, PagerDuty&#39;s servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+     * @return When true, PagerDuty&#39;s servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
      * 
      */
     public Optional<Output<Boolean>> autoSend() {
@@ -81,6 +81,21 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationActionArgs 
     }
 
     /**
+     * The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`. NOTE: `auto_send` must be `true` for trigger types of `[&#34;alert_suspended&#34;]` and `[&#34;alert_suppressed&#34;]`
+     * 
+     */
+    @Import(name="triggerTypes")
+    private @Nullable Output<String> triggerTypes;
+
+    /**
+     * @return The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`. NOTE: `auto_send` must be `true` for trigger types of `[&#34;alert_suspended&#34;]` and `[&#34;alert_suppressed&#34;]`
+     * 
+     */
+    public Optional<Output<String>> triggerTypes() {
+        return Optional.ofNullable(this.triggerTypes);
+    }
+
+    /**
      * The API endpoint where PagerDuty&#39;s servers will send the webhook request.
      * 
      */
@@ -102,6 +117,7 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationActionArgs 
         this.headers = $.headers;
         this.name = $.name;
         this.parameters = $.parameters;
+        this.triggerTypes = $.triggerTypes;
         this.url = $.url;
     }
 
@@ -124,7 +140,7 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationActionArgs 
         }
 
         /**
-         * @param autoSend When true, PagerDuty&#39;s servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+         * @param autoSend When true, PagerDuty&#39;s servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
          * 
          * @return builder
          * 
@@ -135,7 +151,7 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationActionArgs 
         }
 
         /**
-         * @param autoSend When true, PagerDuty&#39;s servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+         * @param autoSend When true, PagerDuty&#39;s servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
          * 
          * @return builder
          * 
@@ -225,6 +241,27 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationActionArgs 
          */
         public Builder parameters(EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs... parameters) {
             return parameters(List.of(parameters));
+        }
+
+        /**
+         * @param triggerTypes The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`. NOTE: `auto_send` must be `true` for trigger types of `[&#34;alert_suspended&#34;]` and `[&#34;alert_suppressed&#34;]`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggerTypes(@Nullable Output<String> triggerTypes) {
+            $.triggerTypes = triggerTypes;
+            return this;
+        }
+
+        /**
+         * @param triggerTypes The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`. NOTE: `auto_send` must be `true` for trigger types of `[&#34;alert_suspended&#34;]` and `[&#34;alert_suppressed&#34;]`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggerTypes(String triggerTypes) {
+            return triggerTypes(Output.of(triggerTypes));
         }
 
         /**

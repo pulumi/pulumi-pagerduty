@@ -113,6 +113,9 @@
                                                         },
                                                         "parameter": {
                                                             "maxItemsOne": false
+                                                        },
+                                                        "trigger_types": {
+                                                            "maxItemsOne": true
                                                         }
                                                     }
                                                 }
@@ -153,6 +156,9 @@
                                                                     },
                                                                     "parameter": {
                                                                         "maxItemsOne": false
+                                                                    },
+                                                                    "trigger_types": {
+                                                                        "maxItemsOne": true
                                                                     }
                                                                 }
                                                             }
@@ -265,6 +271,9 @@
                                                         },
                                                         "parameter": {
                                                             "maxItemsOne": false
+                                                        },
+                                                        "trigger_types": {
+                                                            "maxItemsOne": true
                                                         }
                                                     }
                                                 }
@@ -276,7 +285,14 @@
                                                 "maxItemsOne": false
                                             },
                                             "pagerduty_automation_action": {
-                                                "maxItemsOne": true
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "trigger_types": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
                                             },
                                             "variable": {
                                                 "maxItemsOne": false
@@ -308,6 +324,9 @@
                                                                     },
                                                                     "parameter": {
                                                                         "maxItemsOne": false
+                                                                    },
+                                                                    "trigger_types": {
+                                                                        "maxItemsOne": true
                                                                     }
                                                                 }
                                                             }
@@ -319,7 +338,14 @@
                                                             "maxItemsOne": false
                                                         },
                                                         "pagerduty_automation_action": {
-                                                            "maxItemsOne": true
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "trigger_types": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
                                                         },
                                                         "variable": {
                                                             "maxItemsOne": false

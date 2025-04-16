@@ -25,7 +25,7 @@ public final class EventOrchestrationServiceCatchAllActions {
      */
     private @Nullable String annotate;
     /**
-     * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      * 
      */
     private @Nullable EventOrchestrationServiceCatchAllActionsAutomationAction automationAction;
@@ -50,7 +50,7 @@ public final class EventOrchestrationServiceCatchAllActions {
      */
     private @Nullable List<EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate> incidentCustomFieldUpdates;
     /**
-     * @return Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+     * @return Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
      * 
      */
     private @Nullable EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction pagerdutyAutomationAction;
@@ -98,7 +98,7 @@ public final class EventOrchestrationServiceCatchAllActions {
         return Optional.ofNullable(this.annotate);
     }
     /**
-     * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      * 
      */
     public Optional<EventOrchestrationServiceCatchAllActionsAutomationAction> automationAction() {
@@ -133,7 +133,7 @@ public final class EventOrchestrationServiceCatchAllActions {
         return this.incidentCustomFieldUpdates == null ? List.of() : this.incidentCustomFieldUpdates;
     }
     /**
-     * @return Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+     * @return Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
      * 
      */
     public Optional<EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction> pagerdutyAutomationAction() {

@@ -124,7 +124,7 @@ export interface EventOrchestrationGlobalCatchAllActions {
      */
     annotate?: string;
     /**
-     * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      */
     automationAction?: outputs.EventOrchestrationGlobalCatchAllActionsAutomationAction;
     /**
@@ -175,7 +175,7 @@ export interface EventOrchestrationGlobalCatchAllActions {
 
 export interface EventOrchestrationGlobalCatchAllActionsAutomationAction {
     /**
-     * When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+     * When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
      */
     autoSend?: boolean;
     /**
@@ -190,6 +190,10 @@ export interface EventOrchestrationGlobalCatchAllActionsAutomationAction {
      * Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
      */
     parameters?: outputs.EventOrchestrationGlobalCatchAllActionsAutomationActionParameter[];
+    /**
+     * The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+     */
+    triggerTypes?: string;
     /**
      * The API endpoint where PagerDuty's servers will send the webhook request.
      */
@@ -306,7 +310,7 @@ export interface EventOrchestrationGlobalSetRuleActions {
      */
     annotate?: string;
     /**
-     * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      */
     automationAction?: outputs.EventOrchestrationGlobalSetRuleActionsAutomationAction;
     /**
@@ -357,7 +361,7 @@ export interface EventOrchestrationGlobalSetRuleActions {
 
 export interface EventOrchestrationGlobalSetRuleActionsAutomationAction {
     /**
-     * When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+     * When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
      */
     autoSend?: boolean;
     /**
@@ -372,6 +376,10 @@ export interface EventOrchestrationGlobalSetRuleActionsAutomationAction {
      * Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
      */
     parameters?: outputs.EventOrchestrationGlobalSetRuleActionsAutomationActionParameter[];
+    /**
+     * The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+     */
+    triggerTypes?: string;
     /**
      * The API endpoint where PagerDuty's servers will send the webhook request.
      */
@@ -601,7 +609,7 @@ export interface EventOrchestrationServiceCatchAllActions {
      */
     annotate?: string;
     /**
-     * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      */
     automationAction?: outputs.EventOrchestrationServiceCatchAllActionsAutomationAction;
     /**
@@ -621,7 +629,7 @@ export interface EventOrchestrationServiceCatchAllActions {
      */
     incidentCustomFieldUpdates?: outputs.EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate[];
     /**
-     * Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+     * Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
      */
     pagerdutyAutomationAction?: outputs.EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction;
     /**
@@ -654,7 +662,7 @@ export interface EventOrchestrationServiceCatchAllActions {
 
 export interface EventOrchestrationServiceCatchAllActionsAutomationAction {
     /**
-     * When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+     * When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
      */
     autoSend?: boolean;
     /**
@@ -669,6 +677,10 @@ export interface EventOrchestrationServiceCatchAllActionsAutomationAction {
      * Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
      */
     parameters?: outputs.EventOrchestrationServiceCatchAllActionsAutomationActionParameter[];
+    /**
+     * The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+     */
+    triggerTypes?: string;
     /**
      * The API endpoint where PagerDuty's servers will send the webhook request.
      */
@@ -734,6 +746,10 @@ export interface EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActi
      * Id of the Process Automation action to be triggered.
      */
     actionId: string;
+    /**
+     * The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`
+     */
+    triggerTypes?: string;
 }
 
 export interface EventOrchestrationServiceCatchAllActionsVariable {
@@ -792,7 +808,7 @@ export interface EventOrchestrationServiceSetRuleActions {
      */
     annotate?: string;
     /**
-     * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      */
     automationAction?: outputs.EventOrchestrationServiceSetRuleActionsAutomationAction;
     /**
@@ -812,7 +828,7 @@ export interface EventOrchestrationServiceSetRuleActions {
      */
     incidentCustomFieldUpdates?: outputs.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate[];
     /**
-     * Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+     * Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
      */
     pagerdutyAutomationAction?: outputs.EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction;
     /**
@@ -843,7 +859,7 @@ export interface EventOrchestrationServiceSetRuleActions {
 
 export interface EventOrchestrationServiceSetRuleActionsAutomationAction {
     /**
-     * When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+     * When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
      */
     autoSend?: boolean;
     /**
@@ -858,6 +874,10 @@ export interface EventOrchestrationServiceSetRuleActionsAutomationAction {
      * Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
      */
     parameters?: outputs.EventOrchestrationServiceSetRuleActionsAutomationActionParameter[];
+    /**
+     * The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+     */
+    triggerTypes?: string;
     /**
      * The API endpoint where PagerDuty's servers will send the webhook request.
      */
@@ -923,6 +943,10 @@ export interface EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActio
      * Id of the Process Automation action to be triggered.
      */
     actionId: string;
+    /**
+     * The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`
+     */
+    triggerTypes?: string;
 }
 
 export interface EventOrchestrationServiceSetRuleActionsVariable {
@@ -2490,7 +2514,7 @@ export interface ServiceIncidentUrgencyRuleOutsideSupportHours {
 
 export interface ServiceIntegrationEmailFilter {
     /**
-     * Can be `always` or `match`.
+     * Can be `always`, `match` or `no-match`.
      */
     bodyMode?: string;
     /**
@@ -2498,7 +2522,7 @@ export interface ServiceIntegrationEmailFilter {
      */
     bodyRegex?: string;
     /**
-     * Can be `always` or `match`.
+     * Can be `always`, `match` or `no-match`.
      */
     fromEmailMode?: string;
     /**
@@ -2510,7 +2534,7 @@ export interface ServiceIntegrationEmailFilter {
      */
     id: string;
     /**
-     * Can be `always` or `match`.
+     * Can be `always`, `match` or `no-match`.
      */
     subjectMode?: string;
     /**

@@ -182,9 +182,10 @@ import (
 //								},
 //								Actions: &pagerduty.EventOrchestrationServiceSetRuleActionsArgs{
 //									AutomationAction: &pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionArgs{
-//										Name:     pulumi.String("Canary Slack Notification"),
-//										Url:      pulumi.String("https://our-slack-listerner.test/canary-notification"),
-//										AutoSend: pulumi.Bool(true),
+//										Name:         pulumi.String("Canary Slack Notification"),
+//										Url:          pulumi.String("https://our-slack-listerner.test/canary-notification"),
+//										AutoSend:     pulumi.Bool(true),
+//										TriggerTypes: pulumi.String("alert_triggered"),
 //										Parameters: pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray{
 //											&pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs{
 //												Key:   pulumi.String("channel"),
@@ -205,7 +206,7 @@ import (
 //								},
 //							},
 //							&pagerduty.EventOrchestrationServiceSetRuleArgs{
-//								Label: pulumi.String("Never bother the on-call for info-level events outside of work hours"),
+//								Label: pulumi.String("Never bother the on-call for info-level events outside of work hours, and let an Automation Action fix it instead"),
 //								Conditions: pagerduty.EventOrchestrationServiceSetRuleConditionArray{
 //									&pagerduty.EventOrchestrationServiceSetRuleConditionArgs{
 //										Expression: pulumi.String("event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)"),
@@ -213,6 +214,10 @@ import (
 //								},
 //								Actions: &pagerduty.EventOrchestrationServiceSetRuleActionsArgs{
 //									Suppress: pulumi.Bool(true),
+//									PagerdutyAutomationAction: &pagerduty.EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs{
+//										ActionId:     pulumi.String("01FJV5A8OA5MKHOYFHV35SM2Z0"),
+//										TriggerTypes: pulumi.String("alert_suppressed"),
+//									},
 //								},
 //							},
 //						},

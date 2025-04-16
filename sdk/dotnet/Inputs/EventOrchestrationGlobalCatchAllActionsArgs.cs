@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? Annotate { get; set; }
 
         /// <summary>
-        /// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        /// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
         /// </summary>
         [Input("automationAction")]
         public Input<Inputs.EventOrchestrationGlobalCatchAllActionsAutomationActionArgs>? AutomationAction { get; set; }

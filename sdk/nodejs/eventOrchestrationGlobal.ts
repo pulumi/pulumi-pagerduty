@@ -78,13 +78,15 @@ import * as utilities from "./utilities";
  *                     },
  *                 },
  *                 {
- *                     label: "Otherwise, set the incident to P1 and run a diagnostic",
+ *                     label: "Otherwise, set the incident to P1, pause for 10 mins and run a diagnostic once the alert is suspended",
  *                     actions: {
  *                         priority: p1.then(p1 => p1.id),
+ *                         suspend: 600,
  *                         automationAction: {
  *                             name: "db-diagnostic",
  *                             url: "https://example.com/run-diagnostic",
  *                             autoSend: true,
+ *                             triggerTypes: "alert_suspended",
  *                         },
  *                     },
  *                 },

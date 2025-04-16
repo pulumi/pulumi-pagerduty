@@ -130,6 +130,7 @@ import * as utilities from "./utilities";
  *                             name: "Canary Slack Notification",
  *                             url: "https://our-slack-listerner.test/canary-notification",
  *                             autoSend: true,
+ *                             triggerTypes: "alert_triggered",
  *                             parameters: [
  *                                 {
  *                                     key: "channel",
@@ -148,12 +149,16 @@ import * as utilities from "./utilities";
  *                     },
  *                 },
  *                 {
- *                     label: "Never bother the on-call for info-level events outside of work hours",
+ *                     label: "Never bother the on-call for info-level events outside of work hours, and let an Automation Action fix it instead",
  *                     conditions: [{
  *                         expression: "event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)",
  *                     }],
  *                     actions: {
  *                         suppress: true,
+ *                         pagerdutyAutomationAction: {
+ *                             actionId: "01FJV5A8OA5MKHOYFHV35SM2Z0",
+ *                             triggerTypes: "alert_suppressed",
+ *                         },
  *                     },
  *                 },
  *             ],

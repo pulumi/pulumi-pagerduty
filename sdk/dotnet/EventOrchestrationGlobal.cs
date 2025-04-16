@@ -124,15 +124,17 @@ namespace Pulumi.Pagerduty
     ///                     },
     ///                     new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleArgs
     ///                     {
-    ///                         Label = "Otherwise, set the incident to P1 and run a diagnostic",
+    ///                         Label = "Otherwise, set the incident to P1, pause for 10 mins and run a diagnostic once the alert is suspended",
     ///                         Actions = new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleActionsArgs
     ///                         {
     ///                             Priority = p1.Apply(getPriorityResult =&gt; getPriorityResult.Id),
+    ///                             Suspend = 600,
     ///                             AutomationAction = new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleActionsAutomationActionArgs
     ///                             {
     ///                                 Name = "db-diagnostic",
     ///                                 Url = "https://example.com/run-diagnostic",
     ///                                 AutoSend = true,
+    ///                                 TriggerTypes = "alert_suspended",
     ///                             },
     ///                         },
     ///                     },

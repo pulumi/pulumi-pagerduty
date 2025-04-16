@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string? Annotate;
         /// <summary>
-        /// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        /// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
         /// </summary>
         public readonly Outputs.EventOrchestrationGlobalCatchAllActionsAutomationAction? AutomationAction;
         /// <summary>

@@ -38,14 +38,14 @@ public final class EventOrchestrationGlobalCatchAllActionsArgs extends com.pulum
     }
 
     /**
-     * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      * 
      */
     @Import(name="automationAction")
     private @Nullable Output<EventOrchestrationGlobalCatchAllActionsAutomationActionArgs> automationAction;
 
     /**
-     * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      * 
      */
     public Optional<Output<EventOrchestrationGlobalCatchAllActionsAutomationActionArgs>> automationAction() {
@@ -275,7 +275,7 @@ public final class EventOrchestrationGlobalCatchAllActionsArgs extends com.pulum
         }
 
         /**
-         * @param automationAction Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+         * @param automationAction Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class EventOrchestrationGlobalCatchAllActionsArgs extends com.pulum
         }
 
         /**
-         * @param automationAction Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+         * @param automationAction Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
          * 
          * @return builder
          * 

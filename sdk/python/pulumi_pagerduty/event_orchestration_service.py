@@ -285,6 +285,7 @@ class EventOrchestrationService(pulumi.CustomResource):
                                     "name": "Canary Slack Notification",
                                     "url": "https://our-slack-listerner.test/canary-notification",
                                     "auto_send": True,
+                                    "trigger_types": "alert_triggered",
                                     "parameters": [
                                         {
                                             "key": "channel",
@@ -303,12 +304,16 @@ class EventOrchestrationService(pulumi.CustomResource):
                             },
                         },
                         {
-                            "label": "Never bother the on-call for info-level events outside of work hours",
+                            "label": "Never bother the on-call for info-level events outside of work hours, and let an Automation Action fix it instead",
                             "conditions": [{
                                 "expression": "event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)",
                             }],
                             "actions": {
                                 "suppress": True,
+                                "pagerduty_automation_action": {
+                                    "action_id": "01FJV5A8OA5MKHOYFHV35SM2Z0",
+                                    "trigger_types": "alert_suppressed",
+                                },
                             },
                         },
                     ],
@@ -455,6 +460,7 @@ class EventOrchestrationService(pulumi.CustomResource):
                                     "name": "Canary Slack Notification",
                                     "url": "https://our-slack-listerner.test/canary-notification",
                                     "auto_send": True,
+                                    "trigger_types": "alert_triggered",
                                     "parameters": [
                                         {
                                             "key": "channel",
@@ -473,12 +479,16 @@ class EventOrchestrationService(pulumi.CustomResource):
                             },
                         },
                         {
-                            "label": "Never bother the on-call for info-level events outside of work hours",
+                            "label": "Never bother the on-call for info-level events outside of work hours, and let an Automation Action fix it instead",
                             "conditions": [{
                                 "expression": "event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)",
                             }],
                             "actions": {
                                 "suppress": True,
+                                "pagerduty_automation_action": {
+                                    "action_id": "01FJV5A8OA5MKHOYFHV35SM2Z0",
+                                    "trigger_types": "alert_suppressed",
+                                },
                             },
                         },
                     ],

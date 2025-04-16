@@ -1236,7 +1236,7 @@ func (o EventOrchestrationGlobalCatchAllPtrOutput) Actions() EventOrchestrationG
 type EventOrchestrationGlobalCatchAllActions struct {
 	// Add this text as a note on the resulting incident.
 	Annotate *string `pulumi:"annotate"`
-	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
 	AutomationAction *EventOrchestrationGlobalCatchAllActionsAutomationAction `pulumi:"automationAction"`
 	// When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
 	DropEvent *bool `pulumi:"dropEvent"`
@@ -1276,7 +1276,7 @@ type EventOrchestrationGlobalCatchAllActionsInput interface {
 type EventOrchestrationGlobalCatchAllActionsArgs struct {
 	// Add this text as a note on the resulting incident.
 	Annotate pulumi.StringPtrInput `pulumi:"annotate"`
-	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
 	AutomationAction EventOrchestrationGlobalCatchAllActionsAutomationActionPtrInput `pulumi:"automationAction"`
 	// When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
 	DropEvent pulumi.BoolPtrInput `pulumi:"dropEvent"`
@@ -1384,7 +1384,7 @@ func (o EventOrchestrationGlobalCatchAllActionsOutput) Annotate() pulumi.StringP
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActions) *string { return v.Annotate }).(pulumi.StringPtrOutput)
 }
 
-// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
 func (o EventOrchestrationGlobalCatchAllActionsOutput) AutomationAction() EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActions) *EventOrchestrationGlobalCatchAllActionsAutomationAction {
 		return v.AutomationAction
@@ -1486,7 +1486,7 @@ func (o EventOrchestrationGlobalCatchAllActionsPtrOutput) Annotate() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
 func (o EventOrchestrationGlobalCatchAllActionsPtrOutput) AutomationAction() EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationGlobalCatchAllActions) *EventOrchestrationGlobalCatchAllActionsAutomationAction {
 		if v == nil {
@@ -1607,7 +1607,7 @@ func (o EventOrchestrationGlobalCatchAllActionsPtrOutput) Variables() EventOrche
 }
 
 type EventOrchestrationGlobalCatchAllActionsAutomationAction struct {
-	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
 	AutoSend *bool `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers []EventOrchestrationGlobalCatchAllActionsAutomationActionHeader `pulumi:"headers"`
@@ -1615,6 +1615,8 @@ type EventOrchestrationGlobalCatchAllActionsAutomationAction struct {
 	Name string `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters []EventOrchestrationGlobalCatchAllActionsAutomationActionParameter `pulumi:"parameters"`
+	// The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+	TriggerTypes *string `pulumi:"triggerTypes"`
 	// The API endpoint where PagerDuty's servers will send the webhook request.
 	Url string `pulumi:"url"`
 }
@@ -1631,7 +1633,7 @@ type EventOrchestrationGlobalCatchAllActionsAutomationActionInput interface {
 }
 
 type EventOrchestrationGlobalCatchAllActionsAutomationActionArgs struct {
-	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
 	AutoSend pulumi.BoolPtrInput `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayInput `pulumi:"headers"`
@@ -1639,6 +1641,8 @@ type EventOrchestrationGlobalCatchAllActionsAutomationActionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayInput `pulumi:"parameters"`
+	// The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+	TriggerTypes pulumi.StringPtrInput `pulumi:"triggerTypes"`
 	// The API endpoint where PagerDuty's servers will send the webhook request.
 	Url pulumi.StringInput `pulumi:"url"`
 }
@@ -1720,7 +1724,7 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionOutput) ToEventOr
 	}).(EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput)
 }
 
-// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionOutput) AutoSend() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsAutomationAction) *bool { return v.AutoSend }).(pulumi.BoolPtrOutput)
 }
@@ -1742,6 +1746,11 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionOutput) Parameter
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsAutomationAction) []EventOrchestrationGlobalCatchAllActionsAutomationActionParameter {
 		return v.Parameters
 	}).(EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayOutput)
+}
+
+// The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+func (o EventOrchestrationGlobalCatchAllActionsAutomationActionOutput) TriggerTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsAutomationAction) *string { return v.TriggerTypes }).(pulumi.StringPtrOutput)
 }
 
 // The API endpoint where PagerDuty's servers will send the webhook request.
@@ -1773,7 +1782,7 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput) Elem()
 	}).(EventOrchestrationGlobalCatchAllActionsAutomationActionOutput)
 }
 
-// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput) AutoSend() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationGlobalCatchAllActionsAutomationAction) *bool {
 		if v == nil {
@@ -1811,6 +1820,16 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput) Parame
 		}
 		return v.Parameters
 	}).(EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayOutput)
+}
+
+// The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+func (o EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput) TriggerTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationGlobalCatchAllActionsAutomationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TriggerTypes
+	}).(pulumi.StringPtrOutput)
 }
 
 // The API endpoint where PagerDuty's servers will send the webhook request.
@@ -2636,7 +2655,7 @@ func (o EventOrchestrationGlobalSetRuleArrayOutput) Index(i pulumi.IntInput) Eve
 type EventOrchestrationGlobalSetRuleActions struct {
 	// Add this text as a note on the resulting incident.
 	Annotate *string `pulumi:"annotate"`
-	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
 	AutomationAction *EventOrchestrationGlobalSetRuleActionsAutomationAction `pulumi:"automationAction"`
 	// When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
 	DropEvent *bool `pulumi:"dropEvent"`
@@ -2676,7 +2695,7 @@ type EventOrchestrationGlobalSetRuleActionsInput interface {
 type EventOrchestrationGlobalSetRuleActionsArgs struct {
 	// Add this text as a note on the resulting incident.
 	Annotate pulumi.StringPtrInput `pulumi:"annotate"`
-	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
 	AutomationAction EventOrchestrationGlobalSetRuleActionsAutomationActionPtrInput `pulumi:"automationAction"`
 	// When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
 	DropEvent pulumi.BoolPtrInput `pulumi:"dropEvent"`
@@ -2733,7 +2752,7 @@ func (o EventOrchestrationGlobalSetRuleActionsOutput) Annotate() pulumi.StringPt
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActions) *string { return v.Annotate }).(pulumi.StringPtrOutput)
 }
 
-// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
 func (o EventOrchestrationGlobalSetRuleActionsOutput) AutomationAction() EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActions) *EventOrchestrationGlobalSetRuleActionsAutomationAction {
 		return v.AutomationAction
@@ -2802,7 +2821,7 @@ func (o EventOrchestrationGlobalSetRuleActionsOutput) Variables() EventOrchestra
 }
 
 type EventOrchestrationGlobalSetRuleActionsAutomationAction struct {
-	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
 	AutoSend *bool `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers []EventOrchestrationGlobalSetRuleActionsAutomationActionHeader `pulumi:"headers"`
@@ -2810,6 +2829,8 @@ type EventOrchestrationGlobalSetRuleActionsAutomationAction struct {
 	Name string `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters []EventOrchestrationGlobalSetRuleActionsAutomationActionParameter `pulumi:"parameters"`
+	// The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+	TriggerTypes *string `pulumi:"triggerTypes"`
 	// The API endpoint where PagerDuty's servers will send the webhook request.
 	Url string `pulumi:"url"`
 }
@@ -2826,7 +2847,7 @@ type EventOrchestrationGlobalSetRuleActionsAutomationActionInput interface {
 }
 
 type EventOrchestrationGlobalSetRuleActionsAutomationActionArgs struct {
-	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
 	AutoSend pulumi.BoolPtrInput `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayInput `pulumi:"headers"`
@@ -2834,6 +2855,8 @@ type EventOrchestrationGlobalSetRuleActionsAutomationActionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayInput `pulumi:"parameters"`
+	// The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+	TriggerTypes pulumi.StringPtrInput `pulumi:"triggerTypes"`
 	// The API endpoint where PagerDuty's servers will send the webhook request.
 	Url pulumi.StringInput `pulumi:"url"`
 }
@@ -2915,7 +2938,7 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionOutput) ToEventOrc
 	}).(EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput)
 }
 
-// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionOutput) AutoSend() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsAutomationAction) *bool { return v.AutoSend }).(pulumi.BoolPtrOutput)
 }
@@ -2937,6 +2960,11 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionOutput) Parameters
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsAutomationAction) []EventOrchestrationGlobalSetRuleActionsAutomationActionParameter {
 		return v.Parameters
 	}).(EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayOutput)
+}
+
+// The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+func (o EventOrchestrationGlobalSetRuleActionsAutomationActionOutput) TriggerTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsAutomationAction) *string { return v.TriggerTypes }).(pulumi.StringPtrOutput)
 }
 
 // The API endpoint where PagerDuty's servers will send the webhook request.
@@ -2968,7 +2996,7 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput) Elem() 
 	}).(EventOrchestrationGlobalSetRuleActionsAutomationActionOutput)
 }
 
-// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput) AutoSend() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationGlobalSetRuleActionsAutomationAction) *bool {
 		if v == nil {
@@ -3006,6 +3034,16 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput) Paramet
 		}
 		return v.Parameters
 	}).(EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayOutput)
+}
+
+// The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+func (o EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput) TriggerTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationGlobalSetRuleActionsAutomationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TriggerTypes
+	}).(pulumi.StringPtrOutput)
 }
 
 // The API endpoint where PagerDuty's servers will send the webhook request.
@@ -5196,7 +5234,7 @@ func (o EventOrchestrationServiceCatchAllPtrOutput) Actions() EventOrchestration
 type EventOrchestrationServiceCatchAllActions struct {
 	// Add this text as a note on the resulting incident.
 	Annotate *string `pulumi:"annotate"`
-	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
 	AutomationAction *EventOrchestrationServiceCatchAllActionsAutomationAction `pulumi:"automationAction"`
 	// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
 	EscalationPolicy *string `pulumi:"escalationPolicy"`
@@ -5206,7 +5244,7 @@ type EventOrchestrationServiceCatchAllActions struct {
 	Extractions []EventOrchestrationServiceCatchAllActionsExtraction `pulumi:"extractions"`
 	// Assign a custom field to the resulting incident.
 	IncidentCustomFieldUpdates []EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate `pulumi:"incidentCustomFieldUpdates"`
-	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
 	PagerdutyAutomationAction *EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction `pulumi:"pagerdutyAutomationAction"`
 	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 	Priority *string `pulumi:"priority"`
@@ -5238,7 +5276,7 @@ type EventOrchestrationServiceCatchAllActionsInput interface {
 type EventOrchestrationServiceCatchAllActionsArgs struct {
 	// Add this text as a note on the resulting incident.
 	Annotate pulumi.StringPtrInput `pulumi:"annotate"`
-	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
 	AutomationAction EventOrchestrationServiceCatchAllActionsAutomationActionPtrInput `pulumi:"automationAction"`
 	// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
 	EscalationPolicy pulumi.StringPtrInput `pulumi:"escalationPolicy"`
@@ -5248,7 +5286,7 @@ type EventOrchestrationServiceCatchAllActionsArgs struct {
 	Extractions EventOrchestrationServiceCatchAllActionsExtractionArrayInput `pulumi:"extractions"`
 	// Assign a custom field to the resulting incident.
 	IncidentCustomFieldUpdates EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayInput `pulumi:"incidentCustomFieldUpdates"`
-	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
 	PagerdutyAutomationAction EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrInput `pulumi:"pagerdutyAutomationAction"`
 	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 	Priority pulumi.StringPtrInput `pulumi:"priority"`
@@ -5348,7 +5386,7 @@ func (o EventOrchestrationServiceCatchAllActionsOutput) Annotate() pulumi.String
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *string { return v.Annotate }).(pulumi.StringPtrOutput)
 }
 
-// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
 func (o EventOrchestrationServiceCatchAllActionsOutput) AutomationAction() EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *EventOrchestrationServiceCatchAllActionsAutomationAction {
 		return v.AutomationAction
@@ -5379,7 +5417,7 @@ func (o EventOrchestrationServiceCatchAllActionsOutput) IncidentCustomFieldUpdat
 	}).(EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput)
 }
 
-// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
 func (o EventOrchestrationServiceCatchAllActionsOutput) PagerdutyAutomationAction() EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction {
 		return v.PagerdutyAutomationAction
@@ -5454,7 +5492,7 @@ func (o EventOrchestrationServiceCatchAllActionsPtrOutput) Annotate() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
 func (o EventOrchestrationServiceCatchAllActionsPtrOutput) AutomationAction() EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) *EventOrchestrationServiceCatchAllActionsAutomationAction {
 		if v == nil {
@@ -5504,7 +5542,7 @@ func (o EventOrchestrationServiceCatchAllActionsPtrOutput) IncidentCustomFieldUp
 	}).(EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput)
 }
 
-// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
 func (o EventOrchestrationServiceCatchAllActionsPtrOutput) PagerdutyAutomationAction() EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) *EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction {
 		if v == nil {
@@ -5577,7 +5615,7 @@ func (o EventOrchestrationServiceCatchAllActionsPtrOutput) Variables() EventOrch
 }
 
 type EventOrchestrationServiceCatchAllActionsAutomationAction struct {
-	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
 	AutoSend *bool `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers []EventOrchestrationServiceCatchAllActionsAutomationActionHeader `pulumi:"headers"`
@@ -5585,6 +5623,8 @@ type EventOrchestrationServiceCatchAllActionsAutomationAction struct {
 	Name string `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters []EventOrchestrationServiceCatchAllActionsAutomationActionParameter `pulumi:"parameters"`
+	// The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+	TriggerTypes *string `pulumi:"triggerTypes"`
 	// The API endpoint where PagerDuty's servers will send the webhook request.
 	Url string `pulumi:"url"`
 }
@@ -5601,7 +5641,7 @@ type EventOrchestrationServiceCatchAllActionsAutomationActionInput interface {
 }
 
 type EventOrchestrationServiceCatchAllActionsAutomationActionArgs struct {
-	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
 	AutoSend pulumi.BoolPtrInput `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayInput `pulumi:"headers"`
@@ -5609,6 +5649,8 @@ type EventOrchestrationServiceCatchAllActionsAutomationActionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayInput `pulumi:"parameters"`
+	// The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+	TriggerTypes pulumi.StringPtrInput `pulumi:"triggerTypes"`
 	// The API endpoint where PagerDuty's servers will send the webhook request.
 	Url pulumi.StringInput `pulumi:"url"`
 }
@@ -5690,7 +5732,7 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) ToEventO
 	}).(EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput)
 }
 
-// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) AutoSend() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationAction) *bool { return v.AutoSend }).(pulumi.BoolPtrOutput)
 }
@@ -5712,6 +5754,11 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) Paramete
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationAction) []EventOrchestrationServiceCatchAllActionsAutomationActionParameter {
 		return v.Parameters
 	}).(EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput)
+}
+
+// The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) TriggerTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationAction) *string { return v.TriggerTypes }).(pulumi.StringPtrOutput)
 }
 
 // The API endpoint where PagerDuty's servers will send the webhook request.
@@ -5743,7 +5790,7 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) Elem(
 	}).(EventOrchestrationServiceCatchAllActionsAutomationActionOutput)
 }
 
-// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) AutoSend() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActionsAutomationAction) *bool {
 		if v == nil {
@@ -5781,6 +5828,16 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) Param
 		}
 		return v.Parameters
 	}).(EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput)
+}
+
+// The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) TriggerTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActionsAutomationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TriggerTypes
+	}).(pulumi.StringPtrOutput)
 }
 
 // The API endpoint where PagerDuty's servers will send the webhook request.
@@ -6244,6 +6301,8 @@ func (o EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOu
 type EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction struct {
 	// Id of the Process Automation action to be triggered.
 	ActionId string `pulumi:"actionId"`
+	// The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`
+	TriggerTypes *string `pulumi:"triggerTypes"`
 }
 
 // EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionInput is an input type that accepts EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs and EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput values.
@@ -6260,6 +6319,8 @@ type EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionInput inte
 type EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs struct {
 	// Id of the Process Automation action to be triggered.
 	ActionId pulumi.StringInput `pulumi:"actionId"`
+	// The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`
+	TriggerTypes pulumi.StringPtrInput `pulumi:"triggerTypes"`
 }
 
 func (EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs) ElementType() reflect.Type {
@@ -6344,6 +6405,13 @@ func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput)
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction) string { return v.ActionId }).(pulumi.StringOutput)
 }
 
+// The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`
+func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput) TriggerTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction) *string {
+		return v.TriggerTypes
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput) ElementType() reflect.Type {
@@ -6375,6 +6443,16 @@ func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutp
 			return nil
 		}
 		return &v.ActionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`
+func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput) TriggerTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TriggerTypes
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6743,7 +6821,7 @@ func (o EventOrchestrationServiceSetRuleArrayOutput) Index(i pulumi.IntInput) Ev
 type EventOrchestrationServiceSetRuleActions struct {
 	// Add this text as a note on the resulting incident.
 	Annotate *string `pulumi:"annotate"`
-	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
 	AutomationAction *EventOrchestrationServiceSetRuleActionsAutomationAction `pulumi:"automationAction"`
 	// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
 	EscalationPolicy *string `pulumi:"escalationPolicy"`
@@ -6753,7 +6831,7 @@ type EventOrchestrationServiceSetRuleActions struct {
 	Extractions []EventOrchestrationServiceSetRuleActionsExtraction `pulumi:"extractions"`
 	// Assign a custom field to the resulting incident.
 	IncidentCustomFieldUpdates []EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate `pulumi:"incidentCustomFieldUpdates"`
-	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
 	PagerdutyAutomationAction *EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction `pulumi:"pagerdutyAutomationAction"`
 	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 	Priority *string `pulumi:"priority"`
@@ -6783,7 +6861,7 @@ type EventOrchestrationServiceSetRuleActionsInput interface {
 type EventOrchestrationServiceSetRuleActionsArgs struct {
 	// Add this text as a note on the resulting incident.
 	Annotate pulumi.StringPtrInput `pulumi:"annotate"`
-	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
 	AutomationAction EventOrchestrationServiceSetRuleActionsAutomationActionPtrInput `pulumi:"automationAction"`
 	// The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
 	EscalationPolicy pulumi.StringPtrInput `pulumi:"escalationPolicy"`
@@ -6793,7 +6871,7 @@ type EventOrchestrationServiceSetRuleActionsArgs struct {
 	Extractions EventOrchestrationServiceSetRuleActionsExtractionArrayInput `pulumi:"extractions"`
 	// Assign a custom field to the resulting incident.
 	IncidentCustomFieldUpdates EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayInput `pulumi:"incidentCustomFieldUpdates"`
-	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
 	PagerdutyAutomationAction EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrInput `pulumi:"pagerdutyAutomationAction"`
 	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 	Priority pulumi.StringPtrInput `pulumi:"priority"`
@@ -6840,7 +6918,7 @@ func (o EventOrchestrationServiceSetRuleActionsOutput) Annotate() pulumi.StringP
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) *string { return v.Annotate }).(pulumi.StringPtrOutput)
 }
 
-// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
 func (o EventOrchestrationServiceSetRuleActionsOutput) AutomationAction() EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) *EventOrchestrationServiceSetRuleActionsAutomationAction {
 		return v.AutomationAction
@@ -6871,7 +6949,7 @@ func (o EventOrchestrationServiceSetRuleActionsOutput) IncidentCustomFieldUpdate
 	}).(EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput)
 }
 
-// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
 func (o EventOrchestrationServiceSetRuleActionsOutput) PagerdutyAutomationAction() EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) *EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction {
 		return v.PagerdutyAutomationAction
@@ -6911,7 +6989,7 @@ func (o EventOrchestrationServiceSetRuleActionsOutput) Variables() EventOrchestr
 }
 
 type EventOrchestrationServiceSetRuleActionsAutomationAction struct {
-	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
 	AutoSend *bool `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers []EventOrchestrationServiceSetRuleActionsAutomationActionHeader `pulumi:"headers"`
@@ -6919,6 +6997,8 @@ type EventOrchestrationServiceSetRuleActionsAutomationAction struct {
 	Name string `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters []EventOrchestrationServiceSetRuleActionsAutomationActionParameter `pulumi:"parameters"`
+	// The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+	TriggerTypes *string `pulumi:"triggerTypes"`
 	// The API endpoint where PagerDuty's servers will send the webhook request.
 	Url string `pulumi:"url"`
 }
@@ -6935,7 +7015,7 @@ type EventOrchestrationServiceSetRuleActionsAutomationActionInput interface {
 }
 
 type EventOrchestrationServiceSetRuleActionsAutomationActionArgs struct {
-	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
 	AutoSend pulumi.BoolPtrInput `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayInput `pulumi:"headers"`
@@ -6943,6 +7023,8 @@ type EventOrchestrationServiceSetRuleActionsAutomationActionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayInput `pulumi:"parameters"`
+	// The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+	TriggerTypes pulumi.StringPtrInput `pulumi:"triggerTypes"`
 	// The API endpoint where PagerDuty's servers will send the webhook request.
 	Url pulumi.StringInput `pulumi:"url"`
 }
@@ -7024,7 +7106,7 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) ToEventOr
 	}).(EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput)
 }
 
-// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) AutoSend() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationAction) *bool { return v.AutoSend }).(pulumi.BoolPtrOutput)
 }
@@ -7046,6 +7128,11 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) Parameter
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationAction) []EventOrchestrationServiceSetRuleActionsAutomationActionParameter {
 		return v.Parameters
 	}).(EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput)
+}
+
+// The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) TriggerTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationAction) *string { return v.TriggerTypes }).(pulumi.StringPtrOutput)
 }
 
 // The API endpoint where PagerDuty's servers will send the webhook request.
@@ -7077,7 +7164,7 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) Elem()
 	}).(EventOrchestrationServiceSetRuleActionsAutomationActionOutput)
 }
 
-// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) AutoSend() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationServiceSetRuleActionsAutomationAction) *bool {
 		if v == nil {
@@ -7115,6 +7202,16 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) Parame
 		}
 		return v.Parameters
 	}).(EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput)
+}
+
+// The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) TriggerTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceSetRuleActionsAutomationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TriggerTypes
+	}).(pulumi.StringPtrOutput)
 }
 
 // The API endpoint where PagerDuty's servers will send the webhook request.
@@ -7578,6 +7675,8 @@ func (o EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOut
 type EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction struct {
 	// Id of the Process Automation action to be triggered.
 	ActionId string `pulumi:"actionId"`
+	// The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`
+	TriggerTypes *string `pulumi:"triggerTypes"`
 }
 
 // EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionInput is an input type that accepts EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs and EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput values.
@@ -7594,6 +7693,8 @@ type EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionInput inter
 type EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs struct {
 	// Id of the Process Automation action to be triggered.
 	ActionId pulumi.StringInput `pulumi:"actionId"`
+	// The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`
+	TriggerTypes pulumi.StringPtrInput `pulumi:"triggerTypes"`
 }
 
 func (EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs) ElementType() reflect.Type {
@@ -7678,6 +7779,13 @@ func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput) 
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction) string { return v.ActionId }).(pulumi.StringOutput)
 }
 
+// The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`
+func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput) TriggerTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction) *string {
+		return v.TriggerTypes
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput) ElementType() reflect.Type {
@@ -7709,6 +7817,16 @@ func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutpu
 			return nil
 		}
 		return &v.ActionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`
+func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput) TriggerTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TriggerTypes
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -18447,17 +18565,17 @@ func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) Urgency() pulumi
 }
 
 type ServiceIntegrationEmailFilter struct {
-	// Can be `always` or `match`.
+	// Can be `always`, `match` or `no-match`.
 	BodyMode *string `pulumi:"bodyMode"`
 	// Should be a valid regex or `null`
 	BodyRegex *string `pulumi:"bodyRegex"`
-	// Can be `always` or `match`.
+	// Can be `always`, `match` or `no-match`.
 	FromEmailMode *string `pulumi:"fromEmailMode"`
 	// Should be a valid regex or `null`
 	FromEmailRegex *string `pulumi:"fromEmailRegex"`
 	// The ID of the service integration.
 	Id *string `pulumi:"id"`
-	// Can be `always` or `match`.
+	// Can be `always`, `match` or `no-match`.
 	SubjectMode *string `pulumi:"subjectMode"`
 	// Should be a valid regex or `null`
 	SubjectRegex *string `pulumi:"subjectRegex"`
@@ -18475,17 +18593,17 @@ type ServiceIntegrationEmailFilterInput interface {
 }
 
 type ServiceIntegrationEmailFilterArgs struct {
-	// Can be `always` or `match`.
+	// Can be `always`, `match` or `no-match`.
 	BodyMode pulumi.StringPtrInput `pulumi:"bodyMode"`
 	// Should be a valid regex or `null`
 	BodyRegex pulumi.StringPtrInput `pulumi:"bodyRegex"`
-	// Can be `always` or `match`.
+	// Can be `always`, `match` or `no-match`.
 	FromEmailMode pulumi.StringPtrInput `pulumi:"fromEmailMode"`
 	// Should be a valid regex or `null`
 	FromEmailRegex pulumi.StringPtrInput `pulumi:"fromEmailRegex"`
 	// The ID of the service integration.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Can be `always` or `match`.
+	// Can be `always`, `match` or `no-match`.
 	SubjectMode pulumi.StringPtrInput `pulumi:"subjectMode"`
 	// Should be a valid regex or `null`
 	SubjectRegex pulumi.StringPtrInput `pulumi:"subjectRegex"`
@@ -18542,7 +18660,7 @@ func (o ServiceIntegrationEmailFilterOutput) ToServiceIntegrationEmailFilterOutp
 	return o
 }
 
-// Can be `always` or `match`.
+// Can be `always`, `match` or `no-match`.
 func (o ServiceIntegrationEmailFilterOutput) BodyMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIntegrationEmailFilter) *string { return v.BodyMode }).(pulumi.StringPtrOutput)
 }
@@ -18552,7 +18670,7 @@ func (o ServiceIntegrationEmailFilterOutput) BodyRegex() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ServiceIntegrationEmailFilter) *string { return v.BodyRegex }).(pulumi.StringPtrOutput)
 }
 
-// Can be `always` or `match`.
+// Can be `always`, `match` or `no-match`.
 func (o ServiceIntegrationEmailFilterOutput) FromEmailMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIntegrationEmailFilter) *string { return v.FromEmailMode }).(pulumi.StringPtrOutput)
 }
@@ -18567,7 +18685,7 @@ func (o ServiceIntegrationEmailFilterOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIntegrationEmailFilter) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Can be `always` or `match`.
+// Can be `always`, `match` or `no-match`.
 func (o ServiceIntegrationEmailFilterOutput) SubjectMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIntegrationEmailFilter) *string { return v.SubjectMode }).(pulumi.StringPtrOutput)
 }

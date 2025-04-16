@@ -24,7 +24,7 @@ public final class EventOrchestrationGlobalCatchAllActions {
      */
     private @Nullable String annotate;
     /**
-     * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      * 
      */
     private @Nullable EventOrchestrationGlobalCatchAllActionsAutomationAction automationAction;
@@ -93,7 +93,7 @@ public final class EventOrchestrationGlobalCatchAllActions {
         return Optional.ofNullable(this.annotate);
     }
     /**
-     * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      * 
      */
     public Optional<EventOrchestrationGlobalCatchAllActionsAutomationAction> automationAction() {

@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceIntegrationEmailFilter {
     /**
-     * @return Can be `always` or `match`.
+     * @return Can be `always`, `match` or `no-match`.
      * 
      */
     private @Nullable String bodyMode;
@@ -22,7 +22,7 @@ public final class ServiceIntegrationEmailFilter {
      */
     private @Nullable String bodyRegex;
     /**
-     * @return Can be `always` or `match`.
+     * @return Can be `always`, `match` or `no-match`.
      * 
      */
     private @Nullable String fromEmailMode;
@@ -37,7 +37,7 @@ public final class ServiceIntegrationEmailFilter {
      */
     private @Nullable String id;
     /**
-     * @return Can be `always` or `match`.
+     * @return Can be `always`, `match` or `no-match`.
      * 
      */
     private @Nullable String subjectMode;
@@ -49,7 +49,7 @@ public final class ServiceIntegrationEmailFilter {
 
     private ServiceIntegrationEmailFilter() {}
     /**
-     * @return Can be `always` or `match`.
+     * @return Can be `always`, `match` or `no-match`.
      * 
      */
     public Optional<String> bodyMode() {
@@ -63,7 +63,7 @@ public final class ServiceIntegrationEmailFilter {
         return Optional.ofNullable(this.bodyRegex);
     }
     /**
-     * @return Can be `always` or `match`.
+     * @return Can be `always`, `match` or `no-match`.
      * 
      */
     public Optional<String> fromEmailMode() {
@@ -84,7 +84,7 @@ public final class ServiceIntegrationEmailFilter {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Can be `always` or `match`.
+     * @return Can be `always`, `match` or `no-match`.
      * 
      */
     public Optional<String> subjectMode() {

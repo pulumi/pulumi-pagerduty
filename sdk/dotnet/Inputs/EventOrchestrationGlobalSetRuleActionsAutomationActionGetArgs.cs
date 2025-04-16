@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class EventOrchestrationGlobalSetRuleActionsAutomationActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        /// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         /// </summary>
         [Input("autoSend")]
         public Input<bool>? AutoSend { get; set; }
@@ -47,6 +47,12 @@ namespace Pulumi.Pagerduty.Inputs
             get => _parameters ?? (_parameters = new InputList<Inputs.EventOrchestrationGlobalSetRuleActionsAutomationActionParameterGetArgs>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`. NOTE: `auto_send` must be `true` for trigger types of `["alert_suspended"]` and `["alert_suppressed"]`
+        /// </summary>
+        [Input("triggerTypes")]
+        public Input<string>? TriggerTypes { get; set; }
 
         /// <summary>
         /// The API endpoint where PagerDuty's servers will send the webhook request.

@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? Annotate { get; set; }
 
         /// <summary>
-        /// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        /// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
         /// </summary>
         [Input("automationAction")]
         public Input<Inputs.EventOrchestrationServiceSetRuleActionsAutomationActionGetArgs>? AutomationAction { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.Pagerduty.Inputs
         }
 
         /// <summary>
-        /// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+        /// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
         /// </summary>
         [Input("pagerdutyAutomationAction")]
         public Input<Inputs.EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionGetArgs>? PagerdutyAutomationAction { get; set; }

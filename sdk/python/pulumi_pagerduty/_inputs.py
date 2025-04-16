@@ -875,7 +875,7 @@ if not MYPY:
         """
         automation_action: NotRequired[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionArgsDict']]
         """
-        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
         """
         drop_event: NotRequired[pulumi.Input[builtins.bool]]
         """
@@ -942,7 +942,7 @@ class EventOrchestrationGlobalCatchAllActionsArgs:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsVariableArgs']]]] = None):
         """
         :param pulumi.Input[builtins.str] annotate: Add this text as a note on the resulting incident.
-        :param pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionArgs'] automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        :param pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionArgs'] automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
         :param pulumi.Input[builtins.bool] drop_event: When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
         :param pulumi.Input[builtins.str] escalation_policy: The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
         :param pulumi.Input[builtins.str] event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
@@ -998,7 +998,7 @@ class EventOrchestrationGlobalCatchAllActionsArgs:
     @pulumi.getter(name="automationAction")
     def automation_action(self) -> Optional[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionArgs']]:
         """
-        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
         """
         return pulumi.get(self, "automation_action")
 
@@ -1151,7 +1151,7 @@ if not MYPY:
         """
         auto_send: NotRequired[pulumi.Input[builtins.bool]]
         """
-        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         """
         headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgsDict']]]]
         """
@@ -1160,6 +1160,10 @@ if not MYPY:
         parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgsDict']]]]
         """
         Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+        """
+        trigger_types: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`. NOTE: `auto_send` must be `true` for trigger types of `["alert_suspended"]` and `["alert_suppressed"]`
         """
 elif False:
     EventOrchestrationGlobalCatchAllActionsAutomationActionArgsDict: TypeAlias = Mapping[str, Any]
@@ -1171,13 +1175,15 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionArgs:
                  url: pulumi.Input[builtins.str],
                  auto_send: Optional[pulumi.Input[builtins.bool]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs']]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs']]]] = None,
+                 trigger_types: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] name: Name of this Webhook.
         :param pulumi.Input[builtins.str] url: The API endpoint where PagerDuty's servers will send the webhook request.
-        :param pulumi.Input[builtins.bool] auto_send: When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        :param pulumi.Input[builtins.bool] auto_send: When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs']]] headers: Specify custom key/value pairs that'll be sent with the webhook request as request headers.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs']]] parameters: Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+        :param pulumi.Input[builtins.str] trigger_types: The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`. NOTE: `auto_send` must be `true` for trigger types of `["alert_suspended"]` and `["alert_suppressed"]`
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "url", url)
@@ -1187,6 +1193,8 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionArgs:
             pulumi.set(__self__, "headers", headers)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if trigger_types is not None:
+            pulumi.set(__self__, "trigger_types", trigger_types)
 
     @property
     @pulumi.getter
@@ -1216,7 +1224,7 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionArgs:
     @pulumi.getter(name="autoSend")
     def auto_send(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         """
         return pulumi.get(self, "auto_send")
 
@@ -1247,6 +1255,18 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="triggerTypes")
+    def trigger_types(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`. NOTE: `auto_send` must be `true` for trigger types of `["alert_suspended"]` and `["alert_suppressed"]`
+        """
+        return pulumi.get(self, "trigger_types")
+
+    @trigger_types.setter
+    def trigger_types(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "trigger_types", value)
 
 
 if not MYPY:
@@ -1747,7 +1767,7 @@ if not MYPY:
         """
         automation_action: NotRequired[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionArgsDict']]
         """
-        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
         """
         drop_event: NotRequired[pulumi.Input[builtins.bool]]
         """
@@ -1814,7 +1834,7 @@ class EventOrchestrationGlobalSetRuleActionsArgs:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsVariableArgs']]]] = None):
         """
         :param pulumi.Input[builtins.str] annotate: Add this text as a note on the resulting incident.
-        :param pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionArgs'] automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        :param pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionArgs'] automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
         :param pulumi.Input[builtins.bool] drop_event: When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
         :param pulumi.Input[builtins.str] escalation_policy: The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
         :param pulumi.Input[builtins.str] event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
@@ -1870,7 +1890,7 @@ class EventOrchestrationGlobalSetRuleActionsArgs:
     @pulumi.getter(name="automationAction")
     def automation_action(self) -> Optional[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionArgs']]:
         """
-        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
         """
         return pulumi.get(self, "automation_action")
 
@@ -2023,7 +2043,7 @@ if not MYPY:
         """
         auto_send: NotRequired[pulumi.Input[builtins.bool]]
         """
-        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         """
         headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgsDict']]]]
         """
@@ -2032,6 +2052,10 @@ if not MYPY:
         parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgsDict']]]]
         """
         Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+        """
+        trigger_types: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`. NOTE: `auto_send` must be `true` for trigger types of `["alert_suspended"]` and `["alert_suppressed"]`
         """
 elif False:
     EventOrchestrationGlobalSetRuleActionsAutomationActionArgsDict: TypeAlias = Mapping[str, Any]
@@ -2043,13 +2067,15 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionArgs:
                  url: pulumi.Input[builtins.str],
                  auto_send: Optional[pulumi.Input[builtins.bool]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs']]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs']]]] = None,
+                 trigger_types: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] name: Name of this Webhook.
         :param pulumi.Input[builtins.str] url: The API endpoint where PagerDuty's servers will send the webhook request.
-        :param pulumi.Input[builtins.bool] auto_send: When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        :param pulumi.Input[builtins.bool] auto_send: When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs']]] headers: Specify custom key/value pairs that'll be sent with the webhook request as request headers.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs']]] parameters: Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+        :param pulumi.Input[builtins.str] trigger_types: The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`. NOTE: `auto_send` must be `true` for trigger types of `["alert_suspended"]` and `["alert_suppressed"]`
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "url", url)
@@ -2059,6 +2085,8 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionArgs:
             pulumi.set(__self__, "headers", headers)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if trigger_types is not None:
+            pulumi.set(__self__, "trigger_types", trigger_types)
 
     @property
     @pulumi.getter
@@ -2088,7 +2116,7 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionArgs:
     @pulumi.getter(name="autoSend")
     def auto_send(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         """
         return pulumi.get(self, "auto_send")
 
@@ -2119,6 +2147,18 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="triggerTypes")
+    def trigger_types(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`. NOTE: `auto_send` must be `true` for trigger types of `["alert_suspended"]` and `["alert_suppressed"]`
+        """
+        return pulumi.get(self, "trigger_types")
+
+    @trigger_types.setter
+    def trigger_types(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "trigger_types", value)
 
 
 if not MYPY:
@@ -3153,7 +3193,7 @@ if not MYPY:
         """
         automation_action: NotRequired[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionArgsDict']]
         """
-        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
         """
         escalation_policy: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -3173,7 +3213,7 @@ if not MYPY:
         """
         pagerduty_automation_action: NotRequired[pulumi.Input['EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgsDict']]
         """
-        Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+        Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
         """
         priority: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -3220,12 +3260,12 @@ class EventOrchestrationServiceCatchAllActionsArgs:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsVariableArgs']]]] = None):
         """
         :param pulumi.Input[builtins.str] annotate: Add this text as a note on the resulting incident.
-        :param pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionArgs'] automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        :param pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionArgs'] automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
         :param pulumi.Input[builtins.str] escalation_policy: The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
         :param pulumi.Input[builtins.str] event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsExtractionArgs']]] extractions: Replace any CEF field or Custom Details object field using custom variables.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs']]] incident_custom_field_updates: Assign a custom field to the resulting incident.
-        :param pulumi.Input['EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs'] pagerduty_automation_action: Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+        :param pulumi.Input['EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs'] pagerduty_automation_action: Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
         :param pulumi.Input[builtins.str] priority: The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
         :param pulumi.Input[builtins.str] route_to: The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
         :param pulumi.Input[builtins.str] severity: sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
@@ -3279,7 +3319,7 @@ class EventOrchestrationServiceCatchAllActionsArgs:
     @pulumi.getter(name="automationAction")
     def automation_action(self) -> Optional[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionArgs']]:
         """
-        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
         """
         return pulumi.get(self, "automation_action")
 
@@ -3339,7 +3379,7 @@ class EventOrchestrationServiceCatchAllActionsArgs:
     @pulumi.getter(name="pagerdutyAutomationAction")
     def pagerduty_automation_action(self) -> Optional[pulumi.Input['EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs']]:
         """
-        Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+        Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
         """
         return pulumi.get(self, "pagerduty_automation_action")
 
@@ -3433,7 +3473,7 @@ if not MYPY:
         """
         auto_send: NotRequired[pulumi.Input[builtins.bool]]
         """
-        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         """
         headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgsDict']]]]
         """
@@ -3442,6 +3482,10 @@ if not MYPY:
         parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgsDict']]]]
         """
         Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+        """
+        trigger_types: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`. NOTE: `auto_send` must be `true` for trigger types of `["alert_suspended"]` and `["alert_suppressed"]`
         """
 elif False:
     EventOrchestrationServiceCatchAllActionsAutomationActionArgsDict: TypeAlias = Mapping[str, Any]
@@ -3453,13 +3497,15 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionArgs:
                  url: pulumi.Input[builtins.str],
                  auto_send: Optional[pulumi.Input[builtins.bool]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs']]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs']]]] = None,
+                 trigger_types: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] name: Name of this Webhook.
         :param pulumi.Input[builtins.str] url: The API endpoint where PagerDuty's servers will send the webhook request.
-        :param pulumi.Input[builtins.bool] auto_send: When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        :param pulumi.Input[builtins.bool] auto_send: When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs']]] headers: Specify custom key/value pairs that'll be sent with the webhook request as request headers.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs']]] parameters: Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+        :param pulumi.Input[builtins.str] trigger_types: The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`. NOTE: `auto_send` must be `true` for trigger types of `["alert_suspended"]` and `["alert_suppressed"]`
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "url", url)
@@ -3469,6 +3515,8 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionArgs:
             pulumi.set(__self__, "headers", headers)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if trigger_types is not None:
+            pulumi.set(__self__, "trigger_types", trigger_types)
 
     @property
     @pulumi.getter
@@ -3498,7 +3546,7 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionArgs:
     @pulumi.getter(name="autoSend")
     def auto_send(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         """
         return pulumi.get(self, "auto_send")
 
@@ -3529,6 +3577,18 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="triggerTypes")
+    def trigger_types(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`. NOTE: `auto_send` must be `true` for trigger types of `["alert_suspended"]` and `["alert_suppressed"]`
+        """
+        return pulumi.get(self, "trigger_types")
+
+    @trigger_types.setter
+    def trigger_types(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "trigger_types", value)
 
 
 if not MYPY:
@@ -3784,17 +3844,25 @@ if not MYPY:
         """
         Id of the Process Automation action to be triggered.
         """
+        trigger_types: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`
+        """
 elif False:
     EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs:
     def __init__(__self__, *,
-                 action_id: pulumi.Input[builtins.str]):
+                 action_id: pulumi.Input[builtins.str],
+                 trigger_types: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] action_id: Id of the Process Automation action to be triggered.
+        :param pulumi.Input[builtins.str] trigger_types: The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`
         """
         pulumi.set(__self__, "action_id", action_id)
+        if trigger_types is not None:
+            pulumi.set(__self__, "trigger_types", trigger_types)
 
     @property
     @pulumi.getter(name="actionId")
@@ -3807,6 +3875,18 @@ class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs:
     @action_id.setter
     def action_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "action_id", value)
+
+    @property
+    @pulumi.getter(name="triggerTypes")
+    def trigger_types(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`
+        """
+        return pulumi.get(self, "trigger_types")
+
+    @trigger_types.setter
+    def trigger_types(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "trigger_types", value)
 
 
 if not MYPY:
@@ -4060,7 +4140,7 @@ if not MYPY:
         """
         automation_action: NotRequired[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionArgsDict']]
         """
-        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
         """
         escalation_policy: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -4080,7 +4160,7 @@ if not MYPY:
         """
         pagerduty_automation_action: NotRequired[pulumi.Input['EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgsDict']]
         """
-        Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+        Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
         """
         priority: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -4127,12 +4207,12 @@ class EventOrchestrationServiceSetRuleActionsArgs:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsVariableArgs']]]] = None):
         """
         :param pulumi.Input[builtins.str] annotate: Add this text as a note on the resulting incident.
-        :param pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionArgs'] automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        :param pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionArgs'] automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
         :param pulumi.Input[builtins.str] escalation_policy: The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
         :param pulumi.Input[builtins.str] event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsExtractionArgs']]] extractions: Replace any CEF field or Custom Details object field using custom variables.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs']]] incident_custom_field_updates: Assign a custom field to the resulting incident.
-        :param pulumi.Input['EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs'] pagerduty_automation_action: Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+        :param pulumi.Input['EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs'] pagerduty_automation_action: Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
         :param pulumi.Input[builtins.str] priority: The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
         :param pulumi.Input[builtins.str] route_to: The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
         :param pulumi.Input[builtins.str] severity: sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
@@ -4183,7 +4263,7 @@ class EventOrchestrationServiceSetRuleActionsArgs:
     @pulumi.getter(name="automationAction")
     def automation_action(self) -> Optional[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionArgs']]:
         """
-        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
         """
         return pulumi.get(self, "automation_action")
 
@@ -4243,7 +4323,7 @@ class EventOrchestrationServiceSetRuleActionsArgs:
     @pulumi.getter(name="pagerdutyAutomationAction")
     def pagerduty_automation_action(self) -> Optional[pulumi.Input['EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs']]:
         """
-        Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+        Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
         """
         return pulumi.get(self, "pagerduty_automation_action")
 
@@ -4336,7 +4416,7 @@ if not MYPY:
         """
         auto_send: NotRequired[pulumi.Input[builtins.bool]]
         """
-        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         """
         headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgsDict']]]]
         """
@@ -4345,6 +4425,10 @@ if not MYPY:
         parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgsDict']]]]
         """
         Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+        """
+        trigger_types: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`. NOTE: `auto_send` must be `true` for trigger types of `["alert_suspended"]` and `["alert_suppressed"]`
         """
 elif False:
     EventOrchestrationServiceSetRuleActionsAutomationActionArgsDict: TypeAlias = Mapping[str, Any]
@@ -4356,13 +4440,15 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionArgs:
                  url: pulumi.Input[builtins.str],
                  auto_send: Optional[pulumi.Input[builtins.bool]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs']]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs']]]] = None,
+                 trigger_types: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] name: Name of this Webhook.
         :param pulumi.Input[builtins.str] url: The API endpoint where PagerDuty's servers will send the webhook request.
-        :param pulumi.Input[builtins.bool] auto_send: When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        :param pulumi.Input[builtins.bool] auto_send: When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs']]] headers: Specify custom key/value pairs that'll be sent with the webhook request as request headers.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs']]] parameters: Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+        :param pulumi.Input[builtins.str] trigger_types: The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`. NOTE: `auto_send` must be `true` for trigger types of `["alert_suspended"]` and `["alert_suppressed"]`
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "url", url)
@@ -4372,6 +4458,8 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionArgs:
             pulumi.set(__self__, "headers", headers)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if trigger_types is not None:
+            pulumi.set(__self__, "trigger_types", trigger_types)
 
     @property
     @pulumi.getter
@@ -4401,7 +4489,7 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionArgs:
     @pulumi.getter(name="autoSend")
     def auto_send(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
         """
         return pulumi.get(self, "auto_send")
 
@@ -4432,6 +4520,18 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="triggerTypes")
+    def trigger_types(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`. NOTE: `auto_send` must be `true` for trigger types of `["alert_suspended"]` and `["alert_suppressed"]`
+        """
+        return pulumi.get(self, "trigger_types")
+
+    @trigger_types.setter
+    def trigger_types(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "trigger_types", value)
 
 
 if not MYPY:
@@ -4687,17 +4787,25 @@ if not MYPY:
         """
         Id of the Process Automation action to be triggered.
         """
+        trigger_types: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`
+        """
 elif False:
     EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs:
     def __init__(__self__, *,
-                 action_id: pulumi.Input[builtins.str]):
+                 action_id: pulumi.Input[builtins.str],
+                 trigger_types: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[builtins.str] action_id: Id of the Process Automation action to be triggered.
+        :param pulumi.Input[builtins.str] trigger_types: The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`
         """
         pulumi.set(__self__, "action_id", action_id)
+        if trigger_types is not None:
+            pulumi.set(__self__, "trigger_types", trigger_types)
 
     @property
     @pulumi.getter(name="actionId")
@@ -4710,6 +4818,18 @@ class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs:
     @action_id.setter
     def action_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "action_id", value)
+
+    @property
+    @pulumi.getter(name="triggerTypes")
+    def trigger_types(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`
+        """
+        return pulumi.get(self, "trigger_types")
+
+    @trigger_types.setter
+    def trigger_types(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "trigger_types", value)
 
 
 if not MYPY:
@@ -10118,7 +10238,7 @@ if not MYPY:
     class ServiceIntegrationEmailFilterArgsDict(TypedDict):
         body_mode: NotRequired[pulumi.Input[builtins.str]]
         """
-        Can be `always` or `match`.
+        Can be `always`, `match` or `no-match`.
         """
         body_regex: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -10126,7 +10246,7 @@ if not MYPY:
         """
         from_email_mode: NotRequired[pulumi.Input[builtins.str]]
         """
-        Can be `always` or `match`.
+        Can be `always`, `match` or `no-match`.
         """
         from_email_regex: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -10138,7 +10258,7 @@ if not MYPY:
         """
         subject_mode: NotRequired[pulumi.Input[builtins.str]]
         """
-        Can be `always` or `match`.
+        Can be `always`, `match` or `no-match`.
         """
         subject_regex: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -10158,12 +10278,12 @@ class ServiceIntegrationEmailFilterArgs:
                  subject_mode: Optional[pulumi.Input[builtins.str]] = None,
                  subject_regex: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] body_mode: Can be `always` or `match`.
+        :param pulumi.Input[builtins.str] body_mode: Can be `always`, `match` or `no-match`.
         :param pulumi.Input[builtins.str] body_regex: Should be a valid regex or `null`
-        :param pulumi.Input[builtins.str] from_email_mode: Can be `always` or `match`.
+        :param pulumi.Input[builtins.str] from_email_mode: Can be `always`, `match` or `no-match`.
         :param pulumi.Input[builtins.str] from_email_regex: Should be a valid regex or `null`
         :param pulumi.Input[builtins.str] id: The ID of the service integration.
-        :param pulumi.Input[builtins.str] subject_mode: Can be `always` or `match`.
+        :param pulumi.Input[builtins.str] subject_mode: Can be `always`, `match` or `no-match`.
         :param pulumi.Input[builtins.str] subject_regex: Should be a valid regex or `null`
         """
         if body_mode is not None:
@@ -10185,7 +10305,7 @@ class ServiceIntegrationEmailFilterArgs:
     @pulumi.getter(name="bodyMode")
     def body_mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Can be `always` or `match`.
+        Can be `always`, `match` or `no-match`.
         """
         return pulumi.get(self, "body_mode")
 
@@ -10209,7 +10329,7 @@ class ServiceIntegrationEmailFilterArgs:
     @pulumi.getter(name="fromEmailMode")
     def from_email_mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Can be `always` or `match`.
+        Can be `always`, `match` or `no-match`.
         """
         return pulumi.get(self, "from_email_mode")
 
@@ -10245,7 +10365,7 @@ class ServiceIntegrationEmailFilterArgs:
     @pulumi.getter(name="subjectMode")
     def subject_mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Can be `always` or `match`.
+        Can be `always`, `match` or `no-match`.
         """
         return pulumi.get(self, "subject_mode")
 

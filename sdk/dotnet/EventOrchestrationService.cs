@@ -203,6 +203,7 @@ namespace Pulumi.Pagerduty
     ///                                 Name = "Canary Slack Notification",
     ///                                 Url = "https://our-slack-listerner.test/canary-notification",
     ///                                 AutoSend = true,
+    ///                                 TriggerTypes = "alert_triggered",
     ///                                 Parameters = new[]
     ///                                 {
     ///                                     new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs
@@ -229,7 +230,7 @@ namespace Pulumi.Pagerduty
     ///                     },
     ///                     new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs
     ///                     {
-    ///                         Label = "Never bother the on-call for info-level events outside of work hours",
+    ///                         Label = "Never bother the on-call for info-level events outside of work hours, and let an Automation Action fix it instead",
     ///                         Conditions = new[]
     ///                         {
     ///                             new Pagerduty.Inputs.EventOrchestrationServiceSetRuleConditionArgs
@@ -240,6 +241,11 @@ namespace Pulumi.Pagerduty
     ///                         Actions = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsArgs
     ///                         {
     ///                             Suppress = true,
+    ///                             PagerdutyAutomationAction = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs
+    ///                             {
+    ///                                 ActionId = "01FJV5A8OA5MKHOYFHV35SM2Z0",
+    ///                                 TriggerTypes = "alert_suppressed",
+    ///                             },
     ///                         },
     ///                     },
     ///                 },

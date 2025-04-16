@@ -144,7 +144,7 @@ require (
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/vault/api v1.12.0 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
-	github.com/heimweh/go-pagerduty v0.0.0-20250319162404-3d9cf89703c0 // indirect
+	github.com/heimweh/go-pagerduty v0.0.0-20250414155133-f9f4e0b0c59b // indirect
 	github.com/huandu/xstrings v1.4.0 // indirect
 	github.com/iancoleman/strcase v0.3.0 // indirect
 	github.com/imdario/mergo v0.3.15 // indirect
@@ -243,7 +243,7 @@ require (
 	go.uber.org/atomic v1.9.0 // indirect
 	gocloud.dev v0.37.0 // indirect
 	gocloud.dev/secrets/hashivault v0.37.0 // indirect
-	golang.org/x/crypto v0.33.0 // indirect
+	golang.org/x/crypto v0.35.0 // indirect
 	golang.org/x/exp v0.0.0-20240719175910-8a7402abbf56 // indirect
 	golang.org/x/mod v0.22.0 // indirect
 	golang.org/x/net v0.35.0 // indirect

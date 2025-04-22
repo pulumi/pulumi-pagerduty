@@ -51,7 +51,7 @@ export interface GetScheduleArgs {
  */
 export interface GetScheduleResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * The ID of the found schedule.
      */
     readonly id: string;
     /**

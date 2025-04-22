@@ -20226,6 +20226,162 @@ func (o UserHandoffNotificationRuleContactMethodPtrOutput) Type() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserNotificationRuleContactMethod struct {
+	// The id of the referenced contact method.
+	Id string `pulumi:"id"`
+	// The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+	Type string `pulumi:"type"`
+}
+
+// UserNotificationRuleContactMethodInput is an input type that accepts UserNotificationRuleContactMethodArgs and UserNotificationRuleContactMethodOutput values.
+// You can construct a concrete instance of `UserNotificationRuleContactMethodInput` via:
+//
+//	UserNotificationRuleContactMethodArgs{...}
+type UserNotificationRuleContactMethodInput interface {
+	pulumi.Input
+
+	ToUserNotificationRuleContactMethodOutput() UserNotificationRuleContactMethodOutput
+	ToUserNotificationRuleContactMethodOutputWithContext(context.Context) UserNotificationRuleContactMethodOutput
+}
+
+type UserNotificationRuleContactMethodArgs struct {
+	// The id of the referenced contact method.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (UserNotificationRuleContactMethodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserNotificationRuleContactMethod)(nil)).Elem()
+}
+
+func (i UserNotificationRuleContactMethodArgs) ToUserNotificationRuleContactMethodOutput() UserNotificationRuleContactMethodOutput {
+	return i.ToUserNotificationRuleContactMethodOutputWithContext(context.Background())
+}
+
+func (i UserNotificationRuleContactMethodArgs) ToUserNotificationRuleContactMethodOutputWithContext(ctx context.Context) UserNotificationRuleContactMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRuleContactMethodOutput)
+}
+
+func (i UserNotificationRuleContactMethodArgs) ToUserNotificationRuleContactMethodPtrOutput() UserNotificationRuleContactMethodPtrOutput {
+	return i.ToUserNotificationRuleContactMethodPtrOutputWithContext(context.Background())
+}
+
+func (i UserNotificationRuleContactMethodArgs) ToUserNotificationRuleContactMethodPtrOutputWithContext(ctx context.Context) UserNotificationRuleContactMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRuleContactMethodOutput).ToUserNotificationRuleContactMethodPtrOutputWithContext(ctx)
+}
+
+// UserNotificationRuleContactMethodPtrInput is an input type that accepts UserNotificationRuleContactMethodArgs, UserNotificationRuleContactMethodPtr and UserNotificationRuleContactMethodPtrOutput values.
+// You can construct a concrete instance of `UserNotificationRuleContactMethodPtrInput` via:
+//
+//	        UserNotificationRuleContactMethodArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserNotificationRuleContactMethodPtrInput interface {
+	pulumi.Input
+
+	ToUserNotificationRuleContactMethodPtrOutput() UserNotificationRuleContactMethodPtrOutput
+	ToUserNotificationRuleContactMethodPtrOutputWithContext(context.Context) UserNotificationRuleContactMethodPtrOutput
+}
+
+type userNotificationRuleContactMethodPtrType UserNotificationRuleContactMethodArgs
+
+func UserNotificationRuleContactMethodPtr(v *UserNotificationRuleContactMethodArgs) UserNotificationRuleContactMethodPtrInput {
+	return (*userNotificationRuleContactMethodPtrType)(v)
+}
+
+func (*userNotificationRuleContactMethodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserNotificationRuleContactMethod)(nil)).Elem()
+}
+
+func (i *userNotificationRuleContactMethodPtrType) ToUserNotificationRuleContactMethodPtrOutput() UserNotificationRuleContactMethodPtrOutput {
+	return i.ToUserNotificationRuleContactMethodPtrOutputWithContext(context.Background())
+}
+
+func (i *userNotificationRuleContactMethodPtrType) ToUserNotificationRuleContactMethodPtrOutputWithContext(ctx context.Context) UserNotificationRuleContactMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRuleContactMethodPtrOutput)
+}
+
+type UserNotificationRuleContactMethodOutput struct{ *pulumi.OutputState }
+
+func (UserNotificationRuleContactMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserNotificationRuleContactMethod)(nil)).Elem()
+}
+
+func (o UserNotificationRuleContactMethodOutput) ToUserNotificationRuleContactMethodOutput() UserNotificationRuleContactMethodOutput {
+	return o
+}
+
+func (o UserNotificationRuleContactMethodOutput) ToUserNotificationRuleContactMethodOutputWithContext(ctx context.Context) UserNotificationRuleContactMethodOutput {
+	return o
+}
+
+func (o UserNotificationRuleContactMethodOutput) ToUserNotificationRuleContactMethodPtrOutput() UserNotificationRuleContactMethodPtrOutput {
+	return o.ToUserNotificationRuleContactMethodPtrOutputWithContext(context.Background())
+}
+
+func (o UserNotificationRuleContactMethodOutput) ToUserNotificationRuleContactMethodPtrOutputWithContext(ctx context.Context) UserNotificationRuleContactMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserNotificationRuleContactMethod) *UserNotificationRuleContactMethod {
+		return &v
+	}).(UserNotificationRuleContactMethodPtrOutput)
+}
+
+// The id of the referenced contact method.
+func (o UserNotificationRuleContactMethodOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v UserNotificationRuleContactMethod) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+func (o UserNotificationRuleContactMethodOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v UserNotificationRuleContactMethod) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type UserNotificationRuleContactMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (UserNotificationRuleContactMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserNotificationRuleContactMethod)(nil)).Elem()
+}
+
+func (o UserNotificationRuleContactMethodPtrOutput) ToUserNotificationRuleContactMethodPtrOutput() UserNotificationRuleContactMethodPtrOutput {
+	return o
+}
+
+func (o UserNotificationRuleContactMethodPtrOutput) ToUserNotificationRuleContactMethodPtrOutputWithContext(ctx context.Context) UserNotificationRuleContactMethodPtrOutput {
+	return o
+}
+
+func (o UserNotificationRuleContactMethodPtrOutput) Elem() UserNotificationRuleContactMethodOutput {
+	return o.ApplyT(func(v *UserNotificationRuleContactMethod) UserNotificationRuleContactMethod {
+		if v != nil {
+			return *v
+		}
+		var ret UserNotificationRuleContactMethod
+		return ret
+	}).(UserNotificationRuleContactMethodOutput)
+}
+
+// The id of the referenced contact method.
+func (o UserNotificationRuleContactMethodPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserNotificationRuleContactMethod) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+func (o UserNotificationRuleContactMethodPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserNotificationRuleContactMethod) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type WebhookSubscriptionDeliveryMethod struct {
 	// The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
 	CustomHeaders []WebhookSubscriptionDeliveryMethodCustomHeader `pulumi:"customHeaders"`
@@ -24050,6 +24206,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SlackConnectionConfigArrayInput)(nil)).Elem(), SlackConnectionConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHandoffNotificationRuleContactMethodInput)(nil)).Elem(), UserHandoffNotificationRuleContactMethodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHandoffNotificationRuleContactMethodPtrInput)(nil)).Elem(), UserHandoffNotificationRuleContactMethodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserNotificationRuleContactMethodInput)(nil)).Elem(), UserNotificationRuleContactMethodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserNotificationRuleContactMethodPtrInput)(nil)).Elem(), UserNotificationRuleContactMethodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionDeliveryMethodInput)(nil)).Elem(), WebhookSubscriptionDeliveryMethodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionDeliveryMethodArrayInput)(nil)).Elem(), WebhookSubscriptionDeliveryMethodArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionDeliveryMethodCustomHeaderInput)(nil)).Elem(), WebhookSubscriptionDeliveryMethodCustomHeaderArgs{})
@@ -24394,6 +24552,8 @@ func init() {
 	pulumi.RegisterOutputType(SlackConnectionConfigArrayOutput{})
 	pulumi.RegisterOutputType(UserHandoffNotificationRuleContactMethodOutput{})
 	pulumi.RegisterOutputType(UserHandoffNotificationRuleContactMethodPtrOutput{})
+	pulumi.RegisterOutputType(UserNotificationRuleContactMethodOutput{})
+	pulumi.RegisterOutputType(UserNotificationRuleContactMethodPtrOutput{})
 	pulumi.RegisterOutputType(WebhookSubscriptionDeliveryMethodOutput{})
 	pulumi.RegisterOutputType(WebhookSubscriptionDeliveryMethodArrayOutput{})
 	pulumi.RegisterOutputType(WebhookSubscriptionDeliveryMethodCustomHeaderOutput{})

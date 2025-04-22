@@ -162,6 +162,7 @@ __all__ = [
     'ServiceSupportHours',
     'SlackConnectionConfig',
     'UserHandoffNotificationRuleContactMethod',
+    'UserNotificationRuleContactMethod',
     'WebhookSubscriptionDeliveryMethod',
     'WebhookSubscriptionDeliveryMethodCustomHeader',
     'WebhookSubscriptionFilter',
@@ -7664,6 +7665,35 @@ class UserHandoffNotificationRuleContactMethod(dict):
     def type(self) -> builtins.str:
         """
         The type of the contact method. May be (`email_contact_method`, `email_contact_method_reference`, `phone_contact_method`, `phone_contact_method_reference`, `push_notification_contact_method`, `push_notification_contact_method_reference`, `sms_contact_method`, `sms_contact_method_reference`).
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class UserNotificationRuleContactMethod(dict):
+    def __init__(__self__, *,
+                 id: builtins.str,
+                 type: builtins.str):
+        """
+        :param builtins.str id: The id of the referenced contact method.
+        :param builtins.str type: The type of contact method. Can be `email_contact_method`, `phone_contact_method`, `push_notification_contact_method` or `sms_contact_method`.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The id of the referenced contact method.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        The type of contact method. Can be `email_contact_method`, `phone_contact_method`, `push_notification_contact_method` or `sms_contact_method`.
         """
         return pulumi.get(self, "type")
 

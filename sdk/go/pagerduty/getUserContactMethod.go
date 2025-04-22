@@ -45,9 +45,9 @@ import (
 //				UserId:              pulumi.String(me.Id),
 //				StartDelayInMinutes: pulumi.Int(5),
 //				Urgency:             pulumi.String("high"),
-//				ContactMethod: pulumi.StringMap{
-//					"type": pulumi.String("push_notification_contact_method"),
-//					"id":   pulumi.String(phonePush.Id),
+//				ContactMethod: &pagerduty.UserNotificationRuleContactMethodArgs{
+//					Type: pulumi.String("push_notification_contact_method"),
+//					Id:   pulumi.String(phonePush.Id),
 //				},
 //			})
 //			if err != nil {

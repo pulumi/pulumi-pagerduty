@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetUsersResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found user.
      * 
      */
     private String id;
@@ -27,7 +27,7 @@ public final class GetUsersResult {
 
     private GetUsersResult() {}
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found user.
      * 
      */
     public String id() {

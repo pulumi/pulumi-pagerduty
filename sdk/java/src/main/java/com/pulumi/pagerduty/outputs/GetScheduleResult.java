@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetScheduleResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found schedule.
      * 
      */
     private String id;
@@ -23,7 +23,7 @@ public final class GetScheduleResult {
 
     private GetScheduleResult() {}
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found schedule.
      * 
      */
     public String id() {

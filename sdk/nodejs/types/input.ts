@@ -2391,6 +2391,17 @@ export interface UserHandoffNotificationRuleContactMethod {
     type: pulumi.Input<string>;
 }
 
+export interface UserNotificationRuleContactMethod {
+    /**
+     * The id of the referenced contact method.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+     */
+    type: pulumi.Input<string>;
+}
+
 export interface WebhookSubscriptionDeliveryMethod {
     /**
      * The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.

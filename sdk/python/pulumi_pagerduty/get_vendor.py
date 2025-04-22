@@ -42,7 +42,7 @@ class GetVendorResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        The provider-assigned unique ID for this managed resource.
+        The ID of the found vendor.
         """
         return pulumi.get(self, "id")
 

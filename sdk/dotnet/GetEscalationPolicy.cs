@@ -142,7 +142,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetEscalationPolicyResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// The ID of the found escalation policy.
         /// </summary>
         public readonly string Id;
         /// <summary>

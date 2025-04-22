@@ -68,7 +68,7 @@ export class TeamMembership extends pulumi.CustomResource {
      * * User role of `user` is a Team role of `manager`
      * * User role of `limitedUser` is a Team role of `responder`
      */
-    public readonly role!: pulumi.Output<string | undefined>;
+    public readonly role!: pulumi.Output<string>;
     /**
      * The ID of the team in which the user will belong.
      */

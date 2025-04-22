@@ -74,7 +74,7 @@ type LookupScheduleArgs struct {
 
 // A collection of values returned by getSchedule.
 type LookupScheduleResult struct {
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of the found schedule.
 	Id string `pulumi:"id"`
 	// The short name of the found schedule.
 	Name string `pulumi:"name"`
@@ -114,7 +114,7 @@ func (o LookupScheduleResultOutput) ToLookupScheduleResultOutputWithContext(ctx 
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
+// The ID of the found schedule.
 func (o LookupScheduleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupScheduleResult) string { return v.Id }).(pulumi.StringOutput)
 }

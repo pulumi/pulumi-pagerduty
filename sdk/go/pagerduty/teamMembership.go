@@ -68,7 +68,7 @@ type TeamMembership struct {
 	// These roles match up to user roles in the following ways:
 	// * User role of `user` is a Team role of `manager`
 	// * User role of `limitedUser` is a Team role of `responder`
-	Role pulumi.StringPtrOutput `pulumi:"role"`
+	Role pulumi.StringOutput `pulumi:"role"`
 	// The ID of the team in which the user will belong.
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
 	// The ID of the user to add to the team.
@@ -254,8 +254,8 @@ func (o TeamMembershipOutput) ToTeamMembershipOutputWithContext(ctx context.Cont
 // These roles match up to user roles in the following ways:
 // * User role of `user` is a Team role of `manager`
 // * User role of `limitedUser` is a Team role of `responder`
-func (o TeamMembershipOutput) Role() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TeamMembership) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
+func (o TeamMembershipOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamMembership) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }
 
 // The ID of the team in which the user will belong.

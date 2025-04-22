@@ -8639,6 +8639,7 @@ public final class PagerdutyFunctions {
      * import com.pulumi.pagerduty.inputs.GetUserContactMethodArgs;
      * import com.pulumi.pagerduty.UserNotificationRule;
      * import com.pulumi.pagerduty.UserNotificationRuleArgs;
+     * import com.pulumi.pagerduty.inputs.UserNotificationRuleContactMethodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -8666,10 +8667,10 @@ public final class PagerdutyFunctions {
      *             .userId(me.id())
      *             .startDelayInMinutes(5)
      *             .urgency("high")
-     *             .contactMethod(Map.ofEntries(
-     *                 Map.entry("type", "push_notification_contact_method"),
-     *                 Map.entry("id", phonePush.id())
-     *             ))
+     *             .contactMethod(UserNotificationRuleContactMethodArgs.builder()
+     *                 .type("push_notification_contact_method")
+     *                 .id(phonePush.id())
+     *                 .build())
      *             .build());
      * 
      *     }}{@code
@@ -8700,6 +8701,7 @@ public final class PagerdutyFunctions {
      * import com.pulumi.pagerduty.inputs.GetUserContactMethodArgs;
      * import com.pulumi.pagerduty.UserNotificationRule;
      * import com.pulumi.pagerduty.UserNotificationRuleArgs;
+     * import com.pulumi.pagerduty.inputs.UserNotificationRuleContactMethodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -8727,10 +8729,10 @@ public final class PagerdutyFunctions {
      *             .userId(me.id())
      *             .startDelayInMinutes(5)
      *             .urgency("high")
-     *             .contactMethod(Map.ofEntries(
-     *                 Map.entry("type", "push_notification_contact_method"),
-     *                 Map.entry("id", phonePush.id())
-     *             ))
+     *             .contactMethod(UserNotificationRuleContactMethodArgs.builder()
+     *                 .type("push_notification_contact_method")
+     *                 .id(phonePush.id())
+     *                 .build())
      *             .build());
      * 
      *     }}{@code
@@ -8761,6 +8763,7 @@ public final class PagerdutyFunctions {
      * import com.pulumi.pagerduty.inputs.GetUserContactMethodArgs;
      * import com.pulumi.pagerduty.UserNotificationRule;
      * import com.pulumi.pagerduty.UserNotificationRuleArgs;
+     * import com.pulumi.pagerduty.inputs.UserNotificationRuleContactMethodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -8788,10 +8791,10 @@ public final class PagerdutyFunctions {
      *             .userId(me.id())
      *             .startDelayInMinutes(5)
      *             .urgency("high")
-     *             .contactMethod(Map.ofEntries(
-     *                 Map.entry("type", "push_notification_contact_method"),
-     *                 Map.entry("id", phonePush.id())
-     *             ))
+     *             .contactMethod(UserNotificationRuleContactMethodArgs.builder()
+     *                 .type("push_notification_contact_method")
+     *                 .id(phonePush.id())
+     *                 .build())
      *             .build());
      * 
      *     }}{@code
@@ -8822,6 +8825,7 @@ public final class PagerdutyFunctions {
      * import com.pulumi.pagerduty.inputs.GetUserContactMethodArgs;
      * import com.pulumi.pagerduty.UserNotificationRule;
      * import com.pulumi.pagerduty.UserNotificationRuleArgs;
+     * import com.pulumi.pagerduty.inputs.UserNotificationRuleContactMethodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -8849,10 +8853,10 @@ public final class PagerdutyFunctions {
      *             .userId(me.id())
      *             .startDelayInMinutes(5)
      *             .urgency("high")
-     *             .contactMethod(Map.ofEntries(
-     *                 Map.entry("type", "push_notification_contact_method"),
-     *                 Map.entry("id", phonePush.id())
-     *             ))
+     *             .contactMethod(UserNotificationRuleContactMethodArgs.builder()
+     *                 .type("push_notification_contact_method")
+     *                 .id(phonePush.id())
+     *                 .build())
      *             .build());
      * 
      *     }}{@code
@@ -8883,6 +8887,7 @@ public final class PagerdutyFunctions {
      * import com.pulumi.pagerduty.inputs.GetUserContactMethodArgs;
      * import com.pulumi.pagerduty.UserNotificationRule;
      * import com.pulumi.pagerduty.UserNotificationRuleArgs;
+     * import com.pulumi.pagerduty.inputs.UserNotificationRuleContactMethodArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -8910,10 +8915,10 @@ public final class PagerdutyFunctions {
      *             .userId(me.id())
      *             .startDelayInMinutes(5)
      *             .urgency("high")
-     *             .contactMethod(Map.ofEntries(
-     *                 Map.entry("type", "push_notification_contact_method"),
-     *                 Map.entry("id", phonePush.id())
-     *             ))
+     *             .contactMethod(UserNotificationRuleContactMethodArgs.builder()
+     *                 .type("push_notification_contact_method")
+     *                 .id(phonePush.id())
+     *                 .build())
      *             .build());
      * 
      *     }}{@code

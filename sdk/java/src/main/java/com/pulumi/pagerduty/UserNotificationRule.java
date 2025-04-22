@@ -10,9 +10,10 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.pagerduty.UserNotificationRuleArgs;
 import com.pulumi.pagerduty.Utilities;
 import com.pulumi.pagerduty.inputs.UserNotificationRuleState;
+import com.pulumi.pagerduty.outputs.UserNotificationRuleContactMethod;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.Map;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -34,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.UserContactMethodArgs;
  * import com.pulumi.pagerduty.UserNotificationRule;
  * import com.pulumi.pagerduty.UserNotificationRuleArgs;
+ * import com.pulumi.pagerduty.inputs.UserNotificationRuleContactMethodArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -79,30 +81,30 @@ import javax.annotation.Nullable;
  *             .userId(example.id())
  *             .startDelayInMinutes(1)
  *             .urgency("high")
- *             .contactMethod(Map.ofEntries(
- *                 Map.entry("type", "phone_contact_method"),
- *                 Map.entry("id", phone.id())
- *             ))
+ *             .contactMethod(UserNotificationRuleContactMethodArgs.builder()
+ *                 .type("phone_contact_method")
+ *                 .id(phone.id())
+ *                 .build())
  *             .build());
  * 
  *         var lowUrgencyEmail = new UserNotificationRule("lowUrgencyEmail", UserNotificationRuleArgs.builder()
  *             .userId(example.id())
  *             .startDelayInMinutes(1)
  *             .urgency("low")
- *             .contactMethod(Map.ofEntries(
- *                 Map.entry("type", "email_contact_method"),
- *                 Map.entry("id", email.id())
- *             ))
+ *             .contactMethod(UserNotificationRuleContactMethodArgs.builder()
+ *                 .type("email_contact_method")
+ *                 .id(email.id())
+ *                 .build())
  *             .build());
  * 
  *         var lowUrgencySms = new UserNotificationRule("lowUrgencySms", UserNotificationRuleArgs.builder()
  *             .userId(example.id())
  *             .startDelayInMinutes(10)
  *             .urgency("low")
- *             .contactMethod(Map.ofEntries(
- *                 Map.entry("type", "sms_contact_method"),
- *                 Map.entry("id", sms.id())
- *             ))
+ *             .contactMethod(UserNotificationRuleContactMethodArgs.builder()
+ *                 .type("sms_contact_method")
+ *                 .id(sms.id())
+ *                 .build())
  *             .build());
  * 
  *     }}{@code
@@ -126,15 +128,15 @@ public class UserNotificationRule extends com.pulumi.resources.CustomResource {
      * A contact method block, configured as a block described below.
      * 
      */
-    @Export(name="contactMethod", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> contactMethod;
+    @Export(name="contactMethod", refs={UserNotificationRuleContactMethod.class}, tree="[0]")
+    private Output</* @Nullable */ UserNotificationRuleContactMethod> contactMethod;
 
     /**
      * @return A contact method block, configured as a block described below.
      * 
      */
-    public Output<Map<String,String>> contactMethod() {
-        return this.contactMethod;
+    public Output<Optional<UserNotificationRuleContactMethod>> contactMethod() {
+        return Codegen.optional(this.contactMethod);
     }
     /**
      * The delay before firing the rule, in minutes.

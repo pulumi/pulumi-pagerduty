@@ -9,40 +9,28 @@ import java.lang.String;
 import java.util.Objects;
 
 @CustomType
-public final class GetVendorResult {
+public final class UserNotificationRuleContactMethod {
     /**
-     * @return The ID of the found vendor.
+     * @return The id of the referenced contact method.
      * 
      */
     private String id;
     /**
-     * @return The short name of the found vendor.
-     * 
-     */
-    private String name;
-    /**
-     * @return The generic service type for this vendor.
+     * @return The type of contact method. Can be `email_contact_method`, `phone_contact_method`, `push_notification_contact_method` or `sms_contact_method`.
      * 
      */
     private String type;
 
-    private GetVendorResult() {}
+    private UserNotificationRuleContactMethod() {}
     /**
-     * @return The ID of the found vendor.
+     * @return The id of the referenced contact method.
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return The short name of the found vendor.
-     * 
-     */
-    public String name() {
-        return this.name;
-    }
-    /**
-     * @return The generic service type for this vendor.
+     * @return The type of contact method. Can be `email_contact_method`, `phone_contact_method`, `push_notification_contact_method` or `sms_contact_method`.
      * 
      */
     public String type() {
@@ -53,50 +41,39 @@ public final class GetVendorResult {
         return new Builder();
     }
 
-    public static Builder builder(GetVendorResult defaults) {
+    public static Builder builder(UserNotificationRuleContactMethod defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
     public static final class Builder {
         private String id;
-        private String name;
         private String type;
         public Builder() {}
-        public Builder(GetVendorResult defaults) {
+        public Builder(UserNotificationRuleContactMethod defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
-    	      this.name = defaults.name;
     	      this.type = defaults.type;
         }
 
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
-              throw new MissingRequiredPropertyException("GetVendorResult", "id");
+              throw new MissingRequiredPropertyException("UserNotificationRuleContactMethod", "id");
             }
             this.id = id;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetVendorResult", "name");
-            }
-            this.name = name;
-            return this;
-        }
-        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
-              throw new MissingRequiredPropertyException("GetVendorResult", "type");
+              throw new MissingRequiredPropertyException("UserNotificationRuleContactMethod", "type");
             }
             this.type = type;
             return this;
         }
-        public GetVendorResult build() {
-            final var _resultValue = new GetVendorResult();
+        public UserNotificationRuleContactMethod build() {
+            final var _resultValue = new UserNotificationRuleContactMethod();
             _resultValue.id = id;
-            _resultValue.name = name;
             _resultValue.type = type;
             return _resultValue;
         }

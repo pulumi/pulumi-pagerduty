@@ -6,10 +6,12 @@ package com.pulumi.pagerduty;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.pagerduty.inputs.UserNotificationRuleContactMethodArgs;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class UserNotificationRuleArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,15 +22,15 @@ public final class UserNotificationRuleArgs extends com.pulumi.resources.Resourc
      * A contact method block, configured as a block described below.
      * 
      */
-    @Import(name="contactMethod", required=true)
-    private Output<Map<String,String>> contactMethod;
+    @Import(name="contactMethod")
+    private @Nullable Output<UserNotificationRuleContactMethodArgs> contactMethod;
 
     /**
      * @return A contact method block, configured as a block described below.
      * 
      */
-    public Output<Map<String,String>> contactMethod() {
-        return this.contactMethod;
+    public Optional<Output<UserNotificationRuleContactMethodArgs>> contactMethod() {
+        return Optional.ofNullable(this.contactMethod);
     }
 
     /**
@@ -109,7 +111,7 @@ public final class UserNotificationRuleArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder contactMethod(Output<Map<String,String>> contactMethod) {
+        public Builder contactMethod(@Nullable Output<UserNotificationRuleContactMethodArgs> contactMethod) {
             $.contactMethod = contactMethod;
             return this;
         }
@@ -120,7 +122,7 @@ public final class UserNotificationRuleArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder contactMethod(Map<String,String> contactMethod) {
+        public Builder contactMethod(UserNotificationRuleContactMethodArgs contactMethod) {
             return contactMethod(Output.of(contactMethod));
         }
 
@@ -188,9 +190,6 @@ public final class UserNotificationRuleArgs extends com.pulumi.resources.Resourc
         }
 
         public UserNotificationRuleArgs build() {
-            if ($.contactMethod == null) {
-                throw new MissingRequiredPropertyException("UserNotificationRuleArgs", "contactMethod");
-            }
             if ($.startDelayInMinutes == null) {
                 throw new MissingRequiredPropertyException("UserNotificationRuleArgs", "startDelayInMinutes");
             }

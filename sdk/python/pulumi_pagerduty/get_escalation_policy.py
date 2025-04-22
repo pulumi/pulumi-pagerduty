@@ -39,7 +39,7 @@ class GetEscalationPolicyResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        The provider-assigned unique ID for this managed resource.
+        The ID of the found escalation policy.
         """
         return pulumi.get(self, "id")
 

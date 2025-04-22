@@ -46,7 +46,7 @@ export interface GetEscalationPolicyArgs {
  */
 export interface GetEscalationPolicyResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * The ID of the found escalation policy.
      */
     readonly id: string;
     /**

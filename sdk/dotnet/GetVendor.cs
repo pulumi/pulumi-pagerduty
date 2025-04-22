@@ -262,7 +262,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetVendorResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// The ID of the found vendor.
         /// </summary>
         public readonly string Id;
         /// <summary>

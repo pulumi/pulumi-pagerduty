@@ -77,7 +77,7 @@ type LookupUserResult struct {
 	// The human-friendly description of the found user.
 	Description string `pulumi:"description"`
 	Email       string `pulumi:"email"`
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of the found user.
 	Id string `pulumi:"id"`
 	// The job title of the found user.
 	JobTitle string `pulumi:"jobTitle"`
@@ -132,7 +132,7 @@ func (o LookupUserResultOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Email }).(pulumi.StringOutput)
 }
 
-// The provider-assigned unique ID for this managed resource.
+// The ID of the found user.
 func (o LookupUserResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
 }

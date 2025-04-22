@@ -67,7 +67,7 @@ class GetUserResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        The provider-assigned unique ID for this managed resource.
+        The ID of the found user.
         """
         return pulumi.get(self, "id")
 

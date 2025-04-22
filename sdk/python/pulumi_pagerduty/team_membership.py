@@ -289,7 +289,7 @@ class TeamMembership(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def role(self) -> pulumi.Output[Optional[builtins.str]]:
+    def role(self) -> pulumi.Output[builtins.str]:
         """
         The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
         These roles match up to user roles in the following ways:

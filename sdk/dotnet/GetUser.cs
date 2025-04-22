@@ -186,7 +186,7 @@ namespace Pulumi.Pagerduty
         public readonly string Description;
         public readonly string Email;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// The ID of the found user.
         /// </summary>
         public readonly string Id;
         /// <summary>

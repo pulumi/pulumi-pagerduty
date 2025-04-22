@@ -60,7 +60,7 @@ namespace Pulumi.Pagerduty
         /// * User role of `limited_user` is a Team role of `responder`
         /// </summary>
         [Output("role")]
-        public Output<string?> Role { get; private set; } = null!;
+        public Output<string> Role { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the team in which the user will belong.

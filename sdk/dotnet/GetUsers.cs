@@ -211,7 +211,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetUsersResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// The ID of the found user.
         /// </summary>
         public readonly string Id;
         public readonly ImmutableArray<string> TeamIds;

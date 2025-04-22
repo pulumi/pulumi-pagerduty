@@ -308,6 +308,8 @@ __all__ = [
     'SlackConnectionConfigArgsDict',
     'UserHandoffNotificationRuleContactMethodArgs',
     'UserHandoffNotificationRuleContactMethodArgsDict',
+    'UserNotificationRuleContactMethodArgs',
+    'UserNotificationRuleContactMethodArgsDict',
     'WebhookSubscriptionDeliveryMethodArgs',
     'WebhookSubscriptionDeliveryMethodArgsDict',
     'WebhookSubscriptionDeliveryMethodCustomHeaderArgs',
@@ -11318,6 +11320,56 @@ class UserHandoffNotificationRuleContactMethodArgs:
     def type(self) -> pulumi.Input[builtins.str]:
         """
         The type of the contact method. May be (`email_contact_method`, `email_contact_method_reference`, `phone_contact_method`, `phone_contact_method_reference`, `push_notification_contact_method`, `push_notification_contact_method_reference`, `sms_contact_method`, `sms_contact_method_reference`).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class UserNotificationRuleContactMethodArgsDict(TypedDict):
+        id: pulumi.Input[builtins.str]
+        """
+        The id of the referenced contact method.
+        """
+        type: pulumi.Input[builtins.str]
+        """
+        The type of contact method. Can be `email_contact_method`, `phone_contact_method`, `push_notification_contact_method` or `sms_contact_method`.
+        """
+elif False:
+    UserNotificationRuleContactMethodArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserNotificationRuleContactMethodArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[builtins.str],
+                 type: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] id: The id of the referenced contact method.
+        :param pulumi.Input[builtins.str] type: The type of contact method. Can be `email_contact_method`, `phone_contact_method`, `push_notification_contact_method` or `sms_contact_method`.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[builtins.str]:
+        """
+        The id of the referenced contact method.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        The type of contact method. Can be `email_contact_method`, `phone_contact_method`, `push_notification_contact_method` or `sms_contact_method`.
         """
         return pulumi.get(self, "type")
 

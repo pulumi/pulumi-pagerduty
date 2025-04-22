@@ -59,10 +59,10 @@ namespace Pulumi.Pagerduty
     ///         UserId = example.Id,
     ///         StartDelayInMinutes = 1,
     ///         Urgency = "high",
-    ///         ContactMethod = 
+    ///         ContactMethod = new Pagerduty.Inputs.UserNotificationRuleContactMethodArgs
     ///         {
-    ///             { "type", "phone_contact_method" },
-    ///             { "id", phone.Id },
+    ///             Type = "phone_contact_method",
+    ///             Id = phone.Id,
     ///         },
     ///     });
     /// 
@@ -71,10 +71,10 @@ namespace Pulumi.Pagerduty
     ///         UserId = example.Id,
     ///         StartDelayInMinutes = 1,
     ///         Urgency = "low",
-    ///         ContactMethod = 
+    ///         ContactMethod = new Pagerduty.Inputs.UserNotificationRuleContactMethodArgs
     ///         {
-    ///             { "type", "email_contact_method" },
-    ///             { "id", email.Id },
+    ///             Type = "email_contact_method",
+    ///             Id = email.Id,
     ///         },
     ///     });
     /// 
@@ -83,10 +83,10 @@ namespace Pulumi.Pagerduty
     ///         UserId = example.Id,
     ///         StartDelayInMinutes = 10,
     ///         Urgency = "low",
-    ///         ContactMethod = 
+    ///         ContactMethod = new Pagerduty.Inputs.UserNotificationRuleContactMethodArgs
     ///         {
-    ///             { "type", "sms_contact_method" },
-    ///             { "id", sms.Id },
+    ///             Type = "sms_contact_method",
+    ///             Id = sms.Id,
     ///         },
     ///     });
     /// 
@@ -108,7 +108,7 @@ namespace Pulumi.Pagerduty
         /// A contact method block, configured as a block described below.
         /// </summary>
         [Output("contactMethod")]
-        public Output<ImmutableDictionary<string, string>> ContactMethod { get; private set; } = null!;
+        public Output<Outputs.UserNotificationRuleContactMethod?> ContactMethod { get; private set; } = null!;
 
         /// <summary>
         /// The delay before firing the rule, in minutes.
@@ -174,17 +174,11 @@ namespace Pulumi.Pagerduty
 
     public sealed class UserNotificationRuleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("contactMethod", required: true)]
-        private InputMap<string>? _contactMethod;
-
         /// <summary>
         /// A contact method block, configured as a block described below.
         /// </summary>
-        public InputMap<string> ContactMethod
-        {
-            get => _contactMethod ?? (_contactMethod = new InputMap<string>());
-            set => _contactMethod = value;
-        }
+        [Input("contactMethod")]
+        public Input<Inputs.UserNotificationRuleContactMethodArgs>? ContactMethod { get; set; }
 
         /// <summary>
         /// The delay before firing the rule, in minutes.
@@ -212,17 +206,11 @@ namespace Pulumi.Pagerduty
 
     public sealed class UserNotificationRuleState : global::Pulumi.ResourceArgs
     {
-        [Input("contactMethod")]
-        private InputMap<string>? _contactMethod;
-
         /// <summary>
         /// A contact method block, configured as a block described below.
         /// </summary>
-        public InputMap<string> ContactMethod
-        {
-            get => _contactMethod ?? (_contactMethod = new InputMap<string>());
-            set => _contactMethod = value;
-        }
+        [Input("contactMethod")]
+        public Input<Inputs.UserNotificationRuleContactMethodGetArgs>? ContactMethod { get; set; }
 
         /// <summary>
         /// The delay before firing the rule, in minutes.

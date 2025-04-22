@@ -58,7 +58,7 @@ export interface GetUsersArgs {
  */
 export interface GetUsersResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * The ID of the found user.
      */
     readonly id: string;
     readonly teamIds?: string[];

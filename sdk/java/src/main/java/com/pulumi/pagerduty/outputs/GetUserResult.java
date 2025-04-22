@@ -17,7 +17,7 @@ public final class GetUserResult {
     private String description;
     private String email;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found user.
      * 
      */
     private String id;
@@ -54,7 +54,7 @@ public final class GetUserResult {
         return this.email;
     }
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found user.
      * 
      */
     public String id() {

@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetEscalationPolicyResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found escalation policy.
      * 
      */
     private String id;
@@ -23,7 +23,7 @@ public final class GetEscalationPolicyResult {
 
     private GetEscalationPolicyResult() {}
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found escalation policy.
      * 
      */
     public String id() {

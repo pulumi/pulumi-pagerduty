@@ -103,7 +103,7 @@ type GetVendorArgs struct {
 
 // A collection of values returned by getVendor.
 type GetVendorResult struct {
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of the found vendor.
 	Id string `pulumi:"id"`
 	// The short name of the found vendor.
 	Name string `pulumi:"name"`
@@ -145,7 +145,7 @@ func (o GetVendorResultOutput) ToGetVendorResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
+// The ID of the found vendor.
 func (o GetVendorResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVendorResult) string { return v.Id }).(pulumi.StringOutput)
 }

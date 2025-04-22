@@ -87,7 +87,7 @@ type GetUsersArgs struct {
 
 // A collection of values returned by getUsers.
 type GetUsersResult struct {
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of the found user.
 	Id      string   `pulumi:"id"`
 	TeamIds []string `pulumi:"teamIds"`
 	// List of users queried.
@@ -128,7 +128,7 @@ func (o GetUsersResultOutput) ToGetUsersResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
+// The ID of the found user.
 func (o GetUsersResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersResult) string { return v.Id }).(pulumi.StringOutput)
 }

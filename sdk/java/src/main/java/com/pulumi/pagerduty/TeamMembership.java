@@ -11,7 +11,6 @@ import com.pulumi.pagerduty.TeamMembershipArgs;
 import com.pulumi.pagerduty.Utilities;
 import com.pulumi.pagerduty.inputs.TeamMembershipState;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -85,7 +84,7 @@ public class TeamMembership extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> role;
+    private Output<String> role;
 
     /**
      * @return The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
@@ -94,8 +93,8 @@ public class TeamMembership extends com.pulumi.resources.CustomResource {
      * * User role of `limited_user` is a Team role of `responder`
      * 
      */
-    public Output<Optional<String>> role() {
-        return Codegen.optional(this.role);
+    public Output<String> role() {
+        return this.role;
     }
     /**
      * The ID of the team in which the user will belong.

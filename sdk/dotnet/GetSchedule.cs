@@ -181,7 +181,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetScheduleResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// The ID of the found schedule.
         /// </summary>
         public readonly string Id;
         /// <summary>

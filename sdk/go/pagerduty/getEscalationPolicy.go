@@ -65,7 +65,7 @@ type LookupEscalationPolicyArgs struct {
 
 // A collection of values returned by getEscalationPolicy.
 type LookupEscalationPolicyResult struct {
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of the found escalation policy.
 	Id string `pulumi:"id"`
 	// The short name of the found escalation policy.
 	Name string `pulumi:"name"`
@@ -105,7 +105,7 @@ func (o LookupEscalationPolicyResultOutput) ToLookupEscalationPolicyResultOutput
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
+// The ID of the found escalation policy.
 func (o LookupEscalationPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEscalationPolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }

@@ -41,10 +41,10 @@ namespace Pulumi.Pagerduty
         ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
         ///         StartDelayInMinutes = 5,
         ///         Urgency = "high",
-        ///         ContactMethod = 
+        ///         ContactMethod = new Pagerduty.Inputs.UserNotificationRuleContactMethodArgs
         ///         {
-        ///             { "type", "push_notification_contact_method" },
-        ///             { "id", phonePush.Apply(getUserContactMethodResult =&gt; getUserContactMethodResult.Id) },
+        ///             Type = "push_notification_contact_method",
+        ///             Id = phonePush.Apply(getUserContactMethodResult =&gt; getUserContactMethodResult.Id),
         ///         },
         ///     });
         /// 
@@ -84,10 +84,10 @@ namespace Pulumi.Pagerduty
         ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
         ///         StartDelayInMinutes = 5,
         ///         Urgency = "high",
-        ///         ContactMethod = 
+        ///         ContactMethod = new Pagerduty.Inputs.UserNotificationRuleContactMethodArgs
         ///         {
-        ///             { "type", "push_notification_contact_method" },
-        ///             { "id", phonePush.Apply(getUserContactMethodResult =&gt; getUserContactMethodResult.Id) },
+        ///             Type = "push_notification_contact_method",
+        ///             Id = phonePush.Apply(getUserContactMethodResult =&gt; getUserContactMethodResult.Id),
         ///         },
         ///     });
         /// 
@@ -127,10 +127,10 @@ namespace Pulumi.Pagerduty
         ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
         ///         StartDelayInMinutes = 5,
         ///         Urgency = "high",
-        ///         ContactMethod = 
+        ///         ContactMethod = new Pagerduty.Inputs.UserNotificationRuleContactMethodArgs
         ///         {
-        ///             { "type", "push_notification_contact_method" },
-        ///             { "id", phonePush.Apply(getUserContactMethodResult =&gt; getUserContactMethodResult.Id) },
+        ///             Type = "push_notification_contact_method",
+        ///             Id = phonePush.Apply(getUserContactMethodResult =&gt; getUserContactMethodResult.Id),
         ///         },
         ///     });
         /// 

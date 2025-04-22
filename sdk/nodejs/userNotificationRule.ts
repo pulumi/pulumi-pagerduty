@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -105,7 +107,7 @@ export class UserNotificationRule extends pulumi.CustomResource {
     /**
      * A contact method block, configured as a block described below.
      */
-    public readonly contactMethod!: pulumi.Output<{[key: string]: string}>;
+    public readonly contactMethod!: pulumi.Output<outputs.UserNotificationRuleContactMethod | undefined>;
     /**
      * The delay before firing the rule, in minutes.
      */
@@ -138,9 +140,6 @@ export class UserNotificationRule extends pulumi.CustomResource {
             resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as UserNotificationRuleArgs | undefined;
-            if ((!args || args.contactMethod === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'contactMethod'");
-            }
             if ((!args || args.startDelayInMinutes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startDelayInMinutes'");
             }
@@ -167,7 +166,7 @@ export interface UserNotificationRuleState {
     /**
      * A contact method block, configured as a block described below.
      */
-    contactMethod?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    contactMethod?: pulumi.Input<inputs.UserNotificationRuleContactMethod>;
     /**
      * The delay before firing the rule, in minutes.
      */
@@ -189,7 +188,7 @@ export interface UserNotificationRuleArgs {
     /**
      * A contact method block, configured as a block described below.
      */
-    contactMethod: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    contactMethod?: pulumi.Input<inputs.UserNotificationRuleContactMethod>;
     /**
      * The delay before firing the rule, in minutes.
      */

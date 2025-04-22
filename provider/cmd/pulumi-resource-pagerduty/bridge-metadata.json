@@ -1328,11 +1328,11 @@
             "pagerduty:index/tag:Tag": 1,
             "pagerduty:index/tagAssignment:TagAssignment": 1,
             "pagerduty:index/team:Team": 1,
-            "pagerduty:index/teamMembership:TeamMembership": 0,
+            "pagerduty:index/teamMembership:TeamMembership": 1,
             "pagerduty:index/user:User": 0,
             "pagerduty:index/userContactMethod:UserContactMethod": 0,
             "pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule": 1,
-            "pagerduty:index/userNotificationRule:UserNotificationRule": 0,
+            "pagerduty:index/userNotificationRule:UserNotificationRule": 1,
             "pagerduty:index/webhookSubscription:WebhookSubscription": 0
         },
         "functions": {
@@ -1340,7 +1340,7 @@
             "pagerduty:index/getAutomationActionsAction:getAutomationActionsAction": 0,
             "pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner": 0,
             "pagerduty:index/getBusinessService:getBusinessService": 1,
-            "pagerduty:index/getEscalationPolicy:getEscalationPolicy": 0,
+            "pagerduty:index/getEscalationPolicy:getEscalationPolicy": 1,
             "pagerduty:index/getEventOrchestration:getEventOrchestration": 0,
             "pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable": 0,
             "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration": 0,
@@ -1356,7 +1356,7 @@
             "pagerduty:index/getLicenses:getLicenses": 1,
             "pagerduty:index/getPriority:getPriority": 1,
             "pagerduty:index/getRuleset:getRuleset": 0,
-            "pagerduty:index/getSchedule:getSchedule": 0,
+            "pagerduty:index/getSchedule:getSchedule": 1,
             "pagerduty:index/getService:getService": 1,
             "pagerduty:index/getServiceIntegration:getServiceIntegration": 1,
             "pagerduty:index/getStandards:getStandards": 1,
@@ -1366,10 +1366,10 @@
             "pagerduty:index/getTeam:getTeam": 0,
             "pagerduty:index/getTeamMembers:getTeamMembers": 0,
             "pagerduty:index/getTeams:getTeams": 0,
-            "pagerduty:index/getUser:getUser": 0,
+            "pagerduty:index/getUser:getUser": 1,
             "pagerduty:index/getUserContactMethod:getUserContactMethod": 0,
-            "pagerduty:index/getUsers:getUsers": 0,
-            "pagerduty:index/getVendor:getVendor": 0
+            "pagerduty:index/getUsers:getUsers": 1,
+            "pagerduty:index/getVendor:getVendor": 1
         }
     },
     "renames": {

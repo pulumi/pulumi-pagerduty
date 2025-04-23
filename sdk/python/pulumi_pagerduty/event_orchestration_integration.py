@@ -110,6 +110,9 @@ class _EventOrchestrationIntegrationState:
 
 
 class EventOrchestrationIntegration(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

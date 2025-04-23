@@ -410,6 +410,9 @@ class _ExtensionServiceNowState:
 
 
 class ExtensionServiceNow(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/extensionServiceNow:ExtensionServiceNow"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

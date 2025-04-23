@@ -186,6 +186,9 @@ class _TeamState:
 
 
 class Team(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/team:Team"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

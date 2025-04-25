@@ -161,6 +161,9 @@ class _UserHandoffNotificationRuleState:
 
 
 class UserHandoffNotificationRule(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

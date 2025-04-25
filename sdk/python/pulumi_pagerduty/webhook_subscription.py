@@ -277,6 +277,9 @@ class _WebhookSubscriptionState:
 
 
 class WebhookSubscription(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/webhookSubscription:WebhookSubscription"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

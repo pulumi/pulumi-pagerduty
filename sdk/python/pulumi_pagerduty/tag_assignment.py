@@ -127,6 +127,9 @@ class _TagAssignmentState:
 
 
 class TagAssignment(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/tagAssignment:TagAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

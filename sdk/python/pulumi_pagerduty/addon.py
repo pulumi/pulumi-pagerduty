@@ -97,6 +97,9 @@ class _AddonState:
 
 
 class Addon(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/addon:Addon"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

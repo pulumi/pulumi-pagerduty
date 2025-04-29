@@ -129,6 +129,9 @@ class _EventOrchestrationUnroutedState:
 
 
 class EventOrchestrationUnrouted(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

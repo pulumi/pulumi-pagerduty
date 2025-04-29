@@ -144,6 +144,9 @@ class _EventRuleState:
 
 
 class EventRule(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/eventRule:EventRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -161,6 +161,9 @@ class _UserNotificationRuleState:
 
 
 class UserNotificationRule(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/userNotificationRule:UserNotificationRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

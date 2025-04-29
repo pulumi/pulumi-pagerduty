@@ -127,6 +127,9 @@ class _BusinessServiceSubscriberState:
 
 
 class BusinessServiceSubscriber(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

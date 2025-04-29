@@ -203,6 +203,9 @@ class _EscalationPolicyState:
 
 
 class EscalationPolicy(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/escalationPolicy:EscalationPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

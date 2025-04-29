@@ -223,6 +223,9 @@ class _IncidentCustomFieldState:
 
 
 class IncidentCustomField(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/incidentCustomField:IncidentCustomField"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

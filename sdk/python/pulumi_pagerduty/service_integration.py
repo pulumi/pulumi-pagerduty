@@ -435,6 +435,9 @@ class _ServiceIntegrationState:
 
 
 class ServiceIntegration(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/serviceIntegration:ServiceIntegration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

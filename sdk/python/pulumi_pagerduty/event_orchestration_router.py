@@ -129,6 +129,9 @@ class _EventOrchestrationRouterState:
 
 
 class EventOrchestrationRouter(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

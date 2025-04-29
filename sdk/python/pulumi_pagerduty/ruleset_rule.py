@@ -291,6 +291,9 @@ class _RulesetRuleState:
 
 
 class RulesetRule(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/rulesetRule:RulesetRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

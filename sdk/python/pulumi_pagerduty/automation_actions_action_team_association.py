@@ -96,6 +96,9 @@ class _AutomationActionsActionTeamAssociationState:
 
 
 class AutomationActionsActionTeamAssociation(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

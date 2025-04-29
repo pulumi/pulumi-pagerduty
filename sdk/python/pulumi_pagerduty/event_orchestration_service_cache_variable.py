@@ -194,6 +194,9 @@ class _EventOrchestrationServiceCacheVariableState:
 
 
 class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
+
+    pulumi_type = "pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

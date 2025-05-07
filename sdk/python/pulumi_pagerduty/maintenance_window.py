@@ -162,10 +162,8 @@ class _MaintenanceWindowState:
         pulumi.set(self, "start_time", value)
 
 
+@pulumi.type_token("pagerduty:index/maintenanceWindow:MaintenanceWindow")
 class MaintenanceWindow(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/maintenanceWindow:MaintenanceWindow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

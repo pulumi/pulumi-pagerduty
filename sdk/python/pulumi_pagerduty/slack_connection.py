@@ -27,7 +27,7 @@ class SlackConnectionArgs:
                  notification_type: pulumi.Input[builtins.str],
                  source_id: pulumi.Input[builtins.str],
                  source_type: pulumi.Input[builtins.str],
-                 workspace_id: pulumi.Input[builtins.str]):
+                 workspace_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a SlackConnection resource.
         :param pulumi.Input[builtins.str] channel_id: The ID of a Slack channel in the workspace.
@@ -42,7 +42,8 @@ class SlackConnectionArgs:
         pulumi.set(__self__, "notification_type", notification_type)
         pulumi.set(__self__, "source_id", source_id)
         pulumi.set(__self__, "source_type", source_type)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        if workspace_id is not None:
+            pulumi.set(__self__, "workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="channelId")
@@ -106,14 +107,14 @@ class SlackConnectionArgs:
 
     @property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> pulumi.Input[builtins.str]:
+    def workspace_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: pulumi.Input[builtins.str]):
+    def workspace_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -253,10 +254,8 @@ class _SlackConnectionState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("pagerduty:index/slackConnection:SlackConnection")
 class SlackConnection(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/slackConnection:SlackConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -426,8 +425,6 @@ class SlackConnection(pulumi.CustomResource):
             if source_type is None and not opts.urn:
                 raise TypeError("Missing required property 'source_type'")
             __props__.__dict__["source_type"] = source_type
-            if workspace_id is None and not opts.urn:
-                raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["channel_name"] = None
             __props__.__dict__["source_name"] = None

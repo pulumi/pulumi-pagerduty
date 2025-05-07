@@ -218,8 +218,8 @@ namespace Pulumi.Pagerduty
         /// <summary>
         /// The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
         /// </summary>
-        [Input("workspaceId", required: true)]
-        public Input<string> WorkspaceId { get; set; } = null!;
+        [Input("workspaceId")]
+        public Input<string>? WorkspaceId { get; set; }
 
         public SlackConnectionArgs()
         {

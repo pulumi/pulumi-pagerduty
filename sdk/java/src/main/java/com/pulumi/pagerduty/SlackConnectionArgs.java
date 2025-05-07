@@ -10,6 +10,8 @@ import com.pulumi.pagerduty.inputs.SlackConnectionConfigArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class SlackConnectionArgs extends com.pulumi.resources.ResourceArgs {
@@ -95,15 +97,15 @@ public final class SlackConnectionArgs extends com.pulumi.resources.ResourceArgs
      * The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
      * 
      */
-    @Import(name="workspaceId", required=true)
-    private Output<String> workspaceId;
+    @Import(name="workspaceId")
+    private @Nullable Output<String> workspaceId;
 
     /**
      * @return The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
      * 
      */
-    public Output<String> workspaceId() {
-        return this.workspaceId;
+    public Optional<Output<String>> workspaceId() {
+        return Optional.ofNullable(this.workspaceId);
     }
 
     private SlackConnectionArgs() {}
@@ -256,7 +258,7 @@ public final class SlackConnectionArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder workspaceId(Output<String> workspaceId) {
+        public Builder workspaceId(@Nullable Output<String> workspaceId) {
             $.workspaceId = workspaceId;
             return this;
         }
@@ -286,9 +288,6 @@ public final class SlackConnectionArgs extends com.pulumi.resources.ResourceArgs
             }
             if ($.sourceType == null) {
                 throw new MissingRequiredPropertyException("SlackConnectionArgs", "sourceType");
-            }
-            if ($.workspaceId == null) {
-                throw new MissingRequiredPropertyException("SlackConnectionArgs", "workspaceId");
             }
             return $;
         }

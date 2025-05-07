@@ -185,10 +185,8 @@ class _TeamState:
         pulumi.set(self, "parent", value)
 
 
+@pulumi.type_token("pagerduty:index/team:Team")
 class Team(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/team:Team"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

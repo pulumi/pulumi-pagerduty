@@ -160,10 +160,8 @@ class _UserNotificationRuleState:
         pulumi.set(self, "user_id", value)
 
 
+@pulumi.type_token("pagerduty:index/userNotificationRule:UserNotificationRule")
 class UserNotificationRule(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/userNotificationRule:UserNotificationRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

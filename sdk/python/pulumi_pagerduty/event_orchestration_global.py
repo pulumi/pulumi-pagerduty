@@ -128,10 +128,8 @@ class _EventOrchestrationGlobalState:
         pulumi.set(self, "sets", value)
 
 
+@pulumi.type_token("pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal")
 class EventOrchestrationGlobal(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

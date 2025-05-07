@@ -143,10 +143,8 @@ class _EventRuleState:
         pulumi.set(self, "condition_json", value)
 
 
+@pulumi.type_token("pagerduty:index/eventRule:EventRule")
 class EventRule(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/eventRule:EventRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

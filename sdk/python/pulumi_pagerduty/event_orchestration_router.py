@@ -128,10 +128,8 @@ class _EventOrchestrationRouterState:
         pulumi.set(self, "set", value)
 
 
+@pulumi.type_token("pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter")
 class EventOrchestrationRouter(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

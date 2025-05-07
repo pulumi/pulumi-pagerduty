@@ -126,10 +126,8 @@ class _IncidentCustomFieldOptionState:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption")
 class IncidentCustomFieldOption(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

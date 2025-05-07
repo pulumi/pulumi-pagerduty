@@ -253,10 +253,8 @@ class _UserContactMethodState:
         pulumi.set(self, "user_id", value)
 
 
+@pulumi.type_token("pagerduty:index/userContactMethod:UserContactMethod")
 class UserContactMethod(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/userContactMethod:UserContactMethod"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

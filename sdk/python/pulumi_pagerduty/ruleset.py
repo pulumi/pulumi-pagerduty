@@ -131,10 +131,8 @@ class _RulesetState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("pagerduty:index/ruleset:Ruleset")
 class Ruleset(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/ruleset:Ruleset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

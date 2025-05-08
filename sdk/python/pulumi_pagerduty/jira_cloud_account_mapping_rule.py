@@ -162,10 +162,8 @@ class _JiraCloudAccountMappingRuleState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("pagerduty:index/jiraCloudAccountMappingRule:JiraCloudAccountMappingRule")
 class JiraCloudAccountMappingRule(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/jiraCloudAccountMappingRule:JiraCloudAccountMappingRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

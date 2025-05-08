@@ -256,10 +256,8 @@ class _AutomationActionsRunnerState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("pagerduty:index/automationActionsRunner:AutomationActionsRunner")
 class AutomationActionsRunner(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/automationActionsRunner:AutomationActionsRunner"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

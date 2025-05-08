@@ -193,10 +193,8 @@ class _EventOrchestrationGlobalCacheVariableState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable")
 class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

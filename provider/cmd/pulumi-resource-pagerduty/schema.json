@@ -4444,6 +4444,9 @@
             "userToken": {
                 "type": "string"
             }
+        },
+        "methods": {
+            "terraformConfig": "pulumi:providers:pagerduty/terraformConfig"
         }
     },
     "resources": {
@@ -10867,6 +10870,35 @@
                     "id",
                     "name",
                     "type"
+                ],
+                "type": "object"
+            }
+        },
+        "pulumi:providers:pagerduty/terraformConfig": {
+            "description": "This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.",
+            "inputs": {
+                "properties": {
+                    "__self__": {
+                        "type": "ref",
+                        "$ref": "#/resources/pulumi:providers:pagerduty"
+                    }
+                },
+                "type": "pulumi:providers:pagerduty/terraformConfig",
+                "required": [
+                    "__self__"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "result": {
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "result"
                 ],
                 "type": "object"
             }

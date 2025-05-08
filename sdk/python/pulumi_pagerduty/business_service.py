@@ -257,10 +257,8 @@ class _BusinessServiceState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("pagerduty:index/businessService:BusinessService")
 class BusinessService(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/businessService:BusinessService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

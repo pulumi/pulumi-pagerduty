@@ -426,10 +426,8 @@ class _ResponsePlayState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("pagerduty:index/responsePlay:ResponsePlay")
 class ResponsePlay(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/responsePlay:ResponsePlay"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

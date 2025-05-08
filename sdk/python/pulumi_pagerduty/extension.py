@@ -255,10 +255,8 @@ class _ExtensionState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("pagerduty:index/extension:Extension")
 class Extension(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/extension:Extension"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

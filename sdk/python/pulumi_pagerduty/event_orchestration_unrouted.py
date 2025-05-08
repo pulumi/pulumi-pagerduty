@@ -128,10 +128,8 @@ class _EventOrchestrationUnroutedState:
         pulumi.set(self, "sets", value)
 
 
+@pulumi.type_token("pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted")
 class EventOrchestrationUnrouted(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

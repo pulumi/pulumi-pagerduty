@@ -67,10 +67,8 @@ class _ServiceDependencyState:
         pulumi.set(self, "dependency", value)
 
 
+@pulumi.type_token("pagerduty:index/serviceDependency:ServiceDependency")
 class ServiceDependency(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/serviceDependency:ServiceDependency"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

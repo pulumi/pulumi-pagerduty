@@ -202,10 +202,8 @@ class _EscalationPolicyState:
         pulumi.set(self, "teams", value)
 
 
+@pulumi.type_token("pagerduty:index/escalationPolicy:EscalationPolicy")
 class EscalationPolicy(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/escalationPolicy:EscalationPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

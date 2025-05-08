@@ -175,10 +175,8 @@ class _EventOrchestrationState:
         pulumi.set(self, "team", value)
 
 
+@pulumi.type_token("pagerduty:index/eventOrchestration:EventOrchestration")
 class EventOrchestration(pulumi.CustomResource):
-
-    pulumi_type = "pagerduty:index/eventOrchestration:EventOrchestration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

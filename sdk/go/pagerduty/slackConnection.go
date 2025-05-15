@@ -132,9 +132,6 @@ func NewSlackConnection(ctx *pulumi.Context,
 	if args.SourceType == nil {
 		return nil, errors.New("invalid value for required argument 'SourceType'")
 	}
-	if args.WorkspaceId == nil {
-		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SlackConnection
 	err := ctx.RegisterResource("pagerduty:index/slackConnection:SlackConnection", name, args, &resource, opts...)
@@ -211,7 +208,7 @@ type slackConnectionArgs struct {
 	// The type of the source. Either `teamReference` or `serviceReference`.
 	SourceType string `pulumi:"sourceType"`
 	// The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
-	WorkspaceId string `pulumi:"workspaceId"`
+	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a SlackConnection resource.
@@ -227,7 +224,7 @@ type SlackConnectionArgs struct {
 	// The type of the source. Either `teamReference` or `serviceReference`.
 	SourceType pulumi.StringInput
 	// The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
-	WorkspaceId pulumi.StringInput
+	WorkspaceId pulumi.StringPtrInput
 }
 
 func (SlackConnectionArgs) ElementType() reflect.Type {

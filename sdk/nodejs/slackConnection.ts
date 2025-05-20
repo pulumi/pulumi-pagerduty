@@ -157,9 +157,6 @@ export class SlackConnection extends pulumi.CustomResource {
             if ((!args || args.sourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceType'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'workspaceId'");
-            }
             resourceInputs["channelId"] = args ? args.channelId : undefined;
             resourceInputs["configs"] = args ? args.configs : undefined;
             resourceInputs["notificationType"] = args ? args.notificationType : undefined;
@@ -239,5 +236,5 @@ export interface SlackConnectionArgs {
     /**
      * The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
      */
-    workspaceId: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string>;
 }

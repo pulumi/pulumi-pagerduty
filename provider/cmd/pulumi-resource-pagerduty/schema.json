@@ -2807,6 +2807,58 @@
                 }
             }
         },
+        "pagerduty:index/ServiceCustomFieldFieldOption:ServiceCustomFieldFieldOption": {
+            "properties": {
+                "dataType": {
+                    "type": "string",
+                    "description": "Must be `string`.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the service custom field.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value of the option.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataType",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "dataType",
+                        "id",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "pagerduty:index/ServiceCustomFieldValueCustomField:ServiceCustomFieldValueCustomField": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the custom field. Either `id` or `name` must be provided.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the custom field. Either `id` or `name` must be provided.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value to set for the custom field. Must be provided as a JSON-encoded string matching the field's data type. Use the `jsonencode()` function to ensure proper formatting.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "name",
+                "value"
+            ]
+        },
         "pagerduty:index/ServiceDependencyDependency:ServiceDependencyDependency": {
             "properties": {
                 "dependentServices": {
@@ -3986,6 +4038,85 @@
                 "summary",
                 "type",
                 "validRoles"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pagerduty:index/getServiceCustomFieldFieldOption:getServiceCustomFieldFieldOption": {
+            "properties": {
+                "dataType": {
+                    "type": "string",
+                    "description": "The data type of the field option.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the found field.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value of the field option.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataType",
+                "id",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pagerduty:index/getServiceCustomFieldValueCustomField:getServiceCustomFieldValueCustomField": {
+            "properties": {
+                "dataType": {
+                    "type": "string",
+                    "description": "The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the data this field contains.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The human-readable name of the custom field.\n"
+                },
+                "fieldType": {
+                    "type": "string",
+                    "description": "The type of field. Can be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the custom field.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the custom field.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the reference, typically \"field_value\".\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value of the custom field. This is a JSON-encoded string matching the field's data type.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataType",
+                "description",
+                "displayName",
+                "fieldType",
+                "id",
+                "name",
+                "type",
+                "value"
             ],
             "language": {
                 "nodejs": {
@@ -7818,6 +7949,217 @@
                 "type": "object"
             }
         },
+        "pagerduty:index/serviceCustomField:ServiceCustomField": {
+            "description": "A [service custom field](https://developer.pagerduty.com/api-reference/6075929031f7d-create-a-field)\nallows you to extend PagerDuty Services with custom data fields to provide\nadditional context and support features such as customized filtering, search,\nand analytics.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\n// Simple string field\nconst environment = new pagerduty.ServiceCustomField(\"environment\", {\n    name: \"environment\",\n    displayName: \"Environment\",\n    dataType: \"string\",\n    fieldType: \"single_value\",\n    description: \"The environment this service runs in\",\n});\n// Field with fixed options\nconst deploymentTier = new pagerduty.ServiceCustomField(\"deployment_tier\", {\n    name: \"deployment_tier\",\n    displayName: \"Deployment Tier\",\n    dataType: \"string\",\n    fieldType: \"single_value_fixed\",\n    description: \"The deployment tier of the service\",\n    defaultValue: JSON.stringify(\"production\"),\n    fieldOptions: [\n        {\n            value: \"production\",\n            dataType: \"string\",\n        },\n        {\n            value: \"staging\",\n            dataType: \"string\",\n        },\n        {\n            value: \"development\",\n            dataType: \"string\",\n        },\n    ],\n});\n// Multi-value field with fixed options\nconst regions = new pagerduty.ServiceCustomField(\"regions\", {\n    name: \"regions\",\n    displayName: \"AWS Regions\",\n    dataType: \"string\",\n    fieldType: \"multi_value_fixed\",\n    description: \"AWS regions where this service is deployed\",\n    fieldOptions: [\n        {\n            value: \"us-east-1\",\n            dataType: \"string\",\n        },\n        {\n            value: \"us-west-1\",\n            dataType: \"string\",\n        },\n    ],\n});\n// Boolean field\nconst critical = new pagerduty.ServiceCustomField(\"critical\", {\n    name: \"is_critical\",\n    displayName: \"Is Critical\",\n    dataType: \"boolean\",\n    fieldType: \"single_value\",\n    description: \"Whether this is a critical service\",\n    defaultValue: JSON.stringify(true),\n});\n// Integer field\nconst priority = new pagerduty.ServiceCustomField(\"priority\", {\n    name: \"priority_level\",\n    displayName: \"Priority Level\",\n    dataType: \"integer\",\n    fieldType: \"single_value\",\n    description: \"Service priority level\",\n    defaultValue: JSON.stringify(1),\n});\n```\n```python\nimport pulumi\nimport json\nimport pulumi_pagerduty as pagerduty\n\n# Simple string field\nenvironment = pagerduty.ServiceCustomField(\"environment\",\n    name=\"environment\",\n    display_name=\"Environment\",\n    data_type=\"string\",\n    field_type=\"single_value\",\n    description=\"The environment this service runs in\")\n# Field with fixed options\ndeployment_tier = pagerduty.ServiceCustomField(\"deployment_tier\",\n    name=\"deployment_tier\",\n    display_name=\"Deployment Tier\",\n    data_type=\"string\",\n    field_type=\"single_value_fixed\",\n    description=\"The deployment tier of the service\",\n    default_value=json.dumps(\"production\"),\n    field_options=[\n        {\n            \"value\": \"production\",\n            \"data_type\": \"string\",\n        },\n        {\n            \"value\": \"staging\",\n            \"data_type\": \"string\",\n        },\n        {\n            \"value\": \"development\",\n            \"data_type\": \"string\",\n        },\n    ])\n# Multi-value field with fixed options\nregions = pagerduty.ServiceCustomField(\"regions\",\n    name=\"regions\",\n    display_name=\"AWS Regions\",\n    data_type=\"string\",\n    field_type=\"multi_value_fixed\",\n    description=\"AWS regions where this service is deployed\",\n    field_options=[\n        {\n            \"value\": \"us-east-1\",\n            \"data_type\": \"string\",\n        },\n        {\n            \"value\": \"us-west-1\",\n            \"data_type\": \"string\",\n        },\n    ])\n# Boolean field\ncritical = pagerduty.ServiceCustomField(\"critical\",\n    name=\"is_critical\",\n    display_name=\"Is Critical\",\n    data_type=\"boolean\",\n    field_type=\"single_value\",\n    description=\"Whether this is a critical service\",\n    default_value=json.dumps(True))\n# Integer field\npriority = pagerduty.ServiceCustomField(\"priority\",\n    name=\"priority_level\",\n    display_name=\"Priority Level\",\n    data_type=\"integer\",\n    field_type=\"single_value\",\n    description=\"Service priority level\",\n    default_value=json.dumps(1))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.Json;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Simple string field\n    var environment = new Pagerduty.ServiceCustomField(\"environment\", new()\n    {\n        Name = \"environment\",\n        DisplayName = \"Environment\",\n        DataType = \"string\",\n        FieldType = \"single_value\",\n        Description = \"The environment this service runs in\",\n    });\n\n    // Field with fixed options\n    var deploymentTier = new Pagerduty.ServiceCustomField(\"deployment_tier\", new()\n    {\n        Name = \"deployment_tier\",\n        DisplayName = \"Deployment Tier\",\n        DataType = \"string\",\n        FieldType = \"single_value_fixed\",\n        Description = \"The deployment tier of the service\",\n        DefaultValue = JsonSerializer.Serialize(\"production\"),\n        FieldOptions = new[]\n        {\n            new Pagerduty.Inputs.ServiceCustomFieldFieldOptionArgs\n            {\n                Value = \"production\",\n                DataType = \"string\",\n            },\n            new Pagerduty.Inputs.ServiceCustomFieldFieldOptionArgs\n            {\n                Value = \"staging\",\n                DataType = \"string\",\n            },\n            new Pagerduty.Inputs.ServiceCustomFieldFieldOptionArgs\n            {\n                Value = \"development\",\n                DataType = \"string\",\n            },\n        },\n    });\n\n    // Multi-value field with fixed options\n    var regions = new Pagerduty.ServiceCustomField(\"regions\", new()\n    {\n        Name = \"regions\",\n        DisplayName = \"AWS Regions\",\n        DataType = \"string\",\n        FieldType = \"multi_value_fixed\",\n        Description = \"AWS regions where this service is deployed\",\n        FieldOptions = new[]\n        {\n            new Pagerduty.Inputs.ServiceCustomFieldFieldOptionArgs\n            {\n                Value = \"us-east-1\",\n                DataType = \"string\",\n            },\n            new Pagerduty.Inputs.ServiceCustomFieldFieldOptionArgs\n            {\n                Value = \"us-west-1\",\n                DataType = \"string\",\n            },\n        },\n    });\n\n    // Boolean field\n    var critical = new Pagerduty.ServiceCustomField(\"critical\", new()\n    {\n        Name = \"is_critical\",\n        DisplayName = \"Is Critical\",\n        DataType = \"boolean\",\n        FieldType = \"single_value\",\n        Description = \"Whether this is a critical service\",\n        DefaultValue = JsonSerializer.Serialize(true),\n    });\n\n    // Integer field\n    var priority = new Pagerduty.ServiceCustomField(\"priority\", new()\n    {\n        Name = \"priority_level\",\n        DisplayName = \"Priority Level\",\n        DataType = \"integer\",\n        FieldType = \"single_value\",\n        Description = \"Service priority level\",\n        DefaultValue = JsonSerializer.Serialize(1),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"encoding/json\"\n\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Simple string field\n\t\t_, err := pagerduty.NewServiceCustomField(ctx, \"environment\", \u0026pagerduty.ServiceCustomFieldArgs{\n\t\t\tName:        pulumi.String(\"environment\"),\n\t\t\tDisplayName: pulumi.String(\"Environment\"),\n\t\t\tDataType:    pulumi.String(\"string\"),\n\t\t\tFieldType:   pulumi.String(\"single_value\"),\n\t\t\tDescription: pulumi.String(\"The environment this service runs in\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON0, err := json.Marshal(\"production\")\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson0 := string(tmpJSON0)\n\t\t// Field with fixed options\n\t\t_, err = pagerduty.NewServiceCustomField(ctx, \"deployment_tier\", \u0026pagerduty.ServiceCustomFieldArgs{\n\t\t\tName:         pulumi.String(\"deployment_tier\"),\n\t\t\tDisplayName:  pulumi.String(\"Deployment Tier\"),\n\t\t\tDataType:     pulumi.String(\"string\"),\n\t\t\tFieldType:    pulumi.String(\"single_value_fixed\"),\n\t\t\tDescription:  pulumi.String(\"The deployment tier of the service\"),\n\t\t\tDefaultValue: pulumi.String(json0),\n\t\t\tFieldOptions: pagerduty.ServiceCustomFieldFieldOptionArray{\n\t\t\t\t\u0026pagerduty.ServiceCustomFieldFieldOptionArgs{\n\t\t\t\t\tValue:    pulumi.String(\"production\"),\n\t\t\t\t\tDataType: pulumi.String(\"string\"),\n\t\t\t\t},\n\t\t\t\t\u0026pagerduty.ServiceCustomFieldFieldOptionArgs{\n\t\t\t\t\tValue:    pulumi.String(\"staging\"),\n\t\t\t\t\tDataType: pulumi.String(\"string\"),\n\t\t\t\t},\n\t\t\t\t\u0026pagerduty.ServiceCustomFieldFieldOptionArgs{\n\t\t\t\t\tValue:    pulumi.String(\"development\"),\n\t\t\t\t\tDataType: pulumi.String(\"string\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Multi-value field with fixed options\n\t\t_, err = pagerduty.NewServiceCustomField(ctx, \"regions\", \u0026pagerduty.ServiceCustomFieldArgs{\n\t\t\tName:        pulumi.String(\"regions\"),\n\t\t\tDisplayName: pulumi.String(\"AWS Regions\"),\n\t\t\tDataType:    pulumi.String(\"string\"),\n\t\t\tFieldType:   pulumi.String(\"multi_value_fixed\"),\n\t\t\tDescription: pulumi.String(\"AWS regions where this service is deployed\"),\n\t\t\tFieldOptions: pagerduty.ServiceCustomFieldFieldOptionArray{\n\t\t\t\t\u0026pagerduty.ServiceCustomFieldFieldOptionArgs{\n\t\t\t\t\tValue:    pulumi.String(\"us-east-1\"),\n\t\t\t\t\tDataType: pulumi.String(\"string\"),\n\t\t\t\t},\n\t\t\t\t\u0026pagerduty.ServiceCustomFieldFieldOptionArgs{\n\t\t\t\t\tValue:    pulumi.String(\"us-west-1\"),\n\t\t\t\t\tDataType: pulumi.String(\"string\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON1, err := json.Marshal(true)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson1 := string(tmpJSON1)\n\t\t// Boolean field\n\t\t_, err = pagerduty.NewServiceCustomField(ctx, \"critical\", \u0026pagerduty.ServiceCustomFieldArgs{\n\t\t\tName:         pulumi.String(\"is_critical\"),\n\t\t\tDisplayName:  pulumi.String(\"Is Critical\"),\n\t\t\tDataType:     pulumi.String(\"boolean\"),\n\t\t\tFieldType:    pulumi.String(\"single_value\"),\n\t\t\tDescription:  pulumi.String(\"Whether this is a critical service\"),\n\t\t\tDefaultValue: pulumi.String(json1),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON2, err := json.Marshal(1)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson2 := string(tmpJSON2)\n\t\t// Integer field\n\t\t_, err = pagerduty.NewServiceCustomField(ctx, \"priority\", \u0026pagerduty.ServiceCustomFieldArgs{\n\t\t\tName:         pulumi.String(\"priority_level\"),\n\t\t\tDisplayName:  pulumi.String(\"Priority Level\"),\n\t\t\tDataType:     pulumi.String(\"integer\"),\n\t\t\tFieldType:    pulumi.String(\"single_value\"),\n\t\t\tDescription:  pulumi.String(\"Service priority level\"),\n\t\t\tDefaultValue: pulumi.String(json2),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.ServiceCustomField;\nimport com.pulumi.pagerduty.ServiceCustomFieldArgs;\nimport com.pulumi.pagerduty.inputs.ServiceCustomFieldFieldOptionArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Simple string field\n        var environment = new ServiceCustomField(\"environment\", ServiceCustomFieldArgs.builder()\n            .name(\"environment\")\n            .displayName(\"Environment\")\n            .dataType(\"string\")\n            .fieldType(\"single_value\")\n            .description(\"The environment this service runs in\")\n            .build());\n\n        // Field with fixed options\n        var deploymentTier = new ServiceCustomField(\"deploymentTier\", ServiceCustomFieldArgs.builder()\n            .name(\"deployment_tier\")\n            .displayName(\"Deployment Tier\")\n            .dataType(\"string\")\n            .fieldType(\"single_value_fixed\")\n            .description(\"The deployment tier of the service\")\n            .defaultValue(serializeJson(\n                \"production\"))\n            .fieldOptions(            \n                ServiceCustomFieldFieldOptionArgs.builder()\n                    .value(\"production\")\n                    .dataType(\"string\")\n                    .build(),\n                ServiceCustomFieldFieldOptionArgs.builder()\n                    .value(\"staging\")\n                    .dataType(\"string\")\n                    .build(),\n                ServiceCustomFieldFieldOptionArgs.builder()\n                    .value(\"development\")\n                    .dataType(\"string\")\n                    .build())\n            .build());\n\n        // Multi-value field with fixed options\n        var regions = new ServiceCustomField(\"regions\", ServiceCustomFieldArgs.builder()\n            .name(\"regions\")\n            .displayName(\"AWS Regions\")\n            .dataType(\"string\")\n            .fieldType(\"multi_value_fixed\")\n            .description(\"AWS regions where this service is deployed\")\n            .fieldOptions(            \n                ServiceCustomFieldFieldOptionArgs.builder()\n                    .value(\"us-east-1\")\n                    .dataType(\"string\")\n                    .build(),\n                ServiceCustomFieldFieldOptionArgs.builder()\n                    .value(\"us-west-1\")\n                    .dataType(\"string\")\n                    .build())\n            .build());\n\n        // Boolean field\n        var critical = new ServiceCustomField(\"critical\", ServiceCustomFieldArgs.builder()\n            .name(\"is_critical\")\n            .displayName(\"Is Critical\")\n            .dataType(\"boolean\")\n            .fieldType(\"single_value\")\n            .description(\"Whether this is a critical service\")\n            .defaultValue(serializeJson(\n                true))\n            .build());\n\n        // Integer field\n        var priority = new ServiceCustomField(\"priority\", ServiceCustomFieldArgs.builder()\n            .name(\"priority_level\")\n            .displayName(\"Priority Level\")\n            .dataType(\"integer\")\n            .fieldType(\"single_value\")\n            .description(\"Service priority level\")\n            .defaultValue(serializeJson(\n                1))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Simple string field\n  environment:\n    type: pagerduty:ServiceCustomField\n    properties:\n      name: environment\n      displayName: Environment\n      dataType: string\n      fieldType: single_value\n      description: The environment this service runs in\n  # Field with fixed options\n  deploymentTier:\n    type: pagerduty:ServiceCustomField\n    name: deployment_tier\n    properties:\n      name: deployment_tier\n      displayName: Deployment Tier\n      dataType: string\n      fieldType: single_value_fixed\n      description: The deployment tier of the service\n      defaultValue:\n        fn::toJSON: production\n      fieldOptions:\n        - value: production\n          dataType: string\n        - value: staging\n          dataType: string\n        - value: development\n          dataType: string\n  # Multi-value field with fixed options\n  regions:\n    type: pagerduty:ServiceCustomField\n    properties:\n      name: regions\n      displayName: AWS Regions\n      dataType: string\n      fieldType: multi_value_fixed\n      description: AWS regions where this service is deployed\n      fieldOptions:\n        - value: us-east-1\n          dataType: string\n        - value: us-west-1\n          dataType: string\n  # Boolean field\n  critical:\n    type: pagerduty:ServiceCustomField\n    properties:\n      name: is_critical\n      displayName: Is Critical\n      dataType: boolean\n      fieldType: single_value\n      description: Whether this is a critical service\n      defaultValue:\n        fn::toJSON: true\n  # Integer field\n  priority:\n    type: pagerduty:ServiceCustomField\n    properties:\n      name: priority_level\n      displayName: Priority Level\n      dataType: integer\n      fieldType: single_value\n      description: Service priority level\n      defaultValue:\n        fn::toJSON: 1\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nService custom fields can be imported using the field ID, e.g.\n\n```sh\n$ pulumi import pagerduty:index/serviceCustomField:ServiceCustomField example P123456\n```\n",
+            "properties": {
+                "dataType": {
+                    "type": "string",
+                    "description": "The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.\n"
+                },
+                "defaultValue": {
+                    "type": "string",
+                    "description": "The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the data this field contains.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The human-readable name of the field. Must be unique across an account.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the field is enabled. Defaults to `true`.\n"
+                },
+                "fieldOptions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/ServiceCustomFieldFieldOption:ServiceCustomFieldFieldOption"
+                    },
+                    "description": "Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.\n"
+                },
+                "fieldType": {
+                    "type": "string",
+                    "description": "The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the field. May include ASCII characters, specifically lowercase letters, digits, and underscores. Must be unique and cannot be changed once created.\n"
+                },
+                "self": {
+                    "type": "string",
+                    "description": "The API show URL at which the object is accessible\n"
+                },
+                "summary": {
+                    "type": "string",
+                    "description": "A short-form, server-generated string that provides succinct, important information about an object suitable for primary\nlabeling of an entity in a client. In many cases, this will be identical to display_name\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "API object type\n"
+                }
+            },
+            "required": [
+                "dataType",
+                "displayName",
+                "enabled",
+                "fieldType",
+                "name",
+                "self",
+                "summary",
+                "type"
+            ],
+            "inputProperties": {
+                "dataType": {
+                    "type": "string",
+                    "description": "The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.\n"
+                },
+                "defaultValue": {
+                    "type": "string",
+                    "description": "The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the data this field contains.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The human-readable name of the field. Must be unique across an account.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the field is enabled. Defaults to `true`.\n"
+                },
+                "fieldOptions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/ServiceCustomFieldFieldOption:ServiceCustomFieldFieldOption"
+                    },
+                    "description": "Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.\n"
+                },
+                "fieldType": {
+                    "type": "string",
+                    "description": "The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the field. May include ASCII characters, specifically lowercase letters, digits, and underscores. Must be unique and cannot be changed once created.\n"
+                }
+            },
+            "requiredInputs": [
+                "dataType",
+                "displayName",
+                "fieldType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServiceCustomField resources.\n",
+                "properties": {
+                    "dataType": {
+                        "type": "string",
+                        "description": "The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.\n"
+                    },
+                    "defaultValue": {
+                        "type": "string",
+                        "description": "The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the data this field contains.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The human-readable name of the field. Must be unique across an account.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the field is enabled. Defaults to `true`.\n"
+                    },
+                    "fieldOptions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/ServiceCustomFieldFieldOption:ServiceCustomFieldFieldOption"
+                        },
+                        "description": "Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.\n"
+                    },
+                    "fieldType": {
+                        "type": "string",
+                        "description": "The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the field. May include ASCII characters, specifically lowercase letters, digits, and underscores. Must be unique and cannot be changed once created.\n"
+                    },
+                    "self": {
+                        "type": "string",
+                        "description": "The API show URL at which the object is accessible\n"
+                    },
+                    "summary": {
+                        "type": "string",
+                        "description": "A short-form, server-generated string that provides succinct, important information about an object suitable for primary\nlabeling of an entity in a client. In many cases, this will be identical to display_name\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "API object type\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/serviceCustomFieldValue:ServiceCustomFieldValue": {
+            "description": "A [service custom field value](https://developer.pagerduty.com/api-reference/6075929031f7d-update-custom-field-values)\nallows you to set values for custom fields on a PagerDuty service. These values\nprovide additional context for services and can be used for filtering, search,\nand analytics.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\n// First, create a service custom field\nconst environment = new pagerduty.ServiceCustomField(\"environment\", {\n    name: \"environment\",\n    displayName: \"Environment\",\n    dataType: \"string\",\n    fieldType: \"single_value\",\n    description: \"The environment this service runs in\",\n});\n// Create a service\nconst example = new pagerduty.Service(\"example\", {\n    name: \"Example Service\",\n    autoResolveTimeout: \"14400\",\n    acknowledgementTimeout: \"600\",\n    escalationPolicy: examplePagerdutyEscalationPolicy.id,\n});\n// Set a custom field value on the service\nconst exampleServiceCustomFieldValue = new pagerduty.ServiceCustomFieldValue(\"example\", {\n    serviceId: example.id,\n    customFields: [{\n        name: environment.name,\n        value: JSON.stringify(\"production\"),\n    }],\n});\n// Set multiple custom field values on a service\nconst region = new pagerduty.ServiceCustomField(\"region\", {\n    name: \"region\",\n    displayName: \"Region\",\n    dataType: \"string\",\n    fieldType: \"single_value\",\n    description: \"The region this service is deployed in\",\n});\nconst multipleExample = new pagerduty.ServiceCustomFieldValue(\"multiple_example\", {\n    serviceId: example.id,\n    customFields: [\n        {\n            name: environment.name,\n            value: JSON.stringify(\"production\"),\n        },\n        {\n            name: region.name,\n            value: JSON.stringify(\"us-east-1\"),\n        },\n    ],\n});\n// Example with a boolean field\nconst isCritical = new pagerduty.ServiceCustomField(\"is_critical\", {\n    name: \"is_critical\",\n    displayName: \"Is Critical\",\n    dataType: \"boolean\",\n    fieldType: \"single_value\",\n    description: \"Whether this service is critical\",\n});\nconst booleanExample = new pagerduty.ServiceCustomFieldValue(\"boolean_example\", {\n    serviceId: example.id,\n    customFields: [{\n        name: isCritical.name,\n        value: JSON.stringify(true),\n    }],\n});\n// Example with a multi-value field\nconst regions = new pagerduty.ServiceCustomField(\"regions\", {\n    name: \"regions\",\n    displayName: \"AWS Regions\",\n    dataType: \"string\",\n    fieldType: \"multi_value_fixed\",\n    description: \"AWS regions where this service is deployed\",\n    fieldOptions: [\n        {\n            value: \"us-east-1\",\n            dataType: \"string\",\n        },\n        {\n            value: \"us-west-1\",\n            dataType: \"string\",\n        },\n    ],\n});\nconst multiValueExample = new pagerduty.ServiceCustomFieldValue(\"multi_value_example\", {\n    serviceId: example.id,\n    customFields: [{\n        name: regions.name,\n        value: JSON.stringify([\n            \"us-east-1\",\n            \"us-west-1\",\n        ]),\n    }],\n});\n```\n```python\nimport pulumi\nimport json\nimport pulumi_pagerduty as pagerduty\n\n# First, create a service custom field\nenvironment = pagerduty.ServiceCustomField(\"environment\",\n    name=\"environment\",\n    display_name=\"Environment\",\n    data_type=\"string\",\n    field_type=\"single_value\",\n    description=\"The environment this service runs in\")\n# Create a service\nexample = pagerduty.Service(\"example\",\n    name=\"Example Service\",\n    auto_resolve_timeout=\"14400\",\n    acknowledgement_timeout=\"600\",\n    escalation_policy=example_pagerduty_escalation_policy[\"id\"])\n# Set a custom field value on the service\nexample_service_custom_field_value = pagerduty.ServiceCustomFieldValue(\"example\",\n    service_id=example.id,\n    custom_fields=[{\n        \"name\": environment.name,\n        \"value\": json.dumps(\"production\"),\n    }])\n# Set multiple custom field values on a service\nregion = pagerduty.ServiceCustomField(\"region\",\n    name=\"region\",\n    display_name=\"Region\",\n    data_type=\"string\",\n    field_type=\"single_value\",\n    description=\"The region this service is deployed in\")\nmultiple_example = pagerduty.ServiceCustomFieldValue(\"multiple_example\",\n    service_id=example.id,\n    custom_fields=[\n        {\n            \"name\": environment.name,\n            \"value\": json.dumps(\"production\"),\n        },\n        {\n            \"name\": region.name,\n            \"value\": json.dumps(\"us-east-1\"),\n        },\n    ])\n# Example with a boolean field\nis_critical = pagerduty.ServiceCustomField(\"is_critical\",\n    name=\"is_critical\",\n    display_name=\"Is Critical\",\n    data_type=\"boolean\",\n    field_type=\"single_value\",\n    description=\"Whether this service is critical\")\nboolean_example = pagerduty.ServiceCustomFieldValue(\"boolean_example\",\n    service_id=example.id,\n    custom_fields=[{\n        \"name\": is_critical.name,\n        \"value\": json.dumps(True),\n    }])\n# Example with a multi-value field\nregions = pagerduty.ServiceCustomField(\"regions\",\n    name=\"regions\",\n    display_name=\"AWS Regions\",\n    data_type=\"string\",\n    field_type=\"multi_value_fixed\",\n    description=\"AWS regions where this service is deployed\",\n    field_options=[\n        {\n            \"value\": \"us-east-1\",\n            \"data_type\": \"string\",\n        },\n        {\n            \"value\": \"us-west-1\",\n            \"data_type\": \"string\",\n        },\n    ])\nmulti_value_example = pagerduty.ServiceCustomFieldValue(\"multi_value_example\",\n    service_id=example.id,\n    custom_fields=[{\n        \"name\": regions.name,\n        \"value\": json.dumps([\n            \"us-east-1\",\n            \"us-west-1\",\n        ]),\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.Json;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // First, create a service custom field\n    var environment = new Pagerduty.ServiceCustomField(\"environment\", new()\n    {\n        Name = \"environment\",\n        DisplayName = \"Environment\",\n        DataType = \"string\",\n        FieldType = \"single_value\",\n        Description = \"The environment this service runs in\",\n    });\n\n    // Create a service\n    var example = new Pagerduty.Service(\"example\", new()\n    {\n        Name = \"Example Service\",\n        AutoResolveTimeout = \"14400\",\n        AcknowledgementTimeout = \"600\",\n        EscalationPolicy = examplePagerdutyEscalationPolicy.Id,\n    });\n\n    // Set a custom field value on the service\n    var exampleServiceCustomFieldValue = new Pagerduty.ServiceCustomFieldValue(\"example\", new()\n    {\n        ServiceId = example.Id,\n        CustomFields = new[]\n        {\n            new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs\n            {\n                Name = environment.Name,\n                Value = JsonSerializer.Serialize(\"production\"),\n            },\n        },\n    });\n\n    // Set multiple custom field values on a service\n    var region = new Pagerduty.ServiceCustomField(\"region\", new()\n    {\n        Name = \"region\",\n        DisplayName = \"Region\",\n        DataType = \"string\",\n        FieldType = \"single_value\",\n        Description = \"The region this service is deployed in\",\n    });\n\n    var multipleExample = new Pagerduty.ServiceCustomFieldValue(\"multiple_example\", new()\n    {\n        ServiceId = example.Id,\n        CustomFields = new[]\n        {\n            new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs\n            {\n                Name = environment.Name,\n                Value = JsonSerializer.Serialize(\"production\"),\n            },\n            new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs\n            {\n                Name = region.Name,\n                Value = JsonSerializer.Serialize(\"us-east-1\"),\n            },\n        },\n    });\n\n    // Example with a boolean field\n    var isCritical = new Pagerduty.ServiceCustomField(\"is_critical\", new()\n    {\n        Name = \"is_critical\",\n        DisplayName = \"Is Critical\",\n        DataType = \"boolean\",\n        FieldType = \"single_value\",\n        Description = \"Whether this service is critical\",\n    });\n\n    var booleanExample = new Pagerduty.ServiceCustomFieldValue(\"boolean_example\", new()\n    {\n        ServiceId = example.Id,\n        CustomFields = new[]\n        {\n            new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs\n            {\n                Name = isCritical.Name,\n                Value = JsonSerializer.Serialize(true),\n            },\n        },\n    });\n\n    // Example with a multi-value field\n    var regions = new Pagerduty.ServiceCustomField(\"regions\", new()\n    {\n        Name = \"regions\",\n        DisplayName = \"AWS Regions\",\n        DataType = \"string\",\n        FieldType = \"multi_value_fixed\",\n        Description = \"AWS regions where this service is deployed\",\n        FieldOptions = new[]\n        {\n            new Pagerduty.Inputs.ServiceCustomFieldFieldOptionArgs\n            {\n                Value = \"us-east-1\",\n                DataType = \"string\",\n            },\n            new Pagerduty.Inputs.ServiceCustomFieldFieldOptionArgs\n            {\n                Value = \"us-west-1\",\n                DataType = \"string\",\n            },\n        },\n    });\n\n    var multiValueExample = new Pagerduty.ServiceCustomFieldValue(\"multi_value_example\", new()\n    {\n        ServiceId = example.Id,\n        CustomFields = new[]\n        {\n            new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs\n            {\n                Name = regions.Name,\n                Value = JsonSerializer.Serialize(new[]\n                {\n                    \"us-east-1\",\n                    \"us-west-1\",\n                }),\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"encoding/json\"\n\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// First, create a service custom field\n\t\tenvironment, err := pagerduty.NewServiceCustomField(ctx, \"environment\", \u0026pagerduty.ServiceCustomFieldArgs{\n\t\t\tName:        pulumi.String(\"environment\"),\n\t\t\tDisplayName: pulumi.String(\"Environment\"),\n\t\t\tDataType:    pulumi.String(\"string\"),\n\t\t\tFieldType:   pulumi.String(\"single_value\"),\n\t\t\tDescription: pulumi.String(\"The environment this service runs in\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Create a service\n\t\texample, err := pagerduty.NewService(ctx, \"example\", \u0026pagerduty.ServiceArgs{\n\t\t\tName:                   pulumi.String(\"Example Service\"),\n\t\t\tAutoResolveTimeout:     pulumi.String(\"14400\"),\n\t\t\tAcknowledgementTimeout: pulumi.String(\"600\"),\n\t\t\tEscalationPolicy:       pulumi.Any(examplePagerdutyEscalationPolicy.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON0, err := json.Marshal(\"production\")\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson0 := string(tmpJSON0)\n\t\t// Set a custom field value on the service\n\t\t_, err = pagerduty.NewServiceCustomFieldValue(ctx, \"example\", \u0026pagerduty.ServiceCustomFieldValueArgs{\n\t\t\tServiceId: example.ID(),\n\t\t\tCustomFields: pagerduty.ServiceCustomFieldValueCustomFieldArray{\n\t\t\t\t\u0026pagerduty.ServiceCustomFieldValueCustomFieldArgs{\n\t\t\t\t\tName:  environment.Name,\n\t\t\t\t\tValue: pulumi.String(json0),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Set multiple custom field values on a service\n\t\tregion, err := pagerduty.NewServiceCustomField(ctx, \"region\", \u0026pagerduty.ServiceCustomFieldArgs{\n\t\t\tName:        pulumi.String(\"region\"),\n\t\t\tDisplayName: pulumi.String(\"Region\"),\n\t\t\tDataType:    pulumi.String(\"string\"),\n\t\t\tFieldType:   pulumi.String(\"single_value\"),\n\t\t\tDescription: pulumi.String(\"The region this service is deployed in\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON1, err := json.Marshal(\"production\")\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson1 := string(tmpJSON1)\n\t\ttmpJSON2, err := json.Marshal(\"us-east-1\")\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson2 := string(tmpJSON2)\n\t\t_, err = pagerduty.NewServiceCustomFieldValue(ctx, \"multiple_example\", \u0026pagerduty.ServiceCustomFieldValueArgs{\n\t\t\tServiceId: example.ID(),\n\t\t\tCustomFields: pagerduty.ServiceCustomFieldValueCustomFieldArray{\n\t\t\t\t\u0026pagerduty.ServiceCustomFieldValueCustomFieldArgs{\n\t\t\t\t\tName:  environment.Name,\n\t\t\t\t\tValue: pulumi.String(json1),\n\t\t\t\t},\n\t\t\t\t\u0026pagerduty.ServiceCustomFieldValueCustomFieldArgs{\n\t\t\t\t\tName:  region.Name,\n\t\t\t\t\tValue: pulumi.String(json2),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Example with a boolean field\n\t\tisCritical, err := pagerduty.NewServiceCustomField(ctx, \"is_critical\", \u0026pagerduty.ServiceCustomFieldArgs{\n\t\t\tName:        pulumi.String(\"is_critical\"),\n\t\t\tDisplayName: pulumi.String(\"Is Critical\"),\n\t\t\tDataType:    pulumi.String(\"boolean\"),\n\t\t\tFieldType:   pulumi.String(\"single_value\"),\n\t\t\tDescription: pulumi.String(\"Whether this service is critical\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON3, err := json.Marshal(true)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson3 := string(tmpJSON3)\n\t\t_, err = pagerduty.NewServiceCustomFieldValue(ctx, \"boolean_example\", \u0026pagerduty.ServiceCustomFieldValueArgs{\n\t\t\tServiceId: example.ID(),\n\t\t\tCustomFields: pagerduty.ServiceCustomFieldValueCustomFieldArray{\n\t\t\t\t\u0026pagerduty.ServiceCustomFieldValueCustomFieldArgs{\n\t\t\t\t\tName:  isCritical.Name,\n\t\t\t\t\tValue: pulumi.String(json3),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Example with a multi-value field\n\t\tregions, err := pagerduty.NewServiceCustomField(ctx, \"regions\", \u0026pagerduty.ServiceCustomFieldArgs{\n\t\t\tName:        pulumi.String(\"regions\"),\n\t\t\tDisplayName: pulumi.String(\"AWS Regions\"),\n\t\t\tDataType:    pulumi.String(\"string\"),\n\t\t\tFieldType:   pulumi.String(\"multi_value_fixed\"),\n\t\t\tDescription: pulumi.String(\"AWS regions where this service is deployed\"),\n\t\t\tFieldOptions: pagerduty.ServiceCustomFieldFieldOptionArray{\n\t\t\t\t\u0026pagerduty.ServiceCustomFieldFieldOptionArgs{\n\t\t\t\t\tValue:    pulumi.String(\"us-east-1\"),\n\t\t\t\t\tDataType: pulumi.String(\"string\"),\n\t\t\t\t},\n\t\t\t\t\u0026pagerduty.ServiceCustomFieldFieldOptionArgs{\n\t\t\t\t\tValue:    pulumi.String(\"us-west-1\"),\n\t\t\t\t\tDataType: pulumi.String(\"string\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON4, err := json.Marshal([]string{\n\t\t\t\"us-east-1\",\n\t\t\t\"us-west-1\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson4 := string(tmpJSON4)\n\t\t_, err = pagerduty.NewServiceCustomFieldValue(ctx, \"multi_value_example\", \u0026pagerduty.ServiceCustomFieldValueArgs{\n\t\t\tServiceId: example.ID(),\n\t\t\tCustomFields: pagerduty.ServiceCustomFieldValueCustomFieldArray{\n\t\t\t\t\u0026pagerduty.ServiceCustomFieldValueCustomFieldArgs{\n\t\t\t\t\tName:  regions.Name,\n\t\t\t\t\tValue: pulumi.String(json4),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.ServiceCustomField;\nimport com.pulumi.pagerduty.ServiceCustomFieldArgs;\nimport com.pulumi.pagerduty.Service;\nimport com.pulumi.pagerduty.ServiceArgs;\nimport com.pulumi.pagerduty.ServiceCustomFieldValue;\nimport com.pulumi.pagerduty.ServiceCustomFieldValueArgs;\nimport com.pulumi.pagerduty.inputs.ServiceCustomFieldValueCustomFieldArgs;\nimport com.pulumi.pagerduty.inputs.ServiceCustomFieldFieldOptionArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // First, create a service custom field\n        var environment = new ServiceCustomField(\"environment\", ServiceCustomFieldArgs.builder()\n            .name(\"environment\")\n            .displayName(\"Environment\")\n            .dataType(\"string\")\n            .fieldType(\"single_value\")\n            .description(\"The environment this service runs in\")\n            .build());\n\n        // Create a service\n        var example = new Service(\"example\", ServiceArgs.builder()\n            .name(\"Example Service\")\n            .autoResolveTimeout(\"14400\")\n            .acknowledgementTimeout(\"600\")\n            .escalationPolicy(examplePagerdutyEscalationPolicy.id())\n            .build());\n\n        // Set a custom field value on the service\n        var exampleServiceCustomFieldValue = new ServiceCustomFieldValue(\"exampleServiceCustomFieldValue\", ServiceCustomFieldValueArgs.builder()\n            .serviceId(example.id())\n            .customFields(ServiceCustomFieldValueCustomFieldArgs.builder()\n                .name(environment.name())\n                .value(serializeJson(\n                    \"production\"))\n                .build())\n            .build());\n\n        // Set multiple custom field values on a service\n        var region = new ServiceCustomField(\"region\", ServiceCustomFieldArgs.builder()\n            .name(\"region\")\n            .displayName(\"Region\")\n            .dataType(\"string\")\n            .fieldType(\"single_value\")\n            .description(\"The region this service is deployed in\")\n            .build());\n\n        var multipleExample = new ServiceCustomFieldValue(\"multipleExample\", ServiceCustomFieldValueArgs.builder()\n            .serviceId(example.id())\n            .customFields(            \n                ServiceCustomFieldValueCustomFieldArgs.builder()\n                    .name(environment.name())\n                    .value(serializeJson(\n                        \"production\"))\n                    .build(),\n                ServiceCustomFieldValueCustomFieldArgs.builder()\n                    .name(region.name())\n                    .value(serializeJson(\n                        \"us-east-1\"))\n                    .build())\n            .build());\n\n        // Example with a boolean field\n        var isCritical = new ServiceCustomField(\"isCritical\", ServiceCustomFieldArgs.builder()\n            .name(\"is_critical\")\n            .displayName(\"Is Critical\")\n            .dataType(\"boolean\")\n            .fieldType(\"single_value\")\n            .description(\"Whether this service is critical\")\n            .build());\n\n        var booleanExample = new ServiceCustomFieldValue(\"booleanExample\", ServiceCustomFieldValueArgs.builder()\n            .serviceId(example.id())\n            .customFields(ServiceCustomFieldValueCustomFieldArgs.builder()\n                .name(isCritical.name())\n                .value(serializeJson(\n                    true))\n                .build())\n            .build());\n\n        // Example with a multi-value field\n        var regions = new ServiceCustomField(\"regions\", ServiceCustomFieldArgs.builder()\n            .name(\"regions\")\n            .displayName(\"AWS Regions\")\n            .dataType(\"string\")\n            .fieldType(\"multi_value_fixed\")\n            .description(\"AWS regions where this service is deployed\")\n            .fieldOptions(            \n                ServiceCustomFieldFieldOptionArgs.builder()\n                    .value(\"us-east-1\")\n                    .dataType(\"string\")\n                    .build(),\n                ServiceCustomFieldFieldOptionArgs.builder()\n                    .value(\"us-west-1\")\n                    .dataType(\"string\")\n                    .build())\n            .build());\n\n        var multiValueExample = new ServiceCustomFieldValue(\"multiValueExample\", ServiceCustomFieldValueArgs.builder()\n            .serviceId(example.id())\n            .customFields(ServiceCustomFieldValueCustomFieldArgs.builder()\n                .name(regions.name())\n                .value(serializeJson(\n                    jsonArray(\n                        \"us-east-1\", \n                        \"us-west-1\"\n                    )))\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # First, create a service custom field\n  environment:\n    type: pagerduty:ServiceCustomField\n    properties:\n      name: environment\n      displayName: Environment\n      dataType: string\n      fieldType: single_value\n      description: The environment this service runs in\n  # Create a service\n  example:\n    type: pagerduty:Service\n    properties:\n      name: Example Service\n      autoResolveTimeout: 14400\n      acknowledgementTimeout: 600\n      escalationPolicy: ${examplePagerdutyEscalationPolicy.id}\n  # Set a custom field value on the service\n  exampleServiceCustomFieldValue:\n    type: pagerduty:ServiceCustomFieldValue\n    name: example\n    properties:\n      serviceId: ${example.id}\n      customFields:\n        - name: ${environment.name}\n          value:\n            fn::toJSON: production\n  # Set multiple custom field values on a service\n  region:\n    type: pagerduty:ServiceCustomField\n    properties:\n      name: region\n      displayName: Region\n      dataType: string\n      fieldType: single_value\n      description: The region this service is deployed in\n  multipleExample:\n    type: pagerduty:ServiceCustomFieldValue\n    name: multiple_example\n    properties:\n      serviceId: ${example.id}\n      customFields:\n        - name: ${environment.name}\n          value:\n            fn::toJSON: production\n        - name: ${region.name}\n          value:\n            fn::toJSON: us-east-1\n  # Example with a boolean field\n  isCritical:\n    type: pagerduty:ServiceCustomField\n    name: is_critical\n    properties:\n      name: is_critical\n      displayName: Is Critical\n      dataType: boolean\n      fieldType: single_value\n      description: Whether this service is critical\n  booleanExample:\n    type: pagerduty:ServiceCustomFieldValue\n    name: boolean_example\n    properties:\n      serviceId: ${example.id}\n      customFields:\n        - name: ${isCritical.name}\n          value:\n            fn::toJSON: true\n  # Example with a multi-value field\n  regions:\n    type: pagerduty:ServiceCustomField\n    properties:\n      name: regions\n      displayName: AWS Regions\n      dataType: string\n      fieldType: multi_value_fixed\n      description: AWS regions where this service is deployed\n      fieldOptions:\n        - value: us-east-1\n          dataType: string\n        - value: us-west-1\n          dataType: string\n  multiValueExample:\n    type: pagerduty:ServiceCustomFieldValue\n    name: multi_value_example\n    properties:\n      serviceId: ${example.id}\n      customFields:\n        - name: ${regions.name}\n          value:\n            fn::toJSON:\n              - us-east-1\n              - us-west-1\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nService custom field values can be imported using the service ID, e.g.\n\n```sh\n$ pulumi import pagerduty:index/serviceCustomFieldValue:ServiceCustomFieldValue example PXYZ123\n```\n",
+            "properties": {
+                "customFields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/ServiceCustomFieldValueCustomField:ServiceCustomFieldValueCustomField"
+                    },
+                    "description": "The custom field values to set for the service.\n"
+                },
+                "serviceId": {
+                    "type": "string",
+                    "description": "The ID of the service to set custom field values for.\n"
+                }
+            },
+            "required": [
+                "customFields",
+                "serviceId"
+            ],
+            "inputProperties": {
+                "customFields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/ServiceCustomFieldValueCustomField:ServiceCustomFieldValueCustomField"
+                    },
+                    "description": "The custom field values to set for the service.\n"
+                },
+                "serviceId": {
+                    "type": "string",
+                    "description": "The ID of the service to set custom field values for.\n"
+                }
+            },
+            "requiredInputs": [
+                "customFields",
+                "serviceId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServiceCustomFieldValue resources.\n",
+                "properties": {
+                    "customFields": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/ServiceCustomFieldValueCustomField:ServiceCustomFieldValueCustomField"
+                        },
+                        "description": "The custom field values to set for the service.\n"
+                    },
+                    "serviceId": {
+                        "type": "string",
+                        "description": "The ID of the service to set custom field values for.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "pagerduty:index/serviceDependency:ServiceDependency": {
             "description": "A [service dependency](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Mg-associate-service-dependencies) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.\n\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  foo:\n    type: pagerduty:ServiceDependency\n    properties:\n      dependency:\n        dependentService:\n          id: ${fooPagerdutyBusinessService.id}\n          type: ${fooPagerdutyBusinessService.type}\n        supportingService:\n          id: ${fooPagerdutyService.id}\n          type: ${fooPagerdutyService.type}\n  bar:\n    type: pagerduty:ServiceDependency\n    properties:\n      dependency:\n        dependentService:\n          id: ${fooPagerdutyBusinessService.id}\n          type: ${fooPagerdutyBusinessService.type}\n        supportingService:\n          id: ${two.id}\n          type: ${two.type}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nService dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.\n\n```sh\n$ pulumi import pagerduty:index/serviceDependency:ServiceDependency main P4B2Z7G.business_service.D5RTHKRNGU4PYE90PJ\n```\n",
             "properties": {
@@ -10287,6 +10629,133 @@
                     "name",
                     "teams",
                     "type"
+                ],
+                "type": "object"
+            }
+        },
+        "pagerduty:index/getServiceCustomField:getServiceCustomField": {
+            "description": "Use this data source to get information about a specific Service Custom Field that has been configured in your PagerDuty account.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst regions = pagerduty.getServiceCustomField({\n    displayName: \"AWS Regions\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nregions = pagerduty.get_service_custom_field(display_name=\"AWS Regions\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var regions = Pagerduty.GetServiceCustomField.Invoke(new()\n    {\n        DisplayName = \"AWS Regions\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.LookupServiceCustomField(ctx, \u0026pagerduty.LookupServiceCustomFieldArgs{\n\t\t\tDisplayName: \"AWS Regions\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetServiceCustomFieldArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var regions = PagerdutyFunctions.getServiceCustomField(GetServiceCustomFieldArgs.builder()\n            .displayName(\"AWS Regions\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  regions:\n    fn::invoke:\n      function: pagerduty:getServiceCustomField\n      arguments:\n        displayName: AWS Regions\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getServiceCustomField.\n",
+                "properties": {
+                    "displayName": {
+                        "type": "string",
+                        "description": "The human-readable name of the field to look up. This must be unique across an account.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "displayName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getServiceCustomField.\n",
+                "properties": {
+                    "dataType": {
+                        "description": "The data type of the field option.\n",
+                        "type": "string"
+                    },
+                    "defaultValue": {
+                        "description": "The default value for the custom field, if any.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "A description of the data this field contains.\n",
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "description": "Whether the field is enabled.\n",
+                        "type": "boolean"
+                    },
+                    "fieldOptions": {
+                        "description": "The options for the custom field. Only applies to `single_value_fixed` and `multi_value_fixed` field types. Each field option contains:\n",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/getServiceCustomFieldFieldOption:getServiceCustomFieldFieldOption"
+                        },
+                        "type": "array"
+                    },
+                    "fieldType": {
+                        "description": "The type of data this field contains. In combination with the data_type field.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The ID of the found field.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "The name of the field. Contains ASCII characters, specifically lowercase letters, digits, and underscores.\n",
+                        "type": "string"
+                    },
+                    "self": {
+                        "description": "The API show URL at which the object is accessible.\n",
+                        "type": "string"
+                    },
+                    "summary": {
+                        "description": "A short-form, server-generated string that provides succinct, important information about the field.\n",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "API object type.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "dataType",
+                    "defaultValue",
+                    "description",
+                    "displayName",
+                    "enabled",
+                    "fieldOptions",
+                    "fieldType",
+                    "id",
+                    "name",
+                    "self",
+                    "summary",
+                    "type"
+                ],
+                "type": "object"
+            }
+        },
+        "pagerduty:index/getServiceCustomFieldValue:getServiceCustomFieldValue": {
+            "description": "Use this data source to get information about service custom field values in PagerDuty.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\n// Create a service\nconst exampleService = new pagerduty.Service(\"example\", {\n    name: \"Example Service\",\n    autoResolveTimeout: \"14400\",\n    acknowledgementTimeout: \"600\",\n    escalationPolicy: examplePagerdutyEscalationPolicy.id,\n});\nconst example = pagerduty.getServiceCustomFieldValueOutput({\n    serviceId: exampleService.id,\n});\nexport const environmentValue = example.apply(example =\u003e .filter(field =\u003e field.name == \"environment\").map(field =\u003e (field.value))[0]);\n// Set custom field values on the service\nconst exampleServiceCustomFieldValue = new pagerduty.ServiceCustomFieldValue(\"example\", {\n    serviceId: exampleService.id,\n    customFields: [\n        {\n            name: \"environment\",\n            value: JSON.stringify(\"production\"),\n        },\n        {\n            name: \"region\",\n            value: JSON.stringify(\"us-east-1\"),\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport json\nimport pulumi_pagerduty as pagerduty\n\n# Create a service\nexample_service = pagerduty.Service(\"example\",\n    name=\"Example Service\",\n    auto_resolve_timeout=\"14400\",\n    acknowledgement_timeout=\"600\",\n    escalation_policy=example_pagerduty_escalation_policy[\"id\"])\nexample = pagerduty.get_service_custom_field_value_output(service_id=example_service.id)\npulumi.export(\"environmentValue\", example.apply(lambda example: [field.value for field in example.custom_fields if field.name == \"environment\"][0]))\n# Set custom field values on the service\nexample_service_custom_field_value = pagerduty.ServiceCustomFieldValue(\"example\",\n    service_id=example_service.id,\n    custom_fields=[\n        {\n            \"name\": \"environment\",\n            \"value\": json.dumps(\"production\"),\n        },\n        {\n            \"name\": \"region\",\n            \"value\": json.dumps(\"us-east-1\"),\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.Json;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a service\n    var exampleService = new Pagerduty.Service(\"example\", new()\n    {\n        Name = \"Example Service\",\n        AutoResolveTimeout = \"14400\",\n        AcknowledgementTimeout = \"600\",\n        EscalationPolicy = examplePagerdutyEscalationPolicy.Id,\n    });\n\n    var example = Pagerduty.GetServiceCustomFieldValue.Invoke(new()\n    {\n        ServiceId = exampleService.Id,\n    });\n\n    // Set custom field values on the service\n    var exampleServiceCustomFieldValue = new Pagerduty.ServiceCustomFieldValue(\"example\", new()\n    {\n        ServiceId = exampleService.Id,\n        CustomFields = new[]\n        {\n            new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs\n            {\n                Name = \"environment\",\n                Value = JsonSerializer.Serialize(\"production\"),\n            },\n            new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs\n            {\n                Name = \"region\",\n                Value = JsonSerializer.Serialize(\"us-east-1\"),\n            },\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"environmentValue\"] = .Where(field =\u003e field.Name == \"environment\").Select(field =\u003e \n        {\n            return field.Value;\n        }).ToList()[0],\n    };\n});\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getServiceCustomFieldValue.\n",
+                "properties": {
+                    "serviceId": {
+                        "type": "string",
+                        "description": "The ID of the service to get custom field values for.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "serviceId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getServiceCustomFieldValue.\n",
+                "properties": {
+                    "customFields": {
+                        "description": "A list of custom field values associated with the service. Each element contains:\n",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/getServiceCustomFieldValueCustomField:getServiceCustomFieldValueCustomField"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The ID of the custom field.\n",
+                        "type": "string"
+                    },
+                    "serviceId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "customFields",
+                    "id",
+                    "serviceId"
                 ],
                 "type": "object"
             }

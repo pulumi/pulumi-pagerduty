@@ -761,6 +761,24 @@
                     }
                 }
             },
+            "pagerduty_service_custom_field": {
+                "current": "pagerduty:index/serviceCustomField:ServiceCustomField",
+                "majorVersion": 4,
+                "fields": {
+                    "field_option": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "pagerduty_service_custom_field_value": {
+                "current": "pagerduty:index/serviceCustomFieldValue:ServiceCustomFieldValue",
+                "majorVersion": 4,
+                "fields": {
+                    "custom_fields": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "pagerduty_service_dependency": {
                 "current": "pagerduty:index/serviceDependency:ServiceDependency",
                 "majorVersion": 4,
@@ -1171,6 +1189,24 @@
                     }
                 }
             },
+            "pagerduty_service_custom_field": {
+                "current": "pagerduty:index/getServiceCustomField:getServiceCustomField",
+                "majorVersion": 4,
+                "fields": {
+                    "field_options": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "pagerduty_service_custom_field_value": {
+                "current": "pagerduty:index/getServiceCustomFieldValue:getServiceCustomFieldValue",
+                "majorVersion": 4,
+                "fields": {
+                    "custom_fields": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "pagerduty_service_integration": {
                 "current": "pagerduty:index/getServiceIntegration:getServiceIntegration",
                 "majorVersion": 4
@@ -1321,6 +1357,8 @@
             "pagerduty:index/rulesetRule:RulesetRule": 0,
             "pagerduty:index/schedule:Schedule": 0,
             "pagerduty:index/service:Service": 0,
+            "pagerduty:index/serviceCustomField:ServiceCustomField": 1,
+            "pagerduty:index/serviceCustomFieldValue:ServiceCustomFieldValue": 1,
             "pagerduty:index/serviceDependency:ServiceDependency": 1,
             "pagerduty:index/serviceEventRule:ServiceEventRule": 0,
             "pagerduty:index/serviceIntegration:ServiceIntegration": 0,
@@ -1358,6 +1396,8 @@
             "pagerduty:index/getRuleset:getRuleset": 0,
             "pagerduty:index/getSchedule:getSchedule": 1,
             "pagerduty:index/getService:getService": 1,
+            "pagerduty:index/getServiceCustomField:getServiceCustomField": 1,
+            "pagerduty:index/getServiceCustomFieldValue:getServiceCustomFieldValue": 1,
             "pagerduty:index/getServiceIntegration:getServiceIntegration": 1,
             "pagerduty:index/getStandards:getStandards": 1,
             "pagerduty:index/getStandardsResourceScores:getStandardsResourceScores": 1,

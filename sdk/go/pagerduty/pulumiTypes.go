@@ -15709,6 +15709,236 @@ func (o ServiceAutoPauseNotificationsParametersPtrOutput) Timeout() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+type ServiceCustomFieldFieldOption struct {
+	// Must be `string`.
+	DataType string `pulumi:"dataType"`
+	// The ID of the service custom field.
+	Id *string `pulumi:"id"`
+	// The value of the option.
+	Value string `pulumi:"value"`
+}
+
+// ServiceCustomFieldFieldOptionInput is an input type that accepts ServiceCustomFieldFieldOptionArgs and ServiceCustomFieldFieldOptionOutput values.
+// You can construct a concrete instance of `ServiceCustomFieldFieldOptionInput` via:
+//
+//	ServiceCustomFieldFieldOptionArgs{...}
+type ServiceCustomFieldFieldOptionInput interface {
+	pulumi.Input
+
+	ToServiceCustomFieldFieldOptionOutput() ServiceCustomFieldFieldOptionOutput
+	ToServiceCustomFieldFieldOptionOutputWithContext(context.Context) ServiceCustomFieldFieldOptionOutput
+}
+
+type ServiceCustomFieldFieldOptionArgs struct {
+	// Must be `string`.
+	DataType pulumi.StringInput `pulumi:"dataType"`
+	// The ID of the service custom field.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The value of the option.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ServiceCustomFieldFieldOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCustomFieldFieldOption)(nil)).Elem()
+}
+
+func (i ServiceCustomFieldFieldOptionArgs) ToServiceCustomFieldFieldOptionOutput() ServiceCustomFieldFieldOptionOutput {
+	return i.ToServiceCustomFieldFieldOptionOutputWithContext(context.Background())
+}
+
+func (i ServiceCustomFieldFieldOptionArgs) ToServiceCustomFieldFieldOptionOutputWithContext(ctx context.Context) ServiceCustomFieldFieldOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCustomFieldFieldOptionOutput)
+}
+
+// ServiceCustomFieldFieldOptionArrayInput is an input type that accepts ServiceCustomFieldFieldOptionArray and ServiceCustomFieldFieldOptionArrayOutput values.
+// You can construct a concrete instance of `ServiceCustomFieldFieldOptionArrayInput` via:
+//
+//	ServiceCustomFieldFieldOptionArray{ ServiceCustomFieldFieldOptionArgs{...} }
+type ServiceCustomFieldFieldOptionArrayInput interface {
+	pulumi.Input
+
+	ToServiceCustomFieldFieldOptionArrayOutput() ServiceCustomFieldFieldOptionArrayOutput
+	ToServiceCustomFieldFieldOptionArrayOutputWithContext(context.Context) ServiceCustomFieldFieldOptionArrayOutput
+}
+
+type ServiceCustomFieldFieldOptionArray []ServiceCustomFieldFieldOptionInput
+
+func (ServiceCustomFieldFieldOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceCustomFieldFieldOption)(nil)).Elem()
+}
+
+func (i ServiceCustomFieldFieldOptionArray) ToServiceCustomFieldFieldOptionArrayOutput() ServiceCustomFieldFieldOptionArrayOutput {
+	return i.ToServiceCustomFieldFieldOptionArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceCustomFieldFieldOptionArray) ToServiceCustomFieldFieldOptionArrayOutputWithContext(ctx context.Context) ServiceCustomFieldFieldOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCustomFieldFieldOptionArrayOutput)
+}
+
+type ServiceCustomFieldFieldOptionOutput struct{ *pulumi.OutputState }
+
+func (ServiceCustomFieldFieldOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCustomFieldFieldOption)(nil)).Elem()
+}
+
+func (o ServiceCustomFieldFieldOptionOutput) ToServiceCustomFieldFieldOptionOutput() ServiceCustomFieldFieldOptionOutput {
+	return o
+}
+
+func (o ServiceCustomFieldFieldOptionOutput) ToServiceCustomFieldFieldOptionOutputWithContext(ctx context.Context) ServiceCustomFieldFieldOptionOutput {
+	return o
+}
+
+// Must be `string`.
+func (o ServiceCustomFieldFieldOptionOutput) DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceCustomFieldFieldOption) string { return v.DataType }).(pulumi.StringOutput)
+}
+
+// The ID of the service custom field.
+func (o ServiceCustomFieldFieldOptionOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceCustomFieldFieldOption) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The value of the option.
+func (o ServiceCustomFieldFieldOptionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceCustomFieldFieldOption) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ServiceCustomFieldFieldOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceCustomFieldFieldOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceCustomFieldFieldOption)(nil)).Elem()
+}
+
+func (o ServiceCustomFieldFieldOptionArrayOutput) ToServiceCustomFieldFieldOptionArrayOutput() ServiceCustomFieldFieldOptionArrayOutput {
+	return o
+}
+
+func (o ServiceCustomFieldFieldOptionArrayOutput) ToServiceCustomFieldFieldOptionArrayOutputWithContext(ctx context.Context) ServiceCustomFieldFieldOptionArrayOutput {
+	return o
+}
+
+func (o ServiceCustomFieldFieldOptionArrayOutput) Index(i pulumi.IntInput) ServiceCustomFieldFieldOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceCustomFieldFieldOption {
+		return vs[0].([]ServiceCustomFieldFieldOption)[vs[1].(int)]
+	}).(ServiceCustomFieldFieldOptionOutput)
+}
+
+type ServiceCustomFieldValueCustomField struct {
+	// The ID of the custom field. Either `id` or `name` must be provided.
+	Id string `pulumi:"id"`
+	// The name of the custom field. Either `id` or `name` must be provided.
+	Name string `pulumi:"name"`
+	// The value to set for the custom field. Must be provided as a JSON-encoded string matching the field's data type. Use the `jsonencode()` function to ensure proper formatting.
+	Value string `pulumi:"value"`
+}
+
+// ServiceCustomFieldValueCustomFieldInput is an input type that accepts ServiceCustomFieldValueCustomFieldArgs and ServiceCustomFieldValueCustomFieldOutput values.
+// You can construct a concrete instance of `ServiceCustomFieldValueCustomFieldInput` via:
+//
+//	ServiceCustomFieldValueCustomFieldArgs{...}
+type ServiceCustomFieldValueCustomFieldInput interface {
+	pulumi.Input
+
+	ToServiceCustomFieldValueCustomFieldOutput() ServiceCustomFieldValueCustomFieldOutput
+	ToServiceCustomFieldValueCustomFieldOutputWithContext(context.Context) ServiceCustomFieldValueCustomFieldOutput
+}
+
+type ServiceCustomFieldValueCustomFieldArgs struct {
+	// The ID of the custom field. Either `id` or `name` must be provided.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the custom field. Either `id` or `name` must be provided.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value to set for the custom field. Must be provided as a JSON-encoded string matching the field's data type. Use the `jsonencode()` function to ensure proper formatting.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ServiceCustomFieldValueCustomFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCustomFieldValueCustomField)(nil)).Elem()
+}
+
+func (i ServiceCustomFieldValueCustomFieldArgs) ToServiceCustomFieldValueCustomFieldOutput() ServiceCustomFieldValueCustomFieldOutput {
+	return i.ToServiceCustomFieldValueCustomFieldOutputWithContext(context.Background())
+}
+
+func (i ServiceCustomFieldValueCustomFieldArgs) ToServiceCustomFieldValueCustomFieldOutputWithContext(ctx context.Context) ServiceCustomFieldValueCustomFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCustomFieldValueCustomFieldOutput)
+}
+
+// ServiceCustomFieldValueCustomFieldArrayInput is an input type that accepts ServiceCustomFieldValueCustomFieldArray and ServiceCustomFieldValueCustomFieldArrayOutput values.
+// You can construct a concrete instance of `ServiceCustomFieldValueCustomFieldArrayInput` via:
+//
+//	ServiceCustomFieldValueCustomFieldArray{ ServiceCustomFieldValueCustomFieldArgs{...} }
+type ServiceCustomFieldValueCustomFieldArrayInput interface {
+	pulumi.Input
+
+	ToServiceCustomFieldValueCustomFieldArrayOutput() ServiceCustomFieldValueCustomFieldArrayOutput
+	ToServiceCustomFieldValueCustomFieldArrayOutputWithContext(context.Context) ServiceCustomFieldValueCustomFieldArrayOutput
+}
+
+type ServiceCustomFieldValueCustomFieldArray []ServiceCustomFieldValueCustomFieldInput
+
+func (ServiceCustomFieldValueCustomFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceCustomFieldValueCustomField)(nil)).Elem()
+}
+
+func (i ServiceCustomFieldValueCustomFieldArray) ToServiceCustomFieldValueCustomFieldArrayOutput() ServiceCustomFieldValueCustomFieldArrayOutput {
+	return i.ToServiceCustomFieldValueCustomFieldArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceCustomFieldValueCustomFieldArray) ToServiceCustomFieldValueCustomFieldArrayOutputWithContext(ctx context.Context) ServiceCustomFieldValueCustomFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCustomFieldValueCustomFieldArrayOutput)
+}
+
+type ServiceCustomFieldValueCustomFieldOutput struct{ *pulumi.OutputState }
+
+func (ServiceCustomFieldValueCustomFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCustomFieldValueCustomField)(nil)).Elem()
+}
+
+func (o ServiceCustomFieldValueCustomFieldOutput) ToServiceCustomFieldValueCustomFieldOutput() ServiceCustomFieldValueCustomFieldOutput {
+	return o
+}
+
+func (o ServiceCustomFieldValueCustomFieldOutput) ToServiceCustomFieldValueCustomFieldOutputWithContext(ctx context.Context) ServiceCustomFieldValueCustomFieldOutput {
+	return o
+}
+
+// The ID of the custom field. Either `id` or `name` must be provided.
+func (o ServiceCustomFieldValueCustomFieldOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceCustomFieldValueCustomField) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the custom field. Either `id` or `name` must be provided.
+func (o ServiceCustomFieldValueCustomFieldOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceCustomFieldValueCustomField) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value to set for the custom field. Must be provided as a JSON-encoded string matching the field's data type. Use the `jsonencode()` function to ensure proper formatting.
+func (o ServiceCustomFieldValueCustomFieldOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceCustomFieldValueCustomField) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ServiceCustomFieldValueCustomFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceCustomFieldValueCustomFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceCustomFieldValueCustomField)(nil)).Elem()
+}
+
+func (o ServiceCustomFieldValueCustomFieldArrayOutput) ToServiceCustomFieldValueCustomFieldArrayOutput() ServiceCustomFieldValueCustomFieldArrayOutput {
+	return o
+}
+
+func (o ServiceCustomFieldValueCustomFieldArrayOutput) ToServiceCustomFieldValueCustomFieldArrayOutputWithContext(ctx context.Context) ServiceCustomFieldValueCustomFieldArrayOutput {
+	return o
+}
+
+func (o ServiceCustomFieldValueCustomFieldArrayOutput) Index(i pulumi.IntInput) ServiceCustomFieldValueCustomFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceCustomFieldValueCustomField {
+		return vs[0].([]ServiceCustomFieldValueCustomField)[vs[1].(int)]
+	}).(ServiceCustomFieldValueCustomFieldOutput)
+}
+
 type ServiceDependencyDependency struct {
 	// The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependentService` dependency block must be defined.
 	DependentServices []ServiceDependencyDependencyDependentService `pulumi:"dependentServices"`
@@ -22503,6 +22733,281 @@ func (o GetLicensesLicenseArrayOutput) Index(i pulumi.IntInput) GetLicensesLicen
 	}).(GetLicensesLicenseOutput)
 }
 
+type GetServiceCustomFieldFieldOption struct {
+	// The data type of the field option.
+	DataType string `pulumi:"dataType"`
+	// The ID of the found field.
+	Id string `pulumi:"id"`
+	// The value of the field option.
+	Value string `pulumi:"value"`
+}
+
+// GetServiceCustomFieldFieldOptionInput is an input type that accepts GetServiceCustomFieldFieldOptionArgs and GetServiceCustomFieldFieldOptionOutput values.
+// You can construct a concrete instance of `GetServiceCustomFieldFieldOptionInput` via:
+//
+//	GetServiceCustomFieldFieldOptionArgs{...}
+type GetServiceCustomFieldFieldOptionInput interface {
+	pulumi.Input
+
+	ToGetServiceCustomFieldFieldOptionOutput() GetServiceCustomFieldFieldOptionOutput
+	ToGetServiceCustomFieldFieldOptionOutputWithContext(context.Context) GetServiceCustomFieldFieldOptionOutput
+}
+
+type GetServiceCustomFieldFieldOptionArgs struct {
+	// The data type of the field option.
+	DataType pulumi.StringInput `pulumi:"dataType"`
+	// The ID of the found field.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The value of the field option.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetServiceCustomFieldFieldOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceCustomFieldFieldOption)(nil)).Elem()
+}
+
+func (i GetServiceCustomFieldFieldOptionArgs) ToGetServiceCustomFieldFieldOptionOutput() GetServiceCustomFieldFieldOptionOutput {
+	return i.ToGetServiceCustomFieldFieldOptionOutputWithContext(context.Background())
+}
+
+func (i GetServiceCustomFieldFieldOptionArgs) ToGetServiceCustomFieldFieldOptionOutputWithContext(ctx context.Context) GetServiceCustomFieldFieldOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceCustomFieldFieldOptionOutput)
+}
+
+// GetServiceCustomFieldFieldOptionArrayInput is an input type that accepts GetServiceCustomFieldFieldOptionArray and GetServiceCustomFieldFieldOptionArrayOutput values.
+// You can construct a concrete instance of `GetServiceCustomFieldFieldOptionArrayInput` via:
+//
+//	GetServiceCustomFieldFieldOptionArray{ GetServiceCustomFieldFieldOptionArgs{...} }
+type GetServiceCustomFieldFieldOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceCustomFieldFieldOptionArrayOutput() GetServiceCustomFieldFieldOptionArrayOutput
+	ToGetServiceCustomFieldFieldOptionArrayOutputWithContext(context.Context) GetServiceCustomFieldFieldOptionArrayOutput
+}
+
+type GetServiceCustomFieldFieldOptionArray []GetServiceCustomFieldFieldOptionInput
+
+func (GetServiceCustomFieldFieldOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceCustomFieldFieldOption)(nil)).Elem()
+}
+
+func (i GetServiceCustomFieldFieldOptionArray) ToGetServiceCustomFieldFieldOptionArrayOutput() GetServiceCustomFieldFieldOptionArrayOutput {
+	return i.ToGetServiceCustomFieldFieldOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceCustomFieldFieldOptionArray) ToGetServiceCustomFieldFieldOptionArrayOutputWithContext(ctx context.Context) GetServiceCustomFieldFieldOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceCustomFieldFieldOptionArrayOutput)
+}
+
+type GetServiceCustomFieldFieldOptionOutput struct{ *pulumi.OutputState }
+
+func (GetServiceCustomFieldFieldOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceCustomFieldFieldOption)(nil)).Elem()
+}
+
+func (o GetServiceCustomFieldFieldOptionOutput) ToGetServiceCustomFieldFieldOptionOutput() GetServiceCustomFieldFieldOptionOutput {
+	return o
+}
+
+func (o GetServiceCustomFieldFieldOptionOutput) ToGetServiceCustomFieldFieldOptionOutputWithContext(ctx context.Context) GetServiceCustomFieldFieldOptionOutput {
+	return o
+}
+
+// The data type of the field option.
+func (o GetServiceCustomFieldFieldOptionOutput) DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceCustomFieldFieldOption) string { return v.DataType }).(pulumi.StringOutput)
+}
+
+// The ID of the found field.
+func (o GetServiceCustomFieldFieldOptionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceCustomFieldFieldOption) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The value of the field option.
+func (o GetServiceCustomFieldFieldOptionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceCustomFieldFieldOption) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetServiceCustomFieldFieldOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceCustomFieldFieldOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceCustomFieldFieldOption)(nil)).Elem()
+}
+
+func (o GetServiceCustomFieldFieldOptionArrayOutput) ToGetServiceCustomFieldFieldOptionArrayOutput() GetServiceCustomFieldFieldOptionArrayOutput {
+	return o
+}
+
+func (o GetServiceCustomFieldFieldOptionArrayOutput) ToGetServiceCustomFieldFieldOptionArrayOutputWithContext(ctx context.Context) GetServiceCustomFieldFieldOptionArrayOutput {
+	return o
+}
+
+func (o GetServiceCustomFieldFieldOptionArrayOutput) Index(i pulumi.IntInput) GetServiceCustomFieldFieldOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceCustomFieldFieldOption {
+		return vs[0].([]GetServiceCustomFieldFieldOption)[vs[1].(int)]
+	}).(GetServiceCustomFieldFieldOptionOutput)
+}
+
+type GetServiceCustomFieldValueCustomField struct {
+	// The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+	DataType string `pulumi:"dataType"`
+	// A description of the data this field contains.
+	Description string `pulumi:"description"`
+	// The human-readable name of the custom field.
+	DisplayName string `pulumi:"displayName"`
+	// The type of field. Can be one of: `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
+	FieldType string `pulumi:"fieldType"`
+	// The ID of the custom field.
+	Id string `pulumi:"id"`
+	// The name of the custom field.
+	Name string `pulumi:"name"`
+	// The type of the reference, typically "fieldValue".
+	Type string `pulumi:"type"`
+	// The value of the custom field. This is a JSON-encoded string matching the field's data type.
+	Value string `pulumi:"value"`
+}
+
+// GetServiceCustomFieldValueCustomFieldInput is an input type that accepts GetServiceCustomFieldValueCustomFieldArgs and GetServiceCustomFieldValueCustomFieldOutput values.
+// You can construct a concrete instance of `GetServiceCustomFieldValueCustomFieldInput` via:
+//
+//	GetServiceCustomFieldValueCustomFieldArgs{...}
+type GetServiceCustomFieldValueCustomFieldInput interface {
+	pulumi.Input
+
+	ToGetServiceCustomFieldValueCustomFieldOutput() GetServiceCustomFieldValueCustomFieldOutput
+	ToGetServiceCustomFieldValueCustomFieldOutputWithContext(context.Context) GetServiceCustomFieldValueCustomFieldOutput
+}
+
+type GetServiceCustomFieldValueCustomFieldArgs struct {
+	// The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+	DataType pulumi.StringInput `pulumi:"dataType"`
+	// A description of the data this field contains.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The human-readable name of the custom field.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The type of field. Can be one of: `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
+	FieldType pulumi.StringInput `pulumi:"fieldType"`
+	// The ID of the custom field.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the custom field.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the reference, typically "fieldValue".
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value of the custom field. This is a JSON-encoded string matching the field's data type.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetServiceCustomFieldValueCustomFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceCustomFieldValueCustomField)(nil)).Elem()
+}
+
+func (i GetServiceCustomFieldValueCustomFieldArgs) ToGetServiceCustomFieldValueCustomFieldOutput() GetServiceCustomFieldValueCustomFieldOutput {
+	return i.ToGetServiceCustomFieldValueCustomFieldOutputWithContext(context.Background())
+}
+
+func (i GetServiceCustomFieldValueCustomFieldArgs) ToGetServiceCustomFieldValueCustomFieldOutputWithContext(ctx context.Context) GetServiceCustomFieldValueCustomFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceCustomFieldValueCustomFieldOutput)
+}
+
+// GetServiceCustomFieldValueCustomFieldArrayInput is an input type that accepts GetServiceCustomFieldValueCustomFieldArray and GetServiceCustomFieldValueCustomFieldArrayOutput values.
+// You can construct a concrete instance of `GetServiceCustomFieldValueCustomFieldArrayInput` via:
+//
+//	GetServiceCustomFieldValueCustomFieldArray{ GetServiceCustomFieldValueCustomFieldArgs{...} }
+type GetServiceCustomFieldValueCustomFieldArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceCustomFieldValueCustomFieldArrayOutput() GetServiceCustomFieldValueCustomFieldArrayOutput
+	ToGetServiceCustomFieldValueCustomFieldArrayOutputWithContext(context.Context) GetServiceCustomFieldValueCustomFieldArrayOutput
+}
+
+type GetServiceCustomFieldValueCustomFieldArray []GetServiceCustomFieldValueCustomFieldInput
+
+func (GetServiceCustomFieldValueCustomFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceCustomFieldValueCustomField)(nil)).Elem()
+}
+
+func (i GetServiceCustomFieldValueCustomFieldArray) ToGetServiceCustomFieldValueCustomFieldArrayOutput() GetServiceCustomFieldValueCustomFieldArrayOutput {
+	return i.ToGetServiceCustomFieldValueCustomFieldArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceCustomFieldValueCustomFieldArray) ToGetServiceCustomFieldValueCustomFieldArrayOutputWithContext(ctx context.Context) GetServiceCustomFieldValueCustomFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceCustomFieldValueCustomFieldArrayOutput)
+}
+
+type GetServiceCustomFieldValueCustomFieldOutput struct{ *pulumi.OutputState }
+
+func (GetServiceCustomFieldValueCustomFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceCustomFieldValueCustomField)(nil)).Elem()
+}
+
+func (o GetServiceCustomFieldValueCustomFieldOutput) ToGetServiceCustomFieldValueCustomFieldOutput() GetServiceCustomFieldValueCustomFieldOutput {
+	return o
+}
+
+func (o GetServiceCustomFieldValueCustomFieldOutput) ToGetServiceCustomFieldValueCustomFieldOutputWithContext(ctx context.Context) GetServiceCustomFieldValueCustomFieldOutput {
+	return o
+}
+
+// The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+func (o GetServiceCustomFieldValueCustomFieldOutput) DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceCustomFieldValueCustomField) string { return v.DataType }).(pulumi.StringOutput)
+}
+
+// A description of the data this field contains.
+func (o GetServiceCustomFieldValueCustomFieldOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceCustomFieldValueCustomField) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The human-readable name of the custom field.
+func (o GetServiceCustomFieldValueCustomFieldOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceCustomFieldValueCustomField) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The type of field. Can be one of: `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
+func (o GetServiceCustomFieldValueCustomFieldOutput) FieldType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceCustomFieldValueCustomField) string { return v.FieldType }).(pulumi.StringOutput)
+}
+
+// The ID of the custom field.
+func (o GetServiceCustomFieldValueCustomFieldOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceCustomFieldValueCustomField) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the custom field.
+func (o GetServiceCustomFieldValueCustomFieldOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceCustomFieldValueCustomField) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the reference, typically "fieldValue".
+func (o GetServiceCustomFieldValueCustomFieldOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceCustomFieldValueCustomField) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value of the custom field. This is a JSON-encoded string matching the field's data type.
+func (o GetServiceCustomFieldValueCustomFieldOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceCustomFieldValueCustomField) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetServiceCustomFieldValueCustomFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceCustomFieldValueCustomFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceCustomFieldValueCustomField)(nil)).Elem()
+}
+
+func (o GetServiceCustomFieldValueCustomFieldArrayOutput) ToGetServiceCustomFieldValueCustomFieldArrayOutput() GetServiceCustomFieldValueCustomFieldArrayOutput {
+	return o
+}
+
+func (o GetServiceCustomFieldValueCustomFieldArrayOutput) ToGetServiceCustomFieldValueCustomFieldArrayOutputWithContext(ctx context.Context) GetServiceCustomFieldValueCustomFieldArrayOutput {
+	return o
+}
+
+func (o GetServiceCustomFieldValueCustomFieldArrayOutput) Index(i pulumi.IntInput) GetServiceCustomFieldValueCustomFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceCustomFieldValueCustomField {
+		return vs[0].([]GetServiceCustomFieldValueCustomField)[vs[1].(int)]
+	}).(GetServiceCustomFieldValueCustomFieldOutput)
+}
+
 type GetServiceTeam struct {
 	// The ID of the found service.
 	Id string `pulumi:"id"`
@@ -24141,6 +24646,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAlertGroupingParametersConfigPtrInput)(nil)).Elem(), ServiceAlertGroupingParametersConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAutoPauseNotificationsParametersInput)(nil)).Elem(), ServiceAutoPauseNotificationsParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAutoPauseNotificationsParametersPtrInput)(nil)).Elem(), ServiceAutoPauseNotificationsParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCustomFieldFieldOptionInput)(nil)).Elem(), ServiceCustomFieldFieldOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCustomFieldFieldOptionArrayInput)(nil)).Elem(), ServiceCustomFieldFieldOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCustomFieldValueCustomFieldInput)(nil)).Elem(), ServiceCustomFieldValueCustomFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCustomFieldValueCustomFieldArrayInput)(nil)).Elem(), ServiceCustomFieldValueCustomFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyDependencyInput)(nil)).Elem(), ServiceDependencyDependencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyDependencyPtrInput)(nil)).Elem(), ServiceDependencyDependencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyDependencyDependentServiceInput)(nil)).Elem(), ServiceDependencyDependencyDependentServiceArgs{})
@@ -24243,6 +24752,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTypeCustomFieldFieldOptionDataInput)(nil)).Elem(), GetIncidentTypeCustomFieldFieldOptionDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLicensesLicenseInput)(nil)).Elem(), GetLicensesLicenseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLicensesLicenseArrayInput)(nil)).Elem(), GetLicensesLicenseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceCustomFieldFieldOptionInput)(nil)).Elem(), GetServiceCustomFieldFieldOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceCustomFieldFieldOptionArrayInput)(nil)).Elem(), GetServiceCustomFieldFieldOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceCustomFieldValueCustomFieldInput)(nil)).Elem(), GetServiceCustomFieldValueCustomFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceCustomFieldValueCustomFieldArrayInput)(nil)).Elem(), GetServiceCustomFieldValueCustomFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceTeamInput)(nil)).Elem(), GetServiceTeamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceTeamArrayInput)(nil)).Elem(), GetServiceTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsResourceScoresScoreInput)(nil)).Elem(), GetStandardsResourceScoresScoreArgs{})
@@ -24487,6 +25000,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceAlertGroupingParametersConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAutoPauseNotificationsParametersOutput{})
 	pulumi.RegisterOutputType(ServiceAutoPauseNotificationsParametersPtrOutput{})
+	pulumi.RegisterOutputType(ServiceCustomFieldFieldOptionOutput{})
+	pulumi.RegisterOutputType(ServiceCustomFieldFieldOptionArrayOutput{})
+	pulumi.RegisterOutputType(ServiceCustomFieldValueCustomFieldOutput{})
+	pulumi.RegisterOutputType(ServiceCustomFieldValueCustomFieldArrayOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDependencyOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDependencyPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDependencyDependentServiceOutput{})
@@ -24589,6 +25106,10 @@ func init() {
 	pulumi.RegisterOutputType(GetIncidentTypeCustomFieldFieldOptionDataOutput{})
 	pulumi.RegisterOutputType(GetLicensesLicenseOutput{})
 	pulumi.RegisterOutputType(GetLicensesLicenseArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceCustomFieldFieldOptionOutput{})
+	pulumi.RegisterOutputType(GetServiceCustomFieldFieldOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceCustomFieldValueCustomFieldOutput{})
+	pulumi.RegisterOutputType(GetServiceCustomFieldValueCustomFieldArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceTeamOutput{})
 	pulumi.RegisterOutputType(GetServiceTeamArrayOutput{})
 	pulumi.RegisterOutputType(GetStandardsResourceScoresScoreOutput{})

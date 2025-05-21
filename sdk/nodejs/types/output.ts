@@ -1366,6 +1366,56 @@ export interface GetLicensesLicense {
     validRoles: string[];
 }
 
+export interface GetServiceCustomFieldFieldOption {
+    /**
+     * The data type of the field option.
+     */
+    dataType: string;
+    /**
+     * The ID of the found field.
+     */
+    id: string;
+    /**
+     * The value of the field option.
+     */
+    value: string;
+}
+
+export interface GetServiceCustomFieldValueCustomField {
+    /**
+     * The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+     */
+    dataType: string;
+    /**
+     * A description of the data this field contains.
+     */
+    description: string;
+    /**
+     * The human-readable name of the custom field.
+     */
+    displayName: string;
+    /**
+     * The type of field. Can be one of: `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
+     */
+    fieldType: string;
+    /**
+     * The ID of the custom field.
+     */
+    id: string;
+    /**
+     * The name of the custom field.
+     */
+    name: string;
+    /**
+     * The type of the reference, typically "fieldValue".
+     */
+    type: string;
+    /**
+     * The value of the custom field. This is a JSON-encoded string matching the field's data type.
+     */
+    value: string;
+}
+
 export interface GetServiceTeam {
     /**
      * The ID of the found service.
@@ -2245,6 +2295,36 @@ export interface ServiceAutoPauseNotificationsParameters {
      * Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
      */
     timeout: number;
+}
+
+export interface ServiceCustomFieldFieldOption {
+    /**
+     * Must be `string`.
+     */
+    dataType: string;
+    /**
+     * The ID of the service custom field.
+     */
+    id: string;
+    /**
+     * The value of the option.
+     */
+    value: string;
+}
+
+export interface ServiceCustomFieldValueCustomField {
+    /**
+     * The ID of the custom field. Either `id` or `name` must be provided.
+     */
+    id: string;
+    /**
+     * The name of the custom field. Either `id` or `name` must be provided.
+     */
+    name: string;
+    /**
+     * The value to set for the custom field. Must be provided as a JSON-encoded string matching the field's data type. Use the `jsonencode()` function to ensure proper formatting.
+     */
+    value: string;
 }
 
 export interface ServiceDependencyDependency {

@@ -22,6 +22,9 @@ replace (
 // [^1]: https://github.com/PagerDuty/terraform-provider-pagerduty/commit/aa93eab0ecb8cda077dc04ae965c2fe504eeb19a#diff-945bfe544c6a07f81616a5d45b002a3cf8f2749dc112007d8a57a2c6e4d6f337
 replace github.com/heimweh/go-pagerduty => ../upstream/vendor/github.com/heimweh/go-pagerduty
 
+// Same as above, upstream is editing their vendor files
+replace github.com/PagerDuty/go-pagerduty => ../upstream/vendor/github.com/PagerDuty/go-pagerduty
+
 require (
 	cloud.google.com/go v0.112.1 // indirect
 	cloud.google.com/go/compute/metadata v0.5.2 // indirect

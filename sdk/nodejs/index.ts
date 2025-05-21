@@ -220,6 +220,16 @@ export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
 
+export { GetServiceCustomFieldArgs, GetServiceCustomFieldResult, GetServiceCustomFieldOutputArgs } from "./getServiceCustomField";
+export const getServiceCustomField: typeof import("./getServiceCustomField").getServiceCustomField = null as any;
+export const getServiceCustomFieldOutput: typeof import("./getServiceCustomField").getServiceCustomFieldOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceCustomField","getServiceCustomFieldOutput"], () => require("./getServiceCustomField"));
+
+export { GetServiceCustomFieldValueArgs, GetServiceCustomFieldValueResult, GetServiceCustomFieldValueOutputArgs } from "./getServiceCustomFieldValue";
+export const getServiceCustomFieldValue: typeof import("./getServiceCustomFieldValue").getServiceCustomFieldValue = null as any;
+export const getServiceCustomFieldValueOutput: typeof import("./getServiceCustomFieldValue").getServiceCustomFieldValueOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceCustomFieldValue","getServiceCustomFieldValueOutput"], () => require("./getServiceCustomFieldValue"));
+
 export { GetServiceIntegrationArgs, GetServiceIntegrationResult, GetServiceIntegrationOutputArgs } from "./getServiceIntegration";
 export const getServiceIntegration: typeof import("./getServiceIntegration").getServiceIntegration = null as any;
 export const getServiceIntegrationOutput: typeof import("./getServiceIntegration").getServiceIntegrationOutput = null as any;
@@ -347,6 +357,16 @@ export { ServiceArgs, ServiceState } from "./service";
 export type Service = import("./service").Service;
 export const Service: typeof import("./service").Service = null as any;
 utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+
+export { ServiceCustomFieldArgs, ServiceCustomFieldState } from "./serviceCustomField";
+export type ServiceCustomField = import("./serviceCustomField").ServiceCustomField;
+export const ServiceCustomField: typeof import("./serviceCustomField").ServiceCustomField = null as any;
+utilities.lazyLoad(exports, ["ServiceCustomField"], () => require("./serviceCustomField"));
+
+export { ServiceCustomFieldValueArgs, ServiceCustomFieldValueState } from "./serviceCustomFieldValue";
+export type ServiceCustomFieldValue = import("./serviceCustomFieldValue").ServiceCustomFieldValue;
+export const ServiceCustomFieldValue: typeof import("./serviceCustomFieldValue").ServiceCustomFieldValue = null as any;
+utilities.lazyLoad(exports, ["ServiceCustomFieldValue"], () => require("./serviceCustomFieldValue"));
 
 export { ServiceDependencyArgs, ServiceDependencyState } from "./serviceDependency";
 export type ServiceDependency = import("./serviceDependency").ServiceDependency;
@@ -495,6 +515,10 @@ const _module = {
                 return new Schedule(name, <any>undefined, { urn })
             case "pagerduty:index/service:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "pagerduty:index/serviceCustomField:ServiceCustomField":
+                return new ServiceCustomField(name, <any>undefined, { urn })
+            case "pagerduty:index/serviceCustomFieldValue:ServiceCustomFieldValue":
+                return new ServiceCustomFieldValue(name, <any>undefined, { urn })
             case "pagerduty:index/serviceDependency:ServiceDependency":
                 return new ServiceDependency(name, <any>undefined, { urn })
             case "pagerduty:index/serviceEventRule:ServiceEventRule":
@@ -560,6 +584,8 @@ pulumi.runtime.registerResourceModule("pagerduty", "index/ruleset", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/rulesetRule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/schedule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/service", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/serviceCustomField", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/serviceCustomFieldValue", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/serviceDependency", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/serviceEventRule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/serviceIntegration", _module)

@@ -49,6 +49,8 @@ from .get_priority import *
 from .get_ruleset import *
 from .get_schedule import *
 from .get_service import *
+from .get_service_custom_field import *
+from .get_service_custom_field_value import *
 from .get_service_integration import *
 from .get_standards import *
 from .get_standards_resource_scores import *
@@ -75,6 +77,8 @@ from .ruleset import *
 from .ruleset_rule import *
 from .schedule import *
 from .service import *
+from .service_custom_field import *
+from .service_custom_field_value import *
 from .service_dependency import *
 from .service_event_rule import *
 from .service_integration import *
@@ -371,6 +375,22 @@ _utilities.register(
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/service:Service": "Service"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/serviceCustomField",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/serviceCustomField:ServiceCustomField": "ServiceCustomField"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/serviceCustomFieldValue",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/serviceCustomFieldValue:ServiceCustomFieldValue": "ServiceCustomFieldValue"
   }
  },
  {

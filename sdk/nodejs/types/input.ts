@@ -1881,6 +1881,36 @@ export interface ServiceAutoPauseNotificationsParameters {
     timeout?: pulumi.Input<number>;
 }
 
+export interface ServiceCustomFieldFieldOption {
+    /**
+     * Must be `string`.
+     */
+    dataType: pulumi.Input<string>;
+    /**
+     * The ID of the service custom field.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The value of the option.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ServiceCustomFieldValueCustomField {
+    /**
+     * The ID of the custom field. Either `id` or `name` must be provided.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The name of the custom field. Either `id` or `name` must be provided.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The value to set for the custom field. Must be provided as a JSON-encoded string matching the field's data type. Use the `jsonencode()` function to ensure proper formatting.
+     */
+    value: pulumi.Input<string>;
+}
+
 export interface ServiceDependencyDependency {
     /**
      * The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependentService` dependency block must be defined.

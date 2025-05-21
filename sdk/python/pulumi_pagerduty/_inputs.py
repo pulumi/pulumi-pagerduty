@@ -242,6 +242,10 @@ __all__ = [
     'ServiceAlertGroupingParametersConfigArgsDict',
     'ServiceAutoPauseNotificationsParametersArgs',
     'ServiceAutoPauseNotificationsParametersArgsDict',
+    'ServiceCustomFieldFieldOptionArgs',
+    'ServiceCustomFieldFieldOptionArgsDict',
+    'ServiceCustomFieldValueCustomFieldArgs',
+    'ServiceCustomFieldValueCustomFieldArgsDict',
     'ServiceDependencyDependencyArgs',
     'ServiceDependencyDependencyArgsDict',
     'ServiceDependencyDependencyDependentServiceArgs',
@@ -8944,6 +8948,145 @@ class ServiceAutoPauseNotificationsParametersArgs:
     @timeout.setter
     def timeout(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "timeout", value)
+
+
+if not MYPY:
+    class ServiceCustomFieldFieldOptionArgsDict(TypedDict):
+        data_type: pulumi.Input[builtins.str]
+        """
+        Must be `string`.
+        """
+        value: pulumi.Input[builtins.str]
+        """
+        The value of the option.
+        """
+        id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The ID of the service custom field.
+        """
+elif False:
+    ServiceCustomFieldFieldOptionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceCustomFieldFieldOptionArgs:
+    def __init__(__self__, *,
+                 data_type: pulumi.Input[builtins.str],
+                 value: pulumi.Input[builtins.str],
+                 id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] data_type: Must be `string`.
+        :param pulumi.Input[builtins.str] value: The value of the option.
+        :param pulumi.Input[builtins.str] id: The ID of the service custom field.
+        """
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> pulumi.Input[builtins.str]:
+        """
+        Must be `string`.
+        """
+        return pulumi.get(self, "data_type")
+
+    @data_type.setter
+    def data_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "data_type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[builtins.str]:
+        """
+        The value of the option.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ID of the service custom field.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class ServiceCustomFieldValueCustomFieldArgsDict(TypedDict):
+        id: pulumi.Input[builtins.str]
+        """
+        The ID of the custom field. Either `id` or `name` must be provided.
+        """
+        name: pulumi.Input[builtins.str]
+        """
+        The name of the custom field. Either `id` or `name` must be provided.
+        """
+        value: pulumi.Input[builtins.str]
+        """
+        The value to set for the custom field. Must be provided as a JSON-encoded string matching the field's data type. Use the `jsonencode()` function to ensure proper formatting.
+        """
+elif False:
+    ServiceCustomFieldValueCustomFieldArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceCustomFieldValueCustomFieldArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[builtins.str],
+                 name: pulumi.Input[builtins.str],
+                 value: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] id: The ID of the custom field. Either `id` or `name` must be provided.
+        :param pulumi.Input[builtins.str] name: The name of the custom field. Either `id` or `name` must be provided.
+        :param pulumi.Input[builtins.str] value: The value to set for the custom field. Must be provided as a JSON-encoded string matching the field's data type. Use the `jsonencode()` function to ensure proper formatting.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[builtins.str]:
+        """
+        The ID of the custom field. Either `id` or `name` must be provided.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the custom field. Either `id` or `name` must be provided.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[builtins.str]:
+        """
+        The value to set for the custom field. Must be provided as a JSON-encoded string matching the field's data type. Use the `jsonencode()` function to ensure proper formatting.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

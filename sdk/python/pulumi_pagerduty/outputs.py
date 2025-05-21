@@ -129,6 +129,8 @@ __all__ = [
     'ServiceAlertGroupingParameters',
     'ServiceAlertGroupingParametersConfig',
     'ServiceAutoPauseNotificationsParameters',
+    'ServiceCustomFieldFieldOption',
+    'ServiceCustomFieldValueCustomField',
     'ServiceDependencyDependency',
     'ServiceDependencyDependencyDependentService',
     'ServiceDependencyDependencySupportingService',
@@ -181,6 +183,8 @@ __all__ = [
     'GetIncidentTypeCustomFieldFieldOptionResult',
     'GetIncidentTypeCustomFieldFieldOptionDataResult',
     'GetLicensesLicenseResult',
+    'GetServiceCustomFieldFieldOptionResult',
+    'GetServiceCustomFieldValueCustomFieldResult',
     'GetServiceTeamResult',
     'GetStandardsResourceScoresScoreResult',
     'GetStandardsResourceScoresStandardResult',
@@ -6005,6 +6009,104 @@ class ServiceAutoPauseNotificationsParameters(dict):
 
 
 @pulumi.output_type
+class ServiceCustomFieldFieldOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceCustomFieldFieldOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceCustomFieldFieldOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceCustomFieldFieldOption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_type: builtins.str,
+                 value: builtins.str,
+                 id: Optional[builtins.str] = None):
+        """
+        :param builtins.str data_type: Must be `string`.
+        :param builtins.str value: The value of the option.
+        :param builtins.str id: The ID of the service custom field.
+        """
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "value", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> builtins.str:
+        """
+        Must be `string`.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        The value of the option.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.str]:
+        """
+        The ID of the service custom field.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ServiceCustomFieldValueCustomField(dict):
+    def __init__(__self__, *,
+                 id: builtins.str,
+                 name: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str id: The ID of the custom field. Either `id` or `name` must be provided.
+        :param builtins.str name: The name of the custom field. Either `id` or `name` must be provided.
+        :param builtins.str value: The value to set for the custom field. Must be provided as a JSON-encoded string matching the field's data type. Use the `jsonencode()` function to ensure proper formatting.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the custom field. Either `id` or `name` must be provided.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the custom field. Either `id` or `name` must be provided.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        The value to set for the custom field. Must be provided as a JSON-encoded string matching the field's data type. Use the `jsonencode()` function to ensure proper formatting.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class ServiceDependencyDependency(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -8456,6 +8558,141 @@ class GetLicensesLicenseResult(dict):
         List of allowed roles that may be assigned to a user with this license
         """
         return pulumi.get(self, "valid_roles")
+
+
+@pulumi.output_type
+class GetServiceCustomFieldFieldOptionResult(dict):
+    def __init__(__self__, *,
+                 data_type: builtins.str,
+                 id: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str data_type: The data type of the field option.
+        :param builtins.str id: The ID of the found field.
+        :param builtins.str value: The value of the field option.
+        """
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> builtins.str:
+        """
+        The data type of the field option.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the found field.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        The value of the field option.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetServiceCustomFieldValueCustomFieldResult(dict):
+    def __init__(__self__, *,
+                 data_type: builtins.str,
+                 description: builtins.str,
+                 display_name: builtins.str,
+                 field_type: builtins.str,
+                 id: builtins.str,
+                 name: builtins.str,
+                 type: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str data_type: The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        :param builtins.str description: A description of the data this field contains.
+        :param builtins.str display_name: The human-readable name of the custom field.
+        :param builtins.str field_type: The type of field. Can be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+        :param builtins.str id: The ID of the custom field.
+        :param builtins.str name: The name of the custom field.
+        :param builtins.str type: The type of the reference, typically "field_value".
+        :param builtins.str value: The value of the custom field. This is a JSON-encoded string matching the field's data type.
+        """
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "field_type", field_type)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> builtins.str:
+        """
+        The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> builtins.str:
+        """
+        A description of the data this field contains.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> builtins.str:
+        """
+        The human-readable name of the custom field.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="fieldType")
+    def field_type(self) -> builtins.str:
+        """
+        The type of field. Can be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+        """
+        return pulumi.get(self, "field_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the custom field.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the custom field.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        The type of the reference, typically "field_value".
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        The value of the custom field. This is a JSON-encoded string matching the field's data type.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -52,6 +52,10 @@ import com.pulumi.pagerduty.inputs.GetRulesetPlainArgs;
 import com.pulumi.pagerduty.inputs.GetScheduleArgs;
 import com.pulumi.pagerduty.inputs.GetSchedulePlainArgs;
 import com.pulumi.pagerduty.inputs.GetServiceArgs;
+import com.pulumi.pagerduty.inputs.GetServiceCustomFieldArgs;
+import com.pulumi.pagerduty.inputs.GetServiceCustomFieldPlainArgs;
+import com.pulumi.pagerduty.inputs.GetServiceCustomFieldValueArgs;
+import com.pulumi.pagerduty.inputs.GetServiceCustomFieldValuePlainArgs;
 import com.pulumi.pagerduty.inputs.GetServiceIntegrationArgs;
 import com.pulumi.pagerduty.inputs.GetServiceIntegrationPlainArgs;
 import com.pulumi.pagerduty.inputs.GetServicePlainArgs;
@@ -98,6 +102,8 @@ import com.pulumi.pagerduty.outputs.GetLicensesResult;
 import com.pulumi.pagerduty.outputs.GetPriorityResult;
 import com.pulumi.pagerduty.outputs.GetRulesetResult;
 import com.pulumi.pagerduty.outputs.GetScheduleResult;
+import com.pulumi.pagerduty.outputs.GetServiceCustomFieldResult;
+import com.pulumi.pagerduty.outputs.GetServiceCustomFieldValueResult;
 import com.pulumi.pagerduty.outputs.GetServiceIntegrationResult;
 import com.pulumi.pagerduty.outputs.GetServiceResult;
 import com.pulumi.pagerduty.outputs.GetStandardsResourceScoresResult;
@@ -6134,6 +6140,276 @@ public final class PagerdutyFunctions {
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific Service Custom Field that has been configured in your PagerDuty account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceCustomFieldArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var regions = PagerdutyFunctions.getServiceCustomField(GetServiceCustomFieldArgs.builder()
+     *             .displayName("AWS Regions")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServiceCustomFieldResult> getServiceCustomField(GetServiceCustomFieldArgs args) {
+        return getServiceCustomField(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific Service Custom Field that has been configured in your PagerDuty account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceCustomFieldArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var regions = PagerdutyFunctions.getServiceCustomField(GetServiceCustomFieldArgs.builder()
+     *             .displayName("AWS Regions")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetServiceCustomFieldResult> getServiceCustomFieldPlain(GetServiceCustomFieldPlainArgs args) {
+        return getServiceCustomFieldPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific Service Custom Field that has been configured in your PagerDuty account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceCustomFieldArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var regions = PagerdutyFunctions.getServiceCustomField(GetServiceCustomFieldArgs.builder()
+     *             .displayName("AWS Regions")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServiceCustomFieldResult> getServiceCustomField(GetServiceCustomFieldArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getServiceCustomField:getServiceCustomField", TypeShape.of(GetServiceCustomFieldResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific Service Custom Field that has been configured in your PagerDuty account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceCustomFieldArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var regions = PagerdutyFunctions.getServiceCustomField(GetServiceCustomFieldArgs.builder()
+     *             .displayName("AWS Regions")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServiceCustomFieldResult> getServiceCustomField(GetServiceCustomFieldArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getServiceCustomField:getServiceCustomField", TypeShape.of(GetServiceCustomFieldResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific Service Custom Field that has been configured in your PagerDuty account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceCustomFieldArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var regions = PagerdutyFunctions.getServiceCustomField(GetServiceCustomFieldArgs.builder()
+     *             .displayName("AWS Regions")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetServiceCustomFieldResult> getServiceCustomFieldPlain(GetServiceCustomFieldPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getServiceCustomField:getServiceCustomField", TypeShape.of(GetServiceCustomFieldResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about service custom field values in PagerDuty.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServiceCustomFieldValueResult> getServiceCustomFieldValue(GetServiceCustomFieldValueArgs args) {
+        return getServiceCustomFieldValue(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about service custom field values in PagerDuty.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetServiceCustomFieldValueResult> getServiceCustomFieldValuePlain(GetServiceCustomFieldValuePlainArgs args) {
+        return getServiceCustomFieldValuePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about service custom field values in PagerDuty.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServiceCustomFieldValueResult> getServiceCustomFieldValue(GetServiceCustomFieldValueArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getServiceCustomFieldValue:getServiceCustomFieldValue", TypeShape.of(GetServiceCustomFieldValueResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about service custom field values in PagerDuty.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServiceCustomFieldValueResult> getServiceCustomFieldValue(GetServiceCustomFieldValueArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getServiceCustomFieldValue:getServiceCustomFieldValue", TypeShape.of(GetServiceCustomFieldValueResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about service custom field values in PagerDuty.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetServiceCustomFieldValueResult> getServiceCustomFieldValuePlain(GetServiceCustomFieldValuePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getServiceCustomFieldValue:getServiceCustomFieldValue", TypeShape.of(GetServiceCustomFieldValueResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific service_integration.

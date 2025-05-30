@@ -8569,8 +8569,7 @@
                 "configs",
                 "notificationType",
                 "sourceId",
-                "sourceType",
-                "workspaceId"
+                "sourceType"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering SlackConnection resources.\n",

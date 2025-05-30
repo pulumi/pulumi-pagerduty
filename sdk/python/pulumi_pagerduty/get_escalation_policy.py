@@ -27,13 +27,27 @@ class GetEscalationPolicyResult:
     """
     A collection of values returned by getEscalationPolicy.
     """
-    def __init__(__self__, id=None, name=None):
+    def __init__(__self__, description=None, id=None, name=None, teams=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if teams and not isinstance(teams, list):
+            raise TypeError("Expected argument 'teams' to be a list")
+        pulumi.set(__self__, "teams", teams)
+
+    @property
+    @pulumi.getter
+    def description(self) -> builtins.str:
+        """
+        The description of the found escalation policy.
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -51,6 +65,14 @@ class GetEscalationPolicyResult:
         """
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def teams(self) -> Sequence[builtins.str]:
+        """
+        The IDs of the teams associated with the found escalation policy.
+        """
+        return pulumi.get(self, "teams")
+
 
 class AwaitableGetEscalationPolicyResult(GetEscalationPolicyResult):
     # pylint: disable=using-constant-test
@@ -58,8 +80,10 @@ class AwaitableGetEscalationPolicyResult(GetEscalationPolicyResult):
         if False:
             yield self
         return GetEscalationPolicyResult(
+            description=self.description,
             id=self.id,
-            name=self.name)
+            name=self.name,
+            teams=self.teams)
 
 
 def get_escalation_policy(name: Optional[builtins.str] = None,
@@ -90,8 +114,10 @@ def get_escalation_policy(name: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getEscalationPolicy:getEscalationPolicy', __args__, opts=opts, typ=GetEscalationPolicyResult).value
 
     return AwaitableGetEscalationPolicyResult(
+        description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        teams=pulumi.get(__ret__, 'teams'))
 def get_escalation_policy_output(name: Optional[pulumi.Input[builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEscalationPolicyResult]:
     """
@@ -119,5 +145,7 @@ def get_escalation_policy_output(name: Optional[pulumi.Input[builtins.str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getEscalationPolicy:getEscalationPolicy', __args__, opts=opts, typ=GetEscalationPolicyResult)
     return __ret__.apply(lambda __response__: GetEscalationPolicyResult(
+        description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        teams=pulumi.get(__response__, 'teams')))

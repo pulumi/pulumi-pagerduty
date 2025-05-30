@@ -142,6 +142,10 @@ namespace Pulumi.Pagerduty
     public sealed class GetEscalationPolicyResult
     {
         /// <summary>
+        /// The description of the found escalation policy.
+        /// </summary>
+        public readonly string Description;
+        /// <summary>
         /// The ID of the found escalation policy.
         /// </summary>
         public readonly string Id;
@@ -149,15 +153,25 @@ namespace Pulumi.Pagerduty
         /// The short name of the found escalation policy.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The IDs of the teams associated with the found escalation policy.
+        /// </summary>
+        public readonly ImmutableArray<string> Teams;
 
         [OutputConstructor]
         private GetEscalationPolicyResult(
+            string description,
+
             string id,
 
-            string name)
+            string name,
+
+            ImmutableArray<string> teams)
         {
+            Description = description;
             Id = id;
             Name = name;
+            Teams = teams;
         }
     }
 }

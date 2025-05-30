@@ -46,6 +46,10 @@ export interface GetEscalationPolicyArgs {
  */
 export interface GetEscalationPolicyResult {
     /**
+     * The description of the found escalation policy.
+     */
+    readonly description: string;
+    /**
      * The ID of the found escalation policy.
      */
     readonly id: string;
@@ -53,6 +57,10 @@ export interface GetEscalationPolicyResult {
      * The short name of the found escalation policy.
      */
     readonly name: string;
+    /**
+     * The IDs of the teams associated with the found escalation policy.
+     */
+    readonly teams: string[];
 }
 /**
  * Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.

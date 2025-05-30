@@ -9756,6 +9756,10 @@
             "outputs": {
                 "description": "A collection of values returned by getEscalationPolicy.\n",
                 "properties": {
+                    "description": {
+                        "description": "The description of the found escalation policy.\n",
+                        "type": "string"
+                    },
                     "id": {
                         "description": "The ID of the found escalation policy.\n",
                         "type": "string"
@@ -9763,11 +9767,20 @@
                     "name": {
                         "description": "The short name of the found escalation policy.\n",
                         "type": "string"
+                    },
+                    "teams": {
+                        "description": "The IDs of the teams associated with the found escalation policy.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
                     }
                 },
                 "required": [
+                    "description",
                     "id",
-                    "name"
+                    "name",
+                    "teams"
                 ],
                 "type": "object"
             }

@@ -65,10 +65,14 @@ type LookupEscalationPolicyArgs struct {
 
 // A collection of values returned by getEscalationPolicy.
 type LookupEscalationPolicyResult struct {
+	// The description of the found escalation policy.
+	Description string `pulumi:"description"`
 	// The ID of the found escalation policy.
 	Id string `pulumi:"id"`
 	// The short name of the found escalation policy.
 	Name string `pulumi:"name"`
+	// The IDs of the teams associated with the found escalation policy.
+	Teams []string `pulumi:"teams"`
 }
 
 func LookupEscalationPolicyOutput(ctx *pulumi.Context, args LookupEscalationPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupEscalationPolicyResultOutput {
@@ -105,6 +109,11 @@ func (o LookupEscalationPolicyResultOutput) ToLookupEscalationPolicyResultOutput
 	return o
 }
 
+// The description of the found escalation policy.
+func (o LookupEscalationPolicyResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEscalationPolicyResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
 // The ID of the found escalation policy.
 func (o LookupEscalationPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEscalationPolicyResult) string { return v.Id }).(pulumi.StringOutput)
@@ -113,6 +122,11 @@ func (o LookupEscalationPolicyResultOutput) Id() pulumi.StringOutput {
 // The short name of the found escalation policy.
 func (o LookupEscalationPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEscalationPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The IDs of the teams associated with the found escalation policy.
+func (o LookupEscalationPolicyResultOutput) Teams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupEscalationPolicyResult) []string { return v.Teams }).(pulumi.StringArrayOutput)
 }
 
 func init() {

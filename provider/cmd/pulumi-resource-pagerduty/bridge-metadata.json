@@ -1035,7 +1035,12 @@
             },
             "pagerduty_escalation_policy": {
                 "current": "pagerduty:index/getEscalationPolicy:getEscalationPolicy",
-                "majorVersion": 4
+                "majorVersion": 4,
+                "fields": {
+                    "teams": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "pagerduty_event_orchestration": {
                 "current": "pagerduty:index/getEventOrchestration:getEventOrchestration",

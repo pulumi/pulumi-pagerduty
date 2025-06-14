@@ -9,65 +9,6 @@ import * as utilities from "./utilities";
 /**
  * A [notification rule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0NQ-create-a-user-notification-rule) configures where and when a PagerDuty user is notified when a triggered incident is assigned to them. Unique notification rules can be created for both high and low-urgency incidents.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const example = new pagerduty.User("example", {
- *     name: "Earline Greenholt",
- *     email: "125.greenholt.earline@graham.name",
- * });
- * const email = new pagerduty.UserContactMethod("email", {
- *     userId: example.id,
- *     type: "email_contact_method",
- *     address: "foo@bar.com",
- *     label: "Work",
- * });
- * const phone = new pagerduty.UserContactMethod("phone", {
- *     userId: example.id,
- *     type: "phone_contact_method",
- *     countryCode: 1,
- *     address: "2025550199",
- *     label: "Work",
- * });
- * const sms = new pagerduty.UserContactMethod("sms", {
- *     userId: example.id,
- *     type: "sms_contact_method",
- *     countryCode: 1,
- *     address: "2025550199",
- *     label: "Work",
- * });
- * const highUrgencyPhone = new pagerduty.UserNotificationRule("high_urgency_phone", {
- *     userId: example.id,
- *     startDelayInMinutes: 1,
- *     urgency: "high",
- *     contactMethod: {
- *         type: "phone_contact_method",
- *         id: phone.id,
- *     },
- * });
- * const lowUrgencyEmail = new pagerduty.UserNotificationRule("low_urgency_email", {
- *     userId: example.id,
- *     startDelayInMinutes: 1,
- *     urgency: "low",
- *     contactMethod: {
- *         type: "email_contact_method",
- *         id: email.id,
- *     },
- * });
- * const lowUrgencySms = new pagerduty.UserNotificationRule("low_urgency_sms", {
- *     userId: example.id,
- *     startDelayInMinutes: 10,
- *     urgency: "low",
- *     contactMethod: {
- *         type: "sms_contact_method",
- *         id: sms.id,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * User notification rules can be imported using the `user_id` and the `id`, e.g.

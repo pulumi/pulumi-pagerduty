@@ -123,15 +123,31 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
     public Output<String> actionType() {
         return this.actionType;
     }
+    /**
+     * Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+     * 
+     */
     @Export(name="allowInvocationFromEventOrchestration", refs={String.class}, tree="[0]")
     private Output<String> allowInvocationFromEventOrchestration;
 
+    /**
+     * @return Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+     * 
+     */
     public Output<String> allowInvocationFromEventOrchestration() {
         return this.allowInvocationFromEventOrchestration;
     }
+    /**
+     * Whether the action can be invoked manually by a user on the PagerDuty website.
+     * 
+     */
     @Export(name="allowInvocationManually", refs={String.class}, tree="[0]")
     private Output<String> allowInvocationManually;
 
+    /**
+     * @return Whether the action can be invoked manually by a user on the PagerDuty website.
+     * 
+     */
     public Output<String> allowInvocationManually() {
         return this.allowInvocationManually;
     }
@@ -163,9 +179,17 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * If true, the action will be associated with every service.
+     * 
+     */
     @Export(name="mapToAllServices", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> mapToAllServices;
 
+    /**
+     * @return If true, the action will be associated with every service.
+     * 
+     */
     public Output<Boolean> mapToAllServices() {
         return this.mapToAllServices;
     }
@@ -197,9 +221,17 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Whether the action can be invoked on unresolved incidents.
+     * 
+     */
     @Export(name="onlyInvocableOnUnresolvedIncidents", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> onlyInvocableOnUnresolvedIncidents;
 
+    /**
+     * @return Whether the action can be invoked on unresolved incidents.
+     * 
+     */
     public Output<Boolean> onlyInvocableOnUnresolvedIncidents() {
         return this.onlyInvocableOnUnresolvedIncidents;
     }

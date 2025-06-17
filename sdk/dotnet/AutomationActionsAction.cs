@@ -77,9 +77,15 @@ namespace Pulumi.Pagerduty
         [Output("actionType")]
         public Output<string> ActionType { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+        /// </summary>
         [Output("allowInvocationFromEventOrchestration")]
         public Output<string> AllowInvocationFromEventOrchestration { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the action can be invoked manually by a user on the PagerDuty website.
+        /// </summary>
         [Output("allowInvocationManually")]
         public Output<string> AllowInvocationManually { get; private set; } = null!;
 
@@ -95,6 +101,9 @@ namespace Pulumi.Pagerduty
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// If true, the action will be associated with every service.
+        /// </summary>
         [Output("mapToAllServices")]
         public Output<bool> MapToAllServices { get; private set; } = null!;
 
@@ -110,6 +119,9 @@ namespace Pulumi.Pagerduty
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the action can be invoked on unresolved incidents.
+        /// </summary>
         [Output("onlyInvocableOnUnresolvedIncidents")]
         public Output<bool> OnlyInvocableOnUnresolvedIncidents { get; private set; } = null!;
 
@@ -195,9 +207,15 @@ namespace Pulumi.Pagerduty
         [Input("actionType", required: true)]
         public Input<string> ActionType { get; set; } = null!;
 
+        /// <summary>
+        /// Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+        /// </summary>
         [Input("allowInvocationFromEventOrchestration")]
         public Input<string>? AllowInvocationFromEventOrchestration { get; set; }
 
+        /// <summary>
+        /// Whether the action can be invoked manually by a user on the PagerDuty website.
+        /// </summary>
         [Input("allowInvocationManually")]
         public Input<string>? AllowInvocationManually { get; set; }
 
@@ -213,6 +231,9 @@ namespace Pulumi.Pagerduty
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// If true, the action will be associated with every service.
+        /// </summary>
         [Input("mapToAllServices")]
         public Input<bool>? MapToAllServices { get; set; }
 
@@ -228,6 +249,9 @@ namespace Pulumi.Pagerduty
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Whether the action can be invoked on unresolved incidents.
+        /// </summary>
         [Input("onlyInvocableOnUnresolvedIncidents")]
         public Input<bool>? OnlyInvocableOnUnresolvedIncidents { get; set; }
 
@@ -275,9 +299,15 @@ namespace Pulumi.Pagerduty
         [Input("actionType")]
         public Input<string>? ActionType { get; set; }
 
+        /// <summary>
+        /// Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+        /// </summary>
         [Input("allowInvocationFromEventOrchestration")]
         public Input<string>? AllowInvocationFromEventOrchestration { get; set; }
 
+        /// <summary>
+        /// Whether the action can be invoked manually by a user on the PagerDuty website.
+        /// </summary>
         [Input("allowInvocationManually")]
         public Input<string>? AllowInvocationManually { get; set; }
 
@@ -293,6 +323,9 @@ namespace Pulumi.Pagerduty
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// If true, the action will be associated with every service.
+        /// </summary>
         [Input("mapToAllServices")]
         public Input<bool>? MapToAllServices { get; set; }
 
@@ -308,6 +341,9 @@ namespace Pulumi.Pagerduty
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Whether the action can be invoked on unresolved incidents.
+        /// </summary>
         [Input("onlyInvocableOnUnresolvedIncidents")]
         public Input<bool>? OnlyInvocableOnUnresolvedIncidents { get; set; }
 

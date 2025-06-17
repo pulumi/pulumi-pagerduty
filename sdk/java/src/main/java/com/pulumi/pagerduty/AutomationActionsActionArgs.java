@@ -63,16 +63,32 @@ public final class AutomationActionsActionArgs extends com.pulumi.resources.Reso
         return this.actionType;
     }
 
+    /**
+     * Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+     * 
+     */
     @Import(name="allowInvocationFromEventOrchestration")
     private @Nullable Output<String> allowInvocationFromEventOrchestration;
 
+    /**
+     * @return Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+     * 
+     */
     public Optional<Output<String>> allowInvocationFromEventOrchestration() {
         return Optional.ofNullable(this.allowInvocationFromEventOrchestration);
     }
 
+    /**
+     * Whether the action can be invoked manually by a user on the PagerDuty website.
+     * 
+     */
     @Import(name="allowInvocationManually")
     private @Nullable Output<String> allowInvocationManually;
 
+    /**
+     * @return Whether the action can be invoked manually by a user on the PagerDuty website.
+     * 
+     */
     public Optional<Output<String>> allowInvocationManually() {
         return Optional.ofNullable(this.allowInvocationManually);
     }
@@ -107,9 +123,17 @@ public final class AutomationActionsActionArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * If true, the action will be associated with every service.
+     * 
+     */
     @Import(name="mapToAllServices")
     private @Nullable Output<Boolean> mapToAllServices;
 
+    /**
+     * @return If true, the action will be associated with every service.
+     * 
+     */
     public Optional<Output<Boolean>> mapToAllServices() {
         return Optional.ofNullable(this.mapToAllServices);
     }
@@ -144,9 +168,17 @@ public final class AutomationActionsActionArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Whether the action can be invoked on unresolved incidents.
+     * 
+     */
     @Import(name="onlyInvocableOnUnresolvedIncidents")
     private @Nullable Output<Boolean> onlyInvocableOnUnresolvedIncidents;
 
+    /**
+     * @return Whether the action can be invoked on unresolved incidents.
+     * 
+     */
     public Optional<Output<Boolean>> onlyInvocableOnUnresolvedIncidents() {
         return Optional.ofNullable(this.onlyInvocableOnUnresolvedIncidents);
     }
@@ -296,20 +328,44 @@ public final class AutomationActionsActionArgs extends com.pulumi.resources.Reso
             return actionType(Output.of(actionType));
         }
 
+        /**
+         * @param allowInvocationFromEventOrchestration Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowInvocationFromEventOrchestration(@Nullable Output<String> allowInvocationFromEventOrchestration) {
             $.allowInvocationFromEventOrchestration = allowInvocationFromEventOrchestration;
             return this;
         }
 
+        /**
+         * @param allowInvocationFromEventOrchestration Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowInvocationFromEventOrchestration(String allowInvocationFromEventOrchestration) {
             return allowInvocationFromEventOrchestration(Output.of(allowInvocationFromEventOrchestration));
         }
 
+        /**
+         * @param allowInvocationManually Whether the action can be invoked manually by a user on the PagerDuty website.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowInvocationManually(@Nullable Output<String> allowInvocationManually) {
             $.allowInvocationManually = allowInvocationManually;
             return this;
         }
 
+        /**
+         * @param allowInvocationManually Whether the action can be invoked manually by a user on the PagerDuty website.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowInvocationManually(String allowInvocationManually) {
             return allowInvocationManually(Output.of(allowInvocationManually));
         }
@@ -356,11 +412,23 @@ public final class AutomationActionsActionArgs extends com.pulumi.resources.Reso
             return description(Output.of(description));
         }
 
+        /**
+         * @param mapToAllServices If true, the action will be associated with every service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mapToAllServices(@Nullable Output<Boolean> mapToAllServices) {
             $.mapToAllServices = mapToAllServices;
             return this;
         }
 
+        /**
+         * @param mapToAllServices If true, the action will be associated with every service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mapToAllServices(Boolean mapToAllServices) {
             return mapToAllServices(Output.of(mapToAllServices));
         }
@@ -407,11 +475,23 @@ public final class AutomationActionsActionArgs extends com.pulumi.resources.Reso
             return name(Output.of(name));
         }
 
+        /**
+         * @param onlyInvocableOnUnresolvedIncidents Whether the action can be invoked on unresolved incidents.
+         * 
+         * @return builder
+         * 
+         */
         public Builder onlyInvocableOnUnresolvedIncidents(@Nullable Output<Boolean> onlyInvocableOnUnresolvedIncidents) {
             $.onlyInvocableOnUnresolvedIncidents = onlyInvocableOnUnresolvedIncidents;
             return this;
         }
 
+        /**
+         * @param onlyInvocableOnUnresolvedIncidents Whether the action can be invoked on unresolved incidents.
+         * 
+         * @return builder
+         * 
+         */
         public Builder onlyInvocableOnUnresolvedIncidents(Boolean onlyInvocableOnUnresolvedIncidents) {
             return onlyInvocableOnUnresolvedIncidents(Output.of(onlyInvocableOnUnresolvedIncidents));
         }

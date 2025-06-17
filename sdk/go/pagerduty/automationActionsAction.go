@@ -72,19 +72,23 @@ type AutomationActionsAction struct {
 	// Action Data block. Action Data is documented below.
 	ActionDataReference AutomationActionsActionActionDataReferenceOutput `pulumi:"actionDataReference"`
 	// The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
-	ActionType                            pulumi.StringOutput `pulumi:"actionType"`
+	ActionType pulumi.StringOutput `pulumi:"actionType"`
+	// Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
 	AllowInvocationFromEventOrchestration pulumi.StringOutput `pulumi:"allowInvocationFromEventOrchestration"`
-	AllowInvocationManually               pulumi.StringOutput `pulumi:"allowInvocationManually"`
+	// Whether the action can be invoked manually by a user on the PagerDuty website.
+	AllowInvocationManually pulumi.StringOutput `pulumi:"allowInvocationManually"`
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The description of the action. Max length is 1024 characters.
-	Description      pulumi.StringPtrOutput `pulumi:"description"`
-	MapToAllServices pulumi.BoolOutput      `pulumi:"mapToAllServices"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// If true, the action will be associated with every service.
+	MapToAllServices pulumi.BoolOutput `pulumi:"mapToAllServices"`
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime pulumi.StringOutput `pulumi:"modifyTime"`
 	// The name of the action. Max length is 255 characters.
-	Name                               pulumi.StringOutput `pulumi:"name"`
-	OnlyInvocableOnUnresolvedIncidents pulumi.BoolOutput   `pulumi:"onlyInvocableOnUnresolvedIncidents"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether the action can be invoked on unresolved incidents.
+	OnlyInvocableOnUnresolvedIncidents pulumi.BoolOutput `pulumi:"onlyInvocableOnUnresolvedIncidents"`
 	// The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
 	RunnerId pulumi.StringPtrOutput `pulumi:"runnerId"`
 	// (Optional) The type of the runner associated with the action.
@@ -134,19 +138,23 @@ type automationActionsActionState struct {
 	// Action Data block. Action Data is documented below.
 	ActionDataReference *AutomationActionsActionActionDataReference `pulumi:"actionDataReference"`
 	// The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
-	ActionType                            *string `pulumi:"actionType"`
+	ActionType *string `pulumi:"actionType"`
+	// Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
 	AllowInvocationFromEventOrchestration *string `pulumi:"allowInvocationFromEventOrchestration"`
-	AllowInvocationManually               *string `pulumi:"allowInvocationManually"`
+	// Whether the action can be invoked manually by a user on the PagerDuty website.
+	AllowInvocationManually *string `pulumi:"allowInvocationManually"`
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime *string `pulumi:"creationTime"`
 	// The description of the action. Max length is 1024 characters.
-	Description      *string `pulumi:"description"`
-	MapToAllServices *bool   `pulumi:"mapToAllServices"`
+	Description *string `pulumi:"description"`
+	// If true, the action will be associated with every service.
+	MapToAllServices *bool `pulumi:"mapToAllServices"`
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime *string `pulumi:"modifyTime"`
 	// The name of the action. Max length is 255 characters.
-	Name                               *string `pulumi:"name"`
-	OnlyInvocableOnUnresolvedIncidents *bool   `pulumi:"onlyInvocableOnUnresolvedIncidents"`
+	Name *string `pulumi:"name"`
+	// Whether the action can be invoked on unresolved incidents.
+	OnlyInvocableOnUnresolvedIncidents *bool `pulumi:"onlyInvocableOnUnresolvedIncidents"`
 	// The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
 	RunnerId *string `pulumi:"runnerId"`
 	// (Optional) The type of the runner associated with the action.
@@ -161,18 +169,22 @@ type AutomationActionsActionState struct {
 	// Action Data block. Action Data is documented below.
 	ActionDataReference AutomationActionsActionActionDataReferencePtrInput
 	// The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
-	ActionType                            pulumi.StringPtrInput
+	ActionType pulumi.StringPtrInput
+	// Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
 	AllowInvocationFromEventOrchestration pulumi.StringPtrInput
-	AllowInvocationManually               pulumi.StringPtrInput
+	// Whether the action can be invoked manually by a user on the PagerDuty website.
+	AllowInvocationManually pulumi.StringPtrInput
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime pulumi.StringPtrInput
 	// The description of the action. Max length is 1024 characters.
-	Description      pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// If true, the action will be associated with every service.
 	MapToAllServices pulumi.BoolPtrInput
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime pulumi.StringPtrInput
 	// The name of the action. Max length is 255 characters.
-	Name                               pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Whether the action can be invoked on unresolved incidents.
 	OnlyInvocableOnUnresolvedIncidents pulumi.BoolPtrInput
 	// The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
 	RunnerId pulumi.StringPtrInput
@@ -192,19 +204,23 @@ type automationActionsActionArgs struct {
 	// Action Data block. Action Data is documented below.
 	ActionDataReference AutomationActionsActionActionDataReference `pulumi:"actionDataReference"`
 	// The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
-	ActionType                            string  `pulumi:"actionType"`
+	ActionType string `pulumi:"actionType"`
+	// Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
 	AllowInvocationFromEventOrchestration *string `pulumi:"allowInvocationFromEventOrchestration"`
-	AllowInvocationManually               *string `pulumi:"allowInvocationManually"`
+	// Whether the action can be invoked manually by a user on the PagerDuty website.
+	AllowInvocationManually *string `pulumi:"allowInvocationManually"`
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime *string `pulumi:"creationTime"`
 	// The description of the action. Max length is 1024 characters.
-	Description      *string `pulumi:"description"`
-	MapToAllServices *bool   `pulumi:"mapToAllServices"`
+	Description *string `pulumi:"description"`
+	// If true, the action will be associated with every service.
+	MapToAllServices *bool `pulumi:"mapToAllServices"`
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime *string `pulumi:"modifyTime"`
 	// The name of the action. Max length is 255 characters.
-	Name                               *string `pulumi:"name"`
-	OnlyInvocableOnUnresolvedIncidents *bool   `pulumi:"onlyInvocableOnUnresolvedIncidents"`
+	Name *string `pulumi:"name"`
+	// Whether the action can be invoked on unresolved incidents.
+	OnlyInvocableOnUnresolvedIncidents *bool `pulumi:"onlyInvocableOnUnresolvedIncidents"`
 	// The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
 	RunnerId *string `pulumi:"runnerId"`
 	// (Optional) The type of the runner associated with the action.
@@ -220,18 +236,22 @@ type AutomationActionsActionArgs struct {
 	// Action Data block. Action Data is documented below.
 	ActionDataReference AutomationActionsActionActionDataReferenceInput
 	// The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
-	ActionType                            pulumi.StringInput
+	ActionType pulumi.StringInput
+	// Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
 	AllowInvocationFromEventOrchestration pulumi.StringPtrInput
-	AllowInvocationManually               pulumi.StringPtrInput
+	// Whether the action can be invoked manually by a user on the PagerDuty website.
+	AllowInvocationManually pulumi.StringPtrInput
 	// The time action was created. Represented as an ISO 8601 timestamp.
 	CreationTime pulumi.StringPtrInput
 	// The description of the action. Max length is 1024 characters.
-	Description      pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// If true, the action will be associated with every service.
 	MapToAllServices pulumi.BoolPtrInput
 	// (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
 	ModifyTime pulumi.StringPtrInput
 	// The name of the action. Max length is 255 characters.
-	Name                               pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Whether the action can be invoked on unresolved incidents.
 	OnlyInvocableOnUnresolvedIncidents pulumi.BoolPtrInput
 	// The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
 	RunnerId pulumi.StringPtrInput
@@ -345,10 +365,12 @@ func (o AutomationActionsActionOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringOutput { return v.ActionType }).(pulumi.StringOutput)
 }
 
+// Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
 func (o AutomationActionsActionOutput) AllowInvocationFromEventOrchestration() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringOutput { return v.AllowInvocationFromEventOrchestration }).(pulumi.StringOutput)
 }
 
+// Whether the action can be invoked manually by a user on the PagerDuty website.
 func (o AutomationActionsActionOutput) AllowInvocationManually() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringOutput { return v.AllowInvocationManually }).(pulumi.StringOutput)
 }
@@ -363,6 +385,7 @@ func (o AutomationActionsActionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// If true, the action will be associated with every service.
 func (o AutomationActionsActionOutput) MapToAllServices() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.BoolOutput { return v.MapToAllServices }).(pulumi.BoolOutput)
 }
@@ -377,6 +400,7 @@ func (o AutomationActionsActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Whether the action can be invoked on unresolved incidents.
 func (o AutomationActionsActionOutput) OnlyInvocableOnUnresolvedIncidents() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.BoolOutput { return v.OnlyInvocableOnUnresolvedIncidents }).(pulumi.BoolOutput)
 }

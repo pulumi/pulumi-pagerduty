@@ -41,10 +41,14 @@ class AutomationActionsActionArgs:
         :param pulumi.Input['AutomationActionsActionActionDataReferenceArgs'] action_data_reference: Action Data block. Action Data is documented below.
         :param pulumi.Input[builtins.str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
         :param pulumi.Input[builtins.str] action_classification: The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        :param pulumi.Input[builtins.str] allow_invocation_from_event_orchestration: Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+        :param pulumi.Input[builtins.str] allow_invocation_manually: Whether the action can be invoked manually by a user on the PagerDuty website.
         :param pulumi.Input[builtins.str] creation_time: The time action was created. Represented as an ISO 8601 timestamp.
         :param pulumi.Input[builtins.str] description: The description of the action. Max length is 1024 characters.
+        :param pulumi.Input[builtins.bool] map_to_all_services: If true, the action will be associated with every service.
         :param pulumi.Input[builtins.str] modify_time: (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
         :param pulumi.Input[builtins.str] name: The name of the action. Max length is 255 characters.
+        :param pulumi.Input[builtins.bool] only_invocable_on_unresolved_incidents: Whether the action can be invoked on unresolved incidents.
         :param pulumi.Input[builtins.str] runner_id: The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
         :param pulumi.Input[builtins.str] runner_type: (Optional) The type of the runner associated with the action.
         :param pulumi.Input[builtins.str] type: The type of object. The value returned will be `action`.
@@ -115,6 +119,9 @@ class AutomationActionsActionArgs:
     @property
     @pulumi.getter(name="allowInvocationFromEventOrchestration")
     def allow_invocation_from_event_orchestration(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+        """
         return pulumi.get(self, "allow_invocation_from_event_orchestration")
 
     @allow_invocation_from_event_orchestration.setter
@@ -124,6 +131,9 @@ class AutomationActionsActionArgs:
     @property
     @pulumi.getter(name="allowInvocationManually")
     def allow_invocation_manually(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Whether the action can be invoked manually by a user on the PagerDuty website.
+        """
         return pulumi.get(self, "allow_invocation_manually")
 
     @allow_invocation_manually.setter
@@ -157,6 +167,9 @@ class AutomationActionsActionArgs:
     @property
     @pulumi.getter(name="mapToAllServices")
     def map_to_all_services(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If true, the action will be associated with every service.
+        """
         return pulumi.get(self, "map_to_all_services")
 
     @map_to_all_services.setter
@@ -190,6 +203,9 @@ class AutomationActionsActionArgs:
     @property
     @pulumi.getter(name="onlyInvocableOnUnresolvedIncidents")
     def only_invocable_on_unresolved_incidents(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether the action can be invoked on unresolved incidents.
+        """
         return pulumi.get(self, "only_invocable_on_unresolved_incidents")
 
     @only_invocable_on_unresolved_incidents.setter
@@ -255,10 +271,14 @@ class _AutomationActionsActionState:
         :param pulumi.Input[builtins.str] action_classification: The category of the action. The only allowed values are `diagnostic` and `remediation`.
         :param pulumi.Input['AutomationActionsActionActionDataReferenceArgs'] action_data_reference: Action Data block. Action Data is documented below.
         :param pulumi.Input[builtins.str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+        :param pulumi.Input[builtins.str] allow_invocation_from_event_orchestration: Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+        :param pulumi.Input[builtins.str] allow_invocation_manually: Whether the action can be invoked manually by a user on the PagerDuty website.
         :param pulumi.Input[builtins.str] creation_time: The time action was created. Represented as an ISO 8601 timestamp.
         :param pulumi.Input[builtins.str] description: The description of the action. Max length is 1024 characters.
+        :param pulumi.Input[builtins.bool] map_to_all_services: If true, the action will be associated with every service.
         :param pulumi.Input[builtins.str] modify_time: (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
         :param pulumi.Input[builtins.str] name: The name of the action. Max length is 255 characters.
+        :param pulumi.Input[builtins.bool] only_invocable_on_unresolved_incidents: Whether the action can be invoked on unresolved incidents.
         :param pulumi.Input[builtins.str] runner_id: The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
         :param pulumi.Input[builtins.str] runner_type: (Optional) The type of the runner associated with the action.
         :param pulumi.Input[builtins.str] type: The type of object. The value returned will be `action`.
@@ -331,6 +351,9 @@ class _AutomationActionsActionState:
     @property
     @pulumi.getter(name="allowInvocationFromEventOrchestration")
     def allow_invocation_from_event_orchestration(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+        """
         return pulumi.get(self, "allow_invocation_from_event_orchestration")
 
     @allow_invocation_from_event_orchestration.setter
@@ -340,6 +363,9 @@ class _AutomationActionsActionState:
     @property
     @pulumi.getter(name="allowInvocationManually")
     def allow_invocation_manually(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Whether the action can be invoked manually by a user on the PagerDuty website.
+        """
         return pulumi.get(self, "allow_invocation_manually")
 
     @allow_invocation_manually.setter
@@ -373,6 +399,9 @@ class _AutomationActionsActionState:
     @property
     @pulumi.getter(name="mapToAllServices")
     def map_to_all_services(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If true, the action will be associated with every service.
+        """
         return pulumi.get(self, "map_to_all_services")
 
     @map_to_all_services.setter
@@ -406,6 +435,9 @@ class _AutomationActionsActionState:
     @property
     @pulumi.getter(name="onlyInvocableOnUnresolvedIncidents")
     def only_invocable_on_unresolved_incidents(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether the action can be invoked on unresolved incidents.
+        """
         return pulumi.get(self, "only_invocable_on_unresolved_incidents")
 
     @only_invocable_on_unresolved_incidents.setter
@@ -509,10 +541,14 @@ class AutomationActionsAction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] action_classification: The category of the action. The only allowed values are `diagnostic` and `remediation`.
         :param pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']] action_data_reference: Action Data block. Action Data is documented below.
         :param pulumi.Input[builtins.str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+        :param pulumi.Input[builtins.str] allow_invocation_from_event_orchestration: Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+        :param pulumi.Input[builtins.str] allow_invocation_manually: Whether the action can be invoked manually by a user on the PagerDuty website.
         :param pulumi.Input[builtins.str] creation_time: The time action was created. Represented as an ISO 8601 timestamp.
         :param pulumi.Input[builtins.str] description: The description of the action. Max length is 1024 characters.
+        :param pulumi.Input[builtins.bool] map_to_all_services: If true, the action will be associated with every service.
         :param pulumi.Input[builtins.str] modify_time: (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
         :param pulumi.Input[builtins.str] name: The name of the action. Max length is 255 characters.
+        :param pulumi.Input[builtins.bool] only_invocable_on_unresolved_incidents: Whether the action can be invoked on unresolved incidents.
         :param pulumi.Input[builtins.str] runner_id: The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
         :param pulumi.Input[builtins.str] runner_type: (Optional) The type of the runner associated with the action.
         :param pulumi.Input[builtins.str] type: The type of object. The value returned will be `action`.
@@ -647,10 +683,14 @@ class AutomationActionsAction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] action_classification: The category of the action. The only allowed values are `diagnostic` and `remediation`.
         :param pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']] action_data_reference: Action Data block. Action Data is documented below.
         :param pulumi.Input[builtins.str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+        :param pulumi.Input[builtins.str] allow_invocation_from_event_orchestration: Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+        :param pulumi.Input[builtins.str] allow_invocation_manually: Whether the action can be invoked manually by a user on the PagerDuty website.
         :param pulumi.Input[builtins.str] creation_time: The time action was created. Represented as an ISO 8601 timestamp.
         :param pulumi.Input[builtins.str] description: The description of the action. Max length is 1024 characters.
+        :param pulumi.Input[builtins.bool] map_to_all_services: If true, the action will be associated with every service.
         :param pulumi.Input[builtins.str] modify_time: (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
         :param pulumi.Input[builtins.str] name: The name of the action. Max length is 255 characters.
+        :param pulumi.Input[builtins.bool] only_invocable_on_unresolved_incidents: Whether the action can be invoked on unresolved incidents.
         :param pulumi.Input[builtins.str] runner_id: The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
         :param pulumi.Input[builtins.str] runner_type: (Optional) The type of the runner associated with the action.
         :param pulumi.Input[builtins.str] type: The type of object. The value returned will be `action`.
@@ -702,11 +742,17 @@ class AutomationActionsAction(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allowInvocationFromEventOrchestration")
     def allow_invocation_from_event_orchestration(self) -> pulumi.Output[builtins.str]:
+        """
+        Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+        """
         return pulumi.get(self, "allow_invocation_from_event_orchestration")
 
     @property
     @pulumi.getter(name="allowInvocationManually")
     def allow_invocation_manually(self) -> pulumi.Output[builtins.str]:
+        """
+        Whether the action can be invoked manually by a user on the PagerDuty website.
+        """
         return pulumi.get(self, "allow_invocation_manually")
 
     @property
@@ -728,6 +774,9 @@ class AutomationActionsAction(pulumi.CustomResource):
     @property
     @pulumi.getter(name="mapToAllServices")
     def map_to_all_services(self) -> pulumi.Output[builtins.bool]:
+        """
+        If true, the action will be associated with every service.
+        """
         return pulumi.get(self, "map_to_all_services")
 
     @property
@@ -749,6 +798,9 @@ class AutomationActionsAction(pulumi.CustomResource):
     @property
     @pulumi.getter(name="onlyInvocableOnUnresolvedIncidents")
     def only_invocable_on_unresolved_incidents(self) -> pulumi.Output[builtins.bool]:
+        """
+        Whether the action can be invoked on unresolved incidents.
+        """
         return pulumi.get(self, "only_invocable_on_unresolved_incidents")
 
     @property

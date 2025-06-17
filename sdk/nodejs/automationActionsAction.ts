@@ -82,7 +82,13 @@ export class AutomationActionsAction extends pulumi.CustomResource {
      * The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
      */
     public readonly actionType!: pulumi.Output<string>;
+    /**
+     * Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+     */
     public readonly allowInvocationFromEventOrchestration!: pulumi.Output<string>;
+    /**
+     * Whether the action can be invoked manually by a user on the PagerDuty website.
+     */
     public readonly allowInvocationManually!: pulumi.Output<string>;
     /**
      * The time action was created. Represented as an ISO 8601 timestamp.
@@ -92,6 +98,9 @@ export class AutomationActionsAction extends pulumi.CustomResource {
      * The description of the action. Max length is 1024 characters.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * If true, the action will be associated with every service.
+     */
     public readonly mapToAllServices!: pulumi.Output<boolean>;
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
@@ -101,6 +110,9 @@ export class AutomationActionsAction extends pulumi.CustomResource {
      * The name of the action. Max length is 255 characters.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Whether the action can be invoked on unresolved incidents.
+     */
     public readonly onlyInvocableOnUnresolvedIncidents!: pulumi.Output<boolean>;
     /**
      * The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
@@ -186,7 +198,13 @@ export interface AutomationActionsActionState {
      * The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
      */
     actionType?: pulumi.Input<string>;
+    /**
+     * Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+     */
     allowInvocationFromEventOrchestration?: pulumi.Input<string>;
+    /**
+     * Whether the action can be invoked manually by a user on the PagerDuty website.
+     */
     allowInvocationManually?: pulumi.Input<string>;
     /**
      * The time action was created. Represented as an ISO 8601 timestamp.
@@ -196,6 +214,9 @@ export interface AutomationActionsActionState {
      * The description of the action. Max length is 1024 characters.
      */
     description?: pulumi.Input<string>;
+    /**
+     * If true, the action will be associated with every service.
+     */
     mapToAllServices?: pulumi.Input<boolean>;
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
@@ -205,6 +226,9 @@ export interface AutomationActionsActionState {
      * The name of the action. Max length is 255 characters.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether the action can be invoked on unresolved incidents.
+     */
     onlyInvocableOnUnresolvedIncidents?: pulumi.Input<boolean>;
     /**
      * The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
@@ -236,7 +260,13 @@ export interface AutomationActionsActionArgs {
      * The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
      */
     actionType: pulumi.Input<string>;
+    /**
+     * Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
+     */
     allowInvocationFromEventOrchestration?: pulumi.Input<string>;
+    /**
+     * Whether the action can be invoked manually by a user on the PagerDuty website.
+     */
     allowInvocationManually?: pulumi.Input<string>;
     /**
      * The time action was created. Represented as an ISO 8601 timestamp.
@@ -246,6 +276,9 @@ export interface AutomationActionsActionArgs {
      * The description of the action. Max length is 1024 characters.
      */
     description?: pulumi.Input<string>;
+    /**
+     * If true, the action will be associated with every service.
+     */
     mapToAllServices?: pulumi.Input<boolean>;
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
@@ -255,6 +288,9 @@ export interface AutomationActionsActionArgs {
      * The name of the action. Max length is 255 characters.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether the action can be invoked on unresolved incidents.
+     */
     onlyInvocableOnUnresolvedIncidents?: pulumi.Input<boolean>;
     /**
      * The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.

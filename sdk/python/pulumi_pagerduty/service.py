@@ -871,7 +871,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="alertGroupingParameters")
     @_utilities.deprecated("""Use a resource `AlertGroupingSetting` instead.
 Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters""")
-    def alert_grouping_parameters(self) -> pulumi.Output['outputs.ServiceAlertGroupingParameters']:
+    def alert_grouping_parameters(self) -> pulumi.Output[Optional['outputs.ServiceAlertGroupingParameters']]:
         """
         (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
         """

@@ -29,10 +29,6 @@ import (
 // recommended by PagerDuty you also need to set its value to null or delete it,
 // since a value of `0` is no longer accepted.
 //
-// Since the `alertGroupingParameters` field creates an Alert Grouping Setting
-// behind the scenes, it is necessary to import them if you want to keep your
-// configuration the same as it is right now.
-//
 // **Example**:
 //
 // Before:

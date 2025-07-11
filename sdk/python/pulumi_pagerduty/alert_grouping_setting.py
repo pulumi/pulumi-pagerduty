@@ -223,10 +223,6 @@ class AlertGroupingSetting(pulumi.CustomResource):
         recommended by PagerDuty you also need to set its value to null or delete it,
         since a value of `0` is no longer accepted.
 
-        Since the `alert_grouping_parameters` field creates an Alert Grouping Setting
-        behind the scenes, it is necessary to import them if you want to keep your
-        configuration the same as it is right now.
-
         **Example**:
 
         Before:
@@ -286,10 +282,6 @@ class AlertGroupingSetting(pulumi.CustomResource):
         If you are using `timeout = 0` or `time_window = 0` in order to use the values
         recommended by PagerDuty you also need to set its value to null or delete it,
         since a value of `0` is no longer accepted.
-
-        Since the `alert_grouping_parameters` field creates an Alert Grouping Setting
-        behind the scenes, it is necessary to import them if you want to keep your
-        configuration the same as it is right now.
 
         **Example**:
 

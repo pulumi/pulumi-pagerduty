@@ -99,7 +99,7 @@ export class Service extends pulumi.CustomResource {
      * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead.
 Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
      */
-    public readonly alertGroupingParameters!: pulumi.Output<outputs.ServiceAlertGroupingParameters>;
+    public readonly alertGroupingParameters!: pulumi.Output<outputs.ServiceAlertGroupingParameters | undefined>;
     /**
      * (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
      *

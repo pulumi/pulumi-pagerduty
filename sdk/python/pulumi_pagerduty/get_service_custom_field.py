@@ -77,9 +77,6 @@ class GetServiceCustomFieldResult:
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> builtins.str:
-        """
-        The default value for the custom field, if any.
-        """
         return pulumi.get(self, "default_value")
 
     @property

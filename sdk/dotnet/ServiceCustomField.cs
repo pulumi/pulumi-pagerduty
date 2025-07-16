@@ -20,7 +20,6 @@ namespace Pulumi.Pagerduty
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Text.Json;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
@@ -44,7 +43,6 @@ namespace Pulumi.Pagerduty
     ///         DataType = "string",
     ///         FieldType = "single_value_fixed",
     ///         Description = "The deployment tier of the service",
-    ///         DefaultValue = JsonSerializer.Serialize("production"),
     ///         FieldOptions = new[]
     ///         {
     ///             new Pagerduty.Inputs.ServiceCustomFieldFieldOptionArgs
@@ -96,7 +94,6 @@ namespace Pulumi.Pagerduty
     ///         DataType = "boolean",
     ///         FieldType = "single_value",
     ///         Description = "Whether this is a critical service",
-    ///         DefaultValue = JsonSerializer.Serialize(true),
     ///     });
     /// 
     ///     // Integer field
@@ -107,7 +104,6 @@ namespace Pulumi.Pagerduty
     ///         DataType = "integer",
     ///         FieldType = "single_value",
     ///         Description = "Service priority level",
-    ///         DefaultValue = JsonSerializer.Serialize(1),
     ///     });
     /// 
     /// });
@@ -131,7 +127,7 @@ namespace Pulumi.Pagerduty
         public Output<string> DataType { get; private set; } = null!;
 
         /// <summary>
-        /// The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+        /// Default value for the field.
         /// </summary>
         [Output("defaultValue")]
         public Output<string?> DefaultValue { get; private set; } = null!;
@@ -244,7 +240,7 @@ namespace Pulumi.Pagerduty
         public Input<string> DataType { get; set; } = null!;
 
         /// <summary>
-        /// The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+        /// Default value for the field.
         /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
@@ -306,7 +302,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? DataType { get; set; }
 
         /// <summary>
-        /// The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+        /// Default value for the field.
         /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }

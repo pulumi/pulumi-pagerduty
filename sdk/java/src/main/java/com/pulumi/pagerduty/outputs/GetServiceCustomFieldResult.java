@@ -18,10 +18,6 @@ public final class GetServiceCustomFieldResult {
      * 
      */
     private String dataType;
-    /**
-     * @return The default value for the custom field, if any.
-     * 
-     */
     private String defaultValue;
     /**
      * @return A description of the data this field contains.
@@ -78,10 +74,6 @@ public final class GetServiceCustomFieldResult {
     public String dataType() {
         return this.dataType;
     }
-    /**
-     * @return The default value for the custom field, if any.
-     * 
-     */
     public String defaultValue() {
         return this.defaultValue;
     }

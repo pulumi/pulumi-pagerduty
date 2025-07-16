@@ -24,8 +24,6 @@ import (
 //
 // import (
 //
-//	"encoding/json"
-//
 //	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -44,19 +42,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal("production")
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
 //			// Field with fixed options
 //			_, err = pagerduty.NewServiceCustomField(ctx, "deployment_tier", &pagerduty.ServiceCustomFieldArgs{
-//				Name:         pulumi.String("deployment_tier"),
-//				DisplayName:  pulumi.String("Deployment Tier"),
-//				DataType:     pulumi.String("string"),
-//				FieldType:    pulumi.String("single_value_fixed"),
-//				Description:  pulumi.String("The deployment tier of the service"),
-//				DefaultValue: pulumi.String(json0),
+//				Name:        pulumi.String("deployment_tier"),
+//				DisplayName: pulumi.String("Deployment Tier"),
+//				DataType:    pulumi.String("string"),
+//				FieldType:   pulumi.String("single_value_fixed"),
+//				Description: pulumi.String("The deployment tier of the service"),
 //				FieldOptions: pagerduty.ServiceCustomFieldFieldOptionArray{
 //					&pagerduty.ServiceCustomFieldFieldOptionArgs{
 //						Value:    pulumi.String("production"),
@@ -96,36 +88,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON1, err := json.Marshal(true)
-//			if err != nil {
-//				return err
-//			}
-//			json1 := string(tmpJSON1)
 //			// Boolean field
 //			_, err = pagerduty.NewServiceCustomField(ctx, "critical", &pagerduty.ServiceCustomFieldArgs{
-//				Name:         pulumi.String("is_critical"),
-//				DisplayName:  pulumi.String("Is Critical"),
-//				DataType:     pulumi.String("boolean"),
-//				FieldType:    pulumi.String("single_value"),
-//				Description:  pulumi.String("Whether this is a critical service"),
-//				DefaultValue: pulumi.String(json1),
+//				Name:        pulumi.String("is_critical"),
+//				DisplayName: pulumi.String("Is Critical"),
+//				DataType:    pulumi.String("boolean"),
+//				FieldType:   pulumi.String("single_value"),
+//				Description: pulumi.String("Whether this is a critical service"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON2, err := json.Marshal(1)
-//			if err != nil {
-//				return err
-//			}
-//			json2 := string(tmpJSON2)
 //			// Integer field
 //			_, err = pagerduty.NewServiceCustomField(ctx, "priority", &pagerduty.ServiceCustomFieldArgs{
-//				Name:         pulumi.String("priority_level"),
-//				DisplayName:  pulumi.String("Priority Level"),
-//				DataType:     pulumi.String("integer"),
-//				FieldType:    pulumi.String("single_value"),
-//				Description:  pulumi.String("Service priority level"),
-//				DefaultValue: pulumi.String(json2),
+//				Name:        pulumi.String("priority_level"),
+//				DisplayName: pulumi.String("Priority Level"),
+//				DataType:    pulumi.String("integer"),
+//				FieldType:   pulumi.String("single_value"),
+//				Description: pulumi.String("Service priority level"),
 //			})
 //			if err != nil {
 //				return err
@@ -148,7 +128,7 @@ type ServiceCustomField struct {
 
 	// The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
 	DataType pulumi.StringOutput `pulumi:"dataType"`
-	// The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+	// Default value for the field.
 	DefaultValue pulumi.StringPtrOutput `pulumi:"defaultValue"`
 	// A description of the data this field contains.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -212,7 +192,7 @@ func GetServiceCustomField(ctx *pulumi.Context,
 type serviceCustomFieldState struct {
 	// The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
 	DataType *string `pulumi:"dataType"`
-	// The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+	// Default value for the field.
 	DefaultValue *string `pulumi:"defaultValue"`
 	// A description of the data this field contains.
 	Description *string `pulumi:"description"`
@@ -238,7 +218,7 @@ type serviceCustomFieldState struct {
 type ServiceCustomFieldState struct {
 	// The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
 	DataType pulumi.StringPtrInput
-	// The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+	// Default value for the field.
 	DefaultValue pulumi.StringPtrInput
 	// A description of the data this field contains.
 	Description pulumi.StringPtrInput
@@ -268,7 +248,7 @@ func (ServiceCustomFieldState) ElementType() reflect.Type {
 type serviceCustomFieldArgs struct {
 	// The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
 	DataType string `pulumi:"dataType"`
-	// The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+	// Default value for the field.
 	DefaultValue *string `pulumi:"defaultValue"`
 	// A description of the data this field contains.
 	Description *string `pulumi:"description"`
@@ -288,7 +268,7 @@ type serviceCustomFieldArgs struct {
 type ServiceCustomFieldArgs struct {
 	// The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
 	DataType pulumi.StringInput
-	// The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+	// Default value for the field.
 	DefaultValue pulumi.StringPtrInput
 	// A description of the data this field contains.
 	Description pulumi.StringPtrInput
@@ -396,7 +376,7 @@ func (o ServiceCustomFieldOutput) DataType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceCustomField) pulumi.StringOutput { return v.DataType }).(pulumi.StringOutput)
 }
 
-// The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+// Default value for the field.
 func (o ServiceCustomFieldOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceCustomField) pulumi.StringPtrOutput { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }

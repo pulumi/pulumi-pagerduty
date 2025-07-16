@@ -33,7 +33,6 @@ import * as utilities from "./utilities";
  *     dataType: "string",
  *     fieldType: "single_value_fixed",
  *     description: "The deployment tier of the service",
- *     defaultValue: JSON.stringify("production"),
  *     fieldOptions: [
  *         {
  *             value: "production",
@@ -74,7 +73,6 @@ import * as utilities from "./utilities";
  *     dataType: "boolean",
  *     fieldType: "single_value",
  *     description: "Whether this is a critical service",
- *     defaultValue: JSON.stringify(true),
  * });
  * // Integer field
  * const priority = new pagerduty.ServiceCustomField("priority", {
@@ -83,7 +81,6 @@ import * as utilities from "./utilities";
  *     dataType: "integer",
  *     fieldType: "single_value",
  *     description: "Service priority level",
- *     defaultValue: JSON.stringify(1),
  * });
  * ```
  *
@@ -128,7 +125,7 @@ export class ServiceCustomField extends pulumi.CustomResource {
      */
     public readonly dataType!: pulumi.Output<string>;
     /**
-     * The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+     * Default value for the field.
      */
     public readonly defaultValue!: pulumi.Output<string | undefined>;
     /**
@@ -230,7 +227,7 @@ export interface ServiceCustomFieldState {
      */
     dataType?: pulumi.Input<string>;
     /**
-     * The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+     * Default value for the field.
      */
     defaultValue?: pulumi.Input<string>;
     /**
@@ -281,7 +278,7 @@ export interface ServiceCustomFieldArgs {
      */
     dataType: pulumi.Input<string>;
     /**
-     * The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+     * Default value for the field.
      */
     defaultValue?: pulumi.Input<string>;
     /**

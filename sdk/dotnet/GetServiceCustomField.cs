@@ -121,9 +121,6 @@ namespace Pulumi.Pagerduty
         /// The data type of the field option.
         /// </summary>
         public readonly string DataType;
-        /// <summary>
-        /// The default value for the custom field, if any.
-        /// </summary>
         public readonly string DefaultValue;
         /// <summary>
         /// A description of the data this field contains.

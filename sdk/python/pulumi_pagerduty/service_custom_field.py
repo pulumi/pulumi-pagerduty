@@ -35,7 +35,7 @@ class ServiceCustomFieldArgs:
         :param pulumi.Input[builtins.str] data_type: The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
         :param pulumi.Input[builtins.str] display_name: The human-readable name of the field. Must be unique across an account.
         :param pulumi.Input[builtins.str] field_type: The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
-        :param pulumi.Input[builtins.str] default_value: The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+        :param pulumi.Input[builtins.str] default_value: Default value for the field.
         :param pulumi.Input[builtins.str] description: A description of the data this field contains.
         :param pulumi.Input[builtins.bool] enabled: Whether the field is enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCustomFieldFieldOptionArgs']]] field_options: Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.
@@ -95,7 +95,7 @@ class ServiceCustomFieldArgs:
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+        Default value for the field.
         """
         return pulumi.get(self, "default_value")
 
@@ -169,7 +169,7 @@ class _ServiceCustomFieldState:
         """
         Input properties used for looking up and filtering ServiceCustomField resources.
         :param pulumi.Input[builtins.str] data_type: The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
-        :param pulumi.Input[builtins.str] default_value: The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+        :param pulumi.Input[builtins.str] default_value: Default value for the field.
         :param pulumi.Input[builtins.str] description: A description of the data this field contains.
         :param pulumi.Input[builtins.str] display_name: The human-readable name of the field. Must be unique across an account.
         :param pulumi.Input[builtins.bool] enabled: Whether the field is enabled. Defaults to `true`.
@@ -220,7 +220,7 @@ class _ServiceCustomFieldState:
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+        Default value for the field.
         """
         return pulumi.get(self, "default_value")
 
@@ -363,7 +363,6 @@ class ServiceCustomField(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import json
         import pulumi_pagerduty as pagerduty
 
         # Simple string field
@@ -380,7 +379,6 @@ class ServiceCustomField(pulumi.CustomResource):
             data_type="string",
             field_type="single_value_fixed",
             description="The deployment tier of the service",
-            default_value=json.dumps("production"),
             field_options=[
                 {
                     "value": "production",
@@ -418,16 +416,14 @@ class ServiceCustomField(pulumi.CustomResource):
             display_name="Is Critical",
             data_type="boolean",
             field_type="single_value",
-            description="Whether this is a critical service",
-            default_value=json.dumps(True))
+            description="Whether this is a critical service")
         # Integer field
         priority = pagerduty.ServiceCustomField("priority",
             name="priority_level",
             display_name="Priority Level",
             data_type="integer",
             field_type="single_value",
-            description="Service priority level",
-            default_value=json.dumps(1))
+            description="Service priority level")
         ```
 
         ## Import
@@ -441,7 +437,7 @@ class ServiceCustomField(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] data_type: The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
-        :param pulumi.Input[builtins.str] default_value: The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+        :param pulumi.Input[builtins.str] default_value: Default value for the field.
         :param pulumi.Input[builtins.str] description: A description of the data this field contains.
         :param pulumi.Input[builtins.str] display_name: The human-readable name of the field. Must be unique across an account.
         :param pulumi.Input[builtins.bool] enabled: Whether the field is enabled. Defaults to `true`.
@@ -465,7 +461,6 @@ class ServiceCustomField(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import json
         import pulumi_pagerduty as pagerduty
 
         # Simple string field
@@ -482,7 +477,6 @@ class ServiceCustomField(pulumi.CustomResource):
             data_type="string",
             field_type="single_value_fixed",
             description="The deployment tier of the service",
-            default_value=json.dumps("production"),
             field_options=[
                 {
                     "value": "production",
@@ -520,16 +514,14 @@ class ServiceCustomField(pulumi.CustomResource):
             display_name="Is Critical",
             data_type="boolean",
             field_type="single_value",
-            description="Whether this is a critical service",
-            default_value=json.dumps(True))
+            description="Whether this is a critical service")
         # Integer field
         priority = pagerduty.ServiceCustomField("priority",
             name="priority_level",
             display_name="Priority Level",
             data_type="integer",
             field_type="single_value",
-            description="Service priority level",
-            default_value=json.dumps(1))
+            description="Service priority level")
         ```
 
         ## Import
@@ -618,7 +610,7 @@ class ServiceCustomField(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] data_type: The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
-        :param pulumi.Input[builtins.str] default_value: The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+        :param pulumi.Input[builtins.str] default_value: Default value for the field.
         :param pulumi.Input[builtins.str] description: A description of the data this field contains.
         :param pulumi.Input[builtins.str] display_name: The human-readable name of the field. Must be unique across an account.
         :param pulumi.Input[builtins.bool] enabled: Whether the field is enabled. Defaults to `true`.
@@ -659,7 +651,7 @@ class ServiceCustomField(pulumi.CustomResource):
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The default value for the field. Must be provided as a JSON-encoded string matching the field's data type.
+        Default value for the field.
         """
         return pulumi.get(self, "default_value")
 

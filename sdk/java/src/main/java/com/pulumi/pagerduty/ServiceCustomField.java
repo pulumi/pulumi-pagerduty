@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.ServiceCustomField;
  * import com.pulumi.pagerduty.ServiceCustomFieldArgs;
  * import com.pulumi.pagerduty.inputs.ServiceCustomFieldFieldOptionArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -66,8 +65,6 @@ import javax.annotation.Nullable;
  *             .dataType("string")
  *             .fieldType("single_value_fixed")
  *             .description("The deployment tier of the service")
- *             .defaultValue(serializeJson(
- *                 "production"))
  *             .fieldOptions(            
  *                 ServiceCustomFieldFieldOptionArgs.builder()
  *                     .value("production")
@@ -108,8 +105,6 @@ import javax.annotation.Nullable;
  *             .dataType("boolean")
  *             .fieldType("single_value")
  *             .description("Whether this is a critical service")
- *             .defaultValue(serializeJson(
- *                 true))
  *             .build());
  * 
  *         // Integer field
@@ -119,8 +114,6 @@ import javax.annotation.Nullable;
  *             .dataType("integer")
  *             .fieldType("single_value")
  *             .description("Service priority level")
- *             .defaultValue(serializeJson(
- *                 1))
  *             .build());
  * 
  *     }
@@ -155,14 +148,14 @@ public class ServiceCustomField extends com.pulumi.resources.CustomResource {
         return this.dataType;
     }
     /**
-     * The default value for the field. Must be provided as a JSON-encoded string matching the field&#39;s data type.
+     * Default value for the field.
      * 
      */
     @Export(name="defaultValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultValue;
 
     /**
-     * @return The default value for the field. Must be provided as a JSON-encoded string matching the field&#39;s data type.
+     * @return Default value for the field.
      * 
      */
     public Output<Optional<String>> defaultValue() {

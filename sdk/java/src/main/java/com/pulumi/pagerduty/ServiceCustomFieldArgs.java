@@ -35,14 +35,14 @@ public final class ServiceCustomFieldArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The default value for the field. Must be provided as a JSON-encoded string matching the field&#39;s data type.
+     * Default value for the field.
      * 
      */
     @Import(name="defaultValue")
     private @Nullable Output<String> defaultValue;
 
     /**
-     * @return The default value for the field. Must be provided as a JSON-encoded string matching the field&#39;s data type.
+     * @return Default value for the field.
      * 
      */
     public Optional<Output<String>> defaultValue() {
@@ -192,7 +192,7 @@ public final class ServiceCustomFieldArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultValue The default value for the field. Must be provided as a JSON-encoded string matching the field&#39;s data type.
+         * @param defaultValue Default value for the field.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class ServiceCustomFieldArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultValue The default value for the field. Must be provided as a JSON-encoded string matching the field&#39;s data type.
+         * @param defaultValue Default value for the field.
          * 
          * @return builder
          * 

@@ -45,9 +45,6 @@ export interface GetServiceCustomFieldResult {
      * The data type of the field option.
      */
     readonly dataType: string;
-    /**
-     * The default value for the custom field, if any.
-     */
     readonly defaultValue: string;
     /**
      * A description of the data this field contains.

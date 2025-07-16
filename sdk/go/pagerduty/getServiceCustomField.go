@@ -57,8 +57,7 @@ type LookupServiceCustomFieldArgs struct {
 // A collection of values returned by getServiceCustomField.
 type LookupServiceCustomFieldResult struct {
 	// The data type of the field option.
-	DataType string `pulumi:"dataType"`
-	// The default value for the custom field, if any.
+	DataType     string `pulumi:"dataType"`
 	DefaultValue string `pulumi:"defaultValue"`
 	// A description of the data this field contains.
 	Description string `pulumi:"description"`
@@ -120,7 +119,6 @@ func (o LookupServiceCustomFieldResultOutput) DataType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceCustomFieldResult) string { return v.DataType }).(pulumi.StringOutput)
 }
 
-// The default value for the custom field, if any.
 func (o LookupServiceCustomFieldResultOutput) DefaultValue() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceCustomFieldResult) string { return v.DefaultValue }).(pulumi.StringOutput)
 }

@@ -15,6 +15,7 @@ from .automation_actions_runner import *
 from .automation_actions_runner_team_association import *
 from .business_service import *
 from .business_service_subscriber import *
+from .enablement import *
 from .escalation_policy import *
 from .event_orchestration import *
 from .event_orchestration_global import *
@@ -175,6 +176,14 @@ _utilities.register(
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber": "BusinessServiceSubscriber"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/enablement",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/enablement:Enablement": "Enablement"
   }
  },
  {

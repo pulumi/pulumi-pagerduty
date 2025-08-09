@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BusinessService{}
 	case "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber":
 		r = &BusinessServiceSubscriber{}
+	case "pagerduty:index/enablement:Enablement":
+		r = &Enablement{}
 	case "pagerduty:index/escalationPolicy:EscalationPolicy":
 		r = &EscalationPolicy{}
 	case "pagerduty:index/eventOrchestration:EventOrchestration":
@@ -193,6 +195,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"pagerduty",
 		"index/businessServiceSubscriber",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/enablement",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

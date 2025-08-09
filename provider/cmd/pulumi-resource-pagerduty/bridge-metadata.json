@@ -54,6 +54,10 @@
                 "current": "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber",
                 "majorVersion": 4
             },
+            "pagerduty_enablement": {
+                "current": "pagerduty:index/enablement:Enablement",
+                "majorVersion": 4
+            },
             "pagerduty_escalation_policy": {
                 "current": "pagerduty:index/escalationPolicy:EscalationPolicy",
                 "majorVersion": 4,
@@ -1337,6 +1341,7 @@
             "pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation": 0,
             "pagerduty:index/businessService:BusinessService": 1,
             "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber": 0,
+            "pagerduty:index/enablement:Enablement": 1,
             "pagerduty:index/escalationPolicy:EscalationPolicy": 0,
             "pagerduty:index/eventOrchestration:EventOrchestration": 0,
             "pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal": 0,

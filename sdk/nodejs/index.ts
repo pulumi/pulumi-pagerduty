@@ -50,6 +50,11 @@ export type BusinessServiceSubscriber = import("./businessServiceSubscriber").Bu
 export const BusinessServiceSubscriber: typeof import("./businessServiceSubscriber").BusinessServiceSubscriber = null as any;
 utilities.lazyLoad(exports, ["BusinessServiceSubscriber"], () => require("./businessServiceSubscriber"));
 
+export { EnablementArgs, EnablementState } from "./enablement";
+export type Enablement = import("./enablement").Enablement;
+export const Enablement: typeof import("./enablement").Enablement = null as any;
+utilities.lazyLoad(exports, ["Enablement"], () => require("./enablement"));
+
 export { EscalationPolicyArgs, EscalationPolicyState } from "./escalationPolicy";
 export type EscalationPolicy = import("./escalationPolicy").EscalationPolicy;
 export const EscalationPolicy: typeof import("./escalationPolicy").EscalationPolicy = null as any;
@@ -465,6 +470,8 @@ const _module = {
                 return new BusinessService(name, <any>undefined, { urn })
             case "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber":
                 return new BusinessServiceSubscriber(name, <any>undefined, { urn })
+            case "pagerduty:index/enablement:Enablement":
+                return new Enablement(name, <any>undefined, { urn })
             case "pagerduty:index/escalationPolicy:EscalationPolicy":
                 return new EscalationPolicy(name, <any>undefined, { urn })
             case "pagerduty:index/eventOrchestration:EventOrchestration":
@@ -559,6 +566,7 @@ pulumi.runtime.registerResourceModule("pagerduty", "index/automationActionsRunne
 pulumi.runtime.registerResourceModule("pagerduty", "index/automationActionsRunnerTeamAssociation", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/businessService", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/businessServiceSubscriber", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/enablement", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/escalationPolicy", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestration", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationGlobal", _module)

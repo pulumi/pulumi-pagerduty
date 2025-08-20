@@ -11443,7 +11443,7 @@
                 "properties": {
                     "__self__": {
                         "type": "ref",
-                        "$ref": "#/resources/pulumi:providers:pagerduty"
+                        "$ref": "#/provider"
                     }
                 },
                 "type": "pulumi:providers:pagerduty/terraformConfig",

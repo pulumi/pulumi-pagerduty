@@ -123,48 +123,47 @@ export class ServiceCustomField extends pulumi.CustomResource {
     /**
      * The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
      */
-    public readonly dataType!: pulumi.Output<string>;
+    declare public readonly dataType: pulumi.Output<string>;
     /**
      * Default value for the field.
      */
-    public readonly defaultValue!: pulumi.Output<string | undefined>;
+    declare public readonly defaultValue: pulumi.Output<string | undefined>;
     /**
      * A description of the data this field contains.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The human-readable name of the field. Must be unique across an account.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Whether the field is enabled. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Configuration block for defining options for `singleValueFixed` or `multiValueFixed` field types. Can be specified multiple times for multiple options.
      */
-    public readonly fieldOptions!: pulumi.Output<outputs.ServiceCustomFieldFieldOption[] | undefined>;
+    declare public readonly fieldOptions: pulumi.Output<outputs.ServiceCustomFieldFieldOption[] | undefined>;
     /**
      * The type of field. Must be one of: `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      */
-    public readonly fieldType!: pulumi.Output<string>;
+    declare public readonly fieldType: pulumi.Output<string>;
     /**
      * The name of the field. May include ASCII characters, specifically lowercase letters, digits, and underscores. Must be unique and cannot be changed once created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The API show URL at which the object is accessible
      */
-    public /*out*/ readonly self!: pulumi.Output<string>;
+    declare public /*out*/ readonly self: pulumi.Output<string>;
     /**
-     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary
-     * labeling of an entity in a client. In many cases, this will be identical to display_name
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
      */
-    public /*out*/ readonly summary!: pulumi.Output<string>;
+    declare public /*out*/ readonly summary: pulumi.Output<string>;
     /**
      * API object type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ServiceCustomField resource with the given unique name, arguments, and options.
@@ -179,36 +178,36 @@ export class ServiceCustomField extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceCustomFieldState | undefined;
-            resourceInputs["dataType"] = state ? state.dataType : undefined;
-            resourceInputs["defaultValue"] = state ? state.defaultValue : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["fieldOptions"] = state ? state.fieldOptions : undefined;
-            resourceInputs["fieldType"] = state ? state.fieldType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["self"] = state ? state.self : undefined;
-            resourceInputs["summary"] = state ? state.summary : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["dataType"] = state?.dataType;
+            resourceInputs["defaultValue"] = state?.defaultValue;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["fieldOptions"] = state?.fieldOptions;
+            resourceInputs["fieldType"] = state?.fieldType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["self"] = state?.self;
+            resourceInputs["summary"] = state?.summary;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ServiceCustomFieldArgs | undefined;
-            if ((!args || args.dataType === undefined) && !opts.urn) {
+            if (args?.dataType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataType'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.fieldType === undefined) && !opts.urn) {
+            if (args?.fieldType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fieldType'");
             }
-            resourceInputs["dataType"] = args ? args.dataType : undefined;
-            resourceInputs["defaultValue"] = args ? args.defaultValue : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["fieldOptions"] = args ? args.fieldOptions : undefined;
-            resourceInputs["fieldType"] = args ? args.fieldType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["dataType"] = args?.dataType;
+            resourceInputs["defaultValue"] = args?.defaultValue;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["fieldOptions"] = args?.fieldOptions;
+            resourceInputs["fieldType"] = args?.fieldType;
+            resourceInputs["name"] = args?.name;
             resourceInputs["self"] = undefined /*out*/;
             resourceInputs["summary"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -259,8 +258,7 @@ export interface ServiceCustomFieldState {
      */
     self?: pulumi.Input<string>;
     /**
-     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary
-     * labeling of an entity in a client. In many cases, this will be identical to display_name
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
      */
     summary?: pulumi.Input<string>;
     /**

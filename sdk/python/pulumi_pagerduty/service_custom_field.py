@@ -176,8 +176,7 @@ class _ServiceCustomFieldState:
         :param pulumi.Input[_builtins.str] field_type: The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
         :param pulumi.Input[_builtins.str] name: The name of the field. May include ASCII characters, specifically lowercase letters, digits, and underscores. Must be unique and cannot be changed once created.
         :param pulumi.Input[_builtins.str] self: The API show URL at which the object is accessible
-        :param pulumi.Input[_builtins.str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary
-               labeling of an entity in a client. In many cases, this will be identical to display_name
+        :param pulumi.Input[_builtins.str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
         :param pulumi.Input[_builtins.str] type: API object type
         """
         if data_type is not None:
@@ -315,8 +314,7 @@ class _ServiceCustomFieldState:
     @pulumi.getter
     def summary(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A short-form, server-generated string that provides succinct, important information about an object suitable for primary
-        labeling of an entity in a client. In many cases, this will be identical to display_name
+        A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
         """
         return pulumi.get(self, "summary")
 
@@ -617,8 +615,7 @@ class ServiceCustomField(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] field_type: The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
         :param pulumi.Input[_builtins.str] name: The name of the field. May include ASCII characters, specifically lowercase letters, digits, and underscores. Must be unique and cannot be changed once created.
         :param pulumi.Input[_builtins.str] self: The API show URL at which the object is accessible
-        :param pulumi.Input[_builtins.str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary
-               labeling of an entity in a client. In many cases, this will be identical to display_name
+        :param pulumi.Input[_builtins.str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
         :param pulumi.Input[_builtins.str] type: API object type
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -714,8 +711,7 @@ class ServiceCustomField(pulumi.CustomResource):
     @pulumi.getter
     def summary(self) -> pulumi.Output[_builtins.str]:
         """
-        A short-form, server-generated string that provides succinct, important information about an object suitable for primary
-        labeling of an entity in a client. In many cases, this will be identical to display_name
+        A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
         """
         return pulumi.get(self, "summary")
 

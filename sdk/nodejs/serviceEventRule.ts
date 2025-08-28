@@ -120,31 +120,31 @@ export class ServiceEventRule extends pulumi.CustomResource {
     /**
      * Actions to apply to an event if the conditions match.
      */
-    public readonly actions!: pulumi.Output<outputs.ServiceEventRuleActions | undefined>;
+    declare public readonly actions: pulumi.Output<outputs.ServiceEventRuleActions | undefined>;
     /**
      * Conditions evaluated to check if an event matches this event rule.
      */
-    public readonly conditions!: pulumi.Output<outputs.ServiceEventRuleConditions | undefined>;
+    declare public readonly conditions: pulumi.Output<outputs.ServiceEventRuleConditions | undefined>;
     /**
      * Indicates whether the rule is disabled and would therefore not be evaluated.
      */
-    public readonly disabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly disabled: pulumi.Output<boolean | undefined>;
     /**
      * Position/index of the rule within the service.
      */
-    public readonly position!: pulumi.Output<number | undefined>;
+    declare public readonly position: pulumi.Output<number | undefined>;
     /**
      * The ID of the service that the rule belongs to.
      */
-    public readonly service!: pulumi.Output<string>;
+    declare public readonly service: pulumi.Output<string>;
     /**
      * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
      */
-    public readonly timeFrame!: pulumi.Output<outputs.ServiceEventRuleTimeFrame | undefined>;
+    declare public readonly timeFrame: pulumi.Output<outputs.ServiceEventRuleTimeFrame | undefined>;
     /**
      * Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
      */
-    public readonly variables!: pulumi.Output<outputs.ServiceEventRuleVariable[] | undefined>;
+    declare public readonly variables: pulumi.Output<outputs.ServiceEventRuleVariable[] | undefined>;
 
     /**
      * Create a ServiceEventRule resource with the given unique name, arguments, and options.
@@ -159,25 +159,25 @@ export class ServiceEventRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEventRuleState | undefined;
-            resourceInputs["actions"] = state ? state.actions : undefined;
-            resourceInputs["conditions"] = state ? state.conditions : undefined;
-            resourceInputs["disabled"] = state ? state.disabled : undefined;
-            resourceInputs["position"] = state ? state.position : undefined;
-            resourceInputs["service"] = state ? state.service : undefined;
-            resourceInputs["timeFrame"] = state ? state.timeFrame : undefined;
-            resourceInputs["variables"] = state ? state.variables : undefined;
+            resourceInputs["actions"] = state?.actions;
+            resourceInputs["conditions"] = state?.conditions;
+            resourceInputs["disabled"] = state?.disabled;
+            resourceInputs["position"] = state?.position;
+            resourceInputs["service"] = state?.service;
+            resourceInputs["timeFrame"] = state?.timeFrame;
+            resourceInputs["variables"] = state?.variables;
         } else {
             const args = argsOrState as ServiceEventRuleArgs | undefined;
-            if ((!args || args.service === undefined) && !opts.urn) {
+            if (args?.service === undefined && !opts.urn) {
                 throw new Error("Missing required property 'service'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["disabled"] = args ? args.disabled : undefined;
-            resourceInputs["position"] = args ? args.position : undefined;
-            resourceInputs["service"] = args ? args.service : undefined;
-            resourceInputs["timeFrame"] = args ? args.timeFrame : undefined;
-            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["conditions"] = args?.conditions;
+            resourceInputs["disabled"] = args?.disabled;
+            resourceInputs["position"] = args?.position;
+            resourceInputs["service"] = args?.service;
+            resourceInputs["timeFrame"] = args?.timeFrame;
+            resourceInputs["variables"] = args?.variables;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceEventRule.__pulumiType, name, resourceInputs, opts);

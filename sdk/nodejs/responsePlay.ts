@@ -83,52 +83,52 @@ export class ResponsePlay extends pulumi.CustomResource {
     /**
      * The telephone number that will be set as the conference number for any incident on which this response play is run.
      */
-    public readonly conferenceNumber!: pulumi.Output<string | undefined>;
+    declare public readonly conferenceNumber: pulumi.Output<string | undefined>;
     /**
      * The URL that will be set as the conference URL for any incident on which this response play is run.
      */
-    public readonly conferenceUrl!: pulumi.Output<string | undefined>;
+    declare public readonly conferenceUrl: pulumi.Output<string | undefined>;
     /**
      * A human-friendly description of the response play.
      * If not set, a placeholder of "Managed by Pulumi" will be set.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
      */
-    public readonly from!: pulumi.Output<string>;
+    declare public readonly from: pulumi.Output<string>;
     /**
      * The name of the response play.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
      */
-    public readonly responders!: pulumi.Output<outputs.ResponsePlayResponder[] | undefined>;
+    declare public readonly responders: pulumi.Output<outputs.ResponsePlayResponder[] | undefined>;
     /**
      * The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
      */
-    public readonly respondersMessage!: pulumi.Output<string | undefined>;
+    declare public readonly respondersMessage: pulumi.Output<string | undefined>;
     /**
      * String representing how this response play is allowed to be run. Valid options are:
      */
-    public readonly runnability!: pulumi.Output<string | undefined>;
+    declare public readonly runnability: pulumi.Output<string | undefined>;
     /**
      * A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
      */
-    public readonly subscribers!: pulumi.Output<outputs.ResponsePlaySubscriber[] | undefined>;
+    declare public readonly subscribers: pulumi.Output<outputs.ResponsePlaySubscriber[] | undefined>;
     /**
      * The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
      */
-    public readonly subscribersMessage!: pulumi.Output<string | undefined>;
+    declare public readonly subscribersMessage: pulumi.Output<string | undefined>;
     /**
      * The ID of the team associated with the response play.
      */
-    public readonly team!: pulumi.Output<string | undefined>;
+    declare public readonly team: pulumi.Output<string | undefined>;
     /**
      * A string that determines the schema of the object. If not set, the default value is "responsePlay".
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a ResponsePlay resource with the given unique name, arguments, and options.
@@ -143,35 +143,35 @@ export class ResponsePlay extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResponsePlayState | undefined;
-            resourceInputs["conferenceNumber"] = state ? state.conferenceNumber : undefined;
-            resourceInputs["conferenceUrl"] = state ? state.conferenceUrl : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["from"] = state ? state.from : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["responders"] = state ? state.responders : undefined;
-            resourceInputs["respondersMessage"] = state ? state.respondersMessage : undefined;
-            resourceInputs["runnability"] = state ? state.runnability : undefined;
-            resourceInputs["subscribers"] = state ? state.subscribers : undefined;
-            resourceInputs["subscribersMessage"] = state ? state.subscribersMessage : undefined;
-            resourceInputs["team"] = state ? state.team : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["conferenceNumber"] = state?.conferenceNumber;
+            resourceInputs["conferenceUrl"] = state?.conferenceUrl;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["from"] = state?.from;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["responders"] = state?.responders;
+            resourceInputs["respondersMessage"] = state?.respondersMessage;
+            resourceInputs["runnability"] = state?.runnability;
+            resourceInputs["subscribers"] = state?.subscribers;
+            resourceInputs["subscribersMessage"] = state?.subscribersMessage;
+            resourceInputs["team"] = state?.team;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ResponsePlayArgs | undefined;
-            if ((!args || args.from === undefined) && !opts.urn) {
+            if (args?.from === undefined && !opts.urn) {
                 throw new Error("Missing required property 'from'");
             }
-            resourceInputs["conferenceNumber"] = args ? args.conferenceNumber : undefined;
-            resourceInputs["conferenceUrl"] = args ? args.conferenceUrl : undefined;
-            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            resourceInputs["from"] = args ? args.from : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["responders"] = args ? args.responders : undefined;
-            resourceInputs["respondersMessage"] = args ? args.respondersMessage : undefined;
-            resourceInputs["runnability"] = args ? args.runnability : undefined;
-            resourceInputs["subscribers"] = args ? args.subscribers : undefined;
-            resourceInputs["subscribersMessage"] = args ? args.subscribersMessage : undefined;
-            resourceInputs["team"] = args ? args.team : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["conferenceNumber"] = args?.conferenceNumber;
+            resourceInputs["conferenceUrl"] = args?.conferenceUrl;
+            resourceInputs["description"] = (args?.description) ?? "Managed by Pulumi";
+            resourceInputs["from"] = args?.from;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["responders"] = args?.responders;
+            resourceInputs["respondersMessage"] = args?.respondersMessage;
+            resourceInputs["runnability"] = args?.runnability;
+            resourceInputs["subscribers"] = args?.subscribers;
+            resourceInputs["subscribersMessage"] = args?.subscribersMessage;
+            resourceInputs["team"] = args?.team;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResponsePlay.__pulumiType, name, resourceInputs, opts);

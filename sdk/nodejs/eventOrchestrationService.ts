@@ -209,19 +209,19 @@ export class EventOrchestrationService extends pulumi.CustomResource {
     /**
      * the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      */
-    public readonly catchAll!: pulumi.Output<outputs.EventOrchestrationServiceCatchAll>;
+    declare public readonly catchAll: pulumi.Output<outputs.EventOrchestrationServiceCatchAll>;
     /**
      * Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
      */
-    public readonly enableEventOrchestrationForService!: pulumi.Output<boolean>;
+    declare public readonly enableEventOrchestrationForService: pulumi.Output<boolean>;
     /**
      * ID of the Service to which this Service Orchestration belongs to.
      */
-    public readonly service!: pulumi.Output<string>;
+    declare public readonly service: pulumi.Output<string>;
     /**
      * A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
      */
-    public readonly sets!: pulumi.Output<outputs.EventOrchestrationServiceSet[]>;
+    declare public readonly sets: pulumi.Output<outputs.EventOrchestrationServiceSet[]>;
 
     /**
      * Create a EventOrchestrationService resource with the given unique name, arguments, and options.
@@ -236,25 +236,25 @@ export class EventOrchestrationService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventOrchestrationServiceState | undefined;
-            resourceInputs["catchAll"] = state ? state.catchAll : undefined;
-            resourceInputs["enableEventOrchestrationForService"] = state ? state.enableEventOrchestrationForService : undefined;
-            resourceInputs["service"] = state ? state.service : undefined;
-            resourceInputs["sets"] = state ? state.sets : undefined;
+            resourceInputs["catchAll"] = state?.catchAll;
+            resourceInputs["enableEventOrchestrationForService"] = state?.enableEventOrchestrationForService;
+            resourceInputs["service"] = state?.service;
+            resourceInputs["sets"] = state?.sets;
         } else {
             const args = argsOrState as EventOrchestrationServiceArgs | undefined;
-            if ((!args || args.catchAll === undefined) && !opts.urn) {
+            if (args?.catchAll === undefined && !opts.urn) {
                 throw new Error("Missing required property 'catchAll'");
             }
-            if ((!args || args.service === undefined) && !opts.urn) {
+            if (args?.service === undefined && !opts.urn) {
                 throw new Error("Missing required property 'service'");
             }
-            if ((!args || args.sets === undefined) && !opts.urn) {
+            if (args?.sets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sets'");
             }
-            resourceInputs["catchAll"] = args ? args.catchAll : undefined;
-            resourceInputs["enableEventOrchestrationForService"] = args ? args.enableEventOrchestrationForService : undefined;
-            resourceInputs["service"] = args ? args.service : undefined;
-            resourceInputs["sets"] = args ? args.sets : undefined;
+            resourceInputs["catchAll"] = args?.catchAll;
+            resourceInputs["enableEventOrchestrationForService"] = args?.enableEventOrchestrationForService;
+            resourceInputs["service"] = args?.service;
+            resourceInputs["sets"] = args?.sets;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventOrchestrationService.__pulumiType, name, resourceInputs, opts);

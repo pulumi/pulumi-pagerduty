@@ -97,15 +97,15 @@ export class WebhookSubscription extends pulumi.CustomResource {
     /**
      * Determines whether the subscription will produce webhook events.
      */
-    public readonly active!: pulumi.Output<boolean>;
+    declare public readonly active: pulumi.Output<boolean>;
     /**
      * The object describing where to send the webhooks.
      */
-    public readonly deliveryMethods!: pulumi.Output<outputs.WebhookSubscriptionDeliveryMethod[]>;
+    declare public readonly deliveryMethods: pulumi.Output<outputs.WebhookSubscriptionDeliveryMethod[]>;
     /**
      * A short description of the webhook subscription
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A set of outbound event types the webhook will receive. The follow event types are possible: 
      * * `incident.acknowledged`
@@ -122,15 +122,15 @@ export class WebhookSubscription extends pulumi.CustomResource {
      * * `incident.triggered`
      * * `incident.unacknowledged`
      */
-    public readonly events!: pulumi.Output<string[]>;
+    declare public readonly events: pulumi.Output<string[]>;
     /**
      * determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `serviceReference`, `teamReference` and `accountReference`.
      */
-    public readonly filters!: pulumi.Output<outputs.WebhookSubscriptionFilter[]>;
+    declare public readonly filters: pulumi.Output<outputs.WebhookSubscriptionFilter[]>;
     /**
      * The type indicating the schema of the object. The provider sets this as `webhookSubscription`, which is currently the only acceptable value.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a WebhookSubscription resource with the given unique name, arguments, and options.
@@ -145,29 +145,29 @@ export class WebhookSubscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebhookSubscriptionState | undefined;
-            resourceInputs["active"] = state ? state.active : undefined;
-            resourceInputs["deliveryMethods"] = state ? state.deliveryMethods : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["events"] = state ? state.events : undefined;
-            resourceInputs["filters"] = state ? state.filters : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["active"] = state?.active;
+            resourceInputs["deliveryMethods"] = state?.deliveryMethods;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["events"] = state?.events;
+            resourceInputs["filters"] = state?.filters;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as WebhookSubscriptionArgs | undefined;
-            if ((!args || args.deliveryMethods === undefined) && !opts.urn) {
+            if (args?.deliveryMethods === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deliveryMethods'");
             }
-            if ((!args || args.events === undefined) && !opts.urn) {
+            if (args?.events === undefined && !opts.urn) {
                 throw new Error("Missing required property 'events'");
             }
-            if ((!args || args.filters === undefined) && !opts.urn) {
+            if (args?.filters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filters'");
             }
-            resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["deliveryMethods"] = args ? args.deliveryMethods : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["events"] = args ? args.events : undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["active"] = args?.active;
+            resourceInputs["deliveryMethods"] = args?.deliveryMethods;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["events"] = args?.events;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WebhookSubscription.__pulumiType, name, resourceInputs, opts);

@@ -61,19 +61,19 @@ export class MaintenanceWindow extends pulumi.CustomResource {
     /**
      * A description for the maintenance window.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
      */
-    public readonly endTime!: pulumi.Output<string>;
+    declare public readonly endTime: pulumi.Output<string>;
     /**
      * A list of service IDs to include in the maintenance window.
      */
-    public readonly services!: pulumi.Output<string[]>;
+    declare public readonly services: pulumi.Output<string[]>;
     /**
      * The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
      */
-    public readonly startTime!: pulumi.Output<string>;
+    declare public readonly startTime: pulumi.Output<string>;
 
     /**
      * Create a MaintenanceWindow resource with the given unique name, arguments, and options.
@@ -88,25 +88,25 @@ export class MaintenanceWindow extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MaintenanceWindowState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["endTime"] = state ? state.endTime : undefined;
-            resourceInputs["services"] = state ? state.services : undefined;
-            resourceInputs["startTime"] = state ? state.startTime : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["endTime"] = state?.endTime;
+            resourceInputs["services"] = state?.services;
+            resourceInputs["startTime"] = state?.startTime;
         } else {
             const args = argsOrState as MaintenanceWindowArgs | undefined;
-            if ((!args || args.endTime === undefined) && !opts.urn) {
+            if (args?.endTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endTime'");
             }
-            if ((!args || args.services === undefined) && !opts.urn) {
+            if (args?.services === undefined && !opts.urn) {
                 throw new Error("Missing required property 'services'");
             }
-            if ((!args || args.startTime === undefined) && !opts.urn) {
+            if (args?.startTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
-            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            resourceInputs["endTime"] = args ? args.endTime : undefined;
-            resourceInputs["services"] = args ? args.services : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["description"] = (args?.description) ?? "Managed by Pulumi";
+            resourceInputs["endTime"] = args?.endTime;
+            resourceInputs["services"] = args?.services;
+            resourceInputs["startTime"] = args?.startTime;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MaintenanceWindow.__pulumiType, name, resourceInputs, opts);

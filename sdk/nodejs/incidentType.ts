@@ -61,27 +61,27 @@ export class IncidentType extends pulumi.CustomResource {
     /**
      * A succinct description of the Incident Type.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the Incident Type. Usage of the prefixes PD, PagerDuty, or the suffixes Default, or (Default) is prohibited.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * State of this Incident Type object. Defaults to true if not provided.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The name of the Incident Type. Usage of the suffix `_default` is prohibited. This cannot be changed once the incident type has been created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The parent type of the Incident Type. Either name or id of the parent type can be used.
      */
-    public readonly parentType!: pulumi.Output<string>;
+    declare public readonly parentType: pulumi.Output<string>;
     /**
      * A string that determines the schema of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a IncidentType resource with the given unique name, arguments, and options.
@@ -96,25 +96,25 @@ export class IncidentType extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IncidentTypeState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parentType"] = state ? state.parentType : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parentType"] = state?.parentType;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as IncidentTypeArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.parentType === undefined) && !opts.urn) {
+            if (args?.parentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentType"] = args ? args.parentType : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentType"] = args?.parentType;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

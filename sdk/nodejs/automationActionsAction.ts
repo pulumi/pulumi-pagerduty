@@ -73,59 +73,59 @@ export class AutomationActionsAction extends pulumi.CustomResource {
     /**
      * The category of the action. The only allowed values are `diagnostic` and `remediation`.
      */
-    public readonly actionClassification!: pulumi.Output<string | undefined>;
+    declare public readonly actionClassification: pulumi.Output<string | undefined>;
     /**
      * Action Data block. Action Data is documented below.
      */
-    public readonly actionDataReference!: pulumi.Output<outputs.AutomationActionsActionActionDataReference>;
+    declare public readonly actionDataReference: pulumi.Output<outputs.AutomationActionsActionActionDataReference>;
     /**
      * The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
      */
-    public readonly actionType!: pulumi.Output<string>;
+    declare public readonly actionType: pulumi.Output<string>;
     /**
      * Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
      */
-    public readonly allowInvocationFromEventOrchestration!: pulumi.Output<string>;
+    declare public readonly allowInvocationFromEventOrchestration: pulumi.Output<string>;
     /**
      * Whether the action can be invoked manually by a user on the PagerDuty website.
      */
-    public readonly allowInvocationManually!: pulumi.Output<string>;
+    declare public readonly allowInvocationManually: pulumi.Output<string>;
     /**
      * The time action was created. Represented as an ISO 8601 timestamp.
      */
-    public readonly creationTime!: pulumi.Output<string>;
+    declare public readonly creationTime: pulumi.Output<string>;
     /**
      * The description of the action. Max length is 1024 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * If true, the action will be associated with every service.
      */
-    public readonly mapToAllServices!: pulumi.Output<boolean>;
+    declare public readonly mapToAllServices: pulumi.Output<boolean>;
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      */
-    public readonly modifyTime!: pulumi.Output<string>;
+    declare public readonly modifyTime: pulumi.Output<string>;
     /**
      * The name of the action. Max length is 255 characters.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether the action can be invoked on unresolved incidents.
      */
-    public readonly onlyInvocableOnUnresolvedIncidents!: pulumi.Output<boolean>;
+    declare public readonly onlyInvocableOnUnresolvedIncidents: pulumi.Output<boolean>;
     /**
      * The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
      */
-    public readonly runnerId!: pulumi.Output<string | undefined>;
+    declare public readonly runnerId: pulumi.Output<string | undefined>;
     /**
      * (Optional) The type of the runner associated with the action.
      */
-    public readonly runnerType!: pulumi.Output<string>;
+    declare public readonly runnerType: pulumi.Output<string>;
     /**
      * The type of object. The value returned will be `action`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a AutomationActionsAction resource with the given unique name, arguments, and options.
@@ -140,42 +140,42 @@ export class AutomationActionsAction extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutomationActionsActionState | undefined;
-            resourceInputs["actionClassification"] = state ? state.actionClassification : undefined;
-            resourceInputs["actionDataReference"] = state ? state.actionDataReference : undefined;
-            resourceInputs["actionType"] = state ? state.actionType : undefined;
-            resourceInputs["allowInvocationFromEventOrchestration"] = state ? state.allowInvocationFromEventOrchestration : undefined;
-            resourceInputs["allowInvocationManually"] = state ? state.allowInvocationManually : undefined;
-            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["mapToAllServices"] = state ? state.mapToAllServices : undefined;
-            resourceInputs["modifyTime"] = state ? state.modifyTime : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["onlyInvocableOnUnresolvedIncidents"] = state ? state.onlyInvocableOnUnresolvedIncidents : undefined;
-            resourceInputs["runnerId"] = state ? state.runnerId : undefined;
-            resourceInputs["runnerType"] = state ? state.runnerType : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["actionClassification"] = state?.actionClassification;
+            resourceInputs["actionDataReference"] = state?.actionDataReference;
+            resourceInputs["actionType"] = state?.actionType;
+            resourceInputs["allowInvocationFromEventOrchestration"] = state?.allowInvocationFromEventOrchestration;
+            resourceInputs["allowInvocationManually"] = state?.allowInvocationManually;
+            resourceInputs["creationTime"] = state?.creationTime;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["mapToAllServices"] = state?.mapToAllServices;
+            resourceInputs["modifyTime"] = state?.modifyTime;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["onlyInvocableOnUnresolvedIncidents"] = state?.onlyInvocableOnUnresolvedIncidents;
+            resourceInputs["runnerId"] = state?.runnerId;
+            resourceInputs["runnerType"] = state?.runnerType;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as AutomationActionsActionArgs | undefined;
-            if ((!args || args.actionDataReference === undefined) && !opts.urn) {
+            if (args?.actionDataReference === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionDataReference'");
             }
-            if ((!args || args.actionType === undefined) && !opts.urn) {
+            if (args?.actionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionType'");
             }
-            resourceInputs["actionClassification"] = args ? args.actionClassification : undefined;
-            resourceInputs["actionDataReference"] = args ? args.actionDataReference : undefined;
-            resourceInputs["actionType"] = args ? args.actionType : undefined;
-            resourceInputs["allowInvocationFromEventOrchestration"] = args ? args.allowInvocationFromEventOrchestration : undefined;
-            resourceInputs["allowInvocationManually"] = args ? args.allowInvocationManually : undefined;
-            resourceInputs["creationTime"] = args ? args.creationTime : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["mapToAllServices"] = args ? args.mapToAllServices : undefined;
-            resourceInputs["modifyTime"] = args ? args.modifyTime : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["onlyInvocableOnUnresolvedIncidents"] = args ? args.onlyInvocableOnUnresolvedIncidents : undefined;
-            resourceInputs["runnerId"] = args ? args.runnerId : undefined;
-            resourceInputs["runnerType"] = args ? args.runnerType : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["actionClassification"] = args?.actionClassification;
+            resourceInputs["actionDataReference"] = args?.actionDataReference;
+            resourceInputs["actionType"] = args?.actionType;
+            resourceInputs["allowInvocationFromEventOrchestration"] = args?.allowInvocationFromEventOrchestration;
+            resourceInputs["allowInvocationManually"] = args?.allowInvocationManually;
+            resourceInputs["creationTime"] = args?.creationTime;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["mapToAllServices"] = args?.mapToAllServices;
+            resourceInputs["modifyTime"] = args?.modifyTime;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["onlyInvocableOnUnresolvedIncidents"] = args?.onlyInvocableOnUnresolvedIncidents;
+            resourceInputs["runnerId"] = args?.runnerId;
+            resourceInputs["runnerType"] = args?.runnerType;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AutomationActionsAction.__pulumiType, name, resourceInputs, opts);

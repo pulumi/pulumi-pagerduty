@@ -92,48 +92,48 @@ export class IncidentTypeCustomField extends pulumi.CustomResource {
     /**
      * [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `dataType` is `singleValue`, otherwise must be `string`. Update
      */
-    public readonly dataType!: pulumi.Output<string>;
+    declare public readonly dataType: pulumi.Output<string>;
     /**
      * The default value to set when new incidents are created. Always specified as a string.
      */
-    public readonly defaultValue!: pulumi.Output<string | undefined>;
+    declare public readonly defaultValue: pulumi.Output<string | undefined>;
     /**
      * The description of the custom field.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the custom Type.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Whether the custom field is enabled. Defaults to true if not provided.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The options for the custom field. Can only be applied to fields with a type of `singleValueFixed` or `multiValueFixed`.
      */
-    public readonly fieldOptions!: pulumi.Output<string[] | undefined>;
+    declare public readonly fieldOptions: pulumi.Output<string[] | undefined>;
     /**
      * [Updating causes resource replacement] The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      */
-    public readonly fieldType!: pulumi.Output<string | undefined>;
+    declare public readonly fieldType: pulumi.Output<string | undefined>;
     /**
      * [Updating causes resource replacement] The id of the incident type the custom field is associated with.
      */
-    public readonly incidentType!: pulumi.Output<string>;
+    declare public readonly incidentType: pulumi.Output<string>;
     /**
      * [Updating causes resource replacement] The name of the custom field.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The API show URL at which the object is accessible.
      */
-    public /*out*/ readonly self!: pulumi.Output<string>;
+    declare public /*out*/ readonly self: pulumi.Output<string>;
     /**
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
      */
-    public /*out*/ readonly summary!: pulumi.Output<string>;
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly summary: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a IncidentTypeCustomField resource with the given unique name, arguments, and options.
@@ -148,38 +148,38 @@ export class IncidentTypeCustomField extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IncidentTypeCustomFieldState | undefined;
-            resourceInputs["dataType"] = state ? state.dataType : undefined;
-            resourceInputs["defaultValue"] = state ? state.defaultValue : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["fieldOptions"] = state ? state.fieldOptions : undefined;
-            resourceInputs["fieldType"] = state ? state.fieldType : undefined;
-            resourceInputs["incidentType"] = state ? state.incidentType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["self"] = state ? state.self : undefined;
-            resourceInputs["summary"] = state ? state.summary : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["dataType"] = state?.dataType;
+            resourceInputs["defaultValue"] = state?.defaultValue;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["fieldOptions"] = state?.fieldOptions;
+            resourceInputs["fieldType"] = state?.fieldType;
+            resourceInputs["incidentType"] = state?.incidentType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["self"] = state?.self;
+            resourceInputs["summary"] = state?.summary;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as IncidentTypeCustomFieldArgs | undefined;
-            if ((!args || args.dataType === undefined) && !opts.urn) {
+            if (args?.dataType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataType'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.incidentType === undefined) && !opts.urn) {
+            if (args?.incidentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'incidentType'");
             }
-            resourceInputs["dataType"] = args ? args.dataType : undefined;
-            resourceInputs["defaultValue"] = args ? args.defaultValue : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["fieldOptions"] = args ? args.fieldOptions : undefined;
-            resourceInputs["fieldType"] = args ? args.fieldType : undefined;
-            resourceInputs["incidentType"] = args ? args.incidentType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["dataType"] = args?.dataType;
+            resourceInputs["defaultValue"] = args?.defaultValue;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["fieldOptions"] = args?.fieldOptions;
+            resourceInputs["fieldType"] = args?.fieldType;
+            resourceInputs["incidentType"] = args?.incidentType;
+            resourceInputs["name"] = args?.name;
             resourceInputs["self"] = undefined /*out*/;
             resourceInputs["summary"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

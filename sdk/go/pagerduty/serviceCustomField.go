@@ -144,8 +144,7 @@ type ServiceCustomField struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The API show URL at which the object is accessible
 	Self pulumi.StringOutput `pulumi:"self"`
-	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary
-	// labeling of an entity in a client. In many cases, this will be identical to display_name
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
 	Summary pulumi.StringOutput `pulumi:"summary"`
 	// API object type
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -208,8 +207,7 @@ type serviceCustomFieldState struct {
 	Name *string `pulumi:"name"`
 	// The API show URL at which the object is accessible
 	Self *string `pulumi:"self"`
-	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary
-	// labeling of an entity in a client. In many cases, this will be identical to display_name
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
 	Summary *string `pulumi:"summary"`
 	// API object type
 	Type *string `pulumi:"type"`
@@ -234,8 +232,7 @@ type ServiceCustomFieldState struct {
 	Name pulumi.StringPtrInput
 	// The API show URL at which the object is accessible
 	Self pulumi.StringPtrInput
-	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary
-	// labeling of an entity in a client. In many cases, this will be identical to display_name
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
 	Summary pulumi.StringPtrInput
 	// API object type
 	Type pulumi.StringPtrInput
@@ -416,8 +413,7 @@ func (o ServiceCustomFieldOutput) Self() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceCustomField) pulumi.StringOutput { return v.Self }).(pulumi.StringOutput)
 }
 
-// A short-form, server-generated string that provides succinct, important information about an object suitable for primary
-// labeling of an entity in a client. In many cases, this will be identical to display_name
+// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
 func (o ServiceCustomFieldOutput) Summary() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceCustomField) pulumi.StringOutput { return v.Summary }).(pulumi.StringOutput)
 }

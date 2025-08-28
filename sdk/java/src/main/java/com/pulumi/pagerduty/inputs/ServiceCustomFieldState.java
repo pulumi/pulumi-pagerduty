@@ -154,16 +154,14 @@ public final class ServiceCustomFieldState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary
-     * labeling of an entity in a client. In many cases, this will be identical to display_name
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
      * 
      */
     @Import(name="summary")
     private @Nullable Output<String> summary;
 
     /**
-     * @return A short-form, server-generated string that provides succinct, important information about an object suitable for primary
-     * labeling of an entity in a client. In many cases, this will be identical to display_name
+     * @return A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
      * 
      */
     public Optional<Output<String>> summary() {
@@ -419,8 +417,7 @@ public final class ServiceCustomFieldState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param summary A short-form, server-generated string that provides succinct, important information about an object suitable for primary
-         * labeling of an entity in a client. In many cases, this will be identical to display_name
+         * @param summary A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
          * 
          * @return builder
          * 
@@ -431,8 +428,7 @@ public final class ServiceCustomFieldState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param summary A short-form, server-generated string that provides succinct, important information about an object suitable for primary
-         * labeling of an entity in a client. In many cases, this will be identical to display_name
+         * @param summary A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
          * 
          * @return builder
          * 

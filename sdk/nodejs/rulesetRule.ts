@@ -146,35 +146,35 @@ export class RulesetRule extends pulumi.CustomResource {
     /**
      * Actions to apply to an event if the conditions match.
      */
-    public readonly actions!: pulumi.Output<outputs.RulesetRuleActions | undefined>;
+    declare public readonly actions: pulumi.Output<outputs.RulesetRuleActions | undefined>;
     /**
      * Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
      */
-    public readonly catchAll!: pulumi.Output<boolean | undefined>;
+    declare public readonly catchAll: pulumi.Output<boolean | undefined>;
     /**
      * Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
      */
-    public readonly conditions!: pulumi.Output<outputs.RulesetRuleConditions | undefined>;
+    declare public readonly conditions: pulumi.Output<outputs.RulesetRuleConditions | undefined>;
     /**
      * Indicates whether the rule is disabled and would therefore not be evaluated.
      */
-    public readonly disabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly disabled: pulumi.Output<boolean | undefined>;
     /**
      * Position/index of the rule within the ruleset.
      */
-    public readonly position!: pulumi.Output<number | undefined>;
+    declare public readonly position: pulumi.Output<number | undefined>;
     /**
      * The ID of the ruleset that the rule belongs to.
      */
-    public readonly ruleset!: pulumi.Output<string>;
+    declare public readonly ruleset: pulumi.Output<string>;
     /**
      * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
      */
-    public readonly timeFrame!: pulumi.Output<outputs.RulesetRuleTimeFrame | undefined>;
+    declare public readonly timeFrame: pulumi.Output<outputs.RulesetRuleTimeFrame | undefined>;
     /**
      * Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
      */
-    public readonly variables!: pulumi.Output<outputs.RulesetRuleVariable[] | undefined>;
+    declare public readonly variables: pulumi.Output<outputs.RulesetRuleVariable[] | undefined>;
 
     /**
      * Create a RulesetRule resource with the given unique name, arguments, and options.
@@ -189,27 +189,27 @@ export class RulesetRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RulesetRuleState | undefined;
-            resourceInputs["actions"] = state ? state.actions : undefined;
-            resourceInputs["catchAll"] = state ? state.catchAll : undefined;
-            resourceInputs["conditions"] = state ? state.conditions : undefined;
-            resourceInputs["disabled"] = state ? state.disabled : undefined;
-            resourceInputs["position"] = state ? state.position : undefined;
-            resourceInputs["ruleset"] = state ? state.ruleset : undefined;
-            resourceInputs["timeFrame"] = state ? state.timeFrame : undefined;
-            resourceInputs["variables"] = state ? state.variables : undefined;
+            resourceInputs["actions"] = state?.actions;
+            resourceInputs["catchAll"] = state?.catchAll;
+            resourceInputs["conditions"] = state?.conditions;
+            resourceInputs["disabled"] = state?.disabled;
+            resourceInputs["position"] = state?.position;
+            resourceInputs["ruleset"] = state?.ruleset;
+            resourceInputs["timeFrame"] = state?.timeFrame;
+            resourceInputs["variables"] = state?.variables;
         } else {
             const args = argsOrState as RulesetRuleArgs | undefined;
-            if ((!args || args.ruleset === undefined) && !opts.urn) {
+            if (args?.ruleset === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleset'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["catchAll"] = args ? args.catchAll : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["disabled"] = args ? args.disabled : undefined;
-            resourceInputs["position"] = args ? args.position : undefined;
-            resourceInputs["ruleset"] = args ? args.ruleset : undefined;
-            resourceInputs["timeFrame"] = args ? args.timeFrame : undefined;
-            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["catchAll"] = args?.catchAll;
+            resourceInputs["conditions"] = args?.conditions;
+            resourceInputs["disabled"] = args?.disabled;
+            resourceInputs["position"] = args?.position;
+            resourceInputs["ruleset"] = args?.ruleset;
+            resourceInputs["timeFrame"] = args?.timeFrame;
+            resourceInputs["variables"] = args?.variables;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RulesetRule.__pulumiType, name, resourceInputs, opts);

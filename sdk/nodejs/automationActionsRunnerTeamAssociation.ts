@@ -69,11 +69,11 @@ export class AutomationActionsRunnerTeamAssociation extends pulumi.CustomResourc
     /**
      * Id of the runner.
      */
-    public readonly runnerId!: pulumi.Output<string>;
+    declare public readonly runnerId: pulumi.Output<string>;
     /**
      * Id of the team associated with the runner.
      */
-    public readonly teamId!: pulumi.Output<string>;
+    declare public readonly teamId: pulumi.Output<string>;
 
     /**
      * Create a AutomationActionsRunnerTeamAssociation resource with the given unique name, arguments, and options.
@@ -88,18 +88,18 @@ export class AutomationActionsRunnerTeamAssociation extends pulumi.CustomResourc
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutomationActionsRunnerTeamAssociationState | undefined;
-            resourceInputs["runnerId"] = state ? state.runnerId : undefined;
-            resourceInputs["teamId"] = state ? state.teamId : undefined;
+            resourceInputs["runnerId"] = state?.runnerId;
+            resourceInputs["teamId"] = state?.teamId;
         } else {
             const args = argsOrState as AutomationActionsRunnerTeamAssociationArgs | undefined;
-            if ((!args || args.runnerId === undefined) && !opts.urn) {
+            if (args?.runnerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runnerId'");
             }
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            resourceInputs["runnerId"] = args ? args.runnerId : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["runnerId"] = args?.runnerId;
+            resourceInputs["teamId"] = args?.teamId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AutomationActionsRunnerTeamAssociation.__pulumiType, name, resourceInputs, opts);

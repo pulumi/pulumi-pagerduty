@@ -48,7 +48,7 @@ export class ServiceDependency extends pulumi.CustomResource {
     /**
      * The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
      */
-    public readonly dependency!: pulumi.Output<outputs.ServiceDependencyDependency | undefined>;
+    declare public readonly dependency: pulumi.Output<outputs.ServiceDependencyDependency | undefined>;
 
     /**
      * Create a ServiceDependency resource with the given unique name, arguments, and options.
@@ -63,10 +63,10 @@ export class ServiceDependency extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceDependencyState | undefined;
-            resourceInputs["dependency"] = state ? state.dependency : undefined;
+            resourceInputs["dependency"] = state?.dependency;
         } else {
             const args = argsOrState as ServiceDependencyArgs | undefined;
-            resourceInputs["dependency"] = args ? args.dependency : undefined;
+            resourceInputs["dependency"] = args?.dependency;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceDependency.__pulumiType, name, resourceInputs, opts);

@@ -85,15 +85,15 @@ export class EventOrchestrationUnrouted extends pulumi.CustomResource {
     /**
      * the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      */
-    public readonly catchAll!: pulumi.Output<outputs.EventOrchestrationUnroutedCatchAll>;
+    declare public readonly catchAll: pulumi.Output<outputs.EventOrchestrationUnroutedCatchAll>;
     /**
      * The Event Orchestration to which this Unrouted Orchestration belongs to.
      */
-    public readonly eventOrchestration!: pulumi.Output<string>;
+    declare public readonly eventOrchestration: pulumi.Output<string>;
     /**
      * An Unrouted Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
      */
-    public readonly sets!: pulumi.Output<outputs.EventOrchestrationUnroutedSet[]>;
+    declare public readonly sets: pulumi.Output<outputs.EventOrchestrationUnroutedSet[]>;
 
     /**
      * Create a EventOrchestrationUnrouted resource with the given unique name, arguments, and options.
@@ -108,23 +108,23 @@ export class EventOrchestrationUnrouted extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventOrchestrationUnroutedState | undefined;
-            resourceInputs["catchAll"] = state ? state.catchAll : undefined;
-            resourceInputs["eventOrchestration"] = state ? state.eventOrchestration : undefined;
-            resourceInputs["sets"] = state ? state.sets : undefined;
+            resourceInputs["catchAll"] = state?.catchAll;
+            resourceInputs["eventOrchestration"] = state?.eventOrchestration;
+            resourceInputs["sets"] = state?.sets;
         } else {
             const args = argsOrState as EventOrchestrationUnroutedArgs | undefined;
-            if ((!args || args.catchAll === undefined) && !opts.urn) {
+            if (args?.catchAll === undefined && !opts.urn) {
                 throw new Error("Missing required property 'catchAll'");
             }
-            if ((!args || args.eventOrchestration === undefined) && !opts.urn) {
+            if (args?.eventOrchestration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventOrchestration'");
             }
-            if ((!args || args.sets === undefined) && !opts.urn) {
+            if (args?.sets === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sets'");
             }
-            resourceInputs["catchAll"] = args ? args.catchAll : undefined;
-            resourceInputs["eventOrchestration"] = args ? args.eventOrchestration : undefined;
-            resourceInputs["sets"] = args ? args.sets : undefined;
+            resourceInputs["catchAll"] = args?.catchAll;
+            resourceInputs["eventOrchestration"] = args?.eventOrchestration;
+            resourceInputs["sets"] = args?.sets;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventOrchestrationUnrouted.__pulumiType, name, resourceInputs, opts);

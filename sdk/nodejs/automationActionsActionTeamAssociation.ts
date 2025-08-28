@@ -70,11 +70,11 @@ export class AutomationActionsActionTeamAssociation extends pulumi.CustomResourc
     /**
      * Id of the action.
      */
-    public readonly actionId!: pulumi.Output<string>;
+    declare public readonly actionId: pulumi.Output<string>;
     /**
      * Id of the team associated to the action.
      */
-    public readonly teamId!: pulumi.Output<string>;
+    declare public readonly teamId: pulumi.Output<string>;
 
     /**
      * Create a AutomationActionsActionTeamAssociation resource with the given unique name, arguments, and options.
@@ -89,18 +89,18 @@ export class AutomationActionsActionTeamAssociation extends pulumi.CustomResourc
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutomationActionsActionTeamAssociationState | undefined;
-            resourceInputs["actionId"] = state ? state.actionId : undefined;
-            resourceInputs["teamId"] = state ? state.teamId : undefined;
+            resourceInputs["actionId"] = state?.actionId;
+            resourceInputs["teamId"] = state?.teamId;
         } else {
             const args = argsOrState as AutomationActionsActionTeamAssociationArgs | undefined;
-            if ((!args || args.actionId === undefined) && !opts.urn) {
+            if (args?.actionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionId'");
             }
-            if ((!args || args.teamId === undefined) && !opts.urn) {
+            if (args?.teamId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'teamId'");
             }
-            resourceInputs["actionId"] = args ? args.actionId : undefined;
-            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["actionId"] = args?.actionId;
+            resourceInputs["teamId"] = args?.teamId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AutomationActionsActionTeamAssociation.__pulumiType, name, resourceInputs, opts);

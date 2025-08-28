@@ -61,37 +61,37 @@ export class BusinessService extends pulumi.CustomResource {
      * A human-friendly description of the service.
      * If not set, a placeholder of "Managed by Pulumi" will be set.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * A URL at which the entity is uniquely displayed in the Web app.
      */
-    public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly htmlUrl: pulumi.Output<string>;
     /**
      * The name of the business service.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The owner of the business service.
      */
-    public readonly pointOfContact!: pulumi.Output<string | undefined>;
+    declare public readonly pointOfContact: pulumi.Output<string | undefined>;
     /**
      * The API show URL at which the object is accessible.
      */
-    public /*out*/ readonly self!: pulumi.Output<string>;
+    declare public /*out*/ readonly self: pulumi.Output<string>;
     /**
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
      */
-    public /*out*/ readonly summary!: pulumi.Output<string>;
+    declare public /*out*/ readonly summary: pulumi.Output<string>;
     /**
      * ID of the team that owns the business service.
      */
-    public readonly team!: pulumi.Output<string | undefined>;
+    declare public readonly team: pulumi.Output<string | undefined>;
     /**
      * **Deprecated** (Optional) Default (and only supported) value is `businessService`.
      *
      * @deprecated This will become a computed attribute in the next major release.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a BusinessService resource with the given unique name, arguments, and options.
@@ -106,21 +106,21 @@ export class BusinessService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BusinessServiceState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["pointOfContact"] = state ? state.pointOfContact : undefined;
-            resourceInputs["self"] = state ? state.self : undefined;
-            resourceInputs["summary"] = state ? state.summary : undefined;
-            resourceInputs["team"] = state ? state.team : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["htmlUrl"] = state?.htmlUrl;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["pointOfContact"] = state?.pointOfContact;
+            resourceInputs["self"] = state?.self;
+            resourceInputs["summary"] = state?.summary;
+            resourceInputs["team"] = state?.team;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as BusinessServiceArgs | undefined;
-            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pointOfContact"] = args ? args.pointOfContact : undefined;
-            resourceInputs["team"] = args ? args.team : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["description"] = (args?.description) ?? "Managed by Pulumi";
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pointOfContact"] = args?.pointOfContact;
+            resourceInputs["team"] = args?.team;
+            resourceInputs["type"] = args?.type;
             resourceInputs["htmlUrl"] = undefined /*out*/;
             resourceInputs["self"] = undefined /*out*/;
             resourceInputs["summary"] = undefined /*out*/;

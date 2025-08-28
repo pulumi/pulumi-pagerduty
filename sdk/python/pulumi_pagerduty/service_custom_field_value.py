@@ -106,11 +106,6 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
                  service_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        A [service custom field value](https://developer.pagerduty.com/api-reference/6075929031f7d-update-custom-field-values)
-        allows you to set values for custom fields on a PagerDuty service. These values
-        provide additional context for services and can be used for filtering, search,
-        and analytics.
-
         ## Example Usage
 
         ```python
@@ -118,59 +113,25 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
         import json
         import pulumi_pagerduty as pagerduty
 
-        # First, create a service custom field
+        # First, create service custom fields
         environment = pagerduty.ServiceCustomField("environment",
             name="environment",
             display_name="Environment",
             data_type="string",
             field_type="single_value",
             description="The environment this service runs in")
-        # Create a service
-        example = pagerduty.Service("example",
-            name="Example Service",
-            auto_resolve_timeout="14400",
-            acknowledgement_timeout="600",
-            escalation_policy=example_pagerduty_escalation_policy["id"])
-        # Set a custom field value on the service
-        example_service_custom_field_value = pagerduty.ServiceCustomFieldValue("example",
-            service_id=example.id,
-            custom_fields=[{
-                "name": environment.name,
-                "value": json.dumps("production"),
-            }])
-        # Set multiple custom field values on a service
         region = pagerduty.ServiceCustomField("region",
             name="region",
             display_name="Region",
             data_type="string",
             field_type="single_value",
             description="The region this service is deployed in")
-        multiple_example = pagerduty.ServiceCustomFieldValue("multiple_example",
-            service_id=example.id,
-            custom_fields=[
-                {
-                    "name": environment.name,
-                    "value": json.dumps("production"),
-                },
-                {
-                    "name": region.name,
-                    "value": json.dumps("us-east-1"),
-                },
-            ])
-        # Example with a boolean field
         is_critical = pagerduty.ServiceCustomField("is_critical",
             name="is_critical",
             display_name="Is Critical",
             data_type="boolean",
             field_type="single_value",
             description="Whether this service is critical")
-        boolean_example = pagerduty.ServiceCustomFieldValue("boolean_example",
-            service_id=example.id,
-            custom_fields=[{
-                "name": is_critical.name,
-                "value": json.dumps(True),
-            }])
-        # Example with a multi-value field
         regions = pagerduty.ServiceCustomField("regions",
             name="regions",
             display_name="AWS Regions",
@@ -187,15 +148,36 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
                     "data_type": "string",
                 },
             ])
-        multi_value_example = pagerduty.ServiceCustomFieldValue("multi_value_example",
+        # Create a service
+        example = pagerduty.Service("example",
+            name="Example Service",
+            auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
+            escalation_policy=example_pagerduty_escalation_policy["id"])
+        # Set custom field values on the service
+        example_service_custom_field_value = pagerduty.ServiceCustomFieldValue("example",
             service_id=example.id,
-            custom_fields=[{
-                "name": regions.name,
-                "value": json.dumps([
-                    "us-east-1",
-                    "us-west-1",
-                ]),
-            }])
+            custom_fields=[
+                {
+                    "name": environment.name,
+                    "value": json.dumps("production"),
+                },
+                {
+                    "name": region.name,
+                    "value": json.dumps("us-east-1"),
+                },
+                {
+                    "name": is_critical.name,
+                    "value": json.dumps(True),
+                },
+                {
+                    "name": regions.name,
+                    "value": json.dumps([
+                        "us-east-1",
+                        "us-west-1",
+                    ]),
+                },
+            ])
         ```
 
         ## Import
@@ -218,11 +200,6 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
                  args: ServiceCustomFieldValueArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A [service custom field value](https://developer.pagerduty.com/api-reference/6075929031f7d-update-custom-field-values)
-        allows you to set values for custom fields on a PagerDuty service. These values
-        provide additional context for services and can be used for filtering, search,
-        and analytics.
-
         ## Example Usage
 
         ```python
@@ -230,59 +207,25 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
         import json
         import pulumi_pagerduty as pagerduty
 
-        # First, create a service custom field
+        # First, create service custom fields
         environment = pagerduty.ServiceCustomField("environment",
             name="environment",
             display_name="Environment",
             data_type="string",
             field_type="single_value",
             description="The environment this service runs in")
-        # Create a service
-        example = pagerduty.Service("example",
-            name="Example Service",
-            auto_resolve_timeout="14400",
-            acknowledgement_timeout="600",
-            escalation_policy=example_pagerduty_escalation_policy["id"])
-        # Set a custom field value on the service
-        example_service_custom_field_value = pagerduty.ServiceCustomFieldValue("example",
-            service_id=example.id,
-            custom_fields=[{
-                "name": environment.name,
-                "value": json.dumps("production"),
-            }])
-        # Set multiple custom field values on a service
         region = pagerduty.ServiceCustomField("region",
             name="region",
             display_name="Region",
             data_type="string",
             field_type="single_value",
             description="The region this service is deployed in")
-        multiple_example = pagerduty.ServiceCustomFieldValue("multiple_example",
-            service_id=example.id,
-            custom_fields=[
-                {
-                    "name": environment.name,
-                    "value": json.dumps("production"),
-                },
-                {
-                    "name": region.name,
-                    "value": json.dumps("us-east-1"),
-                },
-            ])
-        # Example with a boolean field
         is_critical = pagerduty.ServiceCustomField("is_critical",
             name="is_critical",
             display_name="Is Critical",
             data_type="boolean",
             field_type="single_value",
             description="Whether this service is critical")
-        boolean_example = pagerduty.ServiceCustomFieldValue("boolean_example",
-            service_id=example.id,
-            custom_fields=[{
-                "name": is_critical.name,
-                "value": json.dumps(True),
-            }])
-        # Example with a multi-value field
         regions = pagerduty.ServiceCustomField("regions",
             name="regions",
             display_name="AWS Regions",
@@ -299,15 +242,36 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
                     "data_type": "string",
                 },
             ])
-        multi_value_example = pagerduty.ServiceCustomFieldValue("multi_value_example",
+        # Create a service
+        example = pagerduty.Service("example",
+            name="Example Service",
+            auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
+            escalation_policy=example_pagerduty_escalation_policy["id"])
+        # Set custom field values on the service
+        example_service_custom_field_value = pagerduty.ServiceCustomFieldValue("example",
             service_id=example.id,
-            custom_fields=[{
-                "name": regions.name,
-                "value": json.dumps([
-                    "us-east-1",
-                    "us-west-1",
-                ]),
-            }])
+            custom_fields=[
+                {
+                    "name": environment.name,
+                    "value": json.dumps("production"),
+                },
+                {
+                    "name": region.name,
+                    "value": json.dumps("us-east-1"),
+                },
+                {
+                    "name": is_critical.name,
+                    "value": json.dumps(True),
+                },
+                {
+                    "name": regions.name,
+                    "value": json.dumps([
+                        "us-east-1",
+                        "us-west-1",
+                    ]),
+                },
+            ])
         ```
 
         ## Import

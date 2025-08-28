@@ -10,11 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
-    /// A [service custom field value](https://developer.pagerduty.com/api-reference/6075929031f7d-update-custom-field-values)
-    /// allows you to set values for custom fields on a PagerDuty service. These values
-    /// provide additional context for services and can be used for filtering, search,
-    /// and analytics.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -26,7 +21,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // First, create a service custom field
+    ///     // First, create service custom fields
     ///     var environment = new Pagerduty.ServiceCustomField("environment", new()
     ///     {
     ///         Name = "environment",
@@ -36,30 +31,6 @@ namespace Pulumi.Pagerduty
     ///         Description = "The environment this service runs in",
     ///     });
     /// 
-    ///     // Create a service
-    ///     var example = new Pagerduty.Service("example", new()
-    ///     {
-    ///         Name = "Example Service",
-    ///         AutoResolveTimeout = "14400",
-    ///         AcknowledgementTimeout = "600",
-    ///         EscalationPolicy = examplePagerdutyEscalationPolicy.Id,
-    ///     });
-    /// 
-    ///     // Set a custom field value on the service
-    ///     var exampleServiceCustomFieldValue = new Pagerduty.ServiceCustomFieldValue("example", new()
-    ///     {
-    ///         ServiceId = example.Id,
-    ///         CustomFields = new[]
-    ///         {
-    ///             new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs
-    ///             {
-    ///                 Name = environment.Name,
-    ///                 Value = JsonSerializer.Serialize("production"),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     // Set multiple custom field values on a service
     ///     var region = new Pagerduty.ServiceCustomField("region", new()
     ///     {
     ///         Name = "region",
@@ -69,25 +40,6 @@ namespace Pulumi.Pagerduty
     ///         Description = "The region this service is deployed in",
     ///     });
     /// 
-    ///     var multipleExample = new Pagerduty.ServiceCustomFieldValue("multiple_example", new()
-    ///     {
-    ///         ServiceId = example.Id,
-    ///         CustomFields = new[]
-    ///         {
-    ///             new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs
-    ///             {
-    ///                 Name = environment.Name,
-    ///                 Value = JsonSerializer.Serialize("production"),
-    ///             },
-    ///             new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs
-    ///             {
-    ///                 Name = region.Name,
-    ///                 Value = JsonSerializer.Serialize("us-east-1"),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     // Example with a boolean field
     ///     var isCritical = new Pagerduty.ServiceCustomField("is_critical", new()
     ///     {
     ///         Name = "is_critical",
@@ -97,20 +49,6 @@ namespace Pulumi.Pagerduty
     ///         Description = "Whether this service is critical",
     ///     });
     /// 
-    ///     var booleanExample = new Pagerduty.ServiceCustomFieldValue("boolean_example", new()
-    ///     {
-    ///         ServiceId = example.Id,
-    ///         CustomFields = new[]
-    ///         {
-    ///             new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs
-    ///             {
-    ///                 Name = isCritical.Name,
-    ///                 Value = JsonSerializer.Serialize(true),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     // Example with a multi-value field
     ///     var regions = new Pagerduty.ServiceCustomField("regions", new()
     ///     {
     ///         Name = "regions",
@@ -133,11 +71,36 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var multiValueExample = new Pagerduty.ServiceCustomFieldValue("multi_value_example", new()
+    ///     // Create a service
+    ///     var example = new Pagerduty.Service("example", new()
+    ///     {
+    ///         Name = "Example Service",
+    ///         AutoResolveTimeout = "14400",
+    ///         AcknowledgementTimeout = "600",
+    ///         EscalationPolicy = examplePagerdutyEscalationPolicy.Id,
+    ///     });
+    /// 
+    ///     // Set custom field values on the service
+    ///     var exampleServiceCustomFieldValue = new Pagerduty.ServiceCustomFieldValue("example", new()
     ///     {
     ///         ServiceId = example.Id,
     ///         CustomFields = new[]
     ///         {
+    ///             new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs
+    ///             {
+    ///                 Name = environment.Name,
+    ///                 Value = JsonSerializer.Serialize("production"),
+    ///             },
+    ///             new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs
+    ///             {
+    ///                 Name = region.Name,
+    ///                 Value = JsonSerializer.Serialize("us-east-1"),
+    ///             },
+    ///             new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs
+    ///             {
+    ///                 Name = isCritical.Name,
+    ///                 Value = JsonSerializer.Serialize(true),
+    ///             },
     ///             new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs
     ///             {
     ///                 Name = regions.Name,

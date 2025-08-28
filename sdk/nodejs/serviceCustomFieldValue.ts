@@ -7,18 +7,13 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * A [service custom field value](https://developer.pagerduty.com/api-reference/6075929031f7d-update-custom-field-values)
- * allows you to set values for custom fields on a PagerDuty service. These values
- * provide additional context for services and can be used for filtering, search,
- * and analytics.
- *
  * ## Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * // First, create a service custom field
+ * // First, create service custom fields
  * const environment = new pagerduty.ServiceCustomField("environment", {
  *     name: "environment",
  *     displayName: "Environment",
@@ -26,22 +21,6 @@ import * as utilities from "./utilities";
  *     fieldType: "single_value",
  *     description: "The environment this service runs in",
  * });
- * // Create a service
- * const example = new pagerduty.Service("example", {
- *     name: "Example Service",
- *     autoResolveTimeout: "14400",
- *     acknowledgementTimeout: "600",
- *     escalationPolicy: examplePagerdutyEscalationPolicy.id,
- * });
- * // Set a custom field value on the service
- * const exampleServiceCustomFieldValue = new pagerduty.ServiceCustomFieldValue("example", {
- *     serviceId: example.id,
- *     customFields: [{
- *         name: environment.name,
- *         value: JSON.stringify("production"),
- *     }],
- * });
- * // Set multiple custom field values on a service
  * const region = new pagerduty.ServiceCustomField("region", {
  *     name: "region",
  *     displayName: "Region",
@@ -49,20 +28,6 @@ import * as utilities from "./utilities";
  *     fieldType: "single_value",
  *     description: "The region this service is deployed in",
  * });
- * const multipleExample = new pagerduty.ServiceCustomFieldValue("multiple_example", {
- *     serviceId: example.id,
- *     customFields: [
- *         {
- *             name: environment.name,
- *             value: JSON.stringify("production"),
- *         },
- *         {
- *             name: region.name,
- *             value: JSON.stringify("us-east-1"),
- *         },
- *     ],
- * });
- * // Example with a boolean field
  * const isCritical = new pagerduty.ServiceCustomField("is_critical", {
  *     name: "is_critical",
  *     displayName: "Is Critical",
@@ -70,14 +35,6 @@ import * as utilities from "./utilities";
  *     fieldType: "single_value",
  *     description: "Whether this service is critical",
  * });
- * const booleanExample = new pagerduty.ServiceCustomFieldValue("boolean_example", {
- *     serviceId: example.id,
- *     customFields: [{
- *         name: isCritical.name,
- *         value: JSON.stringify(true),
- *     }],
- * });
- * // Example with a multi-value field
  * const regions = new pagerduty.ServiceCustomField("regions", {
  *     name: "regions",
  *     displayName: "AWS Regions",
@@ -95,15 +52,37 @@ import * as utilities from "./utilities";
  *         },
  *     ],
  * });
- * const multiValueExample = new pagerduty.ServiceCustomFieldValue("multi_value_example", {
+ * // Create a service
+ * const example = new pagerduty.Service("example", {
+ *     name: "Example Service",
+ *     autoResolveTimeout: "14400",
+ *     acknowledgementTimeout: "600",
+ *     escalationPolicy: examplePagerdutyEscalationPolicy.id,
+ * });
+ * // Set custom field values on the service
+ * const exampleServiceCustomFieldValue = new pagerduty.ServiceCustomFieldValue("example", {
  *     serviceId: example.id,
- *     customFields: [{
- *         name: regions.name,
- *         value: JSON.stringify([
- *             "us-east-1",
- *             "us-west-1",
- *         ]),
- *     }],
+ *     customFields: [
+ *         {
+ *             name: environment.name,
+ *             value: JSON.stringify("production"),
+ *         },
+ *         {
+ *             name: region.name,
+ *             value: JSON.stringify("us-east-1"),
+ *         },
+ *         {
+ *             name: isCritical.name,
+ *             value: JSON.stringify(true),
+ *         },
+ *         {
+ *             name: regions.name,
+ *             value: JSON.stringify([
+ *                 "us-east-1",
+ *                 "us-west-1",
+ *             ]),
+ *         },
+ *     ],
  * });
  * ```
  *

@@ -16,11 +16,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * A [service custom field value](https://developer.pagerduty.com/api-reference/6075929031f7d-update-custom-field-values)
- * allows you to set values for custom fields on a PagerDuty service. These values
- * provide additional context for services and can be used for filtering, search,
- * and analytics.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -33,12 +28,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.pagerduty.ServiceCustomField;
  * import com.pulumi.pagerduty.ServiceCustomFieldArgs;
+ * import com.pulumi.pagerduty.inputs.ServiceCustomFieldFieldOptionArgs;
  * import com.pulumi.pagerduty.Service;
  * import com.pulumi.pagerduty.ServiceArgs;
  * import com.pulumi.pagerduty.ServiceCustomFieldValue;
  * import com.pulumi.pagerduty.ServiceCustomFieldValueArgs;
  * import com.pulumi.pagerduty.inputs.ServiceCustomFieldValueCustomFieldArgs;
- * import com.pulumi.pagerduty.inputs.ServiceCustomFieldFieldOptionArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -53,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // First, create a service custom field
+ *         // First, create service custom fields
  *         var environment = new ServiceCustomField("environment", ServiceCustomFieldArgs.builder()
  *             .name("environment")
  *             .displayName("Environment")
@@ -62,25 +57,6 @@ import javax.annotation.Nullable;
  *             .description("The environment this service runs in")
  *             .build());
  * 
- *         // Create a service
- *         var example = new Service("example", ServiceArgs.builder()
- *             .name("Example Service")
- *             .autoResolveTimeout("14400")
- *             .acknowledgementTimeout("600")
- *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
- *             .build());
- * 
- *         // Set a custom field value on the service
- *         var exampleServiceCustomFieldValue = new ServiceCustomFieldValue("exampleServiceCustomFieldValue", ServiceCustomFieldValueArgs.builder()
- *             .serviceId(example.id())
- *             .customFields(ServiceCustomFieldValueCustomFieldArgs.builder()
- *                 .name(environment.name())
- *                 .value(serializeJson(
- *                     "production"))
- *                 .build())
- *             .build());
- * 
- *         // Set multiple custom field values on a service
  *         var region = new ServiceCustomField("region", ServiceCustomFieldArgs.builder()
  *             .name("region")
  *             .displayName("Region")
@@ -89,22 +65,6 @@ import javax.annotation.Nullable;
  *             .description("The region this service is deployed in")
  *             .build());
  * 
- *         var multipleExample = new ServiceCustomFieldValue("multipleExample", ServiceCustomFieldValueArgs.builder()
- *             .serviceId(example.id())
- *             .customFields(            
- *                 ServiceCustomFieldValueCustomFieldArgs.builder()
- *                     .name(environment.name())
- *                     .value(serializeJson(
- *                         "production"))
- *                     .build(),
- *                 ServiceCustomFieldValueCustomFieldArgs.builder()
- *                     .name(region.name())
- *                     .value(serializeJson(
- *                         "us-east-1"))
- *                     .build())
- *             .build());
- * 
- *         // Example with a boolean field
  *         var isCritical = new ServiceCustomField("isCritical", ServiceCustomFieldArgs.builder()
  *             .name("is_critical")
  *             .displayName("Is Critical")
@@ -113,16 +73,6 @@ import javax.annotation.Nullable;
  *             .description("Whether this service is critical")
  *             .build());
  * 
- *         var booleanExample = new ServiceCustomFieldValue("booleanExample", ServiceCustomFieldValueArgs.builder()
- *             .serviceId(example.id())
- *             .customFields(ServiceCustomFieldValueCustomFieldArgs.builder()
- *                 .name(isCritical.name())
- *                 .value(serializeJson(
- *                     true))
- *                 .build())
- *             .build());
- * 
- *         // Example with a multi-value field
  *         var regions = new ServiceCustomField("regions", ServiceCustomFieldArgs.builder()
  *             .name("regions")
  *             .displayName("AWS Regions")
@@ -140,16 +90,41 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var multiValueExample = new ServiceCustomFieldValue("multiValueExample", ServiceCustomFieldValueArgs.builder()
+ *         // Create a service
+ *         var example = new Service("example", ServiceArgs.builder()
+ *             .name("Example Service")
+ *             .autoResolveTimeout("14400")
+ *             .acknowledgementTimeout("600")
+ *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
+ *             .build());
+ * 
+ *         // Set custom field values on the service
+ *         var exampleServiceCustomFieldValue = new ServiceCustomFieldValue("exampleServiceCustomFieldValue", ServiceCustomFieldValueArgs.builder()
  *             .serviceId(example.id())
- *             .customFields(ServiceCustomFieldValueCustomFieldArgs.builder()
- *                 .name(regions.name())
- *                 .value(serializeJson(
- *                     jsonArray(
- *                         "us-east-1", 
- *                         "us-west-1"
- *                     )))
- *                 .build())
+ *             .customFields(            
+ *                 ServiceCustomFieldValueCustomFieldArgs.builder()
+ *                     .name(environment.name())
+ *                     .value(serializeJson(
+ *                         "production"))
+ *                     .build(),
+ *                 ServiceCustomFieldValueCustomFieldArgs.builder()
+ *                     .name(region.name())
+ *                     .value(serializeJson(
+ *                         "us-east-1"))
+ *                     .build(),
+ *                 ServiceCustomFieldValueCustomFieldArgs.builder()
+ *                     .name(isCritical.name())
+ *                     .value(serializeJson(
+ *                         true))
+ *                     .build(),
+ *                 ServiceCustomFieldValueCustomFieldArgs.builder()
+ *                     .name(regions.name())
+ *                     .value(serializeJson(
+ *                         jsonArray(
+ *                             "us-east-1", 
+ *                             "us-west-1"
+ *                         )))
+ *                     .build())
  *             .build());
  * 
  *     }

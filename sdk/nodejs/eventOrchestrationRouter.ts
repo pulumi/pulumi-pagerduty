@@ -109,15 +109,15 @@ export class EventOrchestrationRouter extends pulumi.CustomResource {
     /**
      * When none of the rules match an event, the event will be routed according to the catchAll settings.
      */
-    public readonly catchAll!: pulumi.Output<outputs.EventOrchestrationRouterCatchAll>;
+    declare public readonly catchAll: pulumi.Output<outputs.EventOrchestrationRouterCatchAll>;
     /**
      * ID of the Event Orchestration to which the Router belongs.
      */
-    public readonly eventOrchestration!: pulumi.Output<string>;
+    declare public readonly eventOrchestration: pulumi.Output<string>;
     /**
      * The Router contains a single set of rules  (the "start" set).
      */
-    public readonly set!: pulumi.Output<outputs.EventOrchestrationRouterSet>;
+    declare public readonly set: pulumi.Output<outputs.EventOrchestrationRouterSet>;
 
     /**
      * Create a EventOrchestrationRouter resource with the given unique name, arguments, and options.
@@ -132,23 +132,23 @@ export class EventOrchestrationRouter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventOrchestrationRouterState | undefined;
-            resourceInputs["catchAll"] = state ? state.catchAll : undefined;
-            resourceInputs["eventOrchestration"] = state ? state.eventOrchestration : undefined;
-            resourceInputs["set"] = state ? state.set : undefined;
+            resourceInputs["catchAll"] = state?.catchAll;
+            resourceInputs["eventOrchestration"] = state?.eventOrchestration;
+            resourceInputs["set"] = state?.set;
         } else {
             const args = argsOrState as EventOrchestrationRouterArgs | undefined;
-            if ((!args || args.catchAll === undefined) && !opts.urn) {
+            if (args?.catchAll === undefined && !opts.urn) {
                 throw new Error("Missing required property 'catchAll'");
             }
-            if ((!args || args.eventOrchestration === undefined) && !opts.urn) {
+            if (args?.eventOrchestration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventOrchestration'");
             }
-            if ((!args || args.set === undefined) && !opts.urn) {
+            if (args?.set === undefined && !opts.urn) {
                 throw new Error("Missing required property 'set'");
             }
-            resourceInputs["catchAll"] = args ? args.catchAll : undefined;
-            resourceInputs["eventOrchestration"] = args ? args.eventOrchestration : undefined;
-            resourceInputs["set"] = args ? args.set : undefined;
+            resourceInputs["catchAll"] = args?.catchAll;
+            resourceInputs["eventOrchestration"] = args?.eventOrchestration;
+            resourceInputs["set"] = args?.set;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventOrchestrationRouter.__pulumiType, name, resourceInputs, opts);

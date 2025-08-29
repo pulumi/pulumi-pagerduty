@@ -92,11 +92,11 @@ export class AutomationActionsActionServiceAssociation extends pulumi.CustomReso
     /**
      * Id of the action.
      */
-    public readonly actionId!: pulumi.Output<string>;
+    declare public readonly actionId: pulumi.Output<string>;
     /**
      * Id of the service associated to the action.
      */
-    public readonly serviceId!: pulumi.Output<string>;
+    declare public readonly serviceId: pulumi.Output<string>;
 
     /**
      * Create a AutomationActionsActionServiceAssociation resource with the given unique name, arguments, and options.
@@ -111,18 +111,18 @@ export class AutomationActionsActionServiceAssociation extends pulumi.CustomReso
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutomationActionsActionServiceAssociationState | undefined;
-            resourceInputs["actionId"] = state ? state.actionId : undefined;
-            resourceInputs["serviceId"] = state ? state.serviceId : undefined;
+            resourceInputs["actionId"] = state?.actionId;
+            resourceInputs["serviceId"] = state?.serviceId;
         } else {
             const args = argsOrState as AutomationActionsActionServiceAssociationArgs | undefined;
-            if ((!args || args.actionId === undefined) && !opts.urn) {
+            if (args?.actionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionId'");
             }
-            if ((!args || args.serviceId === undefined) && !opts.urn) {
+            if (args?.serviceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceId'");
             }
-            resourceInputs["actionId"] = args ? args.actionId : undefined;
-            resourceInputs["serviceId"] = args ? args.serviceId : undefined;
+            resourceInputs["actionId"] = args?.actionId;
+            resourceInputs["serviceId"] = args?.serviceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AutomationActionsActionServiceAssociation.__pulumiType, name, resourceInputs, opts);

@@ -89,35 +89,35 @@ export class SlackConnection extends pulumi.CustomResource {
     /**
      * The ID of a Slack channel in the workspace.
      */
-    public readonly channelId!: pulumi.Output<string>;
+    declare public readonly channelId: pulumi.Output<string>;
     /**
      * Name of the Slack channel in Slack connection.
      */
-    public /*out*/ readonly channelName!: pulumi.Output<string>;
+    declare public /*out*/ readonly channelName: pulumi.Output<string>;
     /**
      * Configuration options for the Slack connection that provide options to filter events.
      */
-    public readonly configs!: pulumi.Output<outputs.SlackConnectionConfig[]>;
+    declare public readonly configs: pulumi.Output<outputs.SlackConnectionConfig[]>;
     /**
      * Type of notification. Either `responder` or `stakeholder`.
      */
-    public readonly notificationType!: pulumi.Output<string>;
+    declare public readonly notificationType: pulumi.Output<string>;
     /**
      * The ID of the source in PagerDuty. Valid sources are services or teams.
      */
-    public readonly sourceId!: pulumi.Output<string>;
+    declare public readonly sourceId: pulumi.Output<string>;
     /**
      * Name of the source (team or service) in Slack connection.
      */
-    public /*out*/ readonly sourceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly sourceName: pulumi.Output<string>;
     /**
      * The type of the source. Either `teamReference` or `serviceReference`.
      */
-    public readonly sourceType!: pulumi.Output<string>;
+    declare public readonly sourceType: pulumi.Output<string>;
     /**
      * The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a SlackConnection resource with the given unique name, arguments, and options.
@@ -132,37 +132,37 @@ export class SlackConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SlackConnectionState | undefined;
-            resourceInputs["channelId"] = state ? state.channelId : undefined;
-            resourceInputs["channelName"] = state ? state.channelName : undefined;
-            resourceInputs["configs"] = state ? state.configs : undefined;
-            resourceInputs["notificationType"] = state ? state.notificationType : undefined;
-            resourceInputs["sourceId"] = state ? state.sourceId : undefined;
-            resourceInputs["sourceName"] = state ? state.sourceName : undefined;
-            resourceInputs["sourceType"] = state ? state.sourceType : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["channelId"] = state?.channelId;
+            resourceInputs["channelName"] = state?.channelName;
+            resourceInputs["configs"] = state?.configs;
+            resourceInputs["notificationType"] = state?.notificationType;
+            resourceInputs["sourceId"] = state?.sourceId;
+            resourceInputs["sourceName"] = state?.sourceName;
+            resourceInputs["sourceType"] = state?.sourceType;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as SlackConnectionArgs | undefined;
-            if ((!args || args.channelId === undefined) && !opts.urn) {
+            if (args?.channelId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelId'");
             }
-            if ((!args || args.configs === undefined) && !opts.urn) {
+            if (args?.configs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configs'");
             }
-            if ((!args || args.notificationType === undefined) && !opts.urn) {
+            if (args?.notificationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notificationType'");
             }
-            if ((!args || args.sourceId === undefined) && !opts.urn) {
+            if (args?.sourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceId'");
             }
-            if ((!args || args.sourceType === undefined) && !opts.urn) {
+            if (args?.sourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceType'");
             }
-            resourceInputs["channelId"] = args ? args.channelId : undefined;
-            resourceInputs["configs"] = args ? args.configs : undefined;
-            resourceInputs["notificationType"] = args ? args.notificationType : undefined;
-            resourceInputs["sourceId"] = args ? args.sourceId : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["channelId"] = args?.channelId;
+            resourceInputs["configs"] = args?.configs;
+            resourceInputs["notificationType"] = args?.notificationType;
+            resourceInputs["sourceId"] = args?.sourceId;
+            resourceInputs["sourceType"] = args?.sourceType;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["channelName"] = undefined /*out*/;
             resourceInputs["sourceName"] = undefined /*out*/;
         }

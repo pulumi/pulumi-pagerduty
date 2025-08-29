@@ -78,30 +78,30 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * The description of the schedule.
      */
-    public readonly description!: pulumi.Output<string>;
-    public /*out*/ readonly finalSchedules!: pulumi.Output<outputs.ScheduleFinalSchedule[]>;
+    declare public readonly description: pulumi.Output<string>;
+    declare public /*out*/ readonly finalSchedules: pulumi.Output<outputs.ScheduleFinalSchedule[]>;
     /**
      * A schedule layer block. Schedule layers documented below.
      */
-    public readonly layers!: pulumi.Output<outputs.ScheduleLayer[]>;
+    declare public readonly layers: pulumi.Output<outputs.ScheduleLayer[]>;
     /**
      * The name of the schedule.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
      * If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
      * If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
      */
-    public readonly overflow!: pulumi.Output<boolean | undefined>;
+    declare public readonly overflow: pulumi.Output<boolean | undefined>;
     /**
      * Teams associated with the schedule.
      */
-    public readonly teams!: pulumi.Output<string[] | undefined>;
+    declare public readonly teams: pulumi.Output<string[] | undefined>;
     /**
      * The time zone of the schedule (e.g. `Europe/Berlin`).
      */
-    public readonly timeZone!: pulumi.Output<string>;
+    declare public readonly timeZone: pulumi.Output<string>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -116,27 +116,27 @@ export class Schedule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduleState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["finalSchedules"] = state ? state.finalSchedules : undefined;
-            resourceInputs["layers"] = state ? state.layers : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["overflow"] = state ? state.overflow : undefined;
-            resourceInputs["teams"] = state ? state.teams : undefined;
-            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["finalSchedules"] = state?.finalSchedules;
+            resourceInputs["layers"] = state?.layers;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["overflow"] = state?.overflow;
+            resourceInputs["teams"] = state?.teams;
+            resourceInputs["timeZone"] = state?.timeZone;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
-            if ((!args || args.layers === undefined) && !opts.urn) {
+            if (args?.layers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'layers'");
             }
-            if ((!args || args.timeZone === undefined) && !opts.urn) {
+            if (args?.timeZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeZone'");
             }
-            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            resourceInputs["layers"] = args ? args.layers : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["overflow"] = args ? args.overflow : undefined;
-            resourceInputs["teams"] = args ? args.teams : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["description"] = (args?.description) ?? "Managed by Pulumi";
+            resourceInputs["layers"] = args?.layers;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["overflow"] = args?.overflow;
+            resourceInputs["teams"] = args?.teams;
+            resourceInputs["timeZone"] = args?.timeZone;
             resourceInputs["finalSchedules"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

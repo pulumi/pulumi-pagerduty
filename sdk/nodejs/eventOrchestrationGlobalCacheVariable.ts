@@ -48,23 +48,23 @@ export class EventOrchestrationGlobalCacheVariable extends pulumi.CustomResource
     /**
      * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      */
-    public readonly conditions!: pulumi.Output<outputs.EventOrchestrationGlobalCacheVariableCondition[] | undefined>;
+    declare public readonly conditions: pulumi.Output<outputs.EventOrchestrationGlobalCacheVariableCondition[] | undefined>;
     /**
      * A configuration object to define what and how values will be stored in the Cache Variable.
      */
-    public readonly configuration!: pulumi.Output<outputs.EventOrchestrationGlobalCacheVariableConfiguration>;
+    declare public readonly configuration: pulumi.Output<outputs.EventOrchestrationGlobalCacheVariableConfiguration>;
     /**
      * Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
      */
-    public readonly disabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly disabled: pulumi.Output<boolean | undefined>;
     /**
      * ID of the Global Event Orchestration to which this Cache Variable belongs.
      */
-    public readonly eventOrchestration!: pulumi.Output<string>;
+    declare public readonly eventOrchestration: pulumi.Output<string>;
     /**
      * Name of the Cache Variable associated with the Global Event Orchestration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a EventOrchestrationGlobalCacheVariable resource with the given unique name, arguments, and options.
@@ -79,24 +79,24 @@ export class EventOrchestrationGlobalCacheVariable extends pulumi.CustomResource
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventOrchestrationGlobalCacheVariableState | undefined;
-            resourceInputs["conditions"] = state ? state.conditions : undefined;
-            resourceInputs["configuration"] = state ? state.configuration : undefined;
-            resourceInputs["disabled"] = state ? state.disabled : undefined;
-            resourceInputs["eventOrchestration"] = state ? state.eventOrchestration : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["conditions"] = state?.conditions;
+            resourceInputs["configuration"] = state?.configuration;
+            resourceInputs["disabled"] = state?.disabled;
+            resourceInputs["eventOrchestration"] = state?.eventOrchestration;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as EventOrchestrationGlobalCacheVariableArgs | undefined;
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.eventOrchestration === undefined) && !opts.urn) {
+            if (args?.eventOrchestration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventOrchestration'");
             }
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["disabled"] = args ? args.disabled : undefined;
-            resourceInputs["eventOrchestration"] = args ? args.eventOrchestration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["conditions"] = args?.conditions;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["disabled"] = args?.disabled;
+            resourceInputs["eventOrchestration"] = args?.eventOrchestration;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventOrchestrationGlobalCacheVariable.__pulumiType, name, resourceInputs, opts);

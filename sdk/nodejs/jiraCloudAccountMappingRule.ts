@@ -50,23 +50,23 @@ export class JiraCloudAccountMappingRule extends pulumi.CustomResource {
     /**
      * [Updating can cause a resource replacement] The account mapping this rule belongs to.
      */
-    public readonly accountMapping!: pulumi.Output<string>;
+    declare public readonly accountMapping: pulumi.Output<string>;
     /**
      * If auto-creation using JQL is disabled, this field provides the reason for the disablement.
      */
-    public /*out*/ readonly autocreateJqlDisabledReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly autocreateJqlDisabledReason: pulumi.Output<string>;
     /**
      * The timestamp until which the auto-creation using JQL feature is disabled.
      */
-    public /*out*/ readonly autocreateJqlDisabledUntil!: pulumi.Output<string>;
+    declare public /*out*/ readonly autocreateJqlDisabledUntil: pulumi.Output<string>;
     /**
      * Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.
      */
-    public readonly config!: pulumi.Output<outputs.JiraCloudAccountMappingRuleConfig | undefined>;
+    declare public readonly config: pulumi.Output<outputs.JiraCloudAccountMappingRuleConfig | undefined>;
     /**
      * The name of the rule.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a JiraCloudAccountMappingRule resource with the given unique name, arguments, and options.
@@ -81,19 +81,19 @@ export class JiraCloudAccountMappingRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JiraCloudAccountMappingRuleState | undefined;
-            resourceInputs["accountMapping"] = state ? state.accountMapping : undefined;
-            resourceInputs["autocreateJqlDisabledReason"] = state ? state.autocreateJqlDisabledReason : undefined;
-            resourceInputs["autocreateJqlDisabledUntil"] = state ? state.autocreateJqlDisabledUntil : undefined;
-            resourceInputs["config"] = state ? state.config : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["accountMapping"] = state?.accountMapping;
+            resourceInputs["autocreateJqlDisabledReason"] = state?.autocreateJqlDisabledReason;
+            resourceInputs["autocreateJqlDisabledUntil"] = state?.autocreateJqlDisabledUntil;
+            resourceInputs["config"] = state?.config;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as JiraCloudAccountMappingRuleArgs | undefined;
-            if ((!args || args.accountMapping === undefined) && !opts.urn) {
+            if (args?.accountMapping === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountMapping'");
             }
-            resourceInputs["accountMapping"] = args ? args.accountMapping : undefined;
-            resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["accountMapping"] = args?.accountMapping;
+            resourceInputs["config"] = args?.config;
+            resourceInputs["name"] = args?.name;
             resourceInputs["autocreateJqlDisabledReason"] = undefined /*out*/;
             resourceInputs["autocreateJqlDisabledUntil"] = undefined /*out*/;
         }

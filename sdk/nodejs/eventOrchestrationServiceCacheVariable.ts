@@ -132,23 +132,23 @@ export class EventOrchestrationServiceCacheVariable extends pulumi.CustomResourc
     /**
      * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      */
-    public readonly conditions!: pulumi.Output<outputs.EventOrchestrationServiceCacheVariableCondition[] | undefined>;
+    declare public readonly conditions: pulumi.Output<outputs.EventOrchestrationServiceCacheVariableCondition[] | undefined>;
     /**
      * A configuration object to define what and how values will be stored in the Cache Variable.
      */
-    public readonly configuration!: pulumi.Output<outputs.EventOrchestrationServiceCacheVariableConfiguration>;
+    declare public readonly configuration: pulumi.Output<outputs.EventOrchestrationServiceCacheVariableConfiguration>;
     /**
      * Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
      */
-    public readonly disabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly disabled: pulumi.Output<boolean | undefined>;
     /**
      * Name of the Cache Variable associated with the Service Event Orchestration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * ID of the Service Event Orchestration to which this Cache Variable belongs.
      */
-    public readonly service!: pulumi.Output<string>;
+    declare public readonly service: pulumi.Output<string>;
 
     /**
      * Create a EventOrchestrationServiceCacheVariable resource with the given unique name, arguments, and options.
@@ -163,24 +163,24 @@ export class EventOrchestrationServiceCacheVariable extends pulumi.CustomResourc
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventOrchestrationServiceCacheVariableState | undefined;
-            resourceInputs["conditions"] = state ? state.conditions : undefined;
-            resourceInputs["configuration"] = state ? state.configuration : undefined;
-            resourceInputs["disabled"] = state ? state.disabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["service"] = state ? state.service : undefined;
+            resourceInputs["conditions"] = state?.conditions;
+            resourceInputs["configuration"] = state?.configuration;
+            resourceInputs["disabled"] = state?.disabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["service"] = state?.service;
         } else {
             const args = argsOrState as EventOrchestrationServiceCacheVariableArgs | undefined;
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.service === undefined) && !opts.urn) {
+            if (args?.service === undefined && !opts.urn) {
                 throw new Error("Missing required property 'service'");
             }
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["disabled"] = args ? args.disabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["service"] = args ? args.service : undefined;
+            resourceInputs["conditions"] = args?.conditions;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["disabled"] = args?.disabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["service"] = args?.service;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventOrchestrationServiceCacheVariable.__pulumiType, name, resourceInputs, opts);

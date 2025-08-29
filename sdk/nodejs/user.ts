@@ -58,40 +58,40 @@ export class User extends pulumi.CustomResource {
     /**
      * The URL of the user's avatar.
      */
-    public /*out*/ readonly avatarUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly avatarUrl: pulumi.Output<string>;
     /**
      * The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
      */
-    public readonly color!: pulumi.Output<string>;
+    declare public readonly color: pulumi.Output<string>;
     /**
      * A human-friendly description of the user.
      * If not set, a placeholder of "Managed by Pulumi" will be set.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The user's email address.
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * URL at which the entity is uniquely displayed in the Web app
      */
-    public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly htmlUrl: pulumi.Output<string>;
     /**
      * If true, the user has an outstanding invitation.
      */
-    public /*out*/ readonly invitationSent!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly invitationSent: pulumi.Output<boolean>;
     /**
      * The user's title.
      */
-    public readonly jobTitle!: pulumi.Output<string | undefined>;
+    declare public readonly jobTitle: pulumi.Output<string | undefined>;
     /**
      * The license id assigned to the user. If provided the user's role must exist in the assigned license's `validRoles` list. To reference purchased licenses' ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
      */
-    public readonly license!: pulumi.Output<string>;
+    declare public readonly license: pulumi.Output<string>;
     /**
      * The name of the user.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
      * Notes:
@@ -99,17 +99,17 @@ export class User extends pulumi.CustomResource {
      * * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `pagerduty.TeamMembership` resource.
      * * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
      */
-    public readonly role!: pulumi.Output<string | undefined>;
+    declare public readonly role: pulumi.Output<string | undefined>;
     /**
      * A list of teams the user should belong to. Please use `pagerduty.TeamMembership` instead.
      *
      * @deprecated Use the 'pagerduty_team_membership' resource instead.
      */
-    public readonly teams!: pulumi.Output<string[]>;
+    declare public readonly teams: pulumi.Output<string[]>;
     /**
      * The time zone of the user. Default is account default timezone.
      */
-    public readonly timeZone!: pulumi.Output<string>;
+    declare public readonly timeZone: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -124,32 +124,32 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["avatarUrl"] = state ? state.avatarUrl : undefined;
-            resourceInputs["color"] = state ? state.color : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
-            resourceInputs["invitationSent"] = state ? state.invitationSent : undefined;
-            resourceInputs["jobTitle"] = state ? state.jobTitle : undefined;
-            resourceInputs["license"] = state ? state.license : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["role"] = state ? state.role : undefined;
-            resourceInputs["teams"] = state ? state.teams : undefined;
-            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
+            resourceInputs["avatarUrl"] = state?.avatarUrl;
+            resourceInputs["color"] = state?.color;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["htmlUrl"] = state?.htmlUrl;
+            resourceInputs["invitationSent"] = state?.invitationSent;
+            resourceInputs["jobTitle"] = state?.jobTitle;
+            resourceInputs["license"] = state?.license;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["role"] = state?.role;
+            resourceInputs["teams"] = state?.teams;
+            resourceInputs["timeZone"] = state?.timeZone;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            resourceInputs["color"] = args ? args.color : undefined;
-            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["jobTitle"] = args ? args.jobTitle : undefined;
-            resourceInputs["license"] = args ? args.license : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["teams"] = args ? args.teams : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["color"] = args?.color;
+            resourceInputs["description"] = (args?.description) ?? "Managed by Pulumi";
+            resourceInputs["email"] = args?.email;
+            resourceInputs["jobTitle"] = args?.jobTitle;
+            resourceInputs["license"] = args?.license;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["teams"] = args?.teams;
+            resourceInputs["timeZone"] = args?.timeZone;
             resourceInputs["avatarUrl"] = undefined /*out*/;
             resourceInputs["htmlUrl"] = undefined /*out*/;
             resourceInputs["invitationSent"] = undefined /*out*/;

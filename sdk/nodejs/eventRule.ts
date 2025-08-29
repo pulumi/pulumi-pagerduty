@@ -157,19 +157,19 @@ export class EventRule extends pulumi.CustomResource {
     /**
      * A list of one or more actions for each rule. Each action within the list is itself a list.
      */
-    public readonly actionJson!: pulumi.Output<string>;
+    declare public readonly actionJson: pulumi.Output<string>;
     /**
      * Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
      */
-    public readonly advancedConditionJson!: pulumi.Output<string | undefined>;
+    declare public readonly advancedConditionJson: pulumi.Output<string | undefined>;
     /**
      * A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.
      */
-    public /*out*/ readonly catchAll!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly catchAll: pulumi.Output<boolean>;
     /**
      * Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
      */
-    public readonly conditionJson!: pulumi.Output<string>;
+    declare public readonly conditionJson: pulumi.Output<string>;
 
     /**
      * Create a EventRule resource with the given unique name, arguments, and options.
@@ -184,21 +184,21 @@ export class EventRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventRuleState | undefined;
-            resourceInputs["actionJson"] = state ? state.actionJson : undefined;
-            resourceInputs["advancedConditionJson"] = state ? state.advancedConditionJson : undefined;
-            resourceInputs["catchAll"] = state ? state.catchAll : undefined;
-            resourceInputs["conditionJson"] = state ? state.conditionJson : undefined;
+            resourceInputs["actionJson"] = state?.actionJson;
+            resourceInputs["advancedConditionJson"] = state?.advancedConditionJson;
+            resourceInputs["catchAll"] = state?.catchAll;
+            resourceInputs["conditionJson"] = state?.conditionJson;
         } else {
             const args = argsOrState as EventRuleArgs | undefined;
-            if ((!args || args.actionJson === undefined) && !opts.urn) {
+            if (args?.actionJson === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionJson'");
             }
-            if ((!args || args.conditionJson === undefined) && !opts.urn) {
+            if (args?.conditionJson === undefined && !opts.urn) {
                 throw new Error("Missing required property 'conditionJson'");
             }
-            resourceInputs["actionJson"] = args ? args.actionJson : undefined;
-            resourceInputs["advancedConditionJson"] = args ? args.advancedConditionJson : undefined;
-            resourceInputs["conditionJson"] = args ? args.conditionJson : undefined;
+            resourceInputs["actionJson"] = args?.actionJson;
+            resourceInputs["advancedConditionJson"] = args?.advancedConditionJson;
+            resourceInputs["conditionJson"] = args?.conditionJson;
             resourceInputs["catchAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

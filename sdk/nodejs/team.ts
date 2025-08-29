@@ -65,24 +65,24 @@ export class Team extends pulumi.CustomResource {
     /**
      * The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
      */
-    public readonly defaultRole!: pulumi.Output<string>;
+    declare public readonly defaultRole: pulumi.Output<string>;
     /**
      * A human-friendly description of the team.
      * If not set, a placeholder of "Managed by Pulumi" will be set.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * URL at which the entity is uniquely displayed in the Web app
      */
-    public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly htmlUrl: pulumi.Output<string>;
     /**
      * The name of the group.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
      */
-    public readonly parent!: pulumi.Output<string | undefined>;
+    declare public readonly parent: pulumi.Output<string | undefined>;
 
     /**
      * Create a Team resource with the given unique name, arguments, and options.
@@ -97,17 +97,17 @@ export class Team extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamState | undefined;
-            resourceInputs["defaultRole"] = state ? state.defaultRole : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parent"] = state ? state.parent : undefined;
+            resourceInputs["defaultRole"] = state?.defaultRole;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["htmlUrl"] = state?.htmlUrl;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parent"] = state?.parent;
         } else {
             const args = argsOrState as TeamArgs | undefined;
-            resourceInputs["defaultRole"] = args ? args.defaultRole : undefined;
-            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parent"] = args ? args.parent : undefined;
+            resourceInputs["defaultRole"] = args?.defaultRole;
+            resourceInputs["description"] = (args?.description) ?? "Managed by Pulumi";
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parent"] = args?.parent;
             resourceInputs["htmlUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

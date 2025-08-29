@@ -27,10 +27,10 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === "pulumi:providers:" + Provider.__pulumiType;
     }
 
-    public readonly apiUrlOverride!: pulumi.Output<string | undefined>;
-    public readonly serviceRegion!: pulumi.Output<string | undefined>;
-    public readonly token!: pulumi.Output<string | undefined>;
-    public readonly userToken!: pulumi.Output<string | undefined>;
+    declare public readonly apiUrlOverride: pulumi.Output<string | undefined>;
+    declare public readonly serviceRegion: pulumi.Output<string | undefined>;
+    declare public readonly token: pulumi.Output<string | undefined>;
+    declare public readonly userToken: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -43,13 +43,13 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["apiUrlOverride"] = args ? args.apiUrlOverride : undefined;
-            resourceInputs["insecureTls"] = pulumi.output(args ? args.insecureTls : undefined).apply(JSON.stringify);
-            resourceInputs["serviceRegion"] = args ? args.serviceRegion : undefined;
-            resourceInputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) ?? false).apply(JSON.stringify);
-            resourceInputs["token"] = args ? args.token : undefined;
-            resourceInputs["useAppOauthScopedToken"] = pulumi.output(args ? args.useAppOauthScopedToken : undefined).apply(JSON.stringify);
-            resourceInputs["userToken"] = args ? args.userToken : undefined;
+            resourceInputs["apiUrlOverride"] = args?.apiUrlOverride;
+            resourceInputs["insecureTls"] = pulumi.output(args?.insecureTls).apply(JSON.stringify);
+            resourceInputs["serviceRegion"] = args?.serviceRegion;
+            resourceInputs["skipCredentialsValidation"] = pulumi.output((args?.skipCredentialsValidation) ?? false).apply(JSON.stringify);
+            resourceInputs["token"] = args?.token;
+            resourceInputs["useAppOauthScopedToken"] = pulumi.output(args?.useAppOauthScopedToken).apply(JSON.stringify);
+            resourceInputs["userToken"] = args?.userToken;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);

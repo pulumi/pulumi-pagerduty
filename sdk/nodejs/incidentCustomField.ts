@@ -73,27 +73,27 @@ export class IncidentCustomField extends pulumi.CustomResource {
     /**
      * The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
      */
-    public readonly dataType!: pulumi.Output<string>;
+    declare public readonly dataType: pulumi.Output<string>;
     /**
      * The default value to set when new incidents are created. Always specified as a string.
      */
-    public readonly defaultValue!: pulumi.Output<string | undefined>;
+    declare public readonly defaultValue: pulumi.Output<string | undefined>;
     /**
      * The description of the field.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the field.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      */
-    public readonly fieldType!: pulumi.Output<string>;
+    declare public readonly fieldType: pulumi.Output<string>;
     /**
      * The name of the field.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a IncidentCustomField resource with the given unique name, arguments, and options.
@@ -108,29 +108,29 @@ export class IncidentCustomField extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IncidentCustomFieldState | undefined;
-            resourceInputs["dataType"] = state ? state.dataType : undefined;
-            resourceInputs["defaultValue"] = state ? state.defaultValue : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["fieldType"] = state ? state.fieldType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["dataType"] = state?.dataType;
+            resourceInputs["defaultValue"] = state?.defaultValue;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["fieldType"] = state?.fieldType;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as IncidentCustomFieldArgs | undefined;
-            if ((!args || args.dataType === undefined) && !opts.urn) {
+            if (args?.dataType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataType'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.fieldType === undefined) && !opts.urn) {
+            if (args?.fieldType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fieldType'");
             }
-            resourceInputs["dataType"] = args ? args.dataType : undefined;
-            resourceInputs["defaultValue"] = args ? args.defaultValue : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["fieldType"] = args ? args.fieldType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["dataType"] = args?.dataType;
+            resourceInputs["defaultValue"] = args?.defaultValue;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["fieldType"] = args?.fieldType;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IncidentCustomField.__pulumiType, name, resourceInputs, opts);

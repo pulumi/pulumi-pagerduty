@@ -86,27 +86,27 @@ export class IncidentWorkflowTrigger extends pulumi.CustomResource {
     /**
      * A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
      */
-    public readonly condition!: pulumi.Output<string | undefined>;
+    declare public readonly condition: pulumi.Output<string | undefined>;
     /**
      * Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
      */
-    public readonly permissions!: pulumi.Output<outputs.IncidentWorkflowTriggerPermissions>;
+    declare public readonly permissions: pulumi.Output<outputs.IncidentWorkflowTriggerPermissions>;
     /**
      * A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
      */
-    public readonly services!: pulumi.Output<string[] | undefined>;
+    declare public readonly services: pulumi.Output<string[] | undefined>;
     /**
      * Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
      */
-    public readonly subscribedToAllServices!: pulumi.Output<boolean>;
+    declare public readonly subscribedToAllServices: pulumi.Output<boolean>;
     /**
      * [Updating causes resource replacement] May be either `manual` or `conditional`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The workflow ID for the workflow to trigger.
      */
-    public readonly workflow!: pulumi.Output<string>;
+    declare public readonly workflow: pulumi.Output<string>;
 
     /**
      * Create a IncidentWorkflowTrigger resource with the given unique name, arguments, and options.
@@ -121,29 +121,29 @@ export class IncidentWorkflowTrigger extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IncidentWorkflowTriggerState | undefined;
-            resourceInputs["condition"] = state ? state.condition : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["services"] = state ? state.services : undefined;
-            resourceInputs["subscribedToAllServices"] = state ? state.subscribedToAllServices : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["workflow"] = state ? state.workflow : undefined;
+            resourceInputs["condition"] = state?.condition;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["services"] = state?.services;
+            resourceInputs["subscribedToAllServices"] = state?.subscribedToAllServices;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["workflow"] = state?.workflow;
         } else {
             const args = argsOrState as IncidentWorkflowTriggerArgs | undefined;
-            if ((!args || args.subscribedToAllServices === undefined) && !opts.urn) {
+            if (args?.subscribedToAllServices === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscribedToAllServices'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.workflow === undefined) && !opts.urn) {
+            if (args?.workflow === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workflow'");
             }
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["services"] = args ? args.services : undefined;
-            resourceInputs["subscribedToAllServices"] = args ? args.subscribedToAllServices : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["workflow"] = args ? args.workflow : undefined;
+            resourceInputs["condition"] = args?.condition;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["services"] = args?.services;
+            resourceInputs["subscribedToAllServices"] = args?.subscribedToAllServices;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["workflow"] = args?.workflow;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IncidentWorkflowTrigger.__pulumiType, name, resourceInputs, opts);

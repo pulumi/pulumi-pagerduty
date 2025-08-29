@@ -82,78 +82,78 @@ export class Service extends pulumi.CustomResource {
     /**
      * Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
      */
-    public readonly acknowledgementTimeout!: pulumi.Output<string | undefined>;
+    declare public readonly acknowledgementTimeout: pulumi.Output<string | undefined>;
     /**
      * (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
      */
-    public readonly alertCreation!: pulumi.Output<string | undefined>;
+    declare public readonly alertCreation: pulumi.Output<string | undefined>;
     /**
      * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
      *
      * @deprecated Use `alert_grouping_parameters.type`
      */
-    public readonly alertGrouping!: pulumi.Output<string>;
+    declare public readonly alertGrouping: pulumi.Output<string>;
     /**
      * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
      *
      * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead.
 Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
      */
-    public readonly alertGroupingParameters!: pulumi.Output<outputs.ServiceAlertGroupingParameters | undefined>;
+    declare public readonly alertGroupingParameters: pulumi.Output<outputs.ServiceAlertGroupingParameters | undefined>;
     /**
      * (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
      *
      * @deprecated Use `alert_grouping_parameters.config.timeout`
      */
-    public readonly alertGroupingTimeout!: pulumi.Output<string>;
+    declare public readonly alertGroupingTimeout: pulumi.Output<string>;
     /**
      * Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
      */
-    public readonly autoPauseNotificationsParameters!: pulumi.Output<outputs.ServiceAutoPauseNotificationsParameters>;
+    declare public readonly autoPauseNotificationsParameters: pulumi.Output<outputs.ServiceAutoPauseNotificationsParameters>;
     /**
      * Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
      */
-    public readonly autoResolveTimeout!: pulumi.Output<string | undefined>;
+    declare public readonly autoResolveTimeout: pulumi.Output<string | undefined>;
     /**
      * Creation timestamp of the service.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * A human-friendly description of the service.
      * If not set, a placeholder of "Managed by Pulumi" will be set.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The escalation policy used by this service.
      */
-    public readonly escalationPolicy!: pulumi.Output<string>;
+    declare public readonly escalationPolicy: pulumi.Output<string>;
     /**
      * URL at which the entity is uniquely displayed in the Web app.
      */
-    public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
-    public readonly incidentUrgencyRule!: pulumi.Output<outputs.ServiceIncidentUrgencyRule>;
+    declare public /*out*/ readonly htmlUrl: pulumi.Output<string>;
+    declare public readonly incidentUrgencyRule: pulumi.Output<outputs.ServiceIncidentUrgencyRule>;
     /**
      * Last incident timestamp of the service.
      */
-    public /*out*/ readonly lastIncidentTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastIncidentTimestamp: pulumi.Output<string>;
     /**
      * The name of the service.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (Deprecated) The response play used by this service.
      */
-    public readonly responsePlay!: pulumi.Output<string>;
-    public readonly scheduledActions!: pulumi.Output<outputs.ServiceScheduledAction[] | undefined>;
+    declare public readonly responsePlay: pulumi.Output<string>;
+    declare public readonly scheduledActions: pulumi.Output<outputs.ServiceScheduledAction[] | undefined>;
     /**
      * The status of the service.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    public readonly supportHours!: pulumi.Output<outputs.ServiceSupportHours | undefined>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
+    declare public readonly supportHours: pulumi.Output<outputs.ServiceSupportHours | undefined>;
     /**
      * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -168,44 +168,44 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            resourceInputs["acknowledgementTimeout"] = state ? state.acknowledgementTimeout : undefined;
-            resourceInputs["alertCreation"] = state ? state.alertCreation : undefined;
-            resourceInputs["alertGrouping"] = state ? state.alertGrouping : undefined;
-            resourceInputs["alertGroupingParameters"] = state ? state.alertGroupingParameters : undefined;
-            resourceInputs["alertGroupingTimeout"] = state ? state.alertGroupingTimeout : undefined;
-            resourceInputs["autoPauseNotificationsParameters"] = state ? state.autoPauseNotificationsParameters : undefined;
-            resourceInputs["autoResolveTimeout"] = state ? state.autoResolveTimeout : undefined;
-            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["escalationPolicy"] = state ? state.escalationPolicy : undefined;
-            resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
-            resourceInputs["incidentUrgencyRule"] = state ? state.incidentUrgencyRule : undefined;
-            resourceInputs["lastIncidentTimestamp"] = state ? state.lastIncidentTimestamp : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["responsePlay"] = state ? state.responsePlay : undefined;
-            resourceInputs["scheduledActions"] = state ? state.scheduledActions : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["supportHours"] = state ? state.supportHours : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["acknowledgementTimeout"] = state?.acknowledgementTimeout;
+            resourceInputs["alertCreation"] = state?.alertCreation;
+            resourceInputs["alertGrouping"] = state?.alertGrouping;
+            resourceInputs["alertGroupingParameters"] = state?.alertGroupingParameters;
+            resourceInputs["alertGroupingTimeout"] = state?.alertGroupingTimeout;
+            resourceInputs["autoPauseNotificationsParameters"] = state?.autoPauseNotificationsParameters;
+            resourceInputs["autoResolveTimeout"] = state?.autoResolveTimeout;
+            resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["escalationPolicy"] = state?.escalationPolicy;
+            resourceInputs["htmlUrl"] = state?.htmlUrl;
+            resourceInputs["incidentUrgencyRule"] = state?.incidentUrgencyRule;
+            resourceInputs["lastIncidentTimestamp"] = state?.lastIncidentTimestamp;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["responsePlay"] = state?.responsePlay;
+            resourceInputs["scheduledActions"] = state?.scheduledActions;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["supportHours"] = state?.supportHours;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if ((!args || args.escalationPolicy === undefined) && !opts.urn) {
+            if (args?.escalationPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'escalationPolicy'");
             }
-            resourceInputs["acknowledgementTimeout"] = args ? args.acknowledgementTimeout : undefined;
-            resourceInputs["alertCreation"] = args ? args.alertCreation : undefined;
-            resourceInputs["alertGrouping"] = args ? args.alertGrouping : undefined;
-            resourceInputs["alertGroupingParameters"] = args ? args.alertGroupingParameters : undefined;
-            resourceInputs["alertGroupingTimeout"] = args ? args.alertGroupingTimeout : undefined;
-            resourceInputs["autoPauseNotificationsParameters"] = args ? args.autoPauseNotificationsParameters : undefined;
-            resourceInputs["autoResolveTimeout"] = args ? args.autoResolveTimeout : undefined;
-            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            resourceInputs["escalationPolicy"] = args ? args.escalationPolicy : undefined;
-            resourceInputs["incidentUrgencyRule"] = args ? args.incidentUrgencyRule : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["responsePlay"] = args ? args.responsePlay : undefined;
-            resourceInputs["scheduledActions"] = args ? args.scheduledActions : undefined;
-            resourceInputs["supportHours"] = args ? args.supportHours : undefined;
+            resourceInputs["acknowledgementTimeout"] = args?.acknowledgementTimeout;
+            resourceInputs["alertCreation"] = args?.alertCreation;
+            resourceInputs["alertGrouping"] = args?.alertGrouping;
+            resourceInputs["alertGroupingParameters"] = args?.alertGroupingParameters;
+            resourceInputs["alertGroupingTimeout"] = args?.alertGroupingTimeout;
+            resourceInputs["autoPauseNotificationsParameters"] = args?.autoPauseNotificationsParameters;
+            resourceInputs["autoResolveTimeout"] = args?.autoResolveTimeout;
+            resourceInputs["description"] = (args?.description) ?? "Managed by Pulumi";
+            resourceInputs["escalationPolicy"] = args?.escalationPolicy;
+            resourceInputs["incidentUrgencyRule"] = args?.incidentUrgencyRule;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["responsePlay"] = args?.responsePlay;
+            resourceInputs["scheduledActions"] = args?.scheduledActions;
+            resourceInputs["supportHours"] = args?.supportHours;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["htmlUrl"] = undefined /*out*/;
             resourceInputs["lastIncidentTimestamp"] = undefined /*out*/;

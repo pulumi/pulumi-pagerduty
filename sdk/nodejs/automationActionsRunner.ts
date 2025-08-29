@@ -79,35 +79,35 @@ export class AutomationActionsRunner extends pulumi.CustomResource {
     /**
      * The time runner was created. Represented as an ISO 8601 timestamp.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The description of the runner. Max length is 1024 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
      */
-    public readonly lastSeen!: pulumi.Output<string>;
+    declare public readonly lastSeen: pulumi.Output<string>;
     /**
      * The name of the runner. Max length is 255 characters.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The unique User API Token created in Runbook Automation.
      */
-    public readonly runbookApiKey!: pulumi.Output<string | undefined>;
+    declare public readonly runbookApiKey: pulumi.Output<string | undefined>;
     /**
      * The subdomain for your Runbook Automation Instance.
      */
-    public readonly runbookBaseUri!: pulumi.Output<string | undefined>;
+    declare public readonly runbookBaseUri: pulumi.Output<string | undefined>;
     /**
      * The type of runner. The only allowed values is `runbook`.
      */
-    public readonly runnerType!: pulumi.Output<string>;
+    declare public readonly runnerType: pulumi.Output<string>;
     /**
      * The type of object. The value returned will be `runner`.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AutomationActionsRunner resource with the given unique name, arguments, and options.
@@ -122,25 +122,25 @@ export class AutomationActionsRunner extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutomationActionsRunnerState | undefined;
-            resourceInputs["creationTime"] = state ? state.creationTime : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["lastSeen"] = state ? state.lastSeen : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["runbookApiKey"] = state ? state.runbookApiKey : undefined;
-            resourceInputs["runbookBaseUri"] = state ? state.runbookBaseUri : undefined;
-            resourceInputs["runnerType"] = state ? state.runnerType : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["creationTime"] = state?.creationTime;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["lastSeen"] = state?.lastSeen;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["runbookApiKey"] = state?.runbookApiKey;
+            resourceInputs["runbookBaseUri"] = state?.runbookBaseUri;
+            resourceInputs["runnerType"] = state?.runnerType;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as AutomationActionsRunnerArgs | undefined;
-            if ((!args || args.runnerType === undefined) && !opts.urn) {
+            if (args?.runnerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runnerType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["lastSeen"] = args ? args.lastSeen : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["lastSeen"] = args?.lastSeen;
+            resourceInputs["name"] = args?.name;
             resourceInputs["runbookApiKey"] = args?.runbookApiKey ? pulumi.secret(args.runbookApiKey) : undefined;
-            resourceInputs["runbookBaseUri"] = args ? args.runbookBaseUri : undefined;
-            resourceInputs["runnerType"] = args ? args.runnerType : undefined;
+            resourceInputs["runbookBaseUri"] = args?.runbookBaseUri;
+            resourceInputs["runnerType"] = args?.runnerType;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

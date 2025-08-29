@@ -63,19 +63,19 @@ export class Enablement extends pulumi.CustomResource {
     /**
      * Whether the feature should be enabled (`true`) or disabled (`false`) for the specified entity.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The ID of the entity for which to manage the enablement.
      */
-    public readonly entityId!: pulumi.Output<string>;
+    declare public readonly entityId: pulumi.Output<string>;
     /**
      * The type of entity for which to manage the enablement. Possible values can be `service` and `eventOrchestration`.
      */
-    public readonly entityType!: pulumi.Output<string>;
+    declare public readonly entityType: pulumi.Output<string>;
     /**
      * The name of the feature to enable or disable. Possible values can be `aiops`.
      */
-    public readonly feature!: pulumi.Output<string>;
+    declare public readonly feature: pulumi.Output<string>;
 
     /**
      * Create a Enablement resource with the given unique name, arguments, and options.
@@ -90,25 +90,25 @@ export class Enablement extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnablementState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["entityId"] = state ? state.entityId : undefined;
-            resourceInputs["entityType"] = state ? state.entityType : undefined;
-            resourceInputs["feature"] = state ? state.feature : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["entityId"] = state?.entityId;
+            resourceInputs["entityType"] = state?.entityType;
+            resourceInputs["feature"] = state?.feature;
         } else {
             const args = argsOrState as EnablementArgs | undefined;
-            if ((!args || args.entityId === undefined) && !opts.urn) {
+            if (args?.entityId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityId'");
             }
-            if ((!args || args.entityType === undefined) && !opts.urn) {
+            if (args?.entityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityType'");
             }
-            if ((!args || args.feature === undefined) && !opts.urn) {
+            if (args?.feature === undefined && !opts.urn) {
                 throw new Error("Missing required property 'feature'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["entityId"] = args ? args.entityId : undefined;
-            resourceInputs["entityType"] = args ? args.entityType : undefined;
-            resourceInputs["feature"] = args ? args.feature : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["entityId"] = args?.entityId;
+            resourceInputs["entityType"] = args?.entityType;
+            resourceInputs["feature"] = args?.feature;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Enablement.__pulumiType, name, resourceInputs, opts);

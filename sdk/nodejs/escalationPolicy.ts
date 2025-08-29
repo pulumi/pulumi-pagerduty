@@ -88,23 +88,23 @@ export class EscalationPolicy extends pulumi.CustomResource {
      * A human-friendly description of the escalation policy.
      * If not set, a placeholder of "Managed by Pulumi" will be set.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The name of the escalation policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The number of times the escalation policy will repeat after reaching the end of its escalation.
      */
-    public readonly numLoops!: pulumi.Output<number | undefined>;
+    declare public readonly numLoops: pulumi.Output<number | undefined>;
     /**
      * An Escalation rule block. Escalation rules documented below.
      */
-    public readonly rules!: pulumi.Output<outputs.EscalationPolicyRule[]>;
+    declare public readonly rules: pulumi.Output<outputs.EscalationPolicyRule[]>;
     /**
      * Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
      */
-    public readonly teams!: pulumi.Output<string | undefined>;
+    declare public readonly teams: pulumi.Output<string | undefined>;
 
     /**
      * Create a EscalationPolicy resource with the given unique name, arguments, and options.
@@ -119,21 +119,21 @@ export class EscalationPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EscalationPolicyState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["numLoops"] = state ? state.numLoops : undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
-            resourceInputs["teams"] = state ? state.teams : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["numLoops"] = state?.numLoops;
+            resourceInputs["rules"] = state?.rules;
+            resourceInputs["teams"] = state?.teams;
         } else {
             const args = argsOrState as EscalationPolicyArgs | undefined;
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["numLoops"] = args ? args.numLoops : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["teams"] = args ? args.teams : undefined;
+            resourceInputs["description"] = (args?.description) ?? "Managed by Pulumi";
+            resourceInputs["name"] = args?.name;
+            resourceInputs["numLoops"] = args?.numLoops;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["teams"] = args?.teams;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EscalationPolicy.__pulumiType, name, resourceInputs, opts);

@@ -94,35 +94,35 @@ export class Extension extends pulumi.CustomResource {
     /**
      * The configuration of the service extension as string containing plain JSON-encoded data.
      */
-    public readonly config!: pulumi.Output<string>;
+    declare public readonly config: pulumi.Output<string>;
     /**
      * The url of the extension.
      * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpointUrl`, but one with named `Slack` accepts.
      */
-    public readonly endpointUrl!: pulumi.Output<string>;
+    declare public readonly endpointUrl: pulumi.Output<string>;
     /**
      * This is the objects for which the extension applies (An array of service ids).
      */
-    public readonly extensionObjects!: pulumi.Output<string[]>;
+    declare public readonly extensionObjects: pulumi.Output<string[]>;
     /**
      * This is the schema for this extension.
      */
-    public readonly extensionSchema!: pulumi.Output<string>;
+    declare public readonly extensionSchema: pulumi.Output<string>;
     /**
      * URL at which the entity is uniquely displayed in the Web app
      */
-    public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly htmlUrl: pulumi.Output<string>;
     /**
      * The name of the service extension.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
      *
      * **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
      */
-    public /*out*/ readonly summary!: pulumi.Output<string>;
-    public readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly summary: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a Extension resource with the given unique name, arguments, and options.
@@ -137,28 +137,28 @@ export class Extension extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExtensionState | undefined;
-            resourceInputs["config"] = state ? state.config : undefined;
-            resourceInputs["endpointUrl"] = state ? state.endpointUrl : undefined;
-            resourceInputs["extensionObjects"] = state ? state.extensionObjects : undefined;
-            resourceInputs["extensionSchema"] = state ? state.extensionSchema : undefined;
-            resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["summary"] = state ? state.summary : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["config"] = state?.config;
+            resourceInputs["endpointUrl"] = state?.endpointUrl;
+            resourceInputs["extensionObjects"] = state?.extensionObjects;
+            resourceInputs["extensionSchema"] = state?.extensionSchema;
+            resourceInputs["htmlUrl"] = state?.htmlUrl;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["summary"] = state?.summary;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ExtensionArgs | undefined;
-            if ((!args || args.extensionObjects === undefined) && !opts.urn) {
+            if (args?.extensionObjects === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extensionObjects'");
             }
-            if ((!args || args.extensionSchema === undefined) && !opts.urn) {
+            if (args?.extensionSchema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extensionSchema'");
             }
-            resourceInputs["config"] = args ? args.config : undefined;
+            resourceInputs["config"] = args?.config;
             resourceInputs["endpointUrl"] = args?.endpointUrl ? pulumi.secret(args.endpointUrl) : undefined;
-            resourceInputs["extensionObjects"] = args ? args.extensionObjects : undefined;
-            resourceInputs["extensionSchema"] = args ? args.extensionSchema : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["extensionObjects"] = args?.extensionObjects;
+            resourceInputs["extensionSchema"] = args?.extensionSchema;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["type"] = args?.type;
             resourceInputs["htmlUrl"] = undefined /*out*/;
             resourceInputs["summary"] = undefined /*out*/;
         }

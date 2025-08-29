@@ -62,20 +62,20 @@ export class EventOrchestration extends pulumi.CustomResource {
     /**
      * A human-friendly description of the Event Orchestration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A list of integrations for the Event Orchestration.
      */
-    public readonly integrations!: pulumi.Output<outputs.EventOrchestrationIntegration[]>;
+    declare public readonly integrations: pulumi.Output<outputs.EventOrchestrationIntegration[]>;
     /**
      * Name of the Event Orchestration.
      */
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly routes!: pulumi.Output<number>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly routes: pulumi.Output<number>;
     /**
      * ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
      */
-    public readonly team!: pulumi.Output<string | undefined>;
+    declare public readonly team: pulumi.Output<string | undefined>;
 
     /**
      * Create a EventOrchestration resource with the given unique name, arguments, and options.
@@ -90,17 +90,17 @@ export class EventOrchestration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventOrchestrationState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["integrations"] = state ? state.integrations : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["routes"] = state ? state.routes : undefined;
-            resourceInputs["team"] = state ? state.team : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["integrations"] = state?.integrations;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["routes"] = state?.routes;
+            resourceInputs["team"] = state?.team;
         } else {
             const args = argsOrState as EventOrchestrationArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["integrations"] = args ? args.integrations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["team"] = args ? args.team : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["integrations"] = args?.integrations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["team"] = args?.team;
             resourceInputs["routes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

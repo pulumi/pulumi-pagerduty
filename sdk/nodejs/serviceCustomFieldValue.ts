@@ -125,11 +125,11 @@ export class ServiceCustomFieldValue extends pulumi.CustomResource {
     /**
      * The custom field values to set for the service.
      */
-    public readonly customFields!: pulumi.Output<outputs.ServiceCustomFieldValueCustomField[]>;
+    declare public readonly customFields: pulumi.Output<outputs.ServiceCustomFieldValueCustomField[]>;
     /**
      * The ID of the service to set custom field values for.
      */
-    public readonly serviceId!: pulumi.Output<string>;
+    declare public readonly serviceId: pulumi.Output<string>;
 
     /**
      * Create a ServiceCustomFieldValue resource with the given unique name, arguments, and options.
@@ -144,18 +144,18 @@ export class ServiceCustomFieldValue extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceCustomFieldValueState | undefined;
-            resourceInputs["customFields"] = state ? state.customFields : undefined;
-            resourceInputs["serviceId"] = state ? state.serviceId : undefined;
+            resourceInputs["customFields"] = state?.customFields;
+            resourceInputs["serviceId"] = state?.serviceId;
         } else {
             const args = argsOrState as ServiceCustomFieldValueArgs | undefined;
-            if ((!args || args.customFields === undefined) && !opts.urn) {
+            if (args?.customFields === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customFields'");
             }
-            if ((!args || args.serviceId === undefined) && !opts.urn) {
+            if (args?.serviceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceId'");
             }
-            resourceInputs["customFields"] = args ? args.customFields : undefined;
-            resourceInputs["serviceId"] = args ? args.serviceId : undefined;
+            resourceInputs["customFields"] = args?.customFields;
+            resourceInputs["serviceId"] = args?.serviceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceCustomFieldValue.__pulumiType, name, resourceInputs, opts);

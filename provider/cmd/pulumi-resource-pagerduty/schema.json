@@ -8041,7 +8041,7 @@
                 },
                 "defaultValue": {
                     "type": "string",
-                    "description": "Default value for the field.\n"
+                    "description": "Default value for the field."
                 },
                 "description": {
                     "type": "string",
@@ -8072,15 +8072,15 @@
                 },
                 "self": {
                     "type": "string",
-                    "description": "The API show URL at which the object is accessible\n"
+                    "description": "The API show URL at which the object is accessible"
                 },
                 "summary": {
                     "type": "string",
-                    "description": "A short-form, server-generated string that provides succinct, important information about an object suitable for primary\nlabeling of an entity in a client. In many cases, this will be identical to display_name\n"
+                    "description": "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name"
                 },
                 "type": {
                     "type": "string",
-                    "description": "API object type\n"
+                    "description": "API object type"
                 }
             },
             "required": [
@@ -8100,7 +8100,7 @@
                 },
                 "defaultValue": {
                     "type": "string",
-                    "description": "Default value for the field.\n"
+                    "description": "Default value for the field."
                 },
                 "description": {
                     "type": "string",
@@ -8144,7 +8144,7 @@
                     },
                     "defaultValue": {
                         "type": "string",
-                        "description": "Default value for the field.\n"
+                        "description": "Default value for the field."
                     },
                     "description": {
                         "type": "string",
@@ -8175,15 +8175,15 @@
                     },
                     "self": {
                         "type": "string",
-                        "description": "The API show URL at which the object is accessible\n"
+                        "description": "The API show URL at which the object is accessible"
                     },
                     "summary": {
                         "type": "string",
-                        "description": "A short-form, server-generated string that provides succinct, important information about an object suitable for primary\nlabeling of an entity in a client. In many cases, this will be identical to display_name\n"
+                        "description": "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name"
                     },
                     "type": {
                         "type": "string",
-                        "description": "API object type\n"
+                        "description": "API object type"
                     }
                 },
                 "type": "object"
@@ -8197,7 +8197,7 @@
                     "items": {
                         "$ref": "#/types/pagerduty:index/ServiceCustomFieldValueCustomField:ServiceCustomFieldValueCustomField"
                     },
-                    "description": "The custom field values to set for the service.\n"
+                    "description": "The custom field values to set for the service."
                 },
                 "serviceId": {
                     "type": "string",
@@ -8214,7 +8214,7 @@
                     "items": {
                         "$ref": "#/types/pagerduty:index/ServiceCustomFieldValueCustomField:ServiceCustomFieldValueCustomField"
                     },
-                    "description": "The custom field values to set for the service.\n"
+                    "description": "The custom field values to set for the service."
                 },
                 "serviceId": {
                     "type": "string",
@@ -8233,7 +8233,7 @@
                         "items": {
                             "$ref": "#/types/pagerduty:index/ServiceCustomFieldValueCustomField:ServiceCustomFieldValueCustomField"
                         },
-                        "description": "The custom field values to set for the service.\n"
+                        "description": "The custom field values to set for the service."
                     },
                     "serviceId": {
                         "type": "string",
@@ -9893,7 +9893,7 @@
                 "description": "A collection of values returned by getEventOrchestration.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "integrationDetail": {
@@ -10117,7 +10117,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "nameFilter": {
@@ -10203,7 +10203,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -10374,7 +10374,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -10599,7 +10599,7 @@
                 "description": "A collection of values returned by getRuleset.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -10917,7 +10917,7 @@
                 "description": "A collection of values returned by getStandards.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "resourceType": {
@@ -11018,7 +11018,7 @@
                 "description": "A collection of values returned by getStandardsResourcesScores.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "ids": {
@@ -11116,7 +11116,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -11155,7 +11155,7 @@
                 "description": "A collection of values returned by getTeamMembers.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "members": {
@@ -11193,7 +11193,7 @@
                 "description": "A collection of values returned by getTeams.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "query": {
@@ -11321,7 +11321,7 @@
                         "type": "boolean"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "label": {

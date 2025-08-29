@@ -58,11 +58,11 @@ export class Addon extends pulumi.CustomResource {
     /**
      * The name of the add-on.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
      */
-    public readonly src!: pulumi.Output<string>;
+    declare public readonly src: pulumi.Output<string>;
 
     /**
      * Create a Addon resource with the given unique name, arguments, and options.
@@ -77,15 +77,15 @@ export class Addon extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AddonState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["src"] = state ? state.src : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["src"] = state?.src;
         } else {
             const args = argsOrState as AddonArgs | undefined;
-            if ((!args || args.src === undefined) && !opts.urn) {
+            if (args?.src === undefined && !opts.urn) {
                 throw new Error("Missing required property 'src'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["src"] = args ? args.src : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["src"] = args?.src;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Addon.__pulumiType, name, resourceInputs, opts);

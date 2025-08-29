@@ -260,16 +260,14 @@ public class ServiceCustomField extends com.pulumi.resources.CustomResource {
         return this.self;
     }
     /**
-     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary
-     * labeling of an entity in a client. In many cases, this will be identical to display_name
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
      * 
      */
     @Export(name="summary", refs={String.class}, tree="[0]")
     private Output<String> summary;
 
     /**
-     * @return A short-form, server-generated string that provides succinct, important information about an object suitable for primary
-     * labeling of an entity in a client. In many cases, this will be identical to display_name
+     * @return A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
      * 
      */
     public Output<String> summary() {

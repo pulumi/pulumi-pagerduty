@@ -176,37 +176,37 @@ export class ServiceIntegration extends pulumi.CustomResource {
     /**
      * Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
      */
-    public readonly emailFilterMode!: pulumi.Output<string>;
-    public readonly emailFilters!: pulumi.Output<outputs.ServiceIntegrationEmailFilter[]>;
+    declare public readonly emailFilterMode: pulumi.Output<string>;
+    declare public readonly emailFilters: pulumi.Output<outputs.ServiceIntegrationEmailFilter[]>;
     /**
      * Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `onNewEmail`, `onNewEmailSubject`, `onlyIfNoOpenIncidents` or `useRules`.
      */
-    public readonly emailIncidentCreation!: pulumi.Output<string>;
-    public readonly emailParsers!: pulumi.Output<outputs.ServiceIntegrationEmailParser[] | undefined>;
+    declare public readonly emailIncidentCreation: pulumi.Output<string>;
+    declare public readonly emailParsers: pulumi.Output<outputs.ServiceIntegrationEmailParser[] | undefined>;
     /**
      * Can be `openNewIncident` or `discard`.
      */
-    public readonly emailParsingFallback!: pulumi.Output<string>;
+    declare public readonly emailParsingFallback: pulumi.Output<string>;
     /**
      * URL at which the entity is uniquely displayed in the Web app.
      */
-    public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly htmlUrl: pulumi.Output<string>;
     /**
      * This is the unique fully-qualified email address used for routing emails to this integration for processing.
      */
-    public readonly integrationEmail!: pulumi.Output<string>;
+    declare public readonly integrationEmail: pulumi.Output<string>;
     /**
      * (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
      */
-    public readonly integrationKey!: pulumi.Output<string>;
+    declare public readonly integrationKey: pulumi.Output<string>;
     /**
      * The name of the service integration.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the service the integration should belong to.
      */
-    public readonly service!: pulumi.Output<string>;
+    declare public readonly service: pulumi.Output<string>;
     /**
      * The service type. Can be:
      * `awsCloudwatchInboundIntegration`,
@@ -222,11 +222,11 @@ export class ServiceIntegration extends pulumi.CustomResource {
      * **Note:** This is meant for **generic** service integrations.
      * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
      */
-    public readonly vendor!: pulumi.Output<string>;
+    declare public readonly vendor: pulumi.Output<string>;
 
     /**
      * Create a ServiceIntegration resource with the given unique name, arguments, and options.
@@ -241,34 +241,34 @@ export class ServiceIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceIntegrationState | undefined;
-            resourceInputs["emailFilterMode"] = state ? state.emailFilterMode : undefined;
-            resourceInputs["emailFilters"] = state ? state.emailFilters : undefined;
-            resourceInputs["emailIncidentCreation"] = state ? state.emailIncidentCreation : undefined;
-            resourceInputs["emailParsers"] = state ? state.emailParsers : undefined;
-            resourceInputs["emailParsingFallback"] = state ? state.emailParsingFallback : undefined;
-            resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
-            resourceInputs["integrationEmail"] = state ? state.integrationEmail : undefined;
-            resourceInputs["integrationKey"] = state ? state.integrationKey : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["service"] = state ? state.service : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["vendor"] = state ? state.vendor : undefined;
+            resourceInputs["emailFilterMode"] = state?.emailFilterMode;
+            resourceInputs["emailFilters"] = state?.emailFilters;
+            resourceInputs["emailIncidentCreation"] = state?.emailIncidentCreation;
+            resourceInputs["emailParsers"] = state?.emailParsers;
+            resourceInputs["emailParsingFallback"] = state?.emailParsingFallback;
+            resourceInputs["htmlUrl"] = state?.htmlUrl;
+            resourceInputs["integrationEmail"] = state?.integrationEmail;
+            resourceInputs["integrationKey"] = state?.integrationKey;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["service"] = state?.service;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["vendor"] = state?.vendor;
         } else {
             const args = argsOrState as ServiceIntegrationArgs | undefined;
-            if ((!args || args.service === undefined) && !opts.urn) {
+            if (args?.service === undefined && !opts.urn) {
                 throw new Error("Missing required property 'service'");
             }
-            resourceInputs["emailFilterMode"] = args ? args.emailFilterMode : undefined;
-            resourceInputs["emailFilters"] = args ? args.emailFilters : undefined;
-            resourceInputs["emailIncidentCreation"] = args ? args.emailIncidentCreation : undefined;
-            resourceInputs["emailParsers"] = args ? args.emailParsers : undefined;
-            resourceInputs["emailParsingFallback"] = args ? args.emailParsingFallback : undefined;
-            resourceInputs["integrationEmail"] = args ? args.integrationEmail : undefined;
-            resourceInputs["integrationKey"] = args ? args.integrationKey : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["service"] = args ? args.service : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["vendor"] = args ? args.vendor : undefined;
+            resourceInputs["emailFilterMode"] = args?.emailFilterMode;
+            resourceInputs["emailFilters"] = args?.emailFilters;
+            resourceInputs["emailIncidentCreation"] = args?.emailIncidentCreation;
+            resourceInputs["emailParsers"] = args?.emailParsers;
+            resourceInputs["emailParsingFallback"] = args?.emailParsingFallback;
+            resourceInputs["integrationEmail"] = args?.integrationEmail;
+            resourceInputs["integrationKey"] = args?.integrationKey;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["service"] = args?.service;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["vendor"] = args?.vendor;
             resourceInputs["htmlUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

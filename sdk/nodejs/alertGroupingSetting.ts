@@ -86,23 +86,23 @@ export class AlertGroupingSetting extends pulumi.CustomResource {
     /**
      * The set of values used for configuration.
      */
-    public readonly config!: pulumi.Output<outputs.AlertGroupingSettingConfig | undefined>;
+    declare public readonly config: pulumi.Output<outputs.AlertGroupingSettingConfig | undefined>;
     /**
      * A human-friendly text to describe and identify this alert grouping setting.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The name for the alert groupig settings.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * [Updating can cause a resource replacement] The list IDs of services associated to this setting.
      */
-    public readonly services!: pulumi.Output<string[]>;
+    declare public readonly services: pulumi.Output<string[]>;
     /**
      * The type of alert grouping; one of `intelligent`, `time`, `contentBased` or  `contentBasedIntelligent`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a AlertGroupingSetting resource with the given unique name, arguments, and options.
@@ -117,24 +117,24 @@ export class AlertGroupingSetting extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertGroupingSettingState | undefined;
-            resourceInputs["config"] = state ? state.config : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["services"] = state ? state.services : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["config"] = state?.config;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["services"] = state?.services;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as AlertGroupingSettingArgs | undefined;
-            if ((!args || args.services === undefined) && !opts.urn) {
+            if (args?.services === undefined && !opts.urn) {
                 throw new Error("Missing required property 'services'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["services"] = args ? args.services : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["config"] = args?.config;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["services"] = args?.services;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertGroupingSetting.__pulumiType, name, resourceInputs, opts);

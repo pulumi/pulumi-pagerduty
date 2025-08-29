@@ -69,12 +69,12 @@ export class EventOrchestrationIntegration extends pulumi.CustomResource {
     /**
      * ID of the Event Orchestration to which this Integration belongs to. If value is changed, current Integration is associated with a newly provided ID.
      */
-    public readonly eventOrchestration!: pulumi.Output<string>;
+    declare public readonly eventOrchestration: pulumi.Output<string>;
     /**
      * Name/description of the Integration.
      */
-    public readonly label!: pulumi.Output<string>;
-    public /*out*/ readonly parameters!: pulumi.Output<outputs.EventOrchestrationIntegrationParameter[]>;
+    declare public readonly label: pulumi.Output<string>;
+    declare public /*out*/ readonly parameters: pulumi.Output<outputs.EventOrchestrationIntegrationParameter[]>;
 
     /**
      * Create a EventOrchestrationIntegration resource with the given unique name, arguments, and options.
@@ -89,19 +89,19 @@ export class EventOrchestrationIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventOrchestrationIntegrationState | undefined;
-            resourceInputs["eventOrchestration"] = state ? state.eventOrchestration : undefined;
-            resourceInputs["label"] = state ? state.label : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["eventOrchestration"] = state?.eventOrchestration;
+            resourceInputs["label"] = state?.label;
+            resourceInputs["parameters"] = state?.parameters;
         } else {
             const args = argsOrState as EventOrchestrationIntegrationArgs | undefined;
-            if ((!args || args.eventOrchestration === undefined) && !opts.urn) {
+            if (args?.eventOrchestration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventOrchestration'");
             }
-            if ((!args || args.label === undefined) && !opts.urn) {
+            if (args?.label === undefined && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            resourceInputs["eventOrchestration"] = args ? args.eventOrchestration : undefined;
-            resourceInputs["label"] = args ? args.label : undefined;
+            resourceInputs["eventOrchestration"] = args?.eventOrchestration;
+            resourceInputs["label"] = args?.label;
             resourceInputs["parameters"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

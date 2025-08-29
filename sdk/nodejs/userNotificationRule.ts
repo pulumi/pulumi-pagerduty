@@ -48,19 +48,19 @@ export class UserNotificationRule extends pulumi.CustomResource {
     /**
      * A contact method block, configured as a block described below.
      */
-    public readonly contactMethod!: pulumi.Output<outputs.UserNotificationRuleContactMethod | undefined>;
+    declare public readonly contactMethod: pulumi.Output<outputs.UserNotificationRuleContactMethod | undefined>;
     /**
      * The delay before firing the rule, in minutes.
      */
-    public readonly startDelayInMinutes!: pulumi.Output<number>;
+    declare public readonly startDelayInMinutes: pulumi.Output<number>;
     /**
      * Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
      */
-    public readonly urgency!: pulumi.Output<string>;
+    declare public readonly urgency: pulumi.Output<string>;
     /**
      * The ID of the user.
      */
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly userId: pulumi.Output<string>;
 
     /**
      * Create a UserNotificationRule resource with the given unique name, arguments, and options.
@@ -75,25 +75,25 @@ export class UserNotificationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserNotificationRuleState | undefined;
-            resourceInputs["contactMethod"] = state ? state.contactMethod : undefined;
-            resourceInputs["startDelayInMinutes"] = state ? state.startDelayInMinutes : undefined;
-            resourceInputs["urgency"] = state ? state.urgency : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["contactMethod"] = state?.contactMethod;
+            resourceInputs["startDelayInMinutes"] = state?.startDelayInMinutes;
+            resourceInputs["urgency"] = state?.urgency;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as UserNotificationRuleArgs | undefined;
-            if ((!args || args.startDelayInMinutes === undefined) && !opts.urn) {
+            if (args?.startDelayInMinutes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startDelayInMinutes'");
             }
-            if ((!args || args.urgency === undefined) && !opts.urn) {
+            if (args?.urgency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'urgency'");
             }
-            if ((!args || args.userId === undefined) && !opts.urn) {
+            if (args?.userId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["contactMethod"] = args ? args.contactMethod : undefined;
-            resourceInputs["startDelayInMinutes"] = args ? args.startDelayInMinutes : undefined;
-            resourceInputs["urgency"] = args ? args.urgency : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["contactMethod"] = args?.contactMethod;
+            resourceInputs["startDelayInMinutes"] = args?.startDelayInMinutes;
+            resourceInputs["urgency"] = args?.urgency;
+            resourceInputs["userId"] = args?.userId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserNotificationRule.__pulumiType, name, resourceInputs, opts);

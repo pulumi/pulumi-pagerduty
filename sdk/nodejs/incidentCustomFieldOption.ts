@@ -68,15 +68,15 @@ export class IncidentCustomFieldOption extends pulumi.CustomResource {
     /**
      * The datatype of the field option. Only `string` is allowed here at present.
      */
-    public readonly dataType!: pulumi.Output<string>;
+    declare public readonly dataType: pulumi.Output<string>;
     /**
      * The ID of the field.
      */
-    public readonly field!: pulumi.Output<string>;
+    declare public readonly field: pulumi.Output<string>;
     /**
      * The allowed value.
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a IncidentCustomFieldOption resource with the given unique name, arguments, and options.
@@ -91,23 +91,23 @@ export class IncidentCustomFieldOption extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IncidentCustomFieldOptionState | undefined;
-            resourceInputs["dataType"] = state ? state.dataType : undefined;
-            resourceInputs["field"] = state ? state.field : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["dataType"] = state?.dataType;
+            resourceInputs["field"] = state?.field;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as IncidentCustomFieldOptionArgs | undefined;
-            if ((!args || args.dataType === undefined) && !opts.urn) {
+            if (args?.dataType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataType'");
             }
-            if ((!args || args.field === undefined) && !opts.urn) {
+            if (args?.field === undefined && !opts.urn) {
                 throw new Error("Missing required property 'field'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["dataType"] = args ? args.dataType : undefined;
-            resourceInputs["field"] = args ? args.field : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["dataType"] = args?.dataType;
+            resourceInputs["field"] = args?.field;
+            resourceInputs["value"] = args?.value;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IncidentCustomFieldOption.__pulumiType, name, resourceInputs, opts);

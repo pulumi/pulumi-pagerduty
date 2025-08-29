@@ -68,23 +68,23 @@ export class IncidentWorkflow extends pulumi.CustomResource {
     /**
      * The description of the workflow.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
      */
-    public readonly isEnabled!: pulumi.Output<string>;
+    declare public readonly isEnabled: pulumi.Output<string>;
     /**
      * The name of the workflow.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The steps in the workflow.
      */
-    public readonly steps!: pulumi.Output<outputs.IncidentWorkflowStep[]>;
+    declare public readonly steps: pulumi.Output<outputs.IncidentWorkflowStep[]>;
     /**
      * A team ID. If specified then workflow edit permissions will be scoped to members of this team.
      */
-    public readonly team!: pulumi.Output<string | undefined>;
+    declare public readonly team: pulumi.Output<string | undefined>;
 
     /**
      * Create a IncidentWorkflow resource with the given unique name, arguments, and options.
@@ -99,18 +99,18 @@ export class IncidentWorkflow extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IncidentWorkflowState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["steps"] = state ? state.steps : undefined;
-            resourceInputs["team"] = state ? state.team : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["isEnabled"] = state?.isEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["steps"] = state?.steps;
+            resourceInputs["team"] = state?.team;
         } else {
             const args = argsOrState as IncidentWorkflowArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["steps"] = args ? args.steps : undefined;
-            resourceInputs["team"] = args ? args.team : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["isEnabled"] = args?.isEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["steps"] = args?.steps;
+            resourceInputs["team"] = args?.team;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IncidentWorkflow.__pulumiType, name, resourceInputs, opts);

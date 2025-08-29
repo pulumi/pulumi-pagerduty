@@ -61,15 +61,15 @@ export class TagAssignment extends pulumi.CustomResource {
     /**
      * The ID of the entity.
      */
-    public readonly entityId!: pulumi.Output<string>;
+    declare public readonly entityId: pulumi.Output<string>;
     /**
      * Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
      */
-    public readonly entityType!: pulumi.Output<string>;
+    declare public readonly entityType: pulumi.Output<string>;
     /**
      * The ID of the tag.
      */
-    public readonly tagId!: pulumi.Output<string>;
+    declare public readonly tagId: pulumi.Output<string>;
 
     /**
      * Create a TagAssignment resource with the given unique name, arguments, and options.
@@ -84,23 +84,23 @@ export class TagAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagAssignmentState | undefined;
-            resourceInputs["entityId"] = state ? state.entityId : undefined;
-            resourceInputs["entityType"] = state ? state.entityType : undefined;
-            resourceInputs["tagId"] = state ? state.tagId : undefined;
+            resourceInputs["entityId"] = state?.entityId;
+            resourceInputs["entityType"] = state?.entityType;
+            resourceInputs["tagId"] = state?.tagId;
         } else {
             const args = argsOrState as TagAssignmentArgs | undefined;
-            if ((!args || args.entityId === undefined) && !opts.urn) {
+            if (args?.entityId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityId'");
             }
-            if ((!args || args.entityType === undefined) && !opts.urn) {
+            if (args?.entityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityType'");
             }
-            if ((!args || args.tagId === undefined) && !opts.urn) {
+            if (args?.tagId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tagId'");
             }
-            resourceInputs["entityId"] = args ? args.entityId : undefined;
-            resourceInputs["entityType"] = args ? args.entityType : undefined;
-            resourceInputs["tagId"] = args ? args.tagId : undefined;
+            resourceInputs["entityId"] = args?.entityId;
+            resourceInputs["entityType"] = args?.entityType;
+            resourceInputs["tagId"] = args?.tagId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TagAssignment.__pulumiType, name, resourceInputs, opts);

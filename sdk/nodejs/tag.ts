@@ -55,15 +55,15 @@ export class Tag extends pulumi.CustomResource {
     /**
      * URL at which the entity is uniquely displayed in the Web app.
      */
-    public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly htmlUrl: pulumi.Output<string>;
     /**
      * The label of the tag.
      */
-    public readonly label!: pulumi.Output<string>;
+    declare public readonly label: pulumi.Output<string>;
     /**
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
      */
-    public /*out*/ readonly summary!: pulumi.Output<string>;
+    declare public /*out*/ readonly summary: pulumi.Output<string>;
 
     /**
      * Create a Tag resource with the given unique name, arguments, and options.
@@ -78,15 +78,15 @@ export class Tag extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagState | undefined;
-            resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
-            resourceInputs["label"] = state ? state.label : undefined;
-            resourceInputs["summary"] = state ? state.summary : undefined;
+            resourceInputs["htmlUrl"] = state?.htmlUrl;
+            resourceInputs["label"] = state?.label;
+            resourceInputs["summary"] = state?.summary;
         } else {
             const args = argsOrState as TagArgs | undefined;
-            if ((!args || args.label === undefined) && !opts.urn) {
+            if (args?.label === undefined && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            resourceInputs["label"] = args ? args.label : undefined;
+            resourceInputs["label"] = args?.label;
             resourceInputs["htmlUrl"] = undefined /*out*/;
             resourceInputs["summary"] = undefined /*out*/;
         }

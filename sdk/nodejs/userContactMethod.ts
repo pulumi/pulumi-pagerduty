@@ -77,35 +77,35 @@ export class UserContactMethod extends pulumi.CustomResource {
     /**
      * The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
      */
-    public readonly address!: pulumi.Output<string>;
+    declare public readonly address: pulumi.Output<string>;
     /**
      * If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
      */
-    public /*out*/ readonly blacklisted!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly blacklisted: pulumi.Output<boolean>;
     /**
      * The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
      */
-    public readonly countryCode!: pulumi.Output<number>;
+    declare public readonly countryCode: pulumi.Output<number>;
     /**
      * If true, this phone is capable of receiving SMS messages.
      */
-    public /*out*/ readonly enabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly enabled: pulumi.Output<boolean>;
     /**
      * The label (e.g., "Work", "Mobile", etc.).
      */
-    public readonly label!: pulumi.Output<string>;
+    declare public readonly label: pulumi.Output<string>;
     /**
      * Send an abbreviated email message instead of the standard email output.
      */
-    public readonly sendShortEmail!: pulumi.Output<boolean | undefined>;
+    declare public readonly sendShortEmail: pulumi.Output<boolean | undefined>;
     /**
      * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The ID of the user.
      */
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly userId: pulumi.Output<string>;
 
     /**
      * Create a UserContactMethod resource with the given unique name, arguments, and options.
@@ -120,34 +120,34 @@ export class UserContactMethod extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserContactMethodState | undefined;
-            resourceInputs["address"] = state ? state.address : undefined;
-            resourceInputs["blacklisted"] = state ? state.blacklisted : undefined;
-            resourceInputs["countryCode"] = state ? state.countryCode : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["label"] = state ? state.label : undefined;
-            resourceInputs["sendShortEmail"] = state ? state.sendShortEmail : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["address"] = state?.address;
+            resourceInputs["blacklisted"] = state?.blacklisted;
+            resourceInputs["countryCode"] = state?.countryCode;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["label"] = state?.label;
+            resourceInputs["sendShortEmail"] = state?.sendShortEmail;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as UserContactMethodArgs | undefined;
-            if ((!args || args.address === undefined) && !opts.urn) {
+            if (args?.address === undefined && !opts.urn) {
                 throw new Error("Missing required property 'address'");
             }
-            if ((!args || args.label === undefined) && !opts.urn) {
+            if (args?.label === undefined && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.userId === undefined) && !opts.urn) {
+            if (args?.userId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["address"] = args ? args.address : undefined;
-            resourceInputs["countryCode"] = args ? args.countryCode : undefined;
-            resourceInputs["label"] = args ? args.label : undefined;
-            resourceInputs["sendShortEmail"] = args ? args.sendShortEmail : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["address"] = args?.address;
+            resourceInputs["countryCode"] = args?.countryCode;
+            resourceInputs["label"] = args?.label;
+            resourceInputs["sendShortEmail"] = args?.sendShortEmail;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["userId"] = args?.userId;
             resourceInputs["blacklisted"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
         }

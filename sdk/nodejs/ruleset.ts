@@ -61,19 +61,19 @@ export class Ruleset extends pulumi.CustomResource {
     /**
      * Name of the ruleset.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Routing keys routed to this ruleset.
      */
-    public /*out*/ readonly routingKeys!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly routingKeys: pulumi.Output<string[]>;
     /**
      * Reference to the team that owns the ruleset. If none is specified, only admins have access.
      */
-    public readonly team!: pulumi.Output<outputs.RulesetTeam | undefined>;
+    declare public readonly team: pulumi.Output<outputs.RulesetTeam | undefined>;
     /**
      * Type of ruleset. Currently, only sets to `global`.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Ruleset resource with the given unique name, arguments, and options.
@@ -88,14 +88,14 @@ export class Ruleset extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RulesetState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["routingKeys"] = state ? state.routingKeys : undefined;
-            resourceInputs["team"] = state ? state.team : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["routingKeys"] = state?.routingKeys;
+            resourceInputs["team"] = state?.team;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as RulesetArgs | undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["team"] = args ? args.team : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["team"] = args?.team;
             resourceInputs["routingKeys"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

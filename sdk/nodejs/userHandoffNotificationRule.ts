@@ -76,19 +76,19 @@ export class UserHandoffNotificationRule extends pulumi.CustomResource {
     /**
      * The contact method to notify the user. Contact method documented below.
      */
-    public readonly contactMethod!: pulumi.Output<outputs.UserHandoffNotificationRuleContactMethod>;
+    declare public readonly contactMethod: pulumi.Output<outputs.UserHandoffNotificationRuleContactMethod>;
     /**
      * The type of handoff to notify the user about. Possible values are `oncall`, `offcall`, `both`.
      */
-    public readonly handoffType!: pulumi.Output<string>;
+    declare public readonly handoffType: pulumi.Output<string>;
     /**
      * The number of minutes before the handoff that the user should be notified. Must be a positive integer greater than or equal to 0.
      */
-    public readonly notifyAdvanceInMinutes!: pulumi.Output<number>;
+    declare public readonly notifyAdvanceInMinutes: pulumi.Output<number>;
     /**
      * The ID of the user.
      */
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly userId: pulumi.Output<string>;
 
     /**
      * Create a UserHandoffNotificationRule resource with the given unique name, arguments, and options.
@@ -103,25 +103,25 @@ export class UserHandoffNotificationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserHandoffNotificationRuleState | undefined;
-            resourceInputs["contactMethod"] = state ? state.contactMethod : undefined;
-            resourceInputs["handoffType"] = state ? state.handoffType : undefined;
-            resourceInputs["notifyAdvanceInMinutes"] = state ? state.notifyAdvanceInMinutes : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["contactMethod"] = state?.contactMethod;
+            resourceInputs["handoffType"] = state?.handoffType;
+            resourceInputs["notifyAdvanceInMinutes"] = state?.notifyAdvanceInMinutes;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as UserHandoffNotificationRuleArgs | undefined;
-            if ((!args || args.contactMethod === undefined) && !opts.urn) {
+            if (args?.contactMethod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactMethod'");
             }
-            if ((!args || args.notifyAdvanceInMinutes === undefined) && !opts.urn) {
+            if (args?.notifyAdvanceInMinutes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notifyAdvanceInMinutes'");
             }
-            if ((!args || args.userId === undefined) && !opts.urn) {
+            if (args?.userId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["contactMethod"] = args ? args.contactMethod : undefined;
-            resourceInputs["handoffType"] = args ? args.handoffType : undefined;
-            resourceInputs["notifyAdvanceInMinutes"] = args ? args.notifyAdvanceInMinutes : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["contactMethod"] = args?.contactMethod;
+            resourceInputs["handoffType"] = args?.handoffType;
+            resourceInputs["notifyAdvanceInMinutes"] = args?.notifyAdvanceInMinutes;
+            resourceInputs["userId"] = args?.userId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserHandoffNotificationRule.__pulumiType, name, resourceInputs, opts);

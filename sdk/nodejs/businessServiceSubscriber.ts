@@ -75,15 +75,15 @@ export class BusinessServiceSubscriber extends pulumi.CustomResource {
     /**
      * The ID of the business service to subscribe to.
      */
-    public readonly businessServiceId!: pulumi.Output<string>;
+    declare public readonly businessServiceId: pulumi.Output<string>;
     /**
      * The ID of the subscriber entity.
      */
-    public readonly subscriberId!: pulumi.Output<string>;
+    declare public readonly subscriberId: pulumi.Output<string>;
     /**
      * Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
      */
-    public readonly subscriberType!: pulumi.Output<string>;
+    declare public readonly subscriberType: pulumi.Output<string>;
 
     /**
      * Create a BusinessServiceSubscriber resource with the given unique name, arguments, and options.
@@ -98,23 +98,23 @@ export class BusinessServiceSubscriber extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BusinessServiceSubscriberState | undefined;
-            resourceInputs["businessServiceId"] = state ? state.businessServiceId : undefined;
-            resourceInputs["subscriberId"] = state ? state.subscriberId : undefined;
-            resourceInputs["subscriberType"] = state ? state.subscriberType : undefined;
+            resourceInputs["businessServiceId"] = state?.businessServiceId;
+            resourceInputs["subscriberId"] = state?.subscriberId;
+            resourceInputs["subscriberType"] = state?.subscriberType;
         } else {
             const args = argsOrState as BusinessServiceSubscriberArgs | undefined;
-            if ((!args || args.businessServiceId === undefined) && !opts.urn) {
+            if (args?.businessServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'businessServiceId'");
             }
-            if ((!args || args.subscriberId === undefined) && !opts.urn) {
+            if (args?.subscriberId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriberId'");
             }
-            if ((!args || args.subscriberType === undefined) && !opts.urn) {
+            if (args?.subscriberType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriberType'");
             }
-            resourceInputs["businessServiceId"] = args ? args.businessServiceId : undefined;
-            resourceInputs["subscriberId"] = args ? args.subscriberId : undefined;
-            resourceInputs["subscriberType"] = args ? args.subscriberType : undefined;
+            resourceInputs["businessServiceId"] = args?.businessServiceId;
+            resourceInputs["subscriberId"] = args?.subscriberId;
+            resourceInputs["subscriberType"] = args?.subscriberType;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BusinessServiceSubscriber.__pulumiType, name, resourceInputs, opts);

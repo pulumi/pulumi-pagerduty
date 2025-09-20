@@ -86,13 +86,14 @@ type UserContactMethod struct {
 	// If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
 	Blacklisted pulumi.BoolOutput `pulumi:"blacklisted"`
 	// The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
-	CountryCode pulumi.IntOutput `pulumi:"countryCode"`
+	CountryCode pulumi.IntOutput       `pulumi:"countryCode"`
+	DeviceType  pulumi.StringPtrOutput `pulumi:"deviceType"`
 	// If true, this phone is capable of receiving SMS messages.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The label (e.g., "Work", "Mobile", etc.).
 	Label pulumi.StringOutput `pulumi:"label"`
 	// Send an abbreviated email message instead of the standard email output.
-	SendShortEmail pulumi.BoolPtrOutput `pulumi:"sendShortEmail"`
+	SendShortEmail pulumi.BoolOutput `pulumi:"sendShortEmail"`
 	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The ID of the user.
@@ -146,7 +147,8 @@ type userContactMethodState struct {
 	// If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
 	Blacklisted *bool `pulumi:"blacklisted"`
 	// The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
-	CountryCode *int `pulumi:"countryCode"`
+	CountryCode *int    `pulumi:"countryCode"`
+	DeviceType  *string `pulumi:"deviceType"`
 	// If true, this phone is capable of receiving SMS messages.
 	Enabled *bool `pulumi:"enabled"`
 	// The label (e.g., "Work", "Mobile", etc.).
@@ -166,6 +168,7 @@ type UserContactMethodState struct {
 	Blacklisted pulumi.BoolPtrInput
 	// The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
 	CountryCode pulumi.IntPtrInput
+	DeviceType  pulumi.StringPtrInput
 	// If true, this phone is capable of receiving SMS messages.
 	Enabled pulumi.BoolPtrInput
 	// The label (e.g., "Work", "Mobile", etc.).
@@ -186,7 +189,8 @@ type userContactMethodArgs struct {
 	// The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
 	Address string `pulumi:"address"`
 	// The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
-	CountryCode *int `pulumi:"countryCode"`
+	CountryCode *int    `pulumi:"countryCode"`
+	DeviceType  *string `pulumi:"deviceType"`
 	// The label (e.g., "Work", "Mobile", etc.).
 	Label string `pulumi:"label"`
 	// Send an abbreviated email message instead of the standard email output.
@@ -203,6 +207,7 @@ type UserContactMethodArgs struct {
 	Address pulumi.StringInput
 	// The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
 	CountryCode pulumi.IntPtrInput
+	DeviceType  pulumi.StringPtrInput
 	// The label (e.g., "Work", "Mobile", etc.).
 	Label pulumi.StringInput
 	// Send an abbreviated email message instead of the standard email output.
@@ -315,6 +320,10 @@ func (o UserContactMethodOutput) CountryCode() pulumi.IntOutput {
 	return o.ApplyT(func(v *UserContactMethod) pulumi.IntOutput { return v.CountryCode }).(pulumi.IntOutput)
 }
 
+func (o UserContactMethodOutput) DeviceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserContactMethod) pulumi.StringPtrOutput { return v.DeviceType }).(pulumi.StringPtrOutput)
+}
+
 // If true, this phone is capable of receiving SMS messages.
 func (o UserContactMethodOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *UserContactMethod) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
@@ -326,8 +335,8 @@ func (o UserContactMethodOutput) Label() pulumi.StringOutput {
 }
 
 // Send an abbreviated email message instead of the standard email output.
-func (o UserContactMethodOutput) SendShortEmail() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *UserContactMethod) pulumi.BoolPtrOutput { return v.SendShortEmail }).(pulumi.BoolPtrOutput)
+func (o UserContactMethodOutput) SendShortEmail() pulumi.BoolOutput {
+	return o.ApplyT(func(v *UserContactMethod) pulumi.BoolOutput { return v.SendShortEmail }).(pulumi.BoolOutput)
 }
 
 // The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).

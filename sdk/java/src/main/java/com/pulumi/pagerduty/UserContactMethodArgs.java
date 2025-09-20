@@ -48,6 +48,13 @@ public final class UserContactMethodArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.countryCode);
     }
 
+    @Import(name="deviceType")
+    private @Nullable Output<String> deviceType;
+
+    public Optional<Output<String>> deviceType() {
+        return Optional.ofNullable(this.deviceType);
+    }
+
     /**
      * The label (e.g., &#34;Work&#34;, &#34;Mobile&#34;, etc.).
      * 
@@ -113,6 +120,7 @@ public final class UserContactMethodArgs extends com.pulumi.resources.ResourceAr
     private UserContactMethodArgs(UserContactMethodArgs $) {
         this.address = $.address;
         this.countryCode = $.countryCode;
+        this.deviceType = $.deviceType;
         this.label = $.label;
         this.sendShortEmail = $.sendShortEmail;
         this.type = $.type;
@@ -177,6 +185,15 @@ public final class UserContactMethodArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder countryCode(Integer countryCode) {
             return countryCode(Output.of(countryCode));
+        }
+
+        public Builder deviceType(@Nullable Output<String> deviceType) {
+            $.deviceType = deviceType;
+            return this;
+        }
+
+        public Builder deviceType(String deviceType) {
+            return deviceType(Output.of(deviceType));
         }
 
         /**

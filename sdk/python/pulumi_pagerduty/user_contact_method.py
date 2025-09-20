@@ -24,6 +24,7 @@ class UserContactMethodArgs:
                  type: pulumi.Input[_builtins.str],
                  user_id: pulumi.Input[_builtins.str],
                  country_code: Optional[pulumi.Input[_builtins.int]] = None,
+                 device_type: Optional[pulumi.Input[_builtins.str]] = None,
                  send_short_email: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a UserContactMethod resource.
@@ -40,6 +41,8 @@ class UserContactMethodArgs:
         pulumi.set(__self__, "user_id", user_id)
         if country_code is not None:
             pulumi.set(__self__, "country_code", country_code)
+        if device_type is not None:
+            pulumi.set(__self__, "device_type", device_type)
         if send_short_email is not None:
             pulumi.set(__self__, "send_short_email", send_short_email)
 
@@ -104,6 +107,15 @@ class UserContactMethodArgs:
         pulumi.set(self, "country_code", value)
 
     @_builtins.property
+    @pulumi.getter(name="deviceType")
+    def device_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "device_type")
+
+    @device_type.setter
+    def device_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "device_type", value)
+
+    @_builtins.property
     @pulumi.getter(name="sendShortEmail")
     def send_short_email(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -122,6 +134,7 @@ class _UserContactMethodState:
                  address: Optional[pulumi.Input[_builtins.str]] = None,
                  blacklisted: Optional[pulumi.Input[_builtins.bool]] = None,
                  country_code: Optional[pulumi.Input[_builtins.int]] = None,
+                 device_type: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  label: Optional[pulumi.Input[_builtins.str]] = None,
                  send_short_email: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -144,6 +157,8 @@ class _UserContactMethodState:
             pulumi.set(__self__, "blacklisted", blacklisted)
         if country_code is not None:
             pulumi.set(__self__, "country_code", country_code)
+        if device_type is not None:
+            pulumi.set(__self__, "device_type", device_type)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if label is not None:
@@ -190,6 +205,15 @@ class _UserContactMethodState:
     @country_code.setter
     def country_code(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "country_code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceType")
+    def device_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "device_type")
+
+    @device_type.setter
+    def device_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "device_type", value)
 
     @_builtins.property
     @pulumi.getter
@@ -260,6 +284,7 @@ class UserContactMethod(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address: Optional[pulumi.Input[_builtins.str]] = None,
                  country_code: Optional[pulumi.Input[_builtins.int]] = None,
+                 device_type: Optional[pulumi.Input[_builtins.str]] = None,
                  label: Optional[pulumi.Input[_builtins.str]] = None,
                  send_short_email: Optional[pulumi.Input[_builtins.bool]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -373,6 +398,7 @@ class UserContactMethod(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address: Optional[pulumi.Input[_builtins.str]] = None,
                  country_code: Optional[pulumi.Input[_builtins.int]] = None,
+                 device_type: Optional[pulumi.Input[_builtins.str]] = None,
                  label: Optional[pulumi.Input[_builtins.str]] = None,
                  send_short_email: Optional[pulumi.Input[_builtins.bool]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -390,6 +416,7 @@ class UserContactMethod(pulumi.CustomResource):
                 raise TypeError("Missing required property 'address'")
             __props__.__dict__["address"] = address
             __props__.__dict__["country_code"] = country_code
+            __props__.__dict__["device_type"] = device_type
             if label is None and not opts.urn:
                 raise TypeError("Missing required property 'label'")
             __props__.__dict__["label"] = label
@@ -415,6 +442,7 @@ class UserContactMethod(pulumi.CustomResource):
             address: Optional[pulumi.Input[_builtins.str]] = None,
             blacklisted: Optional[pulumi.Input[_builtins.bool]] = None,
             country_code: Optional[pulumi.Input[_builtins.int]] = None,
+            device_type: Optional[pulumi.Input[_builtins.str]] = None,
             enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             label: Optional[pulumi.Input[_builtins.str]] = None,
             send_short_email: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -443,6 +471,7 @@ class UserContactMethod(pulumi.CustomResource):
         __props__.__dict__["address"] = address
         __props__.__dict__["blacklisted"] = blacklisted
         __props__.__dict__["country_code"] = country_code
+        __props__.__dict__["device_type"] = device_type
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["label"] = label
         __props__.__dict__["send_short_email"] = send_short_email
@@ -475,6 +504,11 @@ class UserContactMethod(pulumi.CustomResource):
         return pulumi.get(self, "country_code")
 
     @_builtins.property
+    @pulumi.getter(name="deviceType")
+    def device_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "device_type")
+
+    @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[_builtins.bool]:
         """
@@ -492,7 +526,7 @@ class UserContactMethod(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="sendShortEmail")
-    def send_short_email(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def send_short_email(self) -> pulumi.Output[_builtins.bool]:
         """
         Send an abbreviated email message instead of the standard email output.
         """

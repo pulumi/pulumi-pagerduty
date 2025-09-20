@@ -24,6 +24,11 @@ public final class AlertGroupingSettingConfig {
      */
     private @Nullable List<String> fields;
     /**
+     * @return An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `type` is set to `intelligent`. Default: [&#34;summary&#34;].
+     * 
+     */
+    private @Nullable List<String> iagFields;
+    /**
      * @return The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
      * 
      */
@@ -48,6 +53,13 @@ public final class AlertGroupingSettingConfig {
      */
     public List<String> fields() {
         return this.fields == null ? List.of() : this.fields;
+    }
+    /**
+     * @return An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `type` is set to `intelligent`. Default: [&#34;summary&#34;].
+     * 
+     */
+    public List<String> iagFields() {
+        return this.iagFields == null ? List.of() : this.iagFields;
     }
     /**
      * @return The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
@@ -75,6 +87,7 @@ public final class AlertGroupingSettingConfig {
     public static final class Builder {
         private @Nullable String aggregate;
         private @Nullable List<String> fields;
+        private @Nullable List<String> iagFields;
         private @Nullable Integer timeWindow;
         private @Nullable Integer timeout;
         public Builder() {}
@@ -82,6 +95,7 @@ public final class AlertGroupingSettingConfig {
     	      Objects.requireNonNull(defaults);
     	      this.aggregate = defaults.aggregate;
     	      this.fields = defaults.fields;
+    	      this.iagFields = defaults.iagFields;
     	      this.timeWindow = defaults.timeWindow;
     	      this.timeout = defaults.timeout;
         }
@@ -102,6 +116,15 @@ public final class AlertGroupingSettingConfig {
             return fields(List.of(fields));
         }
         @CustomType.Setter
+        public Builder iagFields(@Nullable List<String> iagFields) {
+
+            this.iagFields = iagFields;
+            return this;
+        }
+        public Builder iagFields(String... iagFields) {
+            return iagFields(List.of(iagFields));
+        }
+        @CustomType.Setter
         public Builder timeWindow(@Nullable Integer timeWindow) {
 
             this.timeWindow = timeWindow;
@@ -117,6 +140,7 @@ public final class AlertGroupingSettingConfig {
             final var _resultValue = new AlertGroupingSettingConfig();
             _resultValue.aggregate = aggregate;
             _resultValue.fields = fields;
+            _resultValue.iagFields = iagFields;
             _resultValue.timeWindow = timeWindow;
             _resultValue.timeout = timeout;
             return _resultValue;

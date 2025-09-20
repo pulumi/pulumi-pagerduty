@@ -62,6 +62,13 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.countryCode);
     }
 
+    @Import(name="deviceType")
+    private @Nullable Output<String> deviceType;
+
+    public Optional<Output<String>> deviceType() {
+        return Optional.ofNullable(this.deviceType);
+    }
+
     /**
      * If true, this phone is capable of receiving SMS messages.
      * 
@@ -143,6 +150,7 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
         this.address = $.address;
         this.blacklisted = $.blacklisted;
         this.countryCode = $.countryCode;
+        this.deviceType = $.deviceType;
         this.enabled = $.enabled;
         this.label = $.label;
         this.sendShortEmail = $.sendShortEmail;
@@ -229,6 +237,15 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
          */
         public Builder countryCode(Integer countryCode) {
             return countryCode(Output.of(countryCode));
+        }
+
+        public Builder deviceType(@Nullable Output<String> deviceType) {
+            $.deviceType = deviceType;
+            return this;
+        }
+
+        public Builder deviceType(String deviceType) {
+            return deviceType(Output.of(deviceType));
         }
 
         /**

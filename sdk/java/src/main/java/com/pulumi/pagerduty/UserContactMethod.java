@@ -130,6 +130,12 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
     public Output<Integer> countryCode() {
         return this.countryCode;
     }
+    @Export(name="deviceType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> deviceType;
+
+    public Output<Optional<String>> deviceType() {
+        return Codegen.optional(this.deviceType);
+    }
     /**
      * If true, this phone is capable of receiving SMS messages.
      * 
@@ -163,14 +169,14 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sendShortEmail", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> sendShortEmail;
+    private Output<Boolean> sendShortEmail;
 
     /**
      * @return Send an abbreviated email message instead of the standard email output.
      * 
      */
-    public Output<Optional<Boolean>> sendShortEmail() {
-        return Codegen.optional(this.sendShortEmail);
+    public Output<Boolean> sendShortEmail() {
+        return this.sendShortEmail;
     }
     /**
      * The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).

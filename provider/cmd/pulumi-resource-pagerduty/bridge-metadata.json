@@ -13,6 +13,9 @@
                         "fields": {
                             "fields": {
                                 "maxItemsOne": false
+                            },
+                            "iag_fields": {
+                                "maxItemsOne": false
                             }
                         }
                     },
@@ -1012,6 +1015,9 @@
                         "fields": {
                             "fields": {
                                 "maxItemsOne": false
+                            },
+                            "iag_fields": {
+                                "maxItemsOne": false
                             }
                         }
                     },
@@ -1378,7 +1384,7 @@
             "pagerduty:index/team:Team": 1,
             "pagerduty:index/teamMembership:TeamMembership": 1,
             "pagerduty:index/user:User": 0,
-            "pagerduty:index/userContactMethod:UserContactMethod": 0,
+            "pagerduty:index/userContactMethod:UserContactMethod": 1,
             "pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule": 1,
             "pagerduty:index/userNotificationRule:UserNotificationRule": 1,
             "pagerduty:index/webhookSubscription:WebhookSubscription": 0

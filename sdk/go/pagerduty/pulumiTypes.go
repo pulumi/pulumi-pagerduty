@@ -18,6 +18,8 @@ type AlertGroupingSettingConfig struct {
 	Aggregate *string `pulumi:"aggregate"`
 	// Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
 	Fields []string `pulumi:"fields"`
+	// An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `type` is set to `intelligent`. Default: ["summary"].
+	IagFields []string `pulumi:"iagFields"`
 	// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
 	TimeWindow *int `pulumi:"timeWindow"`
 	// The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
@@ -40,6 +42,8 @@ type AlertGroupingSettingConfigArgs struct {
 	Aggregate pulumi.StringPtrInput `pulumi:"aggregate"`
 	// Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
 	Fields pulumi.StringArrayInput `pulumi:"fields"`
+	// An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `type` is set to `intelligent`. Default: ["summary"].
+	IagFields pulumi.StringArrayInput `pulumi:"iagFields"`
 	// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
 	TimeWindow pulumi.IntPtrInput `pulumi:"timeWindow"`
 	// The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
@@ -133,6 +137,11 @@ func (o AlertGroupingSettingConfigOutput) Fields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertGroupingSettingConfig) []string { return v.Fields }).(pulumi.StringArrayOutput)
 }
 
+// An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `type` is set to `intelligent`. Default: ["summary"].
+func (o AlertGroupingSettingConfigOutput) IagFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertGroupingSettingConfig) []string { return v.IagFields }).(pulumi.StringArrayOutput)
+}
+
 // The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
 func (o AlertGroupingSettingConfigOutput) TimeWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AlertGroupingSettingConfig) *int { return v.TimeWindow }).(pulumi.IntPtrOutput)
@@ -184,6 +193,16 @@ func (o AlertGroupingSettingConfigPtrOutput) Fields() pulumi.StringArrayOutput {
 			return nil
 		}
 		return v.Fields
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `type` is set to `intelligent`. Default: ["summary"].
+func (o AlertGroupingSettingConfigPtrOutput) IagFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertGroupingSettingConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IagFields
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -20946,9 +20965,11 @@ func (o WebhookSubscriptionFilterArrayOutput) Index(i pulumi.IntInput) WebhookSu
 
 type GetAlertGroupingSettingConfig struct {
 	// One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
-	Aggregate *string `pulumi:"aggregate"`
+	Aggregate string `pulumi:"aggregate"`
 	// Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
 	Fields []string `pulumi:"fields"`
+	// An array of strings which represent the iag fields with which to intelligently group against.
+	IagFields []string `pulumi:"iagFields"`
 	// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
 	TimeWindow int `pulumi:"timeWindow"`
 	// The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
@@ -20968,9 +20989,11 @@ type GetAlertGroupingSettingConfigInput interface {
 
 type GetAlertGroupingSettingConfigArgs struct {
 	// One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
-	Aggregate pulumi.StringPtrInput `pulumi:"aggregate"`
+	Aggregate pulumi.StringInput `pulumi:"aggregate"`
 	// Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
 	Fields pulumi.StringArrayInput `pulumi:"fields"`
+	// An array of strings which represent the iag fields with which to intelligently group against.
+	IagFields pulumi.StringArrayInput `pulumi:"iagFields"`
 	// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
 	TimeWindow pulumi.IntInput `pulumi:"timeWindow"`
 	// The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
@@ -21055,13 +21078,18 @@ func (o GetAlertGroupingSettingConfigOutput) ToGetAlertGroupingSettingConfigPtrO
 }
 
 // One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
-func (o GetAlertGroupingSettingConfigOutput) Aggregate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetAlertGroupingSettingConfig) *string { return v.Aggregate }).(pulumi.StringPtrOutput)
+func (o GetAlertGroupingSettingConfigOutput) Aggregate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertGroupingSettingConfig) string { return v.Aggregate }).(pulumi.StringOutput)
 }
 
 // Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
 func (o GetAlertGroupingSettingConfigOutput) Fields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAlertGroupingSettingConfig) []string { return v.Fields }).(pulumi.StringArrayOutput)
+}
+
+// An array of strings which represent the iag fields with which to intelligently group against.
+func (o GetAlertGroupingSettingConfigOutput) IagFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAlertGroupingSettingConfig) []string { return v.IagFields }).(pulumi.StringArrayOutput)
 }
 
 // The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
@@ -21104,7 +21132,7 @@ func (o GetAlertGroupingSettingConfigPtrOutput) Aggregate() pulumi.StringPtrOutp
 		if v == nil {
 			return nil
 		}
-		return v.Aggregate
+		return &v.Aggregate
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -21115,6 +21143,16 @@ func (o GetAlertGroupingSettingConfigPtrOutput) Fields() pulumi.StringArrayOutpu
 			return nil
 		}
 		return v.Fields
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array of strings which represent the iag fields with which to intelligently group against.
+func (o GetAlertGroupingSettingConfigPtrOutput) IagFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetAlertGroupingSettingConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IagFields
 	}).(pulumi.StringArrayOutput)
 }
 

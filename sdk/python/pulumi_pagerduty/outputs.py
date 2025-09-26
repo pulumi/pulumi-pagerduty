@@ -203,7 +203,9 @@ class AlertGroupingSettingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "timeWindow":
+        if key == "iagFields":
+            suggest = "iag_fields"
+        elif key == "timeWindow":
             suggest = "time_window"
 
         if suggest:
@@ -220,11 +222,13 @@ class AlertGroupingSettingConfig(dict):
     def __init__(__self__, *,
                  aggregate: Optional[_builtins.str] = None,
                  fields: Optional[Sequence[_builtins.str]] = None,
+                 iag_fields: Optional[Sequence[_builtins.str]] = None,
                  time_window: Optional[_builtins.int] = None,
                  timeout: Optional[_builtins.int] = None):
         """
         :param _builtins.str aggregate: One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
         :param Sequence[_builtins.str] fields: Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
+        :param Sequence[_builtins.str] iag_fields: An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `type` is set to `intelligent`. Default: ["summary"].
         :param _builtins.int time_window: The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
         :param _builtins.int timeout: The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
         """
@@ -232,6 +236,8 @@ class AlertGroupingSettingConfig(dict):
             pulumi.set(__self__, "aggregate", aggregate)
         if fields is not None:
             pulumi.set(__self__, "fields", fields)
+        if iag_fields is not None:
+            pulumi.set(__self__, "iag_fields", iag_fields)
         if time_window is not None:
             pulumi.set(__self__, "time_window", time_window)
         if timeout is not None:
@@ -252,6 +258,14 @@ class AlertGroupingSettingConfig(dict):
         Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
         """
         return pulumi.get(self, "fields")
+
+    @_builtins.property
+    @pulumi.getter(name="iagFields")
+    def iag_fields(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `type` is set to `intelligent`. Default: ["summary"].
+        """
+        return pulumi.get(self, "iag_fields")
 
     @_builtins.property
     @pulumi.getter(name="timeWindow")
@@ -7925,22 +7939,47 @@ class WebhookSubscriptionFilter(dict):
 @pulumi.output_type
 class GetAlertGroupingSettingConfigResult(dict):
     def __init__(__self__, *,
+                 aggregate: _builtins.str,
+                 fields: Sequence[_builtins.str],
+                 iag_fields: Sequence[_builtins.str],
                  time_window: _builtins.int,
-                 timeout: _builtins.int,
-                 aggregate: Optional[_builtins.str] = None,
-                 fields: Optional[Sequence[_builtins.str]] = None):
+                 timeout: _builtins.int):
         """
-        :param _builtins.int time_window: The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
-        :param _builtins.int timeout: The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
         :param _builtins.str aggregate: One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
         :param Sequence[_builtins.str] fields: Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
+        :param Sequence[_builtins.str] iag_fields: An array of strings which represent the iag fields with which to intelligently group against.
+        :param _builtins.int time_window: The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+        :param _builtins.int timeout: The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
         """
+        pulumi.set(__self__, "aggregate", aggregate)
+        pulumi.set(__self__, "fields", fields)
+        pulumi.set(__self__, "iag_fields", iag_fields)
         pulumi.set(__self__, "time_window", time_window)
         pulumi.set(__self__, "timeout", timeout)
-        if aggregate is not None:
-            pulumi.set(__self__, "aggregate", aggregate)
-        if fields is not None:
-            pulumi.set(__self__, "fields", fields)
+
+    @_builtins.property
+    @pulumi.getter
+    def aggregate(self) -> _builtins.str:
+        """
+        One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
+        """
+        return pulumi.get(self, "aggregate")
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> Sequence[_builtins.str]:
+        """
+        Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
+        """
+        return pulumi.get(self, "fields")
+
+    @_builtins.property
+    @pulumi.getter(name="iagFields")
+    def iag_fields(self) -> Sequence[_builtins.str]:
+        """
+        An array of strings which represent the iag fields with which to intelligently group against.
+        """
+        return pulumi.get(self, "iag_fields")
 
     @_builtins.property
     @pulumi.getter(name="timeWindow")
@@ -7957,22 +7996,6 @@ class GetAlertGroupingSettingConfigResult(dict):
         The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
         """
         return pulumi.get(self, "timeout")
-
-    @_builtins.property
-    @pulumi.getter
-    def aggregate(self) -> Optional[_builtins.str]:
-        """
-        One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
-        """
-        return pulumi.get(self, "aggregate")
-
-    @_builtins.property
-    @pulumi.getter
-    def fields(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
-        """
-        return pulumi.get(self, "fields")
 
 
 @pulumi.output_type

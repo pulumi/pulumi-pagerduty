@@ -10,8 +10,6 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetAlertGroupingSettingConfigArgs extends com.pulumi.resources.ResourceArgs {
@@ -22,30 +20,45 @@ public final class GetAlertGroupingSettingConfigArgs extends com.pulumi.resource
      * One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
      * 
      */
-    @Import(name="aggregate")
-    private @Nullable Output<String> aggregate;
+    @Import(name="aggregate", required=true)
+    private Output<String> aggregate;
 
     /**
      * @return One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
      * 
      */
-    public Optional<Output<String>> aggregate() {
-        return Optional.ofNullable(this.aggregate);
+    public Output<String> aggregate() {
+        return this.aggregate;
     }
 
     /**
      * Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
      * 
      */
-    @Import(name="fields")
-    private @Nullable Output<List<String>> fields;
+    @Import(name="fields", required=true)
+    private Output<List<String>> fields;
 
     /**
      * @return Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
      * 
      */
-    public Optional<Output<List<String>>> fields() {
-        return Optional.ofNullable(this.fields);
+    public Output<List<String>> fields() {
+        return this.fields;
+    }
+
+    /**
+     * An array of strings which represent the iag fields with which to intelligently group against.
+     * 
+     */
+    @Import(name="iagFields", required=true)
+    private Output<List<String>> iagFields;
+
+    /**
+     * @return An array of strings which represent the iag fields with which to intelligently group against.
+     * 
+     */
+    public Output<List<String>> iagFields() {
+        return this.iagFields;
     }
 
     /**
@@ -83,6 +96,7 @@ public final class GetAlertGroupingSettingConfigArgs extends com.pulumi.resource
     private GetAlertGroupingSettingConfigArgs(GetAlertGroupingSettingConfigArgs $) {
         this.aggregate = $.aggregate;
         this.fields = $.fields;
+        this.iagFields = $.iagFields;
         this.timeWindow = $.timeWindow;
         this.timeout = $.timeout;
     }
@@ -111,7 +125,7 @@ public final class GetAlertGroupingSettingConfigArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder aggregate(@Nullable Output<String> aggregate) {
+        public Builder aggregate(Output<String> aggregate) {
             $.aggregate = aggregate;
             return this;
         }
@@ -132,7 +146,7 @@ public final class GetAlertGroupingSettingConfigArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder fields(@Nullable Output<List<String>> fields) {
+        public Builder fields(Output<List<String>> fields) {
             $.fields = fields;
             return this;
         }
@@ -155,6 +169,37 @@ public final class GetAlertGroupingSettingConfigArgs extends com.pulumi.resource
          */
         public Builder fields(String... fields) {
             return fields(List.of(fields));
+        }
+
+        /**
+         * @param iagFields An array of strings which represent the iag fields with which to intelligently group against.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iagFields(Output<List<String>> iagFields) {
+            $.iagFields = iagFields;
+            return this;
+        }
+
+        /**
+         * @param iagFields An array of strings which represent the iag fields with which to intelligently group against.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iagFields(List<String> iagFields) {
+            return iagFields(Output.of(iagFields));
+        }
+
+        /**
+         * @param iagFields An array of strings which represent the iag fields with which to intelligently group against.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iagFields(String... iagFields) {
+            return iagFields(List.of(iagFields));
         }
 
         /**
@@ -200,6 +245,15 @@ public final class GetAlertGroupingSettingConfigArgs extends com.pulumi.resource
         }
 
         public GetAlertGroupingSettingConfigArgs build() {
+            if ($.aggregate == null) {
+                throw new MissingRequiredPropertyException("GetAlertGroupingSettingConfigArgs", "aggregate");
+            }
+            if ($.fields == null) {
+                throw new MissingRequiredPropertyException("GetAlertGroupingSettingConfigArgs", "fields");
+            }
+            if ($.iagFields == null) {
+                throw new MissingRequiredPropertyException("GetAlertGroupingSettingConfigArgs", "iagFields");
+            }
             if ($.timeWindow == null) {
                 throw new MissingRequiredPropertyException("GetAlertGroupingSettingConfigArgs", "timeWindow");
             }

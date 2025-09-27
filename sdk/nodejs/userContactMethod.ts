@@ -86,6 +86,7 @@ export class UserContactMethod extends pulumi.CustomResource {
      * The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
      */
     declare public readonly countryCode: pulumi.Output<number>;
+    declare public readonly deviceType: pulumi.Output<string | undefined>;
     /**
      * If true, this phone is capable of receiving SMS messages.
      */
@@ -97,7 +98,7 @@ export class UserContactMethod extends pulumi.CustomResource {
     /**
      * Send an abbreviated email message instead of the standard email output.
      */
-    declare public readonly sendShortEmail: pulumi.Output<boolean | undefined>;
+    declare public readonly sendShortEmail: pulumi.Output<boolean>;
     /**
      * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      */
@@ -123,6 +124,7 @@ export class UserContactMethod extends pulumi.CustomResource {
             resourceInputs["address"] = state?.address;
             resourceInputs["blacklisted"] = state?.blacklisted;
             resourceInputs["countryCode"] = state?.countryCode;
+            resourceInputs["deviceType"] = state?.deviceType;
             resourceInputs["enabled"] = state?.enabled;
             resourceInputs["label"] = state?.label;
             resourceInputs["sendShortEmail"] = state?.sendShortEmail;
@@ -144,6 +146,7 @@ export class UserContactMethod extends pulumi.CustomResource {
             }
             resourceInputs["address"] = args?.address;
             resourceInputs["countryCode"] = args?.countryCode;
+            resourceInputs["deviceType"] = args?.deviceType;
             resourceInputs["label"] = args?.label;
             resourceInputs["sendShortEmail"] = args?.sendShortEmail;
             resourceInputs["type"] = args?.type;
@@ -172,6 +175,7 @@ export interface UserContactMethodState {
      * The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
      */
     countryCode?: pulumi.Input<number>;
+    deviceType?: pulumi.Input<string>;
     /**
      * If true, this phone is capable of receiving SMS messages.
      */
@@ -206,6 +210,7 @@ export interface UserContactMethodArgs {
      * The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
      */
     countryCode?: pulumi.Input<number>;
+    deviceType?: pulumi.Input<string>;
     /**
      * The label (e.g., "Work", "Mobile", etc.).
      */

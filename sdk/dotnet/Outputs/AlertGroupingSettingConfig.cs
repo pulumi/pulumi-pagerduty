@@ -22,6 +22,10 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Fields;
         /// <summary>
+        /// An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `type` is set to `intelligent`. Default: ["summary"].
+        /// </summary>
+        public readonly ImmutableArray<string> IagFields;
+        /// <summary>
         /// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
         /// </summary>
         public readonly int? TimeWindow;
@@ -36,12 +40,15 @@ namespace Pulumi.Pagerduty.Outputs
 
             ImmutableArray<string> fields,
 
+            ImmutableArray<string> iagFields,
+
             int? timeWindow,
 
             int? timeout)
         {
             Aggregate = aggregate;
             Fields = fields;
+            IagFields = iagFields;
             TimeWindow = timeWindow;
             Timeout = timeout;
         }

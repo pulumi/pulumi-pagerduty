@@ -88,6 +88,9 @@ namespace Pulumi.Pagerduty
         [Output("countryCode")]
         public Output<int> CountryCode { get; private set; } = null!;
 
+        [Output("deviceType")]
+        public Output<string?> DeviceType { get; private set; } = null!;
+
         /// <summary>
         /// If true, this phone is capable of receiving SMS messages.
         /// </summary>
@@ -104,7 +107,7 @@ namespace Pulumi.Pagerduty
         /// Send an abbreviated email message instead of the standard email output.
         /// </summary>
         [Output("sendShortEmail")]
-        public Output<bool?> SendShortEmail { get; private set; } = null!;
+        public Output<bool> SendShortEmail { get; private set; } = null!;
 
         /// <summary>
         /// The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
@@ -176,6 +179,9 @@ namespace Pulumi.Pagerduty
         [Input("countryCode")]
         public Input<int>? CountryCode { get; set; }
 
+        [Input("deviceType")]
+        public Input<string>? DeviceType { get; set; }
+
         /// <summary>
         /// The label (e.g., "Work", "Mobile", etc.).
         /// </summary>
@@ -225,6 +231,9 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("countryCode")]
         public Input<int>? CountryCode { get; set; }
+
+        [Input("deviceType")]
+        public Input<string>? DeviceType { get; set; }
 
         /// <summary>
         /// If true, this phone is capable of receiving SMS messages.

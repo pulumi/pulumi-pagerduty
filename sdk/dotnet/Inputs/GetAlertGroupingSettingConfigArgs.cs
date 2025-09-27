@@ -15,10 +15,10 @@ namespace Pulumi.Pagerduty.Inputs
         /// <summary>
         /// One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
         /// </summary>
-        [Input("aggregate")]
-        public Input<string>? Aggregate { get; set; }
+        [Input("aggregate", required: true)]
+        public Input<string> Aggregate { get; set; } = null!;
 
-        [Input("fields")]
+        [Input("fields", required: true)]
         private InputList<string>? _fields;
 
         /// <summary>
@@ -28,6 +28,18 @@ namespace Pulumi.Pagerduty.Inputs
         {
             get => _fields ?? (_fields = new InputList<string>());
             set => _fields = value;
+        }
+
+        [Input("iagFields", required: true)]
+        private InputList<string>? _iagFields;
+
+        /// <summary>
+        /// An array of strings which represent the iag fields with which to intelligently group against.
+        /// </summary>
+        public InputList<string> IagFields
+        {
+            get => _iagFields ?? (_iagFields = new InputList<string>());
+            set => _iagFields = value;
         }
 
         /// <summary>

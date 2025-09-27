@@ -48,6 +48,21 @@ public final class AlertGroupingSettingConfigArgs extends com.pulumi.resources.R
     }
 
     /**
+     * An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `type` is set to `intelligent`. Default: [&#34;summary&#34;].
+     * 
+     */
+    @Import(name="iagFields")
+    private @Nullable Output<List<String>> iagFields;
+
+    /**
+     * @return An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `type` is set to `intelligent`. Default: [&#34;summary&#34;].
+     * 
+     */
+    public Optional<Output<List<String>>> iagFields() {
+        return Optional.ofNullable(this.iagFields);
+    }
+
+    /**
      * The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
      * 
      */
@@ -82,6 +97,7 @@ public final class AlertGroupingSettingConfigArgs extends com.pulumi.resources.R
     private AlertGroupingSettingConfigArgs(AlertGroupingSettingConfigArgs $) {
         this.aggregate = $.aggregate;
         this.fields = $.fields;
+        this.iagFields = $.iagFields;
         this.timeWindow = $.timeWindow;
         this.timeout = $.timeout;
     }
@@ -154,6 +170,37 @@ public final class AlertGroupingSettingConfigArgs extends com.pulumi.resources.R
          */
         public Builder fields(String... fields) {
             return fields(List.of(fields));
+        }
+
+        /**
+         * @param iagFields An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `type` is set to `intelligent`. Default: [&#34;summary&#34;].
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iagFields(@Nullable Output<List<String>> iagFields) {
+            $.iagFields = iagFields;
+            return this;
+        }
+
+        /**
+         * @param iagFields An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `type` is set to `intelligent`. Default: [&#34;summary&#34;].
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iagFields(List<String> iagFields) {
+            return iagFields(Output.of(iagFields));
+        }
+
+        /**
+         * @param iagFields An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `type` is set to `intelligent`. Default: [&#34;summary&#34;].
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iagFields(String... iagFields) {
+            return iagFields(List.of(iagFields));
         }
 
         /**

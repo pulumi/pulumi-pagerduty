@@ -9,8 +9,6 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAlertGroupingSettingConfig {
@@ -18,12 +16,17 @@ public final class GetAlertGroupingSettingConfig {
      * @return One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
      * 
      */
-    private @Nullable String aggregate;
+    private String aggregate;
     /**
      * @return Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
      * 
      */
-    private @Nullable List<String> fields;
+    private List<String> fields;
+    /**
+     * @return An array of strings which represent the iag fields with which to intelligently group against.
+     * 
+     */
+    private List<String> iagFields;
     /**
      * @return The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
      * 
@@ -40,15 +43,22 @@ public final class GetAlertGroupingSettingConfig {
      * @return One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
      * 
      */
-    public Optional<String> aggregate() {
-        return Optional.ofNullable(this.aggregate);
+    public String aggregate() {
+        return this.aggregate;
     }
     /**
      * @return Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
      * 
      */
     public List<String> fields() {
-        return this.fields == null ? List.of() : this.fields;
+        return this.fields;
+    }
+    /**
+     * @return An array of strings which represent the iag fields with which to intelligently group against.
+     * 
+     */
+    public List<String> iagFields() {
+        return this.iagFields;
     }
     /**
      * @return The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
@@ -74,8 +84,9 @@ public final class GetAlertGroupingSettingConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String aggregate;
-        private @Nullable List<String> fields;
+        private String aggregate;
+        private List<String> fields;
+        private List<String> iagFields;
         private Integer timeWindow;
         private Integer timeout;
         public Builder() {}
@@ -83,24 +94,40 @@ public final class GetAlertGroupingSettingConfig {
     	      Objects.requireNonNull(defaults);
     	      this.aggregate = defaults.aggregate;
     	      this.fields = defaults.fields;
+    	      this.iagFields = defaults.iagFields;
     	      this.timeWindow = defaults.timeWindow;
     	      this.timeout = defaults.timeout;
         }
 
         @CustomType.Setter
-        public Builder aggregate(@Nullable String aggregate) {
-
+        public Builder aggregate(String aggregate) {
+            if (aggregate == null) {
+              throw new MissingRequiredPropertyException("GetAlertGroupingSettingConfig", "aggregate");
+            }
             this.aggregate = aggregate;
             return this;
         }
         @CustomType.Setter
-        public Builder fields(@Nullable List<String> fields) {
-
+        public Builder fields(List<String> fields) {
+            if (fields == null) {
+              throw new MissingRequiredPropertyException("GetAlertGroupingSettingConfig", "fields");
+            }
             this.fields = fields;
             return this;
         }
         public Builder fields(String... fields) {
             return fields(List.of(fields));
+        }
+        @CustomType.Setter
+        public Builder iagFields(List<String> iagFields) {
+            if (iagFields == null) {
+              throw new MissingRequiredPropertyException("GetAlertGroupingSettingConfig", "iagFields");
+            }
+            this.iagFields = iagFields;
+            return this;
+        }
+        public Builder iagFields(String... iagFields) {
+            return iagFields(List.of(iagFields));
         }
         @CustomType.Setter
         public Builder timeWindow(Integer timeWindow) {
@@ -122,6 +149,7 @@ public final class GetAlertGroupingSettingConfig {
             final var _resultValue = new GetAlertGroupingSettingConfig();
             _resultValue.aggregate = aggregate;
             _resultValue.fields = fields;
+            _resultValue.iagFields = iagFields;
             _resultValue.timeWindow = timeWindow;
             _resultValue.timeout = timeout;
             return _resultValue;

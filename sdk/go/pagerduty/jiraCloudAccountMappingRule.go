@@ -34,6 +34,8 @@ type JiraCloudAccountMappingRule struct {
 	AutocreateJqlDisabledUntil pulumi.StringOutput `pulumi:"autocreateJqlDisabledUntil"`
 	// Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.
 	Config JiraCloudAccountMappingRuleConfigPtrOutput `pulumi:"config"`
+	// Indicates if the rule is enabled. Defaults to `true`.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The name of the rule.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
@@ -79,6 +81,8 @@ type jiraCloudAccountMappingRuleState struct {
 	AutocreateJqlDisabledUntil *string `pulumi:"autocreateJqlDisabledUntil"`
 	// Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.
 	Config *JiraCloudAccountMappingRuleConfig `pulumi:"config"`
+	// Indicates if the rule is enabled. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
 	// The name of the rule.
 	Name *string `pulumi:"name"`
 }
@@ -92,6 +96,8 @@ type JiraCloudAccountMappingRuleState struct {
 	AutocreateJqlDisabledUntil pulumi.StringPtrInput
 	// Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.
 	Config JiraCloudAccountMappingRuleConfigPtrInput
+	// Indicates if the rule is enabled. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput
 	// The name of the rule.
 	Name pulumi.StringPtrInput
 }
@@ -105,6 +111,8 @@ type jiraCloudAccountMappingRuleArgs struct {
 	AccountMapping string `pulumi:"accountMapping"`
 	// Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.
 	Config *JiraCloudAccountMappingRuleConfig `pulumi:"config"`
+	// Indicates if the rule is enabled. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
 	// The name of the rule.
 	Name *string `pulumi:"name"`
 }
@@ -115,6 +123,8 @@ type JiraCloudAccountMappingRuleArgs struct {
 	AccountMapping pulumi.StringInput
 	// Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.
 	Config JiraCloudAccountMappingRuleConfigPtrInput
+	// Indicates if the rule is enabled. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput
 	// The name of the rule.
 	Name pulumi.StringPtrInput
 }
@@ -224,6 +234,11 @@ func (o JiraCloudAccountMappingRuleOutput) AutocreateJqlDisabledUntil() pulumi.S
 // Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.
 func (o JiraCloudAccountMappingRuleOutput) Config() JiraCloudAccountMappingRuleConfigPtrOutput {
 	return o.ApplyT(func(v *JiraCloudAccountMappingRule) JiraCloudAccountMappingRuleConfigPtrOutput { return v.Config }).(JiraCloudAccountMappingRuleConfigPtrOutput)
+}
+
+// Indicates if the rule is enabled. Defaults to `true`.
+func (o JiraCloudAccountMappingRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *JiraCloudAccountMappingRule) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // The name of the rule.

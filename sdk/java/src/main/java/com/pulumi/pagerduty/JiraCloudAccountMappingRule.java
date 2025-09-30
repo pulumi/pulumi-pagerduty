@@ -11,6 +11,7 @@ import com.pulumi.pagerduty.JiraCloudAccountMappingRuleArgs;
 import com.pulumi.pagerduty.Utilities;
 import com.pulumi.pagerduty.inputs.JiraCloudAccountMappingRuleState;
 import com.pulumi.pagerduty.outputs.JiraCloudAccountMappingRuleConfig;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -86,6 +87,20 @@ public class JiraCloudAccountMappingRule extends com.pulumi.resources.CustomReso
      */
     public Output<Optional<JiraCloudAccountMappingRuleConfig>> config() {
         return Codegen.optional(this.config);
+    }
+    /**
+     * Indicates if the rule is enabled. Defaults to `true`.
+     * 
+     */
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enabled;
+
+    /**
+     * @return Indicates if the rule is enabled. Defaults to `true`.
+     * 
+     */
+    public Output<Boolean> enabled() {
+        return this.enabled;
     }
     /**
      * The name of the rule.

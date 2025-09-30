@@ -50,6 +50,12 @@ namespace Pulumi.Pagerduty
         public Output<Outputs.JiraCloudAccountMappingRuleConfig?> Config { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates if the rule is enabled. Defaults to `true`.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool> Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the rule.
         /// </summary>
         [Output("name")]
@@ -114,6 +120,12 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.JiraCloudAccountMappingRuleConfigArgs>? Config { get; set; }
 
         /// <summary>
+        /// Indicates if the rule is enabled. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
         /// The name of the rule.
         /// </summary>
         [Input("name")]
@@ -150,6 +162,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("config")]
         public Input<Inputs.JiraCloudAccountMappingRuleConfigGetArgs>? Config { get; set; }
+
+        /// <summary>
+        /// Indicates if the rule is enabled. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// The name of the rule.

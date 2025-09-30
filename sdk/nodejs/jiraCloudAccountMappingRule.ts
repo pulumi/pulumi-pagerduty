@@ -64,6 +64,10 @@ export class JiraCloudAccountMappingRule extends pulumi.CustomResource {
      */
     declare public readonly config: pulumi.Output<outputs.JiraCloudAccountMappingRuleConfig | undefined>;
     /**
+     * Indicates if the rule is enabled. Defaults to `true`.
+     */
+    declare public readonly enabled: pulumi.Output<boolean>;
+    /**
      * The name of the rule.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -85,6 +89,7 @@ export class JiraCloudAccountMappingRule extends pulumi.CustomResource {
             resourceInputs["autocreateJqlDisabledReason"] = state?.autocreateJqlDisabledReason;
             resourceInputs["autocreateJqlDisabledUntil"] = state?.autocreateJqlDisabledUntil;
             resourceInputs["config"] = state?.config;
+            resourceInputs["enabled"] = state?.enabled;
             resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as JiraCloudAccountMappingRuleArgs | undefined;
@@ -93,6 +98,7 @@ export class JiraCloudAccountMappingRule extends pulumi.CustomResource {
             }
             resourceInputs["accountMapping"] = args?.accountMapping;
             resourceInputs["config"] = args?.config;
+            resourceInputs["enabled"] = args?.enabled;
             resourceInputs["name"] = args?.name;
             resourceInputs["autocreateJqlDisabledReason"] = undefined /*out*/;
             resourceInputs["autocreateJqlDisabledUntil"] = undefined /*out*/;
@@ -123,6 +129,10 @@ export interface JiraCloudAccountMappingRuleState {
      */
     config?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfig>;
     /**
+     * Indicates if the rule is enabled. Defaults to `true`.
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
      * The name of the rule.
      */
     name?: pulumi.Input<string>;
@@ -140,6 +150,10 @@ export interface JiraCloudAccountMappingRuleArgs {
      * Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.
      */
     config?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfig>;
+    /**
+     * Indicates if the rule is enabled. Defaults to `true`.
+     */
+    enabled?: pulumi.Input<boolean>;
     /**
      * The name of the rule.
      */

@@ -4656,7 +4656,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name for the alert groupig settings.\n"
+                    "description": "The name for the alert grouping settings.\n"
                 },
                 "services": {
                     "type": "array",
@@ -4687,7 +4687,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name for the alert groupig settings.\n"
+                    "description": "The name for the alert grouping settings.\n"
                 },
                 "services": {
                     "type": "array",
@@ -4718,7 +4718,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name for the alert groupig settings.\n"
+                        "description": "The name for the alert grouping settings.\n"
                     },
                     "services": {
                         "type": "array",
@@ -7157,6 +7157,10 @@
                     "$ref": "#/types/pagerduty:index/JiraCloudAccountMappingRuleConfig:JiraCloudAccountMappingRuleConfig",
                     "description": "Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.\n"
                 },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Indicates if the rule is enabled. Defaults to `true`.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the rule.\n"
@@ -7166,6 +7170,7 @@
                 "accountMapping",
                 "autocreateJqlDisabledReason",
                 "autocreateJqlDisabledUntil",
+                "enabled",
                 "name"
             ],
             "inputProperties": {
@@ -7176,6 +7181,10 @@
                 "config": {
                     "$ref": "#/types/pagerduty:index/JiraCloudAccountMappingRuleConfig:JiraCloudAccountMappingRuleConfig",
                     "description": "Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Indicates if the rule is enabled. Defaults to `true`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -7203,6 +7212,10 @@
                     "config": {
                         "$ref": "#/types/pagerduty:index/JiraCloudAccountMappingRuleConfig:JiraCloudAccountMappingRuleConfig",
                         "description": "Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Indicates if the rule is enabled. Defaults to `true`.\n"
                     },
                     "name": {
                         "type": "string",

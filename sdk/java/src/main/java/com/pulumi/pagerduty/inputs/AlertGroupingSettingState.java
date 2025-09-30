@@ -48,14 +48,14 @@ public final class AlertGroupingSettingState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name for the alert groupig settings.
+     * The name for the alert grouping settings.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name for the alert groupig settings.
+     * @return The name for the alert grouping settings.
      * 
      */
     public Optional<Output<String>> name() {
@@ -163,7 +163,7 @@ public final class AlertGroupingSettingState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name for the alert groupig settings.
+         * @param name The name for the alert grouping settings.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class AlertGroupingSettingState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name for the alert groupig settings.
+         * @param name The name for the alert grouping settings.
          * 
          * @return builder
          * 

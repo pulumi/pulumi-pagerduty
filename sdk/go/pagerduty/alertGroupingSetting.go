@@ -84,7 +84,7 @@ type AlertGroupingSetting struct {
 	Config AlertGroupingSettingConfigPtrOutput `pulumi:"config"`
 	// A human-friendly text to describe and identify this alert grouping setting.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// The name for the alert groupig settings.
+	// The name for the alert grouping settings.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// [Updating can cause a resource replacement] The list IDs of services associated to this setting.
 	Services pulumi.StringArrayOutput `pulumi:"services"`
@@ -132,7 +132,7 @@ type alertGroupingSettingState struct {
 	Config *AlertGroupingSettingConfig `pulumi:"config"`
 	// A human-friendly text to describe and identify this alert grouping setting.
 	Description *string `pulumi:"description"`
-	// The name for the alert groupig settings.
+	// The name for the alert grouping settings.
 	Name *string `pulumi:"name"`
 	// [Updating can cause a resource replacement] The list IDs of services associated to this setting.
 	Services []string `pulumi:"services"`
@@ -145,7 +145,7 @@ type AlertGroupingSettingState struct {
 	Config AlertGroupingSettingConfigPtrInput
 	// A human-friendly text to describe and identify this alert grouping setting.
 	Description pulumi.StringPtrInput
-	// The name for the alert groupig settings.
+	// The name for the alert grouping settings.
 	Name pulumi.StringPtrInput
 	// [Updating can cause a resource replacement] The list IDs of services associated to this setting.
 	Services pulumi.StringArrayInput
@@ -162,7 +162,7 @@ type alertGroupingSettingArgs struct {
 	Config *AlertGroupingSettingConfig `pulumi:"config"`
 	// A human-friendly text to describe and identify this alert grouping setting.
 	Description *string `pulumi:"description"`
-	// The name for the alert groupig settings.
+	// The name for the alert grouping settings.
 	Name *string `pulumi:"name"`
 	// [Updating can cause a resource replacement] The list IDs of services associated to this setting.
 	Services []string `pulumi:"services"`
@@ -176,7 +176,7 @@ type AlertGroupingSettingArgs struct {
 	Config AlertGroupingSettingConfigPtrInput
 	// A human-friendly text to describe and identify this alert grouping setting.
 	Description pulumi.StringPtrInput
-	// The name for the alert groupig settings.
+	// The name for the alert grouping settings.
 	Name pulumi.StringPtrInput
 	// [Updating can cause a resource replacement] The list IDs of services associated to this setting.
 	Services pulumi.StringArrayInput
@@ -281,7 +281,7 @@ func (o AlertGroupingSettingOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertGroupingSetting) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The name for the alert groupig settings.
+// The name for the alert grouping settings.
 func (o AlertGroupingSettingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertGroupingSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

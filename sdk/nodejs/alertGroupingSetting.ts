@@ -92,7 +92,7 @@ export class AlertGroupingSetting extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string>;
     /**
-     * The name for the alert groupig settings.
+     * The name for the alert grouping settings.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -154,7 +154,7 @@ export interface AlertGroupingSettingState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name for the alert groupig settings.
+     * The name for the alert grouping settings.
      */
     name?: pulumi.Input<string>;
     /**
@@ -180,7 +180,7 @@ export interface AlertGroupingSettingArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name for the alert groupig settings.
+     * The name for the alert grouping settings.
      */
     name?: pulumi.Input<string>;
     /**

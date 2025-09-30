@@ -6,6 +6,7 @@ package com.pulumi.pagerduty.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.pagerduty.inputs.JiraCloudAccountMappingRuleConfigArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -77,6 +78,21 @@ public final class JiraCloudAccountMappingRuleState extends com.pulumi.resources
     }
 
     /**
+     * Indicates if the rule is enabled. Defaults to `true`.
+     * 
+     */
+    @Import(name="enabled")
+    private @Nullable Output<Boolean> enabled;
+
+    /**
+     * @return Indicates if the rule is enabled. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> enabled() {
+        return Optional.ofNullable(this.enabled);
+    }
+
+    /**
      * The name of the rule.
      * 
      */
@@ -98,6 +114,7 @@ public final class JiraCloudAccountMappingRuleState extends com.pulumi.resources
         this.autocreateJqlDisabledReason = $.autocreateJqlDisabledReason;
         this.autocreateJqlDisabledUntil = $.autocreateJqlDisabledUntil;
         this.config = $.config;
+        this.enabled = $.enabled;
         this.name = $.name;
     }
 
@@ -201,6 +218,27 @@ public final class JiraCloudAccountMappingRuleState extends com.pulumi.resources
          */
         public Builder config(JiraCloudAccountMappingRuleConfigArgs config) {
             return config(Output.of(config));
+        }
+
+        /**
+         * @param enabled Indicates if the rule is enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabled(@Nullable Output<Boolean> enabled) {
+            $.enabled = enabled;
+            return this;
+        }
+
+        /**
+         * @param enabled Indicates if the rule is enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabled(Boolean enabled) {
+            return enabled(Output.of(enabled));
         }
 
         /**

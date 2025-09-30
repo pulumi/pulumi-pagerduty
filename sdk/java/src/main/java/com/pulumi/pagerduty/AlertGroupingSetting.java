@@ -124,14 +124,14 @@ public class AlertGroupingSetting extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * The name for the alert groupig settings.
+     * The name for the alert grouping settings.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name for the alert groupig settings.
+     * @return The name for the alert grouping settings.
      * 
      */
     public Output<String> name() {

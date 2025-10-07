@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class RulesetRuleConditionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Operator to combine sub-conditions. Can be `and` or `or`.
+        /// Operator to combine sub-conditions. Can be `And` or `Or`.
         /// </summary>
         [Input("operator")]
         public Input<string>? Operator { get; set; }

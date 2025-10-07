@@ -16,7 +16,7 @@ public final class UserHandoffNotificationRuleContactMethod {
      */
     private String id;
     /**
-     * @return The type of the contact method. May be (`email_contact_method`, `email_contact_method_reference`, `phone_contact_method`, `phone_contact_method_reference`, `push_notification_contact_method`, `push_notification_contact_method_reference`, `sms_contact_method`, `sms_contact_method_reference`).
+     * @return The type of the contact method. May be (`emailContactMethod`, `emailContactMethodReference`, `phoneContactMethod`, `phoneContactMethodReference`, `pushNotificationContactMethod`, `pushNotificationContactMethodReference`, `smsContactMethod`, `smsContactMethodReference`).
      * 
      */
     private String type;
@@ -30,7 +30,7 @@ public final class UserHandoffNotificationRuleContactMethod {
         return this.id;
     }
     /**
-     * @return The type of the contact method. May be (`email_contact_method`, `email_contact_method_reference`, `phone_contact_method`, `phone_contact_method_reference`, `push_notification_contact_method`, `push_notification_contact_method_reference`, `sms_contact_method`, `sms_contact_method_reference`).
+     * @return The type of the contact method. May be (`emailContactMethod`, `emailContactMethodReference`, `phoneContactMethod`, `phoneContactMethodReference`, `pushNotificationContactMethod`, `pushNotificationContactMethodReference`, `smsContactMethod`, `smsContactMethodReference`).
      * 
      */
     public String type() {

@@ -189,28 +189,28 @@ public class WebhookSubscription extends com.pulumi.resources.CustomResource {
         return this.events;
     }
     /**
-     * determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
+     * determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `serviceReference`, `teamReference` and `accountReference`.
      * 
      */
     @Export(name="filters", refs={List.class,WebhookSubscriptionFilter.class}, tree="[0,1]")
     private Output<List<WebhookSubscriptionFilter>> filters;
 
     /**
-     * @return determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
+     * @return determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `serviceReference`, `teamReference` and `accountReference`.
      * 
      */
     public Output<List<WebhookSubscriptionFilter>> filters() {
         return this.filters;
     }
     /**
-     * The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
+     * The type indicating the schema of the object. The provider sets this as `webhookSubscription`, which is currently the only acceptable value.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
+     * @return The type indicating the schema of the object. The provider sets this as `webhookSubscription`, which is currently the only acceptable value.
      * 
      */
     public Output<Optional<String>> type() {

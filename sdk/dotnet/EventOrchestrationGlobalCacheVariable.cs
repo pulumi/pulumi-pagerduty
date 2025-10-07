@@ -12,6 +12,105 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) can be created on a Global Event Orchestration, in order to temporarily store event data to be referenced later within the Global Event Orchestration
     /// 
+    /// ## Example of configuring a Cache Variable for a Global Event Orchestration
+    /// 
+    /// This example shows creating a global `Event Orchestration` and a `Cache Variable`. All events that have the `event.source` field will have its `Source` value stored in this Cache Variable, and appended as a note for the subsequent incident created by this Event Orchestration.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseTeam = new Pagerduty.Team("database_team", new()
+    ///     {
+    ///         Name = "Database Team",
+    ///     });
+    /// 
+    ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
+    ///     {
+    ///         Name = "Example Orchestration",
+    ///         Team = databaseTeam.Id,
+    ///     });
+    /// 
+    ///     var recentHost = new Pagerduty.EventOrchestrationGlobalCacheVariable("recent_host", new()
+    ///     {
+    ///         EventOrchestration = eventOrchestration.Id,
+    ///         Name = "recent_host",
+    ///         Conditions = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.EventOrchestrationGlobalCacheVariableConditionArgs
+    ///             {
+    ///                 Expression = "event.source exists",
+    ///             },
+    ///         },
+    ///         Configuration = new Pagerduty.Inputs.EventOrchestrationGlobalCacheVariableConfigurationArgs
+    ///         {
+    ///             Type = "recent_value",
+    ///             Source = "event.source",
+    ///             Regex = ".*",
+    ///         },
+    ///     });
+    /// 
+    ///     var hostIgnoreList = new Pagerduty.EventOrchestrationServiceCacheVariable("host_ignore_list", new()
+    ///     {
+    ///         EventOrchestration = eventOrchestration.Id,
+    ///         Name = "host_ignore_list",
+    ///         Configuration = new Pagerduty.Inputs.EventOrchestrationServiceCacheVariableConfigurationArgs
+    ///         {
+    ///             Type = "external_data",
+    ///             DataType = "string",
+    ///             TtlSeconds = 3000,
+    ///         },
+    ///     });
+    /// 
+    ///     var @global = new Pagerduty.EventOrchestrationGlobal("global", new()
+    ///     {
+    ///         EventOrchestration = eventOrchestration.Id,
+    ///         Sets = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.EventOrchestrationGlobalSetArgs
+    ///             {
+    ///                 Id = "start",
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleArgs
+    ///                     {
+    ///                         Label = "Drop events originating from hosts on the ignore list",
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleConditionArgs
+    ///                             {
+    ///                                 Expression = "cache_var.host_ignore_list matches part event.custom_details.host",
+    ///                             },
+    ///                         },
+    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleActionsArgs
+    ///                         {
+    ///                             Drop = true,
+    ///                         },
+    ///                     },
+    ///                     new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleArgs
+    ///                     {
+    ///                         Label = "Always annotate the incident with the event source for all events",
+    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleActionsArgs
+    ///                         {
+    ///                             Annotate = "Last time, we saw this incident occur on host: {{cache_var.recent_host}}",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         CatchAll = new Pagerduty.Inputs.EventOrchestrationGlobalCatchAllArgs
+    ///         {
+    ///             Actions = null,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Cache Variables can be imported using colon-separated IDs, which is the combination of the Global Event Orchestration ID followed by the Cache Variable ID, e.g.
@@ -24,7 +123,7 @@ namespace Pulumi.Pagerduty
     public partial class EventOrchestrationGlobalCacheVariable : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `RecentValue` or `TriggerEventCount`.
         /// </summary>
         [Output("conditions")]
         public Output<ImmutableArray<Outputs.EventOrchestrationGlobalCacheVariableCondition>> Conditions { get; private set; } = null!;
@@ -103,7 +202,7 @@ namespace Pulumi.Pagerduty
         private InputList<Inputs.EventOrchestrationGlobalCacheVariableConditionArgs>? _conditions;
 
         /// <summary>
-        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `RecentValue` or `TriggerEventCount`.
         /// </summary>
         public InputList<Inputs.EventOrchestrationGlobalCacheVariableConditionArgs> Conditions
         {
@@ -147,7 +246,7 @@ namespace Pulumi.Pagerduty
         private InputList<Inputs.EventOrchestrationGlobalCacheVariableConditionGetArgs>? _conditions;
 
         /// <summary>
-        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `RecentValue` or `TriggerEventCount`.
         /// </summary>
         public InputList<Inputs.EventOrchestrationGlobalCacheVariableConditionGetArgs> Conditions
         {

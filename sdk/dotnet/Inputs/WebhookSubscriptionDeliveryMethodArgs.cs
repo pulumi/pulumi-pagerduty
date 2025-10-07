@@ -16,7 +16,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<Inputs.WebhookSubscriptionDeliveryMethodCustomHeaderArgs>? _customHeaders;
 
         /// <summary>
-        /// The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+        /// The CustomHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
         /// </summary>
         public InputList<Inputs.WebhookSubscriptionDeliveryMethodCustomHeaderArgs> CustomHeaders
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<bool>? TemporarilyDisabled { get; set; }
 
         /// <summary>
-        /// Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+        /// Indicates the type of the delivery method. Allowed and default value: `HttpDeliveryMethod`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

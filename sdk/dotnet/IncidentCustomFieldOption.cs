@@ -11,7 +11,7 @@ namespace Pulumi.Pagerduty
 {
     /// <summary>
     /// A Incident Custom Field Option is a specific value that can be used for an [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) that only allow values from a set of fixed options,
-    /// i.e. has the `field_type` of `single_value_fixed` or `multi_value_fixed`.
+    /// i.e. has the `FieldType` of `SingleValueFixed` or `MultiValueFixed`.
     /// 
     /// ## Example Usage
     /// 
@@ -59,7 +59,7 @@ namespace Pulumi.Pagerduty
     public partial class IncidentCustomFieldOption : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The datatype of the field option. Only `string` is allowed here at present.
+        /// The datatype of the field option. Only `String` is allowed here at present.
         /// </summary>
         [Output("dataType")]
         public Output<string> DataType { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Pagerduty
     public sealed class IncidentCustomFieldOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The datatype of the field option. Only `string` is allowed here at present.
+        /// The datatype of the field option. Only `String` is allowed here at present.
         /// </summary>
         [Input("dataType", required: true)]
         public Input<string> DataType { get; set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Pagerduty
     public sealed class IncidentCustomFieldOptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The datatype of the field option. Only `string` is allowed here at present.
+        /// The datatype of the field option. Only `String` is allowed here at present.
         /// </summary>
         [Input("dataType")]
         public Input<string>? DataType { get; set; }

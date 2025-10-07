@@ -11,6 +11,100 @@ import * as utilities from "./utilities";
  * configures the bidirectional synchronization between Jira issues and PagerDuty
  * incidents.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const _default = pagerduty.getEscalationPolicy({
+ *     name: "Default",
+ * });
+ * const p1 = pagerduty.getPriority({
+ *     name: "P1",
+ * });
+ * const p2 = pagerduty.getPriority({
+ *     name: "P2",
+ * });
+ * const p3 = pagerduty.getPriority({
+ *     name: "P3",
+ * });
+ * const foo = new pagerduty.Service("foo", {
+ *     name: "My Web App",
+ *     escalationPolicy: _default.then(_default => _default.id),
+ * });
+ * const fooUser = new pagerduty.User("foo", {
+ *     name: "Earline Greenholt",
+ *     email: "125.greenholt.earline@graham.name",
+ * });
+ * const fooJiraCloudAccountMappingRule = new pagerduty.JiraCloudAccountMappingRule("foo", {
+ *     name: "Integration with My Web App",
+ *     accountMapping: "PLBP09X",
+ *     config: [{
+ *         service: foo.id,
+ *         jira: [{
+ *             autocreateJql: "priority = Highest",
+ *             createIssueOnIncidentTrigger: true,
+ *             customFields: [
+ *                 {
+ *                     sourceIncidentField: "incident_description",
+ *                     targetIssueField: "description",
+ *                     targetIssueFieldName: "Description",
+ *                     type: "attribute",
+ *                 },
+ *                 {
+ *                     targetIssueField: "security",
+ *                     targetIssueFieldName: "Security Level",
+ *                     type: "jira_value",
+ *                     value: JSON.stringify({
+ *                         displayName: "Sec Level 1",
+ *                         id: "10000",
+ *                     }),
+ *                 },
+ *             ],
+ *             issueType: [{
+ *                 id: "10001",
+ *                 name: "Incident",
+ *             }],
+ *             priorities: [
+ *                 {
+ *                     jiraId: "1",
+ *                     pagerdutyId: p1.then(p1 => p1.id),
+ *                 },
+ *                 {
+ *                     jiraId: "2",
+ *                     pagerdutyId: p2.then(p2 => p2.id),
+ *                 },
+ *                 {
+ *                     jiraId: "3",
+ *                     pagerdutyId: p3.then(p3 => p3.id),
+ *                 },
+ *             ],
+ *             project: [{
+ *                 id: "10100",
+ *                 key: "ITS",
+ *                 name: "IT Support",
+ *             }],
+ *             statusMapping: [{
+ *                 acknowledged: [{
+ *                     id: "2",
+ *                     name: "In Progress",
+ *                 }],
+ *                 resolved: [{
+ *                     id: "3",
+ *                     name: "Resolved",
+ *                 }],
+ *                 triggered: [{
+ *                     id: "1",
+ *                     name: "Open",
+ *                 }],
+ *             }],
+ *             syncNotesUser: fooUser.id,
+ *         }],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Jira Cloud account mapping rules can be imported using the `account_mapping_id` and `rule_id`, e.g.

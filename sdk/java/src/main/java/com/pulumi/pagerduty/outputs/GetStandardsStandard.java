@@ -45,7 +45,7 @@ public final class GetStandardsStandard {
      */
     private String name;
     /**
-     * @return Filter by `resource_type` the received standards. Allowed values are `technical_service`.
+     * @return Filter by `resourceType` the received standards. Allowed values are `technicalService`.
      * 
      */
     private String resourceType;
@@ -99,7 +99,7 @@ public final class GetStandardsStandard {
         return this.name;
     }
     /**
-     * @return Filter by `resource_type` the received standards. Allowed values are `technical_service`.
+     * @return Filter by `resourceType` the received standards. Allowed values are `technicalService`.
      * 
      */
     public String resourceType() {

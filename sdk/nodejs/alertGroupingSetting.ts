@@ -10,6 +10,31 @@ import * as utilities from "./utilities";
  * An [alert grouping setting](https://developer.pagerduty.com/api-reference/587edbc8ff416-create-an-alert-grouping-setting)
  * stores and centralize the configuration used during grouping of the alerts.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const _default = pagerduty.getEscalationPolicy({
+ *     name: "Default",
+ * });
+ * const basic = new pagerduty.Service("basic", {
+ *     name: "Example",
+ *     escalationPolicy: _default.then(_default => _default.id),
+ * });
+ * const basicSettings = new pagerduty.AlertGroupingSetting("basic_settings", {
+ *     name: "Configuration for type-1 devices",
+ *     type: "content_based",
+ *     services: [basic.id],
+ *     config: [{
+ *         timeWindow: 300,
+ *         aggregate: "all",
+ *         fields: ["fields"],
+ *     }],
+ * });
+ * ```
+ *
  * ## Migration from `alertGroupingParameters`
  *
  * To migrate from using the field `alertGroupingParameters` of a
@@ -47,6 +72,27 @@ import * as utilities from "./utilities";
  * ```
  *
  * After:
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const _default = pagerduty.getEscalationPolicy({
+ *     name: "Default",
+ * });
+ * const foo = new pagerduty.Service("foo", {
+ *     name: "Foo",
+ *     escalationPolicy: _default.then(_default => _default.id),
+ * });
+ * const fooAlert = new pagerduty.AlertGroupingSetting("foo_alert", {
+ *     name: "Alert Grouping for Foo-like services",
+ *     type: "time",
+ *     config: [{
+ *         time: null,
+ *     }],
+ *     services: [foo.id],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Alert grouping settings can be imported using its `id`, e.g.

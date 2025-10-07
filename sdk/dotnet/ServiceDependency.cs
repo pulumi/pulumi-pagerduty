@@ -12,6 +12,53 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [service dependency](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Mg-associate-service-dependencies) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Pagerduty.ServiceDependency("foo", new()
+    ///     {
+    ///         Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs
+    ///         {
+    ///             DependentService = 
+    ///             {
+    ///                 { "id", fooPagerdutyBusinessService.Id },
+    ///                 { "type", fooPagerdutyBusinessService.Type },
+    ///             },
+    ///             SupportingService = 
+    ///             {
+    ///                 { "id", fooPagerdutyService.Id },
+    ///                 { "type", fooPagerdutyService.Type },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var bar = new Pagerduty.ServiceDependency("bar", new()
+    ///     {
+    ///         Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs
+    ///         {
+    ///             DependentService = 
+    ///             {
+    ///                 { "id", fooPagerdutyBusinessService.Id },
+    ///                 { "type", fooPagerdutyBusinessService.Type },
+    ///             },
+    ///             SupportingService = 
+    ///             {
+    ///                 { "id", two.Id },
+    ///                 { "type", two.Type },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.
@@ -24,7 +71,7 @@ namespace Pulumi.Pagerduty
     public partial class ServiceDependency : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
+        /// The relationship between the `SupportingService` and `DependentService`. One and only one dependency block must be defined.
         /// </summary>
         [Output("dependency")]
         public Output<Outputs.ServiceDependencyDependency?> Dependency { get; private set; } = null!;
@@ -76,7 +123,7 @@ namespace Pulumi.Pagerduty
     public sealed class ServiceDependencyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
+        /// The relationship between the `SupportingService` and `DependentService`. One and only one dependency block must be defined.
         /// </summary>
         [Input("dependency")]
         public Input<Inputs.ServiceDependencyDependencyArgs>? Dependency { get; set; }
@@ -90,7 +137,7 @@ namespace Pulumi.Pagerduty
     public sealed class ServiceDependencyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
+        /// The relationship between the `SupportingService` and `DependentService`. One and only one dependency block must be defined.
         /// </summary>
         [Input("dependency")]
         public Input<Inputs.ServiceDependencyDependencyGetArgs>? Dependency { get; set; }

@@ -20,17 +20,70 @@ import javax.annotation.Nullable;
  * An [alert grouping setting](https://developer.pagerduty.com/api-reference/587edbc8ff416-create-an-alert-grouping-setting)
  * stores and centralize the configuration used during grouping of the alerts.
  * 
- * ## Migration from `alert_grouping_parameters`
+ * ## Example Usage
  * 
- * To migrate from using the field `alert_grouping_parameters` of a
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pagerduty.PagerdutyFunctions;
+ * import com.pulumi.pagerduty.inputs.GetEscalationPolicyArgs;
+ * import com.pulumi.pagerduty.Service;
+ * import com.pulumi.pagerduty.ServiceArgs;
+ * import com.pulumi.pagerduty.AlertGroupingSetting;
+ * import com.pulumi.pagerduty.AlertGroupingSettingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var default = PagerdutyFunctions.getEscalationPolicy(GetEscalationPolicyArgs.builder()
+ *             .name("Default")
+ *             .build());
+ * 
+ *         var basic = new Service("basic", ServiceArgs.builder()
+ *             .name("Example")
+ *             .escalationPolicy(default_.id())
+ *             .build());
+ * 
+ *         var basicSettings = new AlertGroupingSetting("basicSettings", AlertGroupingSettingArgs.builder()
+ *             .name("Configuration for type-1 devices")
+ *             .type("content_based")
+ *             .services(basic.id())
+ *             .config(AlertGroupingSettingConfigArgs.builder()
+ *                 .timeWindow(300)
+ *                 .aggregate("all")
+ *                 .fields("fields")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Migration from `alertGroupingParameters`
+ * 
+ * To migrate from using the field `alertGroupingParameters` of a
  * service
  * to a `pagerduty.AlertGroupingSetting` resource, you can cut-and-paste the
- * contents of an `alert_grouping_parameters` field from a `pagerduty.Service`
+ * contents of an `alertGroupingParameters` field from a `pagerduty.Service`
  * resource into the new resource, but you also need to add at least one value in
  * the field `services` to create the alert grouping setting with a service
  * associated to it.
  * 
- * If you are using `timeout = 0` or `time_window = 0` in order to use the values
+ * If you are using `timeout = 0` or `timeWindow = 0` in order to use the values
  * recommended by PagerDuty you also need to set its value to null or delete it,
  * since a value of `0` is no longer accepted.
  * 
@@ -84,6 +137,55 @@ import javax.annotation.Nullable;
  * </pre>
  * 
  * After:
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pagerduty.PagerdutyFunctions;
+ * import com.pulumi.pagerduty.inputs.GetEscalationPolicyArgs;
+ * import com.pulumi.pagerduty.Service;
+ * import com.pulumi.pagerduty.ServiceArgs;
+ * import com.pulumi.pagerduty.AlertGroupingSetting;
+ * import com.pulumi.pagerduty.AlertGroupingSettingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var default = PagerdutyFunctions.getEscalationPolicy(GetEscalationPolicyArgs.builder()
+ *             .name("Default")
+ *             .build());
+ * 
+ *         var foo = new Service("foo", ServiceArgs.builder()
+ *             .name("Foo")
+ *             .escalationPolicy(default_.id())
+ *             .build());
+ * 
+ *         var fooAlert = new AlertGroupingSetting("fooAlert", AlertGroupingSettingArgs.builder()
+ *             .name("Alert Grouping for Foo-like services")
+ *             .type("time")
+ *             .config(AlertGroupingSettingConfigArgs.builder()
+ *                 .time(null)
+ *                 .build())
+ *             .services(foo.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Alert grouping settings can be imported using its `id`, e.g.
@@ -152,14 +254,14 @@ public class AlertGroupingSetting extends com.pulumi.resources.CustomResource {
         return this.services;
     }
     /**
-     * The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.
+     * The type of alert grouping; one of `intelligent`, `time`, `contentBased` or  `contentBasedIntelligent`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.
+     * @return The type of alert grouping; one of `intelligent`, `time`, `contentBased` or  `contentBasedIntelligent`.
      * 
      */
     public Output<String> type() {

@@ -16,6 +16,156 @@ import (
 // configures the bidirectional synchronization between Jira issues and PagerDuty
 // incidents.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_default, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
+//				Name: "Default",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			p1, err := pagerduty.GetPriority(ctx, &pagerduty.GetPriorityArgs{
+//				Name: "P1",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			p2, err := pagerduty.GetPriority(ctx, &pagerduty.GetPriorityArgs{
+//				Name: "P2",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			p3, err := pagerduty.GetPriority(ctx, &pagerduty.GetPriorityArgs{
+//				Name: "P3",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			foo, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
+//				Name:             pulumi.String("My Web App"),
+//				EscalationPolicy: pulumi.String(_default.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fooUser, err := pagerduty.NewUser(ctx, "foo", &pagerduty.UserArgs{
+//				Name:  pulumi.String("Earline Greenholt"),
+//				Email: pulumi.String("125.greenholt.earline@graham.name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"displayName": "Sec Level 1",
+//				"id":          "10000",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = pagerduty.NewJiraCloudAccountMappingRule(ctx, "foo", &pagerduty.JiraCloudAccountMappingRuleArgs{
+//				Name:           pulumi.String("Integration with My Web App"),
+//				AccountMapping: pulumi.String("PLBP09X"),
+//				Config: pagerduty.JiraCloudAccountMappingRuleConfigArgs{
+//					map[string]interface{}{
+//						"service": foo.ID(),
+//						"jira": []map[string]interface{}{
+//							map[string]interface{}{
+//								"autocreateJql":                "priority = Highest",
+//								"createIssueOnIncidentTrigger": true,
+//								"customFields": []interface{}{
+//									map[string]interface{}{
+//										"sourceIncidentField":  "incident_description",
+//										"targetIssueField":     "description",
+//										"targetIssueFieldName": "Description",
+//										"type":                 "attribute",
+//									},
+//									map[string]interface{}{
+//										"targetIssueField":     "security",
+//										"targetIssueFieldName": "Security Level",
+//										"type":                 "jira_value",
+//										"value":                json0,
+//									},
+//								},
+//								"issueType": []map[string]interface{}{
+//									map[string]interface{}{
+//										"id":   "10001",
+//										"name": "Incident",
+//									},
+//								},
+//								"priorities": []map[string]interface{}{
+//									map[string]interface{}{
+//										"jiraId":      "1",
+//										"pagerdutyId": p1.Id,
+//									},
+//									map[string]interface{}{
+//										"jiraId":      "2",
+//										"pagerdutyId": p2.Id,
+//									},
+//									map[string]interface{}{
+//										"jiraId":      "3",
+//										"pagerdutyId": p3.Id,
+//									},
+//								},
+//								"project": []map[string]interface{}{
+//									map[string]interface{}{
+//										"id":   "10100",
+//										"key":  "ITS",
+//										"name": "IT Support",
+//									},
+//								},
+//								"statusMapping": []map[string]interface{}{
+//									map[string]interface{}{
+//										"acknowledged": []map[string]interface{}{
+//											map[string]interface{}{
+//												"id":   "2",
+//												"name": "In Progress",
+//											},
+//										},
+//										"resolved": []map[string]interface{}{
+//											map[string]interface{}{
+//												"id":   "3",
+//												"name": "Resolved",
+//											},
+//										},
+//										"triggered": []map[string]interface{}{
+//											map[string]interface{}{
+//												"id":   "1",
+//												"name": "Open",
+//											},
+//										},
+//									},
+//								},
+//								"syncNotesUser": fooUser.ID(),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Jira Cloud account mapping rules can be imported using the `account_mapping_id` and `rule_id`, e.g.

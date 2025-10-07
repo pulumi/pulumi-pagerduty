@@ -128,7 +128,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
     }
     /**
      * The url of the extension.
-     * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn&#39;t accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+     * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn&#39;t accept `pagerduty.Extension` with no `endpointUrl`, but one with named `Slack` accepts.
      * 
      */
     @Export(name="endpointUrl", refs={String.class}, tree="[0]")
@@ -136,7 +136,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The url of the extension.
-     * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn&#39;t accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+     * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn&#39;t accept `pagerduty.Extension` with no `endpointUrl`, but one with named `Slack` accepts.
      * 
      */
     public Output<String> endpointUrl() {

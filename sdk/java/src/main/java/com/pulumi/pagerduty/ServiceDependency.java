@@ -17,6 +17,62 @@ import javax.annotation.Nullable;
 /**
  * A [service dependency](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Mg-associate-service-dependencies) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pagerduty.ServiceDependency;
+ * import com.pulumi.pagerduty.ServiceDependencyArgs;
+ * import com.pulumi.pagerduty.inputs.ServiceDependencyDependencyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new ServiceDependency("foo", ServiceDependencyArgs.builder()
+ *             .dependency(ServiceDependencyDependencyArgs.builder()
+ *                 .dependentService(Map.ofEntries(
+ *                     Map.entry("id", fooPagerdutyBusinessService.id()),
+ *                     Map.entry("type", fooPagerdutyBusinessService.type())
+ *                 ))
+ *                 .supportingService(Map.ofEntries(
+ *                     Map.entry("id", fooPagerdutyService.id()),
+ *                     Map.entry("type", fooPagerdutyService.type())
+ *                 ))
+ *                 .build())
+ *             .build());
+ * 
+ *         var bar = new ServiceDependency("bar", ServiceDependencyArgs.builder()
+ *             .dependency(ServiceDependencyDependencyArgs.builder()
+ *                 .dependentService(Map.ofEntries(
+ *                     Map.entry("id", fooPagerdutyBusinessService.id()),
+ *                     Map.entry("type", fooPagerdutyBusinessService.type())
+ *                 ))
+ *                 .supportingService(Map.ofEntries(
+ *                     Map.entry("id", two.id()),
+ *                     Map.entry("type", two.type())
+ *                 ))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.
@@ -29,14 +85,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="pagerduty:index/serviceDependency:ServiceDependency")
 public class ServiceDependency extends com.pulumi.resources.CustomResource {
     /**
-     * The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
+     * The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
      * 
      */
     @Export(name="dependency", refs={ServiceDependencyDependency.class}, tree="[0]")
     private Output</* @Nullable */ ServiceDependencyDependency> dependency;
 
     /**
-     * @return The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
+     * @return The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
      * 
      */
     public Output<Optional<ServiceDependencyDependency>> dependency() {

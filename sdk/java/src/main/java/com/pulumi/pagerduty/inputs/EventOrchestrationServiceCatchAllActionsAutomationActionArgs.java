@@ -81,14 +81,14 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationActionArgs 
     }
 
     /**
-     * The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`. NOTE: `auto_send` must be `true` for trigger types of `[&#34;alert_suspended&#34;]` and `[&#34;alert_suppressed&#34;]`
+     * The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `[&#34;alertTriggered&#34;]`, `[&#34;alertSuspended&#34;]`, `[&#34;alertSuppressed&#34;]`. NOTE: `autoSend` must be `true` for trigger types of `[&#34;alertSuspended&#34;]` and `[&#34;alertSuppressed&#34;]`
      * 
      */
     @Import(name="triggerTypes")
     private @Nullable Output<String> triggerTypes;
 
     /**
-     * @return The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`. NOTE: `auto_send` must be `true` for trigger types of `[&#34;alert_suspended&#34;]` and `[&#34;alert_suppressed&#34;]`
+     * @return The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `[&#34;alertTriggered&#34;]`, `[&#34;alertSuspended&#34;]`, `[&#34;alertSuppressed&#34;]`. NOTE: `autoSend` must be `true` for trigger types of `[&#34;alertSuspended&#34;]` and `[&#34;alertSuppressed&#34;]`
      * 
      */
     public Optional<Output<String>> triggerTypes() {
@@ -244,7 +244,7 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationActionArgs 
         }
 
         /**
-         * @param triggerTypes The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`. NOTE: `auto_send` must be `true` for trigger types of `[&#34;alert_suspended&#34;]` and `[&#34;alert_suppressed&#34;]`
+         * @param triggerTypes The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `[&#34;alertTriggered&#34;]`, `[&#34;alertSuspended&#34;]`, `[&#34;alertSuppressed&#34;]`. NOTE: `autoSend` must be `true` for trigger types of `[&#34;alertSuspended&#34;]` and `[&#34;alertSuppressed&#34;]`
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationActionArgs 
         }
 
         /**
-         * @param triggerTypes The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`. NOTE: `auto_send` must be `true` for trigger types of `[&#34;alert_suspended&#34;]` and `[&#34;alert_suppressed&#34;]`
+         * @param triggerTypes The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `[&#34;alertTriggered&#34;]`, `[&#34;alertSuspended&#34;]`, `[&#34;alertSuppressed&#34;]`. NOTE: `autoSend` must be `true` for trigger types of `[&#34;alertSuspended&#34;]` and `[&#34;alertSuppressed&#34;]`
          * 
          * @return builder
          * 

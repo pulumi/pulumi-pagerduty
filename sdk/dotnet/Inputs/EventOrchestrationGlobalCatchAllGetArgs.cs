@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class EventOrchestrationGlobalCatchAllGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+        /// These are the actions that will be taken to change the resulting alert and incident. `CatchAll` supports all actions described above for `Rule` _except_ `RouteTo` action.
         /// </summary>
         [Input("actions", required: true)]
         public Input<Inputs.EventOrchestrationGlobalCatchAllActionsGetArgs> Actions { get; set; } = null!;

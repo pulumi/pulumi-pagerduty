@@ -165,14 +165,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.jobTitle);
     }
     /**
-     * The license id assigned to the user. If provided the user&#39;s role must exist in the assigned license&#39;s `valid_roles` list. To reference purchased licenses&#39; ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+     * The license id assigned to the user. If provided the user&#39;s role must exist in the assigned license&#39;s `validRoles` list. To reference purchased licenses&#39; ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
      * 
      */
     @Export(name="license", refs={String.class}, tree="[0]")
     private Output<String> license;
 
     /**
-     * @return The license id assigned to the user. If provided the user&#39;s role must exist in the assigned license&#39;s `valid_roles` list. To reference purchased licenses&#39; ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+     * @return The license id assigned to the user. If provided the user&#39;s role must exist in the assigned license&#39;s `validRoles` list. To reference purchased licenses&#39; ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
      * 
      */
     public Output<String> license() {
@@ -193,9 +193,9 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+     * The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
      * Notes:
-     * * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+     * * Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.
      * * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `pagerduty.TeamMembership` resource.
      * * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
      * 
@@ -204,9 +204,9 @@ public class User extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> role;
 
     /**
-     * @return The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+     * @return The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
      * Notes:
-     * * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+     * * Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.
      * * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `pagerduty.TeamMembership` resource.
      * * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
      * 

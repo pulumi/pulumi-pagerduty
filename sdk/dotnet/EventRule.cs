@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
-    /// *NOTE: The `pagerduty.EventRule` resource has been deprecated in favor of the pagerduty.Ruleset and pagerduty.RulesetRule resources. Please use the `ruleset` based resources for working with Event Rules.*
+    /// *NOTE: The `pagerduty.EventRule` resource has been deprecated in favor of the pagerduty.Ruleset and pagerduty.RulesetRule resources. Please use the `Ruleset` based resources for working with Event Rules.*
     /// 
     /// An [event rule](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/) determines what happens to an event that is sent to PagerDuty by monitoring tools and other integrations.
     /// 
@@ -192,7 +192,7 @@ namespace Pulumi.Pagerduty
         public Output<bool> CatchAll { get; private set; } = null!;
 
         /// <summary>
-        /// Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
+        /// Contains a list of conditions. The first field in the list is `And` or `Or`, followed by a list of operators and values.
         /// </summary>
         [Output("conditionJson")]
         public Output<string> ConditionJson { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? AdvancedConditionJson { get; set; }
 
         /// <summary>
-        /// Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
+        /// Contains a list of conditions. The first field in the list is `And` or `Or`, followed by a list of operators and values.
         /// </summary>
         [Input("conditionJson", required: true)]
         public Input<string> ConditionJson { get; set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Pagerduty
         public Input<bool>? CatchAll { get; set; }
 
         /// <summary>
-        /// Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
+        /// Contains a list of conditions. The first field in the list is `And` or `Or`, followed by a list of operators and values.
         /// </summary>
         [Input("conditionJson")]
         public Input<string>? ConditionJson { get; set; }

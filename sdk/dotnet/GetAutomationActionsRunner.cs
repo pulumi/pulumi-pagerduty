@@ -106,7 +106,7 @@ namespace Pulumi.Pagerduty
         public string? LastSeen { get; set; }
 
         /// <summary>
-        /// (Optional) The base URI of the Runbook server to connect to. Applicable to `runbook` type runners only.
+        /// (Optional) The base URI of the Runbook server to connect to. Applicable to `Runbook` type runners only.
         /// </summary>
         [Input("runbookBaseUri")]
         public string? RunbookBaseUri { get; set; }
@@ -138,7 +138,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? LastSeen { get; set; }
 
         /// <summary>
-        /// (Optional) The base URI of the Runbook server to connect to. Applicable to `runbook` type runners only.
+        /// (Optional) The base URI of the Runbook server to connect to. Applicable to `Runbook` type runners only.
         /// </summary>
         [Input("runbookBaseUri")]
         public Input<string>? RunbookBaseUri { get; set; }
@@ -174,15 +174,15 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// (Optional) The base URI of the Runbook server to connect to. Applicable to `runbook` type runners only.
+        /// (Optional) The base URI of the Runbook server to connect to. Applicable to `Runbook` type runners only.
         /// </summary>
         public readonly string RunbookBaseUri;
         /// <summary>
-        /// The type of runner. Allowed values are `sidecar` and `runbook`.
+        /// The type of runner. Allowed values are `Sidecar` and `Runbook`.
         /// </summary>
         public readonly string RunnerType;
         /// <summary>
-        /// The type of object. The value returned will be `runner`.
+        /// The type of object. The value returned will be `Runner`.
         /// </summary>
         public readonly string Type;
 

@@ -15,6 +15,58 @@ import (
 // An [alert grouping setting](https://developer.pagerduty.com/api-reference/587edbc8ff416-create-an-alert-grouping-setting)
 // stores and centralize the configuration used during grouping of the alerts.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_default, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
+//				Name: "Default",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			basic, err := pagerduty.NewService(ctx, "basic", &pagerduty.ServiceArgs{
+//				Name:             pulumi.String("Example"),
+//				EscalationPolicy: pulumi.String(_default.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewAlertGroupingSetting(ctx, "basic_settings", &pagerduty.AlertGroupingSettingArgs{
+//				Name: pulumi.String("Configuration for type-1 devices"),
+//				Type: pulumi.String("content_based"),
+//				Services: pulumi.StringArray{
+//					basic.ID(),
+//				},
+//				Config: pagerduty.AlertGroupingSettingConfigArgs{
+//					map[string]interface{}{
+//						"timeWindow": 300,
+//						"aggregate":  "all",
+//						"fields": []string{
+//							"fields",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Migration from `alertGroupingParameters`
 //
 // To migrate from using the field `alertGroupingParameters` of a
@@ -70,6 +122,52 @@ import (
 // ```
 //
 // After:
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_default, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
+//				Name: "Default",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			foo, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
+//				Name:             pulumi.String("Foo"),
+//				EscalationPolicy: pulumi.String(_default.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewAlertGroupingSetting(ctx, "foo_alert", &pagerduty.AlertGroupingSettingArgs{
+//				Name: pulumi.String("Alert Grouping for Foo-like services"),
+//				Type: pulumi.String("time"),
+//				Config: pagerduty.AlertGroupingSettingConfigArgs{
+//					map[string]interface{}{
+//						"time": nil,
+//					},
+//				},
+//				Services: pulumi.StringArray{
+//					foo.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Alert grouping settings can be imported using its `id`, e.g.

@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The type of object being used as the filter. Allowed values are `account_reference`, `service_reference`, and `team_reference`.
+        /// The type of object being used as the filter. Allowed values are `AccountReference`, `ServiceReference`, and `TeamReference`.
         /// </summary>
         public readonly string Type;
 

@@ -209,6 +209,90 @@ class JiraCloudAccountMappingRule(pulumi.CustomResource):
         configures the bidirectional synchronization between Jira issues and PagerDuty
         incidents.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_pagerduty as pagerduty
+
+        default = pagerduty.get_escalation_policy(name="Default")
+        p1 = pagerduty.get_priority(name="P1")
+        p2 = pagerduty.get_priority(name="P2")
+        p3 = pagerduty.get_priority(name="P3")
+        foo = pagerduty.Service("foo",
+            name="My Web App",
+            escalation_policy=default.id)
+        foo_user = pagerduty.User("foo",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
+        foo_jira_cloud_account_mapping_rule = pagerduty.JiraCloudAccountMappingRule("foo",
+            name="Integration with My Web App",
+            account_mapping="PLBP09X",
+            config=[{
+                "service": foo.id,
+                "jira": [{
+                    "autocreateJql": "priority = Highest",
+                    "createIssueOnIncidentTrigger": True,
+                    "customFields": [
+                        {
+                            "sourceIncidentField": "incident_description",
+                            "targetIssueField": "description",
+                            "targetIssueFieldName": "Description",
+                            "type": "attribute",
+                        },
+                        {
+                            "targetIssueField": "security",
+                            "targetIssueFieldName": "Security Level",
+                            "type": "jira_value",
+                            "value": json.dumps({
+                                "displayName": "Sec Level 1",
+                                "id": "10000",
+                            }),
+                        },
+                    ],
+                    "issueType": [{
+                        "id": "10001",
+                        "name": "Incident",
+                    }],
+                    "priorities": [
+                        {
+                            "jiraId": "1",
+                            "pagerdutyId": p1.id,
+                        },
+                        {
+                            "jiraId": "2",
+                            "pagerdutyId": p2.id,
+                        },
+                        {
+                            "jiraId": "3",
+                            "pagerdutyId": p3.id,
+                        },
+                    ],
+                    "project": [{
+                        "id": "10100",
+                        "key": "ITS",
+                        "name": "IT Support",
+                    }],
+                    "statusMapping": [{
+                        "acknowledged": [{
+                            "id": "2",
+                            "name": "In Progress",
+                        }],
+                        "resolved": [{
+                            "id": "3",
+                            "name": "Resolved",
+                        }],
+                        "triggered": [{
+                            "id": "1",
+                            "name": "Open",
+                        }],
+                    }],
+                    "syncNotesUser": foo_user.id,
+                }],
+            }])
+        ```
+
         ## Import
 
         Jira Cloud account mapping rules can be imported using the `account_mapping_id` and `rule_id`, e.g.
@@ -234,6 +318,90 @@ class JiraCloudAccountMappingRule(pulumi.CustomResource):
         An Jira Cloud's account mapping [rule](https://developer.pagerduty.com/api-reference/85dc30ba966a6-create-a-rule)
         configures the bidirectional synchronization between Jira issues and PagerDuty
         incidents.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_pagerduty as pagerduty
+
+        default = pagerduty.get_escalation_policy(name="Default")
+        p1 = pagerduty.get_priority(name="P1")
+        p2 = pagerduty.get_priority(name="P2")
+        p3 = pagerduty.get_priority(name="P3")
+        foo = pagerduty.Service("foo",
+            name="My Web App",
+            escalation_policy=default.id)
+        foo_user = pagerduty.User("foo",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
+        foo_jira_cloud_account_mapping_rule = pagerduty.JiraCloudAccountMappingRule("foo",
+            name="Integration with My Web App",
+            account_mapping="PLBP09X",
+            config=[{
+                "service": foo.id,
+                "jira": [{
+                    "autocreateJql": "priority = Highest",
+                    "createIssueOnIncidentTrigger": True,
+                    "customFields": [
+                        {
+                            "sourceIncidentField": "incident_description",
+                            "targetIssueField": "description",
+                            "targetIssueFieldName": "Description",
+                            "type": "attribute",
+                        },
+                        {
+                            "targetIssueField": "security",
+                            "targetIssueFieldName": "Security Level",
+                            "type": "jira_value",
+                            "value": json.dumps({
+                                "displayName": "Sec Level 1",
+                                "id": "10000",
+                            }),
+                        },
+                    ],
+                    "issueType": [{
+                        "id": "10001",
+                        "name": "Incident",
+                    }],
+                    "priorities": [
+                        {
+                            "jiraId": "1",
+                            "pagerdutyId": p1.id,
+                        },
+                        {
+                            "jiraId": "2",
+                            "pagerdutyId": p2.id,
+                        },
+                        {
+                            "jiraId": "3",
+                            "pagerdutyId": p3.id,
+                        },
+                    ],
+                    "project": [{
+                        "id": "10100",
+                        "key": "ITS",
+                        "name": "IT Support",
+                    }],
+                    "statusMapping": [{
+                        "acknowledged": [{
+                            "id": "2",
+                            "name": "In Progress",
+                        }],
+                        "resolved": [{
+                            "id": "3",
+                            "name": "Resolved",
+                        }],
+                        "triggered": [{
+                            "id": "1",
+                            "name": "Open",
+                        }],
+                    }],
+                    "syncNotesUser": foo_user.id,
+                }],
+            }])
+        ```
 
         ## Import
 

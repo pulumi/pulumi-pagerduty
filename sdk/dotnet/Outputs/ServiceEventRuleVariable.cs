@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceEventRuleVariableParameter> Parameters;
         /// <summary>
-        /// Type of operation to populate the variable. Usually `regex`.
+        /// Type of operation to populate the variable. Usually `Regex`.
         /// </summary>
         public readonly string? Type;
 

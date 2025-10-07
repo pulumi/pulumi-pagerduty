@@ -14,19 +14,19 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class ServiceAlertGroupingParametersConfig
     {
         /// <summary>
-        /// One of `any` or `all`. This setting applies only when `type` is set to `content_based`. Group alerts based on one or all of `fields` value(s).
+        /// One of `Any` or `All`. This setting applies only when `Type` is set to `ContentBased`. Group alerts based on one or all of `Fields` value(s).
         /// </summary>
         public readonly string? Aggregate;
         /// <summary>
-        /// Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `content_based`.
+        /// Alerts will be grouped together if the content of these fields match. This setting applies only when `Type` is set to `ContentBased`.
         /// </summary>
         public readonly ImmutableArray<string> Fields;
         /// <summary>
-        /// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+        /// The maximum amount of time allowed between Alerts. This setting applies only when `Type` is set to `Intelligent` or `ContentBased`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `ContentBased` alert grouping). Any Alerts arriving greater than `TimeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
         /// </summary>
         public readonly int? TimeWindow;
         /// <summary>
-        /// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        /// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `Type` is set to `Time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         /// </summary>
         public readonly int? Timeout;
 

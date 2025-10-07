@@ -16,14 +16,14 @@ public final class ServiceDependencyState extends com.pulumi.resources.ResourceA
     public static final ServiceDependencyState Empty = new ServiceDependencyState();
 
     /**
-     * The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
+     * The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
      * 
      */
     @Import(name="dependency")
     private @Nullable Output<ServiceDependencyDependencyArgs> dependency;
 
     /**
-     * @return The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
+     * @return The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
      * 
      */
     public Optional<Output<ServiceDependencyDependencyArgs>> dependency() {
@@ -55,7 +55,7 @@ public final class ServiceDependencyState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dependency The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
+         * @param dependency The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ServiceDependencyState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dependency The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
+         * @param dependency The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
          * 
          * @return builder
          * 

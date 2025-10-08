@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class WebhookSubscriptionDeliveryMethod
     {
         /// <summary>
-        /// The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+        /// The CustomHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebhookSubscriptionDeliveryMethodCustomHeader> CustomHeaders;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly bool? TemporarilyDisabled;
         /// <summary>
-        /// Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+        /// Indicates the type of the delivery method. Allowed and default value: `HttpDeliveryMethod`.
         /// </summary>
         public readonly string? Type;
         /// <summary>

@@ -15,7 +15,7 @@ namespace Pulumi.Pagerduty.Outputs
     {
         public readonly ImmutableArray<Outputs.ServiceIntegrationEmailParserMatchPredicatePredicate> Predicates;
         /// <summary>
-        /// Can be `any` or `all`.
+        /// Can be `Any` or `All`.
         /// </summary>
         public readonly string Type;
 

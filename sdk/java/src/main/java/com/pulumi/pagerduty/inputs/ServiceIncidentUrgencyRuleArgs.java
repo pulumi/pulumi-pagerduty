@@ -49,14 +49,14 @@ public final class ServiceIncidentUrgencyRuleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
+     * The type of incident urgency: `constant` or `useSupportHours` (when depending on specific support hours; see `supportHours`).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
+     * @return The type of incident urgency: `constant` or `useSupportHours` (when depending on specific support hours; see `supportHours`).
      * 
      */
     public Output<String> type() {
@@ -64,14 +64,14 @@ public final class ServiceIncidentUrgencyRuleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+     * The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
      * 
      */
     @Import(name="urgency")
     private @Nullable Output<String> urgency;
 
     /**
-     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
      * 
      */
     public Optional<Output<String>> urgency() {
@@ -148,7 +148,7 @@ public final class ServiceIncidentUrgencyRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param type The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
+         * @param type The type of incident urgency: `constant` or `useSupportHours` (when depending on specific support hours; see `supportHours`).
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class ServiceIncidentUrgencyRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param type The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
+         * @param type The type of incident urgency: `constant` or `useSupportHours` (when depending on specific support hours; see `supportHours`).
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ServiceIncidentUrgencyRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param urgency The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+         * @param urgency The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ServiceIncidentUrgencyRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param urgency The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+         * @param urgency The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
          * 
          * @return builder
          * 

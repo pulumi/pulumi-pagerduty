@@ -18,7 +18,7 @@ public final class EscalationPolicyRuleTarget {
      */
     private String id;
     /**
-     * @return Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+     * @return Can be `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
      * 
      */
     private @Nullable String type;
@@ -32,7 +32,7 @@ public final class EscalationPolicyRuleTarget {
         return this.id;
     }
     /**
-     * @return Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+     * @return Can be `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
      * 
      */
     public Optional<String> type() {

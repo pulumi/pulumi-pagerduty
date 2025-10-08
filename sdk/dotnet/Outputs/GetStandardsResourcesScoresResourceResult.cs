@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string ResourceId;
         /// <summary>
-        /// Type of the object the standards are associated to. Allowed values are `technical_services`.
+        /// Type of the object the standards are associated to. Allowed values are `TechnicalServices`.
         /// </summary>
         public readonly string ResourceType;
         /// <summary>

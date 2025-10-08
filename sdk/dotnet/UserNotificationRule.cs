@@ -12,6 +12,96 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [notification rule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0NQ-create-a-user-notification-rule) configures where and when a PagerDuty user is notified when a triggered incident is assigned to them. Unique notification rules can be created for both high and low-urgency incidents.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Pagerduty.User("example", new()
+    ///     {
+    ///         Name = "Earline Greenholt",
+    ///         Email = "125.greenholt.earline@graham.name",
+    ///     });
+    /// 
+    ///     var email = new Pagerduty.UserContactMethod("email", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         Type = "email_contact_method",
+    ///         Address = "foo@bar.com",
+    ///         Label = "Work",
+    ///     });
+    /// 
+    ///     var phone = new Pagerduty.UserContactMethod("phone", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         Type = "phone_contact_method",
+    ///         CountryCode = 1,
+    ///         Address = "2025550199",
+    ///         Label = "Work",
+    ///     });
+    /// 
+    ///     var sms = new Pagerduty.UserContactMethod("sms", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         Type = "sms_contact_method",
+    ///         CountryCode = 1,
+    ///         Address = "2025550199",
+    ///         Label = "Work",
+    ///     });
+    /// 
+    ///     var highUrgencyPhone = new Pagerduty.UserNotificationRule("high_urgency_phone", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         StartDelayInMinutes = 1,
+    ///         Urgency = "high",
+    ///         ContactMethod = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "type", "phone_contact_method" },
+    ///                 { "id", phone.Id },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var lowUrgencyEmail = new Pagerduty.UserNotificationRule("low_urgency_email", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         StartDelayInMinutes = 1,
+    ///         Urgency = "low",
+    ///         ContactMethod = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "type", "email_contact_method" },
+    ///                 { "id", email.Id },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var lowUrgencySms = new Pagerduty.UserNotificationRule("low_urgency_sms", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         StartDelayInMinutes = 10,
+    ///         Urgency = "low",
+    ///         ContactMethod = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "type", "sms_contact_method" },
+    ///                 { "id", sms.Id },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// User notification rules can be imported using the `user_id` and the `id`, e.g.
@@ -36,7 +126,7 @@ namespace Pulumi.Pagerduty
         public Output<int> StartDelayInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
+        /// Which incident urgency this rule is used for. Account must have the `Urgencies` ability to have a low urgency notification rule. Can be `High` or `Low`.
         /// </summary>
         [Output("urgency")]
         public Output<string> Urgency { get; private set; } = null!;
@@ -106,7 +196,7 @@ namespace Pulumi.Pagerduty
         public Input<int> StartDelayInMinutes { get; set; } = null!;
 
         /// <summary>
-        /// Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
+        /// Which incident urgency this rule is used for. Account must have the `Urgencies` ability to have a low urgency notification rule. Can be `High` or `Low`.
         /// </summary>
         [Input("urgency", required: true)]
         public Input<string> Urgency { get; set; } = null!;
@@ -138,7 +228,7 @@ namespace Pulumi.Pagerduty
         public Input<int>? StartDelayInMinutes { get; set; }
 
         /// <summary>
-        /// Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
+        /// Which incident urgency this rule is used for. Account must have the `Urgencies` ability to have a low urgency notification rule. Can be `High` or `Low`.
         /// </summary>
         [Input("urgency")]
         public Input<string>? Urgency { get; set; }

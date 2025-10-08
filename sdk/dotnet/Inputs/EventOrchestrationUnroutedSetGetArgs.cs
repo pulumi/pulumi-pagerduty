@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class EventOrchestrationUnroutedSetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        /// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `RouteTo` property.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

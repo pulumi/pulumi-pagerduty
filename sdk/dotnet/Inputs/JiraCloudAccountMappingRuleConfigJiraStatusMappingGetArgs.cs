@@ -13,19 +13,19 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class JiraCloudAccountMappingRuleConfigJiraStatusMappingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Jira status that maps to the PagerDuty `acknowledged` status.
+        /// Jira status that maps to the PagerDuty `Acknowledged` status.
         /// </summary>
         [Input("acknowledged")]
         public Input<Inputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedGetArgs>? Acknowledged { get; set; }
 
         /// <summary>
-        /// Jira status that maps to the PagerDuty `resolved` status.
+        /// Jira status that maps to the PagerDuty `Resolved` status.
         /// </summary>
         [Input("resolved")]
         public Input<Inputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedGetArgs>? Resolved { get; set; }
 
         /// <summary>
-        /// Jira status that maps to the PagerDuty `triggered` status.
+        /// Jira status that maps to the PagerDuty `Triggered` status.
         /// </summary>
         [Input("triggered")]
         public Input<Inputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredGetArgs>? Triggered { get; set; }

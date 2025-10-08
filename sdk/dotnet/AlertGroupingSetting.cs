@@ -13,17 +13,63 @@ namespace Pulumi.Pagerduty
     /// An [alert grouping setting](https://developer.pagerduty.com/api-reference/587edbc8ff416-create-an-alert-grouping-setting)
     /// stores and centralize the configuration used during grouping of the alerts.
     /// 
-    /// ## Migration from `alert_grouping_parameters`
+    /// ## Example Usage
     /// 
-    /// To migrate from using the field `alert_grouping_parameters` of a
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = Pagerduty.GetEscalationPolicy.Invoke(new()
+    ///     {
+    ///         Name = "Default",
+    ///     });
+    /// 
+    ///     var basic = new Pagerduty.Service("basic", new()
+    ///     {
+    ///         Name = "Example",
+    ///         EscalationPolicy = @default.Apply(@default =&gt; @default.Apply(getEscalationPolicyResult =&gt; getEscalationPolicyResult.Id)),
+    ///     });
+    /// 
+    ///     var basicSettings = new Pagerduty.AlertGroupingSetting("basic_settings", new()
+    ///     {
+    ///         Name = "Configuration for type-1 devices",
+    ///         Type = "content_based",
+    ///         Services = new[]
+    ///         {
+    ///             basic.Id,
+    ///         },
+    ///         Config = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "timeWindow", 300 },
+    ///                 { "aggregate", "all" },
+    ///                 { "fields", new[]
+    ///                 {
+    ///                     "fields",
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Migration from `AlertGroupingParameters`
+    /// 
+    /// To migrate from using the field `AlertGroupingParameters` of a
     /// service
     /// to a `pagerduty.AlertGroupingSetting` resource, you can cut-and-paste the
-    /// contents of an `alert_grouping_parameters` field from a `pagerduty.Service`
+    /// contents of an `AlertGroupingParameters` field from a `pagerduty.Service`
     /// resource into the new resource, but you also need to add at least one value in
-    /// the field `services` to create the alert grouping setting with a service
+    /// the field `Services` to create the alert grouping setting with a service
     /// associated to it.
     /// 
-    /// If you are using `timeout = 0` or `time_window = 0` in order to use the values
+    /// If you are using `timeout = 0` or `TimeWindow = 0` in order to use the values
     /// recommended by PagerDuty you also need to set its value to null or delete it,
     /// since a value of `0` is no longer accepted.
     /// 
@@ -61,6 +107,45 @@ namespace Pulumi.Pagerduty
     /// ```
     /// 
     /// After:
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = Pagerduty.GetEscalationPolicy.Invoke(new()
+    ///     {
+    ///         Name = "Default",
+    ///     });
+    /// 
+    ///     var foo = new Pagerduty.Service("foo", new()
+    ///     {
+    ///         Name = "Foo",
+    ///         EscalationPolicy = @default.Apply(@default =&gt; @default.Apply(getEscalationPolicyResult =&gt; getEscalationPolicyResult.Id)),
+    ///     });
+    /// 
+    ///     var fooAlert = new Pagerduty.AlertGroupingSetting("foo_alert", new()
+    ///     {
+    ///         Name = "Alert Grouping for Foo-like services",
+    ///         Type = "time",
+    ///         Config = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "time", null },
+    ///             },
+    ///         },
+    ///         Services = new[]
+    ///         {
+    ///             foo.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Alert grouping settings can be imported using its `id`, e.g.
@@ -97,7 +182,7 @@ namespace Pulumi.Pagerduty
         public Output<ImmutableArray<string>> Services { get; private set; } = null!;
 
         /// <summary>
-        /// The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.
+        /// The type of alert grouping; one of `Intelligent`, `Time`, `ContentBased` or  `ContentBasedIntelligent`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -179,7 +264,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.
+        /// The type of alert grouping; one of `Intelligent`, `Time`, `ContentBased` or  `ContentBasedIntelligent`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -223,7 +308,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.
+        /// The type of alert grouping; one of `Intelligent`, `Time`, `ContentBased` or  `ContentBasedIntelligent`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

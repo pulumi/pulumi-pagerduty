@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// The type of the contact method. May be (`email_contact_method`, `email_contact_method_reference`, `phone_contact_method`, `phone_contact_method_reference`, `push_notification_contact_method`, `push_notification_contact_method_reference`, `sms_contact_method`, `sms_contact_method_reference`).
+        /// The type of the contact method. May be (`EmailContactMethod`, `EmailContactMethodReference`, `PhoneContactMethod`, `PhoneContactMethodReference`, `PushNotificationContactMethod`, `PushNotificationContactMethodReference`, `SmsContactMethod`, `SmsContactMethodReference`).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

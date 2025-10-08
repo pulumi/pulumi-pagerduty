@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class EventOrchestrationUnroutedSet
     {
         /// <summary>
-        /// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        /// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `RouteTo` property.
         /// </summary>
         public readonly string Id;
         public readonly ImmutableArray<Outputs.EventOrchestrationUnroutedSetRule> Rules;

@@ -14,6 +14,160 @@ namespace Pulumi.Pagerduty
     /// configures the bidirectional synchronization between Jira issues and PagerDuty
     /// incidents.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = Pagerduty.GetEscalationPolicy.Invoke(new()
+    ///     {
+    ///         Name = "Default",
+    ///     });
+    /// 
+    ///     var p1 = Pagerduty.GetPriority.Invoke(new()
+    ///     {
+    ///         Name = "P1",
+    ///     });
+    /// 
+    ///     var p2 = Pagerduty.GetPriority.Invoke(new()
+    ///     {
+    ///         Name = "P2",
+    ///     });
+    /// 
+    ///     var p3 = Pagerduty.GetPriority.Invoke(new()
+    ///     {
+    ///         Name = "P3",
+    ///     });
+    /// 
+    ///     var foo = new Pagerduty.Service("foo", new()
+    ///     {
+    ///         Name = "My Web App",
+    ///         EscalationPolicy = @default.Apply(@default =&gt; @default.Apply(getEscalationPolicyResult =&gt; getEscalationPolicyResult.Id)),
+    ///     });
+    /// 
+    ///     var fooUser = new Pagerduty.User("foo", new()
+    ///     {
+    ///         Name = "Earline Greenholt",
+    ///         Email = "125.greenholt.earline@graham.name",
+    ///     });
+    /// 
+    ///     var fooJiraCloudAccountMappingRule = new Pagerduty.JiraCloudAccountMappingRule("foo", new()
+    ///     {
+    ///         Name = "Integration with My Web App",
+    ///         AccountMapping = "PLBP09X",
+    ///         Config = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "service", foo.Id },
+    ///                 { "jira", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "autocreateJql", "priority = Highest" },
+    ///                         { "createIssueOnIncidentTrigger", true },
+    ///                         { "customFields", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "sourceIncidentField", "incident_description" },
+    ///                                 { "targetIssueField", "description" },
+    ///                                 { "targetIssueFieldName", "Description" },
+    ///                                 { "type", "attribute" },
+    ///                             },
+    ///                             
+    ///                             {
+    ///                                 { "targetIssueField", "security" },
+    ///                                 { "targetIssueFieldName", "Security Level" },
+    ///                                 { "type", "jira_value" },
+    ///                                 { "value", JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["displayName"] = "Sec Level 1",
+    ///                                     ["id"] = "10000",
+    ///                                 }) },
+    ///                             },
+    ///                         } },
+    ///                         { "issueType", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "id", "10001" },
+    ///                                 { "name", "Incident" },
+    ///                             },
+    ///                         } },
+    ///                         { "priorities", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "jiraId", "1" },
+    ///                                 { "pagerdutyId", p1.Apply(getPriorityResult =&gt; getPriorityResult.Id) },
+    ///                             },
+    ///                             
+    ///                             {
+    ///                                 { "jiraId", "2" },
+    ///                                 { "pagerdutyId", p2.Apply(getPriorityResult =&gt; getPriorityResult.Id) },
+    ///                             },
+    ///                             
+    ///                             {
+    ///                                 { "jiraId", "3" },
+    ///                                 { "pagerdutyId", p3.Apply(getPriorityResult =&gt; getPriorityResult.Id) },
+    ///                             },
+    ///                         } },
+    ///                         { "project", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "id", "10100" },
+    ///                                 { "key", "ITS" },
+    ///                                 { "name", "IT Support" },
+    ///                             },
+    ///                         } },
+    ///                         { "statusMapping", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "acknowledged", new[]
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "id", "2" },
+    ///                                         { "name", "In Progress" },
+    ///                                     },
+    ///                                 } },
+    ///                                 { "resolved", new[]
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "id", "3" },
+    ///                                         { "name", "Resolved" },
+    ///                                     },
+    ///                                 } },
+    ///                                 { "triggered", new[]
+    ///                                 {
+    ///                                     
+    ///                                     {
+    ///                                         { "id", "1" },
+    ///                                         { "name", "Open" },
+    ///                                     },
+    ///                                 } },
+    ///                             },
+    ///                         } },
+    ///                         { "syncNotesUser", fooUser.Id },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Jira Cloud account mapping rules can be imported using the `account_mapping_id` and `rule_id`, e.g.
@@ -50,7 +204,7 @@ namespace Pulumi.Pagerduty
         public Output<Outputs.JiraCloudAccountMappingRuleConfig?> Config { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates if the rule is enabled. Defaults to `true`.
+        /// Indicates if the rule is enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -120,7 +274,7 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.JiraCloudAccountMappingRuleConfigArgs>? Config { get; set; }
 
         /// <summary>
-        /// Indicates if the rule is enabled. Defaults to `true`.
+        /// Indicates if the rule is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -164,7 +318,7 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.JiraCloudAccountMappingRuleConfigGetArgs>? Config { get; set; }
 
         /// <summary>
-        /// Indicates if the rule is enabled. Defaults to `true`.
+        /// Indicates if the rule is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

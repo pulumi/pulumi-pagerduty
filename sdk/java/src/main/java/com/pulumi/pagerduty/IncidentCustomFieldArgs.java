@@ -77,14 +77,14 @@ public final class IncidentCustomFieldArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      * 
      */
     @Import(name="fieldType", required=true)
     private Output<String> fieldType;
 
     /**
-     * @return The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * @return The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      * 
      */
     public Output<String> fieldType() {
@@ -220,7 +220,7 @@ public final class IncidentCustomFieldArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param fieldType The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+         * @param fieldType The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class IncidentCustomFieldArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param fieldType The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+         * @param fieldType The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
          * 
          * @return builder
          * 

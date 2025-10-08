@@ -14,19 +14,19 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class ServiceIntegrationEmailFilter
     {
         /// <summary>
-        /// Can be `always`, `match` or `no-match`.
+        /// Can be `Always`, `Match` or `no-match`.
         /// </summary>
         public readonly string? BodyMode;
         /// <summary>
-        /// Should be a valid regex or `null`
+        /// Should be a valid regex or `Null`
         /// </summary>
         public readonly string? BodyRegex;
         /// <summary>
-        /// Can be `always`, `match` or `no-match`.
+        /// Can be `Always`, `Match` or `no-match`.
         /// </summary>
         public readonly string? FromEmailMode;
         /// <summary>
-        /// Should be a valid regex or `null`
+        /// Should be a valid regex or `Null`
         /// </summary>
         public readonly string? FromEmailRegex;
         /// <summary>
@@ -34,11 +34,11 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Can be `always`, `match` or `no-match`.
+        /// Can be `Always`, `Match` or `no-match`.
         /// </summary>
         public readonly string? SubjectMode;
         /// <summary>
-        /// Should be a valid regex or `null`
+        /// Should be a valid regex or `Null`
         /// </summary>
         public readonly string? SubjectRegex;
 

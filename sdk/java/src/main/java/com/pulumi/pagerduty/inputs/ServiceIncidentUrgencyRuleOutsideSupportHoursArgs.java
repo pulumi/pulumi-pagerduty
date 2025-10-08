@@ -31,14 +31,14 @@ public final class ServiceIncidentUrgencyRuleOutsideSupportHoursArgs extends com
     }
 
     /**
-     * The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+     * The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
      * 
      */
     @Import(name="urgency")
     private @Nullable Output<String> urgency;
 
     /**
-     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
      * 
      */
     public Optional<Output<String>> urgency() {
@@ -92,7 +92,7 @@ public final class ServiceIncidentUrgencyRuleOutsideSupportHoursArgs extends com
         }
 
         /**
-         * @param urgency The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+         * @param urgency The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ServiceIncidentUrgencyRuleOutsideSupportHoursArgs extends com
         }
 
         /**
-         * @param urgency The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+         * @param urgency The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
          * 
          * @return builder
          * 

@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+        /// Type of object of the target. Supported types are `UserReference`, `ScheduleReference`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -12,17 +12,17 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [Service Orchestration](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) allows you to create a set of Event Rules. The Service Orchestration evaluates Events sent to this Service against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Service Orchestration for further processing.
     /// 
-    /// &gt; If you have a Service that uses [Service Event Rules](https://support.pagerduty.com/docs/rulesets#service-event-rules), you can switch to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) at any time setting the attribute `enable_event_orchestration_for_service` to `true`. Please read the [Switch to Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#switch-to-service-orchestrations) instructions for more information.
+    /// &gt; If you have a Service that uses [Service Event Rules](https://support.pagerduty.com/docs/rulesets#service-event-rules), you can switch to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) at any time setting the attribute `EnableEventOrchestrationForService` to `True`. Please read the [Switch to Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#switch-to-service-orchestrations) instructions for more information.
     /// 
     /// ## Example of configuring a Service Orchestration
     /// 
     /// This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
     /// 
-    /// This example also shows using the pagerduty.getPriority and pagerduty.EscalationPolicy data sources to configure `priority` and `escalation_policy` actions for a rule.
+    /// This example also shows using the pagerduty.getPriority and pagerduty.EscalationPolicy data sources to configure `Priority` and `EscalationPolicy` actions for a rule.
     /// 
-    /// This example shows a Service Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
+    /// This example shows a Service Orchestration that has nested sets: a rule in the "start" set has a `RouteTo` action pointing at the "step-two" set.
     /// 
-    /// The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
+    /// The `CatchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `CatchAll` doesn't have any `Actions` so it'll leave events as-is.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -272,7 +272,7 @@ namespace Pulumi.Pagerduty
     public partial class EventOrchestrationService : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+        /// the `CatchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         /// </summary>
         [Output("catchAll")]
         public Output<Outputs.EventOrchestrationServiceCatchAll> CatchAll { get; private set; } = null!;
@@ -342,7 +342,7 @@ namespace Pulumi.Pagerduty
     public sealed class EventOrchestrationServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+        /// the `CatchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         /// </summary>
         [Input("catchAll", required: true)]
         public Input<Inputs.EventOrchestrationServiceCatchAllArgs> CatchAll { get; set; } = null!;
@@ -380,7 +380,7 @@ namespace Pulumi.Pagerduty
     public sealed class EventOrchestrationServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+        /// the `CatchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         /// </summary>
         [Input("catchAll")]
         public Input<Inputs.EventOrchestrationServiceCatchAllGetArgs>? CatchAll { get; set; }

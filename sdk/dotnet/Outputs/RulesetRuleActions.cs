@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRuleActionsAnnotate> Annotates;
         /// <summary>
-        /// An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+        /// An object with a single `Value` field. The value sets whether the resulting alert status is `Trigger` or `Resolve`.
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRuleActionsEventAction> EventActions;
         /// <summary>
@@ -34,15 +34,15 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRuleActionsRoute> Routes;
         /// <summary>
-        /// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`warning`,`error`, or `critical`.
+        /// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `Info`,`Warning`,`Error`, or `Critical`.
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRuleActionsSeverity> Severities;
         /// <summary>
-        /// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
+        /// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `Route` action.
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRuleActionsSuppress> Suppresses;
         /// <summary>
-        /// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
+        /// An object with a single `Value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `Suspend` action must also have a `Route` action.
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRuleActionsSuspend> Suspends;
 

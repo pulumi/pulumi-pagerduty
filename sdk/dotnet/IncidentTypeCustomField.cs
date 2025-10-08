@@ -85,7 +85,7 @@ namespace Pulumi.Pagerduty
     public partial class IncidentTypeCustomField : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `data_type` is `single_value`, otherwise must be `string`. Update
+        /// [Updating causes resource replacement] The type of the data of this custom field. Can be one of `String`, `Integer`, `Float`, `Boolean`, `Datetime`, or `Url` when `DataType` is `SingleValue`, otherwise must be `String`. Update
         /// </summary>
         [Output("dataType")]
         public Output<string> DataType { get; private set; } = null!;
@@ -115,13 +115,13 @@ namespace Pulumi.Pagerduty
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The options for the custom field. Can only be applied to fields with a type of `single_value_fixed` or `multi_value_fixed`.
+        /// The options for the custom field. Can only be applied to fields with a type of `SingleValueFixed` or `MultiValueFixed`.
         /// </summary>
         [Output("fieldOptions")]
         public Output<ImmutableArray<string>> FieldOptions { get; private set; } = null!;
 
         /// <summary>
-        /// [Updating causes resource replacement] The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+        /// [Updating causes resource replacement] The field type of the field. Must be one of `SingleValue`, `SingleValueFixed`, `MultiValue`, or `MultiValueFixed`.
         /// </summary>
         [Output("fieldType")]
         public Output<string?> FieldType { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Pagerduty
     public sealed class IncidentTypeCustomFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `data_type` is `single_value`, otherwise must be `string`. Update
+        /// [Updating causes resource replacement] The type of the data of this custom field. Can be one of `String`, `Integer`, `Float`, `Boolean`, `Datetime`, or `Url` when `DataType` is `SingleValue`, otherwise must be `String`. Update
         /// </summary>
         [Input("dataType", required: true)]
         public Input<string> DataType { get; set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Pagerduty
         private InputList<string>? _fieldOptions;
 
         /// <summary>
-        /// The options for the custom field. Can only be applied to fields with a type of `single_value_fixed` or `multi_value_fixed`.
+        /// The options for the custom field. Can only be applied to fields with a type of `SingleValueFixed` or `MultiValueFixed`.
         /// </summary>
         public InputList<string> FieldOptions
         {
@@ -242,7 +242,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// [Updating causes resource replacement] The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+        /// [Updating causes resource replacement] The field type of the field. Must be one of `SingleValue`, `SingleValueFixed`, `MultiValue`, or `MultiValueFixed`.
         /// </summary>
         [Input("fieldType")]
         public Input<string>? FieldType { get; set; }
@@ -268,7 +268,7 @@ namespace Pulumi.Pagerduty
     public sealed class IncidentTypeCustomFieldState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `data_type` is `single_value`, otherwise must be `string`. Update
+        /// [Updating causes resource replacement] The type of the data of this custom field. Can be one of `String`, `Integer`, `Float`, `Boolean`, `Datetime`, or `Url` when `DataType` is `SingleValue`, otherwise must be `String`. Update
         /// </summary>
         [Input("dataType")]
         public Input<string>? DataType { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Pagerduty
         private InputList<string>? _fieldOptions;
 
         /// <summary>
-        /// The options for the custom field. Can only be applied to fields with a type of `single_value_fixed` or `multi_value_fixed`.
+        /// The options for the custom field. Can only be applied to fields with a type of `SingleValueFixed` or `MultiValueFixed`.
         /// </summary>
         public InputList<string> FieldOptions
         {
@@ -310,7 +310,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// [Updating causes resource replacement] The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+        /// [Updating causes resource replacement] The field type of the field. Must be one of `SingleValue`, `SingleValueFixed`, `MultiValue`, or `MultiValueFixed`.
         /// </summary>
         [Input("fieldType")]
         public Input<string>? FieldType { get; set; }

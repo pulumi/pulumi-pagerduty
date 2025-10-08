@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// **NOTES for using this resource:**
     /// * To first use this resource you will need to [map your PagerDuty account to a valid Slack Workspace](https://support.pagerduty.com/docs/slack-integration-guide#integration-walkthrough). *This can only be done through the PagerDuty UI.*
-    /// * This resource requires a PagerDuty [user-level API key](https://support.pagerduty.com/docs/generating-api-keys#section-generating-a-personal-rest-api-key). This can be set as the `user_token` on the provider tag or as the `PAGERDUTY_USER_TOKEN` environment variable.
+    /// * This resource requires a PagerDuty [user-level API key](https://support.pagerduty.com/docs/generating-api-keys#section-generating-a-personal-rest-api-key). This can be set as the `UserToken` on the provider tag or as the `PAGERDUTY_USER_TOKEN` environment variable.
     /// * This resource is for configuring Slack V2 Next Generation connections. If you configured your Slack integration (V1 or V2) prior to August 10, 2021, you may migrate to the Slack V2 Next Generation update using this [migration instructions](https://support.pagerduty.com/docs/slack-integration-guide#migrate-to-slack-v2-next-generation), but if you configured your Slack integration after that date, you will have access to the update out of the box.
     /// ## Example Usage
     /// 
@@ -104,7 +104,7 @@ namespace Pulumi.Pagerduty
         public Output<ImmutableArray<Outputs.SlackConnectionConfig>> Configs { get; private set; } = null!;
 
         /// <summary>
-        /// Type of notification. Either `responder` or `stakeholder`.
+        /// Type of notification. Either `Responder` or `Stakeholder`.
         /// </summary>
         [Output("notificationType")]
         public Output<string> NotificationType { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Pagerduty
         public Output<string> SourceName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the source. Either `team_reference` or `service_reference`.
+        /// The type of the source. Either `TeamReference` or `ServiceReference`.
         /// </summary>
         [Output("sourceType")]
         public Output<string> SourceType { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// Type of notification. Either `responder` or `stakeholder`.
+        /// Type of notification. Either `Responder` or `Stakeholder`.
         /// </summary>
         [Input("notificationType", required: true)]
         public Input<string> NotificationType { get; set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Pagerduty
         public Input<string> SourceId { get; set; } = null!;
 
         /// <summary>
-        /// The type of the source. Either `team_reference` or `service_reference`.
+        /// The type of the source. Either `TeamReference` or `ServiceReference`.
         /// </summary>
         [Input("sourceType", required: true)]
         public Input<string> SourceType { get; set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// Type of notification. Either `responder` or `stakeholder`.
+        /// Type of notification. Either `Responder` or `Stakeholder`.
         /// </summary>
         [Input("notificationType")]
         public Input<string>? NotificationType { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? SourceName { get; set; }
 
         /// <summary>
-        /// The type of the source. Either `team_reference` or `service_reference`.
+        /// The type of the source. Either `TeamReference` or `ServiceReference`.
         /// </summary>
         [Input("sourceType")]
         public Input<string>? SourceType { get; set; }

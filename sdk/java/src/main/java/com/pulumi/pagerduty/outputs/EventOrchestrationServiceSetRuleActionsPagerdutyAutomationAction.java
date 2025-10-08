@@ -18,7 +18,7 @@ public final class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAct
      */
     private String actionId;
     /**
-     * @return The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`
+     * @return The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alertTriggered&#34;]`, `[&#34;alertSuspended&#34;]`, `[&#34;alertSuppressed&#34;]`
      * 
      */
     private @Nullable String triggerTypes;
@@ -32,7 +32,7 @@ public final class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAct
         return this.actionId;
     }
     /**
-     * @return The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`
+     * @return The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alertTriggered&#34;]`, `[&#34;alertSuspended&#34;]`, `[&#34;alertSuppressed&#34;]`
      * 
      */
     public Optional<String> triggerTypes() {

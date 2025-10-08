@@ -30,14 +30,14 @@ public final class ServiceDependencyDependencyDependentServiceArgs extends com.p
     }
 
     /**
-     * Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+     * Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+     * @return Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
      * 
      */
     public Output<String> type() {
@@ -91,7 +91,7 @@ public final class ServiceDependencyDependencyDependentServiceArgs extends com.p
         }
 
         /**
-         * @param type Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+         * @param type Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ServiceDependencyDependencyDependentServiceArgs extends com.p
         }
 
         /**
-         * @param type Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+         * @param type Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
          * 
          * @return builder
          * 

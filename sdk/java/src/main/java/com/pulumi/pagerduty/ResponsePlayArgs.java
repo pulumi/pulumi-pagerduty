@@ -188,14 +188,14 @@ public final class ResponsePlayArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * A string that determines the schema of the object. If not set, the default value is &#34;responsePlay&#34;.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * @return A string that determines the schema of the object. If not set, the default value is &#34;responsePlay&#34;.
      * 
      */
     public Optional<Output<String>> type() {
@@ -491,7 +491,7 @@ public final class ResponsePlayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+         * @param type A string that determines the schema of the object. If not set, the default value is &#34;responsePlay&#34;.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class ResponsePlayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+         * @param type A string that determines the schema of the object. If not set, the default value is &#34;responsePlay&#34;.
          * 
          * @return builder
          * 

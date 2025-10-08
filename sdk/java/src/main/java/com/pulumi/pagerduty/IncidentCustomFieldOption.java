@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 
 /**
  * A Incident Custom Field Option is a specific value that can be used for an [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) that only allow values from a set of fixed options,
- * i.e. has the `field_type` of `single_value_fixed` or `multi_value_fixed`.
+ * i.e. has the `fieldType` of `singleValueFixed` or `multiValueFixed`.
  * 
  * ## Example Usage
  * 

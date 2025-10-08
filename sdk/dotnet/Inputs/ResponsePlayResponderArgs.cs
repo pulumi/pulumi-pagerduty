@@ -49,7 +49,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<int>? NumLoops { get; set; }
 
         /// <summary>
-        /// Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "if_has_services". Could be "if_has_services", "always
+        /// Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "IfHasServices". Could be "IfHasServices", "always
         /// </summary>
         [Input("onCallHandoffNotifications")]
         public Input<string>? OnCallHandoffNotifications { get; set; }
@@ -70,7 +70,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<Inputs.ResponsePlayResponderTeamArgs>? _teams;
 
         /// <summary>
-        /// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
+        /// Teams associated with the policy. Account must have the `Teams` ability to use this parameter. There can be multiple teams associated with a policy.
         /// </summary>
         public InputList<Inputs.ResponsePlayResponderTeamArgs> Teams
         {
@@ -79,7 +79,7 @@ namespace Pulumi.Pagerduty.Inputs
         }
 
         /// <summary>
-        /// Should be set as `escalation_policy` for escalation policy responders.
+        /// Should be set as `EscalationPolicy` for escalation policy responders.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

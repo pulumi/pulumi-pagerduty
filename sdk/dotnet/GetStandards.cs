@@ -82,7 +82,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetStandardsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Filter by `resource_type` the received standards. Allowed values are `technical_service`.
+        /// Filter by `ResourceType` the received standards. Allowed values are `TechnicalService`.
         /// </summary>
         [Input("resourceType")]
         public string? ResourceType { get; set; }
@@ -96,7 +96,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetStandardsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Filter by `resource_type` the received standards. Allowed values are `technical_service`.
+        /// Filter by `ResourceType` the received standards. Allowed values are `TechnicalService`.
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }

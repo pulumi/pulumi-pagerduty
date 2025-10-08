@@ -16,7 +16,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<Inputs.ServiceDependencyDependencyDependentServiceGetArgs>? _dependentServices;
 
         /// <summary>
-        /// The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
+        /// The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `DependentService` dependency block must be defined.
         /// </summary>
         public InputList<Inputs.ServiceDependencyDependencyDependentServiceGetArgs> DependentServices
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<Inputs.ServiceDependencyDependencySupportingServiceGetArgs>? _supportingServices;
 
         /// <summary>
-        /// The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
+        /// The service that supports the dependent service. Dependency supporting service documented below. One and only one `SupportingService` dependency block must be defined.
         /// </summary>
         public InputList<Inputs.ServiceDependencyDependencySupportingServiceGetArgs> SupportingServices
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Pagerduty.Inputs
         }
 
         /// <summary>
-        /// Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+        /// Can be `BusinessService`,  `Service`, `BusinessServiceReference` or `TechnicalServiceReference`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

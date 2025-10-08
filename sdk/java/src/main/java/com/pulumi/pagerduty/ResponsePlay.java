@@ -254,14 +254,14 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.team);
     }
     /**
-     * A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * A string that determines the schema of the object. If not set, the default value is &#34;responsePlay&#34;.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * @return A string that determines the schema of the object. If not set, the default value is &#34;responsePlay&#34;.
      * 
      */
     public Output<Optional<String>> type() {

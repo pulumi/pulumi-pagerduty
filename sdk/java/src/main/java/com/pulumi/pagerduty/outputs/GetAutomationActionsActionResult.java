@@ -24,7 +24,7 @@ public final class GetAutomationActionsActionResult {
      */
     private List<GetAutomationActionsActionActionDataReference> actionDataReferences;
     /**
-     * @return The type of the action. The only allowed values are `process_automation` and `script`.
+     * @return The type of the action. The only allowed values are `processAutomation` and `script`.
      * 
      */
     private String actionType;
@@ -105,7 +105,7 @@ public final class GetAutomationActionsActionResult {
         return this.actionDataReferences;
     }
     /**
-     * @return The type of the action. The only allowed values are `process_automation` and `script`.
+     * @return The type of the action. The only allowed values are `processAutomation` and `script`.
      * 
      */
     public String actionType() {

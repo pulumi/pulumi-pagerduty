@@ -165,7 +165,7 @@ public class BusinessService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.team);
     }
     /**
-     * **Deprecated** (Optional) Default (and only supported) value is `business_service`.
+     * **Deprecated** (Optional) Default (and only supported) value is `businessService`.
      * 
      * @deprecated
      * This will become a computed attribute in the next major release.
@@ -176,7 +176,7 @@ public class BusinessService extends com.pulumi.resources.CustomResource {
     private Output<String> type;
 
     /**
-     * @return **Deprecated** (Optional) Default (and only supported) value is `business_service`.
+     * @return **Deprecated** (Optional) Default (and only supported) value is `businessService`.
      * 
      */
     public Output<String> type() {

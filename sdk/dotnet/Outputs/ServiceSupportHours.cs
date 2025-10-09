@@ -31,7 +31,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string? TimeZone;
         /// <summary>
-        /// The type of support hours. Can be `fixed_time_per_day`.
+        /// The type of support hours. Can be `FixedTimePerDay`.
         /// </summary>
         public readonly string? Type;
 

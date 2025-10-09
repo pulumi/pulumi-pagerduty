@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class ServiceCustomFieldFieldOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Must be `string`.
+        /// Must be `String`.
         /// </summary>
         [Input("dataType", required: true)]
         public Input<string> DataType { get; set; } = null!;

@@ -31,7 +31,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ScheduleLayerRestriction> Restrictions;
         /// <summary>
-        /// The duration of each on-call shift in `seconds`.
+        /// The duration of each on-call shift in `Seconds`.
         /// </summary>
         public readonly int RotationTurnLengthSeconds;
         /// <summary>

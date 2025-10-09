@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebhookSubscriptionDeliveryMethod {
     /**
-     * @return The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+     * @return The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
      * 
      */
     private @Nullable List<WebhookSubscriptionDeliveryMethodCustomHeader> customHeaders;
@@ -25,7 +25,7 @@ public final class WebhookSubscriptionDeliveryMethod {
      */
     private @Nullable Boolean temporarilyDisabled;
     /**
-     * @return Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+     * @return Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
      * 
      */
     private @Nullable String type;
@@ -37,7 +37,7 @@ public final class WebhookSubscriptionDeliveryMethod {
 
     private WebhookSubscriptionDeliveryMethod() {}
     /**
-     * @return The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+     * @return The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
      * 
      */
     public List<WebhookSubscriptionDeliveryMethodCustomHeader> customHeaders() {
@@ -51,7 +51,7 @@ public final class WebhookSubscriptionDeliveryMethod {
         return Optional.ofNullable(this.temporarilyDisabled);
     }
     /**
-     * @return Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+     * @return Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
      * 
      */
     public Optional<String> type() {

@@ -17,7 +17,7 @@ namespace Pulumi.Pagerduty
     /// ## Example of configuring Unrouted Rules for an Orchestration
     /// 
     /// In this example of an Unrouted Orchestration, the rule matches only if the condition is matched.
-    /// Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catch_all` block.
+    /// Alerts created for events that do not match the rule will have severity level set to `Info` as defined in `CatchAll` block.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -87,7 +87,7 @@ namespace Pulumi.Pagerduty
     public partial class EventOrchestrationUnrouted : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+        /// the `CatchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         /// </summary>
         [Output("catchAll")]
         public Output<Outputs.EventOrchestrationUnroutedCatchAll> CatchAll { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Pagerduty
     public sealed class EventOrchestrationUnroutedArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+        /// the `CatchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         /// </summary>
         [Input("catchAll", required: true)]
         public Input<Inputs.EventOrchestrationUnroutedCatchAllArgs> CatchAll { get; set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Pagerduty
     public sealed class EventOrchestrationUnroutedState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+        /// the `CatchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         /// </summary>
         [Input("catchAll")]
         public Input<Inputs.EventOrchestrationUnroutedCatchAllGetArgs>? CatchAll { get; set; }

@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<Inputs.EventOrchestrationServiceSetRuleConditionArgs>? _conditions;
 
         /// <summary>
-        /// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+        /// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `Always` match against the rule.
         /// </summary>
         public InputList<Inputs.EventOrchestrationServiceSetRuleConditionArgs> Conditions
         {

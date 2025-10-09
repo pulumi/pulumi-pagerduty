@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class EventOrchestrationRouterSet
     {
         /// <summary>
-        /// ID of the `start` set. Router supports only one set and it's id has to be `start`
+        /// ID of the `Start` set. Router supports only one set and it's id has to be `Start`
         /// </summary>
         public readonly string Id;
         public readonly ImmutableArray<Outputs.EventOrchestrationRouterSetRule> Rules;

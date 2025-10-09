@@ -226,13 +226,13 @@ namespace Pulumi.Pagerduty
     public sealed class GetEventOrchestrationServiceCacheVariableArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the Cache Variable associated with the Service Event Orchestration. Specify either `id` or `name`. If both are specified `id` takes precedence.
+        /// ID of the Cache Variable associated with the Service Event Orchestration. Specify either `Id` or `Name`. If both are specified `Id` takes precedence.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Name of the Cache Variable associated with the Service Event Orchestration. Specify either `id` or `name`. If both are specified `id` takes precedence.
+        /// Name of the Cache Variable associated with the Service Event Orchestration. Specify either `Id` or `Name`. If both are specified `Id` takes precedence.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -252,13 +252,13 @@ namespace Pulumi.Pagerduty
     public sealed class GetEventOrchestrationServiceCacheVariableInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the Cache Variable associated with the Service Event Orchestration. Specify either `id` or `name`. If both are specified `id` takes precedence.
+        /// ID of the Cache Variable associated with the Service Event Orchestration. Specify either `Id` or `Name`. If both are specified `Id` takes precedence.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of the Cache Variable associated with the Service Event Orchestration. Specify either `id` or `name`. If both are specified `id` takes precedence.
+        /// Name of the Cache Variable associated with the Service Event Orchestration. Specify either `Id` or `Name`. If both are specified `Id` takes precedence.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -280,7 +280,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetEventOrchestrationServiceCacheVariableResult
     {
         /// <summary>
-        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `RecentValue` or `TriggerEventCount`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEventOrchestrationServiceCacheVariableConditionResult> Conditions;
         /// <summary>

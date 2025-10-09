@@ -24,7 +24,7 @@ public final class ServiceScheduledAction {
      */
     private @Nullable String toUrgency;
     /**
-     * @return The type of scheduled action. Currently, this must be set to `urgency_change`.
+     * @return The type of scheduled action. Currently, this must be set to `urgencyChange`.
      * 
      */
     private @Nullable String type;
@@ -45,7 +45,7 @@ public final class ServiceScheduledAction {
         return Optional.ofNullable(this.toUrgency);
     }
     /**
-     * @return The type of scheduled action. Currently, this must be set to `urgency_change`.
+     * @return The type of scheduled action. Currently, this must be set to `urgencyChange`.
      * 
      */
     public Optional<String> type() {

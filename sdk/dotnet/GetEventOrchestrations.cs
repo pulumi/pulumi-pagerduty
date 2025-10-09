@@ -205,7 +205,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetEventOrchestrationsResult
     {
         /// <summary>
-        /// The list of the Event Orchestrations with a name that matches the `name_filter` argument.
+        /// The list of the Event Orchestrations with a name that matches the `NameFilter` argument.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEventOrchestrationsEventOrchestrationResult> EventOrchestrations;
         /// <summary>

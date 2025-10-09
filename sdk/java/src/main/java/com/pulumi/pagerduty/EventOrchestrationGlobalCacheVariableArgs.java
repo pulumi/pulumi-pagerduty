@@ -21,14 +21,14 @@ public final class EventOrchestrationGlobalCacheVariableArgs extends com.pulumi.
     public static final EventOrchestrationGlobalCacheVariableArgs Empty = new EventOrchestrationGlobalCacheVariableArgs();
 
     /**
-     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      * 
      */
     @Import(name="conditions")
     private @Nullable Output<List<EventOrchestrationGlobalCacheVariableConditionArgs>> conditions;
 
     /**
-     * @return Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+     * @return Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      * 
      */
     public Optional<Output<List<EventOrchestrationGlobalCacheVariableConditionArgs>>> conditions() {
@@ -124,7 +124,7 @@ public final class EventOrchestrationGlobalCacheVariableArgs extends com.pulumi.
         }
 
         /**
-         * @param conditions Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+         * @param conditions Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class EventOrchestrationGlobalCacheVariableArgs extends com.pulumi.
         }
 
         /**
-         * @param conditions Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+         * @param conditions Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class EventOrchestrationGlobalCacheVariableArgs extends com.pulumi.
         }
 
         /**
-         * @param conditions Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+         * @param conditions Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
          * 
          * @return builder
          * 

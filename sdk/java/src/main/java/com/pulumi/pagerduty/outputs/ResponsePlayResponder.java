@@ -42,7 +42,7 @@ public final class ResponsePlayResponder {
      */
     private @Nullable Integer numLoops;
     /**
-     * @return Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to &#34;if_has_services&#34;. Could be &#34;if_has_services&#34;, &#34;always
+     * @return Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to &#34;ifHasServices&#34;. Could be &#34;ifHasServices&#34;, &#34;always
      * 
      */
     private @Nullable String onCallHandoffNotifications;
@@ -57,7 +57,7 @@ public final class ResponsePlayResponder {
      */
     private @Nullable List<ResponsePlayResponderTeam> teams;
     /**
-     * @return Should be set as `escalation_policy` for escalation policy responders.
+     * @return Should be set as `escalationPolicy` for escalation policy responders.
      * 
      */
     private @Nullable String type;
@@ -99,7 +99,7 @@ public final class ResponsePlayResponder {
         return Optional.ofNullable(this.numLoops);
     }
     /**
-     * @return Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to &#34;if_has_services&#34;. Could be &#34;if_has_services&#34;, &#34;always
+     * @return Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to &#34;ifHasServices&#34;. Could be &#34;ifHasServices&#34;, &#34;always
      * 
      */
     public Optional<String> onCallHandoffNotifications() {
@@ -120,7 +120,7 @@ public final class ResponsePlayResponder {
         return this.teams == null ? List.of() : this.teams;
     }
     /**
-     * @return Should be set as `escalation_policy` for escalation policy responders.
+     * @return Should be set as `escalationPolicy` for escalation policy responders.
      * 
      */
     public Optional<String> type() {

@@ -48,14 +48,14 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+     * The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
      * 
      */
     @Import(name="countryCode")
     private @Nullable Output<Integer> countryCode;
 
     /**
-     * @return The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+     * @return The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
      * 
      */
     public Optional<Output<Integer>> countryCode() {
@@ -115,14 +115,14 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+     * @return The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      * 
      */
     public Optional<Output<String>> type() {
@@ -219,7 +219,7 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param countryCode The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+         * @param countryCode The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param countryCode The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+         * @param countryCode The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+         * @param type The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+         * @param type The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
          * 
          * @return builder
          * 

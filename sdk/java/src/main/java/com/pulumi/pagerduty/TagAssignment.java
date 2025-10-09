@@ -89,14 +89,14 @@ public class TagAssignment extends com.pulumi.resources.CustomResource {
         return this.entityId;
     }
     /**
-     * Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+     * Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
      * 
      */
     @Export(name="entityType", refs={String.class}, tree="[0]")
     private Output<String> entityType;
 
     /**
-     * @return Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+     * @return Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
      * 
      */
     public Output<String> entityType() {

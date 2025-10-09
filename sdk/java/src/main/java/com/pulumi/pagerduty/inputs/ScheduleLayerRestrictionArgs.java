@@ -63,14 +63,14 @@ public final class ScheduleLayerRestrictionArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Can be `daily_restriction` or `weekly_restriction`.
+     * Can be `dailyRestriction` or `weeklyRestriction`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Can be `daily_restriction` or `weekly_restriction`.
+     * @return Can be `dailyRestriction` or `weeklyRestriction`.
      * 
      */
     public Output<String> type() {
@@ -168,7 +168,7 @@ public final class ScheduleLayerRestrictionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type Can be `daily_restriction` or `weekly_restriction`.
+         * @param type Can be `dailyRestriction` or `weeklyRestriction`.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ScheduleLayerRestrictionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type Can be `daily_restriction` or `weekly_restriction`.
+         * @param type Can be `dailyRestriction` or `weeklyRestriction`.
          * 
          * @return builder
          * 

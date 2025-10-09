@@ -46,7 +46,7 @@ namespace Pulumi.Pagerduty.Inputs
         }
 
         /// <summary>
-        /// The duration of each on-call shift in `seconds`.
+        /// The duration of each on-call shift in `Seconds`.
         /// </summary>
         [Input("rotationTurnLengthSeconds", required: true)]
         public Input<int> RotationTurnLengthSeconds { get; set; } = null!;

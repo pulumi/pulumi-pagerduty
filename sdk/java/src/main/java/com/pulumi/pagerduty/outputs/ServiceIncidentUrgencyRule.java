@@ -25,12 +25,12 @@ public final class ServiceIncidentUrgencyRule {
      */
     private @Nullable ServiceIncidentUrgencyRuleOutsideSupportHours outsideSupportHours;
     /**
-     * @return The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
+     * @return The type of incident urgency: `constant` or `useSupportHours` (when depending on specific support hours; see `supportHours`).
      * 
      */
     private String type;
     /**
-     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
      * 
      */
     private @Nullable String urgency;
@@ -51,14 +51,14 @@ public final class ServiceIncidentUrgencyRule {
         return Optional.ofNullable(this.outsideSupportHours);
     }
     /**
-     * @return The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
+     * @return The type of incident urgency: `constant` or `useSupportHours` (when depending on specific support hours; see `supportHours`).
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
+     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
      * 
      */
     public Optional<String> urgency() {

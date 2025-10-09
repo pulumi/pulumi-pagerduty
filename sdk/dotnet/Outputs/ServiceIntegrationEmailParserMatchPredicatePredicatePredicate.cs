@@ -18,11 +18,11 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string Matcher;
         /// <summary>
-        /// Can be `subject`, `body` or `from_addresses`.
+        /// Can be `Subject`, `Body` or `FromAddresses`.
         /// </summary>
         public readonly string Part;
         /// <summary>
-        /// Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+        /// Can be `Contains`, `Exactly`, `Regex` or `Not`. If type is `Not` predicate should contain child predicate with all parameters.
         /// </summary>
         public readonly string Type;
 

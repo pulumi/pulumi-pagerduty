@@ -99,14 +99,14 @@ public class Enablement extends com.pulumi.resources.CustomResource {
         return this.entityId;
     }
     /**
-     * The type of entity for which to manage the enablement. Possible values can be `service` and `event_orchestration`.
+     * The type of entity for which to manage the enablement. Possible values can be `service` and `eventOrchestration`.
      * 
      */
     @Export(name="entityType", refs={String.class}, tree="[0]")
     private Output<String> entityType;
 
     /**
-     * @return The type of entity for which to manage the enablement. Possible values can be `service` and `event_orchestration`.
+     * @return The type of entity for which to manage the enablement. Possible values can be `service` and `eventOrchestration`.
      * 
      */
     public Output<String> entityType() {

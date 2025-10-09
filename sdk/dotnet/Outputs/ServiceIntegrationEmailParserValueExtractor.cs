@@ -15,22 +15,22 @@ namespace Pulumi.Pagerduty.Outputs
     {
         public readonly string? EndsBefore;
         /// <summary>
-        /// Can be `subject` or `body`.
+        /// Can be `Subject` or `Body`.
         /// </summary>
         public readonly string Part;
         /// <summary>
-        /// If `type` has value `regex` this value should contain valid regex.
+        /// If `Type` has value `Regex` this value should contain valid regex.
         /// 
         /// **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
         /// </summary>
         public readonly string? Regex;
         public readonly string? StartsAfter;
         /// <summary>
-        /// Can be `between`, `entire` or `regex`.
+        /// Can be `Between`, `Entire` or `Regex`.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// First value extractor should have name `incident_key` other value extractors should contain custom names.
+        /// First value extractor should have name `IncidentKey` other value extractors should contain custom names.
         /// </summary>
         public readonly string ValueName;
 

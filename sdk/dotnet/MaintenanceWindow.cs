@@ -55,7 +55,7 @@ namespace Pulumi.Pagerduty
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+        /// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `StartTime`.
         /// </summary>
         [Output("endTime")]
         public Output<string> EndTime { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+        /// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `StartTime`.
         /// </summary>
         [Input("endTime", required: true)]
         public Input<string> EndTime { get; set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+        /// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `StartTime`.
         /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }

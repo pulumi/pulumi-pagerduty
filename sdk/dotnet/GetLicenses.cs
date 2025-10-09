@@ -12,7 +12,7 @@ namespace Pulumi.Pagerduty
     public static class GetLicenses
     {
         /// <summary>
-        /// Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+        /// Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users' licenses, the `CurrentValue` and `AllocationsAvailable` attributes of licenses will change.
         /// 
         /// ## Example Usage
         /// 
@@ -46,7 +46,7 @@ namespace Pulumi.Pagerduty
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLicensesResult>("pagerduty:index/getLicenses:getLicenses", args ?? new GetLicensesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+        /// Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users' licenses, the `CurrentValue` and `AllocationsAvailable` attributes of licenses will change.
         /// 
         /// ## Example Usage
         /// 
@@ -80,7 +80,7 @@ namespace Pulumi.Pagerduty
             => global::Pulumi.Deployment.Instance.Invoke<GetLicensesResult>("pagerduty:index/getLicenses:getLicenses", args ?? new GetLicensesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+        /// Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users' licenses, the `CurrentValue` and `AllocationsAvailable` attributes of licenses will change.
         /// 
         /// ## Example Usage
         /// 
@@ -118,7 +118,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetLicensesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Allows to override the default behavior for setting the `id` attribute that is required for data sources.
+        /// Allows to override the default behavior for setting the `Id` attribute that is required for data sources.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -132,7 +132,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetLicensesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Allows to override the default behavior for setting the `id` attribute that is required for data sources.
+        /// Allows to override the default behavior for setting the `Id` attribute that is required for data sources.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

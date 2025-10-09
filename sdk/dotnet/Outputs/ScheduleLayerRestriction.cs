@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class ScheduleLayerRestriction
     {
         /// <summary>
-        /// The duration of the restriction in `seconds`.
+        /// The duration of the restriction in `Seconds`.
         /// </summary>
         public readonly int DurationSeconds;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string StartTimeOfDay;
         /// <summary>
-        /// Can be `daily_restriction` or `weekly_restriction`.
+        /// Can be `DailyRestriction` or `WeeklyRestriction`.
         /// </summary>
         public readonly string Type;
 

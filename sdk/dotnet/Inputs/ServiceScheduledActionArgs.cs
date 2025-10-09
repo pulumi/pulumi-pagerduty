@@ -25,13 +25,13 @@ namespace Pulumi.Pagerduty.Inputs
         }
 
         /// <summary>
-        /// The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
+        /// The urgency to change to: `Low` (does not escalate), or `High` (follows escalation rules).
         /// </summary>
         [Input("toUrgency")]
         public Input<string>? ToUrgency { get; set; }
 
         /// <summary>
-        /// The type of scheduled action. Currently, this must be set to `urgency_change`.
+        /// The type of scheduled action. Currently, this must be set to `UrgencyChange`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

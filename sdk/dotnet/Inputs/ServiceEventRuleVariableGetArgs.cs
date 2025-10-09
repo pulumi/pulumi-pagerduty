@@ -31,7 +31,7 @@ namespace Pulumi.Pagerduty.Inputs
         }
 
         /// <summary>
-        /// Type of operation to populate the variable. Usually `regex`.
+        /// Type of operation to populate the variable. Usually `Regex`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

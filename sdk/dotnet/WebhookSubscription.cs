@@ -131,13 +131,13 @@ namespace Pulumi.Pagerduty
         public Output<ImmutableArray<string>> Events { get; private set; } = null!;
 
         /// <summary>
-        /// determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
+        /// determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `ServiceReference`, `TeamReference` and `AccountReference`.
         /// </summary>
         [Output("filters")]
         public Output<ImmutableArray<Outputs.WebhookSubscriptionFilter>> Filters { get; private set; } = null!;
 
         /// <summary>
-        /// The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
+        /// The type indicating the schema of the object. The provider sets this as `WebhookSubscription`, which is currently the only acceptable value.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Pagerduty
         private InputList<Inputs.WebhookSubscriptionFilterArgs>? _filters;
 
         /// <summary>
-        /// determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
+        /// determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `ServiceReference`, `TeamReference` and `AccountReference`.
         /// </summary>
         public InputList<Inputs.WebhookSubscriptionFilterArgs> Filters
         {
@@ -250,7 +250,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
+        /// The type indicating the schema of the object. The provider sets this as `WebhookSubscription`, which is currently the only acceptable value.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -316,7 +316,7 @@ namespace Pulumi.Pagerduty
         private InputList<Inputs.WebhookSubscriptionFilterGetArgs>? _filters;
 
         /// <summary>
-        /// determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
+        /// determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `ServiceReference`, `TeamReference` and `AccountReference`.
         /// </summary>
         public InputList<Inputs.WebhookSubscriptionFilterGetArgs> Filters
         {
@@ -325,7 +325,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
+        /// The type indicating the schema of the object. The provider sets this as `WebhookSubscription`, which is currently the only acceptable value.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

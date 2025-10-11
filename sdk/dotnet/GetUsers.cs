@@ -172,7 +172,7 @@ namespace Pulumi.Pagerduty
         private List<string>? _teamIds;
 
         /// <summary>
-        /// List of team IDs. Only results related to these teams will be returned. Account must have the `teams` ability to use this parameter.
+        /// List of team IDs. Only results related to these teams will be returned. Account must have the `Teams` ability to use this parameter.
         /// </summary>
         public List<string> TeamIds
         {
@@ -192,7 +192,7 @@ namespace Pulumi.Pagerduty
         private InputList<string>? _teamIds;
 
         /// <summary>
-        /// List of team IDs. Only results related to these teams will be returned. Account must have the `teams` ability to use this parameter.
+        /// List of team IDs. Only results related to these teams will be returned. Account must have the `Teams` ability to use this parameter.
         /// </summary>
         public InputList<string> TeamIds
         {

@@ -17,7 +17,7 @@ public final class ResponsePlayResponderEscalationRuleTarget {
      */
     private @Nullable String id;
     /**
-     * @return Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+     * @return Type of object of the target. Supported types are `userReference`, `scheduleReference`.
      * 
      */
     private @Nullable String type;
@@ -31,7 +31,7 @@ public final class ResponsePlayResponderEscalationRuleTarget {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+     * @return Type of object of the target. Supported types are `userReference`, `scheduleReference`.
      * 
      */
     public Optional<String> type() {

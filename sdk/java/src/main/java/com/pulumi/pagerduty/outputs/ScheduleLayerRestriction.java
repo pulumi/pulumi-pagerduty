@@ -29,7 +29,7 @@ public final class ScheduleLayerRestriction {
      */
     private String startTimeOfDay;
     /**
-     * @return Can be `daily_restriction` or `weekly_restriction`.
+     * @return Can be `dailyRestriction` or `weeklyRestriction`.
      * 
      */
     private String type;
@@ -57,7 +57,7 @@ public final class ScheduleLayerRestriction {
         return this.startTimeOfDay;
     }
     /**
-     * @return Can be `daily_restriction` or `weekly_restriction`.
+     * @return Can be `dailyRestriction` or `weeklyRestriction`.
      * 
      */
     public String type() {

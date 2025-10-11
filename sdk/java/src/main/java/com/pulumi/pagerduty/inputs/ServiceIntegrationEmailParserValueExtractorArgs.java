@@ -80,14 +80,14 @@ public final class ServiceIntegrationEmailParserValueExtractorArgs extends com.p
     }
 
     /**
-     * First value extractor should have name `incident_key` other value extractors should contain custom names.
+     * First value extractor should have name `incidentKey` other value extractors should contain custom names.
      * 
      */
     @Import(name="valueName", required=true)
     private Output<String> valueName;
 
     /**
-     * @return First value extractor should have name `incident_key` other value extractors should contain custom names.
+     * @return First value extractor should have name `incidentKey` other value extractors should contain custom names.
      * 
      */
     public Output<String> valueName() {
@@ -209,7 +209,7 @@ public final class ServiceIntegrationEmailParserValueExtractorArgs extends com.p
         }
 
         /**
-         * @param valueName First value extractor should have name `incident_key` other value extractors should contain custom names.
+         * @param valueName First value extractor should have name `incidentKey` other value extractors should contain custom names.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class ServiceIntegrationEmailParserValueExtractorArgs extends com.p
         }
 
         /**
-         * @param valueName First value extractor should have name `incident_key` other value extractors should contain custom names.
+         * @param valueName First value extractor should have name `incidentKey` other value extractors should contain custom names.
          * 
          * @return builder
          * 

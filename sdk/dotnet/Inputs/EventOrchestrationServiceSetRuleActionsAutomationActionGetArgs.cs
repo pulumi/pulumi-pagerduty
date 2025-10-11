@@ -49,7 +49,7 @@ namespace Pulumi.Pagerduty.Inputs
         }
 
         /// <summary>
-        /// The Webhook will be associated (or automatically triggered, if `auto_send` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`. NOTE: `auto_send` must be `true` for trigger types of `["alert_suspended"]` and `["alert_suppressed"]`
+        /// The Webhook will be associated (or automatically triggered, if `AutoSend` is `True`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["AlertTriggered"]`, `["AlertSuspended"]`, `["AlertSuppressed"]`. NOTE: `AutoSend` must be `True` for trigger types of `["AlertSuspended"]` and `["AlertSuppressed"]`
         /// </summary>
         [Input("triggerTypes")]
         public Input<string>? TriggerTypes { get; set; }

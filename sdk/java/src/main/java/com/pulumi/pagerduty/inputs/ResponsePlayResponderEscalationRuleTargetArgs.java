@@ -31,14 +31,14 @@ public final class ResponsePlayResponderEscalationRuleTargetArgs extends com.pul
     }
 
     /**
-     * Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+     * Type of object of the target. Supported types are `userReference`, `scheduleReference`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+     * @return Type of object of the target. Supported types are `userReference`, `scheduleReference`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -92,7 +92,7 @@ public final class ResponsePlayResponderEscalationRuleTargetArgs extends com.pul
         }
 
         /**
-         * @param type Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+         * @param type Type of object of the target. Supported types are `userReference`, `scheduleReference`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ResponsePlayResponderEscalationRuleTargetArgs extends com.pul
         }
 
         /**
-         * @param type Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+         * @param type Type of object of the target. Supported types are `userReference`, `scheduleReference`.
          * 
          * @return builder
          * 

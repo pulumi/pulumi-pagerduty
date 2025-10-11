@@ -12,6 +12,8 @@ import (
 )
 
 // Use this data source to get information about service custom field values in PagerDuty.
+//
+// ## Example Usage
 func LookupServiceCustomFieldValue(ctx *pulumi.Context, args *LookupServiceCustomFieldValueArgs, opts ...pulumi.InvokeOption) (*LookupServiceCustomFieldValueResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceCustomFieldValueResult

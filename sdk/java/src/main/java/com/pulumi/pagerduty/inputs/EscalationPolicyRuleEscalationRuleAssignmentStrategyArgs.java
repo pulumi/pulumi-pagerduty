@@ -16,14 +16,14 @@ public final class EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs exte
     public static final EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs Empty = new EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs();
 
     /**
-     * Can be `round_robin` or `assign_to_everyone`.
+     * Can be `roundRobin` or `assignToEveryone`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Can be `round_robin` or `assign_to_everyone`.
+     * @return Can be `roundRobin` or `assignToEveryone`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -55,7 +55,7 @@ public final class EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs exte
         }
 
         /**
-         * @param type Can be `round_robin` or `assign_to_everyone`.
+         * @param type Can be `roundRobin` or `assignToEveryone`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs exte
         }
 
         /**
-         * @param type Can be `round_robin` or `assign_to_everyone`.
+         * @param type Can be `roundRobin` or `assignToEveryone`.
          * 
          * @return builder
          * 

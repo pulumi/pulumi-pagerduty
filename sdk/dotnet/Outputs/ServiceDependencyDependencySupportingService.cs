@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+        /// Can be `BusinessService`,  `Service`, `BusinessServiceReference` or `TechnicalServiceReference`.
         /// </summary>
         public readonly string Type;
 

@@ -12,7 +12,7 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [team](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIyMg-create-a-team) is a collection of users and escalation policies that represent a group of people within an organization.
     /// 
-    /// The account must have the `teams` ability to use the following resource.
+    /// The account must have the `Teams` ability to use the following resource.
     /// 
     /// ## Example Usage
     /// 

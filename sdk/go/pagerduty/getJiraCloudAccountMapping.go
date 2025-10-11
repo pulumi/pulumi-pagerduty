@@ -12,6 +12,8 @@ import (
 )
 
 // Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
+//
+// ## Example Usage
 func GetJiraCloudAccountMapping(ctx *pulumi.Context, args *GetJiraCloudAccountMappingArgs, opts ...pulumi.InvokeOption) (*GetJiraCloudAccountMappingResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetJiraCloudAccountMappingResult

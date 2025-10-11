@@ -19,7 +19,7 @@ public final class GetStandardsResourcesScoresResource {
      */
     private String resourceId;
     /**
-     * @return Type of the object the standards are associated to. Allowed values are `technical_services`.
+     * @return Type of the object the standards are associated to. Allowed values are `technicalServices`.
      * 
      */
     private String resourceType;
@@ -43,7 +43,7 @@ public final class GetStandardsResourcesScoresResource {
         return this.resourceId;
     }
     /**
-     * @return Type of the object the standards are associated to. Allowed values are `technical_services`.
+     * @return Type of the object the standards are associated to. Allowed values are `technicalServices`.
      * 
      */
     public String resourceType() {

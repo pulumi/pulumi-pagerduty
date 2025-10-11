@@ -16,7 +16,7 @@ public final class ServiceDependencyDependencyDependentService {
      */
     private String id;
     /**
-     * @return Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+     * @return Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
      * 
      */
     private String type;
@@ -30,7 +30,7 @@ public final class ServiceDependencyDependencyDependentService {
         return this.id;
     }
     /**
-     * @return Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+     * @return Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
      * 
      */
     public String type() {

@@ -151,7 +151,7 @@ namespace Pulumi.Pagerduty
         public string Label { get; set; } = null!;
 
         /// <summary>
-        /// The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        /// The contact method type. May be (`EmailContactMethod`, `PhoneContactMethod`, `SmsContactMethod`, `PushNotificationContactMethod`).
         /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Pagerduty
         public Input<string> Label { get; set; } = null!;
 
         /// <summary>
-        /// The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        /// The contact method type. May be (`EmailContactMethod`, `PhoneContactMethod`, `SmsContactMethod`, `PushNotificationContactMethod`).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetUserContactMethodResult
     {
         /// <summary>
-        /// The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
+        /// The "address" to deliver to: `Email`, `phone number`, etc., depending on the type.
         /// </summary>
         public readonly string Address;
         /// <summary>
@@ -211,7 +211,7 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly int CountryCode;
         /// <summary>
-        /// Either `ios` or `android`, depending on the type of the device receiving notifications. (Push notification contact method only.)
+        /// Either `Ios` or `Android`, depending on the type of the device receiving notifications. (Push notification contact method only.)
         /// </summary>
         public readonly string DeviceType;
         /// <summary>
@@ -231,7 +231,7 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly bool SendShortEmail;
         /// <summary>
-        /// The type of the found contact method. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        /// The type of the found contact method. May be (`EmailContactMethod`, `PhoneContactMethod`, `SmsContactMethod`, `PushNotificationContactMethod`).
         /// </summary>
         public readonly string Type;
         public readonly string UserId;

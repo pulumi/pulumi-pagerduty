@@ -13,25 +13,25 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class ServiceIntegrationEmailFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Can be `always`, `match` or `no-match`.
+        /// Can be `Always`, `Match` or `no-match`.
         /// </summary>
         [Input("bodyMode")]
         public Input<string>? BodyMode { get; set; }
 
         /// <summary>
-        /// Should be a valid regex or `null`
+        /// Should be a valid regex or `Null`
         /// </summary>
         [Input("bodyRegex")]
         public Input<string>? BodyRegex { get; set; }
 
         /// <summary>
-        /// Can be `always`, `match` or `no-match`.
+        /// Can be `Always`, `Match` or `no-match`.
         /// </summary>
         [Input("fromEmailMode")]
         public Input<string>? FromEmailMode { get; set; }
 
         /// <summary>
-        /// Should be a valid regex or `null`
+        /// Should be a valid regex or `Null`
         /// </summary>
         [Input("fromEmailRegex")]
         public Input<string>? FromEmailRegex { get; set; }
@@ -43,13 +43,13 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Can be `always`, `match` or `no-match`.
+        /// Can be `Always`, `Match` or `no-match`.
         /// </summary>
         [Input("subjectMode")]
         public Input<string>? SubjectMode { get; set; }
 
         /// <summary>
-        /// Should be a valid regex or `null`
+        /// Should be a valid regex or `Null`
         /// </summary>
         [Input("subjectRegex")]
         public Input<string>? SubjectRegex { get; set; }

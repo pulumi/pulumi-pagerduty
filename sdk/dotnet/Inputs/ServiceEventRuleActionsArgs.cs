@@ -28,7 +28,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<Inputs.ServiceEventRuleActionsEventActionArgs>? _eventActions;
 
         /// <summary>
-        /// An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+        /// An object with a single `Value` field. The value sets whether the resulting alert status is `Trigger` or `Resolve`.
         /// </summary>
         public InputList<Inputs.ServiceEventRuleActionsEventActionArgs> EventActions
         {
@@ -64,7 +64,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<Inputs.ServiceEventRuleActionsSeverityArgs>? _severities;
 
         /// <summary>
-        /// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+        /// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `Info`,`Error`,`Warning`, or `Critical`.
         /// </summary>
         public InputList<Inputs.ServiceEventRuleActionsSeverityArgs> Severities
         {
@@ -88,7 +88,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<Inputs.ServiceEventRuleActionsSuspendArgs>? _suspends;
 
         /// <summary>
-        /// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+        /// An object with a single `Value` field. The value sets the length of time to suspend the resulting alert before triggering.
         /// </summary>
         public InputList<Inputs.ServiceEventRuleActionsSuspendArgs> Suspends
         {

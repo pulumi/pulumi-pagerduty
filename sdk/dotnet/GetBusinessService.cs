@@ -126,7 +126,7 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of object. The value returned will be `business_service`. Can be used for passing to a service dependency.
+        /// The type of object. The value returned will be `BusinessService`. Can be used for passing to a service dependency.
         /// </summary>
         public readonly string Type;
 

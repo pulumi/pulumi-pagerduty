@@ -26,7 +26,7 @@ public final class GetServiceCustomFieldValueCustomField {
      */
     private String displayName;
     /**
-     * @return The type of field. Can be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * @return The type of field. Can be one of: `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      * 
      */
     private String fieldType;
@@ -41,7 +41,7 @@ public final class GetServiceCustomFieldValueCustomField {
      */
     private String name;
     /**
-     * @return The type of the reference, typically &#34;field_value&#34;.
+     * @return The type of the reference, typically &#34;fieldValue&#34;.
      * 
      */
     private String type;
@@ -74,7 +74,7 @@ public final class GetServiceCustomFieldValueCustomField {
         return this.displayName;
     }
     /**
-     * @return The type of field. Can be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * @return The type of field. Can be one of: `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      * 
      */
     public String fieldType() {
@@ -95,7 +95,7 @@ public final class GetServiceCustomFieldValueCustomField {
         return this.name;
     }
     /**
-     * @return The type of the reference, typically &#34;field_value&#34;.
+     * @return The type of the reference, typically &#34;fieldValue&#34;.
      * 
      */
     public String type() {

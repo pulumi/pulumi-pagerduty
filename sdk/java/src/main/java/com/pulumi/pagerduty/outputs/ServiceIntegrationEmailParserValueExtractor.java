@@ -32,7 +32,7 @@ public final class ServiceIntegrationEmailParserValueExtractor {
      */
     private String type;
     /**
-     * @return First value extractor should have name `incident_key` other value extractors should contain custom names.
+     * @return First value extractor should have name `incidentKey` other value extractors should contain custom names.
      * 
      */
     private String valueName;
@@ -68,7 +68,7 @@ public final class ServiceIntegrationEmailParserValueExtractor {
         return this.type;
     }
     /**
-     * @return First value extractor should have name `incident_key` other value extractors should contain custom names.
+     * @return First value extractor should have name `incidentKey` other value extractors should contain custom names.
      * 
      */
     public String valueName() {

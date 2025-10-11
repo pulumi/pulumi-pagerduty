@@ -30,14 +30,14 @@ public final class GetStandardsResourcesScoresPlainArgs extends com.pulumi.resou
     }
 
     /**
-     * Type of the object the standards are associated to. Allowed values are `technical_services`.
+     * Type of the object the standards are associated to. Allowed values are `technicalServices`.
      * 
      */
     @Import(name="resourceType", required=true)
     private String resourceType;
 
     /**
-     * @return Type of the object the standards are associated to. Allowed values are `technical_services`.
+     * @return Type of the object the standards are associated to. Allowed values are `technicalServices`.
      * 
      */
     public String resourceType() {
@@ -91,7 +91,7 @@ public final class GetStandardsResourcesScoresPlainArgs extends com.pulumi.resou
         }
 
         /**
-         * @param resourceType Type of the object the standards are associated to. Allowed values are `technical_services`.
+         * @param resourceType Type of the object the standards are associated to. Allowed values are `technicalServices`.
          * 
          * @return builder
          * 

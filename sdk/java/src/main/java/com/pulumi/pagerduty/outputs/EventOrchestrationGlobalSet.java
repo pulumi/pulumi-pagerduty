@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventOrchestrationGlobalSet {
     /**
-     * @return The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
+     * @return The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `routeTo` property.
      * 
      */
     private String id;
@@ -22,7 +22,7 @@ public final class EventOrchestrationGlobalSet {
 
     private EventOrchestrationGlobalSet() {}
     /**
-     * @return The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
+     * @return The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `routeTo` property.
      * 
      */
     public String id() {

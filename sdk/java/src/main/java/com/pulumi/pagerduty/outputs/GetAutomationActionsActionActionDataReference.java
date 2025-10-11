@@ -21,7 +21,7 @@ public final class GetAutomationActionsActionActionDataReference {
      */
     private String processAutomationJobArguments;
     /**
-     * @return (Required for `process_automation` action_type) The ID of the Process Automation job to execute.
+     * @return (Required for `processAutomation` action_type) The ID of the Process Automation job to execute.
      * 
      */
     private String processAutomationJobId;
@@ -52,7 +52,7 @@ public final class GetAutomationActionsActionActionDataReference {
         return this.processAutomationJobArguments;
     }
     /**
-     * @return (Required for `process_automation` action_type) The ID of the Process Automation job to execute.
+     * @return (Required for `processAutomation` action_type) The ID of the Process Automation job to execute.
      * 
      */
     public String processAutomationJobId() {

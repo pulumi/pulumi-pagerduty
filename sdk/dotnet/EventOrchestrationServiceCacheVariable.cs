@@ -164,7 +164,7 @@ namespace Pulumi.Pagerduty
     public partial class EventOrchestrationServiceCacheVariable : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `RecentValue` or `TriggerEventCount`.
         /// </summary>
         [Output("conditions")]
         public Output<ImmutableArray<Outputs.EventOrchestrationServiceCacheVariableCondition>> Conditions { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Pagerduty
         private InputList<Inputs.EventOrchestrationServiceCacheVariableConditionArgs>? _conditions;
 
         /// <summary>
-        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `RecentValue` or `TriggerEventCount`.
         /// </summary>
         public InputList<Inputs.EventOrchestrationServiceCacheVariableConditionArgs> Conditions
         {
@@ -287,7 +287,7 @@ namespace Pulumi.Pagerduty
         private InputList<Inputs.EventOrchestrationServiceCacheVariableConditionGetArgs>? _conditions;
 
         /// <summary>
-        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+        /// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `RecentValue` or `TriggerEventCount`.
         /// </summary>
         public InputList<Inputs.EventOrchestrationServiceCacheVariableConditionGetArgs> Conditions
         {

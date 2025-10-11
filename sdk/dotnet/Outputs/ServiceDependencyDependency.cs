@@ -14,15 +14,15 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class ServiceDependencyDependency
     {
         /// <summary>
-        /// The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
+        /// The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `DependentService` dependency block must be defined.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceDependencyDependencyDependentService> DependentServices;
         /// <summary>
-        /// The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
+        /// The service that supports the dependent service. Dependency supporting service documented below. One and only one `SupportingService` dependency block must be defined.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceDependencyDependencySupportingService> SupportingServices;
         /// <summary>
-        /// Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+        /// Can be `BusinessService`,  `Service`, `BusinessServiceReference` or `TechnicalServiceReference`.
         /// </summary>
         public readonly string? Type;
 

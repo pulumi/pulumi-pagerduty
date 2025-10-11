@@ -62,7 +62,7 @@ namespace Pulumi.Pagerduty
     public partial class IncidentCustomField : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        /// The data type of the field. Must be one of `String`, `Integer`, `Float`, `Boolean`, `Datetime`, or `Url`.
         /// </summary>
         [Output("dataType")]
         public Output<string> DataType { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Pagerduty
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+        /// The field type of the field. Must be one of `SingleValue`, `SingleValueFixed`, `MultiValue`, or `MultiValueFixed`.
         /// </summary>
         [Output("fieldType")]
         public Output<string> FieldType { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Pagerduty
     public sealed class IncidentCustomFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        /// The data type of the field. Must be one of `String`, `Integer`, `Float`, `Boolean`, `Datetime`, or `Url`.
         /// </summary>
         [Input("dataType", required: true)]
         public Input<string> DataType { get; set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Pagerduty
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+        /// The field type of the field. Must be one of `SingleValue`, `SingleValueFixed`, `MultiValue`, or `MultiValueFixed`.
         /// </summary>
         [Input("fieldType", required: true)]
         public Input<string> FieldType { get; set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Pagerduty
     public sealed class IncidentCustomFieldState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        /// The data type of the field. Must be one of `String`, `Integer`, `Float`, `Boolean`, `Datetime`, or `Url`.
         /// </summary>
         [Input("dataType")]
         public Input<string>? DataType { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+        /// The field type of the field. Must be one of `SingleValue`, `SingleValueFixed`, `MultiValue`, or `MultiValueFixed`.
         /// </summary>
         [Input("fieldType")]
         public Input<string>? FieldType { get; set; }

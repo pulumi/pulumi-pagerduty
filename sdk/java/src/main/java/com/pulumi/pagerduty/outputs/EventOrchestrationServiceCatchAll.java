@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class EventOrchestrationServiceCatchAll {
     /**
-     * @return These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+     * @return These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
      * 
      */
     private EventOrchestrationServiceCatchAllActions actions;
 
     private EventOrchestrationServiceCatchAll() {}
     /**
-     * @return These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+     * @return These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
      * 
      */
     public EventOrchestrationServiceCatchAllActions actions() {

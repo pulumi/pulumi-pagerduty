@@ -12,11 +12,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceScheduledActionAt {
     /**
-     * @return Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
+     * @return Designates either the start or the end of the scheduled action. Can be `supportHoursStart` or `supportHoursEnd`.
      * 
-     * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
+     * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `duringSupportHours` and to `low`  for `outsideSupportHours` in `incidentUrgencyRule`.
      * 
-     * Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = &#34;use_support_hours&#34;`, `support_hours` and a default `scheduled_action` as well.
+     * Below is an example for a `pagerduty.Service` resource with `incidentUrgencyRules` with `type = &#34;useSupportHours&#34;`, `supportHours` and a default `scheduledAction` as well.
      * 
      * <pre>
      * {@code
@@ -92,18 +92,18 @@ public final class ServiceScheduledActionAt {
      */
     private @Nullable String name;
     /**
-     * @return The type of time specification. Currently, this must be set to `named_time`.
+     * @return The type of time specification. Currently, this must be set to `namedTime`.
      * 
      */
     private @Nullable String type;
 
     private ServiceScheduledActionAt() {}
     /**
-     * @return Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
+     * @return Designates either the start or the end of the scheduled action. Can be `supportHoursStart` or `supportHoursEnd`.
      * 
-     * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
+     * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `duringSupportHours` and to `low`  for `outsideSupportHours` in `incidentUrgencyRule`.
      * 
-     * Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = &#34;use_support_hours&#34;`, `support_hours` and a default `scheduled_action` as well.
+     * Below is an example for a `pagerduty.Service` resource with `incidentUrgencyRules` with `type = &#34;useSupportHours&#34;`, `supportHours` and a default `scheduledAction` as well.
      * 
      * <pre>
      * {@code
@@ -181,7 +181,7 @@ public final class ServiceScheduledActionAt {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The type of time specification. Currently, this must be set to `named_time`.
+     * @return The type of time specification. Currently, this must be set to `namedTime`.
      * 
      */
     public Optional<String> type() {

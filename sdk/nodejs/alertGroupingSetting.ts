@@ -10,6 +10,8 @@ import * as utilities from "./utilities";
  * An [alert grouping setting](https://developer.pagerduty.com/api-reference/587edbc8ff416-create-an-alert-grouping-setting)
  * stores and centralize the configuration used during grouping of the alerts.
  *
+ * ## Example Usage
+ *
  * ## Migration from `alertGroupingParameters`
  *
  * To migrate from using the field `alertGroupingParameters` of a
@@ -47,6 +49,7 @@ import * as utilities from "./utilities";
  * ```
  *
  * After:
+ *
  * ## Import
  *
  * Alert grouping settings can be imported using its `id`, e.g.

@@ -26,7 +26,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly bool? Disabled;
         /// <summary>
-        /// The ID of the rule within the `start` set.
+        /// The ID of the rule within the `Start` set.
         /// </summary>
         public readonly string? Id;
         /// <summary>

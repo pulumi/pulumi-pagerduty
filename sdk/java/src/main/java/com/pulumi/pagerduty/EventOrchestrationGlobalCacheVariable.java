@@ -21,6 +21,10 @@ import javax.annotation.Nullable;
 /**
  * A [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) can be created on a Global Event Orchestration, in order to temporarily store event data to be referenced later within the Global Event Orchestration
  * 
+ * ## Example of configuring a Cache Variable for a Global Event Orchestration
+ * 
+ * This example shows creating a global `Event Orchestration` and a `Cache Variable`. All events that have the `event.source` field will have its `source` value stored in this Cache Variable, and appended as a note for the subsequent incident created by this Event Orchestration.
+ * 
  * ## Import
  * 
  * Cache Variables can be imported using colon-separated IDs, which is the combination of the Global Event Orchestration ID followed by the Cache Variable ID, e.g.
@@ -33,14 +37,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable")
 public class EventOrchestrationGlobalCacheVariable extends com.pulumi.resources.CustomResource {
     /**
-     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      * 
      */
     @Export(name="conditions", refs={List.class,EventOrchestrationGlobalCacheVariableCondition.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EventOrchestrationGlobalCacheVariableCondition>> conditions;
 
     /**
-     * @return Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+     * @return Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      * 
      */
     public Output<Optional<List<EventOrchestrationGlobalCacheVariableCondition>>> conditions() {

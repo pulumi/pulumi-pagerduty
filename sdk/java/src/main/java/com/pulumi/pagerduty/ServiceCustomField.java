@@ -202,28 +202,28 @@ public class ServiceCustomField extends com.pulumi.resources.CustomResource {
         return this.enabled;
     }
     /**
-     * Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.
+     * Configuration block for defining options for `singleValueFixed` or `multiValueFixed` field types. Can be specified multiple times for multiple options.
      * 
      */
     @Export(name="fieldOptions", refs={List.class,ServiceCustomFieldFieldOption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceCustomFieldFieldOption>> fieldOptions;
 
     /**
-     * @return Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.
+     * @return Configuration block for defining options for `singleValueFixed` or `multiValueFixed` field types. Can be specified multiple times for multiple options.
      * 
      */
     public Output<Optional<List<ServiceCustomFieldFieldOption>>> fieldOptions() {
         return Codegen.optional(this.fieldOptions);
     }
     /**
-     * The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * The type of field. Must be one of: `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      * 
      */
     @Export(name="fieldType", refs={String.class}, tree="[0]")
     private Output<String> fieldType;
 
     /**
-     * @return The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * @return The type of field. Must be one of: `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      * 
      */
     public Output<String> fieldType() {

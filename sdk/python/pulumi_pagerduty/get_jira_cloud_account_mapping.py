@@ -75,6 +75,8 @@ def get_jira_cloud_account_mapping(subdomain: Optional[_builtins.str] = None,
     """
     Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
 
+    ## Example Usage
+
 
     :param _builtins.str subdomain: The service name to use to find a service in the PagerDuty API.
     """
@@ -91,6 +93,8 @@ def get_jira_cloud_account_mapping_output(subdomain: Optional[pulumi.Input[_buil
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJiraCloudAccountMappingResult]:
     """
     Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
+
+    ## Example Usage
 
 
     :param _builtins.str subdomain: The service name to use to find a service in the PagerDuty API.

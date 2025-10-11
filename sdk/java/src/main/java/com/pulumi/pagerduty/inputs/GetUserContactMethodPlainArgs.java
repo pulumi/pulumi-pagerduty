@@ -29,14 +29,14 @@ public final class GetUserContactMethodPlainArgs extends com.pulumi.resources.In
     }
 
     /**
-     * The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      * 
      */
     @Import(name="type", required=true)
     private String type;
 
     /**
-     * @return The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+     * @return The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      * 
      */
     public String type() {
@@ -96,7 +96,7 @@ public final class GetUserContactMethodPlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param type The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+         * @param type The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
          * 
          * @return builder
          * 

@@ -14,11 +14,11 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class ServiceEventRuleConditionsSubcondition
     {
         /// <summary>
-        /// Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+        /// Type of operator to apply to the sub-condition. Can be `Exists`,`Nexists`,`Equals`,`Nequals`,`Contains`,`Ncontains`,`Matches`, or `Nmatches`.
         /// </summary>
         public readonly string? Operator;
         /// <summary>
-        /// Parameter for the sub-condition. It requires both a `path` and `value` to be set. The `path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        /// Parameter for the sub-condition. It requires both a `Path` and `Value` to be set. The `Path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceEventRuleConditionsSubconditionParameter> Parameters;
 

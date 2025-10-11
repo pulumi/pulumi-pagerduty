@@ -16,13 +16,13 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? EndsBefore { get; set; }
 
         /// <summary>
-        /// Can be `subject` or `body`.
+        /// Can be `Subject` or `Body`.
         /// </summary>
         [Input("part", required: true)]
         public Input<string> Part { get; set; } = null!;
 
         /// <summary>
-        /// If `type` has value `regex` this value should contain valid regex.
+        /// If `Type` has value `Regex` this value should contain valid regex.
         /// 
         /// **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
         /// </summary>
@@ -33,13 +33,13 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? StartsAfter { get; set; }
 
         /// <summary>
-        /// Can be `between`, `entire` or `regex`.
+        /// Can be `Between`, `Entire` or `Regex`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// First value extractor should have name `incident_key` other value extractors should contain custom names.
+        /// First value extractor should have name `IncidentKey` other value extractors should contain custom names.
         /// </summary>
         [Input("valueName", required: true)]
         public Input<string> ValueName { get; set; } = null!;

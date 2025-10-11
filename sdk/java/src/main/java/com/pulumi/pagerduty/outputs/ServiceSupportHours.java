@@ -35,7 +35,7 @@ public final class ServiceSupportHours {
      */
     private @Nullable String timeZone;
     /**
-     * @return The type of support hours. Can be `fixed_time_per_day`.
+     * @return The type of support hours. Can be `fixedTimePerDay`.
      * 
      */
     private @Nullable String type;
@@ -71,7 +71,7 @@ public final class ServiceSupportHours {
         return Optional.ofNullable(this.timeZone);
     }
     /**
-     * @return The type of support hours. Can be `fixed_time_per_day`.
+     * @return The type of support hours. Can be `fixedTimePerDay`.
      * 
      */
     public Optional<String> type() {

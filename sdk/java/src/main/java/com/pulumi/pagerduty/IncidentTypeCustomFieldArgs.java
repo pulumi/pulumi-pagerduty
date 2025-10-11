@@ -19,14 +19,14 @@ public final class IncidentTypeCustomFieldArgs extends com.pulumi.resources.Reso
     public static final IncidentTypeCustomFieldArgs Empty = new IncidentTypeCustomFieldArgs();
 
     /**
-     * [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `data_type` is `single_value`, otherwise must be `string`. Update
+     * [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `dataType` is `singleValue`, otherwise must be `string`. Update
      * 
      */
     @Import(name="dataType", required=true)
     private Output<String> dataType;
 
     /**
-     * @return [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `data_type` is `single_value`, otherwise must be `string`. Update
+     * @return [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `dataType` is `singleValue`, otherwise must be `string`. Update
      * 
      */
     public Output<String> dataType() {
@@ -94,14 +94,14 @@ public final class IncidentTypeCustomFieldArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The options for the custom field. Can only be applied to fields with a type of `single_value_fixed` or `multi_value_fixed`.
+     * The options for the custom field. Can only be applied to fields with a type of `singleValueFixed` or `multiValueFixed`.
      * 
      */
     @Import(name="fieldOptions")
     private @Nullable Output<List<String>> fieldOptions;
 
     /**
-     * @return The options for the custom field. Can only be applied to fields with a type of `single_value_fixed` or `multi_value_fixed`.
+     * @return The options for the custom field. Can only be applied to fields with a type of `singleValueFixed` or `multiValueFixed`.
      * 
      */
     public Optional<Output<List<String>>> fieldOptions() {
@@ -109,14 +109,14 @@ public final class IncidentTypeCustomFieldArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * [Updating causes resource replacement] The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * [Updating causes resource replacement] The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      * 
      */
     @Import(name="fieldType")
     private @Nullable Output<String> fieldType;
 
     /**
-     * @return [Updating causes resource replacement] The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * @return [Updating causes resource replacement] The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      * 
      */
     public Optional<Output<String>> fieldType() {
@@ -186,7 +186,7 @@ public final class IncidentTypeCustomFieldArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dataType [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `data_type` is `single_value`, otherwise must be `string`. Update
+         * @param dataType [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `dataType` is `singleValue`, otherwise must be `string`. Update
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class IncidentTypeCustomFieldArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dataType [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `data_type` is `single_value`, otherwise must be `string`. Update
+         * @param dataType [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `dataType` is `singleValue`, otherwise must be `string`. Update
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class IncidentTypeCustomFieldArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param fieldOptions The options for the custom field. Can only be applied to fields with a type of `single_value_fixed` or `multi_value_fixed`.
+         * @param fieldOptions The options for the custom field. Can only be applied to fields with a type of `singleValueFixed` or `multiValueFixed`.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class IncidentTypeCustomFieldArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param fieldOptions The options for the custom field. Can only be applied to fields with a type of `single_value_fixed` or `multi_value_fixed`.
+         * @param fieldOptions The options for the custom field. Can only be applied to fields with a type of `singleValueFixed` or `multiValueFixed`.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class IncidentTypeCustomFieldArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param fieldOptions The options for the custom field. Can only be applied to fields with a type of `single_value_fixed` or `multi_value_fixed`.
+         * @param fieldOptions The options for the custom field. Can only be applied to fields with a type of `singleValueFixed` or `multiValueFixed`.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class IncidentTypeCustomFieldArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param fieldType [Updating causes resource replacement] The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+         * @param fieldType [Updating causes resource replacement] The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class IncidentTypeCustomFieldArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param fieldType [Updating causes resource replacement] The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+         * @param fieldType [Updating causes resource replacement] The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
          * 
          * @return builder
          * 

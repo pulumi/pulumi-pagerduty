@@ -150,7 +150,7 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly ImmutableArray<string> Services;
         /// <summary>
-        /// The type of object. The value returned will be one of `content_based`, `content_based_intelligent`, `intelligent` or `time`.
+        /// The type of object. The value returned will be one of `ContentBased`, `ContentBasedIntelligent`, `Intelligent` or `Time`.
         /// </summary>
         public readonly string Type;
 

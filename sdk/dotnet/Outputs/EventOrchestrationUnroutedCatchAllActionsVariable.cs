@@ -18,11 +18,11 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.
+        /// Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `Summary` CEF field. Use `raw_event.fieldname` to read from the original event `Fieldname` data.
         /// </summary>
         public readonly string Path;
         /// <summary>
-        /// Only `regex` is supported
+        /// Only `Regex` is supported
         /// </summary>
         public readonly string Type;
         /// <summary>

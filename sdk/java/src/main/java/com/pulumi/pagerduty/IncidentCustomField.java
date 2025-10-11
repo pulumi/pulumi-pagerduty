@@ -136,14 +136,14 @@ public class IncidentCustomField extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
-     * The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      * 
      */
     @Export(name="fieldType", refs={String.class}, tree="[0]")
     private Output<String> fieldType;
 
     /**
-     * @return The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * @return The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      * 
      */
     public Output<String> fieldType() {

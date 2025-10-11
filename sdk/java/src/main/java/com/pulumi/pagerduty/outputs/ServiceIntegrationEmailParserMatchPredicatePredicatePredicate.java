@@ -16,7 +16,7 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate
      */
     private String matcher;
     /**
-     * @return Can be `subject`, `body` or `from_addresses`.
+     * @return Can be `subject`, `body` or `fromAddresses`.
      * 
      */
     private String part;
@@ -35,7 +35,7 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate
         return this.matcher;
     }
     /**
-     * @return Can be `subject`, `body` or `from_addresses`.
+     * @return Can be `subject`, `body` or `fromAddresses`.
      * 
      */
     public String part() {

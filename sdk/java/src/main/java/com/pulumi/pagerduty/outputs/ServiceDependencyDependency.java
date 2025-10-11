@@ -16,38 +16,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceDependencyDependency {
     /**
-     * @return The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
+     * @return The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependentService` dependency block must be defined.
      * 
      */
     private List<ServiceDependencyDependencyDependentService> dependentServices;
     /**
-     * @return The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
+     * @return The service that supports the dependent service. Dependency supporting service documented below. One and only one `supportingService` dependency block must be defined.
      * 
      */
     private List<ServiceDependencyDependencySupportingService> supportingServices;
     /**
-     * @return Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+     * @return Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
      * 
      */
     private @Nullable String type;
 
     private ServiceDependencyDependency() {}
     /**
-     * @return The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
+     * @return The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependentService` dependency block must be defined.
      * 
      */
     public List<ServiceDependencyDependencyDependentService> dependentServices() {
         return this.dependentServices;
     }
     /**
-     * @return The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
+     * @return The service that supports the dependent service. Dependency supporting service documented below. One and only one `supportingService` dependency block must be defined.
      * 
      */
     public List<ServiceDependencyDependencySupportingService> supportingServices() {
         return this.supportingServices;
     }
     /**
-     * @return Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+     * @return Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
      * 
      */
     public Optional<String> type() {

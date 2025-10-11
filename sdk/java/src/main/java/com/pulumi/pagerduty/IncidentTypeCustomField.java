@@ -105,14 +105,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="pagerduty:index/incidentTypeCustomField:IncidentTypeCustomField")
 public class IncidentTypeCustomField extends com.pulumi.resources.CustomResource {
     /**
-     * [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `data_type` is `single_value`, otherwise must be `string`. Update
+     * [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `dataType` is `singleValue`, otherwise must be `string`. Update
      * 
      */
     @Export(name="dataType", refs={String.class}, tree="[0]")
     private Output<String> dataType;
 
     /**
-     * @return [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `data_type` is `single_value`, otherwise must be `string`. Update
+     * @return [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `dataType` is `singleValue`, otherwise must be `string`. Update
      * 
      */
     public Output<String> dataType() {
@@ -175,28 +175,28 @@ public class IncidentTypeCustomField extends com.pulumi.resources.CustomResource
         return this.enabled;
     }
     /**
-     * The options for the custom field. Can only be applied to fields with a type of `single_value_fixed` or `multi_value_fixed`.
+     * The options for the custom field. Can only be applied to fields with a type of `singleValueFixed` or `multiValueFixed`.
      * 
      */
     @Export(name="fieldOptions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> fieldOptions;
 
     /**
-     * @return The options for the custom field. Can only be applied to fields with a type of `single_value_fixed` or `multi_value_fixed`.
+     * @return The options for the custom field. Can only be applied to fields with a type of `singleValueFixed` or `multiValueFixed`.
      * 
      */
     public Output<Optional<List<String>>> fieldOptions() {
         return Codegen.optional(this.fieldOptions);
     }
     /**
-     * [Updating causes resource replacement] The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * [Updating causes resource replacement] The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      * 
      */
     @Export(name="fieldType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fieldType;
 
     /**
-     * @return [Updating causes resource replacement] The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * @return [Updating causes resource replacement] The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      * 
      */
     public Output<Optional<String>> fieldType() {

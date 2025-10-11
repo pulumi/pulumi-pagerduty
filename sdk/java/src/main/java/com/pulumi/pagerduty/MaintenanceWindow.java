@@ -80,14 +80,14 @@ public class MaintenanceWindow extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+     * The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
      * 
      */
     @Export(name="endTime", refs={String.class}, tree="[0]")
     private Output<String> endTime;
 
     /**
-     * @return The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+     * @return The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
      * 
      */
     public Output<String> endTime() {

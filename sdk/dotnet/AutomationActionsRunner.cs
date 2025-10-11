@@ -100,13 +100,13 @@ namespace Pulumi.Pagerduty
         public Output<string?> RunbookBaseUri { get; private set; } = null!;
 
         /// <summary>
-        /// The type of runner. The only allowed values is `runbook`.
+        /// The type of runner. The only allowed values is `Runbook`.
         /// </summary>
         [Output("runnerType")]
         public Output<string> RunnerType { get; private set; } = null!;
 
         /// <summary>
-        /// The type of object. The value returned will be `runner`.
+        /// The type of object. The value returned will be `Runner`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? RunbookBaseUri { get; set; }
 
         /// <summary>
-        /// The type of runner. The only allowed values is `runbook`.
+        /// The type of runner. The only allowed values is `Runbook`.
         /// </summary>
         [Input("runnerType", required: true)]
         public Input<string> RunnerType { get; set; } = null!;
@@ -262,13 +262,13 @@ namespace Pulumi.Pagerduty
         public Input<string>? RunbookBaseUri { get; set; }
 
         /// <summary>
-        /// The type of runner. The only allowed values is `runbook`.
+        /// The type of runner. The only allowed values is `Runbook`.
         /// </summary>
         [Input("runnerType")]
         public Input<string>? RunnerType { get; set; }
 
         /// <summary>
-        /// The type of object. The value returned will be `runner`.
+        /// The type of object. The value returned will be `Runner`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

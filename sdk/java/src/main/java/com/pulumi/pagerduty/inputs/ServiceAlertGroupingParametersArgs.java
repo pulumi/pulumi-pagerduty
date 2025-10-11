@@ -32,14 +32,14 @@ public final class ServiceAlertGroupingParametersArgs extends com.pulumi.resourc
     }
 
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -93,7 +93,7 @@ public final class ServiceAlertGroupingParametersArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param type The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+         * @param type The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ServiceAlertGroupingParametersArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param type The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+         * @param type The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
          * 
          * @return builder
          * 

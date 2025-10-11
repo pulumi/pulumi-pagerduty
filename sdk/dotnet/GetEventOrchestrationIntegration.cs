@@ -112,13 +112,13 @@ namespace Pulumi.Pagerduty
         public string EventOrchestration { get; set; } = null!;
 
         /// <summary>
-        /// ID of the Integration associated with the Event Orchestration. Specify either `id` or `label`. If both are specified `id` takes precedence.
+        /// ID of the Integration associated with the Event Orchestration. Specify either `Id` or `Label`. If both are specified `Id` takes precedence.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Name/description of the Integration associated with the Event Orchestration. Specify either `id` or `label`. If both are specified `id` takes precedence. The value of `label` is not unique. Potentially there might be multiple Integrations with the same `label` value associated with the Event Orchestration and retrieving data by `label` attribute will result in an error during the planning step.
+        /// Name/description of the Integration associated with the Event Orchestration. Specify either `Id` or `Label`. If both are specified `Id` takes precedence. The value of `Label` is not unique. Potentially there might be multiple Integrations with the same `Label` value associated with the Event Orchestration and retrieving data by `Label` attribute will result in an error during the planning step.
         /// </summary>
         [Input("label")]
         public string? Label { get; set; }
@@ -138,13 +138,13 @@ namespace Pulumi.Pagerduty
         public Input<string> EventOrchestration { get; set; } = null!;
 
         /// <summary>
-        /// ID of the Integration associated with the Event Orchestration. Specify either `id` or `label`. If both are specified `id` takes precedence.
+        /// ID of the Integration associated with the Event Orchestration. Specify either `Id` or `Label`. If both are specified `Id` takes precedence.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name/description of the Integration associated with the Event Orchestration. Specify either `id` or `label`. If both are specified `id` takes precedence. The value of `label` is not unique. Potentially there might be multiple Integrations with the same `label` value associated with the Event Orchestration and retrieving data by `label` attribute will result in an error during the planning step.
+        /// Name/description of the Integration associated with the Event Orchestration. Specify either `Id` or `Label`. If both are specified `Id` takes precedence. The value of `Label` is not unique. Potentially there might be multiple Integrations with the same `Label` value associated with the Event Orchestration and retrieving data by `Label` attribute will result in an error during the planning step.
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }

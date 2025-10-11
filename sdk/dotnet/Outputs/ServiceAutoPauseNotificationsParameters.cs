@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+        /// Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `Enabled` is `True`. Must be omitted or set to `Null` if `Enabled` is `False`.
         /// </summary>
         public readonly int? Timeout;
 

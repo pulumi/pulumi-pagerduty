@@ -19,14 +19,14 @@ public final class EventOrchestrationServiceSetArgs extends com.pulumi.resources
     public static final EventOrchestrationServiceSetArgs Empty = new EventOrchestrationServiceSetArgs();
 
     /**
-     * The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
+     * The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `routeTo` property.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
+     * @return The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `routeTo` property.
      * 
      */
     public Output<String> id() {
@@ -66,7 +66,7 @@ public final class EventOrchestrationServiceSetArgs extends com.pulumi.resources
         }
 
         /**
-         * @param id The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
+         * @param id The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `routeTo` property.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class EventOrchestrationServiceSetArgs extends com.pulumi.resources
         }
 
         /**
-         * @param id The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
+         * @param id The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `routeTo` property.
          * 
          * @return builder
          * 

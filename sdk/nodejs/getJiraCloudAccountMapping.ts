@@ -6,6 +6,8 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
+ *
+ * ## Example Usage
  */
 export function getJiraCloudAccountMapping(args: GetJiraCloudAccountMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetJiraCloudAccountMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +42,8 @@ export interface GetJiraCloudAccountMappingResult {
 }
 /**
  * Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
+ *
+ * ## Example Usage
  */
 export function getJiraCloudAccountMappingOutput(args: GetJiraCloudAccountMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJiraCloudAccountMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

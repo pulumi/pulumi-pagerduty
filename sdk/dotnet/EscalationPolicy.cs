@@ -70,7 +70,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Known issues
     /// 
-    /// Block `escalation_rule_assignment_strategy` inside `rule` cannot be set explicitly when a PagerDuty account doesn't have access to the "Teams" feature, it will cause an error `POST API call to https://api.pagerduty.com/escalation_policies failed: 403 Forbidden`, please delete this block.
+    /// Block `EscalationRuleAssignmentStrategy` inside `Rule` cannot be set explicitly when a PagerDuty account doesn't have access to the "Teams" feature, it will cause an error `POST API call to https://api.pagerduty.com/escalation_policies failed: 403 Forbidden`, please delete this block.
     /// 
     /// ## Import
     /// 
@@ -109,7 +109,7 @@ namespace Pulumi.Pagerduty
         public Output<ImmutableArray<Outputs.EscalationPolicyRule>> Rules { get; private set; } = null!;
 
         /// <summary>
-        /// Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
+        /// Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `Teams` ability to use this parameter.
         /// </summary>
         [Output("teams")]
         public Output<string?> Teams { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
+        /// Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `Teams` ability to use this parameter.
         /// </summary>
         [Input("teams")]
         public Input<string>? Teams { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
+        /// Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `Teams` ability to use this parameter.
         /// </summary>
         [Input("teams")]
         public Input<string>? Teams { get; set; }

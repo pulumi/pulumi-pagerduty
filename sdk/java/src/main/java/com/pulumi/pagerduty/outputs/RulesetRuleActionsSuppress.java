@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RulesetRuleActionsSuppress {
     /**
-     * @return The number value of the `threshold_time_unit` before an incident is created. Must be greater than 0.
+     * @return The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
      * 
      */
     private @Nullable Integer thresholdTimeAmount;
     /**
-     * @return The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
+     * @return The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
      * 
      */
     private @Nullable String thresholdTimeUnit;
@@ -36,14 +36,14 @@ public final class RulesetRuleActionsSuppress {
 
     private RulesetRuleActionsSuppress() {}
     /**
-     * @return The number value of the `threshold_time_unit` before an incident is created. Must be greater than 0.
+     * @return The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
      * 
      */
     public Optional<Integer> thresholdTimeAmount() {
         return Optional.ofNullable(this.thresholdTimeAmount);
     }
     /**
-     * @return The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
+     * @return The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
      * 
      */
     public Optional<String> thresholdTimeUnit() {

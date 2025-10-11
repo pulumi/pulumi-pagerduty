@@ -14,11 +14,11 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class ServiceIncidentUrgencyRuleDuringSupportHours
     {
         /// <summary>
-        /// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        /// The type of object. The value returned will be `Service`. Can be used for passing to a service dependency.
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+        /// The urgency: `Low` Notify responders (does not escalate), `High` (follows escalation rules) or `SeverityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
         /// </summary>
         public readonly string? Urgency;
 

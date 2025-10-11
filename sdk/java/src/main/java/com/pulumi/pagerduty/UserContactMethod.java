@@ -117,14 +117,14 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
         return this.blacklisted;
     }
     /**
-     * The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+     * The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
      * 
      */
     @Export(name="countryCode", refs={Integer.class}, tree="[0]")
     private Output<Integer> countryCode;
 
     /**
-     * @return The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+     * @return The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
      * 
      */
     public Output<Integer> countryCode() {
@@ -179,14 +179,14 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
         return this.sendShortEmail;
     }
     /**
-     * The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+     * @return The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      * 
      */
     public Output<String> type() {

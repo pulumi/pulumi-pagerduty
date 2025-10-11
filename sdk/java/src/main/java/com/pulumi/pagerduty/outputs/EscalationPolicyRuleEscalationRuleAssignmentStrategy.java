@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EscalationPolicyRuleEscalationRuleAssignmentStrategy {
     /**
-     * @return Can be `round_robin` or `assign_to_everyone`.
+     * @return Can be `roundRobin` or `assignToEveryone`.
      * 
      */
     private @Nullable String type;
 
     private EscalationPolicyRuleEscalationRuleAssignmentStrategy() {}
     /**
-     * @return Can be `round_robin` or `assign_to_everyone`.
+     * @return Can be `roundRobin` or `assignToEveryone`.
      * 
      */
     public Optional<String> type() {

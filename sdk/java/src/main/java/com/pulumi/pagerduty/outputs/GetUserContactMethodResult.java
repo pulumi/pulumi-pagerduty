@@ -53,7 +53,7 @@ public final class GetUserContactMethodResult {
      */
     private Boolean sendShortEmail;
     /**
-     * @return The type of the found contact method. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+     * @return The type of the found contact method. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      * 
      */
     private String type;
@@ -117,7 +117,7 @@ public final class GetUserContactMethodResult {
         return this.sendShortEmail;
     }
     /**
-     * @return The type of the found contact method. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+     * @return The type of the found contact method. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      * 
      */
     public String type() {

@@ -79,14 +79,14 @@ public final class SlackConnectionArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The type of the source. Either `team_reference` or `service_reference`.
+     * The type of the source. Either `teamReference` or `serviceReference`.
      * 
      */
     @Import(name="sourceType", required=true)
     private Output<String> sourceType;
 
     /**
-     * @return The type of the source. Either `team_reference` or `service_reference`.
+     * @return The type of the source. Either `teamReference` or `serviceReference`.
      * 
      */
     public Output<String> sourceType() {
@@ -232,7 +232,7 @@ public final class SlackConnectionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sourceType The type of the source. Either `team_reference` or `service_reference`.
+         * @param sourceType The type of the source. Either `teamReference` or `serviceReference`.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class SlackConnectionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sourceType The type of the source. Either `team_reference` or `service_reference`.
+         * @param sourceType The type of the source. Either `teamReference` or `serviceReference`.
          * 
          * @return builder
          * 

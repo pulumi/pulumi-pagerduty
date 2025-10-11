@@ -54,10 +54,10 @@ namespace Pulumi.Pagerduty
     public partial class TeamMembership : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+        /// The role of the user in the team. One of `Observer`, `Responder`, or `Manager`. Defaults to `Manager`.  
         /// These roles match up to user roles in the following ways:
-        /// * User role of `user` is a Team role of `manager`
-        /// * User role of `limited_user` is a Team role of `responder`
+        /// * User role of `User` is a Team role of `Manager`
+        /// * User role of `LimitedUser` is a Team role of `Responder`
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
@@ -121,10 +121,10 @@ namespace Pulumi.Pagerduty
     public sealed class TeamMembershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+        /// The role of the user in the team. One of `Observer`, `Responder`, or `Manager`. Defaults to `Manager`.  
         /// These roles match up to user roles in the following ways:
-        /// * User role of `user` is a Team role of `manager`
-        /// * User role of `limited_user` is a Team role of `responder`
+        /// * User role of `User` is a Team role of `Manager`
+        /// * User role of `LimitedUser` is a Team role of `Responder`
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -150,10 +150,10 @@ namespace Pulumi.Pagerduty
     public sealed class TeamMembershipState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+        /// The role of the user in the team. One of `Observer`, `Responder`, or `Manager`. Defaults to `Manager`.  
         /// These roles match up to user roles in the following ways:
-        /// * User role of `user` is a Team role of `manager`
-        /// * User role of `limited_user` is a Team role of `responder`
+        /// * User role of `User` is a Team role of `Manager`
+        /// * User role of `LimitedUser` is a Team role of `Responder`
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

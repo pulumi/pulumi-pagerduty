@@ -18,7 +18,7 @@ public final class WebhookSubscriptionFilter {
      */
     private @Nullable String id;
     /**
-     * @return The type of object being used as the filter. Allowed values are `account_reference`, `service_reference`, and `team_reference`.
+     * @return The type of object being used as the filter. Allowed values are `accountReference`, `serviceReference`, and `teamReference`.
      * 
      */
     private String type;
@@ -32,7 +32,7 @@ public final class WebhookSubscriptionFilter {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return The type of object being used as the filter. Allowed values are `account_reference`, `service_reference`, and `team_reference`.
+     * @return The type of object being used as the filter. Allowed values are `accountReference`, `serviceReference`, and `teamReference`.
      * 
      */
     public String type() {

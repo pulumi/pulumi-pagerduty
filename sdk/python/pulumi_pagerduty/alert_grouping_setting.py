@@ -208,6 +208,8 @@ class AlertGroupingSetting(pulumi.CustomResource):
         An [alert grouping setting](https://developer.pagerduty.com/api-reference/587edbc8ff416-create-an-alert-grouping-setting)
         stores and centralize the configuration used during grouping of the alerts.
 
+        ## Example Usage
+
         ## Migration from `alert_grouping_parameters`
 
         To migrate from using the field `alert_grouping_parameters` of a
@@ -242,6 +244,7 @@ class AlertGroupingSetting(pulumi.CustomResource):
         ```
 
         After:
+
         ## Import
 
         Alert grouping settings can be imported using its `id`, e.g.
@@ -268,6 +271,8 @@ class AlertGroupingSetting(pulumi.CustomResource):
         An [alert grouping setting](https://developer.pagerduty.com/api-reference/587edbc8ff416-create-an-alert-grouping-setting)
         stores and centralize the configuration used during grouping of the alerts.
 
+        ## Example Usage
+
         ## Migration from `alert_grouping_parameters`
 
         To migrate from using the field `alert_grouping_parameters` of a
@@ -302,6 +307,7 @@ class AlertGroupingSetting(pulumi.CustomResource):
         ```
 
         After:
+
         ## Import
 
         Alert grouping settings can be imported using its `id`, e.g.

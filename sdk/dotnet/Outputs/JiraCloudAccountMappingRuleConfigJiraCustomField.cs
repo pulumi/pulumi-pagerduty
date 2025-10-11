@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class JiraCloudAccountMappingRuleConfigJiraCustomField
     {
         /// <summary>
-        /// The PagerDuty incident field from which the value will be extracted (only applicable if `type` is `attribute`); one of `incident_number`, `incident_title`, `incident_description`, `incident_status`, `incident_created_at`, `incident_service`, `incident_escalation_policy`, `incident_impacted_services`, `incident_html_url`, `incident_assignees`, `incident_acknowledgers`, `incident_last_status_change_at`, `incident_last_status_change_by`, `incident_urgency` or `incident_priority`.
+        /// The PagerDuty incident field from which the value will be extracted (only applicable if `Type` is `Attribute`); one of `IncidentNumber`, `IncidentTitle`, `IncidentDescription`, `IncidentStatus`, `IncidentCreatedAt`, `IncidentService`, `IncidentEscalationPolicy`, `IncidentImpactedServices`, `IncidentHtmlUrl`, `IncidentAssignees`, `IncidentAcknowledgers`, `IncidentLastStatusChangeAt`, `IncidentLastStatusChangeBy`, `IncidentUrgency` or `IncidentPriority`.
         /// </summary>
         public readonly string? SourceIncidentField;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string TargetIssueFieldName;
         /// <summary>
-        /// The type of the value that will be set; one of `attribute`, `const` or `jira_value`.
+        /// The type of the value that will be set; one of `Attribute`, `Const` or `JiraValue`.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The value to be set for the Jira field (only applicable if `type` is `const` or `jira_value`). It must be set as a JSON string.
+        /// The value to be set for the Jira field (only applicable if `Type` is `Const` or `JiraValue`). It must be set as a JSON string.
         /// </summary>
         public readonly string? Value;
 

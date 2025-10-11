@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The type of the contact method. May be (`email_contact_method`, `email_contact_method_reference`, `phone_contact_method`, `phone_contact_method_reference`, `push_notification_contact_method`, `push_notification_contact_method_reference`, `sms_contact_method`, `sms_contact_method_reference`).
+        /// The type of the contact method. May be (`EmailContactMethod`, `EmailContactMethodReference`, `PhoneContactMethod`, `PhoneContactMethodReference`, `PushNotificationContactMethod`, `PushNotificationContactMethodReference`, `SmsContactMethod`, `SmsContactMethodReference`).
         /// </summary>
         public readonly string Type;
 

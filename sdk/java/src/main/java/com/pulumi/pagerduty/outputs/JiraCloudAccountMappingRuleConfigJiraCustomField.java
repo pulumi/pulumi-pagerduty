@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class JiraCloudAccountMappingRuleConfigJiraCustomField {
     /**
-     * @return The PagerDuty incident field from which the value will be extracted (only applicable if `type` is `attribute`); one of `incident_number`, `incident_title`, `incident_description`, `incident_status`, `incident_created_at`, `incident_service`, `incident_escalation_policy`, `incident_impacted_services`, `incident_html_url`, `incident_assignees`, `incident_acknowledgers`, `incident_last_status_change_at`, `incident_last_status_change_by`, `incident_urgency` or `incident_priority`.
+     * @return The PagerDuty incident field from which the value will be extracted (only applicable if `type` is `attribute`); one of `incidentNumber`, `incidentTitle`, `incidentDescription`, `incidentStatus`, `incidentCreatedAt`, `incidentService`, `incidentEscalationPolicy`, `incidentImpactedServices`, `incidentHtmlUrl`, `incidentAssignees`, `incidentAcknowledgers`, `incidentLastStatusChangeAt`, `incidentLastStatusChangeBy`, `incidentUrgency` or `incidentPriority`.
      * 
      */
     private @Nullable String sourceIncidentField;
@@ -28,19 +28,19 @@ public final class JiraCloudAccountMappingRuleConfigJiraCustomField {
      */
     private String targetIssueFieldName;
     /**
-     * @return The type of the value that will be set; one of `attribute`, `const` or `jira_value`.
+     * @return The type of the value that will be set; one of `attribute`, `const` or `jiraValue`.
      * 
      */
     private String type;
     /**
-     * @return The value to be set for the Jira field (only applicable if `type` is `const` or `jira_value`). It must be set as a JSON string.
+     * @return The value to be set for the Jira field (only applicable if `type` is `const` or `jiraValue`). It must be set as a JSON string.
      * 
      */
     private @Nullable String value;
 
     private JiraCloudAccountMappingRuleConfigJiraCustomField() {}
     /**
-     * @return The PagerDuty incident field from which the value will be extracted (only applicable if `type` is `attribute`); one of `incident_number`, `incident_title`, `incident_description`, `incident_status`, `incident_created_at`, `incident_service`, `incident_escalation_policy`, `incident_impacted_services`, `incident_html_url`, `incident_assignees`, `incident_acknowledgers`, `incident_last_status_change_at`, `incident_last_status_change_by`, `incident_urgency` or `incident_priority`.
+     * @return The PagerDuty incident field from which the value will be extracted (only applicable if `type` is `attribute`); one of `incidentNumber`, `incidentTitle`, `incidentDescription`, `incidentStatus`, `incidentCreatedAt`, `incidentService`, `incidentEscalationPolicy`, `incidentImpactedServices`, `incidentHtmlUrl`, `incidentAssignees`, `incidentAcknowledgers`, `incidentLastStatusChangeAt`, `incidentLastStatusChangeBy`, `incidentUrgency` or `incidentPriority`.
      * 
      */
     public Optional<String> sourceIncidentField() {
@@ -61,14 +61,14 @@ public final class JiraCloudAccountMappingRuleConfigJiraCustomField {
         return this.targetIssueFieldName;
     }
     /**
-     * @return The type of the value that will be set; one of `attribute`, `const` or `jira_value`.
+     * @return The type of the value that will be set; one of `attribute`, `const` or `jiraValue`.
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return The value to be set for the Jira field (only applicable if `type` is `const` or `jira_value`). It must be set as a JSON string.
+     * @return The value to be set for the Jira field (only applicable if `type` is `const` or `jiraValue`). It must be set as a JSON string.
      * 
      */
     public Optional<String> value() {

@@ -32,14 +32,14 @@ public final class EscalationPolicyRuleTargetArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+     * Can be `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+     * @return Can be `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
      * 
      */
     public Optional<Output<String>> type() {
@@ -93,7 +93,7 @@ public final class EscalationPolicyRuleTargetArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param type Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+         * @param type Can be `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class EscalationPolicyRuleTargetArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param type Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+         * @param type Can be `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
          * 
          * @return builder
          * 

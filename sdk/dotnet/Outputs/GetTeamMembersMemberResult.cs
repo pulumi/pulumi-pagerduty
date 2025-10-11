@@ -26,7 +26,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string Summary;
         /// <summary>
-        /// The type of object. The value returned will be `user_reference`. Can be used for passing to another object as dependency.
+        /// The type of object. The value returned will be `UserReference`. Can be used for passing to another object as dependency.
         /// </summary>
         public readonly string Type;
 

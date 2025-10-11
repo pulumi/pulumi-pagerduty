@@ -70,7 +70,7 @@ namespace Pulumi.Pagerduty
         public Output<Outputs.UserHandoffNotificationRuleContactMethod> ContactMethod { get; private set; } = null!;
 
         /// <summary>
-        /// The type of handoff to notify the user about. Possible values are `oncall`, `offcall`, `both`.
+        /// The type of handoff to notify the user about. Possible values are `Oncall`, `Offcall`, `Both`.
         /// </summary>
         [Output("handoffType")]
         public Output<string> HandoffType { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.UserHandoffNotificationRuleContactMethodArgs> ContactMethod { get; set; } = null!;
 
         /// <summary>
-        /// The type of handoff to notify the user about. Possible values are `oncall`, `offcall`, `both`.
+        /// The type of handoff to notify the user about. Possible values are `Oncall`, `Offcall`, `Both`.
         /// </summary>
         [Input("handoffType")]
         public Input<string>? HandoffType { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.UserHandoffNotificationRuleContactMethodGetArgs>? ContactMethod { get; set; }
 
         /// <summary>
-        /// The type of handoff to notify the user about. Possible values are `oncall`, `offcall`, `both`.
+        /// The type of handoff to notify the user about. Possible values are `Oncall`, `Offcall`, `Both`.
         /// </summary>
         [Input("handoffType")]
         public Input<string>? HandoffType { get; set; }

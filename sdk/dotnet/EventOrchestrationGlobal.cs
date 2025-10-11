@@ -16,11 +16,11 @@ namespace Pulumi.Pagerduty
     /// 
     /// This example shows creating `Team`, and `Event Orchestration` resources followed by creating a Global Orchestration to handle Events sent to that Event Orchestration.
     /// 
-    /// This example also shows using the pagerduty.getPriority and pagerduty.EscalationPolicy data sources to configure `priority` and `escalation_policy` actions for a rule.
+    /// This example also shows using the pagerduty.getPriority and pagerduty.EscalationPolicy data sources to configure `Priority` and `EscalationPolicy` actions for a rule.
     /// 
-    /// This example shows a Global Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
+    /// This example shows a Global Orchestration that has nested sets: a rule in the "start" set has a `RouteTo` action pointing at the "step-two" set.
     /// 
-    /// The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
+    /// The `CatchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `CatchAll` doesn't have any `Actions` so it'll leave events as-is.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -162,7 +162,7 @@ namespace Pulumi.Pagerduty
     public partial class EventOrchestrationGlobal : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+        /// the `CatchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         /// </summary>
         [Output("catchAll")]
         public Output<Outputs.EventOrchestrationGlobalCatchAll> CatchAll { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Pagerduty
     public sealed class EventOrchestrationGlobalArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+        /// the `CatchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         /// </summary>
         [Input("catchAll", required: true)]
         public Input<Inputs.EventOrchestrationGlobalCatchAllArgs> CatchAll { get; set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Pagerduty
     public sealed class EventOrchestrationGlobalState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+        /// the `CatchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         /// </summary>
         [Input("catchAll")]
         public Input<Inputs.EventOrchestrationGlobalCatchAllGetArgs>? CatchAll { get; set; }

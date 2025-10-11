@@ -18,11 +18,11 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceScheduledActionAt> Ats;
         /// <summary>
-        /// The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
+        /// The urgency to change to: `Low` (does not escalate), or `High` (follows escalation rules).
         /// </summary>
         public readonly string? ToUrgency;
         /// <summary>
-        /// The type of scheduled action. Currently, this must be set to `urgency_change`.
+        /// The type of scheduled action. Currently, this must be set to `UrgencyChange`.
         /// </summary>
         public readonly string? Type;
 

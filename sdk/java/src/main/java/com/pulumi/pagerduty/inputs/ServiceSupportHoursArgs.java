@@ -80,14 +80,14 @@ public final class ServiceSupportHoursArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The type of support hours. Can be `fixed_time_per_day`.
+     * The type of support hours. Can be `fixedTimePerDay`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of support hours. Can be `fixed_time_per_day`.
+     * @return The type of support hours. Can be `fixedTimePerDay`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -220,7 +220,7 @@ public final class ServiceSupportHoursArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of support hours. Can be `fixed_time_per_day`.
+         * @param type The type of support hours. Can be `fixedTimePerDay`.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class ServiceSupportHoursArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of support hours. Can be `fixed_time_per_day`.
+         * @param type The type of support hours. Can be `fixedTimePerDay`.
          * 
          * @return builder
          * 

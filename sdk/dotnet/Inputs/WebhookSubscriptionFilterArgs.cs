@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The type of object being used as the filter. Allowed values are `account_reference`, `service_reference`, and `team_reference`.
+        /// The type of object being used as the filter. Allowed values are `AccountReference`, `ServiceReference`, and `TeamReference`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

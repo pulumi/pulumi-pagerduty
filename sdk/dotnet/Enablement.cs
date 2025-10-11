@@ -50,7 +50,7 @@ namespace Pulumi.Pagerduty
     public partial class Enablement : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether the feature should be enabled (`true`) or disabled (`false`) for the specified entity.
+        /// Whether the feature should be enabled (`True`) or disabled (`False`) for the specified entity.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -62,13 +62,13 @@ namespace Pulumi.Pagerduty
         public Output<string> EntityId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of entity for which to manage the enablement. Possible values can be `service` and `event_orchestration`.
+        /// The type of entity for which to manage the enablement. Possible values can be `Service` and `EventOrchestration`.
         /// </summary>
         [Output("entityType")]
         public Output<string> EntityType { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the feature to enable or disable. Possible values can be `aiops`.
+        /// The name of the feature to enable or disable. Possible values can be `Aiops`.
         /// </summary>
         [Output("feature")]
         public Output<string> Feature { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Pagerduty
     public sealed class EnablementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the feature should be enabled (`true`) or disabled (`false`) for the specified entity.
+        /// Whether the feature should be enabled (`True`) or disabled (`False`) for the specified entity.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -132,13 +132,13 @@ namespace Pulumi.Pagerduty
         public Input<string> EntityId { get; set; } = null!;
 
         /// <summary>
-        /// The type of entity for which to manage the enablement. Possible values can be `service` and `event_orchestration`.
+        /// The type of entity for which to manage the enablement. Possible values can be `Service` and `EventOrchestration`.
         /// </summary>
         [Input("entityType", required: true)]
         public Input<string> EntityType { get; set; } = null!;
 
         /// <summary>
-        /// The name of the feature to enable or disable. Possible values can be `aiops`.
+        /// The name of the feature to enable or disable. Possible values can be `Aiops`.
         /// </summary>
         [Input("feature", required: true)]
         public Input<string> Feature { get; set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Pagerduty
     public sealed class EnablementState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the feature should be enabled (`true`) or disabled (`false`) for the specified entity.
+        /// Whether the feature should be enabled (`True`) or disabled (`False`) for the specified entity.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -164,13 +164,13 @@ namespace Pulumi.Pagerduty
         public Input<string>? EntityId { get; set; }
 
         /// <summary>
-        /// The type of entity for which to manage the enablement. Possible values can be `service` and `event_orchestration`.
+        /// The type of entity for which to manage the enablement. Possible values can be `Service` and `EventOrchestration`.
         /// </summary>
         [Input("entityType")]
         public Input<string>? EntityType { get; set; }
 
         /// <summary>
-        /// The name of the feature to enable or disable. Possible values can be `aiops`.
+        /// The name of the feature to enable or disable. Possible values can be `Aiops`.
         /// </summary>
         [Input("feature")]
         public Input<string>? Feature { get; set; }

@@ -78,14 +78,14 @@ public final class AlertGroupingSettingState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.
+     * The type of alert grouping; one of `intelligent`, `time`, `contentBased` or  `contentBasedIntelligent`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.
+     * @return The type of alert grouping; one of `intelligent`, `time`, `contentBased` or  `contentBasedIntelligent`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -215,7 +215,7 @@ public final class AlertGroupingSettingState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.
+         * @param type The type of alert grouping; one of `intelligent`, `time`, `contentBased` or  `contentBasedIntelligent`.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class AlertGroupingSettingState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.
+         * @param type The type of alert grouping; one of `intelligent`, `time`, `contentBased` or  `contentBasedIntelligent`.
          * 
          * @return builder
          * 

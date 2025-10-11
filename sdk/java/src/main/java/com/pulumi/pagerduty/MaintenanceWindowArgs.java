@@ -34,14 +34,14 @@ public final class MaintenanceWindowArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+     * The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
      * 
      */
     @Import(name="endTime", required=true)
     private Output<String> endTime;
 
     /**
-     * @return The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+     * @return The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
      * 
      */
     public Output<String> endTime() {
@@ -127,7 +127,7 @@ public final class MaintenanceWindowArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param endTime The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+         * @param endTime The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class MaintenanceWindowArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param endTime The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+         * @param endTime The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
          * 
          * @return builder
          * 

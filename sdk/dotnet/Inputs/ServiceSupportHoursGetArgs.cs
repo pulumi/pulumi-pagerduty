@@ -44,7 +44,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? TimeZone { get; set; }
 
         /// <summary>
-        /// The type of support hours. Can be `fixed_time_per_day`.
+        /// The type of support hours. Can be `FixedTimePerDay`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

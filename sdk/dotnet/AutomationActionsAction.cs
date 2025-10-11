@@ -60,7 +60,7 @@ namespace Pulumi.Pagerduty
     public partial class AutomationActionsAction : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        /// The category of the action. The only allowed values are `Diagnostic` and `Remediation`.
         /// </summary>
         [Output("actionClassification")]
         public Output<string?> ActionClassification { get; private set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.Pagerduty
         public Output<Outputs.AutomationActionsActionActionDataReference> ActionDataReference { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+        /// The type of the action. The only allowed values are `ProcessAutomation` and `Script`. Cannot be changed once set.
         /// </summary>
         [Output("actionType")]
         public Output<string> ActionType { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Pagerduty
         public Output<bool> OnlyInvocableOnUnresolvedIncidents { get; private set; } = null!;
 
         /// <summary>
-        /// The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
+        /// The Process Automation Actions runner to associate the action with. Cannot be changed for the `ProcessAutomation` action type once set.
         /// </summary>
         [Output("runnerId")]
         public Output<string?> RunnerId { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Pagerduty
         public Output<string> RunnerType { get; private set; } = null!;
 
         /// <summary>
-        /// The type of object. The value returned will be `action`.
+        /// The type of object. The value returned will be `Action`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Pagerduty
     public sealed class AutomationActionsActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        /// The category of the action. The only allowed values are `Diagnostic` and `Remediation`.
         /// </summary>
         [Input("actionClassification")]
         public Input<string>? ActionClassification { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.AutomationActionsActionActionDataReferenceArgs> ActionDataReference { get; set; } = null!;
 
         /// <summary>
-        /// The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+        /// The type of the action. The only allowed values are `ProcessAutomation` and `Script`. Cannot be changed once set.
         /// </summary>
         [Input("actionType", required: true)]
         public Input<string> ActionType { get; set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Pagerduty
         public Input<bool>? OnlyInvocableOnUnresolvedIncidents { get; set; }
 
         /// <summary>
-        /// The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
+        /// The Process Automation Actions runner to associate the action with. Cannot be changed for the `ProcessAutomation` action type once set.
         /// </summary>
         [Input("runnerId")]
         public Input<string>? RunnerId { get; set; }
@@ -268,7 +268,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? RunnerType { get; set; }
 
         /// <summary>
-        /// The type of object. The value returned will be `action`.
+        /// The type of object. The value returned will be `Action`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Pagerduty
     public sealed class AutomationActionsActionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        /// The category of the action. The only allowed values are `Diagnostic` and `Remediation`.
         /// </summary>
         [Input("actionClassification")]
         public Input<string>? ActionClassification { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.AutomationActionsActionActionDataReferenceGetArgs>? ActionDataReference { get; set; }
 
         /// <summary>
-        /// The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+        /// The type of the action. The only allowed values are `ProcessAutomation` and `Script`. Cannot be changed once set.
         /// </summary>
         [Input("actionType")]
         public Input<string>? ActionType { get; set; }
@@ -348,7 +348,7 @@ namespace Pulumi.Pagerduty
         public Input<bool>? OnlyInvocableOnUnresolvedIncidents { get; set; }
 
         /// <summary>
-        /// The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
+        /// The Process Automation Actions runner to associate the action with. Cannot be changed for the `ProcessAutomation` action type once set.
         /// </summary>
         [Input("runnerId")]
         public Input<string>? RunnerId { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? RunnerType { get; set; }
 
         /// <summary>
-        /// The type of object. The value returned will be `action`.
+        /// The type of object. The value returned will be `Action`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

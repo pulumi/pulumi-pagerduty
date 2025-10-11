@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string? RoutingKey;
         /// <summary>
-        /// Type of the routing key. `global` is the default type.
+        /// Type of the routing key. `Global` is the default type.
         /// </summary>
         public readonly string? Type;
 

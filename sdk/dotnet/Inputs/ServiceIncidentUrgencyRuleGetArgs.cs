@@ -25,13 +25,13 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<Inputs.ServiceIncidentUrgencyRuleOutsideSupportHoursGetArgs>? OutsideSupportHours { get; set; }
 
         /// <summary>
-        /// The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
+        /// The type of incident urgency: `Constant` or `UseSupportHours` (when depending on specific support hours; see `SupportHours`).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
+        /// The urgency: `Low` Notify responders (does not escalate), `High` (follows escalation rules) or `SeverityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
         /// </summary>
         [Input("urgency")]
         public Input<string>? Urgency { get; set; }

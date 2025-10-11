@@ -31,7 +31,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? EscalationPolicy { get; set; }
 
         /// <summary>
-        /// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        /// sets whether the resulting alert status is trigger or resolve. Allowed values are: `Trigger`, `Resolve`
         /// </summary>
         [Input("eventAction")]
         public Input<string>? EventAction { get; set; }
@@ -79,7 +79,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? RouteTo { get; set; }
 
         /// <summary>
-        /// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        /// sets Severity of the resulting alert. Allowed values are: `Info`, `Error`, `Warning`, `Critical`
         /// </summary>
         [Input("severity")]
         public Input<string>? Severity { get; set; }
@@ -91,7 +91,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<bool>? Suppress { get; set; }
 
         /// <summary>
-        /// The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
+        /// The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `Resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
         /// </summary>
         [Input("suspend")]
         public Input<int>? Suspend { get; set; }

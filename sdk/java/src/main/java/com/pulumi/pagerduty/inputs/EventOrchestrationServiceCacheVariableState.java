@@ -20,14 +20,14 @@ public final class EventOrchestrationServiceCacheVariableState extends com.pulum
     public static final EventOrchestrationServiceCacheVariableState Empty = new EventOrchestrationServiceCacheVariableState();
 
     /**
-     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      * 
      */
     @Import(name="conditions")
     private @Nullable Output<List<EventOrchestrationServiceCacheVariableConditionArgs>> conditions;
 
     /**
-     * @return Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+     * @return Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      * 
      */
     public Optional<Output<List<EventOrchestrationServiceCacheVariableConditionArgs>>> conditions() {
@@ -123,7 +123,7 @@ public final class EventOrchestrationServiceCacheVariableState extends com.pulum
         }
 
         /**
-         * @param conditions Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+         * @param conditions Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class EventOrchestrationServiceCacheVariableState extends com.pulum
         }
 
         /**
-         * @param conditions Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+         * @param conditions Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class EventOrchestrationServiceCacheVariableState extends com.pulum
         }
 
         /**
-         * @param conditions Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+         * @param conditions Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
          * 
          * @return builder
          * 

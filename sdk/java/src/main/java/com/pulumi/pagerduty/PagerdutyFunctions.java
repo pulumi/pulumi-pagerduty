@@ -3673,12 +3673,16 @@ public final class PagerdutyFunctions {
     /**
      * Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetJiraCloudAccountMappingResult> getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs args) {
         return getJiraCloudAccountMapping(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetJiraCloudAccountMappingResult> getJiraCloudAccountMappingPlain(GetJiraCloudAccountMappingPlainArgs args) {
@@ -3687,12 +3691,16 @@ public final class PagerdutyFunctions {
     /**
      * Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetJiraCloudAccountMappingResult> getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping", TypeShape.of(GetJiraCloudAccountMappingResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
+     * 
+     * ## Example Usage
      * 
      */
     public static Output<GetJiraCloudAccountMappingResult> getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs args, InvokeOutputOptions options) {
@@ -3701,12 +3709,14 @@ public final class PagerdutyFunctions {
     /**
      * Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
      * 
+     * ## Example Usage
+     * 
      */
     public static CompletableFuture<GetJiraCloudAccountMappingResult> getJiraCloudAccountMappingPlain(GetJiraCloudAccountMappingPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping", TypeShape.of(GetJiraCloudAccountMappingResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
      * 
      * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
      * 
@@ -3760,7 +3770,7 @@ public final class PagerdutyFunctions {
         return getLicense(GetLicenseArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
      * 
      * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
      * 
@@ -3814,7 +3824,7 @@ public final class PagerdutyFunctions {
         return getLicensePlain(GetLicensePlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
      * 
      * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
      * 
@@ -3868,7 +3878,7 @@ public final class PagerdutyFunctions {
         return getLicense(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
      * 
      * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
      * 
@@ -3922,7 +3932,7 @@ public final class PagerdutyFunctions {
         return getLicensePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
      * 
      * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
      * 
@@ -3976,7 +3986,7 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invoke("pagerduty:index/getLicense:getLicense", TypeShape.of(GetLicenseResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
      * 
      * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
      * 
@@ -4030,7 +4040,7 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invoke("pagerduty:index/getLicense:getLicense", TypeShape.of(GetLicenseResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
      * 
      * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
      * 
@@ -4084,7 +4094,7 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getLicense:getLicense", TypeShape.of(GetLicenseResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
      * 
      * ## Example Usage
      * 
@@ -4134,7 +4144,7 @@ public final class PagerdutyFunctions {
         return getLicenses(GetLicensesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
      * 
      * ## Example Usage
      * 
@@ -4184,7 +4194,7 @@ public final class PagerdutyFunctions {
         return getLicensesPlain(GetLicensesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
      * 
      * ## Example Usage
      * 
@@ -4234,7 +4244,7 @@ public final class PagerdutyFunctions {
         return getLicenses(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
      * 
      * ## Example Usage
      * 
@@ -4284,7 +4294,7 @@ public final class PagerdutyFunctions {
         return getLicensesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
      * 
      * ## Example Usage
      * 
@@ -4334,7 +4344,7 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invoke("pagerduty:index/getLicenses:getLicenses", TypeShape.of(GetLicensesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
      * 
      * ## Example Usage
      * 
@@ -4384,7 +4394,7 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invoke("pagerduty:index/getLicenses:getLicenses", TypeShape.of(GetLicensesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
      * 
      * ## Example Usage
      * 
@@ -6111,12 +6121,16 @@ public final class PagerdutyFunctions {
     /**
      * Use this data source to get information about service custom field values in PagerDuty.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetServiceCustomFieldValueResult> getServiceCustomFieldValue(GetServiceCustomFieldValueArgs args) {
         return getServiceCustomFieldValue(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get information about service custom field values in PagerDuty.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetServiceCustomFieldValueResult> getServiceCustomFieldValuePlain(GetServiceCustomFieldValuePlainArgs args) {
@@ -6125,6 +6139,8 @@ public final class PagerdutyFunctions {
     /**
      * Use this data source to get information about service custom field values in PagerDuty.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetServiceCustomFieldValueResult> getServiceCustomFieldValue(GetServiceCustomFieldValueArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getServiceCustomFieldValue:getServiceCustomFieldValue", TypeShape.of(GetServiceCustomFieldValueResult.class), args, Utilities.withVersion(options));
@@ -6132,12 +6148,16 @@ public final class PagerdutyFunctions {
     /**
      * Use this data source to get information about service custom field values in PagerDuty.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetServiceCustomFieldValueResult> getServiceCustomFieldValue(GetServiceCustomFieldValueArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getServiceCustomFieldValue:getServiceCustomFieldValue", TypeShape.of(GetServiceCustomFieldValueResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about service custom field values in PagerDuty.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetServiceCustomFieldValueResult> getServiceCustomFieldValuePlain(GetServiceCustomFieldValuePlainArgs args, InvokeOptions options) {

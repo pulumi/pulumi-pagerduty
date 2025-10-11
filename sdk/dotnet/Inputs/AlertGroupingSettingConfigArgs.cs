@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class AlertGroupingSettingConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
+        /// One of `Any` or `All`. This setting is only required and applies when `Type` is set to `ContentBased` or `ContentBasedIntelligent`. Group alerts based on one or all of `Fields` value(s).
         /// </summary>
         [Input("aggregate")]
         public Input<string>? Aggregate { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<string>? _fields;
 
         /// <summary>
-        /// Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
+        /// Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `Type` is set to `ContentBased` or `ContentBasedIntelligent`.
         /// </summary>
         public InputList<string> Fields
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<string>? _iagFields;
 
         /// <summary>
-        /// An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `type` is set to `intelligent`. Default: ["summary"].
+        /// An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `Type` is set to `Intelligent`. Default: ["summary"].
         /// </summary>
         public InputList<string> IagFields
         {
@@ -43,13 +43,13 @@ namespace Pulumi.Pagerduty.Inputs
         }
 
         /// <summary>
-        /// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+        /// The maximum amount of time allowed between Alerts. This setting applies only when `Type` is set to `Intelligent`, `ContentBased`, `ContentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `ContentBased` alert grouping). Any Alerts arriving greater than `TimeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `Null`.
         /// </summary>
         [Input("timeWindow")]
         public Input<int>? TimeWindow { get; set; }
 
         /// <summary>
-        /// The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
+        /// The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `Type` is set to `Time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `Null`.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }

@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string ActionId;
         /// <summary>
-        /// The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`
+        /// The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["AlertTriggered"]`, `["AlertSuspended"]`, `["AlertSuppressed"]`
         /// </summary>
         public readonly string? TriggerTypes;
 

@@ -219,7 +219,7 @@ namespace Pulumi.Pagerduty
         public Output<ImmutableArray<Outputs.ServiceIntegrationEmailFilter>> EmailFilters { get; private set; } = null!;
 
         /// <summary>
-        /// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
+        /// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `OnNewEmail`, `OnNewEmailSubject`, `OnlyIfNoOpenIncidents` or `UseRules`.
         /// </summary>
         [Output("emailIncidentCreation")]
         public Output<string> EmailIncidentCreation { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Pagerduty
         public Output<ImmutableArray<Outputs.ServiceIntegrationEmailParser>> EmailParsers { get; private set; } = null!;
 
         /// <summary>
-        /// Can be `open_new_incident` or `discard`.
+        /// Can be `OpenNewIncident` or `Discard`.
         /// </summary>
         [Output("emailParsingFallback")]
         public Output<string> EmailParsingFallback { get; private set; } = null!;
@@ -265,18 +265,18 @@ namespace Pulumi.Pagerduty
 
         /// <summary>
         /// The service type. Can be:
-        /// `aws_cloudwatch_inbound_integration`,
-        /// `cloudkick_inbound_integration`,
-        /// `event_transformer_api_inbound_integration`,
-        /// `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
-        /// `generic_email_inbound_integration`,
-        /// `generic_events_api_inbound_integration`,
-        /// `keynote_inbound_integration`,
-        /// `nagios_inbound_integration`,
-        /// `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+        /// `AwsCloudwatchInboundIntegration`,
+        /// `CloudkickInboundIntegration`,
+        /// `EventTransformerApiInboundIntegration`,
+        /// `EventsApiV2InboundIntegration` (requires service `AlertCreation` to be `CreateAlertsAndIncidents`),
+        /// `GenericEmailInboundIntegration`,
+        /// `GenericEventsApiInboundIntegration`,
+        /// `KeynoteInboundIntegration`,
+        /// `NagiosInboundIntegration`,
+        /// `PingdomInboundIntegration`or `SqlMonitorInboundIntegration`.
         /// 
         /// **Note:** This is meant for **generic** service integrations.
-        /// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+        /// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `Vendor` field instead.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -348,7 +348,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
+        /// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `OnNewEmail`, `OnNewEmailSubject`, `OnlyIfNoOpenIncidents` or `UseRules`.
         /// </summary>
         [Input("emailIncidentCreation")]
         public Input<string>? EmailIncidentCreation { get; set; }
@@ -362,7 +362,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// Can be `open_new_incident` or `discard`.
+        /// Can be `OpenNewIncident` or `Discard`.
         /// </summary>
         [Input("emailParsingFallback")]
         public Input<string>? EmailParsingFallback { get; set; }
@@ -393,18 +393,18 @@ namespace Pulumi.Pagerduty
 
         /// <summary>
         /// The service type. Can be:
-        /// `aws_cloudwatch_inbound_integration`,
-        /// `cloudkick_inbound_integration`,
-        /// `event_transformer_api_inbound_integration`,
-        /// `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
-        /// `generic_email_inbound_integration`,
-        /// `generic_events_api_inbound_integration`,
-        /// `keynote_inbound_integration`,
-        /// `nagios_inbound_integration`,
-        /// `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+        /// `AwsCloudwatchInboundIntegration`,
+        /// `CloudkickInboundIntegration`,
+        /// `EventTransformerApiInboundIntegration`,
+        /// `EventsApiV2InboundIntegration` (requires service `AlertCreation` to be `CreateAlertsAndIncidents`),
+        /// `GenericEmailInboundIntegration`,
+        /// `GenericEventsApiInboundIntegration`,
+        /// `KeynoteInboundIntegration`,
+        /// `NagiosInboundIntegration`,
+        /// `PingdomInboundIntegration`or `SqlMonitorInboundIntegration`.
         /// 
         /// **Note:** This is meant for **generic** service integrations.
-        /// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+        /// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `Vendor` field instead.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -438,7 +438,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
+        /// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `OnNewEmail`, `OnNewEmailSubject`, `OnlyIfNoOpenIncidents` or `UseRules`.
         /// </summary>
         [Input("emailIncidentCreation")]
         public Input<string>? EmailIncidentCreation { get; set; }
@@ -452,7 +452,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// Can be `open_new_incident` or `discard`.
+        /// Can be `OpenNewIncident` or `Discard`.
         /// </summary>
         [Input("emailParsingFallback")]
         public Input<string>? EmailParsingFallback { get; set; }
@@ -489,18 +489,18 @@ namespace Pulumi.Pagerduty
 
         /// <summary>
         /// The service type. Can be:
-        /// `aws_cloudwatch_inbound_integration`,
-        /// `cloudkick_inbound_integration`,
-        /// `event_transformer_api_inbound_integration`,
-        /// `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
-        /// `generic_email_inbound_integration`,
-        /// `generic_events_api_inbound_integration`,
-        /// `keynote_inbound_integration`,
-        /// `nagios_inbound_integration`,
-        /// `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+        /// `AwsCloudwatchInboundIntegration`,
+        /// `CloudkickInboundIntegration`,
+        /// `EventTransformerApiInboundIntegration`,
+        /// `EventsApiV2InboundIntegration` (requires service `AlertCreation` to be `CreateAlertsAndIncidents`),
+        /// `GenericEmailInboundIntegration`,
+        /// `GenericEventsApiInboundIntegration`,
+        /// `KeynoteInboundIntegration`,
+        /// `NagiosInboundIntegration`,
+        /// `PingdomInboundIntegration`or `SqlMonitorInboundIntegration`.
         /// 
         /// **Note:** This is meant for **generic** service integrations.
-        /// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+        /// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `Vendor` field instead.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

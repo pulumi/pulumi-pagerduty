@@ -14,62 +14,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventOrchestrationGlobalCacheVariableConfiguration {
     /**
-     * @return The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
+     * @return The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
      * 
      */
     private @Nullable String dataType;
     /**
-     * @return A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+     * @return A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
      * 
      */
     private @Nullable String regex;
     /**
-     * @return The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
+     * @return The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
      * 
      */
     private @Nullable String source;
     /**
-     * @return The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
+     * @return The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
      * 
      */
     private @Nullable Integer ttlSeconds;
     /**
-     * @return The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
+     * @return The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
      * 
      */
     private String type;
 
     private EventOrchestrationGlobalCacheVariableConfiguration() {}
     /**
-     * @return The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
+     * @return The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
      * 
      */
     public Optional<String> dataType() {
         return Optional.ofNullable(this.dataType);
     }
     /**
-     * @return A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+     * @return A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
      * 
      */
     public Optional<String> regex() {
         return Optional.ofNullable(this.regex);
     }
     /**
-     * @return The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
+     * @return The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
      * 
      */
     public Optional<String> source() {
         return Optional.ofNullable(this.source);
     }
     /**
-     * @return The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
+     * @return The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
      * 
      */
     public Optional<Integer> ttlSeconds() {
         return Optional.ofNullable(this.ttlSeconds);
     }
     /**
-     * @return The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
+     * @return The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
      * 
      */
     public String type() {

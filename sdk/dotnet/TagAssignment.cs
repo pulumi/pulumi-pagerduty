@@ -60,7 +60,7 @@ namespace Pulumi.Pagerduty
         public Output<string> EntityId { get; private set; } = null!;
 
         /// <summary>
-        /// Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+        /// Type of entity in the tag assignment. Possible values can be `Users`, `Teams`, and `EscalationPolicies`.
         /// </summary>
         [Output("entityType")]
         public Output<string> EntityType { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Pagerduty
         public Input<string> EntityId { get; set; } = null!;
 
         /// <summary>
-        /// Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+        /// Type of entity in the tag assignment. Possible values can be `Users`, `Teams`, and `EscalationPolicies`.
         /// </summary>
         [Input("entityType", required: true)]
         public Input<string> EntityType { get; set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? EntityId { get; set; }
 
         /// <summary>
-        /// Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+        /// Type of entity in the tag assignment. Possible values can be `Users`, `Teams`, and `EscalationPolicies`.
         /// </summary>
         [Input("entityType")]
         public Input<string>? EntityType { get; set; }

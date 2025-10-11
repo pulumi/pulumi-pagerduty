@@ -21,7 +21,7 @@ namespace Pulumi.Pagerduty.Inputs
         }
 
         /// <summary>
-        /// Can be `any` or `all`.
+        /// Can be `Any` or `All`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

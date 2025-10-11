@@ -14,11 +14,11 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class ServiceCustomFieldValueCustomField
     {
         /// <summary>
-        /// The ID of the custom field. Either `id` or `name` must be provided.
+        /// The ID of the custom field. Either `Id` or `Name` must be provided.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the custom field. Either `id` or `name` must be provided.
+        /// The name of the custom field. Either `Id` or `Name` must be provided.
         /// </summary>
         public readonly string Name;
         /// <summary>

@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+        /// Type of object of the target. Supported types are `UserReference`, `ScheduleReference`.
         /// </summary>
         public readonly string? Type;
 

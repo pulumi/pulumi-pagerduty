@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+        /// Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `Enabled` is `True`. Must be omitted or set to `Null` if `Enabled` is `False`.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }

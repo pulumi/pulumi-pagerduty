@@ -32,14 +32,14 @@ public final class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAc
     }
 
     /**
-     * The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`
+     * The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alertTriggered&#34;]`, `[&#34;alertSuspended&#34;]`, `[&#34;alertSuppressed&#34;]`
      * 
      */
     @Import(name="triggerTypes")
     private @Nullable Output<String> triggerTypes;
 
     /**
-     * @return The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`
+     * @return The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alertTriggered&#34;]`, `[&#34;alertSuspended&#34;]`, `[&#34;alertSuppressed&#34;]`
      * 
      */
     public Optional<Output<String>> triggerTypes() {
@@ -93,7 +93,7 @@ public final class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAc
         }
 
         /**
-         * @param triggerTypes The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`
+         * @param triggerTypes The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alertTriggered&#34;]`, `[&#34;alertSuspended&#34;]`, `[&#34;alertSuppressed&#34;]`
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAc
         }
 
         /**
-         * @param triggerTypes The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alert_triggered&#34;]`, `[&#34;alert_suspended&#34;]`, `[&#34;alert_suppressed&#34;]`
+         * @param triggerTypes The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `[&#34;alertTriggered&#34;]`, `[&#34;alertSuspended&#34;]`, `[&#34;alertSuppressed&#34;]`
          * 
          * @return builder
          * 

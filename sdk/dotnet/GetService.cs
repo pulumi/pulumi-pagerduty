@@ -189,7 +189,7 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceTeamResult> Teams;
         /// <summary>
-        /// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        /// The type of object. The value returned will be `Service`. Can be used for passing to a service dependency.
         /// </summary>
         public readonly string Type;
 

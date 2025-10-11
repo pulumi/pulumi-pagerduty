@@ -209,6 +209,8 @@ class JiraCloudAccountMappingRule(pulumi.CustomResource):
         configures the bidirectional synchronization between Jira issues and PagerDuty
         incidents.
 
+        ## Example Usage
+
         ## Import
 
         Jira Cloud account mapping rules can be imported using the `account_mapping_id` and `rule_id`, e.g.
@@ -234,6 +236,8 @@ class JiraCloudAccountMappingRule(pulumi.CustomResource):
         An Jira Cloud's account mapping [rule](https://developer.pagerduty.com/api-reference/85dc30ba966a6-create-a-rule)
         configures the bidirectional synchronization between Jira issues and PagerDuty
         incidents.
+
+        ## Example Usage
 
         ## Import
 

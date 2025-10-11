@@ -90,7 +90,7 @@ namespace Pulumi.Pagerduty
         public Output<string?> AlertCreation { get; private set; } = null!;
 
         /// <summary>
-        /// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
+        /// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `Time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `AlertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `Intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
         /// </summary>
         [Output("alertGrouping")]
         public Output<string> AlertGrouping { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Pagerduty
         public Output<Outputs.ServiceAlertGroupingParameters?> AlertGroupingParameters { get; private set; } = null!;
 
         /// <summary>
-        /// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
+        /// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `AlertGrouping` is set to `Time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
         /// </summary>
         [Output("alertGroupingTimeout")]
         public Output<string> AlertGroupingTimeout { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Pagerduty
         public Output<Outputs.ServiceSupportHours?> SupportHours { get; private set; } = null!;
 
         /// <summary>
-        /// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        /// The type of object. The value returned will be `Service`. Can be used for passing to a service dependency.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? AlertCreation { get; set; }
 
         /// <summary>
-        /// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
+        /// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `Time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `AlertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `Intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
         /// </summary>
         [Input("alertGrouping")]
         public Input<string>? AlertGrouping { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.ServiceAlertGroupingParametersArgs>? AlertGroupingParameters { get; set; }
 
         /// <summary>
-        /// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
+        /// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `AlertGrouping` is set to `Time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
         /// </summary>
         [Input("alertGroupingTimeout")]
         public Input<string>? AlertGroupingTimeout { get; set; }
@@ -332,7 +332,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? AlertCreation { get; set; }
 
         /// <summary>
-        /// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
+        /// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `Time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `AlertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `Intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
         /// </summary>
         [Input("alertGrouping")]
         public Input<string>? AlertGrouping { get; set; }
@@ -344,7 +344,7 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.ServiceAlertGroupingParametersGetArgs>? AlertGroupingParameters { get; set; }
 
         /// <summary>
-        /// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
+        /// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `AlertGrouping` is set to `Time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
         /// </summary>
         [Input("alertGroupingTimeout")]
         public Input<string>? AlertGroupingTimeout { get; set; }
@@ -425,7 +425,7 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.ServiceSupportHoursGetArgs>? SupportHours { get; set; }
 
         /// <summary>
-        /// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        /// The type of object. The value returned will be `Service`. Can be used for passing to a service dependency.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class ServiceEventRuleConditionsSubconditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+        /// Type of operator to apply to the sub-condition. Can be `Exists`,`Nexists`,`Equals`,`Nequals`,`Contains`,`Ncontains`,`Matches`, or `Nmatches`.
         /// </summary>
         [Input("operator")]
         public Input<string>? Operator { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<Inputs.ServiceEventRuleConditionsSubconditionParameterArgs>? _parameters;
 
         /// <summary>
-        /// Parameter for the sub-condition. It requires both a `path` and `value` to be set. The `path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        /// Parameter for the sub-condition. It requires both a `Path` and `Value` to be set. The `Path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
         /// </summary>
         public InputList<Inputs.ServiceEventRuleConditionsSubconditionParameterArgs> Parameters
         {

@@ -19,14 +19,14 @@ public final class EventOrchestrationUnroutedState extends com.pulumi.resources.
     public static final EventOrchestrationUnroutedState Empty = new EventOrchestrationUnroutedState();
 
     /**
-     * the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+     * the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      * 
      */
     @Import(name="catchAll")
     private @Nullable Output<EventOrchestrationUnroutedCatchAllArgs> catchAll;
 
     /**
-     * @return the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+     * @return the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      * 
      */
     public Optional<Output<EventOrchestrationUnroutedCatchAllArgs>> catchAll() {
@@ -90,7 +90,7 @@ public final class EventOrchestrationUnroutedState extends com.pulumi.resources.
         }
 
         /**
-         * @param catchAll the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+         * @param catchAll the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class EventOrchestrationUnroutedState extends com.pulumi.resources.
         }
 
         /**
-         * @param catchAll the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+         * @param catchAll the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
          * 
          * @return builder
          * 

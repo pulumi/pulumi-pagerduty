@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string> ActionId { get; set; } = null!;
 
         /// <summary>
-        /// The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alert_triggered"]`, `["alert_suspended"]`, `["alert_suppressed"]`
+        /// The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["AlertTriggered"]`, `["AlertSuspended"]`, `["AlertSuppressed"]`
         /// </summary>
         [Input("triggerTypes")]
         public Input<string>? TriggerTypes { get; set; }

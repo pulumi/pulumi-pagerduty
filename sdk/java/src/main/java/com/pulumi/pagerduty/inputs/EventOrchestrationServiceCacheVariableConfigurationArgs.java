@@ -18,14 +18,14 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
     public static final EventOrchestrationServiceCacheVariableConfigurationArgs Empty = new EventOrchestrationServiceCacheVariableConfigurationArgs();
 
     /**
-     * The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
+     * The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
      * 
      */
     @Import(name="dataType")
     private @Nullable Output<String> dataType;
 
     /**
-     * @return The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
+     * @return The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
      * 
      */
     public Optional<Output<String>> dataType() {
@@ -33,14 +33,14 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
     }
 
     /**
-     * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+     * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
      * 
      */
     @Import(name="regex")
     private @Nullable Output<String> regex;
 
     /**
-     * @return A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+     * @return A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
      * 
      */
     public Optional<Output<String>> regex() {
@@ -48,14 +48,14 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
     }
 
     /**
-     * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
+     * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
      * 
      */
     @Import(name="source")
     private @Nullable Output<String> source;
 
     /**
-     * @return The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
+     * @return The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
      * 
      */
     public Optional<Output<String>> source() {
@@ -63,14 +63,14 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
     }
 
     /**
-     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
+     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
      * 
      */
     @Import(name="ttlSeconds")
     private @Nullable Output<Integer> ttlSeconds;
 
     /**
-     * @return The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
+     * @return The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
      * 
      */
     public Optional<Output<Integer>> ttlSeconds() {
@@ -78,14 +78,14 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
     }
 
     /**
-     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
+     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
+     * @return The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
      * 
      */
     public Output<String> type() {
@@ -121,7 +121,7 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
         }
 
         /**
-         * @param dataType The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
+         * @param dataType The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
         }
 
         /**
-         * @param dataType The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `external_data`
+         * @param dataType The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
         }
 
         /**
-         * @param regex A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+         * @param regex A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
         }
 
         /**
-         * @param regex A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+         * @param regex A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
         }
 
         /**
-         * @param source The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
+         * @param source The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
         }
 
         /**
-         * @param source The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
+         * @param source The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
         }
 
         /**
-         * @param ttlSeconds The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
+         * @param ttlSeconds The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
         }
 
         /**
-         * @param ttlSeconds The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count` or `external_data`
+         * @param ttlSeconds The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
         }
 
         /**
-         * @param type The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
+         * @param type The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class EventOrchestrationServiceCacheVariableConfigurationArgs exten
         }
 
         /**
-         * @param type The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value`, `trigger_event_count` or `external_data`.
+         * @param type The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
          * 
          * @return builder
          * 

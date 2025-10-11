@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * 
  * **NOTES for using this resource:**
  * * To first use this resource you will need to [map your PagerDuty account to a valid Slack Workspace](https://support.pagerduty.com/docs/slack-integration-guide#integration-walkthrough). *This can only be done through the PagerDuty UI.*
- * * This resource requires a PagerDuty [user-level API key](https://support.pagerduty.com/docs/generating-api-keys#section-generating-a-personal-rest-api-key). This can be set as the `user_token` on the provider tag or as the `PAGERDUTY_USER_TOKEN` environment variable.
+ * * This resource requires a PagerDuty [user-level API key](https://support.pagerduty.com/docs/generating-api-keys#section-generating-a-personal-rest-api-key). This can be set as the `userToken` on the provider tag or as the `PAGERDUTY_USER_TOKEN` environment variable.
  * * This resource is for configuring Slack V2 Next Generation connections. If you configured your Slack integration (V1 or V2) prior to August 10, 2021, you may migrate to the Slack V2 Next Generation update using this [migration instructions](https://support.pagerduty.com/docs/slack-integration-guide#migrate-to-slack-v2-next-generation), but if you configured your Slack integration after that date, you will have access to the update out of the box.
  * ## Example Usage
  * 
@@ -185,14 +185,14 @@ public class SlackConnection extends com.pulumi.resources.CustomResource {
         return this.sourceName;
     }
     /**
-     * The type of the source. Either `team_reference` or `service_reference`.
+     * The type of the source. Either `teamReference` or `serviceReference`.
      * 
      */
     @Export(name="sourceType", refs={String.class}, tree="[0]")
     private Output<String> sourceType;
 
     /**
-     * @return The type of the source. Either `team_reference` or `service_reference`.
+     * @return The type of the source. Either `teamReference` or `serviceReference`.
      * 
      */
     public Output<String> sourceType() {

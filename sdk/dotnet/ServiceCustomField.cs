@@ -121,7 +121,7 @@ namespace Pulumi.Pagerduty
     public partial class ServiceCustomField : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        /// The kind of data the custom field is allowed to contain. Can be one of: `String`, `Integer`, `Float`, `Boolean`, `Datetime`, or `Url`.
         /// </summary>
         [Output("dataType")]
         public Output<string> DataType { get; private set; } = null!;
@@ -145,19 +145,19 @@ namespace Pulumi.Pagerduty
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the field is enabled. Defaults to `true`.
+        /// Whether the field is enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.
+        /// Configuration block for defining options for `SingleValueFixed` or `MultiValueFixed` field types. Can be specified multiple times for multiple options.
         /// </summary>
         [Output("fieldOptions")]
         public Output<ImmutableArray<Outputs.ServiceCustomFieldFieldOption>> FieldOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+        /// The type of field. Must be one of: `SingleValue`, `SingleValueFixed`, `MultiValue`, or `MultiValueFixed`.
         /// </summary>
         [Output("fieldType")]
         public Output<string> FieldType { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Pagerduty
     public sealed class ServiceCustomFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        /// The kind of data the custom field is allowed to contain. Can be one of: `String`, `Integer`, `Float`, `Boolean`, `Datetime`, or `Url`.
         /// </summary>
         [Input("dataType", required: true)]
         public Input<string> DataType { get; set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Pagerduty
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Whether the field is enabled. Defaults to `true`.
+        /// Whether the field is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -266,7 +266,7 @@ namespace Pulumi.Pagerduty
         private InputList<Inputs.ServiceCustomFieldFieldOptionArgs>? _fieldOptions;
 
         /// <summary>
-        /// Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.
+        /// Configuration block for defining options for `SingleValueFixed` or `MultiValueFixed` field types. Can be specified multiple times for multiple options.
         /// </summary>
         public InputList<Inputs.ServiceCustomFieldFieldOptionArgs> FieldOptions
         {
@@ -275,7 +275,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+        /// The type of field. Must be one of: `SingleValue`, `SingleValueFixed`, `MultiValue`, or `MultiValueFixed`.
         /// </summary>
         [Input("fieldType", required: true)]
         public Input<string> FieldType { get; set; } = null!;
@@ -295,7 +295,7 @@ namespace Pulumi.Pagerduty
     public sealed class ServiceCustomFieldState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        /// The kind of data the custom field is allowed to contain. Can be one of: `String`, `Integer`, `Float`, `Boolean`, `Datetime`, or `Url`.
         /// </summary>
         [Input("dataType")]
         public Input<string>? DataType { get; set; }
@@ -319,7 +319,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Whether the field is enabled. Defaults to `true`.
+        /// Whether the field is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -328,7 +328,7 @@ namespace Pulumi.Pagerduty
         private InputList<Inputs.ServiceCustomFieldFieldOptionGetArgs>? _fieldOptions;
 
         /// <summary>
-        /// Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.
+        /// Configuration block for defining options for `SingleValueFixed` or `MultiValueFixed` field types. Can be specified multiple times for multiple options.
         /// </summary>
         public InputList<Inputs.ServiceCustomFieldFieldOptionGetArgs> FieldOptions
         {
@@ -337,7 +337,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+        /// The type of field. Must be one of: `SingleValue`, `SingleValueFixed`, `MultiValue`, or `MultiValueFixed`.
         /// </summary>
         [Input("fieldType")]
         public Input<string>? FieldType { get; set; }

@@ -26,7 +26,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// <summary>
         /// Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
         /// 
-        /// *NOTE: A rule can have multiple `extraction` objects attributed to it.*
+        /// *NOTE: A rule can have multiple `Extraction` objects attributed to it.*
         /// </summary>
         public readonly string? Target;
         /// <summary>

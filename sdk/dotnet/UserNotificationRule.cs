@@ -12,6 +12,8 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [notification rule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0NQ-create-a-user-notification-rule) configures where and when a PagerDuty user is notified when a triggered incident is assigned to them. Unique notification rules can be created for both high and low-urgency incidents.
     /// 
+    /// ## Example Usage
+    /// 
     /// ## Import
     /// 
     /// User notification rules can be imported using the `user_id` and the `id`, e.g.
@@ -36,7 +38,7 @@ namespace Pulumi.Pagerduty
         public Output<int> StartDelayInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
+        /// Which incident urgency this rule is used for. Account must have the `Urgencies` ability to have a low urgency notification rule. Can be `High` or `Low`.
         /// </summary>
         [Output("urgency")]
         public Output<string> Urgency { get; private set; } = null!;
@@ -106,7 +108,7 @@ namespace Pulumi.Pagerduty
         public Input<int> StartDelayInMinutes { get; set; } = null!;
 
         /// <summary>
-        /// Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
+        /// Which incident urgency this rule is used for. Account must have the `Urgencies` ability to have a low urgency notification rule. Can be `High` or `Low`.
         /// </summary>
         [Input("urgency", required: true)]
         public Input<string> Urgency { get; set; } = null!;
@@ -138,7 +140,7 @@ namespace Pulumi.Pagerduty
         public Input<int>? StartDelayInMinutes { get; set; }
 
         /// <summary>
-        /// Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
+        /// Which incident urgency this rule is used for. Account must have the `Urgencies` ability to have a low urgency notification rule. Can be `High` or `Low`.
         /// </summary>
         [Input("urgency")]
         public Input<string>? Urgency { get; set; }

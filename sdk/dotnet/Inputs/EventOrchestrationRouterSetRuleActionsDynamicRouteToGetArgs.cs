@@ -13,9 +13,9 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class EventOrchestrationRouterSetRuleActionsDynamicRouteToGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether the extracted value from the source is a service's name or ID. Allowed values are: `service_name`, `service_id`
+        /// Indicates whether the extracted value from the source is a service's name or ID. Allowed values are: `ServiceName`, `ServiceId`
         /// 
-        /// If an event has a value at the specified `source`, and if the `regex` successfully matches the value, and if the matching portion is valid Service ID or Name, then the event will be routed to that service. Otherwise the event will be checked against any subsequent router rules.
+        /// If an event has a value at the specified `Source`, and if the `Regex` successfully matches the value, and if the matching portion is valid Service ID or Name, then the event will be routed to that service. Otherwise the event will be checked against any subsequent router rules.
         /// </summary>
         [Input("lookupBy", required: true)]
         public Input<string> LookupBy { get; set; } = null!;

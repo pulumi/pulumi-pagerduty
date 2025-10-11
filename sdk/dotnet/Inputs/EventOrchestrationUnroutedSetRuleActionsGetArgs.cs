@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class EventOrchestrationUnroutedSetRuleActionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        /// sets whether the resulting alert status is trigger or resolve. Allowed values are: `Trigger`, `Resolve`
         /// </summary>
         [Input("eventAction")]
         public Input<string>? EventAction { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? RouteTo { get; set; }
 
         /// <summary>
-        /// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        /// sets Severity of the resulting alert. Allowed values are: `Info`, `Error`, `Warning`, `Critical`
         /// </summary>
         [Input("severity")]
         public Input<string>? Severity { get; set; }

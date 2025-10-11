@@ -138,7 +138,7 @@ namespace Pulumi.Pagerduty
         public Output<string> SnowUser { get; private set; } = null!;
 
         /// <summary>
-        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `Name`, though it is not intended to be an identifier.
         /// </summary>
         [Output("summary")]
         public Output<string> Summary { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Pagerduty
         public Output<string> Target { get; private set; } = null!;
 
         /// <summary>
-        /// The ServiceNow task type, typically `incident`.
+        /// The ServiceNow task type, typically `Incident`.
         /// </summary>
         [Output("taskType")]
         public Output<string> TaskType { get; private set; } = null!;
@@ -280,7 +280,7 @@ namespace Pulumi.Pagerduty
         public Input<string> SnowUser { get; set; } = null!;
 
         /// <summary>
-        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `Name`, though it is not intended to be an identifier.
         /// </summary>
         [Input("summary")]
         public Input<string>? Summary { get; set; }
@@ -298,7 +298,7 @@ namespace Pulumi.Pagerduty
         public Input<string> Target { get; set; } = null!;
 
         /// <summary>
-        /// The ServiceNow task type, typically `incident`.
+        /// The ServiceNow task type, typically `Incident`.
         /// </summary>
         [Input("taskType", required: true)]
         public Input<string> TaskType { get; set; } = null!;
@@ -385,7 +385,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? SnowUser { get; set; }
 
         /// <summary>
-        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `Name`, though it is not intended to be an identifier.
         /// </summary>
         [Input("summary")]
         public Input<string>? Summary { get; set; }
@@ -403,7 +403,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Target { get; set; }
 
         /// <summary>
-        /// The ServiceNow task type, typically `incident`.
+        /// The ServiceNow task type, typically `Incident`.
         /// </summary>
         [Input("taskType")]
         public Input<string>? TaskType { get; set; }

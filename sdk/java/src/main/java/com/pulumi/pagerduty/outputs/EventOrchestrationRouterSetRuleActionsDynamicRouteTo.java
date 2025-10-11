@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class EventOrchestrationRouterSetRuleActionsDynamicRouteTo {
     /**
-     * @return Indicates whether the extracted value from the source is a service&#39;s name or ID. Allowed values are: `service_name`, `service_id`
+     * @return Indicates whether the extracted value from the source is a service&#39;s name or ID. Allowed values are: `serviceName`, `serviceId`
      * 
      * If an event has a value at the specified `source`, and if the `regex` successfully matches the value, and if the matching portion is valid Service ID or Name, then the event will be routed to that service. Otherwise the event will be checked against any subsequent router rules.
      * 
@@ -30,7 +30,7 @@ public final class EventOrchestrationRouterSetRuleActionsDynamicRouteTo {
 
     private EventOrchestrationRouterSetRuleActionsDynamicRouteTo() {}
     /**
-     * @return Indicates whether the extracted value from the source is a service&#39;s name or ID. Allowed values are: `service_name`, `service_id`
+     * @return Indicates whether the extracted value from the source is a service&#39;s name or ID. Allowed values are: `serviceName`, `serviceId`
      * 
      * If an event has a value at the specified `source`, and if the `regex` successfully matches the value, and if the matching portion is valid Service ID or Name, then the event will be routed to that service. Otherwise the event will be checked against any subsequent router rules.
      * 

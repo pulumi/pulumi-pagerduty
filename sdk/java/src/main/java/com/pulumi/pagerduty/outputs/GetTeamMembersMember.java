@@ -26,7 +26,7 @@ public final class GetTeamMembersMember {
      */
     private String summary;
     /**
-     * @return The type of object. The value returned will be `user_reference`. Can be used for passing to another object as dependency.
+     * @return The type of object. The value returned will be `userReference`. Can be used for passing to another object as dependency.
      * 
      */
     private String type;
@@ -54,7 +54,7 @@ public final class GetTeamMembersMember {
         return this.summary;
     }
     /**
-     * @return The type of object. The value returned will be `user_reference`. Can be used for passing to another object as dependency.
+     * @return The type of object. The value returned will be `userReference`. Can be used for passing to another object as dependency.
      * 
      */
     public String type() {

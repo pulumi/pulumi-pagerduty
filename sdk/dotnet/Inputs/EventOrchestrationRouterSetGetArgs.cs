@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class EventOrchestrationRouterSetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the `start` set. Router supports only one set and it's id has to be `start`
+        /// ID of the `Start` set. Router supports only one set and it's id has to be `Start`
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

@@ -71,7 +71,7 @@ namespace Pulumi.Pagerduty
     public partial class UserContactMethod : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
+        /// The "address" to deliver to: `Email`, `phone number`, etc., depending on the type.
         /// </summary>
         [Output("address")]
         public Output<string> Address { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.Pagerduty
         public Output<bool> Blacklisted { get; private set; } = null!;
 
         /// <summary>
-        /// The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+        /// The 1-to-3 digit country calling code. Required when using `PhoneContactMethod` or `SmsContactMethod`.
         /// </summary>
         [Output("countryCode")]
         public Output<int> CountryCode { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.Pagerduty
         public Output<bool> SendShortEmail { get; private set; } = null!;
 
         /// <summary>
-        /// The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        /// The contact method type. May be (`EmailContactMethod`, `PhoneContactMethod`, `SmsContactMethod`, `PushNotificationContactMethod`).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -168,13 +168,13 @@ namespace Pulumi.Pagerduty
     public sealed class UserContactMethodArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
+        /// The "address" to deliver to: `Email`, `phone number`, etc., depending on the type.
         /// </summary>
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
 
         /// <summary>
-        /// The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+        /// The 1-to-3 digit country calling code. Required when using `PhoneContactMethod` or `SmsContactMethod`.
         /// </summary>
         [Input("countryCode")]
         public Input<int>? CountryCode { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.Pagerduty
         public Input<bool>? SendShortEmail { get; set; }
 
         /// <summary>
-        /// The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        /// The contact method type. May be (`EmailContactMethod`, `PhoneContactMethod`, `SmsContactMethod`, `PushNotificationContactMethod`).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Pagerduty
     public sealed class UserContactMethodState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
+        /// The "address" to deliver to: `Email`, `phone number`, etc., depending on the type.
         /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Pagerduty
         public Input<bool>? Blacklisted { get; set; }
 
         /// <summary>
-        /// The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+        /// The 1-to-3 digit country calling code. Required when using `PhoneContactMethod` or `SmsContactMethod`.
         /// </summary>
         [Input("countryCode")]
         public Input<int>? CountryCode { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Pagerduty
         public Input<bool>? SendShortEmail { get; set; }
 
         /// <summary>
-        /// The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        /// The contact method type. May be (`EmailContactMethod`, `PhoneContactMethod`, `SmsContactMethod`, `PushNotificationContactMethod`).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

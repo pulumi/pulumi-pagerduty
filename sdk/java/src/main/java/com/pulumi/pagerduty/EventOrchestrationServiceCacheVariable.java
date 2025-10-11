@@ -163,14 +163,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable")
 public class EventOrchestrationServiceCacheVariable extends com.pulumi.resources.CustomResource {
     /**
-     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+     * Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      * 
      */
     @Export(name="conditions", refs={List.class,EventOrchestrationServiceCacheVariableCondition.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EventOrchestrationServiceCacheVariableCondition>> conditions;
 
     /**
-     * @return Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+     * @return Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      * 
      */
     public Output<Optional<List<EventOrchestrationServiceCacheVariableCondition>>> conditions() {

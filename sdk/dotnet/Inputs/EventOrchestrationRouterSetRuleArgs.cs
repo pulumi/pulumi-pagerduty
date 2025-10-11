@@ -37,7 +37,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<bool>? Disabled { get; set; }
 
         /// <summary>
-        /// The ID of the rule within the `start` set.
+        /// The ID of the rule within the `Start` set.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

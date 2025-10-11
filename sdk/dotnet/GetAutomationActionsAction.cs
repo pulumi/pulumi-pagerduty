@@ -88,7 +88,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetAutomationActionsActionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        /// (Optional) The category of the action. The only allowed values are `Diagnostic` and `Remediation`.
         /// </summary>
         [Input("actionClassification")]
         public string? ActionClassification { get; set; }
@@ -154,7 +154,7 @@ namespace Pulumi.Pagerduty
         public string? RunnerType { get; set; }
 
         /// <summary>
-        /// The type of object. The value returned will be `action`.
+        /// The type of object. The value returned will be `Action`.
         /// </summary>
         [Input("type")]
         public string? Type { get; set; }
@@ -168,7 +168,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetAutomationActionsActionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        /// (Optional) The category of the action. The only allowed values are `Diagnostic` and `Remediation`.
         /// </summary>
         [Input("actionClassification")]
         public Input<string>? ActionClassification { get; set; }
@@ -234,7 +234,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? RunnerType { get; set; }
 
         /// <summary>
-        /// The type of object. The value returned will be `action`.
+        /// The type of object. The value returned will be `Action`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetAutomationActionsActionResult
     {
         /// <summary>
-        /// (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        /// (Optional) The category of the action. The only allowed values are `Diagnostic` and `Remediation`.
         /// </summary>
         public readonly string ActionClassification;
         /// <summary>
@@ -258,7 +258,7 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAutomationActionsActionActionDataReferenceResult> ActionDataReferences;
         /// <summary>
-        /// The type of the action. The only allowed values are `process_automation` and `script`.
+        /// The type of the action. The only allowed values are `ProcessAutomation` and `Script`.
         /// </summary>
         public readonly string ActionType;
         /// <summary>
@@ -306,7 +306,7 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly string RunnerType;
         /// <summary>
-        /// The type of object. The value returned will be `action`.
+        /// The type of object. The value returned will be `Action`.
         /// </summary>
         public readonly string Type;
 

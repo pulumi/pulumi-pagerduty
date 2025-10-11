@@ -31,14 +31,14 @@ public final class TagAssignmentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+     * Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
      * 
      */
     @Import(name="entityType")
     private @Nullable Output<String> entityType;
 
     /**
-     * @return Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+     * @return Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
      * 
      */
     public Optional<Output<String>> entityType() {
@@ -108,7 +108,7 @@ public final class TagAssignmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param entityType Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+         * @param entityType Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class TagAssignmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param entityType Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
+         * @param entityType Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
          * 
          * @return builder
          * 

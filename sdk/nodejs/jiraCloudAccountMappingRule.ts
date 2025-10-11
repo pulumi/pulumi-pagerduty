@@ -11,6 +11,8 @@ import * as utilities from "./utilities";
  * configures the bidirectional synchronization between Jira issues and PagerDuty
  * incidents.
  *
+ * ## Example Usage
+ *
  * ## Import
  *
  * Jira Cloud account mapping rules can be imported using the `account_mapping_id` and `rule_id`, e.g.

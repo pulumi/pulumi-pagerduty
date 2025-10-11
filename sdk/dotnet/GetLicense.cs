@@ -12,9 +12,9 @@ namespace Pulumi.Pagerduty
     public static class GetLicense
     {
         /// <summary>
-        /// Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+        /// Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users' licenses, the `CurrentValue` and `AllocationsAvailable` attributes of licenses will change.
         /// 
-        /// &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `"Full User"` or `"Stakeholder"`.
+        /// &gt; It is preferred to set the `Name` and `Description` to their exact values or to set the `Id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `Name` of a license to a valid substring such as `"Full User"` or `"Stakeholder"`.
         /// 
         /// ## Example Usage
         /// 
@@ -52,9 +52,9 @@ namespace Pulumi.Pagerduty
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLicenseResult>("pagerduty:index/getLicense:getLicense", args ?? new GetLicenseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+        /// Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users' licenses, the `CurrentValue` and `AllocationsAvailable` attributes of licenses will change.
         /// 
-        /// &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `"Full User"` or `"Stakeholder"`.
+        /// &gt; It is preferred to set the `Name` and `Description` to their exact values or to set the `Id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `Name` of a license to a valid substring such as `"Full User"` or `"Stakeholder"`.
         /// 
         /// ## Example Usage
         /// 
@@ -92,9 +92,9 @@ namespace Pulumi.Pagerduty
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseResult>("pagerduty:index/getLicense:getLicense", args ?? new GetLicenseInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+        /// Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users' licenses, the `CurrentValue` and `AllocationsAvailable` attributes of licenses will change.
         /// 
-        /// &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `"Full User"` or `"Stakeholder"`.
+        /// &gt; It is preferred to set the `Name` and `Description` to their exact values or to set the `Id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `Name` of a license to a valid substring such as `"Full User"` or `"Stakeholder"`.
         /// 
         /// ## Example Usage
         /// 
@@ -202,7 +202,7 @@ namespace Pulumi.Pagerduty
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// The role group for the license that determines the available `valid_roles`
+        /// The role group for the license that determines the available `ValidRoles`
         /// </summary>
         public readonly string RoleGroup;
         public readonly string Self;

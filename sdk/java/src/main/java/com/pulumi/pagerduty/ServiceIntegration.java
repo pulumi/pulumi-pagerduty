@@ -222,14 +222,14 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
         return this.emailFilters;
     }
     /**
-     * Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
+     * Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `onNewEmail`, `onNewEmailSubject`, `onlyIfNoOpenIncidents` or `useRules`.
      * 
      */
     @Export(name="emailIncidentCreation", refs={String.class}, tree="[0]")
     private Output<String> emailIncidentCreation;
 
     /**
-     * @return Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
+     * @return Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `onNewEmail`, `onNewEmailSubject`, `onlyIfNoOpenIncidents` or `useRules`.
      * 
      */
     public Output<String> emailIncidentCreation() {
@@ -242,14 +242,14 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.emailParsers);
     }
     /**
-     * Can be `open_new_incident` or `discard`.
+     * Can be `openNewIncident` or `discard`.
      * 
      */
     @Export(name="emailParsingFallback", refs={String.class}, tree="[0]")
     private Output<String> emailParsingFallback;
 
     /**
-     * @return Can be `open_new_incident` or `discard`.
+     * @return Can be `openNewIncident` or `discard`.
      * 
      */
     public Output<String> emailParsingFallback() {
@@ -327,15 +327,15 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
     }
     /**
      * The service type. Can be:
-     * `aws_cloudwatch_inbound_integration`,
-     * `cloudkick_inbound_integration`,
-     * `event_transformer_api_inbound_integration`,
-     * `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
-     * `generic_email_inbound_integration`,
-     * `generic_events_api_inbound_integration`,
-     * `keynote_inbound_integration`,
-     * `nagios_inbound_integration`,
-     * `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+     * `awsCloudwatchInboundIntegration`,
+     * `cloudkickInboundIntegration`,
+     * `eventTransformerApiInboundIntegration`,
+     * `eventsApiV2InboundIntegration` (requires service `alertCreation` to be `createAlertsAndIncidents`),
+     * `genericEmailInboundIntegration`,
+     * `genericEventsApiInboundIntegration`,
+     * `keynoteInboundIntegration`,
+     * `nagiosInboundIntegration`,
+     * `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
      * 
      * **Note:** This is meant for **generic** service integrations.
      * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
@@ -346,15 +346,15 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The service type. Can be:
-     * `aws_cloudwatch_inbound_integration`,
-     * `cloudkick_inbound_integration`,
-     * `event_transformer_api_inbound_integration`,
-     * `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
-     * `generic_email_inbound_integration`,
-     * `generic_events_api_inbound_integration`,
-     * `keynote_inbound_integration`,
-     * `nagios_inbound_integration`,
-     * `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+     * `awsCloudwatchInboundIntegration`,
+     * `cloudkickInboundIntegration`,
+     * `eventTransformerApiInboundIntegration`,
+     * `eventsApiV2InboundIntegration` (requires service `alertCreation` to be `createAlertsAndIncidents`),
+     * `genericEmailInboundIntegration`,
+     * `genericEventsApiInboundIntegration`,
+     * `keynoteInboundIntegration`,
+     * `nagiosInboundIntegration`,
+     * `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
      * 
      * **Note:** This is meant for **generic** service integrations.
      * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.

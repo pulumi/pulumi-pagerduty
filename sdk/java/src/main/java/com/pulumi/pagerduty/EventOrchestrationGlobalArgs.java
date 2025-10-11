@@ -18,14 +18,14 @@ public final class EventOrchestrationGlobalArgs extends com.pulumi.resources.Res
     public static final EventOrchestrationGlobalArgs Empty = new EventOrchestrationGlobalArgs();
 
     /**
-     * the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+     * the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      * 
      */
     @Import(name="catchAll", required=true)
     private Output<EventOrchestrationGlobalCatchAllArgs> catchAll;
 
     /**
-     * @return the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+     * @return the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      * 
      */
     public Output<EventOrchestrationGlobalCatchAllArgs> catchAll() {
@@ -89,7 +89,7 @@ public final class EventOrchestrationGlobalArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param catchAll the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+         * @param catchAll the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class EventOrchestrationGlobalArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param catchAll the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+         * @param catchAll the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
          * 
          * @return builder
          * 

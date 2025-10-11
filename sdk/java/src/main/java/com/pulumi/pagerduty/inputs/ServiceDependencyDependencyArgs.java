@@ -20,14 +20,14 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
     public static final ServiceDependencyDependencyArgs Empty = new ServiceDependencyDependencyArgs();
 
     /**
-     * The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
+     * The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependentService` dependency block must be defined.
      * 
      */
     @Import(name="dependentServices", required=true)
     private Output<List<ServiceDependencyDependencyDependentServiceArgs>> dependentServices;
 
     /**
-     * @return The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
+     * @return The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependentService` dependency block must be defined.
      * 
      */
     public Output<List<ServiceDependencyDependencyDependentServiceArgs>> dependentServices() {
@@ -35,14 +35,14 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
     }
 
     /**
-     * The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
+     * The service that supports the dependent service. Dependency supporting service documented below. One and only one `supportingService` dependency block must be defined.
      * 
      */
     @Import(name="supportingServices", required=true)
     private Output<List<ServiceDependencyDependencySupportingServiceArgs>> supportingServices;
 
     /**
-     * @return The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
+     * @return The service that supports the dependent service. Dependency supporting service documented below. One and only one `supportingService` dependency block must be defined.
      * 
      */
     public Output<List<ServiceDependencyDependencySupportingServiceArgs>> supportingServices() {
@@ -50,14 +50,14 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
     }
 
     /**
-     * Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+     * Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+     * @return Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -91,7 +91,7 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param dependentServices The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
+         * @param dependentServices The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependentService` dependency block must be defined.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param dependentServices The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
+         * @param dependentServices The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependentService` dependency block must be defined.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param dependentServices The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependent_service` dependency block must be defined.
+         * @param dependentServices The service that dependents on the supporting service. Dependency dependent service documented below. One and only one `dependentService` dependency block must be defined.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param supportingServices The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
+         * @param supportingServices The service that supports the dependent service. Dependency supporting service documented below. One and only one `supportingService` dependency block must be defined.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param supportingServices The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
+         * @param supportingServices The service that supports the dependent service. Dependency supporting service documented below. One and only one `supportingService` dependency block must be defined.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param supportingServices The service that supports the dependent service. Dependency supporting service documented below. One and only one `supporting_service` dependency block must be defined.
+         * @param supportingServices The service that supports the dependent service. Dependency supporting service documented below. One and only one `supportingService` dependency block must be defined.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param type Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+         * @param type Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param type Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+         * @param type Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
          * 
          * @return builder
          * 

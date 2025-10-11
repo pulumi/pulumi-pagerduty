@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string ProcessAutomationJobArguments;
         /// <summary>
-        /// (Required for `process_automation` action_type) The ID of the Process Automation job to execute.
+        /// (Required for `ProcessAutomation` action_type) The ID of the Process Automation job to execute.
         /// </summary>
         public readonly string ProcessAutomationJobId;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string ProcessAutomationNodeFilter;
         /// <summary>
-        /// (Required for `script` action_type) Body of the script to be executed on the Runner. Max length is 16777215 characters.
+        /// (Required for `Script` action_type) Body of the script to be executed on the Runner. Max length is 16777215 characters.
         /// </summary>
         public readonly string Script;
 

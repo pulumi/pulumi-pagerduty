@@ -108,14 +108,14 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
         return this.actionDataReference;
     }
     /**
-     * The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+     * The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
      * 
      */
     @Export(name="actionType", refs={String.class}, tree="[0]")
     private Output<String> actionType;
 
     /**
-     * @return The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+     * @return The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
      * 
      */
     public Output<String> actionType() {
@@ -234,14 +234,14 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
         return this.onlyInvocableOnUnresolvedIncidents;
     }
     /**
-     * The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
+     * The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
      * 
      */
     @Export(name="runnerId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runnerId;
 
     /**
-     * @return The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
+     * @return The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
      * 
      */
     public Output<Optional<String>> runnerId() {

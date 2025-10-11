@@ -94,14 +94,14 @@ public final class ServiceCustomFieldState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.
+     * Configuration block for defining options for `singleValueFixed` or `multiValueFixed` field types. Can be specified multiple times for multiple options.
      * 
      */
     @Import(name="fieldOptions")
     private @Nullable Output<List<ServiceCustomFieldFieldOptionArgs>> fieldOptions;
 
     /**
-     * @return Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.
+     * @return Configuration block for defining options for `singleValueFixed` or `multiValueFixed` field types. Can be specified multiple times for multiple options.
      * 
      */
     public Optional<Output<List<ServiceCustomFieldFieldOptionArgs>>> fieldOptions() {
@@ -109,14 +109,14 @@ public final class ServiceCustomFieldState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * The type of field. Must be one of: `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      * 
      */
     @Import(name="fieldType")
     private @Nullable Output<String> fieldType;
 
     /**
-     * @return The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+     * @return The type of field. Must be one of: `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      * 
      */
     public Optional<Output<String>> fieldType() {
@@ -323,7 +323,7 @@ public final class ServiceCustomFieldState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param fieldOptions Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.
+         * @param fieldOptions Configuration block for defining options for `singleValueFixed` or `multiValueFixed` field types. Can be specified multiple times for multiple options.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class ServiceCustomFieldState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param fieldOptions Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.
+         * @param fieldOptions Configuration block for defining options for `singleValueFixed` or `multiValueFixed` field types. Can be specified multiple times for multiple options.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class ServiceCustomFieldState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param fieldOptions Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.
+         * @param fieldOptions Configuration block for defining options for `singleValueFixed` or `multiValueFixed` field types. Can be specified multiple times for multiple options.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class ServiceCustomFieldState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param fieldType The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+         * @param fieldType The type of field. Must be one of: `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class ServiceCustomFieldState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param fieldType The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+         * @param fieldType The type of field. Must be one of: `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
          * 
          * @return builder
          * 

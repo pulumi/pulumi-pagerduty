@@ -27,7 +27,7 @@ namespace Pulumi.Pagerduty.Outputs
         public readonly string Description;
         public readonly string HtmlUrl;
         /// <summary>
-        /// Allows to override the default behavior for setting the `id` attribute that is required for data sources.
+        /// Allows to override the default behavior for setting the `Id` attribute that is required for data sources.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -35,7 +35,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The role group for the license that determines the available `valid_roles`
+        /// The role group for the license that determines the available `ValidRoles`
         /// </summary>
         public readonly string RoleGroup;
         public readonly string Self;

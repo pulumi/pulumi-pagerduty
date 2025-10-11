@@ -14,11 +14,11 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class IncidentWorkflowTriggerPermissions
     {
         /// <summary>
-        /// If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+        /// If `True`, indicates that the Trigger can only be started by authorized Users. If `False` (default), any user can start this Trigger. Applicable only to `Manual`-type triggers.
         /// </summary>
         public readonly bool? Restricted;
         /// <summary>
-        /// The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+        /// The ID of the Team whose members can manually start this Trigger. Required and allowed only if `Restricted` is `True`.
         /// </summary>
         public readonly string? TeamId;
 

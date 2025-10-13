@@ -31,12 +31,12 @@ public final class GetServiceCustomFieldResult {
      */
     private Boolean enabled;
     /**
-     * @return The options for the custom field. Only applies to `single_value_fixed` and `multi_value_fixed` field types. Each field option contains:
+     * @return The options for the custom field. Only applies to `singleValueFixed` and `multiValueFixed` field types. Each field option contains:
      * 
      */
     private List<GetServiceCustomFieldFieldOption> fieldOptions;
     /**
-     * @return The type of data this field contains. In combination with the data_type field.
+     * @return The type of data this field contains. In combination with the dataType field.
      * 
      */
     private String fieldType;
@@ -95,14 +95,14 @@ public final class GetServiceCustomFieldResult {
         return this.enabled;
     }
     /**
-     * @return The options for the custom field. Only applies to `single_value_fixed` and `multi_value_fixed` field types. Each field option contains:
+     * @return The options for the custom field. Only applies to `singleValueFixed` and `multiValueFixed` field types. Each field option contains:
      * 
      */
     public List<GetServiceCustomFieldFieldOption> fieldOptions() {
         return this.fieldOptions;
     }
     /**
-     * @return The type of data this field contains. In combination with the data_type field.
+     * @return The type of data this field contains. In combination with the dataType field.
      * 
      */
     public String fieldType() {

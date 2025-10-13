@@ -132,11 +132,11 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// The options for the custom field. Only applies to `single_value_fixed` and `multi_value_fixed` field types. Each field option contains:
+        /// The options for the custom field. Only applies to `SingleValueFixed` and `MultiValueFixed` field types. Each field option contains:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceCustomFieldFieldOptionResult> FieldOptions;
         /// <summary>
-        /// The type of data this field contains. In combination with the data_type field.
+        /// The type of data this field contains. In combination with the DataType field.
         /// </summary>
         public readonly string FieldType;
         /// <summary>

@@ -48,14 +48,14 @@ public final class EnablementArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of entity for which to manage the enablement. Possible values can be `service` and `event_orchestration`.
+     * The type of entity for which to manage the enablement. Possible values can be `service` and `eventOrchestration`.
      * 
      */
     @Import(name="entityType", required=true)
     private Output<String> entityType;
 
     /**
-     * @return The type of entity for which to manage the enablement. Possible values can be `service` and `event_orchestration`.
+     * @return The type of entity for which to manage the enablement. Possible values can be `service` and `eventOrchestration`.
      * 
      */
     public Output<String> entityType() {
@@ -147,7 +147,7 @@ public final class EnablementArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityType The type of entity for which to manage the enablement. Possible values can be `service` and `event_orchestration`.
+         * @param entityType The type of entity for which to manage the enablement. Possible values can be `service` and `eventOrchestration`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class EnablementArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityType The type of entity for which to manage the enablement. Possible values can be `service` and `event_orchestration`.
+         * @param entityType The type of entity for which to manage the enablement. Possible values can be `service` and `eventOrchestration`.
          * 
          * @return builder
          * 

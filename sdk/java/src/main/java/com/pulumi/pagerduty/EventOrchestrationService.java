@@ -20,17 +20,17 @@ import javax.annotation.Nullable;
 /**
  * A [Service Orchestration](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) allows you to create a set of Event Rules. The Service Orchestration evaluates Events sent to this Service against each of its rules, beginning with the rules in the &#34;start&#34; set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Service Orchestration for further processing.
  * 
- * &gt; If you have a Service that uses [Service Event Rules](https://support.pagerduty.com/docs/rulesets#service-event-rules), you can switch to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) at any time setting the attribute `enable_event_orchestration_for_service` to `true`. Please read the [Switch to Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#switch-to-service-orchestrations) instructions for more information.
+ * &gt; If you have a Service that uses [Service Event Rules](https://support.pagerduty.com/docs/rulesets#service-event-rules), you can switch to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) at any time setting the attribute `enableEventOrchestrationForService` to `true`. Please read the [Switch to Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#switch-to-service-orchestrations) instructions for more information.
  * 
  * ## Example of configuring a Service Orchestration
  * 
  * This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
  * 
- * This example also shows using the pagerduty.getPriority and pagerduty.EscalationPolicy data sources to configure `priority` and `escalation_policy` actions for a rule.
+ * This example also shows using the pagerduty.getPriority and pagerduty.EscalationPolicy data sources to configure `priority` and `escalationPolicy` actions for a rule.
  * 
- * This example shows a Service Orchestration that has nested sets: a rule in the &#34;start&#34; set has a `route_to` action pointing at the &#34;step-two&#34; set.
+ * This example shows a Service Orchestration that has nested sets: a rule in the &#34;start&#34; set has a `routeTo` action pointing at the &#34;step-two&#34; set.
  * 
- * The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn&#39;t have any `actions` so it&#39;ll leave events as-is.
+ * The `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catchAll` doesn&#39;t have any `actions` so it&#39;ll leave events as-is.
  * 
  * <pre>
  * {@code
@@ -241,14 +241,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="pagerduty:index/eventOrchestrationService:EventOrchestrationService")
 public class EventOrchestrationService extends com.pulumi.resources.CustomResource {
     /**
-     * the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+     * the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      * 
      */
     @Export(name="catchAll", refs={EventOrchestrationServiceCatchAll.class}, tree="[0]")
     private Output<EventOrchestrationServiceCatchAll> catchAll;
 
     /**
-     * @return the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+     * @return the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      * 
      */
     public Output<EventOrchestrationServiceCatchAll> catchAll() {

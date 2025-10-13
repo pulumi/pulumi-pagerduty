@@ -97,7 +97,7 @@ namespace Pulumi.Pagerduty
         public Output<string?> Condition { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+        /// Indicates who can start this Trigger. Applicable only to `Manual`-type triggers.
         /// </summary>
         [Output("permissions")]
         public Output<Outputs.IncidentWorkflowTriggerPermissions> Permissions { get; private set; } = null!;
@@ -109,13 +109,13 @@ namespace Pulumi.Pagerduty
         public Output<ImmutableArray<string>> Services { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
+        /// Set to `True` if the trigger should be eligible for firing on all services. Only allowed to be `True` if the services list is not defined or empty.
         /// </summary>
         [Output("subscribedToAllServices")]
         public Output<bool> SubscribedToAllServices { get; private set; } = null!;
 
         /// <summary>
-        /// [Updating causes resource replacement] May be either `manual` or `conditional`.
+        /// [Updating causes resource replacement] May be either `Manual` or `Conditional`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Condition { get; set; }
 
         /// <summary>
-        /// Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+        /// Indicates who can start this Trigger. Applicable only to `Manual`-type triggers.
         /// </summary>
         [Input("permissions")]
         public Input<Inputs.IncidentWorkflowTriggerPermissionsArgs>? Permissions { get; set; }
@@ -197,13 +197,13 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
+        /// Set to `True` if the trigger should be eligible for firing on all services. Only allowed to be `True` if the services list is not defined or empty.
         /// </summary>
         [Input("subscribedToAllServices", required: true)]
         public Input<bool> SubscribedToAllServices { get; set; } = null!;
 
         /// <summary>
-        /// [Updating causes resource replacement] May be either `manual` or `conditional`.
+        /// [Updating causes resource replacement] May be either `Manual` or `Conditional`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Condition { get; set; }
 
         /// <summary>
-        /// Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+        /// Indicates who can start this Trigger. Applicable only to `Manual`-type triggers.
         /// </summary>
         [Input("permissions")]
         public Input<Inputs.IncidentWorkflowTriggerPermissionsGetArgs>? Permissions { get; set; }
@@ -247,13 +247,13 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
+        /// Set to `True` if the trigger should be eligible for firing on all services. Only allowed to be `True` if the services list is not defined or empty.
         /// </summary>
         [Input("subscribedToAllServices")]
         public Input<bool>? SubscribedToAllServices { get; set; }
 
         /// <summary>
-        /// [Updating causes resource replacement] May be either `manual` or `conditional`.
+        /// [Updating causes resource replacement] May be either `Manual` or `Conditional`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

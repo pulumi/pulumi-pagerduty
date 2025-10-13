@@ -40,7 +40,7 @@ public final class GetAlertGroupingSettingResult {
      */
     private List<String> services;
     /**
-     * @return The type of object. The value returned will be one of `content_based`, `content_based_intelligent`, `intelligent` or `time`.
+     * @return The type of object. The value returned will be one of `contentBased`, `contentBasedIntelligent`, `intelligent` or `time`.
      * 
      */
     private String type;
@@ -82,7 +82,7 @@ public final class GetAlertGroupingSettingResult {
         return this.services;
     }
     /**
-     * @return The type of object. The value returned will be one of `content_based`, `content_based_intelligent`, `intelligent` or `time`.
+     * @return The type of object. The value returned will be one of `contentBased`, `contentBasedIntelligent`, `intelligent` or `time`.
      * 
      */
     public String type() {

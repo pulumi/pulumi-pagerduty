@@ -48,14 +48,14 @@ public final class ServiceScheduledActionArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The type of scheduled action. Currently, this must be set to `urgency_change`.
+     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of scheduled action. Currently, this must be set to `urgency_change`.
+     * @return The type of scheduled action. Currently, this must be set to `urgencyChange`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -141,7 +141,7 @@ public final class ServiceScheduledActionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The type of scheduled action. Currently, this must be set to `urgency_change`.
+         * @param type The type of scheduled action. Currently, this must be set to `urgencyChange`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ServiceScheduledActionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The type of scheduled action. Currently, this must be set to `urgency_change`.
+         * @param type The type of scheduled action. Currently, this must be set to `urgencyChange`.
          * 
          * @return builder
          * 

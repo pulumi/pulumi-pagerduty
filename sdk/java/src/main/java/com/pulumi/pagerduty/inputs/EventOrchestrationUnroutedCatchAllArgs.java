@@ -15,14 +15,14 @@ public final class EventOrchestrationUnroutedCatchAllArgs extends com.pulumi.res
     public static final EventOrchestrationUnroutedCatchAllArgs Empty = new EventOrchestrationUnroutedCatchAllArgs();
 
     /**
-     * These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+     * These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
      * 
      */
     @Import(name="actions", required=true)
     private Output<EventOrchestrationUnroutedCatchAllActionsArgs> actions;
 
     /**
-     * @return These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+     * @return These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
      * 
      */
     public Output<EventOrchestrationUnroutedCatchAllActionsArgs> actions() {
@@ -54,7 +54,7 @@ public final class EventOrchestrationUnroutedCatchAllArgs extends com.pulumi.res
         }
 
         /**
-         * @param actions These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+         * @param actions These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class EventOrchestrationUnroutedCatchAllArgs extends com.pulumi.res
         }
 
         /**
-         * @param actions These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+         * @param actions These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
          * 
          * @return builder
          * 

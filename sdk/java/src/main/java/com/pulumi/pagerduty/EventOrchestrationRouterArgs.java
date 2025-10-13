@@ -17,14 +17,14 @@ public final class EventOrchestrationRouterArgs extends com.pulumi.resources.Res
     public static final EventOrchestrationRouterArgs Empty = new EventOrchestrationRouterArgs();
 
     /**
-     * When none of the rules match an event, the event will be routed according to the catch_all settings.
+     * When none of the rules match an event, the event will be routed according to the catchAll settings.
      * 
      */
     @Import(name="catchAll", required=true)
     private Output<EventOrchestrationRouterCatchAllArgs> catchAll;
 
     /**
-     * @return When none of the rules match an event, the event will be routed according to the catch_all settings.
+     * @return When none of the rules match an event, the event will be routed according to the catchAll settings.
      * 
      */
     public Output<EventOrchestrationRouterCatchAllArgs> catchAll() {
@@ -88,7 +88,7 @@ public final class EventOrchestrationRouterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param catchAll When none of the rules match an event, the event will be routed according to the catch_all settings.
+         * @param catchAll When none of the rules match an event, the event will be routed according to the catchAll settings.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class EventOrchestrationRouterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param catchAll When none of the rules match an event, the event will be routed according to the catch_all settings.
+         * @param catchAll When none of the rules match an event, the event will be routed according to the catchAll settings.
          * 
          * @return builder
          * 

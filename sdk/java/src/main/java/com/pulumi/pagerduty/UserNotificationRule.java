@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
 /**
  * A [notification rule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0NQ-create-a-user-notification-rule) configures where and when a PagerDuty user is notified when a triggered incident is assigned to them. Unique notification rules can be created for both high and low-urgency incidents.
  * 
+ * ## Example Usage
+ * 
  * ## Import
  * 
  * User notification rules can be imported using the `user_id` and the `id`, e.g.

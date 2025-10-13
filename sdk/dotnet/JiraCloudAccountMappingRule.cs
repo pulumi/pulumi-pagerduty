@@ -14,6 +14,8 @@ namespace Pulumi.Pagerduty
     /// configures the bidirectional synchronization between Jira issues and PagerDuty
     /// incidents.
     /// 
+    /// ## Example Usage
+    /// 
     /// ## Import
     /// 
     /// Jira Cloud account mapping rules can be imported using the `account_mapping_id` and `rule_id`, e.g.
@@ -50,7 +52,7 @@ namespace Pulumi.Pagerduty
         public Output<Outputs.JiraCloudAccountMappingRuleConfig?> Config { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates if the rule is enabled. Defaults to `true`.
+        /// Indicates if the rule is enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -120,7 +122,7 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.JiraCloudAccountMappingRuleConfigArgs>? Config { get; set; }
 
         /// <summary>
-        /// Indicates if the rule is enabled. Defaults to `true`.
+        /// Indicates if the rule is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -164,7 +166,7 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.JiraCloudAccountMappingRuleConfigGetArgs>? Config { get; set; }
 
         /// <summary>
-        /// Indicates if the rule is enabled. Defaults to `true`.
+        /// Indicates if the rule is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

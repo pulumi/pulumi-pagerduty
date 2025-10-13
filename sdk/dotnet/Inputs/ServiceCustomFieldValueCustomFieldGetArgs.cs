@@ -13,13 +13,13 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class ServiceCustomFieldValueCustomFieldGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the custom field. Either `id` or `name` must be provided.
+        /// The ID of the custom field. Either `Id` or `Name` must be provided.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// The name of the custom field. Either `id` or `name` must be provided.
+        /// The name of the custom field. Either `Id` or `Name` must be provided.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

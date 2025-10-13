@@ -48,14 +48,14 @@ public final class AutomationActionsActionState extends com.pulumi.resources.Res
     }
 
     /**
-     * The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+     * The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
      * 
      */
     @Import(name="actionType")
     private @Nullable Output<String> actionType;
 
     /**
-     * @return The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+     * @return The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
      * 
      */
     public Optional<Output<String>> actionType() {
@@ -183,14 +183,14 @@ public final class AutomationActionsActionState extends com.pulumi.resources.Res
     }
 
     /**
-     * The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
+     * The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
      * 
      */
     @Import(name="runnerId")
     private @Nullable Output<String> runnerId;
 
     /**
-     * @return The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
+     * @return The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
      * 
      */
     public Optional<Output<String>> runnerId() {
@@ -307,7 +307,7 @@ public final class AutomationActionsActionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param actionType The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+         * @param actionType The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class AutomationActionsActionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param actionType The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
+         * @param actionType The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
          * 
          * @return builder
          * 
@@ -496,7 +496,7 @@ public final class AutomationActionsActionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param runnerId The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
+         * @param runnerId The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class AutomationActionsActionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param runnerId The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
+         * @param runnerId The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
          * 
          * @return builder
          * 

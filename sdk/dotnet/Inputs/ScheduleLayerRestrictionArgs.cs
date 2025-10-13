@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class ScheduleLayerRestrictionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The duration of the restriction in `seconds`.
+        /// The duration of the restriction in `Seconds`.
         /// </summary>
         [Input("durationSeconds", required: true)]
         public Input<int> DurationSeconds { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string> StartTimeOfDay { get; set; } = null!;
 
         /// <summary>
-        /// Can be `daily_restriction` or `weekly_restriction`.
+        /// Can be `DailyRestriction` or `WeeklyRestriction`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

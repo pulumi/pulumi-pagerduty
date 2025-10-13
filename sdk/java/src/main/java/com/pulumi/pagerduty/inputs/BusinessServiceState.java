@@ -124,7 +124,7 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * **Deprecated** (Optional) Default (and only supported) value is `business_service`.
+     * **Deprecated** (Optional) Default (and only supported) value is `businessService`.
      * 
      * @deprecated
      * This will become a computed attribute in the next major release.
@@ -135,7 +135,7 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
     private @Nullable Output<String> type;
 
     /**
-     * @return **Deprecated** (Optional) Default (and only supported) value is `business_service`.
+     * @return **Deprecated** (Optional) Default (and only supported) value is `businessService`.
      * 
      * @deprecated
      * This will become a computed attribute in the next major release.
@@ -327,7 +327,7 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type **Deprecated** (Optional) Default (and only supported) value is `business_service`.
+         * @param type **Deprecated** (Optional) Default (and only supported) value is `businessService`.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type **Deprecated** (Optional) Default (and only supported) value is `business_service`.
+         * @param type **Deprecated** (Optional) Default (and only supported) value is `businessService`.
          * 
          * @return builder
          * 

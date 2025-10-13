@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class ServiceEventRuleConditions
     {
         /// <summary>
-        /// Operator to combine sub-conditions. Can be `and` or `or`.
+        /// Operator to combine sub-conditions. Can be `And` or `Or`.
         /// </summary>
         public readonly string? Operator;
         /// <summary>

@@ -156,7 +156,7 @@ namespace Pulumi.Pagerduty
         public Output<string?> Team { get; private set; } = null!;
 
         /// <summary>
-        /// A string that determines the schema of the object. If not set, the default value is "response_play".
+        /// A string that determines the schema of the object. If not set, the default value is "ResponsePlay".
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -287,7 +287,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Team { get; set; }
 
         /// <summary>
-        /// A string that determines the schema of the object. If not set, the default value is "response_play".
+        /// A string that determines the schema of the object. If not set, the default value is "ResponsePlay".
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -381,7 +381,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Team { get; set; }
 
         /// <summary>
-        /// A string that determines the schema of the object. If not set, the default value is "response_play".
+        /// A string that determines the schema of the object. If not set, the default value is "ResponsePlay".
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

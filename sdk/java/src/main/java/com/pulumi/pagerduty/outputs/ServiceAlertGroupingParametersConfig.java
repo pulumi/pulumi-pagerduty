@@ -14,17 +14,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceAlertGroupingParametersConfig {
     /**
-     * @return One of `any` or `all`. This setting applies only when `type` is set to `content_based`. Group alerts based on one or all of `fields` value(s).
+     * @return One of `any` or `all`. This setting applies only when `type` is set to `contentBased`. Group alerts based on one or all of `fields` value(s).
      * 
      */
     private @Nullable String aggregate;
     /**
-     * @return Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `content_based`.
+     * @return Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
      * 
      */
     private @Nullable List<String> fields;
     /**
-     * @return The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+     * @return The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
      * 
      */
     private @Nullable Integer timeWindow;
@@ -36,21 +36,21 @@ public final class ServiceAlertGroupingParametersConfig {
 
     private ServiceAlertGroupingParametersConfig() {}
     /**
-     * @return One of `any` or `all`. This setting applies only when `type` is set to `content_based`. Group alerts based on one or all of `fields` value(s).
+     * @return One of `any` or `all`. This setting applies only when `type` is set to `contentBased`. Group alerts based on one or all of `fields` value(s).
      * 
      */
     public Optional<String> aggregate() {
         return Optional.ofNullable(this.aggregate);
     }
     /**
-     * @return Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `content_based`.
+     * @return Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
      * 
      */
     public List<String> fields() {
         return this.fields == null ? List.of() : this.fields;
     }
     /**
-     * @return The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+     * @return The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
      * 
      */
     public Optional<Integer> timeWindow() {

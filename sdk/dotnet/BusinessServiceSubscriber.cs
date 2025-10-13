@@ -82,7 +82,7 @@ namespace Pulumi.Pagerduty
         public Output<string> SubscriberId { get; private set; } = null!;
 
         /// <summary>
-        /// Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+        /// Type of subscriber entity in the subscriber assignment. Possible values can be `User` and `Team`.
         /// </summary>
         [Output("subscriberType")]
         public Output<string> SubscriberType { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Pagerduty
         public Input<string> SubscriberId { get; set; } = null!;
 
         /// <summary>
-        /// Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+        /// Type of subscriber entity in the subscriber assignment. Possible values can be `User` and `Team`.
         /// </summary>
         [Input("subscriberType", required: true)]
         public Input<string> SubscriberType { get; set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? SubscriberId { get; set; }
 
         /// <summary>
-        /// Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+        /// Type of subscriber entity in the subscriber assignment. Possible values can be `User` and `Team`.
         /// </summary>
         [Input("subscriberType")]
         public Input<string>? SubscriberType { get; set; }

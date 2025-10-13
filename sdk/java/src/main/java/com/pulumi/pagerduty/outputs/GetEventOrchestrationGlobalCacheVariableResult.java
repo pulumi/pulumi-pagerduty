@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetEventOrchestrationGlobalCacheVariableResult {
     /**
-     * @return Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+     * @return Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      * 
      */
     private List<GetEventOrchestrationGlobalCacheVariableCondition> conditions;
@@ -37,7 +37,7 @@ public final class GetEventOrchestrationGlobalCacheVariableResult {
 
     private GetEventOrchestrationGlobalCacheVariableResult() {}
     /**
-     * @return Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+     * @return Conditions to be evaluated in order to determine whether or not to update the Cache Variable&#39;s stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      * 
      */
     public List<GetEventOrchestrationGlobalCacheVariableCondition> conditions() {

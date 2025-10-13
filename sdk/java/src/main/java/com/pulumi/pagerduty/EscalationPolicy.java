@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  * 
  * ## Known issues
  * 
- * Block `escalation_rule_assignment_strategy` inside `rule` cannot be set explicitly when a PagerDuty account doesn&#39;t have access to the &#34;Teams&#34; feature, it will cause an error `POST API call to https://api.pagerduty.com/escalation_policies failed: 403 Forbidden`, please delete this block.
+ * Block `escalationRuleAssignmentStrategy` inside `rule` cannot be set explicitly when a PagerDuty account doesn&#39;t have access to the &#34;Teams&#34; feature, it will cause an error `POST API call to https://api.pagerduty.com/escalation_policies failed: 403 Forbidden`, please delete this block.
  * 
  * ## Import
  * 

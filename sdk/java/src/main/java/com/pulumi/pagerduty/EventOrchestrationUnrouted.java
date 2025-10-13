@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * ## Example of configuring Unrouted Rules for an Orchestration
  * 
  * In this example of an Unrouted Orchestration, the rule matches only if the condition is matched.
- * Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catch_all` block.
+ * Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catchAll` block.
  * 
  * <pre>
  * {@code
@@ -93,14 +93,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted")
 public class EventOrchestrationUnrouted extends com.pulumi.resources.CustomResource {
     /**
-     * the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+     * the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      * 
      */
     @Export(name="catchAll", refs={EventOrchestrationUnroutedCatchAll.class}, tree="[0]")
     private Output<EventOrchestrationUnroutedCatchAll> catchAll;
 
     /**
-     * @return the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+     * @return the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      * 
      */
     public Output<EventOrchestrationUnroutedCatchAll> catchAll() {

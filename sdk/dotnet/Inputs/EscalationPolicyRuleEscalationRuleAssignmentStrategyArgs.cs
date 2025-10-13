@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Can be `round_robin` or `assign_to_everyone`.
+        /// Can be `RoundRobin` or `AssignToEveryone`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

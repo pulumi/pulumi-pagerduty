@@ -34,7 +34,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly int? NumLoops;
         /// <summary>
-        /// Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "if_has_services". Could be "if_has_services", "always
+        /// Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "IfHasServices". Could be "IfHasServices", "always
         /// </summary>
         public readonly string? OnCallHandoffNotifications;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ResponsePlayResponderService> Services;
         /// <summary>
-        /// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
+        /// Teams associated with the policy. Account must have the `Teams` ability to use this parameter. There can be multiple teams associated with a policy.
         /// </summary>
         public readonly ImmutableArray<Outputs.ResponsePlayResponderTeam> Teams;
         /// <summary>
-        /// Should be set as `escalation_policy` for escalation policy responders.
+        /// Should be set as `EscalationPolicy` for escalation policy responders.
         /// </summary>
         public readonly string? Type;
 

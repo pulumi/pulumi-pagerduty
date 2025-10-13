@@ -30,14 +30,14 @@ public final class UserHandoffNotificationRuleContactMethodArgs extends com.pulu
     }
 
     /**
-     * The type of the contact method. May be (`email_contact_method`, `email_contact_method_reference`, `phone_contact_method`, `phone_contact_method_reference`, `push_notification_contact_method`, `push_notification_contact_method_reference`, `sms_contact_method`, `sms_contact_method_reference`).
+     * The type of the contact method. May be (`emailContactMethod`, `emailContactMethodReference`, `phoneContactMethod`, `phoneContactMethodReference`, `pushNotificationContactMethod`, `pushNotificationContactMethodReference`, `smsContactMethod`, `smsContactMethodReference`).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of the contact method. May be (`email_contact_method`, `email_contact_method_reference`, `phone_contact_method`, `phone_contact_method_reference`, `push_notification_contact_method`, `push_notification_contact_method_reference`, `sms_contact_method`, `sms_contact_method_reference`).
+     * @return The type of the contact method. May be (`emailContactMethod`, `emailContactMethodReference`, `phoneContactMethod`, `phoneContactMethodReference`, `pushNotificationContactMethod`, `pushNotificationContactMethodReference`, `smsContactMethod`, `smsContactMethodReference`).
      * 
      */
     public Output<String> type() {
@@ -91,7 +91,7 @@ public final class UserHandoffNotificationRuleContactMethodArgs extends com.pulu
         }
 
         /**
-         * @param type The type of the contact method. May be (`email_contact_method`, `email_contact_method_reference`, `phone_contact_method`, `phone_contact_method_reference`, `push_notification_contact_method`, `push_notification_contact_method_reference`, `sms_contact_method`, `sms_contact_method_reference`).
+         * @param type The type of the contact method. May be (`emailContactMethod`, `emailContactMethodReference`, `phoneContactMethod`, `phoneContactMethodReference`, `pushNotificationContactMethod`, `pushNotificationContactMethodReference`, `smsContactMethod`, `smsContactMethodReference`).
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class UserHandoffNotificationRuleContactMethodArgs extends com.pulu
         }
 
         /**
-         * @param type The type of the contact method. May be (`email_contact_method`, `email_contact_method_reference`, `phone_contact_method`, `phone_contact_method_reference`, `push_notification_contact_method`, `push_notification_contact_method_reference`, `sms_contact_method`, `sms_contact_method_reference`).
+         * @param type The type of the contact method. May be (`emailContactMethod`, `emailContactMethodReference`, `phoneContactMethod`, `phoneContactMethodReference`, `pushNotificationContactMethod`, `pushNotificationContactMethodReference`, `smsContactMethod`, `smsContactMethodReference`).
          * 
          * @return builder
          * 

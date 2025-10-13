@@ -18,7 +18,7 @@ public final class ServiceAlertGroupingParameters {
      */
     private @Nullable ServiceAlertGroupingParametersConfig config;
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
      * 
      */
     private @Nullable String type;
@@ -32,7 +32,7 @@ public final class ServiceAlertGroupingParameters {
         return Optional.ofNullable(this.config);
     }
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
      * 
      */
     public Optional<String> type() {

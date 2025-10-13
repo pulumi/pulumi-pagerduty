@@ -20,14 +20,14 @@ public final class EventOrchestrationServiceState extends com.pulumi.resources.R
     public static final EventOrchestrationServiceState Empty = new EventOrchestrationServiceState();
 
     /**
-     * the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+     * the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      * 
      */
     @Import(name="catchAll")
     private @Nullable Output<EventOrchestrationServiceCatchAllArgs> catchAll;
 
     /**
-     * @return the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+     * @return the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      * 
      */
     public Optional<Output<EventOrchestrationServiceCatchAllArgs>> catchAll() {
@@ -107,7 +107,7 @@ public final class EventOrchestrationServiceState extends com.pulumi.resources.R
         }
 
         /**
-         * @param catchAll the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+         * @param catchAll the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class EventOrchestrationServiceState extends com.pulumi.resources.R
         }
 
         /**
-         * @param catchAll the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+         * @param catchAll the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
          * 
          * @return builder
          * 

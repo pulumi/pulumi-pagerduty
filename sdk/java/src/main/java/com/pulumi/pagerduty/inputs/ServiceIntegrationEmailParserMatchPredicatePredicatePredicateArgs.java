@@ -30,14 +30,14 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate
     }
 
     /**
-     * Can be `subject`, `body` or `from_addresses`.
+     * Can be `subject`, `body` or `fromAddresses`.
      * 
      */
     @Import(name="part", required=true)
     private Output<String> part;
 
     /**
-     * @return Can be `subject`, `body` or `from_addresses`.
+     * @return Can be `subject`, `body` or `fromAddresses`.
      * 
      */
     public Output<String> part() {
@@ -107,7 +107,7 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate
         }
 
         /**
-         * @param part Can be `subject`, `body` or `from_addresses`.
+         * @param part Can be `subject`, `body` or `fromAddresses`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate
         }
 
         /**
-         * @param part Can be `subject`, `body` or `from_addresses`.
+         * @param part Can be `subject`, `body` or `fromAddresses`.
          * 
          * @return builder
          * 

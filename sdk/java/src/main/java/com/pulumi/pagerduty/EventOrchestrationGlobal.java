@@ -23,11 +23,11 @@ import javax.annotation.Nullable;
  * 
  * This example shows creating `Team`, and `Event Orchestration` resources followed by creating a Global Orchestration to handle Events sent to that Event Orchestration.
  * 
- * This example also shows using the pagerduty.getPriority and pagerduty.EscalationPolicy data sources to configure `priority` and `escalation_policy` actions for a rule.
+ * This example also shows using the pagerduty.getPriority and pagerduty.EscalationPolicy data sources to configure `priority` and `escalationPolicy` actions for a rule.
  * 
- * This example shows a Global Orchestration that has nested sets: a rule in the &#34;start&#34; set has a `route_to` action pointing at the &#34;step-two&#34; set.
+ * This example shows a Global Orchestration that has nested sets: a rule in the &#34;start&#34; set has a `routeTo` action pointing at the &#34;step-two&#34; set.
  * 
- * The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn&#39;t have any `actions` so it&#39;ll leave events as-is.
+ * The `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catchAll` doesn&#39;t have any `actions` so it&#39;ll leave events as-is.
  * 
  * <pre>
  * {@code
@@ -158,14 +158,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal")
 public class EventOrchestrationGlobal extends com.pulumi.resources.CustomResource {
     /**
-     * the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+     * the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      * 
      */
     @Export(name="catchAll", refs={EventOrchestrationGlobalCatchAll.class}, tree="[0]")
     private Output<EventOrchestrationGlobalCatchAll> catchAll;
 
     /**
-     * @return the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+     * @return the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      * 
      */
     public Output<EventOrchestrationGlobalCatchAll> catchAll() {

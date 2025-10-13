@@ -16,11 +16,11 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
     public static final ServiceScheduledActionAtArgs Empty = new ServiceScheduledActionAtArgs();
 
     /**
-     * Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
+     * Designates either the start or the end of the scheduled action. Can be `supportHoursStart` or `supportHoursEnd`.
      * 
-     * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
+     * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `duringSupportHours` and to `low`  for `outsideSupportHours` in `incidentUrgencyRule`.
      * 
-     * Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = &#34;use_support_hours&#34;`, `support_hours` and a default `scheduled_action` as well.
+     * Below is an example for a `pagerduty.Service` resource with `incidentUrgencyRules` with `type = &#34;useSupportHours&#34;`, `supportHours` and a default `scheduledAction` as well.
      * 
      * <pre>
      * {@code
@@ -98,11 +98,11 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
     private @Nullable Output<String> name;
 
     /**
-     * @return Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
+     * @return Designates either the start or the end of the scheduled action. Can be `supportHoursStart` or `supportHoursEnd`.
      * 
-     * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
+     * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `duringSupportHours` and to `low`  for `outsideSupportHours` in `incidentUrgencyRule`.
      * 
-     * Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = &#34;use_support_hours&#34;`, `support_hours` and a default `scheduled_action` as well.
+     * Below is an example for a `pagerduty.Service` resource with `incidentUrgencyRules` with `type = &#34;useSupportHours&#34;`, `supportHours` and a default `scheduledAction` as well.
      * 
      * <pre>
      * {@code
@@ -181,14 +181,14 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The type of time specification. Currently, this must be set to `named_time`.
+     * The type of time specification. Currently, this must be set to `namedTime`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of time specification. Currently, this must be set to `named_time`.
+     * @return The type of time specification. Currently, this must be set to `namedTime`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -221,11 +221,11 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
+         * @param name Designates either the start or the end of the scheduled action. Can be `supportHoursStart` or `supportHoursEnd`.
          * 
-         * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
+         * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `duringSupportHours` and to `low`  for `outsideSupportHours` in `incidentUrgencyRule`.
          * 
-         * Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = &#34;use_support_hours&#34;`, `support_hours` and a default `scheduled_action` as well.
+         * Below is an example for a `pagerduty.Service` resource with `incidentUrgencyRules` with `type = &#34;useSupportHours&#34;`, `supportHours` and a default `scheduledAction` as well.
          * 
          * <pre>
          * {@code
@@ -307,11 +307,11 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
+         * @param name Designates either the start or the end of the scheduled action. Can be `supportHoursStart` or `supportHoursEnd`.
          * 
-         * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
+         * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `duringSupportHours` and to `low`  for `outsideSupportHours` in `incidentUrgencyRule`.
          * 
-         * Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = &#34;use_support_hours&#34;`, `support_hours` and a default `scheduled_action` as well.
+         * Below is an example for a `pagerduty.Service` resource with `incidentUrgencyRules` with `type = &#34;useSupportHours&#34;`, `supportHours` and a default `scheduledAction` as well.
          * 
          * <pre>
          * {@code
@@ -392,7 +392,7 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type The type of time specification. Currently, this must be set to `named_time`.
+         * @param type The type of time specification. Currently, this must be set to `namedTime`.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type The type of time specification. Currently, this must be set to `named_time`.
+         * @param type The type of time specification. Currently, this must be set to `namedTime`.
          * 
          * @return builder
          * 

@@ -96,14 +96,14 @@ public final class ResponsePlayResponderArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to &#34;if_has_services&#34;. Could be &#34;if_has_services&#34;, &#34;always
+     * Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to &#34;ifHasServices&#34;. Could be &#34;ifHasServices&#34;, &#34;always
      * 
      */
     @Import(name="onCallHandoffNotifications")
     private @Nullable Output<String> onCallHandoffNotifications;
 
     /**
-     * @return Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to &#34;if_has_services&#34;. Could be &#34;if_has_services&#34;, &#34;always
+     * @return Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to &#34;ifHasServices&#34;. Could be &#34;ifHasServices&#34;, &#34;always
      * 
      */
     public Optional<Output<String>> onCallHandoffNotifications() {
@@ -141,14 +141,14 @@ public final class ResponsePlayResponderArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Should be set as `escalation_policy` for escalation policy responders.
+     * Should be set as `escalationPolicy` for escalation policy responders.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Should be set as `escalation_policy` for escalation policy responders.
+     * @return Should be set as `escalationPolicy` for escalation policy responders.
      * 
      */
     public Optional<Output<String>> type() {
@@ -303,7 +303,7 @@ public final class ResponsePlayResponderArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param onCallHandoffNotifications Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to &#34;if_has_services&#34;. Could be &#34;if_has_services&#34;, &#34;always
+         * @param onCallHandoffNotifications Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to &#34;ifHasServices&#34;. Could be &#34;ifHasServices&#34;, &#34;always
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class ResponsePlayResponderArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param onCallHandoffNotifications Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to &#34;if_has_services&#34;. Could be &#34;if_has_services&#34;, &#34;always
+         * @param onCallHandoffNotifications Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to &#34;ifHasServices&#34;. Could be &#34;ifHasServices&#34;, &#34;always
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class ResponsePlayResponderArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type Should be set as `escalation_policy` for escalation policy responders.
+         * @param type Should be set as `escalationPolicy` for escalation policy responders.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class ResponsePlayResponderArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type Should be set as `escalation_policy` for escalation policy responders.
+         * @param type Should be set as `escalationPolicy` for escalation policy responders.
          * 
          * @return builder
          * 

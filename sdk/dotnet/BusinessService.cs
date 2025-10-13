@@ -76,7 +76,7 @@ namespace Pulumi.Pagerduty
         public Output<string> Self { get; private set; } = null!;
 
         /// <summary>
-        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `Name`, though it is not intended to be an identifier.
         /// </summary>
         [Output("summary")]
         public Output<string> Summary { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Pagerduty
         public Output<string?> Team { get; private set; } = null!;
 
         /// <summary>
-        /// **Deprecated** (Optional) Default (and only supported) value is `business_service`.
+        /// **Deprecated** (Optional) Default (and only supported) value is `BusinessService`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Team { get; set; }
 
         /// <summary>
-        /// **Deprecated** (Optional) Default (and only supported) value is `business_service`.
+        /// **Deprecated** (Optional) Default (and only supported) value is `BusinessService`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -211,7 +211,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Self { get; set; }
 
         /// <summary>
-        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `Name`, though it is not intended to be an identifier.
         /// </summary>
         [Input("summary")]
         public Input<string>? Summary { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Team { get; set; }
 
         /// <summary>
-        /// **Deprecated** (Optional) Default (and only supported) value is `business_service`.
+        /// **Deprecated** (Optional) Default (and only supported) value is `BusinessService`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

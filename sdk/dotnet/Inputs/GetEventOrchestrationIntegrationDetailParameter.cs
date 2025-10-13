@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty.Inputs
         public string RoutingKey { get; set; } = null!;
 
         /// <summary>
-        /// Type of the routing key. `global` is the default type.
+        /// Type of the routing key. `Global` is the default type.
         /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;

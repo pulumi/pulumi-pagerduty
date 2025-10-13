@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class GetServiceCustomFieldValueCustomFieldResult
     {
         /// <summary>
-        /// The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        /// The kind of data the custom field is allowed to contain. Can be one of: `String`, `Integer`, `Float`, `Boolean`, `Datetime`, or `Url`.
         /// </summary>
         public readonly string DataType;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// The type of field. Can be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+        /// The type of field. Can be one of: `SingleValue`, `SingleValueFixed`, `MultiValue`, or `MultiValueFixed`.
         /// </summary>
         public readonly string FieldType;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of the reference, typically "field_value".
+        /// The type of the reference, typically "FieldValue".
         /// </summary>
         public readonly string Type;
         /// <summary>

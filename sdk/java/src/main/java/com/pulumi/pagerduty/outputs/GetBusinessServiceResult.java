@@ -21,7 +21,7 @@ public final class GetBusinessServiceResult {
      */
     private String name;
     /**
-     * @return The type of object. The value returned will be `business_service`. Can be used for passing to a service dependency.
+     * @return The type of object. The value returned will be `businessService`. Can be used for passing to a service dependency.
      * 
      */
     private String type;
@@ -42,7 +42,7 @@ public final class GetBusinessServiceResult {
         return this.name;
     }
     /**
-     * @return The type of object. The value returned will be `business_service`. Can be used for passing to a service dependency.
+     * @return The type of object. The value returned will be `businessService`. Can be used for passing to a service dependency.
      * 
      */
     public String type() {

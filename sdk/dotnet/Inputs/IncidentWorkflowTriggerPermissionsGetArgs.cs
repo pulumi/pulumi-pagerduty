@@ -13,13 +13,13 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class IncidentWorkflowTriggerPermissionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
+        /// If `True`, indicates that the Trigger can only be started by authorized Users. If `False` (default), any user can start this Trigger. Applicable only to `Manual`-type triggers.
         /// </summary>
         [Input("restricted")]
         public Input<bool>? Restricted { get; set; }
 
         /// <summary>
-        /// The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
+        /// The ID of the Team whose members can manually start this Trigger. Required and allowed only if `Restricted` is `True`.
         /// </summary>
         [Input("teamId")]
         public Input<string>? TeamId { get; set; }

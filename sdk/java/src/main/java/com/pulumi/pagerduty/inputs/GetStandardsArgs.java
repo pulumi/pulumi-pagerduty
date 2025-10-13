@@ -16,14 +16,14 @@ public final class GetStandardsArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetStandardsArgs Empty = new GetStandardsArgs();
 
     /**
-     * Filter by `resource_type` the received standards. Allowed values are `technical_service`.
+     * Filter by `resourceType` the received standards. Allowed values are `technicalService`.
      * 
      */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
     /**
-     * @return Filter by `resource_type` the received standards. Allowed values are `technical_service`.
+     * @return Filter by `resourceType` the received standards. Allowed values are `technicalService`.
      * 
      */
     public Optional<Output<String>> resourceType() {
@@ -55,7 +55,7 @@ public final class GetStandardsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceType Filter by `resource_type` the received standards. Allowed values are `technical_service`.
+         * @param resourceType Filter by `resourceType` the received standards. Allowed values are `technicalService`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class GetStandardsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceType Filter by `resource_type` the received standards. Allowed values are `technical_service`.
+         * @param resourceType Filter by `resourceType` the received standards. Allowed values are `technicalService`.
          * 
          * @return builder
          * 

@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
-    /// An Orchestration Router allows users to create a set of Event Rules. The Router evaluates events sent to this Orchestration against each of its rules, one at a time, and routes the event to a specific Service based on the first rule that matches. If an event doesn't match any rules, it'll be sent to service specified in the `catch_all` or to the "Unrouted" Orchestration if no service is specified.
+    /// An Orchestration Router allows users to create a set of Event Rules. The Router evaluates events sent to this Orchestration against each of its rules, one at a time, and routes the event to a specific Service based on the first rule that matches. If an event doesn't match any rules, it'll be sent to service specified in the `CatchAll` or to the "Unrouted" Orchestration if no service is specified.
     /// 
     /// ## Example of configuring Router rules for an Orchestration
     /// 
-    /// In this example the user has defined the Router with three rules. The first rule configures a dynamic route: any event containing a value in its `pd_service_id` custom detail will be routed to the Service with the ID specified by that value. The other rules route events matching a condition to specific services.
+    /// In this example the user has defined the Router with three rules. The first rule configures a dynamic route: any event containing a value in its `PdServiceId` custom detail will be routed to the Service with the ID specified by that value. The other rules route events matching a condition to specific services.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -117,7 +117,7 @@ namespace Pulumi.Pagerduty
     public partial class EventOrchestrationRouter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// When none of the rules match an event, the event will be routed according to the catch_all settings.
+        /// When none of the rules match an event, the event will be routed according to the CatchAll settings.
         /// </summary>
         [Output("catchAll")]
         public Output<Outputs.EventOrchestrationRouterCatchAll> CatchAll { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Pagerduty
     public sealed class EventOrchestrationRouterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When none of the rules match an event, the event will be routed according to the catch_all settings.
+        /// When none of the rules match an event, the event will be routed according to the CatchAll settings.
         /// </summary>
         [Input("catchAll", required: true)]
         public Input<Inputs.EventOrchestrationRouterCatchAllArgs> CatchAll { get; set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Pagerduty
     public sealed class EventOrchestrationRouterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When none of the rules match an event, the event will be routed according to the catch_all settings.
+        /// When none of the rules match an event, the event will be routed according to the CatchAll settings.
         /// </summary>
         [Input("catchAll")]
         public Input<Inputs.EventOrchestrationRouterCatchAllGetArgs>? CatchAll { get; set; }

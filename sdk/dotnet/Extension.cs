@@ -105,7 +105,7 @@ namespace Pulumi.Pagerduty
 
         /// <summary>
         /// The url of the extension.
-        /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+        /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `EndpointUrl`, but one with named `Slack` accepts.
         /// </summary>
         [Output("endpointUrl")]
         public Output<string> EndpointUrl { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Pagerduty
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `Name`, though it is not intended to be an identifier.
         /// 
         /// **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
         /// </summary>
@@ -206,7 +206,7 @@ namespace Pulumi.Pagerduty
 
         /// <summary>
         /// The url of the extension.
-        /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+        /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `EndpointUrl`, but one with named `Slack` accepts.
         /// </summary>
         public Input<string>? EndpointUrl
         {
@@ -264,7 +264,7 @@ namespace Pulumi.Pagerduty
 
         /// <summary>
         /// The url of the extension.
-        /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+        /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `EndpointUrl`, but one with named `Slack` accepts.
         /// </summary>
         public Input<string>? EndpointUrl
         {
@@ -307,7 +307,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `Name`, though it is not intended to be an identifier.
         /// 
         /// **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
         /// </summary>

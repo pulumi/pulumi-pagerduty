@@ -39,7 +39,7 @@ public final class GetLicensesLicense {
      */
     private String name;
     /**
-     * @return The role group for the license that determines the available `valid_roles`
+     * @return The role group for the license that determines the available `validRoles`
      * 
      */
     private String roleGroup;
@@ -96,7 +96,7 @@ public final class GetLicensesLicense {
         return this.name;
     }
     /**
-     * @return The role group for the license that determines the available `valid_roles`
+     * @return The role group for the license that determines the available `validRoles`
      * 
      */
     public String roleGroup() {

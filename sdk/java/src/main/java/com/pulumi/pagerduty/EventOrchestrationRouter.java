@@ -16,11 +16,11 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * An Orchestration Router allows users to create a set of Event Rules. The Router evaluates events sent to this Orchestration against each of its rules, one at a time, and routes the event to a specific Service based on the first rule that matches. If an event doesn&#39;t match any rules, it&#39;ll be sent to service specified in the `catch_all` or to the &#34;Unrouted&#34; Orchestration if no service is specified.
+ * An Orchestration Router allows users to create a set of Event Rules. The Router evaluates events sent to this Orchestration against each of its rules, one at a time, and routes the event to a specific Service based on the first rule that matches. If an event doesn&#39;t match any rules, it&#39;ll be sent to service specified in the `catchAll` or to the &#34;Unrouted&#34; Orchestration if no service is specified.
  * 
  * ## Example of configuring Router rules for an Orchestration
  * 
- * In this example the user has defined the Router with three rules. The first rule configures a dynamic route: any event containing a value in its `pd_service_id` custom detail will be routed to the Service with the ID specified by that value. The other rules route events matching a condition to specific services.
+ * In this example the user has defined the Router with three rules. The first rule configures a dynamic route: any event containing a value in its `pdServiceId` custom detail will be routed to the Service with the ID specified by that value. The other rules route events matching a condition to specific services.
  * 
  * <pre>
  * {@code
@@ -118,14 +118,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter")
 public class EventOrchestrationRouter extends com.pulumi.resources.CustomResource {
     /**
-     * When none of the rules match an event, the event will be routed according to the catch_all settings.
+     * When none of the rules match an event, the event will be routed according to the catchAll settings.
      * 
      */
     @Export(name="catchAll", refs={EventOrchestrationRouterCatchAll.class}, tree="[0]")
     private Output<EventOrchestrationRouterCatchAll> catchAll;
 
     /**
-     * @return When none of the rules match an event, the event will be routed according to the catch_all settings.
+     * @return When none of the rules match an event, the event will be routed according to the catchAll settings.
      * 
      */
     public Output<EventOrchestrationRouterCatchAll> catchAll() {

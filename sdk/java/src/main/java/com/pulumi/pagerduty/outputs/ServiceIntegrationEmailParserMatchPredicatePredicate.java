@@ -20,7 +20,7 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicate {
      */
     private @Nullable String matcher;
     /**
-     * @return Can be `subject`, `body` or `from_addresses`.
+     * @return Can be `subject`, `body` or `fromAddresses`.
      * 
      */
     private @Nullable String part;
@@ -40,7 +40,7 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicate {
         return Optional.ofNullable(this.matcher);
     }
     /**
-     * @return Can be `subject`, `body` or `from_addresses`.
+     * @return Can be `subject`, `body` or `fromAddresses`.
      * 
      */
     public Optional<String> part() {

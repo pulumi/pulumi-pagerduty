@@ -115,7 +115,7 @@ namespace Pulumi.Pagerduty
         public string Id { get; set; } = null!;
 
         /// <summary>
-        /// Type of the object the standards are associated to. Allowed values are `technical_services`.
+        /// Type of the object the standards are associated to. Allowed values are `TechnicalServices`.
         /// </summary>
         [Input("resourceType", required: true)]
         public string ResourceType { get; set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Pagerduty
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// Type of the object the standards are associated to. Allowed values are `technical_services`.
+        /// Type of the object the standards are associated to. Allowed values are `TechnicalServices`.
         /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;

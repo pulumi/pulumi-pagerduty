@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetEventOrchestrationsResult {
     /**
-     * @return The list of the Event Orchestrations with a name that matches the `name_filter` argument.
+     * @return The list of the Event Orchestrations with a name that matches the `nameFilter` argument.
      * 
      */
     private List<GetEventOrchestrationsEventOrchestration> eventOrchestrations;
@@ -30,7 +30,7 @@ public final class GetEventOrchestrationsResult {
 
     private GetEventOrchestrationsResult() {}
     /**
-     * @return The list of the Event Orchestrations with a name that matches the `name_filter` argument.
+     * @return The list of the Event Orchestrations with a name that matches the `nameFilter` argument.
      * 
      */
     public List<GetEventOrchestrationsEventOrchestration> eventOrchestrations() {

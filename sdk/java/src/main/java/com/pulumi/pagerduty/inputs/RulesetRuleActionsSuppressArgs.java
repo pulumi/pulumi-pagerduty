@@ -18,14 +18,14 @@ public final class RulesetRuleActionsSuppressArgs extends com.pulumi.resources.R
     public static final RulesetRuleActionsSuppressArgs Empty = new RulesetRuleActionsSuppressArgs();
 
     /**
-     * The number value of the `threshold_time_unit` before an incident is created. Must be greater than 0.
+     * The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
      * 
      */
     @Import(name="thresholdTimeAmount")
     private @Nullable Output<Integer> thresholdTimeAmount;
 
     /**
-     * @return The number value of the `threshold_time_unit` before an incident is created. Must be greater than 0.
+     * @return The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
      * 
      */
     public Optional<Output<Integer>> thresholdTimeAmount() {
@@ -33,14 +33,14 @@ public final class RulesetRuleActionsSuppressArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
+     * The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
      * 
      */
     @Import(name="thresholdTimeUnit")
     private @Nullable Output<String> thresholdTimeUnit;
 
     /**
-     * @return The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
+     * @return The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
      * 
      */
     public Optional<Output<String>> thresholdTimeUnit() {
@@ -105,7 +105,7 @@ public final class RulesetRuleActionsSuppressArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param thresholdTimeAmount The number value of the `threshold_time_unit` before an incident is created. Must be greater than 0.
+         * @param thresholdTimeAmount The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class RulesetRuleActionsSuppressArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param thresholdTimeAmount The number value of the `threshold_time_unit` before an incident is created. Must be greater than 0.
+         * @param thresholdTimeAmount The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class RulesetRuleActionsSuppressArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param thresholdTimeUnit The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
+         * @param thresholdTimeUnit The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class RulesetRuleActionsSuppressArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param thresholdTimeUnit The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
+         * @param thresholdTimeUnit The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
          * 
          * @return builder
          * 

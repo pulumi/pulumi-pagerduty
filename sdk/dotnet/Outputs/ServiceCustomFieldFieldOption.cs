@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class ServiceCustomFieldFieldOption
     {
         /// <summary>
-        /// Must be `string`.
+        /// Must be `String`.
         /// </summary>
         public readonly string DataType;
         /// <summary>

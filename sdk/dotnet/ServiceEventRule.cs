@@ -182,7 +182,7 @@ namespace Pulumi.Pagerduty
         public Output<Outputs.ServiceEventRuleTimeFrame?> TimeFrame { get; private set; } = null!;
 
         /// <summary>
-        /// Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+        /// Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `Variable` objects.*
         /// </summary>
         [Output("variables")]
         public Output<ImmutableArray<Outputs.ServiceEventRuleVariable>> Variables { get; private set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.Pagerduty
         private InputList<Inputs.ServiceEventRuleVariableArgs>? _variables;
 
         /// <summary>
-        /// Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+        /// Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `Variable` objects.*
         /// </summary>
         public InputList<Inputs.ServiceEventRuleVariableArgs> Variables
         {
@@ -329,7 +329,7 @@ namespace Pulumi.Pagerduty
         private InputList<Inputs.ServiceEventRuleVariableGetArgs>? _variables;
 
         /// <summary>
-        /// Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+        /// Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `Variable` objects.*
         /// </summary>
         public InputList<Inputs.ServiceEventRuleVariableGetArgs> Variables
         {

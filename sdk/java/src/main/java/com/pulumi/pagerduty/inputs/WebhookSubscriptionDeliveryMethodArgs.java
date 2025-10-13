@@ -19,14 +19,14 @@ public final class WebhookSubscriptionDeliveryMethodArgs extends com.pulumi.reso
     public static final WebhookSubscriptionDeliveryMethodArgs Empty = new WebhookSubscriptionDeliveryMethodArgs();
 
     /**
-     * The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+     * The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
      * 
      */
     @Import(name="customHeaders")
     private @Nullable Output<List<WebhookSubscriptionDeliveryMethodCustomHeaderArgs>> customHeaders;
 
     /**
-     * @return The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+     * @return The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
      * 
      */
     public Optional<Output<List<WebhookSubscriptionDeliveryMethodCustomHeaderArgs>>> customHeaders() {
@@ -49,14 +49,14 @@ public final class WebhookSubscriptionDeliveryMethodArgs extends com.pulumi.reso
     }
 
     /**
-     * Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+     * Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+     * @return Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -106,7 +106,7 @@ public final class WebhookSubscriptionDeliveryMethodArgs extends com.pulumi.reso
         }
 
         /**
-         * @param customHeaders The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+         * @param customHeaders The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class WebhookSubscriptionDeliveryMethodArgs extends com.pulumi.reso
         }
 
         /**
-         * @param customHeaders The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+         * @param customHeaders The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class WebhookSubscriptionDeliveryMethodArgs extends com.pulumi.reso
         }
 
         /**
-         * @param customHeaders The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+         * @param customHeaders The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class WebhookSubscriptionDeliveryMethodArgs extends com.pulumi.reso
         }
 
         /**
-         * @param type Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+         * @param type Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class WebhookSubscriptionDeliveryMethodArgs extends com.pulumi.reso
         }
 
         /**
-         * @param type Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+         * @param type Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
          * 
          * @return builder
          * 

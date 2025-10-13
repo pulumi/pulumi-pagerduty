@@ -16,14 +16,14 @@ public final class GetAlertGroupingSettingConfig extends com.pulumi.resources.In
     public static final GetAlertGroupingSettingConfig Empty = new GetAlertGroupingSettingConfig();
 
     /**
-     * One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
+     * One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
      * 
      */
     @Import(name="aggregate", required=true)
     private String aggregate;
 
     /**
-     * @return One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
+     * @return One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
      * 
      */
     public String aggregate() {
@@ -31,14 +31,14 @@ public final class GetAlertGroupingSettingConfig extends com.pulumi.resources.In
     }
 
     /**
-     * Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
+     * Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
      * 
      */
     @Import(name="fields", required=true)
     private List<String> fields;
 
     /**
-     * @return Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
+     * @return Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
      * 
      */
     public List<String> fields() {
@@ -61,14 +61,14 @@ public final class GetAlertGroupingSettingConfig extends com.pulumi.resources.In
     }
 
     /**
-     * The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+     * The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
      * 
      */
     @Import(name="timeWindow", required=true)
     private Integer timeWindow;
 
     /**
-     * @return The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+     * @return The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
      * 
      */
     public Integer timeWindow() {
@@ -119,7 +119,7 @@ public final class GetAlertGroupingSettingConfig extends com.pulumi.resources.In
         }
 
         /**
-         * @param aggregate One of `any` or `all`. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`. Group alerts based on one or all of `fields` value(s).
+         * @param aggregate One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class GetAlertGroupingSettingConfig extends com.pulumi.resources.In
         }
 
         /**
-         * @param fields Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
+         * @param fields Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class GetAlertGroupingSettingConfig extends com.pulumi.resources.In
         }
 
         /**
-         * @param fields Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `content_based` or `content_based_intelligent`.
+         * @param fields Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class GetAlertGroupingSettingConfig extends com.pulumi.resources.In
         }
 
         /**
-         * @param timeWindow The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `content_based`, `content_based_intelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `content_based` alert grouping). Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
+         * @param timeWindow The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
          * 
          * @return builder
          * 

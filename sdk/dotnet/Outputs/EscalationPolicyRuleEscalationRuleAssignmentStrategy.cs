@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class EscalationPolicyRuleEscalationRuleAssignmentStrategy
     {
         /// <summary>
-        /// Can be `round_robin` or `assign_to_everyone`.
+        /// Can be `RoundRobin` or `AssignToEveryone`.
         /// </summary>
         public readonly string? Type;
 

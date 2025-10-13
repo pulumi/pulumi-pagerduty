@@ -14,15 +14,15 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class JiraCloudAccountMappingRuleConfigJiraStatusMapping
     {
         /// <summary>
-        /// Jira status that maps to the PagerDuty `acknowledged` status.
+        /// Jira status that maps to the PagerDuty `Acknowledged` status.
         /// </summary>
         public readonly Outputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged? Acknowledged;
         /// <summary>
-        /// Jira status that maps to the PagerDuty `resolved` status.
+        /// Jira status that maps to the PagerDuty `Resolved` status.
         /// </summary>
         public readonly Outputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved? Resolved;
         /// <summary>
-        /// Jira status that maps to the PagerDuty `triggered` status.
+        /// Jira status that maps to the PagerDuty `Triggered` status.
         /// </summary>
         public readonly Outputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered? Triggered;
 

@@ -38,7 +38,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Filter by `resource_type` the received standards. Allowed values are `technical_service`.
+        /// Filter by `ResourceType` the received standards. Allowed values are `TechnicalService`.
         /// </summary>
         public readonly string ResourceType;
         /// <summary>

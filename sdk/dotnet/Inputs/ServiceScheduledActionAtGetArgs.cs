@@ -13,11 +13,11 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class ServiceScheduledActionAtGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
+        /// Designates either the start or the end of the scheduled action. Can be `SupportHoursStart` or `SupportHoursEnd`.
         /// 
-        /// Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
+        /// Note that it is currently only possible to define the scheduled action when urgency is set to `High` for `DuringSupportHours` and to `Low`  for `OutsideSupportHours` in `IncidentUrgencyRule`.
         /// 
-        /// Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = "use_support_hours"`, `support_hours` and a default `scheduled_action` as well.
+        /// Below is an example for a `pagerduty.Service` resource with `IncidentUrgencyRules` with `type = "UseSupportHours"`, `SupportHours` and a default `ScheduledAction` as well.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -88,7 +88,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of time specification. Currently, this must be set to `named_time`.
+        /// The type of time specification. Currently, this must be set to `NamedTime`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

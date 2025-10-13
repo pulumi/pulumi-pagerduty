@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class EventOrchestrationUnroutedCatchAllActions
     {
         /// <summary>
-        /// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        /// sets whether the resulting alert status is trigger or resolve. Allowed values are: `Trigger`, `Resolve`
         /// </summary>
         public readonly string? EventAction;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.EventOrchestrationUnroutedCatchAllActionsExtraction> Extractions;
         /// <summary>
-        /// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        /// sets Severity of the resulting alert. Allowed values are: `Info`, `Error`, `Warning`, `Critical`
         /// </summary>
         public readonly string? Severity;
         public readonly bool? Suppress;

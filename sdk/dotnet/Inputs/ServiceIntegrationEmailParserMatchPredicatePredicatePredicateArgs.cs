@@ -19,13 +19,13 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string> Matcher { get; set; } = null!;
 
         /// <summary>
-        /// Can be `subject`, `body` or `from_addresses`.
+        /// Can be `Subject`, `Body` or `FromAddresses`.
         /// </summary>
         [Input("part", required: true)]
         public Input<string> Part { get; set; } = null!;
 
         /// <summary>
-        /// Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+        /// Can be `Contains`, `Exactly`, `Regex` or `Not`. If type is `Not` predicate should contain child predicate with all parameters.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

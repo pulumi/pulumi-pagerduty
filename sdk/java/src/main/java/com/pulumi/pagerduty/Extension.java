@@ -85,13 +85,13 @@ import javax.annotation.Nullable;
  *             .extensionObjects(exampleService.id())
  *             .config("""
  * }{{@code
- * 	"restrict": "any",
- * 	"notify_types": }{{@code
- * 			"resolve": false,
- * 			"acknowledge": false,
- * 			"assignments": false
- * 	}}{@code ,
- * 	"access_token": "XXX"
+ * \t\"restrict\": \"any\",
+ * \t\"notify_types\": }{{@code
+ * \t\t\t\"resolve\": false,
+ * \t\t\t\"acknowledge\": false,
+ * \t\t\t\"assignments\": false
+ * \t}}{@code ,
+ * \t\"access_token\": \"XXX\"
  * }}{@code
  *             """)
  *             .build());

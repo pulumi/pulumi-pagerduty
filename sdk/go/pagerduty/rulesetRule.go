@@ -20,8 +20,8 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi-time/sdk/go/time"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumiverse/pulumi-time/sdk/go/time"
 //
 // )
 //

@@ -15,6 +15,47 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = Pagerduty.GetEscalationPolicy.Invoke(new()
+    ///     {
+    ///         Name = "Default",
+    ///     });
+    /// 
+    ///     var basic = new Pagerduty.Service("basic", new()
+    ///     {
+    ///         Name = "Example",
+    ///         EscalationPolicy = @default.Apply(@default =&gt; @default.Apply(getEscalationPolicyResult =&gt; getEscalationPolicyResult.Id)),
+    ///     });
+    /// 
+    ///     var basicSettings = new Pagerduty.AlertGroupingSetting("basic_settings", new()
+    ///     {
+    ///         Name = "Configuration for type-1 devices",
+    ///         Type = "content_based",
+    ///         Services = new[]
+    ///         {
+    ///             basic.Id,
+    ///         },
+    ///         Config = new Pagerduty.Inputs.AlertGroupingSettingConfigArgs
+    ///         {
+    ///             TimeWindow = 300,
+    ///             Aggregate = "all",
+    ///             Fields = new[]
+    ///             {
+    ///                 "fields",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Migration from `AlertGroupingParameters`
     /// 
     /// To migrate from using the field `AlertGroupingParameters` of a

@@ -72,13 +72,13 @@ namespace Pulumi.Pagerduty
     ///             exampleService.Id,
     ///         },
     ///         Config = @"{
-    /// 	""restrict"": ""any"",
-    /// 	""notify_types"": {
-    /// 			""resolve"": false,
-    /// 			""acknowledge"": false,
-    /// 			""assignments"": false
-    /// 	},
-    /// 	""access_token"": ""XXX""
+    /// \t\""restrict\"": \""any\"",
+    /// \t\""notify_types\"": {
+    /// \t\t\t\""resolve\"": false,
+    /// \t\t\t\""acknowledge\"": false,
+    /// \t\t\t\""assignments\"": false
+    /// \t},
+    /// \t\""access_token\"": \""XXX\""
     /// }
     /// ",
     ///     });

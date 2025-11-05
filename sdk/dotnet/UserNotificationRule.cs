@@ -14,6 +14,85 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Pagerduty.User("example", new()
+    ///     {
+    ///         Name = "Earline Greenholt",
+    ///         Email = "125.greenholt.earline@graham.name",
+    ///     });
+    /// 
+    ///     var email = new Pagerduty.UserContactMethod("email", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         Type = "email_contact_method",
+    ///         Address = "foo@bar.com",
+    ///         Label = "Work",
+    ///     });
+    /// 
+    ///     var phone = new Pagerduty.UserContactMethod("phone", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         Type = "phone_contact_method",
+    ///         CountryCode = 1,
+    ///         Address = "2025550199",
+    ///         Label = "Work",
+    ///     });
+    /// 
+    ///     var sms = new Pagerduty.UserContactMethod("sms", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         Type = "sms_contact_method",
+    ///         CountryCode = 1,
+    ///         Address = "2025550199",
+    ///         Label = "Work",
+    ///     });
+    /// 
+    ///     var highUrgencyPhone = new Pagerduty.UserNotificationRule("high_urgency_phone", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         StartDelayInMinutes = 1,
+    ///         Urgency = "high",
+    ///         ContactMethod = new Pagerduty.Inputs.UserNotificationRuleContactMethodArgs
+    ///         {
+    ///             Type = "phone_contact_method",
+    ///             Id = phone.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var lowUrgencyEmail = new Pagerduty.UserNotificationRule("low_urgency_email", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         StartDelayInMinutes = 1,
+    ///         Urgency = "low",
+    ///         ContactMethod = new Pagerduty.Inputs.UserNotificationRuleContactMethodArgs
+    ///         {
+    ///             Type = "email_contact_method",
+    ///             Id = email.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var lowUrgencySms = new Pagerduty.UserNotificationRule("low_urgency_sms", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         StartDelayInMinutes = 10,
+    ///         Urgency = "low",
+    ///         ContactMethod = new Pagerduty.Inputs.UserNotificationRuleContactMethodArgs
+    ///         {
+    ///             Type = "sms_contact_method",
+    ///             Id = sms.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// User notification rules can be imported using the `user_id` and the `id`, e.g.

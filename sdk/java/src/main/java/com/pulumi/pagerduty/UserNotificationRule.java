@@ -21,6 +21,96 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pagerduty.User;
+ * import com.pulumi.pagerduty.UserArgs;
+ * import com.pulumi.pagerduty.UserContactMethod;
+ * import com.pulumi.pagerduty.UserContactMethodArgs;
+ * import com.pulumi.pagerduty.UserNotificationRule;
+ * import com.pulumi.pagerduty.UserNotificationRuleArgs;
+ * import com.pulumi.pagerduty.inputs.UserNotificationRuleContactMethodArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var example = new User("example", UserArgs.builder()
+ *             .name("Earline Greenholt")
+ *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
+ *             .build());
+ * 
+ *         var email = new UserContactMethod("email", UserContactMethodArgs.builder()
+ *             .userId(example.id())
+ *             .type("email_contact_method")
+ *             .address("foo}{@literal @}{@code bar.com")
+ *             .label("Work")
+ *             .build());
+ * 
+ *         var phone = new UserContactMethod("phone", UserContactMethodArgs.builder()
+ *             .userId(example.id())
+ *             .type("phone_contact_method")
+ *             .countryCode(1)
+ *             .address("2025550199")
+ *             .label("Work")
+ *             .build());
+ * 
+ *         var sms = new UserContactMethod("sms", UserContactMethodArgs.builder()
+ *             .userId(example.id())
+ *             .type("sms_contact_method")
+ *             .countryCode(1)
+ *             .address("2025550199")
+ *             .label("Work")
+ *             .build());
+ * 
+ *         var highUrgencyPhone = new UserNotificationRule("highUrgencyPhone", UserNotificationRuleArgs.builder()
+ *             .userId(example.id())
+ *             .startDelayInMinutes(1)
+ *             .urgency("high")
+ *             .contactMethod(UserNotificationRuleContactMethodArgs.builder()
+ *                 .type("phone_contact_method")
+ *                 .id(phone.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var lowUrgencyEmail = new UserNotificationRule("lowUrgencyEmail", UserNotificationRuleArgs.builder()
+ *             .userId(example.id())
+ *             .startDelayInMinutes(1)
+ *             .urgency("low")
+ *             .contactMethod(UserNotificationRuleContactMethodArgs.builder()
+ *                 .type("email_contact_method")
+ *                 .id(email.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var lowUrgencySms = new UserNotificationRule("lowUrgencySms", UserNotificationRuleArgs.builder()
+ *             .userId(example.id())
+ *             .startDelayInMinutes(10)
+ *             .urgency("low")
+ *             .contactMethod(UserNotificationRuleContactMethodArgs.builder()
+ *                 .type("sms_contact_method")
+ *                 .id(sms.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * User notification rules can be imported using the `user_id` and the `id`, e.g.

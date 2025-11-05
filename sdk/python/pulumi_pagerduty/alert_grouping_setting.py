@@ -210,6 +210,25 @@ class AlertGroupingSetting(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        default = pagerduty.get_escalation_policy(name="Default")
+        basic = pagerduty.Service("basic",
+            name="Example",
+            escalation_policy=default.id)
+        basic_settings = pagerduty.AlertGroupingSetting("basic_settings",
+            name="Configuration for type-1 devices",
+            type="content_based",
+            services=[basic.id],
+            config={
+                "time_window": 300,
+                "aggregate": "all",
+                "fields": ["fields"],
+            })
+        ```
+
         ## Migration from `alert_grouping_parameters`
 
         To migrate from using the field `alert_grouping_parameters` of a
@@ -272,6 +291,25 @@ class AlertGroupingSetting(pulumi.CustomResource):
         stores and centralize the configuration used during grouping of the alerts.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        default = pagerduty.get_escalation_policy(name="Default")
+        basic = pagerduty.Service("basic",
+            name="Example",
+            escalation_policy=default.id)
+        basic_settings = pagerduty.AlertGroupingSetting("basic_settings",
+            name="Configuration for type-1 devices",
+            type="content_based",
+            services=[basic.id],
+            config={
+                "time_window": 300,
+                "aggregate": "all",
+                "fields": ["fields"],
+            })
+        ```
 
         ## Migration from `alert_grouping_parameters`
 

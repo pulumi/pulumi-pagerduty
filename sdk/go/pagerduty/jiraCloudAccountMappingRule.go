@@ -18,6 +18,138 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_default, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
+//				Name: "Default",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			p1, err := pagerduty.GetPriority(ctx, &pagerduty.GetPriorityArgs{
+//				Name: "P1",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			p2, err := pagerduty.GetPriority(ctx, &pagerduty.GetPriorityArgs{
+//				Name: "P2",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			p3, err := pagerduty.GetPriority(ctx, &pagerduty.GetPriorityArgs{
+//				Name: "P3",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			foo, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
+//				Name:             pulumi.String("My Web App"),
+//				EscalationPolicy: pulumi.String(_default.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fooUser, err := pagerduty.NewUser(ctx, "foo", &pagerduty.UserArgs{
+//				Name:  pulumi.String("Earline Greenholt"),
+//				Email: pulumi.String("125.greenholt.earline@graham.name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"displayName": "Sec Level 1",
+//				"id":          "10000",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = pagerduty.NewJiraCloudAccountMappingRule(ctx, "foo", &pagerduty.JiraCloudAccountMappingRuleArgs{
+//				Name:           pulumi.String("Integration with My Web App"),
+//				AccountMapping: pulumi.String("PLBP09X"),
+//				Config: &pagerduty.JiraCloudAccountMappingRuleConfigArgs{
+//					Service: foo.ID(),
+//					Jira: &pagerduty.JiraCloudAccountMappingRuleConfigJiraArgs{
+//						AutocreateJql:                pulumi.String("priority = Highest"),
+//						CreateIssueOnIncidentTrigger: pulumi.Bool(true),
+//						CustomFields: pagerduty.JiraCloudAccountMappingRuleConfigJiraCustomFieldArray{
+//							&pagerduty.JiraCloudAccountMappingRuleConfigJiraCustomFieldArgs{
+//								SourceIncidentField:  pulumi.String("incident_description"),
+//								TargetIssueField:     pulumi.String("description"),
+//								TargetIssueFieldName: pulumi.String("Description"),
+//								Type:                 pulumi.String("attribute"),
+//							},
+//							&pagerduty.JiraCloudAccountMappingRuleConfigJiraCustomFieldArgs{
+//								TargetIssueField:     pulumi.String("security"),
+//								TargetIssueFieldName: pulumi.String("Security Level"),
+//								Type:                 pulumi.String("jira_value"),
+//								Value:                pulumi.String(json0),
+//							},
+//						},
+//						IssueType: &pagerduty.JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs{
+//							Id:   pulumi.String("10001"),
+//							Name: pulumi.String("Incident"),
+//						},
+//						Priorities: pagerduty.JiraCloudAccountMappingRuleConfigJiraPriorityArray{
+//							&pagerduty.JiraCloudAccountMappingRuleConfigJiraPriorityArgs{
+//								JiraId:      pulumi.String("1"),
+//								PagerdutyId: pulumi.String(p1.Id),
+//							},
+//							&pagerduty.JiraCloudAccountMappingRuleConfigJiraPriorityArgs{
+//								JiraId:      pulumi.String("2"),
+//								PagerdutyId: pulumi.String(p2.Id),
+//							},
+//							&pagerduty.JiraCloudAccountMappingRuleConfigJiraPriorityArgs{
+//								JiraId:      pulumi.String("3"),
+//								PagerdutyId: pulumi.String(p3.Id),
+//							},
+//						},
+//						Project: &pagerduty.JiraCloudAccountMappingRuleConfigJiraProjectArgs{
+//							Id:   pulumi.String("10100"),
+//							Key:  pulumi.String("ITS"),
+//							Name: pulumi.String("IT Support"),
+//						},
+//						StatusMapping: &pagerduty.JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs{
+//							Acknowledged: &pagerduty.JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs{
+//								Id:   pulumi.String("2"),
+//								Name: pulumi.String("In Progress"),
+//							},
+//							Resolved: &pagerduty.JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs{
+//								Id:   pulumi.String("3"),
+//								Name: pulumi.String("Resolved"),
+//							},
+//							Triggered: &pagerduty.JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs{
+//								Id:   pulumi.String("1"),
+//								Name: pulumi.String("Open"),
+//							},
+//						},
+//						SyncNotesUser: fooUser.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Jira Cloud account mapping rules can be imported using the `account_mapping_id` and `rule_id`, e.g.

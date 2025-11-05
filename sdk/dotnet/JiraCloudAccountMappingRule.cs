@@ -16,6 +16,134 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = Pagerduty.GetEscalationPolicy.Invoke(new()
+    ///     {
+    ///         Name = "Default",
+    ///     });
+    /// 
+    ///     var p1 = Pagerduty.GetPriority.Invoke(new()
+    ///     {
+    ///         Name = "P1",
+    ///     });
+    /// 
+    ///     var p2 = Pagerduty.GetPriority.Invoke(new()
+    ///     {
+    ///         Name = "P2",
+    ///     });
+    /// 
+    ///     var p3 = Pagerduty.GetPriority.Invoke(new()
+    ///     {
+    ///         Name = "P3",
+    ///     });
+    /// 
+    ///     var foo = new Pagerduty.Service("foo", new()
+    ///     {
+    ///         Name = "My Web App",
+    ///         EscalationPolicy = @default.Apply(@default =&gt; @default.Apply(getEscalationPolicyResult =&gt; getEscalationPolicyResult.Id)),
+    ///     });
+    /// 
+    ///     var fooUser = new Pagerduty.User("foo", new()
+    ///     {
+    ///         Name = "Earline Greenholt",
+    ///         Email = "125.greenholt.earline@graham.name",
+    ///     });
+    /// 
+    ///     var fooJiraCloudAccountMappingRule = new Pagerduty.JiraCloudAccountMappingRule("foo", new()
+    ///     {
+    ///         Name = "Integration with My Web App",
+    ///         AccountMapping = "PLBP09X",
+    ///         Config = new Pagerduty.Inputs.JiraCloudAccountMappingRuleConfigArgs
+    ///         {
+    ///             Service = foo.Id,
+    ///             Jira = new Pagerduty.Inputs.JiraCloudAccountMappingRuleConfigJiraArgs
+    ///             {
+    ///                 AutocreateJql = "priority = Highest",
+    ///                 CreateIssueOnIncidentTrigger = true,
+    ///                 CustomFields = new[]
+    ///                 {
+    ///                     new Pagerduty.Inputs.JiraCloudAccountMappingRuleConfigJiraCustomFieldArgs
+    ///                     {
+    ///                         SourceIncidentField = "incident_description",
+    ///                         TargetIssueField = "description",
+    ///                         TargetIssueFieldName = "Description",
+    ///                         Type = "attribute",
+    ///                     },
+    ///                     new Pagerduty.Inputs.JiraCloudAccountMappingRuleConfigJiraCustomFieldArgs
+    ///                     {
+    ///                         TargetIssueField = "security",
+    ///                         TargetIssueFieldName = "Security Level",
+    ///                         Type = "jira_value",
+    ///                         Value = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["displayName"] = "Sec Level 1",
+    ///                             ["id"] = "10000",
+    ///                         }),
+    ///                     },
+    ///                 },
+    ///                 IssueType = new Pagerduty.Inputs.JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs
+    ///                 {
+    ///                     Id = "10001",
+    ///                     Name = "Incident",
+    ///                 },
+    ///                 Priorities = new[]
+    ///                 {
+    ///                     new Pagerduty.Inputs.JiraCloudAccountMappingRuleConfigJiraPriorityArgs
+    ///                     {
+    ///                         JiraId = "1",
+    ///                         PagerdutyId = p1.Apply(getPriorityResult =&gt; getPriorityResult.Id),
+    ///                     },
+    ///                     new Pagerduty.Inputs.JiraCloudAccountMappingRuleConfigJiraPriorityArgs
+    ///                     {
+    ///                         JiraId = "2",
+    ///                         PagerdutyId = p2.Apply(getPriorityResult =&gt; getPriorityResult.Id),
+    ///                     },
+    ///                     new Pagerduty.Inputs.JiraCloudAccountMappingRuleConfigJiraPriorityArgs
+    ///                     {
+    ///                         JiraId = "3",
+    ///                         PagerdutyId = p3.Apply(getPriorityResult =&gt; getPriorityResult.Id),
+    ///                     },
+    ///                 },
+    ///                 Project = new Pagerduty.Inputs.JiraCloudAccountMappingRuleConfigJiraProjectArgs
+    ///                 {
+    ///                     Id = "10100",
+    ///                     Key = "ITS",
+    ///                     Name = "IT Support",
+    ///                 },
+    ///                 StatusMapping = new Pagerduty.Inputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs
+    ///                 {
+    ///                     Acknowledged = new Pagerduty.Inputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs
+    ///                     {
+    ///                         Id = "2",
+    ///                         Name = "In Progress",
+    ///                     },
+    ///                     Resolved = new Pagerduty.Inputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs
+    ///                     {
+    ///                         Id = "3",
+    ///                         Name = "Resolved",
+    ///                     },
+    ///                     Triggered = new Pagerduty.Inputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs
+    ///                     {
+    ///                         Id = "1",
+    ///                         Name = "Open",
+    ///                     },
+    ///                 },
+    ///                 SyncNotesUser = fooUser.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Jira Cloud account mapping rules can be imported using the `account_mapping_id` and `rule_id`, e.g.

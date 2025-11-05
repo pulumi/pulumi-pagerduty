@@ -211,6 +211,88 @@ class JiraCloudAccountMappingRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import json
+        import pulumi_pagerduty as pagerduty
+
+        default = pagerduty.get_escalation_policy(name="Default")
+        p1 = pagerduty.get_priority(name="P1")
+        p2 = pagerduty.get_priority(name="P2")
+        p3 = pagerduty.get_priority(name="P3")
+        foo = pagerduty.Service("foo",
+            name="My Web App",
+            escalation_policy=default.id)
+        foo_user = pagerduty.User("foo",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
+        foo_jira_cloud_account_mapping_rule = pagerduty.JiraCloudAccountMappingRule("foo",
+            name="Integration with My Web App",
+            account_mapping="PLBP09X",
+            config={
+                "service": foo.id,
+                "jira": {
+                    "autocreate_jql": "priority = Highest",
+                    "create_issue_on_incident_trigger": True,
+                    "custom_fields": [
+                        {
+                            "source_incident_field": "incident_description",
+                            "target_issue_field": "description",
+                            "target_issue_field_name": "Description",
+                            "type": "attribute",
+                        },
+                        {
+                            "target_issue_field": "security",
+                            "target_issue_field_name": "Security Level",
+                            "type": "jira_value",
+                            "value": json.dumps({
+                                "displayName": "Sec Level 1",
+                                "id": "10000",
+                            }),
+                        },
+                    ],
+                    "issue_type": {
+                        "id": "10001",
+                        "name": "Incident",
+                    },
+                    "priorities": [
+                        {
+                            "jira_id": "1",
+                            "pagerduty_id": p1.id,
+                        },
+                        {
+                            "jira_id": "2",
+                            "pagerduty_id": p2.id,
+                        },
+                        {
+                            "jira_id": "3",
+                            "pagerduty_id": p3.id,
+                        },
+                    ],
+                    "project": {
+                        "id": "10100",
+                        "key": "ITS",
+                        "name": "IT Support",
+                    },
+                    "status_mapping": {
+                        "acknowledged": {
+                            "id": "2",
+                            "name": "In Progress",
+                        },
+                        "resolved": {
+                            "id": "3",
+                            "name": "Resolved",
+                        },
+                        "triggered": {
+                            "id": "1",
+                            "name": "Open",
+                        },
+                    },
+                    "sync_notes_user": foo_user.id,
+                },
+            })
+        ```
+
         ## Import
 
         Jira Cloud account mapping rules can be imported using the `account_mapping_id` and `rule_id`, e.g.
@@ -238,6 +320,88 @@ class JiraCloudAccountMappingRule(pulumi.CustomResource):
         incidents.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_pagerduty as pagerduty
+
+        default = pagerduty.get_escalation_policy(name="Default")
+        p1 = pagerduty.get_priority(name="P1")
+        p2 = pagerduty.get_priority(name="P2")
+        p3 = pagerduty.get_priority(name="P3")
+        foo = pagerduty.Service("foo",
+            name="My Web App",
+            escalation_policy=default.id)
+        foo_user = pagerduty.User("foo",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
+        foo_jira_cloud_account_mapping_rule = pagerduty.JiraCloudAccountMappingRule("foo",
+            name="Integration with My Web App",
+            account_mapping="PLBP09X",
+            config={
+                "service": foo.id,
+                "jira": {
+                    "autocreate_jql": "priority = Highest",
+                    "create_issue_on_incident_trigger": True,
+                    "custom_fields": [
+                        {
+                            "source_incident_field": "incident_description",
+                            "target_issue_field": "description",
+                            "target_issue_field_name": "Description",
+                            "type": "attribute",
+                        },
+                        {
+                            "target_issue_field": "security",
+                            "target_issue_field_name": "Security Level",
+                            "type": "jira_value",
+                            "value": json.dumps({
+                                "displayName": "Sec Level 1",
+                                "id": "10000",
+                            }),
+                        },
+                    ],
+                    "issue_type": {
+                        "id": "10001",
+                        "name": "Incident",
+                    },
+                    "priorities": [
+                        {
+                            "jira_id": "1",
+                            "pagerduty_id": p1.id,
+                        },
+                        {
+                            "jira_id": "2",
+                            "pagerduty_id": p2.id,
+                        },
+                        {
+                            "jira_id": "3",
+                            "pagerduty_id": p3.id,
+                        },
+                    ],
+                    "project": {
+                        "id": "10100",
+                        "key": "ITS",
+                        "name": "IT Support",
+                    },
+                    "status_mapping": {
+                        "acknowledged": {
+                            "id": "2",
+                            "name": "In Progress",
+                        },
+                        "resolved": {
+                            "id": "3",
+                            "name": "Resolved",
+                        },
+                        "triggered": {
+                            "id": "1",
+                            "name": "Open",
+                        },
+                    },
+                    "sync_notes_user": foo_user.id,
+                },
+            })
+        ```
 
         ## Import
 

@@ -12,6 +12,29 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const _default = pagerduty.getEscalationPolicy({
+ *     name: "Default",
+ * });
+ * const basic = new pagerduty.Service("basic", {
+ *     name: "Example",
+ *     escalationPolicy: _default.then(_default => _default.id),
+ * });
+ * const basicSettings = new pagerduty.AlertGroupingSetting("basic_settings", {
+ *     name: "Configuration for type-1 devices",
+ *     type: "content_based",
+ *     services: [basic.id],
+ *     config: {
+ *         timeWindow: 300,
+ *         aggregate: "all",
+ *         fields: ["fields"],
+ *     },
+ * });
+ * ```
+ *
  * ## Migration from `alertGroupingParameters`
  *
  * To migrate from using the field `alertGroupingParameters` of a

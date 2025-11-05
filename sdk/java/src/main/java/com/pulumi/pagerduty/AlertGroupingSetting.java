@@ -22,6 +22,58 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pagerduty.PagerdutyFunctions;
+ * import com.pulumi.pagerduty.inputs.GetEscalationPolicyArgs;
+ * import com.pulumi.pagerduty.Service;
+ * import com.pulumi.pagerduty.ServiceArgs;
+ * import com.pulumi.pagerduty.AlertGroupingSetting;
+ * import com.pulumi.pagerduty.AlertGroupingSettingArgs;
+ * import com.pulumi.pagerduty.inputs.AlertGroupingSettingConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var default = PagerdutyFunctions.getEscalationPolicy(GetEscalationPolicyArgs.builder()
+ *             .name("Default")
+ *             .build());
+ * 
+ *         var basic = new Service("basic", ServiceArgs.builder()
+ *             .name("Example")
+ *             .escalationPolicy(default_.id())
+ *             .build());
+ * 
+ *         var basicSettings = new AlertGroupingSetting("basicSettings", AlertGroupingSettingArgs.builder()
+ *             .name("Configuration for type-1 devices")
+ *             .type("content_based")
+ *             .services(basic.id())
+ *             .config(AlertGroupingSettingConfigArgs.builder()
+ *                 .timeWindow(300)
+ *                 .aggregate("all")
+ *                 .fields("fields")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Migration from `alertGroupingParameters`
  * 
  * To migrate from using the field `alertGroupingParameters` of a

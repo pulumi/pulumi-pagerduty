@@ -120,6 +120,49 @@ import (
 // ```
 //
 // After:
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_default, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
+//				Name: "Default",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			foo, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
+//				Name:             pulumi.String("Foo"),
+//				EscalationPolicy: pulumi.String(_default.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewAlertGroupingSetting(ctx, "foo_alert", &pagerduty.AlertGroupingSettingArgs{
+//				Name: pulumi.String("Alert Grouping for Foo-like services"),
+//				Type: pulumi.String("time"),
+//				Config: &pagerduty.AlertGroupingSettingConfigArgs{
+//					Time: nil,
+//				},
+//				Services: pulumi.StringArray{
+//					foo.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

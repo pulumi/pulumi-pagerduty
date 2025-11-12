@@ -19,6 +19,60 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pagerduty.ServiceDependency;
+ * import com.pulumi.pagerduty.ServiceDependencyArgs;
+ * import com.pulumi.pagerduty.inputs.ServiceDependencyDependencyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new ServiceDependency("foo", ServiceDependencyArgs.builder()
+ *             .dependency(ServiceDependencyDependencyArgs.builder()
+ *                 .dependentService(Map.ofEntries(
+ *                     Map.entry("id", fooPagerdutyBusinessService.id()),
+ *                     Map.entry("type", fooPagerdutyBusinessService.type())
+ *                 ))
+ *                 .supportingService(Map.ofEntries(
+ *                     Map.entry("id", fooPagerdutyService.id()),
+ *                     Map.entry("type", fooPagerdutyService.type())
+ *                 ))
+ *                 .build())
+ *             .build());
+ * 
+ *         var bar = new ServiceDependency("bar", ServiceDependencyArgs.builder()
+ *             .dependency(ServiceDependencyDependencyArgs.builder()
+ *                 .dependentService(Map.ofEntries(
+ *                     Map.entry("id", fooPagerdutyBusinessService.id()),
+ *                     Map.entry("type", fooPagerdutyBusinessService.type())
+ *                 ))
+ *                 .supportingService(Map.ofEntries(
+ *                     Map.entry("id", two.id()),
+ *                     Map.entry("type", two.type())
+ *                 ))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.

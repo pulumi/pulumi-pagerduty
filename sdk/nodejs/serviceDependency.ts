@@ -11,6 +11,32 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const foo = new pagerduty.ServiceDependency("foo", {dependency: {
+ *     dependentService: {
+ *         id: fooPagerdutyBusinessService.id,
+ *         type: fooPagerdutyBusinessService.type,
+ *     },
+ *     supportingService: {
+ *         id: fooPagerdutyService.id,
+ *         type: fooPagerdutyService.type,
+ *     },
+ * }});
+ * const bar = new pagerduty.ServiceDependency("bar", {dependency: {
+ *     dependentService: {
+ *         id: fooPagerdutyBusinessService.id,
+ *         type: fooPagerdutyBusinessService.type,
+ *     },
+ *     supportingService: {
+ *         id: two.id,
+ *         type: two.type,
+ *     },
+ * }});
+ * ```
+ *
  * ## Import
  *
  * Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.

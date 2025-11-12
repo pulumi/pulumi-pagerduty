@@ -72,6 +72,26 @@ import * as utilities from "./utilities";
  * ```
  *
  * After:
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const _default = pagerduty.getEscalationPolicy({
+ *     name: "Default",
+ * });
+ * const foo = new pagerduty.Service("foo", {
+ *     name: "Foo",
+ *     escalationPolicy: _default.then(_default => _default.id),
+ * });
+ * const fooAlert = new pagerduty.AlertGroupingSetting("foo_alert", {
+ *     name: "Alert Grouping for Foo-like services",
+ *     type: "time",
+ *     config: {
+ *         time: null,
+ *     },
+ *     services: [foo.id],
+ * });
+ * ```
  *
  * ## Import
  *

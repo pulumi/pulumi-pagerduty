@@ -65,7 +65,9 @@ import (
 //								pulumi.Int(6),
 //							},
 //							StartTime: pulumi.Int(easternTimeAt0930.Unix.ApplyT(func(unix int) (float64, error) {
-//								return unix * 1000, nil
+//								return float64(unix.ApplyT(func(__convert float64) (float64, error) {
+//									return __convert * 1000, nil
+//								}).(pulumi.Float64Output)), nil
 //							}).(pulumi.Float64Output)),
 //							Duration: int(2 * 60 * 60 * 1000),
 //							Timezone: pulumi.String("America/New_York"),

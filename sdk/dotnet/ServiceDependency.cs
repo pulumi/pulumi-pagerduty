@@ -14,6 +14,51 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Pagerduty.ServiceDependency("foo", new()
+    ///     {
+    ///         Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs
+    ///         {
+    ///             DependentService = 
+    ///             {
+    ///                 { "id", fooPagerdutyBusinessService.Id },
+    ///                 { "type", fooPagerdutyBusinessService.Type },
+    ///             },
+    ///             SupportingService = 
+    ///             {
+    ///                 { "id", fooPagerdutyService.Id },
+    ///                 { "type", fooPagerdutyService.Type },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var bar = new Pagerduty.ServiceDependency("bar", new()
+    ///     {
+    ///         Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs
+    ///         {
+    ///             DependentService = 
+    ///             {
+    ///                 { "id", fooPagerdutyBusinessService.Id },
+    ///                 { "type", fooPagerdutyBusinessService.Type },
+    ///             },
+    ///             SupportingService = 
+    ///             {
+    ///                 { "id", two.Id },
+    ///                 { "type", two.Type },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.

@@ -104,6 +104,41 @@ namespace Pulumi.Pagerduty
     /// ```
     /// 
     /// After:
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = Pagerduty.GetEscalationPolicy.Invoke(new()
+    ///     {
+    ///         Name = "Default",
+    ///     });
+    /// 
+    ///     var foo = new Pagerduty.Service("foo", new()
+    ///     {
+    ///         Name = "Foo",
+    ///         EscalationPolicy = @default.Apply(@default =&gt; @default.Apply(getEscalationPolicyResult =&gt; getEscalationPolicyResult.Id)),
+    ///     });
+    /// 
+    ///     var fooAlert = new Pagerduty.AlertGroupingSetting("foo_alert", new()
+    ///     {
+    ///         Name = "Alert Grouping for Foo-like services",
+    ///         Type = "time",
+    ///         Config = new Pagerduty.Inputs.AlertGroupingSettingConfigArgs
+    ///         {
+    ///             Time = null,
+    ///         },
+    ///         Services = new[]
+    ///         {
+    ///             foo.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

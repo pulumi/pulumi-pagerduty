@@ -79,6 +79,32 @@ class ServiceDependency(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo = pagerduty.ServiceDependency("foo", dependency={
+            "dependent_service": {
+                "id": foo_pagerduty_business_service["id"],
+                "type": foo_pagerduty_business_service["type"],
+            },
+            "supporting_service": {
+                "id": foo_pagerduty_service["id"],
+                "type": foo_pagerduty_service["type"],
+            },
+        })
+        bar = pagerduty.ServiceDependency("bar", dependency={
+            "dependent_service": {
+                "id": foo_pagerduty_business_service["id"],
+                "type": foo_pagerduty_business_service["type"],
+            },
+            "supporting_service": {
+                "id": two["id"],
+                "type": two["type"],
+            },
+        })
+        ```
+
         ## Import
 
         Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.
@@ -101,6 +127,32 @@ class ServiceDependency(pulumi.CustomResource):
         A [service dependency](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Mg-associate-service-dependencies) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo = pagerduty.ServiceDependency("foo", dependency={
+            "dependent_service": {
+                "id": foo_pagerduty_business_service["id"],
+                "type": foo_pagerduty_business_service["type"],
+            },
+            "supporting_service": {
+                "id": foo_pagerduty_service["id"],
+                "type": foo_pagerduty_service["type"],
+            },
+        })
+        bar = pagerduty.ServiceDependency("bar", dependency={
+            "dependent_service": {
+                "id": foo_pagerduty_business_service["id"],
+                "type": foo_pagerduty_business_service["type"],
+            },
+            "supporting_service": {
+                "id": two["id"],
+                "type": two["type"],
+            },
+        })
+        ```
 
         ## Import
 

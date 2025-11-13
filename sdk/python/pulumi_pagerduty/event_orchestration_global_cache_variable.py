@@ -211,6 +211,60 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
 
         This example shows creating a global `Event Orchestration` and a `Cache Variable`. All events that have the `event.source` field will have its `source` value stored in this Cache Variable, and appended as a note for the subsequent incident created by this Event Orchestration.
 
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        database_team = pagerduty.Team("database_team", name="Database Team")
+        event_orchestration = pagerduty.EventOrchestration("event_orchestration",
+            name="Example Orchestration",
+            team=database_team.id)
+        recent_host = pagerduty.EventOrchestrationGlobalCacheVariable("recent_host",
+            event_orchestration=event_orchestration.id,
+            name="recent_host",
+            conditions=[{
+                "expression": "event.source exists",
+            }],
+            configuration={
+                "type": "recent_value",
+                "source": "event.source",
+                "regex": ".*",
+            })
+        host_ignore_list = pagerduty.EventOrchestrationServiceCacheVariable("host_ignore_list",
+            event_orchestration=event_orchestration.id,
+            name="host_ignore_list",
+            configuration={
+                "type": "external_data",
+                "data_type": "string",
+                "ttl_seconds": 3000,
+            })
+        global_ = pagerduty.EventOrchestrationGlobal("global",
+            event_orchestration=event_orchestration.id,
+            sets=[{
+                "id": "start",
+                "rules": [
+                    {
+                        "label": "Drop events originating from hosts on the ignore list",
+                        "conditions": [{
+                            "expression": "cache_var.host_ignore_list matches part event.custom_details.host",
+                        }],
+                        "actions": {
+                            "drop": True,
+                        },
+                    },
+                    {
+                        "label": "Always annotate the incident with the event source for all events",
+                        "actions": {
+                            "annotate": "Last time, we saw this incident occur on host: {{cache_var.recent_host}}",
+                        },
+                    },
+                ],
+            }],
+            catch_all={
+                "actions": {},
+            })
+        ```
+
         ## Import
 
         Cache Variables can be imported using colon-separated IDs, which is the combination of the Global Event Orchestration ID followed by the Cache Variable ID, e.g.
@@ -239,6 +293,60 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
         ## Example of configuring a Cache Variable for a Global Event Orchestration
 
         This example shows creating a global `Event Orchestration` and a `Cache Variable`. All events that have the `event.source` field will have its `source` value stored in this Cache Variable, and appended as a note for the subsequent incident created by this Event Orchestration.
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        database_team = pagerduty.Team("database_team", name="Database Team")
+        event_orchestration = pagerduty.EventOrchestration("event_orchestration",
+            name="Example Orchestration",
+            team=database_team.id)
+        recent_host = pagerduty.EventOrchestrationGlobalCacheVariable("recent_host",
+            event_orchestration=event_orchestration.id,
+            name="recent_host",
+            conditions=[{
+                "expression": "event.source exists",
+            }],
+            configuration={
+                "type": "recent_value",
+                "source": "event.source",
+                "regex": ".*",
+            })
+        host_ignore_list = pagerduty.EventOrchestrationServiceCacheVariable("host_ignore_list",
+            event_orchestration=event_orchestration.id,
+            name="host_ignore_list",
+            configuration={
+                "type": "external_data",
+                "data_type": "string",
+                "ttl_seconds": 3000,
+            })
+        global_ = pagerduty.EventOrchestrationGlobal("global",
+            event_orchestration=event_orchestration.id,
+            sets=[{
+                "id": "start",
+                "rules": [
+                    {
+                        "label": "Drop events originating from hosts on the ignore list",
+                        "conditions": [{
+                            "expression": "cache_var.host_ignore_list matches part event.custom_details.host",
+                        }],
+                        "actions": {
+                            "drop": True,
+                        },
+                    },
+                    {
+                        "label": "Always annotate the incident with the event source for all events",
+                        "actions": {
+                            "annotate": "Last time, we saw this incident occur on host: {{cache_var.recent_host}}",
+                        },
+                    },
+                ],
+            }],
+            catch_all={
+                "actions": {},
+            })
+        ```
 
         ## Import
 

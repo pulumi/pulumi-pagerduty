@@ -15,6 +15,54 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.NewServiceDependency(ctx, "foo", &pagerduty.ServiceDependencyArgs{
+//				Dependency: &pagerduty.ServiceDependencyDependencyArgs{
+//					DependentService: map[string]interface{}{
+//						"id":   fooPagerdutyBusinessService.Id,
+//						"type": fooPagerdutyBusinessService.Type,
+//					},
+//					SupportingService: map[string]interface{}{
+//						"id":   fooPagerdutyService.Id,
+//						"type": fooPagerdutyService.Type,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewServiceDependency(ctx, "bar", &pagerduty.ServiceDependencyArgs{
+//				Dependency: &pagerduty.ServiceDependencyDependencyArgs{
+//					DependentService: map[string]interface{}{
+//						"id":   fooPagerdutyBusinessService.Id,
+//						"type": fooPagerdutyBusinessService.Type,
+//					},
+//					SupportingService: map[string]interface{}{
+//						"id":   two.Id,
+//						"type": two.Type,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.

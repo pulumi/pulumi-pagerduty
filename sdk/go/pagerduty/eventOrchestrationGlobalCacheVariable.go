@@ -18,6 +18,99 @@ import (
 //
 // This example shows creating a global `Event Orchestration` and a `Cache Variable`. All events that have the `event.source` field will have its `source` value stored in this Cache Variable, and appended as a note for the subsequent incident created by this Event Orchestration.
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			databaseTeam, err := pagerduty.NewTeam(ctx, "database_team", &pagerduty.TeamArgs{
+//				Name: pulumi.String("Database Team"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			eventOrchestration, err := pagerduty.NewEventOrchestration(ctx, "event_orchestration", &pagerduty.EventOrchestrationArgs{
+//				Name: pulumi.String("Example Orchestration"),
+//				Team: databaseTeam.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewEventOrchestrationGlobalCacheVariable(ctx, "recent_host", &pagerduty.EventOrchestrationGlobalCacheVariableArgs{
+//				EventOrchestration: eventOrchestration.ID(),
+//				Name:               pulumi.String("recent_host"),
+//				Conditions: pagerduty.EventOrchestrationGlobalCacheVariableConditionArray{
+//					&pagerduty.EventOrchestrationGlobalCacheVariableConditionArgs{
+//						Expression: pulumi.String("event.source exists"),
+//					},
+//				},
+//				Configuration: &pagerduty.EventOrchestrationGlobalCacheVariableConfigurationArgs{
+//					Type:   pulumi.String("recent_value"),
+//					Source: pulumi.String("event.source"),
+//					Regex:  pulumi.String(".*"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewEventOrchestrationServiceCacheVariable(ctx, "host_ignore_list", &pagerduty.EventOrchestrationServiceCacheVariableArgs{
+//				EventOrchestration: eventOrchestration.ID(),
+//				Name:               pulumi.String("host_ignore_list"),
+//				Configuration: &pagerduty.EventOrchestrationServiceCacheVariableConfigurationArgs{
+//					Type:       pulumi.String("external_data"),
+//					DataType:   pulumi.String("string"),
+//					TtlSeconds: pulumi.Int(3000),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewEventOrchestrationGlobal(ctx, "global", &pagerduty.EventOrchestrationGlobalArgs{
+//				EventOrchestration: eventOrchestration.ID(),
+//				Sets: pagerduty.EventOrchestrationGlobalSetArray{
+//					&pagerduty.EventOrchestrationGlobalSetArgs{
+//						Id: pulumi.String("start"),
+//						Rules: pagerduty.EventOrchestrationGlobalSetRuleArray{
+//							&pagerduty.EventOrchestrationGlobalSetRuleArgs{
+//								Label: pulumi.String("Drop events originating from hosts on the ignore list"),
+//								Conditions: pagerduty.EventOrchestrationGlobalSetRuleConditionArray{
+//									&pagerduty.EventOrchestrationGlobalSetRuleConditionArgs{
+//										Expression: pulumi.String("cache_var.host_ignore_list matches part event.custom_details.host"),
+//									},
+//								},
+//								Actions: &pagerduty.EventOrchestrationGlobalSetRuleActionsArgs{
+//									Drop: true,
+//								},
+//							},
+//							&pagerduty.EventOrchestrationGlobalSetRuleArgs{
+//								Label: pulumi.String("Always annotate the incident with the event source for all events"),
+//								Actions: &pagerduty.EventOrchestrationGlobalSetRuleActionsArgs{
+//									Annotate: pulumi.String("Last time, we saw this incident occur on host: {{cache_var.recent_host}}"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				CatchAll: &pagerduty.EventOrchestrationGlobalCatchAllArgs{
+//					Actions: &pagerduty.EventOrchestrationGlobalCatchAllActionsArgs{},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Cache Variables can be imported using colon-separated IDs, which is the combination of the Global Event Orchestration ID followed by the Cache Variable ID, e.g.

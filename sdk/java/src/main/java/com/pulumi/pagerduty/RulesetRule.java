@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *                         2,
  *                         4,
  *                         6)
- *                     .startTime(easternTimeAt0930.unix().applyValue(_unix -> _unix * 1000))
+ *                     .startTime(easternTimeAt0930.unix().applyValue(_unix -> _unix.applyValue(___convert -> ___convert * 1000)))
  *                     .duration(2 * 60 * 60 * 1000)
  *                     .timezone("America/New_York")
  *                     .build())

@@ -13,6 +13,64 @@ import * as utilities from "./utilities";
  *
  * This example shows creating a global `Event Orchestration` and a `Cache Variable`. All events that have the `event.source` field will have its `source` value stored in this Cache Variable, and appended as a note for the subsequent incident created by this Event Orchestration.
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const databaseTeam = new pagerduty.Team("database_team", {name: "Database Team"});
+ * const eventOrchestration = new pagerduty.EventOrchestration("event_orchestration", {
+ *     name: "Example Orchestration",
+ *     team: databaseTeam.id,
+ * });
+ * const recentHost = new pagerduty.EventOrchestrationGlobalCacheVariable("recent_host", {
+ *     eventOrchestration: eventOrchestration.id,
+ *     name: "recent_host",
+ *     conditions: [{
+ *         expression: "event.source exists",
+ *     }],
+ *     configuration: {
+ *         type: "recent_value",
+ *         source: "event.source",
+ *         regex: ".*",
+ *     },
+ * });
+ * const hostIgnoreList = new pagerduty.EventOrchestrationServiceCacheVariable("host_ignore_list", {
+ *     eventOrchestration: eventOrchestration.id,
+ *     name: "host_ignore_list",
+ *     configuration: {
+ *         type: "external_data",
+ *         dataType: "string",
+ *         ttlSeconds: 3000,
+ *     },
+ * });
+ * const global = new pagerduty.EventOrchestrationGlobal("global", {
+ *     eventOrchestration: eventOrchestration.id,
+ *     sets: [{
+ *         id: "start",
+ *         rules: [
+ *             {
+ *                 label: "Drop events originating from hosts on the ignore list",
+ *                 conditions: [{
+ *                     expression: "cache_var.host_ignore_list matches part event.custom_details.host",
+ *                 }],
+ *                 actions: {
+ *                     drop: true,
+ *                 },
+ *             },
+ *             {
+ *                 label: "Always annotate the incident with the event source for all events",
+ *                 actions: {
+ *                     annotate: "Last time, we saw this incident occur on host: {{cache_var.recent_host}}",
+ *                 },
+ *             },
+ *         ],
+ *     }],
+ *     catchAll: {
+ *         actions: {},
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Cache Variables can be imported using colon-separated IDs, which is the combination of the Global Event Orchestration ID followed by the Cache Variable ID, e.g.

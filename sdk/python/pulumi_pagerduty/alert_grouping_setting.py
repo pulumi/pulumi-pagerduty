@@ -263,6 +263,22 @@ class AlertGroupingSetting(pulumi.CustomResource):
         ```
 
         After:
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        default = pagerduty.get_escalation_policy(name="Default")
+        foo = pagerduty.Service("foo",
+            name="Foo",
+            escalation_policy=default.id)
+        foo_alert = pagerduty.AlertGroupingSetting("foo_alert",
+            name="Alert Grouping for Foo-like services",
+            type="time",
+            config={
+                "time": None,
+            },
+            services=[foo.id])
+        ```
 
         ## Import
 
@@ -345,6 +361,22 @@ class AlertGroupingSetting(pulumi.CustomResource):
         ```
 
         After:
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        default = pagerduty.get_escalation_policy(name="Default")
+        foo = pagerduty.Service("foo",
+            name="Foo",
+            escalation_policy=default.id)
+        foo_alert = pagerduty.AlertGroupingSetting("foo_alert",
+            name="Alert Grouping for Foo-like services",
+            type="time",
+            config={
+                "time": None,
+            },
+            services=[foo.id])
+        ```
 
         ## Import
 

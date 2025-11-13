@@ -138,6 +138,55 @@ import javax.annotation.Nullable;
  * </pre>
  * 
  * After:
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pagerduty.PagerdutyFunctions;
+ * import com.pulumi.pagerduty.inputs.GetEscalationPolicyArgs;
+ * import com.pulumi.pagerduty.Service;
+ * import com.pulumi.pagerduty.ServiceArgs;
+ * import com.pulumi.pagerduty.AlertGroupingSetting;
+ * import com.pulumi.pagerduty.AlertGroupingSettingArgs;
+ * import com.pulumi.pagerduty.inputs.AlertGroupingSettingConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var default = PagerdutyFunctions.getEscalationPolicy(GetEscalationPolicyArgs.builder()
+ *             .name("Default")
+ *             .build());
+ * 
+ *         var foo = new Service("foo", ServiceArgs.builder()
+ *             .name("Foo")
+ *             .escalationPolicy(default_.id())
+ *             .build());
+ * 
+ *         var fooAlert = new AlertGroupingSetting("fooAlert", AlertGroupingSettingArgs.builder()
+ *             .name("Alert Grouping for Foo-like services")
+ *             .type("time")
+ *             .config(AlertGroupingSettingConfigArgs.builder()
+ *                 .time(null)
+ *                 .build())
+ *             .services(foo.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  * ## Import
  * 

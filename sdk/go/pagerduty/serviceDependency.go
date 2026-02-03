@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -74,16 +75,19 @@ type ServiceDependency struct {
 	pulumi.CustomResourceState
 
 	// The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
-	Dependency ServiceDependencyDependencyPtrOutput `pulumi:"dependency"`
+	Dependency ServiceDependencyDependencyOutput `pulumi:"dependency"`
 }
 
 // NewServiceDependency registers a new resource with the given unique name, arguments, and options.
 func NewServiceDependency(ctx *pulumi.Context,
 	name string, args *ServiceDependencyArgs, opts ...pulumi.ResourceOption) (*ServiceDependency, error) {
 	if args == nil {
-		args = &ServiceDependencyArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Dependency == nil {
+		return nil, errors.New("invalid value for required argument 'Dependency'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceDependency
 	err := ctx.RegisterResource("pagerduty:index/serviceDependency:ServiceDependency", name, args, &resource, opts...)
@@ -122,13 +126,13 @@ func (ServiceDependencyState) ElementType() reflect.Type {
 
 type serviceDependencyArgs struct {
 	// The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
-	Dependency *ServiceDependencyDependency `pulumi:"dependency"`
+	Dependency ServiceDependencyDependency `pulumi:"dependency"`
 }
 
 // The set of arguments for constructing a ServiceDependency resource.
 type ServiceDependencyArgs struct {
 	// The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
-	Dependency ServiceDependencyDependencyPtrInput
+	Dependency ServiceDependencyDependencyInput
 }
 
 func (ServiceDependencyArgs) ElementType() reflect.Type {
@@ -219,8 +223,8 @@ func (o ServiceDependencyOutput) ToServiceDependencyOutputWithContext(ctx contex
 }
 
 // The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
-func (o ServiceDependencyOutput) Dependency() ServiceDependencyDependencyPtrOutput {
-	return o.ApplyT(func(v *ServiceDependency) ServiceDependencyDependencyPtrOutput { return v.Dependency }).(ServiceDependencyDependencyPtrOutput)
+func (o ServiceDependencyOutput) Dependency() ServiceDependencyDependencyOutput {
+	return o.ApplyT(func(v *ServiceDependency) ServiceDependencyDependencyOutput { return v.Dependency }).(ServiceDependencyDependencyOutput)
 }
 
 type ServiceDependencyArrayOutput struct{ *pulumi.OutputState }

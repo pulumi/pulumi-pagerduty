@@ -21,24 +21,23 @@ __all__ = ['ServiceDependencyArgs', 'ServiceDependency']
 @pulumi.input_type
 class ServiceDependencyArgs:
     def __init__(__self__, *,
-                 dependency: Optional[pulumi.Input['ServiceDependencyDependencyArgs']] = None):
+                 dependency: pulumi.Input['ServiceDependencyDependencyArgs']):
         """
         The set of arguments for constructing a ServiceDependency resource.
         :param pulumi.Input['ServiceDependencyDependencyArgs'] dependency: The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
-        if dependency is not None:
-            pulumi.set(__self__, "dependency", dependency)
+        pulumi.set(__self__, "dependency", dependency)
 
     @_builtins.property
     @pulumi.getter
-    def dependency(self) -> Optional[pulumi.Input['ServiceDependencyDependencyArgs']]:
+    def dependency(self) -> pulumi.Input['ServiceDependencyDependencyArgs']:
         """
         The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
         return pulumi.get(self, "dependency")
 
     @dependency.setter
-    def dependency(self, value: Optional[pulumi.Input['ServiceDependencyDependencyArgs']]):
+    def dependency(self, value: pulumi.Input['ServiceDependencyDependencyArgs']):
         pulumi.set(self, "dependency", value)
 
 
@@ -121,7 +120,7 @@ class ServiceDependency(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ServiceDependencyArgs] = None,
+                 args: ServiceDependencyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [service dependency](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Mg-associate-service-dependencies) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
@@ -187,6 +186,8 @@ class ServiceDependency(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceDependencyArgs.__new__(ServiceDependencyArgs)
 
+            if dependency is None and not opts.urn:
+                raise TypeError("Missing required property 'dependency'")
             __props__.__dict__["dependency"] = dependency
         super(ServiceDependency, __self__).__init__(
             'pagerduty:index/serviceDependency:ServiceDependency',
@@ -217,7 +218,7 @@ class ServiceDependency(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def dependency(self) -> pulumi.Output[Optional['outputs.ServiceDependencyDependency']]:
+    def dependency(self) -> pulumi.Output['outputs.ServiceDependencyDependency']:
         """
         The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """

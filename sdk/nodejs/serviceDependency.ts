@@ -76,7 +76,7 @@ export class ServiceDependency extends pulumi.CustomResource {
     /**
      * The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
      */
-    declare public readonly dependency: pulumi.Output<outputs.ServiceDependencyDependency | undefined>;
+    declare public readonly dependency: pulumi.Output<outputs.ServiceDependencyDependency>;
 
     /**
      * Create a ServiceDependency resource with the given unique name, arguments, and options.
@@ -85,7 +85,7 @@ export class ServiceDependency extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ServiceDependencyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ServiceDependencyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceDependencyArgs | ServiceDependencyState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -94,6 +94,9 @@ export class ServiceDependency extends pulumi.CustomResource {
             resourceInputs["dependency"] = state?.dependency;
         } else {
             const args = argsOrState as ServiceDependencyArgs | undefined;
+            if (args?.dependency === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dependency'");
+            }
             resourceInputs["dependency"] = args?.dependency;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -118,5 +121,5 @@ export interface ServiceDependencyArgs {
     /**
      * The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
      */
-    dependency?: pulumi.Input<inputs.ServiceDependencyDependency>;
+    dependency: pulumi.Input<inputs.ServiceDependencyDependency>;
 }

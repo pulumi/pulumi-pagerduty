@@ -11,7 +11,6 @@ import com.pulumi.pagerduty.ServiceDependencyArgs;
 import com.pulumi.pagerduty.Utilities;
 import com.pulumi.pagerduty.inputs.ServiceDependencyState;
 import com.pulumi.pagerduty.outputs.ServiceDependencyDependency;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -89,14 +88,14 @@ public class ServiceDependency extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dependency", refs={ServiceDependencyDependency.class}, tree="[0]")
-    private Output</* @Nullable */ ServiceDependencyDependency> dependency;
+    private Output<ServiceDependencyDependency> dependency;
 
     /**
      * @return The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
      * 
      */
-    public Output<Optional<ServiceDependencyDependency>> dependency() {
-        return Codegen.optional(this.dependency);
+    public Output<ServiceDependencyDependency> dependency() {
+        return this.dependency;
     }
 
     /**
@@ -111,7 +110,7 @@ public class ServiceDependency extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceDependency(java.lang.String name, @Nullable ServiceDependencyArgs args) {
+    public ServiceDependency(java.lang.String name, ServiceDependencyArgs args) {
         this(name, args, null);
     }
     /**
@@ -120,7 +119,7 @@ public class ServiceDependency extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceDependency(java.lang.String name, @Nullable ServiceDependencyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ServiceDependency(java.lang.String name, ServiceDependencyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("pagerduty:index/serviceDependency:ServiceDependency", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -128,7 +127,7 @@ public class ServiceDependency extends com.pulumi.resources.CustomResource {
         super("pagerduty:index/serviceDependency:ServiceDependency", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ServiceDependencyArgs makeArgs(@Nullable ServiceDependencyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ServiceDependencyArgs makeArgs(ServiceDependencyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

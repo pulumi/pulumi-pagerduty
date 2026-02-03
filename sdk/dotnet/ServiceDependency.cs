@@ -74,7 +74,7 @@ namespace Pulumi.Pagerduty
         /// The relationship between the `SupportingService` and `DependentService`. One and only one dependency block must be defined.
         /// </summary>
         [Output("dependency")]
-        public Output<Outputs.ServiceDependencyDependency?> Dependency { get; private set; } = null!;
+        public Output<Outputs.ServiceDependencyDependency> Dependency { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Pulumi.Pagerduty
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ServiceDependency(string name, ServiceDependencyArgs? args = null, CustomResourceOptions? options = null)
+        public ServiceDependency(string name, ServiceDependencyArgs args, CustomResourceOptions? options = null)
             : base("pagerduty:index/serviceDependency:ServiceDependency", name, args ?? new ServiceDependencyArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -125,8 +125,8 @@ namespace Pulumi.Pagerduty
         /// <summary>
         /// The relationship between the `SupportingService` and `DependentService`. One and only one dependency block must be defined.
         /// </summary>
-        [Input("dependency")]
-        public Input<Inputs.ServiceDependencyDependencyArgs>? Dependency { get; set; }
+        [Input("dependency", required: true)]
+        public Input<Inputs.ServiceDependencyDependencyArgs> Dependency { get; set; } = null!;
 
         public ServiceDependencyArgs()
         {

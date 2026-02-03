@@ -8282,12 +8282,18 @@
                     "description": "The relationship between the \u003cspan pulumi-lang-nodejs=\"`supportingService`\" pulumi-lang-dotnet=\"`SupportingService`\" pulumi-lang-go=\"`supportingService`\" pulumi-lang-python=\"`supporting_service`\" pulumi-lang-yaml=\"`supportingService`\" pulumi-lang-java=\"`supportingService`\"\u003e`supporting_service`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`dependentService`\" pulumi-lang-dotnet=\"`DependentService`\" pulumi-lang-go=\"`dependentService`\" pulumi-lang-python=\"`dependent_service`\" pulumi-lang-yaml=\"`dependentService`\" pulumi-lang-java=\"`dependentService`\"\u003e`dependent_service`\u003c/span\u003e. One and only one dependency block must be defined.\n"
                 }
             },
+            "required": [
+                "dependency"
+            ],
             "inputProperties": {
                 "dependency": {
                     "$ref": "#/types/pagerduty:index/ServiceDependencyDependency:ServiceDependencyDependency",
                     "description": "The relationship between the \u003cspan pulumi-lang-nodejs=\"`supportingService`\" pulumi-lang-dotnet=\"`SupportingService`\" pulumi-lang-go=\"`supportingService`\" pulumi-lang-python=\"`supporting_service`\" pulumi-lang-yaml=\"`supportingService`\" pulumi-lang-java=\"`supportingService`\"\u003e`supporting_service`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`dependentService`\" pulumi-lang-dotnet=\"`DependentService`\" pulumi-lang-go=\"`dependentService`\" pulumi-lang-python=\"`dependent_service`\" pulumi-lang-yaml=\"`dependentService`\" pulumi-lang-java=\"`dependentService`\"\u003e`dependent_service`\u003c/span\u003e. One and only one dependency block must be defined.\n"
                 }
             },
+            "requiredInputs": [
+                "dependency"
+            ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering ServiceDependency resources.\n",
                 "properties": {

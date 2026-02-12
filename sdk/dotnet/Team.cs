@@ -42,7 +42,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Teams can be imported using the `id`, e.g.
+    /// Teams can be imported using the `Id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/team:Team main PLBP09X

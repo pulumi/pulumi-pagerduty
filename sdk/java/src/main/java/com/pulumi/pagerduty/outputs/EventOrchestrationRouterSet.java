@@ -18,6 +18,10 @@ public final class EventOrchestrationRouterSet {
      * 
      */
     private String id;
+    /**
+     * @return The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+     * 
+     */
     private @Nullable List<EventOrchestrationRouterSetRule> rules;
 
     private EventOrchestrationRouterSet() {}
@@ -28,6 +32,10 @@ public final class EventOrchestrationRouterSet {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+     * 
+     */
     public List<EventOrchestrationRouterSetRule> rules() {
         return this.rules == null ? List.of() : this.rules;
     }

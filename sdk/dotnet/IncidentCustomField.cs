@@ -52,7 +52,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Fields can be imported using the `id`, e.g.
+    /// Fields can be imported using the `Id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/incidentCustomField:IncidentCustomField sre_environment PLBP09X

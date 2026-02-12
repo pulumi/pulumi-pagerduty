@@ -106,6 +106,13 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
                  service_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        A [service custom field value](https://developer.pagerduty.com/api-reference/6075929031f7d-update-custom-field-values)
+        allows you to set values for custom fields on a PagerDuty service. These values
+        provide additional context for services and can be used for filtering, search,
+        and analytics.
+
+        > The API is optimized to receive multiple `custom_fields` blocks on the same resource when they share `service_id`, and not for the scenario where there is many resources pointing to the same service. So writing only 1 `ServiceCustomFieldValue` resource per service would result in quicker terraform applies and reduce the risk of encountering errors. See below for an example of the recommended usage pattern.
+
         ## Example Usage
 
         ```python
@@ -200,6 +207,13 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
                  args: ServiceCustomFieldValueArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        A [service custom field value](https://developer.pagerduty.com/api-reference/6075929031f7d-update-custom-field-values)
+        allows you to set values for custom fields on a PagerDuty service. These values
+        provide additional context for services and can be used for filtering, search,
+        and analytics.
+
+        > The API is optimized to receive multiple `custom_fields` blocks on the same resource when they share `service_id`, and not for the scenario where there is many resources pointing to the same service. So writing only 1 `ServiceCustomFieldValue` resource per service would result in quicker terraform applies and reduce the risk of encountering errors. See below for an example of the recommended usage pattern.
+
         ## Example Usage
 
         ```python

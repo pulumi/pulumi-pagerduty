@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Action team association can be imported using the `action_id` and `team_id` separated by a colon, e.g.
+ * Action team association can be imported using the `actionId` and `teamId` separated by a colon, e.g.
  *
  * ```sh
  * $ pulumi import pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z

@@ -39,7 +39,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Maintenance windows can be imported using the `id`, e.g.
+    /// Maintenance windows can be imported using the `Id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X

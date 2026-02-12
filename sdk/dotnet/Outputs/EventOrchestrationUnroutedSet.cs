@@ -17,6 +17,9 @@ namespace Pulumi.Pagerduty.Outputs
         /// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `RouteTo` property.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The Unrouted Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EventOrchestrationUnroutedSetRule> Rules;
 
         [OutputConstructor]

@@ -51,7 +51,7 @@ import (
 //
 // ## Import
 //
-// Enablements can be imported using the `id`, which is constructed by concatenating the `entity_type`, `entity_id`, and `feature` with dots, e.g.
+// Enablements can be imported using the `id`, which is constructed by concatenating the `entityType`, `entityId`, and `feature` with dots, e.g.
 //
 // ```sh
 // $ pulumi import pagerduty:index/enablement:Enablement example service.P7HHMVK.aiops

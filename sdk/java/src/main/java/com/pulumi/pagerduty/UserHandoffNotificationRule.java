@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * User handoff notification rules can be imported using the `user_id` and `id` separated by a dot, e.g.
+ * User handoff notification rules can be imported using the `userId` and `id` separated by a dot, e.g.
  * 
  * ```sh
  * $ pulumi import pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule main PX4IAP4.PULREBP

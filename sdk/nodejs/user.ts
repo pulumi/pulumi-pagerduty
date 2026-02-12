@@ -26,6 +26,9 @@ import * as utilities from "./utilities";
  * ```sh
  * $ pulumi import pagerduty:index/user:User main PLBP09X
  * ```
+ *
+ * [1]: https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user
+ * [2]: https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license
  */
 export class User extends pulumi.CustomResource {
     /**

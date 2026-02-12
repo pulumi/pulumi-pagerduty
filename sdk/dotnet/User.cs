@@ -33,11 +33,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Users can be imported using the `id`, e.g.
+    /// Users can be imported using the `Id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/user:User main PLBP09X
     /// ```
+    /// 
+    /// [1]: https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user
+    /// [2]: https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/user:User")]
     public partial class User : global::Pulumi.CustomResource

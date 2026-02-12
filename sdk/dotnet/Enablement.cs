@@ -40,7 +40,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Enablements can be imported using the `id`, which is constructed by concatenating the `entity_type`, `entity_id`, and `feature` with dots, e.g.
+    /// Enablements can be imported using the `Id`, which is constructed by concatenating the `EntityType`, `EntityId`, and `Feature` with dots, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/enablement:Enablement example service.P7HHMVK.aiops

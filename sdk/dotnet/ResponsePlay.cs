@@ -10,6 +10,24 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
+    /// A [response play](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2Ng-create-a-response-play) allows you to create packages of Incident Actions that can be applied during an Incident's life cycle.
+    /// 
+    /// &lt;div role="alert" class="alert alert-warning"&gt;
+    ///   &lt;div class="alert-title"&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;End-of-Life&lt;/div&gt;
+    ///   &lt;p&gt;
+    ///     Response Play will end-of-life soon. We highly recommend that you
+    ///     &lt;a
+    ///       href="https://support.pagerduty.com/docs/upgrade-response-plays-to-incident-workflows"
+    ///       rel="noopener noreferrer"
+    ///       target="_blank"
+    ///       &gt;migrate to Incident Workflows&lt;/a&gt;
+    ///     as soon as possible so you can take advantage of the new functionality.
+    ///     With Incident Workflows, customers are able to define if-this-then-that
+    ///     logic to effortlessly trigger a sequence of common incident actions, advanced conditions, REST APIs
+    ///     and Terraform support.
+    ///   &lt;/p&gt;
+    /// &lt;/div&gt;
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

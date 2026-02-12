@@ -39,7 +39,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// EventOrchestrations can be imported using the `id`, e.g.
+    /// EventOrchestrations can be imported using the `Id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/eventOrchestration:EventOrchestration main 19acac92-027a-4ea0-b06c-bbf516519601

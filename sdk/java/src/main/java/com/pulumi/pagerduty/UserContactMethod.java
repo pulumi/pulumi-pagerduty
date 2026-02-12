@@ -17,6 +17,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; This resource behaves a little differently than may be expected. If the defined contact method already exists for the user in PagerDuty this resource will import the values of the existing contact method into your Terraform state.
+ * 
+ * A [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0MA-create-a-user-contact-method) is a contact method for a PagerDuty user (email, phone or SMS).
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -79,7 +83,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Contact methods can be imported using the `user_id` and the `id`, e.g.
+ * Contact methods can be imported using the `userId` and the `id`, e.g.
  * 
  * ```sh
  * $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X

@@ -35,7 +35,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Services can be imported using the `id`, e.g.
+    /// Services can be imported using the `Id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X

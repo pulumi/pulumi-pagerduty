@@ -282,6 +282,9 @@ export interface EventOrchestrationGlobalSet {
      * The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
      */
     id: string;
+    /**
+     * The Global Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+     */
     rules?: outputs.EventOrchestrationGlobalSetRule[];
 }
 
@@ -512,6 +515,9 @@ export interface EventOrchestrationRouterSet {
      * ID of the `start` set. Router supports only one set and it's id has to be `start`
      */
     id: string;
+    /**
+     * The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+     */
     rules?: outputs.EventOrchestrationRouterSetRule[];
 }
 
@@ -780,6 +786,9 @@ export interface EventOrchestrationServiceSet {
      * The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
      */
     id: string;
+    /**
+     * The service orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+     */
     rules?: outputs.EventOrchestrationServiceSetRule[];
 }
 
@@ -1051,6 +1060,9 @@ export interface EventOrchestrationUnroutedSet {
      * The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
      */
     id: string;
+    /**
+     * The Unrouted Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+     */
     rules?: outputs.EventOrchestrationUnroutedSetRule[];
 }
 

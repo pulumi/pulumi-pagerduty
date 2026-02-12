@@ -10,6 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
+    /// [Rulesets](https://support.pagerduty.com/docs/rulesets) allow you to route events to an endpoint and create collections of event rules, which define sets of actions to take based on event content.
+    /// 
+    /// &lt;div role="alert" class="alert alert-warning"&gt;
+    ///   &lt;div class="alert-title"&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;End-of-Life&lt;/div&gt;
+    ///   &lt;p&gt;
+    ///     Rulesets and Event Rules will end-of-life soon. We highly recommend that you
+    ///     &lt;a
+    ///       href="https://support.pagerduty.com/docs/migrate-to-event-orchestration"
+    ///       rel="noopener noreferrer"
+    ///       target="_blank"
+    ///       &gt;migrate to Event Orchestration&lt;/a&gt;
+    ///     as soon as possible so you can take advantage of the new functionality, such
+    ///     as improved UI, rule creation, REST APIs and Terraform support, advanced
+    ///     conditions, and rule nesting.
+    ///   &lt;/p&gt;
+    /// &lt;/div&gt;
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -39,7 +56,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Rulesets can be imported using the `id`, e.g.
+    /// Rulesets can be imported using the `Id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/ruleset:Ruleset main 19acac92-027a-4ea0-b06c-bbf516519601

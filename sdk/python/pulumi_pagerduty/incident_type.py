@@ -219,6 +219,16 @@ class IncidentType(pulumi.CustomResource):
                  parent_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        An [incident\\_type](https://developer.pagerduty.com/api-reference/1981087c1914c-create-an-incident-type)
+        is a feature which allows customers to categorize incidents, such as a security
+        incident, a major incident, or a fraud incident.
+
+        <div role="alert" class="alert alert-warning">
+          <div class="alert-title"><i class="fa fa-warning"></i>Resource limitation</div>
+          <p>Incident Types cannot be deleted, only disabled</p>
+          <p>If you want terraform to stop tracking this resource please use <code>terraform state rm</code>.</p>
+        </div>
+
         ## Example Usage
 
         ```python
@@ -256,6 +266,16 @@ class IncidentType(pulumi.CustomResource):
                  args: IncidentTypeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        An [incident\\_type](https://developer.pagerduty.com/api-reference/1981087c1914c-create-an-incident-type)
+        is a feature which allows customers to categorize incidents, such as a security
+        incident, a major incident, or a fraud incident.
+
+        <div role="alert" class="alert alert-warning">
+          <div class="alert-title"><i class="fa fa-warning"></i>Resource limitation</div>
+          <p>Incident Types cannot be deleted, only disabled</p>
+          <p>If you want terraform to stop tracking this resource please use <code>terraform state rm</code>.</p>
+        </div>
+
         ## Example Usage
 
         ```python

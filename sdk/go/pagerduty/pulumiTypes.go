@@ -2435,7 +2435,8 @@ func (o EventOrchestrationGlobalCatchAllActionsVariableArrayOutput) Index(i pulu
 
 type EventOrchestrationGlobalSet struct {
 	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
-	Id    string                            `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The Global Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
 	Rules []EventOrchestrationGlobalSetRule `pulumi:"rules"`
 }
 
@@ -2452,7 +2453,8 @@ type EventOrchestrationGlobalSetInput interface {
 
 type EventOrchestrationGlobalSetArgs struct {
 	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
-	Id    pulumi.StringInput                        `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Global Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
 	Rules EventOrchestrationGlobalSetRuleArrayInput `pulumi:"rules"`
 }
 
@@ -2512,6 +2514,7 @@ func (o EventOrchestrationGlobalSetOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSet) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The Global Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
 func (o EventOrchestrationGlobalSetOutput) Rules() EventOrchestrationGlobalSetRuleArrayOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSet) []EventOrchestrationGlobalSetRule { return v.Rules }).(EventOrchestrationGlobalSetRuleArrayOutput)
 }
@@ -4240,7 +4243,8 @@ func (o EventOrchestrationRouterCatchAllActionsPtrOutput) RouteTo() pulumi.Strin
 
 type EventOrchestrationRouterSet struct {
 	// ID of the `start` set. Router supports only one set and it's id has to be `start`
-	Id    string                            `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
 	Rules []EventOrchestrationRouterSetRule `pulumi:"rules"`
 }
 
@@ -4257,7 +4261,8 @@ type EventOrchestrationRouterSetInput interface {
 
 type EventOrchestrationRouterSetArgs struct {
 	// ID of the `start` set. Router supports only one set and it's id has to be `start`
-	Id    pulumi.StringInput                        `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
 	Rules EventOrchestrationRouterSetRuleArrayInput `pulumi:"rules"`
 }
 
@@ -4343,6 +4348,7 @@ func (o EventOrchestrationRouterSetOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationRouterSet) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
 func (o EventOrchestrationRouterSetOutput) Rules() EventOrchestrationRouterSetRuleArrayOutput {
 	return o.ApplyT(func(v EventOrchestrationRouterSet) []EventOrchestrationRouterSetRule { return v.Rules }).(EventOrchestrationRouterSetRuleArrayOutput)
 }
@@ -4381,6 +4387,7 @@ func (o EventOrchestrationRouterSetPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
 func (o EventOrchestrationRouterSetPtrOutput) Rules() EventOrchestrationRouterSetRuleArrayOutput {
 	return o.ApplyT(func(v *EventOrchestrationRouterSet) []EventOrchestrationRouterSetRule {
 		if v == nil {
@@ -6601,7 +6608,8 @@ func (o EventOrchestrationServiceCatchAllActionsVariableArrayOutput) Index(i pul
 
 type EventOrchestrationServiceSet struct {
 	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
-	Id    string                             `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The service orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
 	Rules []EventOrchestrationServiceSetRule `pulumi:"rules"`
 }
 
@@ -6618,7 +6626,8 @@ type EventOrchestrationServiceSetInput interface {
 
 type EventOrchestrationServiceSetArgs struct {
 	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
-	Id    pulumi.StringInput                         `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The service orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
 	Rules EventOrchestrationServiceSetRuleArrayInput `pulumi:"rules"`
 }
 
@@ -6678,6 +6687,7 @@ func (o EventOrchestrationServiceSetOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSet) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The service orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
 func (o EventOrchestrationServiceSetOutput) Rules() EventOrchestrationServiceSetRuleArrayOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSet) []EventOrchestrationServiceSetRule { return v.Rules }).(EventOrchestrationServiceSetRuleArrayOutput)
 }
@@ -8676,7 +8686,8 @@ func (o EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput) Index(i pu
 
 type EventOrchestrationUnroutedSet struct {
 	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
-	Id    string                              `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The Unrouted Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
 	Rules []EventOrchestrationUnroutedSetRule `pulumi:"rules"`
 }
 
@@ -8693,7 +8704,8 @@ type EventOrchestrationUnroutedSetInput interface {
 
 type EventOrchestrationUnroutedSetArgs struct {
 	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
-	Id    pulumi.StringInput                          `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Unrouted Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
 	Rules EventOrchestrationUnroutedSetRuleArrayInput `pulumi:"rules"`
 }
 
@@ -8753,6 +8765,7 @@ func (o EventOrchestrationUnroutedSetOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationUnroutedSet) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The Unrouted Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
 func (o EventOrchestrationUnroutedSetOutput) Rules() EventOrchestrationUnroutedSetRuleArrayOutput {
 	return o.ApplyT(func(v EventOrchestrationUnroutedSet) []EventOrchestrationUnroutedSetRule { return v.Rules }).(EventOrchestrationUnroutedSetRuleArrayOutput)
 }

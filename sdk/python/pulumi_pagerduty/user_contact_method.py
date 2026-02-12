@@ -291,6 +291,10 @@ class UserContactMethod(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        > This resource behaves a little differently than may be expected. If the defined contact method already exists for the user in PagerDuty this resource will import the values of the existing contact method into your Terraform state.
+
+        A [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0MA-create-a-user-contact-method) is a contact method for a PagerDuty user (email, phone or SMS).
+
         ## Example Usage
 
         ```python
@@ -344,6 +348,10 @@ class UserContactMethod(pulumi.CustomResource):
                  args: UserContactMethodArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > This resource behaves a little differently than may be expected. If the defined contact method already exists for the user in PagerDuty this resource will import the values of the existing contact method into your Terraform state.
+
+        A [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0MA-create-a-user-contact-method) is a contact method for a PagerDuty user (email, phone or SMS).
+
         ## Example Usage
 
         ```python

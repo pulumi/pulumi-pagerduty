@@ -146,7 +146,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Jira Cloud account mapping rules can be imported using the `account_mapping_id` and `rule_id`, e.g.
+    /// Jira Cloud account mapping rules can be imported using the `AccountMappingId` and `RuleId`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/jiraCloudAccountMappingRule:JiraCloudAccountMappingRule main PLBP09X:PLB09Z

@@ -33,7 +33,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Add-ons can be imported using the `id`, e.g.
+    /// Add-ons can be imported using the `Id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/addon:Addon example P3DH5M6

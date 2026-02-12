@@ -4854,6 +4854,23 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getPriority:getPriority", TypeShape.of(GetPriorityResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
+     * 
+     * &lt;div role=&#34;alert&#34; class=&#34;alert alert-warning&#34;&gt;
+     *   &lt;div class=&#34;alert-title&#34;&gt;&lt;i class=&#34;fa fa-warning&#34;&gt;&lt;/i&gt;End-of-Life&lt;/div&gt;
+     *   &lt;p&gt;
+     *     Rulesets and Event Rules will end-of-life soon. We highly recommend that you
+     *     &lt;a
+     *       href=&#34;https://support.pagerduty.com/docs/migrate-to-event-orchestration&#34;
+     *       rel=&#34;noopener noreferrer&#34;
+     *       target=&#34;_blank&#34;
+     *       &gt;migrate to Event Orchestration&lt;/a&gt;
+     *     as soon as possible so you can take advantage of the new functionality, such
+     *     as improved UI, rule creation, REST APIs and Terraform support, advanced
+     *     conditions, and rule nesting.
+     *   &lt;/p&gt;
+     * &lt;/div&gt;
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -4958,6 +4975,23 @@ public final class PagerdutyFunctions {
         return getRuleset(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
+     * 
+     * &lt;div role=&#34;alert&#34; class=&#34;alert alert-warning&#34;&gt;
+     *   &lt;div class=&#34;alert-title&#34;&gt;&lt;i class=&#34;fa fa-warning&#34;&gt;&lt;/i&gt;End-of-Life&lt;/div&gt;
+     *   &lt;p&gt;
+     *     Rulesets and Event Rules will end-of-life soon. We highly recommend that you
+     *     &lt;a
+     *       href=&#34;https://support.pagerduty.com/docs/migrate-to-event-orchestration&#34;
+     *       rel=&#34;noopener noreferrer&#34;
+     *       target=&#34;_blank&#34;
+     *       &gt;migrate to Event Orchestration&lt;/a&gt;
+     *     as soon as possible so you can take advantage of the new functionality, such
+     *     as improved UI, rule creation, REST APIs and Terraform support, advanced
+     *     conditions, and rule nesting.
+     *   &lt;/p&gt;
+     * &lt;/div&gt;
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -5062,6 +5096,23 @@ public final class PagerdutyFunctions {
         return getRulesetPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
+     * 
+     * &lt;div role=&#34;alert&#34; class=&#34;alert alert-warning&#34;&gt;
+     *   &lt;div class=&#34;alert-title&#34;&gt;&lt;i class=&#34;fa fa-warning&#34;&gt;&lt;/i&gt;End-of-Life&lt;/div&gt;
+     *   &lt;p&gt;
+     *     Rulesets and Event Rules will end-of-life soon. We highly recommend that you
+     *     &lt;a
+     *       href=&#34;https://support.pagerduty.com/docs/migrate-to-event-orchestration&#34;
+     *       rel=&#34;noopener noreferrer&#34;
+     *       target=&#34;_blank&#34;
+     *       &gt;migrate to Event Orchestration&lt;/a&gt;
+     *     as soon as possible so you can take advantage of the new functionality, such
+     *     as improved UI, rule creation, REST APIs and Terraform support, advanced
+     *     conditions, and rule nesting.
+     *   &lt;/p&gt;
+     * &lt;/div&gt;
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -5166,6 +5217,23 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invoke("pagerduty:index/getRuleset:getRuleset", TypeShape.of(GetRulesetResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
+     * 
+     * &lt;div role=&#34;alert&#34; class=&#34;alert alert-warning&#34;&gt;
+     *   &lt;div class=&#34;alert-title&#34;&gt;&lt;i class=&#34;fa fa-warning&#34;&gt;&lt;/i&gt;End-of-Life&lt;/div&gt;
+     *   &lt;p&gt;
+     *     Rulesets and Event Rules will end-of-life soon. We highly recommend that you
+     *     &lt;a
+     *       href=&#34;https://support.pagerduty.com/docs/migrate-to-event-orchestration&#34;
+     *       rel=&#34;noopener noreferrer&#34;
+     *       target=&#34;_blank&#34;
+     *       &gt;migrate to Event Orchestration&lt;/a&gt;
+     *     as soon as possible so you can take advantage of the new functionality, such
+     *     as improved UI, rule creation, REST APIs and Terraform support, advanced
+     *     conditions, and rule nesting.
+     *   &lt;/p&gt;
+     * &lt;/div&gt;
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -5270,6 +5338,23 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invoke("pagerduty:index/getRuleset:getRuleset", TypeShape.of(GetRulesetResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
+     * 
+     * &lt;div role=&#34;alert&#34; class=&#34;alert alert-warning&#34;&gt;
+     *   &lt;div class=&#34;alert-title&#34;&gt;&lt;i class=&#34;fa fa-warning&#34;&gt;&lt;/i&gt;End-of-Life&lt;/div&gt;
+     *   &lt;p&gt;
+     *     Rulesets and Event Rules will end-of-life soon. We highly recommend that you
+     *     &lt;a
+     *       href=&#34;https://support.pagerduty.com/docs/migrate-to-event-orchestration&#34;
+     *       rel=&#34;noopener noreferrer&#34;
+     *       target=&#34;_blank&#34;
+     *       &gt;migrate to Event Orchestration&lt;/a&gt;
+     *     as soon as possible so you can take advantage of the new functionality, such
+     *     as improved UI, rule creation, REST APIs and Terraform support, advanced
+     *     conditions, and rule nesting.
+     *   &lt;/p&gt;
+     * &lt;/div&gt;
+     * 
      * ## Example Usage
      * 
      * <pre>

@@ -17,6 +17,9 @@ namespace Pulumi.Pagerduty.Outputs
         /// ID of the `Start` set. Router supports only one set and it's id has to be `Start`
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EventOrchestrationRouterSetRule> Rules;
 
         [OutputConstructor]

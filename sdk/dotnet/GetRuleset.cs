@@ -12,6 +12,23 @@ namespace Pulumi.Pagerduty
     public static class GetRuleset
     {
         /// <summary>
+        /// Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
+        /// 
+        /// &lt;div role="alert" class="alert alert-warning"&gt;
+        ///   &lt;div class="alert-title"&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;End-of-Life&lt;/div&gt;
+        ///   &lt;p&gt;
+        ///     Rulesets and Event Rules will end-of-life soon. We highly recommend that you
+        ///     &lt;a
+        ///       href="https://support.pagerduty.com/docs/migrate-to-event-orchestration"
+        ///       rel="noopener noreferrer"
+        ///       target="_blank"
+        ///       &gt;migrate to Event Orchestration&lt;/a&gt;
+        ///     as soon as possible so you can take advantage of the new functionality, such
+        ///     as improved UI, rule creation, REST APIs and Terraform support, advanced
+        ///     conditions, and rule nesting.
+        ///   &lt;/p&gt;
+        /// &lt;/div&gt;
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -100,6 +117,23 @@ namespace Pulumi.Pagerduty
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRulesetResult>("pagerduty:index/getRuleset:getRuleset", args ?? new GetRulesetArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
+        /// 
+        /// &lt;div role="alert" class="alert alert-warning"&gt;
+        ///   &lt;div class="alert-title"&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;End-of-Life&lt;/div&gt;
+        ///   &lt;p&gt;
+        ///     Rulesets and Event Rules will end-of-life soon. We highly recommend that you
+        ///     &lt;a
+        ///       href="https://support.pagerduty.com/docs/migrate-to-event-orchestration"
+        ///       rel="noopener noreferrer"
+        ///       target="_blank"
+        ///       &gt;migrate to Event Orchestration&lt;/a&gt;
+        ///     as soon as possible so you can take advantage of the new functionality, such
+        ///     as improved UI, rule creation, REST APIs and Terraform support, advanced
+        ///     conditions, and rule nesting.
+        ///   &lt;/p&gt;
+        /// &lt;/div&gt;
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -188,6 +222,23 @@ namespace Pulumi.Pagerduty
             => global::Pulumi.Deployment.Instance.Invoke<GetRulesetResult>("pagerduty:index/getRuleset:getRuleset", args ?? new GetRulesetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
+        /// 
+        /// &lt;div role="alert" class="alert alert-warning"&gt;
+        ///   &lt;div class="alert-title"&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;End-of-Life&lt;/div&gt;
+        ///   &lt;p&gt;
+        ///     Rulesets and Event Rules will end-of-life soon. We highly recommend that you
+        ///     &lt;a
+        ///       href="https://support.pagerduty.com/docs/migrate-to-event-orchestration"
+        ///       rel="noopener noreferrer"
+        ///       target="_blank"
+        ///       &gt;migrate to Event Orchestration&lt;/a&gt;
+        ///     as soon as possible so you can take advantage of the new functionality, such
+        ///     as improved UI, rule creation, REST APIs and Terraform support, advanced
+        ///     conditions, and rule nesting.
+        ///   &lt;/p&gt;
+        /// &lt;/div&gt;
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

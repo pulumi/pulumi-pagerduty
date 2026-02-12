@@ -10,6 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
+    /// A [service custom field value](https://developer.pagerduty.com/api-reference/6075929031f7d-update-custom-field-values)
+    /// allows you to set values for custom fields on a PagerDuty service. These values
+    /// provide additional context for services and can be used for filtering, search,
+    /// and analytics.
+    /// 
+    /// &gt; The API is optimized to receive multiple `CustomFields` blocks on the same resource when they share `ServiceId`, and not for the scenario where there is many resources pointing to the same service. So writing only 1 `pagerduty.ServiceCustomFieldValue` resource per service would result in quicker terraform applies and reduce the risk of encountering errors. See below for an example of the recommended usage pattern.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

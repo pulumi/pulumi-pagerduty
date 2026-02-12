@@ -1101,6 +1101,7 @@ class EventOrchestrationGlobalSet(dict):
                  rules: Optional[Sequence['outputs.EventOrchestrationGlobalSetRule']] = None):
         """
         :param _builtins.str id: The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        :param Sequence['EventOrchestrationGlobalSetRuleArgs'] rules: The Global Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
         """
         pulumi.set(__self__, "id", id)
         if rules is not None:
@@ -1117,6 +1118,9 @@ class EventOrchestrationGlobalSet(dict):
     @_builtins.property
     @pulumi.getter
     def rules(self) -> Optional[Sequence['outputs.EventOrchestrationGlobalSetRule']]:
+        """
+        The Global Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+        """
         return pulumi.get(self, "rules")
 
 
@@ -1833,6 +1837,7 @@ class EventOrchestrationRouterSet(dict):
                  rules: Optional[Sequence['outputs.EventOrchestrationRouterSetRule']] = None):
         """
         :param _builtins.str id: ID of the `start` set. Router supports only one set and it's id has to be `start`
+        :param Sequence['EventOrchestrationRouterSetRuleArgs'] rules: The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
         """
         pulumi.set(__self__, "id", id)
         if rules is not None:
@@ -1849,6 +1854,9 @@ class EventOrchestrationRouterSet(dict):
     @_builtins.property
     @pulumi.getter
     def rules(self) -> Optional[Sequence['outputs.EventOrchestrationRouterSetRule']]:
+        """
+        The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+        """
         return pulumi.get(self, "rules")
 
 
@@ -2703,6 +2711,7 @@ class EventOrchestrationServiceSet(dict):
                  rules: Optional[Sequence['outputs.EventOrchestrationServiceSetRule']] = None):
         """
         :param _builtins.str id: The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        :param Sequence['EventOrchestrationServiceSetRuleArgs'] rules: The service orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
         """
         pulumi.set(__self__, "id", id)
         if rules is not None:
@@ -2719,6 +2728,9 @@ class EventOrchestrationServiceSet(dict):
     @_builtins.property
     @pulumi.getter
     def rules(self) -> Optional[Sequence['outputs.EventOrchestrationServiceSetRule']]:
+        """
+        The service orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+        """
         return pulumi.get(self, "rules")
 
 
@@ -3551,6 +3563,7 @@ class EventOrchestrationUnroutedSet(dict):
                  rules: Optional[Sequence['outputs.EventOrchestrationUnroutedSetRule']] = None):
         """
         :param _builtins.str id: The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        :param Sequence['EventOrchestrationUnroutedSetRuleArgs'] rules: The Unrouted Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
         """
         pulumi.set(__self__, "id", id)
         if rules is not None:
@@ -3567,6 +3580,9 @@ class EventOrchestrationUnroutedSet(dict):
     @_builtins.property
     @pulumi.getter
     def rules(self) -> Optional[Sequence['outputs.EventOrchestrationUnroutedSetRule']]:
+        """
+        The Unrouted Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+        """
         return pulumi.get(self, "rules")
 
 

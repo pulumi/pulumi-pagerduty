@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Runner team association can be imported using the `runner_id` and `team_id` separated by a colon, e.g.
+ * Runner team association can be imported using the `runnerId` and `teamId` separated by a colon, e.g.
  *
  * ```sh
  * $ pulumi import pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z

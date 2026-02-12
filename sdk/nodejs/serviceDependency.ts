@@ -39,7 +39,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.
+ * Service dependencies can be imported using the related supporting service id, supporting service type (`businessService` or `service`) and the dependency id separated by a dot, e.g.
  *
  * ```sh
  * $ pulumi import pagerduty:index/serviceDependency:ServiceDependency main P4B2Z7G.business_service.D5RTHKRNGU4PYE90PJ

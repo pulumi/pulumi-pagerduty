@@ -33,9 +33,17 @@ public final class EventOrchestrationServiceSetArgs extends com.pulumi.resources
         return this.id;
     }
 
+    /**
+     * The service orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule&#39;s conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+     * 
+     */
     @Import(name="rules")
     private @Nullable Output<List<EventOrchestrationServiceSetRuleArgs>> rules;
 
+    /**
+     * @return The service orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule&#39;s conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+     * 
+     */
     public Optional<Output<List<EventOrchestrationServiceSetRuleArgs>>> rules() {
         return Optional.ofNullable(this.rules);
     }
@@ -86,15 +94,33 @@ public final class EventOrchestrationServiceSetArgs extends com.pulumi.resources
             return id(Output.of(id));
         }
 
+        /**
+         * @param rules The service orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule&#39;s conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(@Nullable Output<List<EventOrchestrationServiceSetRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
+        /**
+         * @param rules The service orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule&#39;s conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(List<EventOrchestrationServiceSetRuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
+        /**
+         * @param rules The service orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule&#39;s conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(EventOrchestrationServiceSetRuleArgs... rules) {
             return rules(List.of(rules));
         }

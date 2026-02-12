@@ -142,7 +142,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Alert grouping settings can be imported using its `id`, e.g.
+    /// Alert grouping settings can be imported using its `Id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/alertGroupingSetting:AlertGroupingSetting example P3DH5M6

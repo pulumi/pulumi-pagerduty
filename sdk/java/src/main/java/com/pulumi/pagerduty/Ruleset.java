@@ -17,6 +17,23 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * [Rulesets](https://support.pagerduty.com/docs/rulesets) allow you to route events to an endpoint and create collections of event rules, which define sets of actions to take based on event content.
+ * 
+ * &lt;div role=&#34;alert&#34; class=&#34;alert alert-warning&#34;&gt;
+ *   &lt;div class=&#34;alert-title&#34;&gt;&lt;i class=&#34;fa fa-warning&#34;&gt;&lt;/i&gt;End-of-Life&lt;/div&gt;
+ *   &lt;p&gt;
+ *     Rulesets and Event Rules will end-of-life soon. We highly recommend that you
+ *     &lt;a
+ *       href=&#34;https://support.pagerduty.com/docs/migrate-to-event-orchestration&#34;
+ *       rel=&#34;noopener noreferrer&#34;
+ *       target=&#34;_blank&#34;
+ *       &gt;migrate to Event Orchestration&lt;/a&gt;
+ *     as soon as possible so you can take advantage of the new functionality, such
+ *     as improved UI, rule creation, REST APIs and Terraform support, advanced
+ *     conditions, and rule nesting.
+ *   &lt;/p&gt;
+ * &lt;/div&gt;
+ * 
  * ## Example Usage
  * 
  * <pre>

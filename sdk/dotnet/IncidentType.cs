@@ -10,6 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
+    /// An [incident\_type](https://developer.pagerduty.com/api-reference/1981087c1914c-create-an-incident-type)
+    /// is a feature which allows customers to categorize incidents, such as a security
+    /// incident, a major incident, or a fraud incident.
+    /// 
+    /// &lt;div role="alert" class="alert alert-warning"&gt;
+    ///   &lt;div class="alert-title"&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;Resource limitation&lt;/div&gt;
+    ///   &lt;p&gt;Incident Types cannot be deleted, only disabled&lt;/p&gt;
+    ///   &lt;p&gt;If you want terraform to stop tracking this resource please use &lt;code&gt;terraform state rm&lt;/code&gt;.&lt;/p&gt;
+    /// &lt;/div&gt;
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -38,7 +48,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Services can be imported using the `id`, e.g.
+    /// Services can be imported using the `Id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/incidentType:IncidentType main P12345

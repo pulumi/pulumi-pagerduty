@@ -61,22 +61,18 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * -&gt; In the example below the `runbook_api_key` attribute has been omitted to avoid resource replacement after the import.
+ * &gt; In the example below the `runbookApiKey` attribute has been omitted to avoid resource replacement after the import.
  * 
  * Runners can be imported using the `id`, e.g.
  * 
+ * ```sh
  * resource &#34;pagerduty_automation_actions_runner&#34; &#34;example&#34; {
- * 
  *   name = &#34;Runner created via TF&#34;
- * 
  *   description = &#34;Description of the Runner created via TF&#34;
- * 
  *   runner_type = &#34;runbook&#34;
- * 
  *   runbook_base_uri = &#34;rdcat.stg&#34;
- * 
  * }
- * 
+ * ```
  * ```sh
  * $ pulumi import pagerduty:index/automationActionsRunner:AutomationActionsRunner example 01DER7CUUBF7TH4116K0M4WKPU
  * ```

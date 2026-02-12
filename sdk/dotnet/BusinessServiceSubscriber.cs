@@ -60,7 +60,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Services can be imported using the `id` using the related business service ID, the subscriber type and the subscriber ID separated by a dot, e.g.
+    /// Services can be imported using the `Id` using the related business service ID, the subscriber type and the subscriber ID separated by a dot, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber main PLBP09X.team.PLBP09X

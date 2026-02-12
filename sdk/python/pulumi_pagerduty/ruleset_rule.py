@@ -305,6 +305,23 @@ class RulesetRule(pulumi.CustomResource):
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]]] = None,
                  __props__=None):
         """
+        An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.
+
+        <div role="alert" class="alert alert-warning">
+          <div class="alert-title"><i class="fa fa-warning"></i>End-of-Life</div>
+          <p>
+            Rulesets and Event Rules will end-of-life soon. We highly recommend that you
+            <a
+              href="https://support.pagerduty.com/docs/migrate-to-event-orchestration"
+              rel="noopener noreferrer"
+              target="_blank"
+              >migrate to Event Orchestration</a>
+            as soon as possible so you can take advantage of the new functionality, such
+            as improved UI, rule creation, REST APIs and Terraform support, advanced
+            conditions, and rule nesting.
+          </p>
+        </div>
+
         ## Example Usage
 
         ```python
@@ -428,6 +445,23 @@ class RulesetRule(pulumi.CustomResource):
                  args: RulesetRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.
+
+        <div role="alert" class="alert alert-warning">
+          <div class="alert-title"><i class="fa fa-warning"></i>End-of-Life</div>
+          <p>
+            Rulesets and Event Rules will end-of-life soon. We highly recommend that you
+            <a
+              href="https://support.pagerduty.com/docs/migrate-to-event-orchestration"
+              rel="noopener noreferrer"
+              target="_blank"
+              >migrate to Event Orchestration</a>
+            as soon as possible so you can take advantage of the new functionality, such
+            as improved UI, rule creation, REST APIs and Terraform support, advanced
+            conditions, and rule nesting.
+          </p>
+        </div>
+
         ## Example Usage
 
         ```python

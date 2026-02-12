@@ -16,6 +16,16 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * An [incident\_type](https://developer.pagerduty.com/api-reference/1981087c1914c-create-an-incident-type)
+ * is a feature which allows customers to categorize incidents, such as a security
+ * incident, a major incident, or a fraud incident.
+ * 
+ * &lt;div role=&#34;alert&#34; class=&#34;alert alert-warning&#34;&gt;
+ *   &lt;div class=&#34;alert-title&#34;&gt;&lt;i class=&#34;fa fa-warning&#34;&gt;&lt;/i&gt;Resource limitation&lt;/div&gt;
+ *   &lt;p&gt;Incident Types cannot be deleted, only disabled&lt;/p&gt;
+ *   &lt;p&gt;If you want terraform to stop tracking this resource please use &lt;code&gt;terraform state rm&lt;/code&gt;.&lt;/p&gt;
+ * &lt;/div&gt;
+ * 
  * ## Example Usage
  * 
  * <pre>

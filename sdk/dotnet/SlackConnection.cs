@@ -76,7 +76,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Slack connections can be imported using the related `workspace` ID and the `slack_connection` ID separated by a dot, e.g.
+    /// Slack connections can be imported using the related `Workspace` ID and the `SlackConnection` ID separated by a dot, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/slackConnection:SlackConnection main T02A123LV1A.PUABCDL

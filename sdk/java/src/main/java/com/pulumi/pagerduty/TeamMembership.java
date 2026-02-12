@@ -14,6 +14,10 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * A [team membership](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMg-add-a-user-to-a-team) manages memberships within a team.
+ * 
+ * &gt; This resource supports caching to improve performance in use cases when having Teams with 500 or more associations being managed via Terraform and a detrimental of the performance is noticed. So in order to overcome performance issues the **Cache** support can be activated. Know more here...
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -65,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Team memberships can be imported using the `user_id` and `team_id`, e.g.
+ * Team memberships can be imported using the `userId` and `teamId`, e.g.
  * 
  * ```sh
  * $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z

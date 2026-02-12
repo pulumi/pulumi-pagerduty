@@ -20,6 +20,10 @@ namespace Pulumi.Pagerduty.Inputs
 
         [Input("rules")]
         private InputList<Inputs.EventOrchestrationUnroutedSetRuleGetArgs>? _rules;
+
+        /// <summary>
+        /// The Unrouted Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+        /// </summary>
         public InputList<Inputs.EventOrchestrationUnroutedSetRuleGetArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.EventOrchestrationUnroutedSetRuleGetArgs>());

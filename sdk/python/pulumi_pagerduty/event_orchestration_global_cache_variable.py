@@ -273,6 +273,11 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
         $ pulumi import pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable cache_variable 5e7110bf-0ee7-429e-9724-34ed1fe15ac3:138ed254-3444-44ad-8cc7-701d69def439
         ```
 
+        [1]: https://support.pagerduty.com/docs/event-orchestration-variables
+        [2]: https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview
+        [3]: https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths
+        [4]: https://github.com/google/re2/wiki/Syntax
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConditionArgs', 'EventOrchestrationGlobalCacheVariableConditionArgsDict']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
@@ -355,6 +360,11 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable cache_variable 5e7110bf-0ee7-429e-9724-34ed1fe15ac3:138ed254-3444-44ad-8cc7-701d69def439
         ```
+
+        [1]: https://support.pagerduty.com/docs/event-orchestration-variables
+        [2]: https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview
+        [3]: https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths
+        [4]: https://github.com/google/re2/wiki/Syntax
 
         :param str resource_name: The name of the resource.
         :param EventOrchestrationGlobalCacheVariableArgs args: The arguments to use to populate this resource's properties.

@@ -33,9 +33,17 @@ public final class EventOrchestrationUnroutedSetArgs extends com.pulumi.resource
         return this.id;
     }
 
+    /**
+     * The Unrouted Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule&#39;s conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+     * 
+     */
     @Import(name="rules")
     private @Nullable Output<List<EventOrchestrationUnroutedSetRuleArgs>> rules;
 
+    /**
+     * @return The Unrouted Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule&#39;s conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+     * 
+     */
     public Optional<Output<List<EventOrchestrationUnroutedSetRuleArgs>>> rules() {
         return Optional.ofNullable(this.rules);
     }
@@ -86,15 +94,33 @@ public final class EventOrchestrationUnroutedSetArgs extends com.pulumi.resource
             return id(Output.of(id));
         }
 
+        /**
+         * @param rules The Unrouted Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule&#39;s conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(@Nullable Output<List<EventOrchestrationUnroutedSetRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
+        /**
+         * @param rules The Unrouted Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule&#39;s conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(List<EventOrchestrationUnroutedSetRuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
+        /**
+         * @param rules The Unrouted Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule&#39;s conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(EventOrchestrationUnroutedSetRuleArgs... rules) {
             return rules(List.of(rules));
         }

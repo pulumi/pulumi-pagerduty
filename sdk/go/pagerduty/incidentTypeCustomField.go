@@ -93,7 +93,7 @@ import (
 //
 // ## Import
 //
-// Fields can be imported using the combination of `incident_type_id` and `field_id`, e.g.
+// Fields can be imported using the combination of `incidentTypeId` and `fieldId`, e.g.
 //
 // ```sh
 // $ pulumi import pagerduty:index/incidentTypeCustomField:IncidentTypeCustomField cs_impact PT1234:PF1234

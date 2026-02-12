@@ -33,9 +33,17 @@ public final class EventOrchestrationRouterSetArgs extends com.pulumi.resources.
         return this.id;
     }
 
+    /**
+     * The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+     * 
+     */
     @Import(name="rules")
     private @Nullable Output<List<EventOrchestrationRouterSetRuleArgs>> rules;
 
+    /**
+     * @return The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+     * 
+     */
     public Optional<Output<List<EventOrchestrationRouterSetRuleArgs>>> rules() {
         return Optional.ofNullable(this.rules);
     }
@@ -86,15 +94,33 @@ public final class EventOrchestrationRouterSetArgs extends com.pulumi.resources.
             return id(Output.of(id));
         }
 
+        /**
+         * @param rules The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(@Nullable Output<List<EventOrchestrationRouterSetRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
+        /**
+         * @param rules The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(List<EventOrchestrationRouterSetRuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
+        /**
+         * @param rules The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rules(EventOrchestrationRouterSetRuleArgs... rules) {
             return rules(List.of(rules));
         }

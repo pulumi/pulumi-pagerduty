@@ -50,7 +50,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Actions can be imported using the `id`, e.g.
+    /// Actions can be imported using the `Id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/automationActionsAction:AutomationActionsAction example 01DER7CUUBF7TH4116K0M4WKPU

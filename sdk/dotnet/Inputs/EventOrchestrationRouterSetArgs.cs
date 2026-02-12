@@ -20,6 +20,10 @@ namespace Pulumi.Pagerduty.Inputs
 
         [Input("rules")]
         private InputList<Inputs.EventOrchestrationRouterSetRuleArgs>? _rules;
+
+        /// <summary>
+        /// The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+        /// </summary>
         public InputList<Inputs.EventOrchestrationRouterSetRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.EventOrchestrationRouterSetRuleArgs>());

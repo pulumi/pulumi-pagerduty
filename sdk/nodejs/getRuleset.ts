@@ -5,6 +5,23 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
+ *
+ * <div role="alert" class="alert alert-warning">
+ *   <div class="alert-title"><i class="fa fa-warning"></i>End-of-Life</div>
+ *   <p>
+ *     Rulesets and Event Rules will end-of-life soon. We highly recommend that you
+ *     <a
+ *       href="https://support.pagerduty.com/docs/migrate-to-event-orchestration"
+ *       rel="noopener noreferrer"
+ *       target="_blank"
+ *       >migrate to Event Orchestration</a>
+ *     as soon as possible so you can take advantage of the new functionality, such
+ *     as improved UI, rule creation, REST APIs and Terraform support, advanced
+ *     conditions, and rule nesting.
+ *   </p>
+ * </div>
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -91,6 +108,23 @@ export interface GetRulesetResult {
     readonly routingKeys: string[];
 }
 /**
+ * Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
+ *
+ * <div role="alert" class="alert alert-warning">
+ *   <div class="alert-title"><i class="fa fa-warning"></i>End-of-Life</div>
+ *   <p>
+ *     Rulesets and Event Rules will end-of-life soon. We highly recommend that you
+ *     <a
+ *       href="https://support.pagerduty.com/docs/migrate-to-event-orchestration"
+ *       rel="noopener noreferrer"
+ *       target="_blank"
+ *       >migrate to Event Orchestration</a>
+ *     as soon as possible so you can take advantage of the new functionality, such
+ *     as improved UI, rule creation, REST APIs and Terraform support, advanced
+ *     conditions, and rule nesting.
+ *   </p>
+ * </div>
+ *
  * ## Example Usage
  *
  * ```typescript

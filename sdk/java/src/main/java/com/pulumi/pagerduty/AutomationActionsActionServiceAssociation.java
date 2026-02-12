@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Action service association can be imported using the `action_id` and `service_id` separated by a colon, e.g.
+ * Action service association can be imported using the `actionId` and `serviceId` separated by a colon, e.g.
  * 
  * ```sh
  * $ pulumi import pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z

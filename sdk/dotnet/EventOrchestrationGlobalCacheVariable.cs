@@ -118,6 +118,11 @@ namespace Pulumi.Pagerduty
     /// ```sh
     /// $ pulumi import pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable cache_variable 5e7110bf-0ee7-429e-9724-34ed1fe15ac3:138ed254-3444-44ad-8cc7-701d69def439
     /// ```
+    /// 
+    /// [1]: https://support.pagerduty.com/docs/event-orchestration-variables
+    /// [2]: https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview
+    /// [3]: https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths
+    /// [4]: https://github.com/google/re2/wiki/Syntax
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable")]
     public partial class EventOrchestrationGlobalCacheVariable : global::Pulumi.CustomResource

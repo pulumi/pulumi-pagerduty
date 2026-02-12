@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Slack connections can be imported using the related `workspace` ID and the `slack_connection` ID separated by a dot, e.g.
+ * Slack connections can be imported using the related `workspace` ID and the `slackConnection` ID separated by a dot, e.g.
  * 
  * ```sh
  * $ pulumi import pagerduty:index/slackConnection:SlackConnection main T02A123LV1A.PUABCDL

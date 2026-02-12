@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * User notification rules can be imported using the `user_id` and the `id`, e.g.
+ * User notification rules can be imported using the `userId` and the `id`, e.g.
  * 
  * ```sh
  * $ pulumi import pagerduty:index/userNotificationRule:UserNotificationRule main PXPGF42:PPSCXAN

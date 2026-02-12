@@ -10,6 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
+    /// An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.
+    /// 
+    /// &lt;div role="alert" class="alert alert-warning"&gt;
+    ///   &lt;div class="alert-title"&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;End-of-Life&lt;/div&gt;
+    ///   &lt;p&gt;
+    ///     Rulesets and Event Rules will end-of-life soon. We highly recommend that you
+    ///     &lt;a
+    ///       href="https://support.pagerduty.com/docs/migrate-to-event-orchestration"
+    ///       rel="noopener noreferrer"
+    ///       target="_blank"
+    ///       &gt;migrate to Event Orchestration&lt;/a&gt;
+    ///     as soon as possible so you can take advantage of the new functionality, such
+    ///     as improved UI, rule creation, REST APIs and Terraform support, advanced
+    ///     conditions, and rule nesting.
+    ///   &lt;/p&gt;
+    /// &lt;/div&gt;
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -183,7 +200,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Ruleset rules can be imported using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.
+    /// Ruleset rules can be imported using the related `Ruleset` ID and the `RulesetRule` ID separated by a dot, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601

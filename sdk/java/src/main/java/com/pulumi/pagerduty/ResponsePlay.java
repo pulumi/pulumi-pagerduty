@@ -18,6 +18,24 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * A [response play](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2Ng-create-a-response-play) allows you to create packages of Incident Actions that can be applied during an Incident&#39;s life cycle.
+ * 
+ * &lt;div role=&#34;alert&#34; class=&#34;alert alert-warning&#34;&gt;
+ *   &lt;div class=&#34;alert-title&#34;&gt;&lt;i class=&#34;fa fa-warning&#34;&gt;&lt;/i&gt;End-of-Life&lt;/div&gt;
+ *   &lt;p&gt;
+ *     Response Play will end-of-life soon. We highly recommend that you
+ *     &lt;a
+ *       href=&#34;https://support.pagerduty.com/docs/upgrade-response-plays-to-incident-workflows&#34;
+ *       rel=&#34;noopener noreferrer&#34;
+ *       target=&#34;_blank&#34;
+ *       &gt;migrate to Incident Workflows&lt;/a&gt;
+ *     as soon as possible so you can take advantage of the new functionality.
+ *     With Incident Workflows, customers are able to define if-this-then-that
+ *     logic to effortlessly trigger a sequence of common incident actions, advanced conditions, REST APIs
+ *     and Terraform support.
+ *   &lt;/p&gt;
+ * &lt;/div&gt;
+ * 
  * ## Example Usage
  * 
  * <pre>

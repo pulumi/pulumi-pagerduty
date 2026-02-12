@@ -84,7 +84,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Webhook Subscriptions can be imported using the `id`, e.g.
+    /// Webhook Subscriptions can be imported using the `Id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/webhookSubscription:WebhookSubscription main PUABCDL

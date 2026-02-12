@@ -107,7 +107,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Router can be imported using the `id` of the Event Orchestration, e.g.
+    /// Router can be imported using the `Id` of the Event Orchestration, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter router 1b49abe7-26db-4439-a715-c6d883acfb3e

@@ -100,6 +100,11 @@ import * as utilities from "./utilities";
  * ```sh
  * $ pulumi import pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable cache_variable PLBP09X:138ed254-3444-44ad-8cc7-701d69def439
  * ```
+ *
+ * [1]: https://support.pagerduty.com/docs/event-orchestration-variables
+ * [2]: https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview
+ * [3]: https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths
+ * [4]: https://github.com/google/re2/wiki/Syntax
  */
 export class EventOrchestrationServiceCacheVariable extends pulumi.CustomResource {
     /**

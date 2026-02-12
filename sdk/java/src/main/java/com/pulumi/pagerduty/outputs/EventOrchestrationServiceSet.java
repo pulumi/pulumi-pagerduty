@@ -18,6 +18,10 @@ public final class EventOrchestrationServiceSet {
      * 
      */
     private String id;
+    /**
+     * @return The service orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule&#39;s conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+     * 
+     */
     private @Nullable List<EventOrchestrationServiceSetRule> rules;
 
     private EventOrchestrationServiceSet() {}
@@ -28,6 +32,10 @@ public final class EventOrchestrationServiceSet {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The service orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule&#39;s conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
+     * 
+     */
     public List<EventOrchestrationServiceSetRule> rules() {
         return this.rules == null ? List.of() : this.rules;
     }

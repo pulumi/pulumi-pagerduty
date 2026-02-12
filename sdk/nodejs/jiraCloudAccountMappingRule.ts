@@ -107,7 +107,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Jira Cloud account mapping rules can be imported using the `account_mapping_id` and `rule_id`, e.g.
+ * Jira Cloud account mapping rules can be imported using the `accountMappingId` and `ruleId`, e.g.
  *
  * ```sh
  * $ pulumi import pagerduty:index/jiraCloudAccountMappingRule:JiraCloudAccountMappingRule main PLBP09X:PLB09Z

@@ -32,7 +32,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Tags can be imported using the `id`, e.g.
+    /// Tags can be imported using the `Id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/tag:Tag main PLBP09X

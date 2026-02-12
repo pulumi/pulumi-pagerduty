@@ -22,6 +22,23 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.
+ * 
+ * &lt;div role=&#34;alert&#34; class=&#34;alert alert-warning&#34;&gt;
+ *   &lt;div class=&#34;alert-title&#34;&gt;&lt;i class=&#34;fa fa-warning&#34;&gt;&lt;/i&gt;End-of-Life&lt;/div&gt;
+ *   &lt;p&gt;
+ *     Rulesets and Event Rules will end-of-life soon. We highly recommend that you
+ *     &lt;a
+ *       href=&#34;https://support.pagerduty.com/docs/migrate-to-event-orchestration&#34;
+ *       rel=&#34;noopener noreferrer&#34;
+ *       target=&#34;_blank&#34;
+ *       &gt;migrate to Event Orchestration&lt;/a&gt;
+ *     as soon as possible so you can take advantage of the new functionality, such
+ *     as improved UI, rule creation, REST APIs and Terraform support, advanced
+ *     conditions, and rule nesting.
+ *   &lt;/p&gt;
+ * &lt;/div&gt;
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -161,7 +178,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Ruleset rules can be imported using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.
+ * Ruleset rules can be imported using the related `ruleset` ID and the `rulesetRule` ID separated by a dot, e.g.
  * 
  * ```sh
  * $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601

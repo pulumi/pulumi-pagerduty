@@ -55,6 +55,8 @@ type LookupAutomationActionsRunnerArgs struct {
 	// The id of the automation actions runner in the PagerDuty API.
 	Id string `pulumi:"id"`
 	// (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
+	//
+	// Deprecated: This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available.
 	LastSeen *string `pulumi:"lastSeen"`
 	// (Optional) The base URI of the Runbook server to connect to. Applicable to `runbook` type runners only.
 	RunbookBaseUri *string `pulumi:"runbookBaseUri"`
@@ -69,6 +71,8 @@ type LookupAutomationActionsRunnerResult struct {
 	// The ID of the found runner.
 	Id string `pulumi:"id"`
 	// (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
+	//
+	// Deprecated: This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available.
 	LastSeen string `pulumi:"lastSeen"`
 	// The name of the found runner.
 	Name string `pulumi:"name"`
@@ -96,6 +100,8 @@ type LookupAutomationActionsRunnerOutputArgs struct {
 	// The id of the automation actions runner in the PagerDuty API.
 	Id pulumi.StringInput `pulumi:"id"`
 	// (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
+	//
+	// Deprecated: This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available.
 	LastSeen pulumi.StringPtrInput `pulumi:"lastSeen"`
 	// (Optional) The base URI of the Runbook server to connect to. Applicable to `runbook` type runners only.
 	RunbookBaseUri pulumi.StringPtrInput `pulumi:"runbookBaseUri"`
@@ -136,6 +142,8 @@ func (o LookupAutomationActionsRunnerResultOutput) Id() pulumi.StringOutput {
 }
 
 // (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
+//
+// Deprecated: This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available.
 func (o LookupAutomationActionsRunnerResultOutput) LastSeen() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAutomationActionsRunnerResult) string { return v.LastSeen }).(pulumi.StringOutput)
 }

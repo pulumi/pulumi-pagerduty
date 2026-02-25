@@ -48,14 +48,22 @@ public final class AutomationActionsRunnerState extends com.pulumi.resources.Res
     /**
      * (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
      * 
+     * @deprecated
+     * This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.
+     * 
      */
+    @Deprecated /* This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state. */
     @Import(name="lastSeen")
     private @Nullable Output<String> lastSeen;
 
     /**
      * @return (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
      * 
+     * @deprecated
+     * This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.
+     * 
      */
+    @Deprecated /* This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state. */
     public Optional<Output<String>> lastSeen() {
         return Optional.ofNullable(this.lastSeen);
     }
@@ -213,7 +221,11 @@ public final class AutomationActionsRunnerState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.
+         * 
          */
+        @Deprecated /* This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state. */
         public Builder lastSeen(@Nullable Output<String> lastSeen) {
             $.lastSeen = lastSeen;
             return this;
@@ -224,7 +236,11 @@ public final class AutomationActionsRunnerState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.
+         * 
          */
+        @Deprecated /* This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state. */
         public Builder lastSeen(String lastSeen) {
             return lastSeen(Output.of(lastSeen));
         }

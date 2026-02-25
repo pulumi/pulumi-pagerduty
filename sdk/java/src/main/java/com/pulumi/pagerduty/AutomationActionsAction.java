@@ -80,14 +80,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="pagerduty:index/automationActionsAction:AutomationActionsAction")
 public class AutomationActionsAction extends com.pulumi.resources.CustomResource {
     /**
-     * The category of the action. The only allowed values are `diagnostic` and `remediation`.
+     * The category of the action, e.g. `diagnostic`, `remediation`.
      * 
      */
     @Export(name="actionClassification", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> actionClassification;
 
     /**
-     * @return The category of the action. The only allowed values are `diagnostic` and `remediation`.
+     * @return The category of the action, e.g. `diagnostic`, `remediation`.
      * 
      */
     public Output<Optional<String>> actionClassification() {

@@ -78,7 +78,7 @@ class GetAutomationActionsActionResult:
     @pulumi.getter(name="actionClassification")
     def action_classification(self) -> _builtins.str:
         """
-        (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        (Optional) The category of the action, e.g. `diagnostic`, `remediation`.
         """
         return pulumi.get(self, "action_classification")
 
@@ -244,7 +244,7 @@ def get_automation_actions_action(action_classification: Optional[_builtins.str]
     ```
 
 
-    :param _builtins.str action_classification: (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+    :param _builtins.str action_classification: (Optional) The category of the action, e.g. `diagnostic`, `remediation`.
     :param _builtins.bool allow_invocation_from_event_orchestration: (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
     :param _builtins.bool allow_invocation_manually: (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
     :param _builtins.str creation_time: The time action was created. Represented as an ISO 8601 timestamp.
@@ -315,7 +315,7 @@ def get_automation_actions_action_output(action_classification: Optional[pulumi.
     ```
 
 
-    :param _builtins.str action_classification: (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+    :param _builtins.str action_classification: (Optional) The category of the action, e.g. `diagnostic`, `remediation`.
     :param _builtins.bool allow_invocation_from_event_orchestration: (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
     :param _builtins.bool allow_invocation_manually: (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
     :param _builtins.str creation_time: The time action was created. Represented as an ISO 8601 timestamp.

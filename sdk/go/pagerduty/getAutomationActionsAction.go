@@ -50,7 +50,7 @@ func LookupAutomationActionsAction(ctx *pulumi.Context, args *LookupAutomationAc
 
 // A collection of arguments for invoking getAutomationActionsAction.
 type LookupAutomationActionsActionArgs struct {
-	// (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+	// (Optional) The category of the action, e.g. `diagnostic`, `remediation`.
 	ActionClassification *string `pulumi:"actionClassification"`
 	// (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
 	AllowInvocationFromEventOrchestration *bool `pulumi:"allowInvocationFromEventOrchestration"`
@@ -78,7 +78,7 @@ type LookupAutomationActionsActionArgs struct {
 
 // A collection of values returned by getAutomationActionsAction.
 type LookupAutomationActionsActionResult struct {
-	// (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+	// (Optional) The category of the action, e.g. `diagnostic`, `remediation`.
 	ActionClassification string `pulumi:"actionClassification"`
 	// Action Data block. Action Data is documented below.
 	ActionDataReferences []GetAutomationActionsActionActionDataReference `pulumi:"actionDataReferences"`
@@ -121,7 +121,7 @@ func LookupAutomationActionsActionOutput(ctx *pulumi.Context, args LookupAutomat
 
 // A collection of arguments for invoking getAutomationActionsAction.
 type LookupAutomationActionsActionOutputArgs struct {
-	// (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+	// (Optional) The category of the action, e.g. `diagnostic`, `remediation`.
 	ActionClassification pulumi.StringPtrInput `pulumi:"actionClassification"`
 	// (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
 	AllowInvocationFromEventOrchestration pulumi.BoolPtrInput `pulumi:"allowInvocationFromEventOrchestration"`
@@ -166,7 +166,7 @@ func (o LookupAutomationActionsActionResultOutput) ToLookupAutomationActionsActi
 	return o
 }
 
-// (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+// (Optional) The category of the action, e.g. `diagnostic`, `remediation`.
 func (o LookupAutomationActionsActionResultOutput) ActionClassification() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAutomationActionsActionResult) string { return v.ActionClassification }).(pulumi.StringOutput)
 }

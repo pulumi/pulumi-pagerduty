@@ -82,6 +82,8 @@ export class AutomationActionsRunner extends pulumi.CustomResource {
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
+     *
+     * @deprecated This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.
      */
     declare public readonly lastSeen: pulumi.Output<string>;
     /**
@@ -161,6 +163,8 @@ export interface AutomationActionsRunnerState {
     description?: pulumi.Input<string>;
     /**
      * (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
+     *
+     * @deprecated This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.
      */
     lastSeen?: pulumi.Input<string>;
     /**
@@ -195,6 +199,8 @@ export interface AutomationActionsRunnerArgs {
     description?: pulumi.Input<string>;
     /**
      * (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
+     *
+     * @deprecated This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.
      */
     lastSeen?: pulumi.Input<string>;
     /**

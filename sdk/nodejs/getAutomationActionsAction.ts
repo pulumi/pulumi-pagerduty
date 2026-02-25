@@ -43,7 +43,7 @@ export function getAutomationActionsAction(args: GetAutomationActionsActionArgs,
  */
 export interface GetAutomationActionsActionArgs {
     /**
-     * (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+     * (Optional) The category of the action, e.g. `diagnostic`, `remediation`.
      */
     actionClassification?: string;
     /**
@@ -97,7 +97,7 @@ export interface GetAutomationActionsActionArgs {
  */
 export interface GetAutomationActionsActionResult {
     /**
-     * (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+     * (Optional) The category of the action, e.g. `diagnostic`, `remediation`.
      */
     readonly actionClassification: string;
     /**
@@ -194,7 +194,7 @@ export function getAutomationActionsActionOutput(args: GetAutomationActionsActio
  */
 export interface GetAutomationActionsActionOutputArgs {
     /**
-     * (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+     * (Optional) The category of the action, e.g. `diagnostic`, `remediation`.
      */
     actionClassification?: pulumi.Input<string>;
     /**

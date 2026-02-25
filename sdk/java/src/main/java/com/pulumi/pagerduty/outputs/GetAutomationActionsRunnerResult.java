@@ -28,7 +28,11 @@ public final class GetAutomationActionsRunnerResult {
     /**
      * @return (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
      * 
+     * @deprecated
+     * This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available.
+     * 
      */
+    @Deprecated /* This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available. */
     private String lastSeen;
     /**
      * @return The name of the found runner.
@@ -76,7 +80,11 @@ public final class GetAutomationActionsRunnerResult {
     /**
      * @return (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
      * 
+     * @deprecated
+     * This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available.
+     * 
      */
+    @Deprecated /* This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available. */
     public String lastSeen() {
         return this.lastSeen;
     }

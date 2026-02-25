@@ -39,7 +39,7 @@ class AutomationActionsActionArgs:
         The set of arguments for constructing a AutomationActionsAction resource.
         :param pulumi.Input['AutomationActionsActionActionDataReferenceArgs'] action_data_reference: Action Data block. Action Data is documented below.
         :param pulumi.Input[_builtins.str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
-        :param pulumi.Input[_builtins.str] action_classification: The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        :param pulumi.Input[_builtins.str] action_classification: The category of the action, e.g. `diagnostic`, `remediation`.
         :param pulumi.Input[_builtins.str] allow_invocation_from_event_orchestration: Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
         :param pulumi.Input[_builtins.str] allow_invocation_manually: Whether the action can be invoked manually by a user on the PagerDuty website.
         :param pulumi.Input[_builtins.str] creation_time: The time action was created. Represented as an ISO 8601 timestamp.
@@ -107,7 +107,7 @@ class AutomationActionsActionArgs:
     @pulumi.getter(name="actionClassification")
     def action_classification(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        The category of the action, e.g. `diagnostic`, `remediation`.
         """
         return pulumi.get(self, "action_classification")
 
@@ -267,7 +267,7 @@ class _AutomationActionsActionState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutomationActionsAction resources.
-        :param pulumi.Input[_builtins.str] action_classification: The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        :param pulumi.Input[_builtins.str] action_classification: The category of the action, e.g. `diagnostic`, `remediation`.
         :param pulumi.Input['AutomationActionsActionActionDataReferenceArgs'] action_data_reference: Action Data block. Action Data is documented below.
         :param pulumi.Input[_builtins.str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
         :param pulumi.Input[_builtins.str] allow_invocation_from_event_orchestration: Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
@@ -315,7 +315,7 @@ class _AutomationActionsActionState:
     @pulumi.getter(name="actionClassification")
     def action_classification(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        The category of the action, e.g. `diagnostic`, `remediation`.
         """
         return pulumi.get(self, "action_classification")
 
@@ -537,7 +537,7 @@ class AutomationActionsAction(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action_classification: The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        :param pulumi.Input[_builtins.str] action_classification: The category of the action, e.g. `diagnostic`, `remediation`.
         :param pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']] action_data_reference: Action Data block. Action Data is documented below.
         :param pulumi.Input[_builtins.str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
         :param pulumi.Input[_builtins.str] allow_invocation_from_event_orchestration: Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
@@ -679,7 +679,7 @@ class AutomationActionsAction(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] action_classification: The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        :param pulumi.Input[_builtins.str] action_classification: The category of the action, e.g. `diagnostic`, `remediation`.
         :param pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']] action_data_reference: Action Data block. Action Data is documented below.
         :param pulumi.Input[_builtins.str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
         :param pulumi.Input[_builtins.str] allow_invocation_from_event_orchestration: Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
@@ -718,7 +718,7 @@ class AutomationActionsAction(pulumi.CustomResource):
     @pulumi.getter(name="actionClassification")
     def action_classification(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The category of the action. The only allowed values are `diagnostic` and `remediation`.
+        The category of the action, e.g. `diagnostic`, `remediation`.
         """
         return pulumi.get(self, "action_classification")
 

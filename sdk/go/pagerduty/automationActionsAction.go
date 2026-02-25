@@ -67,7 +67,7 @@ import (
 type AutomationActionsAction struct {
 	pulumi.CustomResourceState
 
-	// The category of the action. The only allowed values are `diagnostic` and `remediation`.
+	// The category of the action, e.g. `diagnostic`, `remediation`.
 	ActionClassification pulumi.StringPtrOutput `pulumi:"actionClassification"`
 	// Action Data block. Action Data is documented below.
 	ActionDataReference AutomationActionsActionActionDataReferenceOutput `pulumi:"actionDataReference"`
@@ -133,7 +133,7 @@ func GetAutomationActionsAction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AutomationActionsAction resources.
 type automationActionsActionState struct {
-	// The category of the action. The only allowed values are `diagnostic` and `remediation`.
+	// The category of the action, e.g. `diagnostic`, `remediation`.
 	ActionClassification *string `pulumi:"actionClassification"`
 	// Action Data block. Action Data is documented below.
 	ActionDataReference *AutomationActionsActionActionDataReference `pulumi:"actionDataReference"`
@@ -164,7 +164,7 @@ type automationActionsActionState struct {
 }
 
 type AutomationActionsActionState struct {
-	// The category of the action. The only allowed values are `diagnostic` and `remediation`.
+	// The category of the action, e.g. `diagnostic`, `remediation`.
 	ActionClassification pulumi.StringPtrInput
 	// Action Data block. Action Data is documented below.
 	ActionDataReference AutomationActionsActionActionDataReferencePtrInput
@@ -199,7 +199,7 @@ func (AutomationActionsActionState) ElementType() reflect.Type {
 }
 
 type automationActionsActionArgs struct {
-	// The category of the action. The only allowed values are `diagnostic` and `remediation`.
+	// The category of the action, e.g. `diagnostic`, `remediation`.
 	ActionClassification *string `pulumi:"actionClassification"`
 	// Action Data block. Action Data is documented below.
 	ActionDataReference AutomationActionsActionActionDataReference `pulumi:"actionDataReference"`
@@ -231,7 +231,7 @@ type automationActionsActionArgs struct {
 
 // The set of arguments for constructing a AutomationActionsAction resource.
 type AutomationActionsActionArgs struct {
-	// The category of the action. The only allowed values are `diagnostic` and `remediation`.
+	// The category of the action, e.g. `diagnostic`, `remediation`.
 	ActionClassification pulumi.StringPtrInput
 	// Action Data block. Action Data is documented below.
 	ActionDataReference AutomationActionsActionActionDataReferenceInput
@@ -348,7 +348,7 @@ func (o AutomationActionsActionOutput) ToAutomationActionsActionOutputWithContex
 	return o
 }
 
-// The category of the action. The only allowed values are `diagnostic` and `remediation`.
+// The category of the action, e.g. `diagnostic`, `remediation`.
 func (o AutomationActionsActionOutput) ActionClassification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationActionsAction) pulumi.StringPtrOutput { return v.ActionClassification }).(pulumi.StringPtrOutput)
 }

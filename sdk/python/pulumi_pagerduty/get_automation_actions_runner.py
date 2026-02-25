@@ -78,6 +78,7 @@ class GetAutomationActionsRunnerResult:
 
     @_builtins.property
     @pulumi.getter(name="lastSeen")
+    @_utilities.deprecated("""This field will be set as Computed-only in a future version. The last_seen timestamp represents runtime state and may not be consistently available.""")
     def last_seen(self) -> _builtins.str:
         """
         (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.

@@ -42,6 +42,8 @@ export interface GetAutomationActionsRunnerArgs {
     id: string;
     /**
      * (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
+     *
+     * @deprecated This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available.
      */
     lastSeen?: string;
     /**
@@ -68,6 +70,8 @@ export interface GetAutomationActionsRunnerResult {
     readonly id: string;
     /**
      * (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
+     *
+     * @deprecated This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available.
      */
     readonly lastSeen: string;
     /**
@@ -125,6 +129,8 @@ export interface GetAutomationActionsRunnerOutputArgs {
     id: pulumi.Input<string>;
     /**
      * (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
+     *
+     * @deprecated This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available.
      */
     lastSeen?: pulumi.Input<string>;
     /**

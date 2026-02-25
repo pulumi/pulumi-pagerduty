@@ -48,14 +48,22 @@ public final class GetAutomationActionsRunnerPlainArgs extends com.pulumi.resour
     /**
      * (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
      * 
+     * @deprecated
+     * This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available.
+     * 
      */
+    @Deprecated /* This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available. */
     @Import(name="lastSeen")
     private @Nullable String lastSeen;
 
     /**
      * @return (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
      * 
+     * @deprecated
+     * This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available.
+     * 
      */
+    @Deprecated /* This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available. */
     public Optional<String> lastSeen() {
         return Optional.ofNullable(this.lastSeen);
     }
@@ -129,7 +137,11 @@ public final class GetAutomationActionsRunnerPlainArgs extends com.pulumi.resour
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available.
+         * 
          */
+        @Deprecated /* This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available. */
         public Builder lastSeen(@Nullable String lastSeen) {
             $.lastSeen = lastSeen;
             return this;

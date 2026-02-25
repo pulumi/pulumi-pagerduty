@@ -60,7 +60,7 @@ namespace Pulumi.Pagerduty
     public partial class AutomationActionsAction : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The category of the action. The only allowed values are `Diagnostic` and `Remediation`.
+        /// The category of the action, e.g. `Diagnostic`, `Remediation`.
         /// </summary>
         [Output("actionClassification")]
         public Output<string?> ActionClassification { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Pagerduty
     public sealed class AutomationActionsActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The category of the action. The only allowed values are `Diagnostic` and `Remediation`.
+        /// The category of the action, e.g. `Diagnostic`, `Remediation`.
         /// </summary>
         [Input("actionClassification")]
         public Input<string>? ActionClassification { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Pagerduty
     public sealed class AutomationActionsActionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The category of the action. The only allowed values are `Diagnostic` and `Remediation`.
+        /// The category of the action, e.g. `Diagnostic`, `Remediation`.
         /// </summary>
         [Input("actionClassification")]
         public Input<string>? ActionClassification { get; set; }

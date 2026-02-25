@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAutomationActionsActionResult {
     /**
-     * @return (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+     * @return (Optional) The category of the action, e.g. `diagnostic`, `remediation`.
      * 
      */
     private String actionClassification;
@@ -91,7 +91,7 @@ public final class GetAutomationActionsActionResult {
 
     private GetAutomationActionsActionResult() {}
     /**
-     * @return (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+     * @return (Optional) The category of the action, e.g. `diagnostic`, `remediation`.
      * 
      */
     public String actionClassification() {

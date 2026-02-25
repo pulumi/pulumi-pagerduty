@@ -17,14 +17,14 @@ public final class GetAutomationActionsActionPlainArgs extends com.pulumi.resour
     public static final GetAutomationActionsActionPlainArgs Empty = new GetAutomationActionsActionPlainArgs();
 
     /**
-     * (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+     * (Optional) The category of the action, e.g. `diagnostic`, `remediation`.
      * 
      */
     @Import(name="actionClassification")
     private @Nullable String actionClassification;
 
     /**
-     * @return (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+     * @return (Optional) The category of the action, e.g. `diagnostic`, `remediation`.
      * 
      */
     public Optional<String> actionClassification() {
@@ -232,7 +232,7 @@ public final class GetAutomationActionsActionPlainArgs extends com.pulumi.resour
         }
 
         /**
-         * @param actionClassification (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
+         * @param actionClassification (Optional) The category of the action, e.g. `diagnostic`, `remediation`.
          * 
          * @return builder
          * 

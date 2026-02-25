@@ -18,14 +18,14 @@ public final class AutomationActionsActionState extends com.pulumi.resources.Res
     public static final AutomationActionsActionState Empty = new AutomationActionsActionState();
 
     /**
-     * The category of the action. The only allowed values are `diagnostic` and `remediation`.
+     * The category of the action, e.g. `diagnostic`, `remediation`.
      * 
      */
     @Import(name="actionClassification")
     private @Nullable Output<String> actionClassification;
 
     /**
-     * @return The category of the action. The only allowed values are `diagnostic` and `remediation`.
+     * @return The category of the action, e.g. `diagnostic`, `remediation`.
      * 
      */
     public Optional<Output<String>> actionClassification() {
@@ -265,7 +265,7 @@ public final class AutomationActionsActionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param actionClassification The category of the action. The only allowed values are `diagnostic` and `remediation`.
+         * @param actionClassification The category of the action, e.g. `diagnostic`, `remediation`.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class AutomationActionsActionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param actionClassification The category of the action. The only allowed values are `diagnostic` and `remediation`.
+         * @param actionClassification The category of the action, e.g. `diagnostic`, `remediation`.
          * 
          * @return builder
          * 

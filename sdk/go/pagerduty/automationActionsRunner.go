@@ -76,6 +76,8 @@ type AutomationActionsRunner struct {
 	// The description of the runner. Max length is 1024 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
+	//
+	// Deprecated: This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.
 	LastSeen pulumi.StringOutput `pulumi:"lastSeen"`
 	// The name of the runner. Max length is 255 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -134,6 +136,8 @@ type automationActionsRunnerState struct {
 	// The description of the runner. Max length is 1024 characters.
 	Description *string `pulumi:"description"`
 	// (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
+	//
+	// Deprecated: This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.
 	LastSeen *string `pulumi:"lastSeen"`
 	// The name of the runner. Max length is 255 characters.
 	Name *string `pulumi:"name"`
@@ -153,6 +157,8 @@ type AutomationActionsRunnerState struct {
 	// The description of the runner. Max length is 1024 characters.
 	Description pulumi.StringPtrInput
 	// (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
+	//
+	// Deprecated: This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.
 	LastSeen pulumi.StringPtrInput
 	// The name of the runner. Max length is 255 characters.
 	Name pulumi.StringPtrInput
@@ -174,6 +180,8 @@ type automationActionsRunnerArgs struct {
 	// The description of the runner. Max length is 1024 characters.
 	Description *string `pulumi:"description"`
 	// (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
+	//
+	// Deprecated: This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.
 	LastSeen *string `pulumi:"lastSeen"`
 	// The name of the runner. Max length is 255 characters.
 	Name *string `pulumi:"name"`
@@ -190,6 +198,8 @@ type AutomationActionsRunnerArgs struct {
 	// The description of the runner. Max length is 1024 characters.
 	Description pulumi.StringPtrInput
 	// (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
+	//
+	// Deprecated: This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.
 	LastSeen pulumi.StringPtrInput
 	// The name of the runner. Max length is 255 characters.
 	Name pulumi.StringPtrInput
@@ -299,6 +309,8 @@ func (o AutomationActionsRunnerOutput) Description() pulumi.StringPtrOutput {
 }
 
 // (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
+//
+// Deprecated: This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.
 func (o AutomationActionsRunnerOutput) LastSeen() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsRunner) pulumi.StringOutput { return v.LastSeen }).(pulumi.StringOutput)
 }

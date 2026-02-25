@@ -71,7 +71,7 @@ export class AutomationActionsAction extends pulumi.CustomResource {
     }
 
     /**
-     * The category of the action. The only allowed values are `diagnostic` and `remediation`.
+     * The category of the action, e.g. `diagnostic`, `remediation`.
      */
     declare public readonly actionClassification: pulumi.Output<string | undefined>;
     /**
@@ -187,7 +187,7 @@ export class AutomationActionsAction extends pulumi.CustomResource {
  */
 export interface AutomationActionsActionState {
     /**
-     * The category of the action. The only allowed values are `diagnostic` and `remediation`.
+     * The category of the action, e.g. `diagnostic`, `remediation`.
      */
     actionClassification?: pulumi.Input<string>;
     /**
@@ -249,7 +249,7 @@ export interface AutomationActionsActionState {
  */
 export interface AutomationActionsActionArgs {
     /**
-     * The category of the action. The only allowed values are `diagnostic` and `remediation`.
+     * The category of the action, e.g. `diagnostic`, `remediation`.
      */
     actionClassification?: pulumi.Input<string>;
     /**

@@ -38,6 +38,9 @@ class AutomationActionsRunnerArgs:
         if description is not None:
             pulumi.set(__self__, "description", description)
         if last_seen is not None:
+            warnings.warn("""This field will be set as Computed-only in a future version. The last_seen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.""", DeprecationWarning)
+            pulumi.log.warn("""last_seen is deprecated: This field will be set as Computed-only in a future version. The last_seen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.""")
+        if last_seen is not None:
             pulumi.set(__self__, "last_seen", last_seen)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -72,6 +75,7 @@ class AutomationActionsRunnerArgs:
 
     @_builtins.property
     @pulumi.getter(name="lastSeen")
+    @_utilities.deprecated("""This field will be set as Computed-only in a future version. The last_seen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.""")
     def last_seen(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
@@ -146,6 +150,9 @@ class _AutomationActionsRunnerState:
         if description is not None:
             pulumi.set(__self__, "description", description)
         if last_seen is not None:
+            warnings.warn("""This field will be set as Computed-only in a future version. The last_seen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.""", DeprecationWarning)
+            pulumi.log.warn("""last_seen is deprecated: This field will be set as Computed-only in a future version. The last_seen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.""")
+        if last_seen is not None:
             pulumi.set(__self__, "last_seen", last_seen)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -184,6 +191,7 @@ class _AutomationActionsRunnerState:
 
     @_builtins.property
     @pulumi.getter(name="lastSeen")
+    @_utilities.deprecated("""This field will be set as Computed-only in a future version. The last_seen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.""")
     def last_seen(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
@@ -469,6 +477,7 @@ class AutomationActionsRunner(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="lastSeen")
+    @_utilities.deprecated("""This field will be set as Computed-only in a future version. The last_seen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.""")
     def last_seen(self) -> pulumi.Output[_builtins.str]:
         """
         (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.

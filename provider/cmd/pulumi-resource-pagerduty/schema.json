@@ -4744,7 +4744,7 @@
             "properties": {
                 "actionClassification": {
                     "type": "string",
-                    "description": "The category of the action. The only allowed values are \u003cspan pulumi-lang-nodejs=\"`diagnostic`\" pulumi-lang-dotnet=\"`Diagnostic`\" pulumi-lang-go=\"`diagnostic`\" pulumi-lang-python=\"`diagnostic`\" pulumi-lang-yaml=\"`diagnostic`\" pulumi-lang-java=\"`diagnostic`\"\u003e`diagnostic`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`remediation`\" pulumi-lang-dotnet=\"`Remediation`\" pulumi-lang-go=\"`remediation`\" pulumi-lang-python=\"`remediation`\" pulumi-lang-yaml=\"`remediation`\" pulumi-lang-java=\"`remediation`\"\u003e`remediation`\u003c/span\u003e.\n"
+                    "description": "The category of the action, e.g. \u003cspan pulumi-lang-nodejs=\"`diagnostic`\" pulumi-lang-dotnet=\"`Diagnostic`\" pulumi-lang-go=\"`diagnostic`\" pulumi-lang-python=\"`diagnostic`\" pulumi-lang-yaml=\"`diagnostic`\" pulumi-lang-java=\"`diagnostic`\"\u003e`diagnostic`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`remediation`\" pulumi-lang-dotnet=\"`Remediation`\" pulumi-lang-go=\"`remediation`\" pulumi-lang-python=\"`remediation`\" pulumi-lang-yaml=\"`remediation`\" pulumi-lang-java=\"`remediation`\"\u003e`remediation`\u003c/span\u003e.\n"
                 },
                 "actionDataReference": {
                     "$ref": "#/types/pagerduty:index/AutomationActionsActionActionDataReference:AutomationActionsActionActionDataReference",
@@ -4815,7 +4815,7 @@
             "inputProperties": {
                 "actionClassification": {
                     "type": "string",
-                    "description": "The category of the action. The only allowed values are \u003cspan pulumi-lang-nodejs=\"`diagnostic`\" pulumi-lang-dotnet=\"`Diagnostic`\" pulumi-lang-go=\"`diagnostic`\" pulumi-lang-python=\"`diagnostic`\" pulumi-lang-yaml=\"`diagnostic`\" pulumi-lang-java=\"`diagnostic`\"\u003e`diagnostic`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`remediation`\" pulumi-lang-dotnet=\"`Remediation`\" pulumi-lang-go=\"`remediation`\" pulumi-lang-python=\"`remediation`\" pulumi-lang-yaml=\"`remediation`\" pulumi-lang-java=\"`remediation`\"\u003e`remediation`\u003c/span\u003e.\n"
+                    "description": "The category of the action, e.g. \u003cspan pulumi-lang-nodejs=\"`diagnostic`\" pulumi-lang-dotnet=\"`Diagnostic`\" pulumi-lang-go=\"`diagnostic`\" pulumi-lang-python=\"`diagnostic`\" pulumi-lang-yaml=\"`diagnostic`\" pulumi-lang-java=\"`diagnostic`\"\u003e`diagnostic`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`remediation`\" pulumi-lang-dotnet=\"`Remediation`\" pulumi-lang-go=\"`remediation`\" pulumi-lang-python=\"`remediation`\" pulumi-lang-yaml=\"`remediation`\" pulumi-lang-java=\"`remediation`\"\u003e`remediation`\u003c/span\u003e.\n"
                 },
                 "actionDataReference": {
                     "$ref": "#/types/pagerduty:index/AutomationActionsActionActionDataReference:AutomationActionsActionActionDataReference",
@@ -4880,7 +4880,7 @@
                 "properties": {
                     "actionClassification": {
                         "type": "string",
-                        "description": "The category of the action. The only allowed values are \u003cspan pulumi-lang-nodejs=\"`diagnostic`\" pulumi-lang-dotnet=\"`Diagnostic`\" pulumi-lang-go=\"`diagnostic`\" pulumi-lang-python=\"`diagnostic`\" pulumi-lang-yaml=\"`diagnostic`\" pulumi-lang-java=\"`diagnostic`\"\u003e`diagnostic`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`remediation`\" pulumi-lang-dotnet=\"`Remediation`\" pulumi-lang-go=\"`remediation`\" pulumi-lang-python=\"`remediation`\" pulumi-lang-yaml=\"`remediation`\" pulumi-lang-java=\"`remediation`\"\u003e`remediation`\u003c/span\u003e.\n"
+                        "description": "The category of the action, e.g. \u003cspan pulumi-lang-nodejs=\"`diagnostic`\" pulumi-lang-dotnet=\"`Diagnostic`\" pulumi-lang-go=\"`diagnostic`\" pulumi-lang-python=\"`diagnostic`\" pulumi-lang-yaml=\"`diagnostic`\" pulumi-lang-java=\"`diagnostic`\"\u003e`diagnostic`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`remediation`\" pulumi-lang-dotnet=\"`Remediation`\" pulumi-lang-go=\"`remediation`\" pulumi-lang-python=\"`remediation`\" pulumi-lang-yaml=\"`remediation`\" pulumi-lang-java=\"`remediation`\"\u003e`remediation`\u003c/span\u003e.\n"
                     },
                     "actionDataReference": {
                         "$ref": "#/types/pagerduty:index/AutomationActionsActionActionDataReference:AutomationActionsActionActionDataReference",
@@ -5050,7 +5050,8 @@
                 },
                 "lastSeen": {
                     "type": "string",
-                    "description": "(Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.\n"
+                    "description": "(Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.\n",
+                    "deprecationMessage": "This field will be set as Computed-only in a future version. The\u003cspan pulumi-lang-nodejs=\" lastSeen \" pulumi-lang-dotnet=\" LastSeen \" pulumi-lang-go=\" lastSeen \" pulumi-lang-python=\" last_seen \" pulumi-lang-yaml=\" lastSeen \" pulumi-lang-java=\" lastSeen \"\u003e last_seen \u003c/span\u003etimestamp is provided by the API but should not be managed by Terraform as it represents runtime state."
                 },
                 "name": {
                     "type": "string",
@@ -5088,7 +5089,8 @@
                 },
                 "lastSeen": {
                     "type": "string",
-                    "description": "(Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.\n"
+                    "description": "(Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.\n",
+                    "deprecationMessage": "This field will be set as Computed-only in a future version. The\u003cspan pulumi-lang-nodejs=\" lastSeen \" pulumi-lang-dotnet=\" LastSeen \" pulumi-lang-go=\" lastSeen \" pulumi-lang-python=\" last_seen \" pulumi-lang-yaml=\" lastSeen \" pulumi-lang-java=\" lastSeen \"\u003e last_seen \u003c/span\u003etimestamp is provided by the API but should not be managed by Terraform as it represents runtime state."
                 },
                 "name": {
                     "type": "string",
@@ -5125,7 +5127,8 @@
                     },
                     "lastSeen": {
                         "type": "string",
-                        "description": "(Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.\n"
+                        "description": "(Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.\n",
+                        "deprecationMessage": "This field will be set as Computed-only in a future version. The\u003cspan pulumi-lang-nodejs=\" lastSeen \" pulumi-lang-dotnet=\" LastSeen \" pulumi-lang-go=\" lastSeen \" pulumi-lang-python=\" last_seen \" pulumi-lang-yaml=\" lastSeen \" pulumi-lang-java=\" lastSeen \"\u003e last_seen \u003c/span\u003etimestamp is provided by the API but should not be managed by Terraform as it represents runtime state."
                     },
                     "name": {
                         "type": "string",
@@ -9617,7 +9620,7 @@
                 "properties": {
                     "actionClassification": {
                         "type": "string",
-                        "description": "(Optional) The category of the action. The only allowed values are \u003cspan pulumi-lang-nodejs=\"`diagnostic`\" pulumi-lang-dotnet=\"`Diagnostic`\" pulumi-lang-go=\"`diagnostic`\" pulumi-lang-python=\"`diagnostic`\" pulumi-lang-yaml=\"`diagnostic`\" pulumi-lang-java=\"`diagnostic`\"\u003e`diagnostic`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`remediation`\" pulumi-lang-dotnet=\"`Remediation`\" pulumi-lang-go=\"`remediation`\" pulumi-lang-python=\"`remediation`\" pulumi-lang-yaml=\"`remediation`\" pulumi-lang-java=\"`remediation`\"\u003e`remediation`\u003c/span\u003e.\n"
+                        "description": "(Optional) The category of the action, e.g. \u003cspan pulumi-lang-nodejs=\"`diagnostic`\" pulumi-lang-dotnet=\"`Diagnostic`\" pulumi-lang-go=\"`diagnostic`\" pulumi-lang-python=\"`diagnostic`\" pulumi-lang-yaml=\"`diagnostic`\" pulumi-lang-java=\"`diagnostic`\"\u003e`diagnostic`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`remediation`\" pulumi-lang-dotnet=\"`Remediation`\" pulumi-lang-go=\"`remediation`\" pulumi-lang-python=\"`remediation`\" pulumi-lang-yaml=\"`remediation`\" pulumi-lang-java=\"`remediation`\"\u003e`remediation`\u003c/span\u003e.\n"
                     },
                     "allowInvocationFromEventOrchestration": {
                         "type": "boolean",
@@ -9673,7 +9676,7 @@
                 "description": "A collection of values returned by getAutomationActionsAction.\n",
                 "properties": {
                     "actionClassification": {
-                        "description": "(Optional) The category of the action. The only allowed values are \u003cspan pulumi-lang-nodejs=\"`diagnostic`\" pulumi-lang-dotnet=\"`Diagnostic`\" pulumi-lang-go=\"`diagnostic`\" pulumi-lang-python=\"`diagnostic`\" pulumi-lang-yaml=\"`diagnostic`\" pulumi-lang-java=\"`diagnostic`\"\u003e`diagnostic`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`remediation`\" pulumi-lang-dotnet=\"`Remediation`\" pulumi-lang-go=\"`remediation`\" pulumi-lang-python=\"`remediation`\" pulumi-lang-yaml=\"`remediation`\" pulumi-lang-java=\"`remediation`\"\u003e`remediation`\u003c/span\u003e.\n",
+                        "description": "(Optional) The category of the action, e.g. \u003cspan pulumi-lang-nodejs=\"`diagnostic`\" pulumi-lang-dotnet=\"`Diagnostic`\" pulumi-lang-go=\"`diagnostic`\" pulumi-lang-python=\"`diagnostic`\" pulumi-lang-yaml=\"`diagnostic`\" pulumi-lang-java=\"`diagnostic`\"\u003e`diagnostic`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`remediation`\" pulumi-lang-dotnet=\"`Remediation`\" pulumi-lang-go=\"`remediation`\" pulumi-lang-python=\"`remediation`\" pulumi-lang-yaml=\"`remediation`\" pulumi-lang-java=\"`remediation`\"\u003e`remediation`\u003c/span\u003e.\n",
                         "type": "string"
                     },
                     "actionDataReferences": {
@@ -9771,7 +9774,8 @@
                     },
                     "lastSeen": {
                         "type": "string",
-                        "description": "(Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.\n"
+                        "description": "(Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.\n",
+                        "deprecationMessage": "This field will be set as Computed-only in a future version. The\u003cspan pulumi-lang-nodejs=\" lastSeen \" pulumi-lang-dotnet=\" LastSeen \" pulumi-lang-go=\" lastSeen \" pulumi-lang-python=\" last_seen \" pulumi-lang-yaml=\" lastSeen \" pulumi-lang-java=\" lastSeen \"\u003e last_seen \u003c/span\u003etimestamp represents runtime state and may not be consistently available."
                     },
                     "runbookBaseUri": {
                         "type": "string",
@@ -9799,6 +9803,7 @@
                         "type": "string"
                     },
                     "lastSeen": {
+                        "deprecationMessage": "This field will be set as Computed-only in a future version. The\u003cspan pulumi-lang-nodejs=\" lastSeen \" pulumi-lang-dotnet=\" LastSeen \" pulumi-lang-go=\" lastSeen \" pulumi-lang-python=\" last_seen \" pulumi-lang-yaml=\" lastSeen \" pulumi-lang-java=\" lastSeen \"\u003e last_seen \u003c/span\u003etimestamp represents runtime state and may not be consistently available.",
                         "description": "(Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.\n",
                         "type": "string"
                     },

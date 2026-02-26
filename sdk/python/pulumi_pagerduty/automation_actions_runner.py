@@ -27,6 +27,7 @@ class AutomationActionsRunnerArgs:
                  runbook_base_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutomationActionsRunner resource.
+
         :param pulumi.Input[_builtins.str] runner_type: The type of runner. The only allowed values is `runbook`.
         :param pulumi.Input[_builtins.str] description: The description of the runner. Max length is 1024 characters.
         :param pulumi.Input[_builtins.str] last_seen: (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
@@ -136,6 +137,7 @@ class _AutomationActionsRunnerState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutomationActionsRunner resources.
+
         :param pulumi.Input[_builtins.str] creation_time: The time runner was created. Represented as an ISO 8601 timestamp.
         :param pulumi.Input[_builtins.str] description: The description of the runner. Max length is 1024 characters.
         :param pulumi.Input[_builtins.str] last_seen: (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
@@ -315,6 +317,7 @@ class AutomationActionsRunner(pulumi.CustomResource):
         $ pulumi import pagerduty:index/automationActionsRunner:AutomationActionsRunner example 01DER7CUUBF7TH4116K0M4WKPU
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the runner. Max length is 1024 characters.
@@ -368,6 +371,7 @@ class AutomationActionsRunner(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/automationActionsRunner:AutomationActionsRunner example 01DER7CUUBF7TH4116K0M4WKPU
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AutomationActionsRunnerArgs args: The arguments to use to populate this resource's properties.

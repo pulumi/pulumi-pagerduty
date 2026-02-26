@@ -28,6 +28,7 @@ class UserContactMethodArgs:
                  send_short_email: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a UserContactMethod resource.
+
         :param pulumi.Input[_builtins.str] address: The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
         :param pulumi.Input[_builtins.str] label: The label (e.g., "Work", "Mobile", etc.).
         :param pulumi.Input[_builtins.str] type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
@@ -142,6 +143,7 @@ class _UserContactMethodState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserContactMethod resources.
+
         :param pulumi.Input[_builtins.str] address: The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
         :param pulumi.Input[_builtins.bool] blacklisted: If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
         :param pulumi.Input[_builtins.int] country_code: The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
@@ -332,6 +334,7 @@ class UserContactMethod(pulumi.CustomResource):
         $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address: The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
@@ -388,6 +391,7 @@ class UserContactMethod(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserContactMethodArgs args: The arguments to use to populate this resource's properties.

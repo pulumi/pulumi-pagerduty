@@ -26,6 +26,7 @@ class EventOrchestrationGlobalArgs:
                  sets: pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetArgs']]]):
         """
         The set of arguments for constructing a EventOrchestrationGlobal resource.
+
         :param pulumi.Input['EventOrchestrationGlobalCatchAllArgs'] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         :param pulumi.Input[_builtins.str] event_orchestration: ID of the Event Orchestration to which this Global Orchestration belongs to.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetArgs']]] sets: A Global Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
@@ -79,6 +80,7 @@ class _EventOrchestrationGlobalState:
                  sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetArgs']]]] = None):
         """
         Input properties used for looking up and filtering EventOrchestrationGlobal resources.
+
         :param pulumi.Input['EventOrchestrationGlobalCatchAllArgs'] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         :param pulumi.Input[_builtins.str] event_orchestration: ID of the Event Orchestration to which this Global Orchestration belongs to.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetArgs']]] sets: A Global Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
@@ -232,6 +234,7 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
         $ pulumi import pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal global 1b49abe7-26db-4439-a715-c6d883acfb3e
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventOrchestrationGlobalCatchAllArgs', 'EventOrchestrationGlobalCatchAllArgsDict']] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
@@ -338,6 +341,7 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal global 1b49abe7-26db-4439-a715-c6d883acfb3e
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventOrchestrationGlobalArgs args: The arguments to use to populate this resource's properties.

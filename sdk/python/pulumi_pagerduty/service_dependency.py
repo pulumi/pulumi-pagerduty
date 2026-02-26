@@ -24,6 +24,7 @@ class ServiceDependencyArgs:
                  dependency: pulumi.Input['ServiceDependencyDependencyArgs']):
         """
         The set of arguments for constructing a ServiceDependency resource.
+
         :param pulumi.Input['ServiceDependencyDependencyArgs'] dependency: The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
         pulumi.set(__self__, "dependency", dependency)
@@ -47,6 +48,7 @@ class _ServiceDependencyState:
                  dependency: Optional[pulumi.Input['ServiceDependencyDependencyArgs']] = None):
         """
         Input properties used for looking up and filtering ServiceDependency resources.
+
         :param pulumi.Input['ServiceDependencyDependencyArgs'] dependency: The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
         if dependency is not None:
@@ -112,6 +114,7 @@ class ServiceDependency(pulumi.CustomResource):
         $ pulumi import pagerduty:index/serviceDependency:ServiceDependency main P4B2Z7G.business_service.D5RTHKRNGU4PYE90PJ
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceDependencyDependencyArgs', 'ServiceDependencyDependencyArgsDict']] dependency: The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
@@ -160,6 +163,7 @@ class ServiceDependency(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/serviceDependency:ServiceDependency main P4B2Z7G.business_service.D5RTHKRNGU4PYE90PJ
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceDependencyArgs args: The arguments to use to populate this resource's properties.

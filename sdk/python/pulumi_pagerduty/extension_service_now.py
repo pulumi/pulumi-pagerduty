@@ -33,6 +33,7 @@ class ExtensionServiceNowArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExtensionServiceNow resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
         :param pulumi.Input[_builtins.str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[_builtins.str] referer: The ServiceNow referer.
@@ -218,6 +219,7 @@ class _ExtensionServiceNowState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExtensionServiceNow resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
         :param pulumi.Input[_builtins.str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[_builtins.str] html_url: URL at which the entity is uniquely displayed in the Web app.
@@ -475,6 +477,7 @@ class ExtensionServiceNow(pulumi.CustomResource):
         $ pulumi import pagerduty:index/extensionServiceNow:ExtensionServiceNow main PLBP09X
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
@@ -541,6 +544,7 @@ class ExtensionServiceNow(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/extensionServiceNow:ExtensionServiceNow main PLBP09X
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExtensionServiceNowArgs args: The arguments to use to populate this resource's properties.

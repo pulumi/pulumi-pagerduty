@@ -26,6 +26,7 @@ class EventOrchestrationRouterArgs:
                  set: pulumi.Input['EventOrchestrationRouterSetArgs']):
         """
         The set of arguments for constructing a EventOrchestrationRouter resource.
+
         :param pulumi.Input['EventOrchestrationRouterCatchAllArgs'] catch_all: When none of the rules match an event, the event will be routed according to the catch_all settings.
         :param pulumi.Input[_builtins.str] event_orchestration: ID of the Event Orchestration to which the Router belongs.
         :param pulumi.Input['EventOrchestrationRouterSetArgs'] set: The Router contains a single set of rules  (the "start" set).
@@ -79,6 +80,7 @@ class _EventOrchestrationRouterState:
                  set: Optional[pulumi.Input['EventOrchestrationRouterSetArgs']] = None):
         """
         Input properties used for looking up and filtering EventOrchestrationRouter resources.
+
         :param pulumi.Input['EventOrchestrationRouterCatchAllArgs'] catch_all: When none of the rules match an event, the event will be routed according to the catch_all settings.
         :param pulumi.Input[_builtins.str] event_orchestration: ID of the Event Orchestration to which the Router belongs.
         :param pulumi.Input['EventOrchestrationRouterSetArgs'] set: The Router contains a single set of rules  (the "start" set).
@@ -204,6 +206,7 @@ class EventOrchestrationRouter(pulumi.CustomResource):
         $ pulumi import pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter router 1b49abe7-26db-4439-a715-c6d883acfb3e
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict']] catch_all: When none of the rules match an event, the event will be routed according to the catch_all settings.
@@ -282,6 +285,7 @@ class EventOrchestrationRouter(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter router 1b49abe7-26db-4439-a715-c6d883acfb3e
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventOrchestrationRouterArgs args: The arguments to use to populate this resource's properties.

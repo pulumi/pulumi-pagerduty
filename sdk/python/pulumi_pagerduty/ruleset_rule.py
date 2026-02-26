@@ -31,6 +31,7 @@ class RulesetRuleArgs:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]] = None):
         """
         The set of arguments for constructing a RulesetRule resource.
+
         :param pulumi.Input[_builtins.str] ruleset: The ID of the ruleset that the rule belongs to.
         :param pulumi.Input['RulesetRuleActionsArgs'] actions: Actions to apply to an event if the conditions match.
         :param pulumi.Input[_builtins.bool] catch_all: Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
@@ -166,6 +167,7 @@ class _RulesetRuleState:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering RulesetRule resources.
+
         :param pulumi.Input['RulesetRuleActionsArgs'] actions: Actions to apply to an event if the conditions match.
         :param pulumi.Input[_builtins.bool] catch_all: Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
         :param pulumi.Input['RulesetRuleConditionsArgs'] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
@@ -427,6 +429,7 @@ class RulesetRule(pulumi.CustomResource):
         $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']] actions: Actions to apply to an event if the conditions match.
@@ -566,6 +569,7 @@ class RulesetRule(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RulesetRuleArgs args: The arguments to use to populate this resource's properties.

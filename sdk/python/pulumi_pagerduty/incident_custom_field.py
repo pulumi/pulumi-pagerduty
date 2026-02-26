@@ -27,6 +27,7 @@ class IncidentCustomFieldArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IncidentCustomField resource.
+
         :param pulumi.Input[_builtins.str] data_type: The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
         :param pulumi.Input[_builtins.str] display_name: The display name of the field.
         :param pulumi.Input[_builtins.str] field_type: The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
@@ -128,6 +129,7 @@ class _IncidentCustomFieldState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IncidentCustomField resources.
+
         :param pulumi.Input[_builtins.str] data_type: The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
         :param pulumi.Input[_builtins.str] default_value: The default value to set when new incidents are created. Always specified as a string.
         :param pulumi.Input[_builtins.str] description: The description of the field.
@@ -269,6 +271,7 @@ class IncidentCustomField(pulumi.CustomResource):
         $ pulumi import pagerduty:index/incidentCustomField:IncidentCustomField sre_environment PLBP09X
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_type: The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
@@ -318,6 +321,7 @@ class IncidentCustomField(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/incidentCustomField:IncidentCustomField sre_environment PLBP09X
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IncidentCustomFieldArgs args: The arguments to use to populate this resource's properties.

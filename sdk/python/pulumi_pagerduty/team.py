@@ -25,6 +25,7 @@ class TeamArgs:
                  parent: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Team resource.
+
         :param pulumi.Input[_builtins.str] default_role: The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
         :param pulumi.Input[_builtins.str] description: A human-friendly description of the team.
                If not set, a placeholder of "Managed by Pulumi" will be set.
@@ -102,6 +103,7 @@ class _TeamState:
                  parent: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Team resources.
+
         :param pulumi.Input[_builtins.str] default_role: The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
         :param pulumi.Input[_builtins.str] description: A human-friendly description of the team.
                If not set, a placeholder of "Managed by Pulumi" will be set.
@@ -223,6 +225,7 @@ class Team(pulumi.CustomResource):
         $ pulumi import pagerduty:index/team:Team main PLBP09X
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_role: The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
@@ -264,6 +267,7 @@ class Team(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/team:Team main PLBP09X
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TeamArgs args: The arguments to use to populate this resource's properties.

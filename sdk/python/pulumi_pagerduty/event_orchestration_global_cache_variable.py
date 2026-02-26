@@ -28,6 +28,7 @@ class EventOrchestrationGlobalCacheVariableArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventOrchestrationGlobalCacheVariable resource.
+
         :param pulumi.Input['EventOrchestrationGlobalCacheVariableConfigurationArgs'] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
         :param pulumi.Input[_builtins.str] event_orchestration: ID of the Global Event Orchestration to which this Cache Variable belongs.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCacheVariableConditionArgs']]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
@@ -114,6 +115,7 @@ class _EventOrchestrationGlobalCacheVariableState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventOrchestrationGlobalCacheVariable resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCacheVariableConditionArgs']]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
         :param pulumi.Input['EventOrchestrationGlobalCacheVariableConfigurationArgs'] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
         :param pulumi.Input[_builtins.bool] disabled: Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
@@ -278,6 +280,7 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
         [3]: https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths
         [4]: https://github.com/google/re2/wiki/Syntax
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConditionArgs', 'EventOrchestrationGlobalCacheVariableConditionArgsDict']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
@@ -365,6 +368,7 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
         [2]: https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview
         [3]: https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths
         [4]: https://github.com/google/re2/wiki/Syntax
+
 
         :param str resource_name: The name of the resource.
         :param EventOrchestrationGlobalCacheVariableArgs args: The arguments to use to populate this resource's properties.

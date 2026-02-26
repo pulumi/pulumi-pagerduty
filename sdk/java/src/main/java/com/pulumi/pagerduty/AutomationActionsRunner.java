@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var RUNBOOK_API_KEY = config.get("RUNBOOK_API_KEY");
+ *         final var RUNBOOK_API_KEY = config.require("RUNBOOK_API_KEY");
  *         var example = new AutomationActionsRunner("example", AutomationActionsRunnerArgs.builder()
  *             .name("Runner created via TF")
  *             .description("Description of the Runner created via TF")

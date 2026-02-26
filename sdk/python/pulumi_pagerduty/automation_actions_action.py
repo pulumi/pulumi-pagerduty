@@ -37,6 +37,7 @@ class AutomationActionsActionArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutomationActionsAction resource.
+
         :param pulumi.Input['AutomationActionsActionActionDataReferenceArgs'] action_data_reference: Action Data block. Action Data is documented below.
         :param pulumi.Input[_builtins.str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
         :param pulumi.Input[_builtins.str] action_classification: The category of the action, e.g. `diagnostic`, `remediation`.
@@ -267,6 +268,7 @@ class _AutomationActionsActionState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutomationActionsAction resources.
+
         :param pulumi.Input[_builtins.str] action_classification: The category of the action, e.g. `diagnostic`, `remediation`.
         :param pulumi.Input['AutomationActionsActionActionDataReferenceArgs'] action_data_reference: Action Data block. Action Data is documented below.
         :param pulumi.Input[_builtins.str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
@@ -535,6 +537,7 @@ class AutomationActionsAction(pulumi.CustomResource):
         $ pulumi import pagerduty:index/automationActionsAction:AutomationActionsAction example 01DER7CUUBF7TH4116K0M4WKPU
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_classification: The category of the action, e.g. `diagnostic`, `remediation`.
@@ -591,6 +594,7 @@ class AutomationActionsAction(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/automationActionsAction:AutomationActionsAction example 01DER7CUUBF7TH4116K0M4WKPU
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AutomationActionsActionArgs args: The arguments to use to populate this resource's properties.

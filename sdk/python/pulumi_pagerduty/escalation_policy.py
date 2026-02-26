@@ -28,6 +28,7 @@ class EscalationPolicyArgs:
                  teams: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EscalationPolicy resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]] rules: An Escalation rule block. Escalation rules documented below.
         :param pulumi.Input[_builtins.str] description: A human-friendly description of the escalation policy.
                If not set, a placeholder of "Managed by Pulumi" will be set.
@@ -119,6 +120,7 @@ class _EscalationPolicyState:
                  teams: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EscalationPolicy resources.
+
         :param pulumi.Input[_builtins.str] description: A human-friendly description of the escalation policy.
                If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[_builtins.str] name: The name of the escalation policy.
@@ -260,6 +262,7 @@ class EscalationPolicy(pulumi.CustomResource):
         $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A human-friendly description of the escalation policy.
@@ -321,6 +324,7 @@ class EscalationPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EscalationPolicyArgs args: The arguments to use to populate this resource's properties.

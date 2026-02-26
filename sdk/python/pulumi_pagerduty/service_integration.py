@@ -34,6 +34,7 @@ class ServiceIntegrationArgs:
                  vendor: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceIntegration resource.
+
         :param pulumi.Input[_builtins.str] service: The ID of the service the integration should belong to.
         :param pulumi.Input[_builtins.str] email_filter_mode: Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
         :param pulumi.Input[_builtins.str] email_incident_creation: Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
@@ -234,6 +235,7 @@ class _ServiceIntegrationState:
                  vendor: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceIntegration resources.
+
         :param pulumi.Input[_builtins.str] email_filter_mode: Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
         :param pulumi.Input[_builtins.str] email_incident_creation: Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
         :param pulumi.Input[_builtins.str] email_parsing_fallback: Can be `open_new_incident` or `discard`.
@@ -575,6 +577,7 @@ class ServiceIntegration(pulumi.CustomResource):
         $ pulumi import pagerduty:index/serviceIntegration:ServiceIntegration main PLSSSSS.PLIIIII
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] email_filter_mode: Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
@@ -728,6 +731,7 @@ class ServiceIntegration(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/serviceIntegration:ServiceIntegration main PLSSSSS.PLIIIII
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceIntegrationArgs args: The arguments to use to populate this resource's properties.

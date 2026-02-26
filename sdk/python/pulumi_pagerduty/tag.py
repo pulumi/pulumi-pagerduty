@@ -22,6 +22,7 @@ class TagArgs:
                  label: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Tag resource.
+
         :param pulumi.Input[_builtins.str] label: The label of the tag.
         """
         pulumi.set(__self__, "label", label)
@@ -47,6 +48,7 @@ class _TagState:
                  summary: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Tag resources.
+
         :param pulumi.Input[_builtins.str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[_builtins.str] label: The label of the tag.
         :param pulumi.Input[_builtins.str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
@@ -123,6 +125,7 @@ class Tag(pulumi.CustomResource):
         $ pulumi import pagerduty:index/tag:Tag main PLBP09X
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] label: The label of the tag.
@@ -152,6 +155,7 @@ class Tag(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/tag:Tag main PLBP09X
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.

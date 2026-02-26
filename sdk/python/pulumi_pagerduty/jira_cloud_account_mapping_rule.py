@@ -27,6 +27,7 @@ class JiraCloudAccountMappingRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a JiraCloudAccountMappingRule resource.
+
         :param pulumi.Input[_builtins.str] account_mapping: [Updating can cause a resource replacement] The account mapping this rule belongs to.
         :param pulumi.Input['JiraCloudAccountMappingRuleConfigArgs'] config: Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.
         :param pulumi.Input[_builtins.bool] enabled: Indicates if the rule is enabled. Defaults to `true`.
@@ -100,6 +101,7 @@ class _JiraCloudAccountMappingRuleState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering JiraCloudAccountMappingRule resources.
+
         :param pulumi.Input[_builtins.str] account_mapping: [Updating can cause a resource replacement] The account mapping this rule belongs to.
         :param pulumi.Input[_builtins.str] autocreate_jql_disabled_reason: If auto-creation using JQL is disabled, this field provides the reason for the disablement.
         :param pulumi.Input[_builtins.str] autocreate_jql_disabled_until: The timestamp until which the auto-creation using JQL feature is disabled.
@@ -301,6 +303,7 @@ class JiraCloudAccountMappingRule(pulumi.CustomResource):
         $ pulumi import pagerduty:index/jiraCloudAccountMappingRule:JiraCloudAccountMappingRule main PLBP09X:PLB09Z
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_mapping: [Updating can cause a resource replacement] The account mapping this rule belongs to.
@@ -410,6 +413,7 @@ class JiraCloudAccountMappingRule(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/jiraCloudAccountMappingRule:JiraCloudAccountMappingRule main PLBP09X:PLB09Z
         ```
+
 
         :param str resource_name: The name of the resource.
         :param JiraCloudAccountMappingRuleArgs args: The arguments to use to populate this resource's properties.

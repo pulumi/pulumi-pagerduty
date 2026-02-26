@@ -26,6 +26,7 @@ class EventOrchestrationUnroutedArgs:
                  sets: pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]]):
         """
         The set of arguments for constructing a EventOrchestrationUnrouted resource.
+
         :param pulumi.Input['EventOrchestrationUnroutedCatchAllArgs'] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         :param pulumi.Input[_builtins.str] event_orchestration: The Event Orchestration to which this Unrouted Orchestration belongs to.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]] sets: An Unrouted Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
@@ -79,6 +80,7 @@ class _EventOrchestrationUnroutedState:
                  sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]]] = None):
         """
         Input properties used for looking up and filtering EventOrchestrationUnrouted resources.
+
         :param pulumi.Input['EventOrchestrationUnroutedCatchAllArgs'] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         :param pulumi.Input[_builtins.str] event_orchestration: The Event Orchestration to which this Unrouted Orchestration belongs to.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]] sets: An Unrouted Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
@@ -184,6 +186,7 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
         $ pulumi import pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted unrouted 1b49abe7-26db-4439-a715-c6d883acfb3e
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventOrchestrationUnroutedCatchAllArgs', 'EventOrchestrationUnroutedCatchAllArgsDict']] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
@@ -242,6 +245,7 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted unrouted 1b49abe7-26db-4439-a715-c6d883acfb3e
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventOrchestrationUnroutedArgs args: The arguments to use to populate this resource's properties.

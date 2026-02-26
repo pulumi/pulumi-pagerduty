@@ -29,6 +29,7 @@ class IncidentWorkflowTriggerArgs:
                  services: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IncidentWorkflowTrigger resource.
+
         :param pulumi.Input[_builtins.bool] subscribed_to_all_services: Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
         :param pulumi.Input[_builtins.str] type: [Updating causes resource replacement] May be either `manual` or `conditional`.
         :param pulumi.Input[_builtins.str] workflow: The workflow ID for the workflow to trigger.
@@ -130,6 +131,7 @@ class _IncidentWorkflowTriggerState:
                  workflow: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IncidentWorkflowTrigger resources.
+
         :param pulumi.Input[_builtins.str] condition: A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
         :param pulumi.Input['IncidentWorkflowTriggerPermissionsArgs'] permissions: Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] services: A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
@@ -278,6 +280,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
         $ pulumi import pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger pagerduty_incident_workflow_trigger PLBP09X
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] condition: A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
@@ -334,6 +337,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger pagerduty_incident_workflow_trigger PLBP09X
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IncidentWorkflowTriggerArgs args: The arguments to use to populate this resource's properties.

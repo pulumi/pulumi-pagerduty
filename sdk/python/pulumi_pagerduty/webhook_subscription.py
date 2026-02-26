@@ -29,6 +29,7 @@ class WebhookSubscriptionArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebhookSubscription resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]] delivery_methods: The object describing where to send the webhooks.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A set of outbound event types the webhook will receive. The follow event types are possible: 
                * `incident.acknowledged`
@@ -156,6 +157,7 @@ class _WebhookSubscriptionState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WebhookSubscription resources.
+
         :param pulumi.Input[_builtins.bool] active: Determines whether the subscription will produce webhook events.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]] delivery_methods: The object describing where to send the webhooks.
         :param pulumi.Input[_builtins.str] description: A short description of the webhook subscription
@@ -345,6 +347,7 @@ class WebhookSubscription(pulumi.CustomResource):
         $ pulumi import pagerduty:index/webhookSubscription:WebhookSubscription main PUABCDL
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Determines whether the subscription will produce webhook events.
@@ -429,6 +432,7 @@ class WebhookSubscription(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/webhookSubscription:WebhookSubscription main PUABCDL
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WebhookSubscriptionArgs args: The arguments to use to populate this resource's properties.

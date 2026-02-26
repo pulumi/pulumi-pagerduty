@@ -25,6 +25,7 @@ class EnablementArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Enablement resource.
+
         :param pulumi.Input[_builtins.str] entity_id: The ID of the entity for which to manage the enablement.
         :param pulumi.Input[_builtins.str] entity_type: The type of entity for which to manage the enablement. Possible values can be `service` and `event_orchestration`.
         :param pulumi.Input[_builtins.str] feature: The name of the feature to enable or disable. Possible values can be `aiops`.
@@ -94,6 +95,7 @@ class _EnablementState:
                  feature: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Enablement resources.
+
         :param pulumi.Input[_builtins.bool] enabled: Whether the feature should be enabled (`true`) or disabled (`false`) for the specified entity.
         :param pulumi.Input[_builtins.str] entity_id: The ID of the entity for which to manage the enablement.
         :param pulumi.Input[_builtins.str] entity_type: The type of entity for which to manage the enablement. Possible values can be `service` and `event_orchestration`.
@@ -193,6 +195,7 @@ class Enablement(pulumi.CustomResource):
         $ pulumi import pagerduty:index/enablement:Enablement example service.P7HHMVK.aiops
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether the feature should be enabled (`true`) or disabled (`false`) for the specified entity.
@@ -230,6 +233,7 @@ class Enablement(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/enablement:Enablement example service.P7HHMVK.aiops
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EnablementArgs args: The arguments to use to populate this resource's properties.

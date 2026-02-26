@@ -27,6 +27,7 @@ class EventOrchestrationServiceArgs:
                  enable_event_orchestration_for_service: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EventOrchestrationService resource.
+
         :param pulumi.Input['EventOrchestrationServiceCatchAllArgs'] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         :param pulumi.Input[_builtins.str] service: ID of the Service to which this Service Orchestration belongs to.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]] sets: A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
@@ -96,6 +97,7 @@ class _EventOrchestrationServiceState:
                  sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]]] = None):
         """
         Input properties used for looking up and filtering EventOrchestrationService resources.
+
         :param pulumi.Input['EventOrchestrationServiceCatchAllArgs'] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         :param pulumi.Input[_builtins.bool] enable_event_orchestration_for_service: Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
         :param pulumi.Input[_builtins.str] service: ID of the Service to which this Service Orchestration belongs to.
@@ -332,6 +334,7 @@ class EventOrchestrationService(pulumi.CustomResource):
         $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
@@ -506,6 +509,7 @@ class EventOrchestrationService(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventOrchestrationServiceArgs args: The arguments to use to populate this resource's properties.

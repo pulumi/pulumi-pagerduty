@@ -25,6 +25,7 @@ class MaintenanceWindowArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MaintenanceWindow resource.
+
         :param pulumi.Input[_builtins.str] end_time: The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] services: A list of service IDs to include in the maintenance window.
         :param pulumi.Input[_builtins.str] start_time: The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
@@ -96,6 +97,7 @@ class _MaintenanceWindowState:
                  start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MaintenanceWindow resources.
+
         :param pulumi.Input[_builtins.str] description: A description for the maintenance window.
         :param pulumi.Input[_builtins.str] end_time: The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] services: A list of service IDs to include in the maintenance window.
@@ -197,6 +199,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         $ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the maintenance window.
@@ -234,6 +237,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MaintenanceWindowArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class AlertGroupingSettingArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AlertGroupingSetting resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] services: [Updating can cause a resource replacement] The list IDs of services associated to this setting.
         :param pulumi.Input[_builtins.str] type: The type of alert grouping; one of `intelligent`, `time`, `content_based` or  `content_based_intelligent`.
         :param pulumi.Input['AlertGroupingSettingConfigArgs'] config: The set of values used for configuration.
@@ -114,6 +115,7 @@ class _AlertGroupingSettingState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AlertGroupingSetting resources.
+
         :param pulumi.Input['AlertGroupingSettingConfigArgs'] config: The set of values used for configuration.
         :param pulumi.Input[_builtins.str] description: A human-friendly text to describe and identify this alert grouping setting.
         :param pulumi.Input[_builtins.str] name: The name for the alert grouping settings.
@@ -288,6 +290,7 @@ class AlertGroupingSetting(pulumi.CustomResource):
         $ pulumi import pagerduty:index/alertGroupingSetting:AlertGroupingSetting example P3DH5M6
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AlertGroupingSettingConfigArgs', 'AlertGroupingSettingConfigArgsDict']] config: The set of values used for configuration.
@@ -385,6 +388,7 @@ class AlertGroupingSetting(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/alertGroupingSetting:AlertGroupingSetting example P3DH5M6
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AlertGroupingSettingArgs args: The arguments to use to populate this resource's properties.

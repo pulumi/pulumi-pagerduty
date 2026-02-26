@@ -31,6 +31,7 @@ class ServiceCustomFieldArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceCustomField resource.
+
         :param pulumi.Input[_builtins.str] data_type: The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
         :param pulumi.Input[_builtins.str] display_name: The human-readable name of the field. Must be unique across an account.
         :param pulumi.Input[_builtins.str] field_type: The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
@@ -167,6 +168,7 @@ class _ServiceCustomFieldState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceCustomField resources.
+
         :param pulumi.Input[_builtins.str] data_type: The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
         :param pulumi.Input[_builtins.str] default_value: Default value for the field.
         :param pulumi.Input[_builtins.str] description: A description of the data this field contains.
@@ -431,6 +433,7 @@ class ServiceCustomField(pulumi.CustomResource):
         $ pulumi import pagerduty:index/serviceCustomField:ServiceCustomField example P123456
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_type: The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
@@ -528,6 +531,7 @@ class ServiceCustomField(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/serviceCustomField:ServiceCustomField example P123456
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceCustomFieldArgs args: The arguments to use to populate this resource's properties.

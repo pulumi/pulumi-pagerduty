@@ -24,6 +24,7 @@ class TagAssignmentArgs:
                  tag_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TagAssignment resource.
+
         :param pulumi.Input[_builtins.str] entity_id: The ID of the entity.
         :param pulumi.Input[_builtins.str] entity_type: Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
         :param pulumi.Input[_builtins.str] tag_id: The ID of the tag.
@@ -77,6 +78,7 @@ class _TagAssignmentState:
                  tag_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TagAssignment resources.
+
         :param pulumi.Input[_builtins.str] entity_id: The ID of the entity.
         :param pulumi.Input[_builtins.str] entity_type: Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
         :param pulumi.Input[_builtins.str] tag_id: The ID of the tag.
@@ -160,6 +162,7 @@ class TagAssignment(pulumi.CustomResource):
         $ pulumi import pagerduty:index/tagAssignment:TagAssignment main users.P7HHMVK.PYC7IQQ
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] entity_id: The ID of the entity.
@@ -196,6 +199,7 @@ class TagAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/tagAssignment:TagAssignment main users.P7HHMVK.PYC7IQQ
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TagAssignmentArgs args: The arguments to use to populate this resource's properties.

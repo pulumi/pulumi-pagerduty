@@ -26,6 +26,7 @@ class BusinessServiceArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BusinessService resource.
+
         :param pulumi.Input[_builtins.str] description: A human-friendly description of the service.
                If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[_builtins.str] name: The name of the business service.
@@ -125,6 +126,7 @@ class _BusinessServiceState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BusinessService resources.
+
         :param pulumi.Input[_builtins.str] description: A human-friendly description of the service.
                If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[_builtins.str] html_url: A URL at which the entity is uniquely displayed in the Web app.
@@ -292,6 +294,7 @@ class BusinessService(pulumi.CustomResource):
         $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A human-friendly description of the service.
@@ -330,6 +333,7 @@ class BusinessService(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BusinessServiceArgs args: The arguments to use to populate this resource's properties.

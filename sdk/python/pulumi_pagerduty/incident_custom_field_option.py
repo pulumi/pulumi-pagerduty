@@ -24,6 +24,7 @@ class IncidentCustomFieldOptionArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a IncidentCustomFieldOption resource.
+
         :param pulumi.Input[_builtins.str] data_type: The datatype of the field option. Only `string` is allowed here at present.
         :param pulumi.Input[_builtins.str] field: The ID of the field.
         :param pulumi.Input[_builtins.str] value: The allowed value.
@@ -77,6 +78,7 @@ class _IncidentCustomFieldOptionState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IncidentCustomFieldOption resources.
+
         :param pulumi.Input[_builtins.str] data_type: The datatype of the field option. Only `string` is allowed here at present.
         :param pulumi.Input[_builtins.str] field: The ID of the field.
         :param pulumi.Input[_builtins.str] value: The allowed value.
@@ -164,6 +166,7 @@ class IncidentCustomFieldOption(pulumi.CustomResource):
             value="prod")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_type: The datatype of the field option. Only `string` is allowed here at present.
@@ -204,6 +207,7 @@ class IncidentCustomFieldOption(pulumi.CustomResource):
             data_type="string",
             value="prod")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IncidentCustomFieldOptionArgs args: The arguments to use to populate this resource's properties.

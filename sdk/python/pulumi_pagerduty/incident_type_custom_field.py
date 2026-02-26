@@ -30,6 +30,7 @@ class IncidentTypeCustomFieldArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IncidentTypeCustomField resource.
+
         :param pulumi.Input[_builtins.str] data_type: [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `data_type` is `single_value`, otherwise must be `string`. Update
         :param pulumi.Input[_builtins.str] display_name: The display name of the custom Type.
         :param pulumi.Input[_builtins.str] incident_type: [Updating causes resource replacement] The id of the incident type the custom field is associated with.
@@ -182,6 +183,7 @@ class _IncidentTypeCustomFieldState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IncidentTypeCustomField resources.
+
         :param pulumi.Input[_builtins.str] data_type: [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `data_type` is `single_value`, otherwise must be `string`. Update
         :param pulumi.Input[_builtins.str] default_value: The default value to set when new incidents are created. Always specified as a string.
         :param pulumi.Input[_builtins.str] description: The description of the custom field.
@@ -430,6 +432,7 @@ class IncidentTypeCustomField(pulumi.CustomResource):
         $ pulumi import pagerduty:index/incidentTypeCustomField:IncidentTypeCustomField cs_impact PT1234:PF1234
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_type: [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `data_type` is `single_value`, otherwise must be `string`. Update
@@ -500,6 +503,7 @@ class IncidentTypeCustomField(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/incidentTypeCustomField:IncidentTypeCustomField cs_impact PT1234:PF1234
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IncidentTypeCustomFieldArgs args: The arguments to use to populate this resource's properties.

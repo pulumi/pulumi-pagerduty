@@ -27,6 +27,7 @@ class UserHandoffNotificationRuleArgs:
                  handoff_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserHandoffNotificationRule resource.
+
         :param pulumi.Input['UserHandoffNotificationRuleContactMethodArgs'] contact_method: The contact method to notify the user. Contact method documented below.
         :param pulumi.Input[_builtins.int] notify_advance_in_minutes: The number of minutes before the handoff that the user should be notified. Must be a positive integer greater than or equal to 0.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
@@ -96,6 +97,7 @@ class _UserHandoffNotificationRuleState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserHandoffNotificationRule resources.
+
         :param pulumi.Input['UserHandoffNotificationRuleContactMethodArgs'] contact_method: The contact method to notify the user. Contact method documented below.
         :param pulumi.Input[_builtins.str] handoff_type: The type of handoff to notify the user about. Possible values are `oncall`, `offcall`, `both`.
         :param pulumi.Input[_builtins.int] notify_advance_in_minutes: The number of minutes before the handoff that the user should be notified. Must be a positive integer greater than or equal to 0.
@@ -206,6 +208,7 @@ class UserHandoffNotificationRule(pulumi.CustomResource):
         $ pulumi import pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule main PX4IAP4.PULREBP
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['UserHandoffNotificationRuleContactMethodArgs', 'UserHandoffNotificationRuleContactMethodArgsDict']] contact_method: The contact method to notify the user. Contact method documented below.
@@ -254,6 +257,7 @@ class UserHandoffNotificationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule main PX4IAP4.PULREBP
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserHandoffNotificationRuleArgs args: The arguments to use to populate this resource's properties.

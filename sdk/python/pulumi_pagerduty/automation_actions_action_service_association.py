@@ -23,6 +23,7 @@ class AutomationActionsActionServiceAssociationArgs:
                  service_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AutomationActionsActionServiceAssociation resource.
+
         :param pulumi.Input[_builtins.str] action_id: Id of the action.
         :param pulumi.Input[_builtins.str] service_id: Id of the service associated to the action.
         """
@@ -61,6 +62,7 @@ class _AutomationActionsActionServiceAssociationState:
                  service_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutomationActionsActionServiceAssociation resources.
+
         :param pulumi.Input[_builtins.str] action_id: Id of the action.
         :param pulumi.Input[_builtins.str] service_id: Id of the service associated to the action.
         """
@@ -155,6 +157,7 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
         $ pulumi import pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_id: Id of the action.
@@ -217,6 +220,7 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AutomationActionsActionServiceAssociationArgs args: The arguments to use to populate this resource's properties.

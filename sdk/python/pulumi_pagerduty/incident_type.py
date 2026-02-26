@@ -26,6 +26,7 @@ class IncidentTypeArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IncidentType resource.
+
         :param pulumi.Input[_builtins.str] display_name: The display name of the Incident Type. Usage of the prefixes PD, PagerDuty, or the suffixes Default, or (Default) is prohibited.
         :param pulumi.Input[_builtins.str] parent_type: The parent type of the Incident Type. Either name or id of the parent type can be used.
         :param pulumi.Input[_builtins.str] description: A succinct description of the Incident Type.
@@ -113,6 +114,7 @@ class _IncidentTypeState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IncidentType resources.
+
         :param pulumi.Input[_builtins.str] description: A succinct description of the Incident Type.
         :param pulumi.Input[_builtins.str] display_name: The display name of the Incident Type. Usage of the prefixes PD, PagerDuty, or the suffixes Default, or (Default) is prohibited.
         :param pulumi.Input[_builtins.bool] enabled: State of this Incident Type object. Defaults to true if not provided.
@@ -251,6 +253,7 @@ class IncidentType(pulumi.CustomResource):
         $ pulumi import pagerduty:index/incidentType:IncidentType main P12345
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A succinct description of the Incident Type.
@@ -297,6 +300,7 @@ class IncidentType(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/incidentType:IncidentType main P12345
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IncidentTypeArgs args: The arguments to use to populate this resource's properties.

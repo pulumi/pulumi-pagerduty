@@ -25,6 +25,7 @@ class EventOrchestrationIntegrationInitArgs:
                  label: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a EventOrchestrationIntegration resource.
+
         :param pulumi.Input[_builtins.str] event_orchestration: ID of the Event Orchestration to which this Integration belongs to. If value is changed, current Integration is associated with a newly provided ID.
         :param pulumi.Input[_builtins.str] label: Name/description of the Integration.
         """
@@ -64,6 +65,7 @@ class _EventOrchestrationIntegrationState:
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]] = None):
         """
         Input properties used for looking up and filtering EventOrchestrationIntegration resources.
+
         :param pulumi.Input[_builtins.str] event_orchestration: ID of the Event Orchestration to which this Integration belongs to. If value is changed, current Integration is associated with a newly provided ID.
         :param pulumi.Input[_builtins.str] label: Name/description of the Integration.
         """
@@ -147,6 +149,7 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
         $ pulumi import pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration integration 19acac92-027a-4ea0-b06c-bbf516519601:1b49abe7-26db-4439-a715-c6d883acfb3e
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] event_orchestration: ID of the Event Orchestration to which this Integration belongs to. If value is changed, current Integration is associated with a newly provided ID.
@@ -187,6 +190,7 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration integration 19acac92-027a-4ea0-b06c-bbf516519601:1b49abe7-26db-4439-a715-c6d883acfb3e
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventOrchestrationIntegrationInitArgs args: The arguments to use to populate this resource's properties.

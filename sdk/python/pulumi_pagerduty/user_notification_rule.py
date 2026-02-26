@@ -27,6 +27,7 @@ class UserNotificationRuleArgs:
                  contact_method: Optional[pulumi.Input['UserNotificationRuleContactMethodArgs']] = None):
         """
         The set of arguments for constructing a UserNotificationRule resource.
+
         :param pulumi.Input[_builtins.int] start_delay_in_minutes: The delay before firing the rule, in minutes.
         :param pulumi.Input[_builtins.str] urgency: Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
@@ -96,6 +97,7 @@ class _UserNotificationRuleState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserNotificationRule resources.
+
         :param pulumi.Input['UserNotificationRuleContactMethodArgs'] contact_method: A contact method block, configured as a block described below.
         :param pulumi.Input[_builtins.int] start_delay_in_minutes: The delay before firing the rule, in minutes.
         :param pulumi.Input[_builtins.str] urgency: Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
@@ -233,6 +235,7 @@ class UserNotificationRule(pulumi.CustomResource):
         $ pulumi import pagerduty:index/userNotificationRule:UserNotificationRule main PXPGF42:PPSCXAN
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict']] contact_method: A contact method block, configured as a block described below.
@@ -308,6 +311,7 @@ class UserNotificationRule(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/userNotificationRule:UserNotificationRule main PXPGF42:PPSCXAN
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserNotificationRuleArgs args: The arguments to use to populate this resource's properties.

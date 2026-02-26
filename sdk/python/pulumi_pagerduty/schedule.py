@@ -29,6 +29,7 @@ class ScheduleArgs:
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Schedule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]] layers: A schedule layer block. Schedule layers documented below.
         :param pulumi.Input[_builtins.str] time_zone: The time zone of the schedule (e.g. `Europe/Berlin`).
         :param pulumi.Input[_builtins.str] description: The description of the schedule.
@@ -138,6 +139,7 @@ class _ScheduleState:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Schedule resources.
+
         :param pulumi.Input[_builtins.str] description: The description of the schedule.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]] layers: A schedule layer block. Schedule layers documented below.
         :param pulumi.Input[_builtins.str] name: The name of the schedule.
@@ -300,6 +302,7 @@ class Schedule(pulumi.CustomResource):
         $ pulumi import pagerduty:index/schedule:Schedule main PLBP09X
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the schedule.
@@ -355,6 +358,7 @@ class Schedule(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/schedule:Schedule main PLBP09X
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

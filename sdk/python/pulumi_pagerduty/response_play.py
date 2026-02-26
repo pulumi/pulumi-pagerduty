@@ -35,6 +35,7 @@ class ResponsePlayArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResponsePlay resource.
+
         :param pulumi.Input[_builtins.str] from_: The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
         :param pulumi.Input[_builtins.str] conference_number: The telephone number that will be set as the conference number for any incident on which this response play is run.
         :param pulumi.Input[_builtins.str] conference_url: The URL that will be set as the conference URL for any incident on which this response play is run.
@@ -238,6 +239,7 @@ class _ResponsePlayState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResponsePlay resources.
+
         :param pulumi.Input[_builtins.str] conference_number: The telephone number that will be set as the conference number for any incident on which this response play is run.
         :param pulumi.Input[_builtins.str] conference_url: The URL that will be set as the conference URL for any incident on which this response play is run.
         :param pulumi.Input[_builtins.str] description: A human-friendly description of the response play.
@@ -505,6 +507,7 @@ class ResponsePlay(pulumi.CustomResource):
         $ pulumi import pagerduty:index/responsePlay:ResponsePlay main 16208303-022b-f745-f2f5-560e537a2a74.user@email.com
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] conference_number: The telephone number that will be set as the conference number for any incident on which this response play is run.
@@ -587,6 +590,7 @@ class ResponsePlay(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/responsePlay:ResponsePlay main 16208303-022b-f745-f2f5-560e537a2a74.user@email.com
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResponsePlayArgs args: The arguments to use to populate this resource's properties.

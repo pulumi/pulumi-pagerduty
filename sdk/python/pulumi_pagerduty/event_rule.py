@@ -24,6 +24,7 @@ class EventRuleArgs:
                  advanced_condition_json: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventRule resource.
+
         :param pulumi.Input[_builtins.str] action_json: A list of one or more actions for each rule. Each action within the list is itself a list.
         :param pulumi.Input[_builtins.str] condition_json: Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
         :param pulumi.Input[_builtins.str] advanced_condition_json: Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
@@ -79,6 +80,7 @@ class _EventRuleState:
                  condition_json: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventRule resources.
+
         :param pulumi.Input[_builtins.str] action_json: A list of one or more actions for each rule. Each action within the list is itself a list.
         :param pulumi.Input[_builtins.str] advanced_condition_json: Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
         :param pulumi.Input[_builtins.bool] catch_all: A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.
@@ -272,6 +274,7 @@ class EventRule(pulumi.CustomResource):
         $ pulumi import pagerduty:index/eventRule:EventRule main 19acac92-027a-4ea0-b06c-bbf516519601
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_json: A list of one or more actions for each rule. Each action within the list is itself a list.
@@ -403,6 +406,7 @@ class EventRule(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/eventRule:EventRule main 19acac92-027a-4ea0-b06c-bbf516519601
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventRuleArgs args: The arguments to use to populate this resource's properties.

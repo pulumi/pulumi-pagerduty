@@ -25,6 +25,7 @@ class ServiceCustomFieldValueArgs:
                  service_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ServiceCustomFieldValue resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCustomFieldValueCustomFieldArgs']]] custom_fields: The custom field values to set for the service.
         :param pulumi.Input[_builtins.str] service_id: The ID of the service to set custom field values for.
         """
@@ -63,6 +64,7 @@ class _ServiceCustomFieldValueState:
                  service_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceCustomFieldValue resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCustomFieldValueCustomFieldArgs']]] custom_fields: The custom field values to set for the service.
         :param pulumi.Input[_builtins.str] service_id: The ID of the service to set custom field values for.
         """
@@ -195,6 +197,7 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
         $ pulumi import pagerduty:index/serviceCustomFieldValue:ServiceCustomFieldValue example PXYZ123
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict']]]] custom_fields: The custom field values to set for the service.
@@ -295,6 +298,7 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/serviceCustomFieldValue:ServiceCustomFieldValue example PXYZ123
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceCustomFieldValueArgs args: The arguments to use to populate this resource's properties.

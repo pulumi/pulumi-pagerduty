@@ -25,6 +25,7 @@ class RulesetArgs:
                  team: Optional[pulumi.Input['RulesetTeamArgs']] = None):
         """
         The set of arguments for constructing a Ruleset resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the ruleset.
         :param pulumi.Input['RulesetTeamArgs'] team: Reference to the team that owns the ruleset. If none is specified, only admins have access.
         """
@@ -67,6 +68,7 @@ class _RulesetState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Ruleset resources.
+
         :param pulumi.Input[_builtins.str] name: Name of the ruleset.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] routing_keys: Routing keys routed to this ruleset.
         :param pulumi.Input['RulesetTeamArgs'] team: Reference to the team that owns the ruleset. If none is specified, only admins have access.
@@ -179,6 +181,7 @@ class Ruleset(pulumi.CustomResource):
         $ pulumi import pagerduty:index/ruleset:Ruleset main 19acac92-027a-4ea0-b06c-bbf516519601
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the ruleset.
@@ -229,6 +232,7 @@ class Ruleset(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/ruleset:Ruleset main 19acac92-027a-4ea0-b06c-bbf516519601
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RulesetArgs args: The arguments to use to populate this resource's properties.

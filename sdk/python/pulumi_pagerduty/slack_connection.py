@@ -29,6 +29,7 @@ class SlackConnectionArgs:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SlackConnection resource.
+
         :param pulumi.Input[_builtins.str] channel_id: The ID of a Slack channel in the workspace.
         :param pulumi.Input[Sequence[pulumi.Input['SlackConnectionConfigArgs']]] configs: Configuration options for the Slack connection that provide options to filter events.
         :param pulumi.Input[_builtins.str] notification_type: Type of notification. Either `responder` or `stakeholder`.
@@ -130,6 +131,7 @@ class _SlackConnectionState:
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SlackConnection resources.
+
         :param pulumi.Input[_builtins.str] channel_id: The ID of a Slack channel in the workspace.
         :param pulumi.Input[_builtins.str] channel_name: Name of the Slack channel in Slack connection.
         :param pulumi.Input[Sequence[pulumi.Input['SlackConnectionConfigArgs']]] configs: Configuration options for the Slack connection that provide options to filter events.
@@ -315,6 +317,7 @@ class SlackConnection(pulumi.CustomResource):
         $ pulumi import pagerduty:index/slackConnection:SlackConnection main T02A123LV1A.PUABCDL
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_id: The ID of a Slack channel in the workspace.
@@ -378,6 +381,7 @@ class SlackConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/slackConnection:SlackConnection main T02A123LV1A.PUABCDL
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SlackConnectionArgs args: The arguments to use to populate this resource's properties.

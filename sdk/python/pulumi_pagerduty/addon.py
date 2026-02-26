@@ -23,6 +23,7 @@ class AddonArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Addon resource.
+
         :param pulumi.Input[_builtins.str] src: The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
         :param pulumi.Input[_builtins.str] name: The name of the add-on.
         """
@@ -62,6 +63,7 @@ class _AddonState:
                  src: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Addon resources.
+
         :param pulumi.Input[_builtins.str] name: The name of the add-on.
         :param pulumi.Input[_builtins.str] src: The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
         """
@@ -126,6 +128,7 @@ class Addon(pulumi.CustomResource):
         $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the add-on.
@@ -158,6 +161,7 @@ class Addon(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AddonArgs args: The arguments to use to populate this resource's properties.

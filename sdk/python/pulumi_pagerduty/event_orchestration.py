@@ -27,6 +27,7 @@ class EventOrchestrationArgs:
                  team: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventOrchestration resource.
+
         :param pulumi.Input[_builtins.str] description: A human-friendly description of the Event Orchestration.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]] integrations: A list of integrations for the Event Orchestration.
         :param pulumi.Input[_builtins.str] name: Name of the Event Orchestration.
@@ -100,6 +101,7 @@ class _EventOrchestrationState:
                  team: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventOrchestration resources.
+
         :param pulumi.Input[_builtins.str] description: A human-friendly description of the Event Orchestration.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]] integrations: A list of integrations for the Event Orchestration.
         :param pulumi.Input[_builtins.str] name: Name of the Event Orchestration.
@@ -209,6 +211,7 @@ class EventOrchestration(pulumi.CustomResource):
         $ pulumi import pagerduty:index/eventOrchestration:EventOrchestration main 19acac92-027a-4ea0-b06c-bbf516519601
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A human-friendly description of the Event Orchestration.
@@ -245,6 +248,7 @@ class EventOrchestration(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/eventOrchestration:EventOrchestration main 19acac92-027a-4ea0-b06c-bbf516519601
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventOrchestrationArgs args: The arguments to use to populate this resource's properties.

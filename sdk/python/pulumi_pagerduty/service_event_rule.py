@@ -30,6 +30,7 @@ class ServiceEventRuleArgs:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceEventRule resource.
+
         :param pulumi.Input[_builtins.str] service: The ID of the service that the rule belongs to.
         :param pulumi.Input['ServiceEventRuleActionsArgs'] actions: Actions to apply to an event if the conditions match.
         :param pulumi.Input['ServiceEventRuleConditionsArgs'] conditions: Conditions evaluated to check if an event matches this event rule.
@@ -149,6 +150,7 @@ class _ServiceEventRuleState:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering ServiceEventRule resources.
+
         :param pulumi.Input['ServiceEventRuleActionsArgs'] actions: Actions to apply to an event if the conditions match.
         :param pulumi.Input['ServiceEventRuleConditionsArgs'] conditions: Conditions evaluated to check if an event matches this event rule.
         :param pulumi.Input[_builtins.bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
@@ -368,6 +370,7 @@ class ServiceEventRule(pulumi.CustomResource):
         $ pulumi import pagerduty:index/serviceEventRule:ServiceEventRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']] actions: Actions to apply to an event if the conditions match.
@@ -480,6 +483,7 @@ class ServiceEventRule(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/serviceEventRule:ServiceEventRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceEventRuleArgs args: The arguments to use to populate this resource's properties.

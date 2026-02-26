@@ -28,6 +28,7 @@ class IncidentWorkflowArgs:
                  team: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IncidentWorkflow resource.
+
         :param pulumi.Input[_builtins.str] description: The description of the workflow.
         :param pulumi.Input[_builtins.str] is_enabled: Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
         :param pulumi.Input[_builtins.str] name: The name of the workflow.
@@ -116,6 +117,7 @@ class _IncidentWorkflowState:
                  team: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IncidentWorkflow resources.
+
         :param pulumi.Input[_builtins.str] description: The description of the workflow.
         :param pulumi.Input[_builtins.str] is_enabled: Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
         :param pulumi.Input[_builtins.str] name: The name of the workflow.
@@ -236,6 +238,7 @@ class IncidentWorkflow(pulumi.CustomResource):
         $ pulumi import pagerduty:index/incidentWorkflow:IncidentWorkflow major_incident_workflow PLBP09X
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the workflow.
@@ -279,6 +282,7 @@ class IncidentWorkflow(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/incidentWorkflow:IncidentWorkflow major_incident_workflow PLBP09X
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IncidentWorkflowArgs args: The arguments to use to populate this resource's properties.

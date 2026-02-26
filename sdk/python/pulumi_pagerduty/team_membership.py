@@ -24,6 +24,7 @@ class TeamMembershipArgs:
                  role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TeamMembership resource.
+
         :param pulumi.Input[_builtins.str] team_id: The ID of the team in which the user will belong.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user to add to the team.
         :param pulumi.Input[_builtins.str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
@@ -84,6 +85,7 @@ class _TeamMembershipState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TeamMembership resources.
+
         :param pulumi.Input[_builtins.str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
                These roles match up to user roles in the following ways:
                * User role of `user` is a Team role of `manager`
@@ -179,6 +181,7 @@ class TeamMembership(pulumi.CustomResource):
         $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
@@ -224,6 +227,7 @@ class TeamMembership(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TeamMembershipArgs args: The arguments to use to populate this resource's properties.

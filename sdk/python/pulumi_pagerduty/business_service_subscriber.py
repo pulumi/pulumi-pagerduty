@@ -24,6 +24,7 @@ class BusinessServiceSubscriberArgs:
                  subscriber_type: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a BusinessServiceSubscriber resource.
+
         :param pulumi.Input[_builtins.str] business_service_id: The ID of the business service to subscribe to.
         :param pulumi.Input[_builtins.str] subscriber_id: The ID of the subscriber entity.
         :param pulumi.Input[_builtins.str] subscriber_type: Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
@@ -77,6 +78,7 @@ class _BusinessServiceSubscriberState:
                  subscriber_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BusinessServiceSubscriber resources.
+
         :param pulumi.Input[_builtins.str] business_service_id: The ID of the business service to subscribe to.
         :param pulumi.Input[_builtins.str] subscriber_id: The ID of the subscriber entity.
         :param pulumi.Input[_builtins.str] subscriber_type: Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
@@ -171,6 +173,7 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
         $ pulumi import pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber main PLBP09X.team.PLBP09X
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] business_service_id: The ID of the business service to subscribe to.
@@ -218,6 +221,7 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber main PLBP09X.team.PLBP09X
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BusinessServiceSubscriberArgs args: The arguments to use to populate this resource's properties.

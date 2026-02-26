@@ -27,6 +27,7 @@ class ExtensionArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Extension resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
         :param pulumi.Input[_builtins.str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[_builtins.str] config: The configuration of the service extension as string containing plain JSON-encoded data.
@@ -129,6 +130,7 @@ class _ExtensionState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Extension resources.
+
         :param pulumi.Input[_builtins.str] config: The configuration of the service extension as string containing plain JSON-encoded data.
         :param pulumi.Input[_builtins.str] endpoint_url: The url of the extension.
                **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `get_extension_schema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
@@ -320,6 +322,7 @@ class Extension(pulumi.CustomResource):
         $ pulumi import pagerduty:index/extension:Extension main PLBP09X
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] config: The configuration of the service extension as string containing plain JSON-encoded data.
@@ -387,6 +390,7 @@ class Extension(pulumi.CustomResource):
         ```sh
         $ pulumi import pagerduty:index/extension:Extension main PLBP09X
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.

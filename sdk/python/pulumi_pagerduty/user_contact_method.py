@@ -31,7 +31,7 @@ class UserContactMethodArgs:
 
         :param pulumi.Input[_builtins.str] address: The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
         :param pulumi.Input[_builtins.str] label: The label (e.g., "Work", "Mobile", etc.).
-        :param pulumi.Input[_builtins.str] type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        :param pulumi.Input[_builtins.str] type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`, `whatsapp_contact_method`).
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
         :param pulumi.Input[_builtins.int] country_code: The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
         :param pulumi.Input[_builtins.bool] send_short_email: Send an abbreviated email message instead of the standard email output.
@@ -75,7 +75,7 @@ class UserContactMethodArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`, `whatsapp_contact_method`).
         """
         return pulumi.get(self, "type")
 
@@ -150,7 +150,7 @@ class _UserContactMethodState:
         :param pulumi.Input[_builtins.bool] enabled: If true, this phone is capable of receiving SMS messages.
         :param pulumi.Input[_builtins.str] label: The label (e.g., "Work", "Mobile", etc.).
         :param pulumi.Input[_builtins.bool] send_short_email: Send an abbreviated email message instead of the standard email output.
-        :param pulumi.Input[_builtins.str] type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        :param pulumi.Input[_builtins.str] type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`, `whatsapp_contact_method`).
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
         """
         if address is not None:
@@ -257,7 +257,7 @@ class _UserContactMethodState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`, `whatsapp_contact_method`).
         """
         return pulumi.get(self, "type")
 
@@ -341,7 +341,7 @@ class UserContactMethod(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] country_code: The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
         :param pulumi.Input[_builtins.str] label: The label (e.g., "Work", "Mobile", etc.).
         :param pulumi.Input[_builtins.bool] send_short_email: Send an abbreviated email message instead of the standard email output.
-        :param pulumi.Input[_builtins.str] type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        :param pulumi.Input[_builtins.str] type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`, `whatsapp_contact_method`).
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
         """
         ...
@@ -473,7 +473,7 @@ class UserContactMethod(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enabled: If true, this phone is capable of receiving SMS messages.
         :param pulumi.Input[_builtins.str] label: The label (e.g., "Work", "Mobile", etc.).
         :param pulumi.Input[_builtins.bool] send_short_email: Send an abbreviated email message instead of the standard email output.
-        :param pulumi.Input[_builtins.str] type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        :param pulumi.Input[_builtins.str] type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`, `whatsapp_contact_method`).
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -548,7 +548,7 @@ class UserContactMethod(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`, `whatsapp_contact_method`).
         """
         return pulumi.get(self, "type")
 

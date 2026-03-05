@@ -114,7 +114,7 @@ namespace Pulumi.Pagerduty
         public Output<bool> SendShortEmail { get; private set; } = null!;
 
         /// <summary>
-        /// The contact method type. May be (`EmailContactMethod`, `PhoneContactMethod`, `SmsContactMethod`, `PushNotificationContactMethod`).
+        /// The contact method type. May be (`EmailContactMethod`, `PhoneContactMethod`, `SmsContactMethod`, `PushNotificationContactMethod`, `WhatsappContactMethod`).
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Pagerduty
         public Input<bool>? SendShortEmail { get; set; }
 
         /// <summary>
-        /// The contact method type. May be (`EmailContactMethod`, `PhoneContactMethod`, `SmsContactMethod`, `PushNotificationContactMethod`).
+        /// The contact method type. May be (`EmailContactMethod`, `PhoneContactMethod`, `SmsContactMethod`, `PushNotificationContactMethod`, `WhatsappContactMethod`).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Pagerduty
         public Input<bool>? SendShortEmail { get; set; }
 
         /// <summary>
-        /// The contact method type. May be (`EmailContactMethod`, `PhoneContactMethod`, `SmsContactMethod`, `PushNotificationContactMethod`).
+        /// The contact method type. May be (`EmailContactMethod`, `PhoneContactMethod`, `SmsContactMethod`, `PushNotificationContactMethod`, `WhatsappContactMethod`).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

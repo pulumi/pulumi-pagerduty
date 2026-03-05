@@ -98,7 +98,7 @@ type UserContactMethod struct {
 	Label pulumi.StringOutput `pulumi:"label"`
 	// Send an abbreviated email message instead of the standard email output.
 	SendShortEmail pulumi.BoolOutput `pulumi:"sendShortEmail"`
-	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The ID of the user.
 	UserId pulumi.StringOutput `pulumi:"userId"`
@@ -159,7 +159,7 @@ type userContactMethodState struct {
 	Label *string `pulumi:"label"`
 	// Send an abbreviated email message instead of the standard email output.
 	SendShortEmail *bool `pulumi:"sendShortEmail"`
-	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
 	Type *string `pulumi:"type"`
 	// The ID of the user.
 	UserId *string `pulumi:"userId"`
@@ -179,7 +179,7 @@ type UserContactMethodState struct {
 	Label pulumi.StringPtrInput
 	// Send an abbreviated email message instead of the standard email output.
 	SendShortEmail pulumi.BoolPtrInput
-	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
 	Type pulumi.StringPtrInput
 	// The ID of the user.
 	UserId pulumi.StringPtrInput
@@ -199,7 +199,7 @@ type userContactMethodArgs struct {
 	Label string `pulumi:"label"`
 	// Send an abbreviated email message instead of the standard email output.
 	SendShortEmail *bool `pulumi:"sendShortEmail"`
-	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
 	Type string `pulumi:"type"`
 	// The ID of the user.
 	UserId string `pulumi:"userId"`
@@ -216,7 +216,7 @@ type UserContactMethodArgs struct {
 	Label pulumi.StringInput
 	// Send an abbreviated email message instead of the standard email output.
 	SendShortEmail pulumi.BoolPtrInput
-	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
 	Type pulumi.StringInput
 	// The ID of the user.
 	UserId pulumi.StringInput
@@ -343,7 +343,7 @@ func (o UserContactMethodOutput) SendShortEmail() pulumi.BoolOutput {
 	return o.ApplyT(func(v *UserContactMethod) pulumi.BoolOutput { return v.SendShortEmail }).(pulumi.BoolOutput)
 }
 
-// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
 func (o UserContactMethodOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserContactMethod) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

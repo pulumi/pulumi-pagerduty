@@ -151,7 +151,7 @@ namespace Pulumi.Pagerduty
         public string Label { get; set; } = null!;
 
         /// <summary>
-        /// The contact method type. May be (`EmailContactMethod`, `PhoneContactMethod`, `SmsContactMethod`, `PushNotificationContactMethod`).
+        /// The contact method type. May be (`EmailContactMethod`, `PhoneContactMethod`, `SmsContactMethod`, `PushNotificationContactMethod`, `WhatsappContactMethod`).
         /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Pagerduty
         public Input<string> Label { get; set; } = null!;
 
         /// <summary>
-        /// The contact method type. May be (`EmailContactMethod`, `PhoneContactMethod`, `SmsContactMethod`, `PushNotificationContactMethod`).
+        /// The contact method type. May be (`EmailContactMethod`, `PhoneContactMethod`, `SmsContactMethod`, `PushNotificationContactMethod`, `WhatsappContactMethod`).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

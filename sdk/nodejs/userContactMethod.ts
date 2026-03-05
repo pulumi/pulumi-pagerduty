@@ -104,7 +104,7 @@ export class UserContactMethod extends pulumi.CustomResource {
      */
     declare public readonly sendShortEmail: pulumi.Output<boolean>;
     /**
-     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
      */
     declare public readonly type: pulumi.Output<string>;
     /**
@@ -193,7 +193,7 @@ export interface UserContactMethodState {
      */
     sendShortEmail?: pulumi.Input<boolean>;
     /**
-     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
      */
     type?: pulumi.Input<string>;
     /**
@@ -224,7 +224,7 @@ export interface UserContactMethodArgs {
      */
     sendShortEmail?: pulumi.Input<boolean>;
     /**
-     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
      */
     type: pulumi.Input<string>;
     /**

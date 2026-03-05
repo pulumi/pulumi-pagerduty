@@ -86,14 +86,14 @@ public final class UserContactMethodArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+     * @return The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
      * 
      */
     public Output<String> type() {
@@ -239,7 +239,7 @@ public final class UserContactMethodArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param type The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+         * @param type The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class UserContactMethodArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param type The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+         * @param type The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
          * 
          * @return builder
          * 

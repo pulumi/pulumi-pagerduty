@@ -183,7 +183,7 @@ def get_user_contact_method(label: Optional[_builtins.str] = None,
 
 
     :param _builtins.str label: The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).
-    :param _builtins.str type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+    :param _builtins.str type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`, `whatsapp_contact_method`).
     :param _builtins.str user_id: The ID of the user.
     """
     __args__ = dict()
@@ -233,7 +233,7 @@ def get_user_contact_method_output(label: Optional[pulumi.Input[_builtins.str]] 
 
 
     :param _builtins.str label: The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).
-    :param _builtins.str type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+    :param _builtins.str type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`, `whatsapp_contact_method`).
     :param _builtins.str user_id: The ID of the user.
     """
     __args__ = dict()

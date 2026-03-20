@@ -275,16 +275,14 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
         return this.incidentUrgencyRule;
     }
     /**
-     * Last incident timestamp of the service.
+     * @deprecated
+     * The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
      * 
      */
+    @Deprecated /* The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value. */
     @Export(name="lastIncidentTimestamp", refs={String.class}, tree="[0]")
     private Output<String> lastIncidentTimestamp;
 
-    /**
-     * @return Last incident timestamp of the service.
-     * 
-     */
     public Output<String> lastIncidentTimestamp() {
         return this.lastIncidentTimestamp;
     }
@@ -323,16 +321,14 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
         return Codegen.optional(this.scheduledActions);
     }
     /**
-     * The status of the service.
+     * @deprecated
+     * The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
      * 
      */
+    @Deprecated /* The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value. */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The status of the service.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

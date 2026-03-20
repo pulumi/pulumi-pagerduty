@@ -28,13 +28,6 @@ import * as utilities from "./utilities";
  *     fieldType: "single_value",
  *     description: "The environment this service runs in",
  * });
- * const region = new pagerduty.ServiceCustomField("region", {
- *     name: "region",
- *     displayName: "Region",
- *     dataType: "string",
- *     fieldType: "single_value",
- *     description: "The region this service is deployed in",
- * });
  * const isCritical = new pagerduty.ServiceCustomField("is_critical", {
  *     name: "is_critical",
  *     displayName: "Is Critical",
@@ -51,6 +44,10 @@ import * as utilities from "./utilities";
  *     fieldOptions: [
  *         {
  *             value: "us-east-1",
+ *             dataType: "string",
+ *         },
+ *         {
+ *             value: "us-east-2",
  *             dataType: "string",
  *         },
  *         {
@@ -73,10 +70,6 @@ import * as utilities from "./utilities";
  *         {
  *             name: environment.name,
  *             value: JSON.stringify("production"),
- *         },
- *         {
- *             name: region.name,
- *             value: JSON.stringify("us-east-1"),
  *         },
  *         {
  *             name: isCritical.name,

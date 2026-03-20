@@ -89,6 +89,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RulesetRule{}
 	case "pagerduty:index/schedule:Schedule":
 		r = &Schedule{}
+	case "pagerduty:index/schedulev2:Schedulev2":
+		r = &Schedulev2{}
 	case "pagerduty:index/service:Service":
 		r = &Service{}
 	case "pagerduty:index/serviceCustomField:ServiceCustomField":
@@ -320,6 +322,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"pagerduty",
 		"index/schedule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/schedulev2",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

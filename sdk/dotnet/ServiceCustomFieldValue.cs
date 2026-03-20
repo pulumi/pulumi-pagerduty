@@ -38,15 +38,6 @@ namespace Pulumi.Pagerduty
     ///         Description = "The environment this service runs in",
     ///     });
     /// 
-    ///     var region = new Pagerduty.ServiceCustomField("region", new()
-    ///     {
-    ///         Name = "region",
-    ///         DisplayName = "Region",
-    ///         DataType = "string",
-    ///         FieldType = "single_value",
-    ///         Description = "The region this service is deployed in",
-    ///     });
-    /// 
     ///     var isCritical = new Pagerduty.ServiceCustomField("is_critical", new()
     ///     {
     ///         Name = "is_critical",
@@ -68,6 +59,11 @@ namespace Pulumi.Pagerduty
     ///             new Pagerduty.Inputs.ServiceCustomFieldFieldOptionArgs
     ///             {
     ///                 Value = "us-east-1",
+    ///                 DataType = "string",
+    ///             },
+    ///             new Pagerduty.Inputs.ServiceCustomFieldFieldOptionArgs
+    ///             {
+    ///                 Value = "us-east-2",
     ///                 DataType = "string",
     ///             },
     ///             new Pagerduty.Inputs.ServiceCustomFieldFieldOptionArgs
@@ -97,11 +93,6 @@ namespace Pulumi.Pagerduty
     ///             {
     ///                 Name = environment.Name,
     ///                 Value = JsonSerializer.Serialize("production"),
-    ///             },
-    ///             new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs
-    ///             {
-    ///                 Name = region.Name,
-    ///                 Value = JsonSerializer.Serialize("us-east-1"),
     ///             },
     ///             new Pagerduty.Inputs.ServiceCustomFieldValueCustomFieldArgs
     ///             {

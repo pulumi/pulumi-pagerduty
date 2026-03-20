@@ -46,16 +46,6 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			region, err := pagerduty.NewServiceCustomField(ctx, "region", &pagerduty.ServiceCustomFieldArgs{
-//				Name:        pulumi.String("region"),
-//				DisplayName: pulumi.String("Region"),
-//				DataType:    pulumi.String("string"),
-//				FieldType:   pulumi.String("single_value"),
-//				Description: pulumi.String("The region this service is deployed in"),
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			isCritical, err := pagerduty.NewServiceCustomField(ctx, "is_critical", &pagerduty.ServiceCustomFieldArgs{
 //				Name:        pulumi.String("is_critical"),
 //				DisplayName: pulumi.String("Is Critical"),
@@ -75,6 +65,10 @@ import (
 //				FieldOptions: pagerduty.ServiceCustomFieldFieldOptionArray{
 //					&pagerduty.ServiceCustomFieldFieldOptionArgs{
 //						Value:    pulumi.String("us-east-1"),
+//						DataType: pulumi.String("string"),
+//					},
+//					&pagerduty.ServiceCustomFieldFieldOptionArgs{
+//						Value:    pulumi.String("us-east-2"),
 //						DataType: pulumi.String("string"),
 //					},
 //					&pagerduty.ServiceCustomFieldFieldOptionArgs{
@@ -101,24 +95,19 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			tmpJSON1, err := json.Marshal("us-east-1")
+//			tmpJSON1, err := json.Marshal(true)
 //			if err != nil {
 //				return err
 //			}
 //			json1 := string(tmpJSON1)
-//			tmpJSON2, err := json.Marshal(true)
-//			if err != nil {
-//				return err
-//			}
-//			json2 := string(tmpJSON2)
-//			tmpJSON3, err := json.Marshal([]string{
+//			tmpJSON2, err := json.Marshal([]string{
 //				"us-east-1",
 //				"us-west-1",
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			json3 := string(tmpJSON3)
+//			json2 := string(tmpJSON2)
 //			// Set custom field values on the service
 //			_, err = pagerduty.NewServiceCustomFieldValue(ctx, "example", &pagerduty.ServiceCustomFieldValueArgs{
 //				ServiceId: example.ID(),
@@ -128,16 +117,12 @@ import (
 //						Value: pulumi.String(json0),
 //					},
 //					&pagerduty.ServiceCustomFieldValueCustomFieldArgs{
-//						Name:  region.Name,
+//						Name:  isCritical.Name,
 //						Value: pulumi.String(json1),
 //					},
 //					&pagerduty.ServiceCustomFieldValueCustomFieldArgs{
-//						Name:  isCritical.Name,
-//						Value: pulumi.String(json2),
-//					},
-//					&pagerduty.ServiceCustomFieldValueCustomFieldArgs{
 //						Name:  regions.Name,
-//						Value: pulumi.String(json3),
+//						Value: pulumi.String(json2),
 //					},
 //				},
 //			})

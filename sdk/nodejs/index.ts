@@ -220,6 +220,11 @@ export const getSchedule: typeof import("./getSchedule").getSchedule = null as a
 export const getScheduleOutput: typeof import("./getSchedule").getScheduleOutput = null as any;
 utilities.lazyLoad(exports, ["getSchedule","getScheduleOutput"], () => require("./getSchedule"));
 
+export { GetSchedulev2Args, GetSchedulev2Result, GetSchedulev2OutputArgs } from "./getSchedulev2";
+export const getSchedulev2: typeof import("./getSchedulev2").getSchedulev2 = null as any;
+export const getSchedulev2Output: typeof import("./getSchedulev2").getSchedulev2Output = null as any;
+utilities.lazyLoad(exports, ["getSchedulev2","getSchedulev2Output"], () => require("./getSchedulev2"));
+
 export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
 export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
@@ -357,6 +362,11 @@ export { ScheduleArgs, ScheduleState } from "./schedule";
 export type Schedule = import("./schedule").Schedule;
 export const Schedule: typeof import("./schedule").Schedule = null as any;
 utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
+
+export { Schedulev2Args, Schedulev2State } from "./schedulev2";
+export type Schedulev2 = import("./schedulev2").Schedulev2;
+export const Schedulev2: typeof import("./schedulev2").Schedulev2 = null as any;
+utilities.lazyLoad(exports, ["Schedulev2"], () => require("./schedulev2"));
 
 export { ServiceArgs, ServiceState } from "./service";
 export type Service = import("./service").Service;
@@ -520,6 +530,8 @@ const _module = {
                 return new RulesetRule(name, <any>undefined, { urn })
             case "pagerduty:index/schedule:Schedule":
                 return new Schedule(name, <any>undefined, { urn })
+            case "pagerduty:index/schedulev2:Schedulev2":
+                return new Schedulev2(name, <any>undefined, { urn })
             case "pagerduty:index/service:Service":
                 return new Service(name, <any>undefined, { urn })
             case "pagerduty:index/serviceCustomField:ServiceCustomField":
@@ -591,6 +603,7 @@ pulumi.runtime.registerResourceModule("pagerduty", "index/responsePlay", _module
 pulumi.runtime.registerResourceModule("pagerduty", "index/ruleset", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/rulesetRule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/schedule", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/schedulev2", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/service", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/serviceCustomField", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/serviceCustomFieldValue", _module)

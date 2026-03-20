@@ -129,12 +129,6 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
             data_type="string",
             field_type="single_value",
             description="The environment this service runs in")
-        region = pagerduty.ServiceCustomField("region",
-            name="region",
-            display_name="Region",
-            data_type="string",
-            field_type="single_value",
-            description="The region this service is deployed in")
         is_critical = pagerduty.ServiceCustomField("is_critical",
             name="is_critical",
             display_name="Is Critical",
@@ -150,6 +144,10 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
             field_options=[
                 {
                     "value": "us-east-1",
+                    "data_type": "string",
+                },
+                {
+                    "value": "us-east-2",
                     "data_type": "string",
                 },
                 {
@@ -170,10 +168,6 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
                 {
                     "name": environment.name,
                     "value": json.dumps("production"),
-                },
-                {
-                    "name": region.name,
-                    "value": json.dumps("us-east-1"),
                 },
                 {
                     "name": is_critical.name,
@@ -231,12 +225,6 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
             data_type="string",
             field_type="single_value",
             description="The environment this service runs in")
-        region = pagerduty.ServiceCustomField("region",
-            name="region",
-            display_name="Region",
-            data_type="string",
-            field_type="single_value",
-            description="The region this service is deployed in")
         is_critical = pagerduty.ServiceCustomField("is_critical",
             name="is_critical",
             display_name="Is Critical",
@@ -252,6 +240,10 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
             field_options=[
                 {
                     "value": "us-east-1",
+                    "data_type": "string",
+                },
+                {
+                    "value": "us-east-2",
                     "data_type": "string",
                 },
                 {
@@ -272,10 +264,6 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
                 {
                     "name": environment.name,
                     "value": json.dumps("production"),
-                },
-                {
-                    "name": region.name,
-                    "value": json.dumps("us-east-1"),
                 },
                 {
                     "name": is_critical.name,

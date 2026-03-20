@@ -709,6 +709,42 @@
                     }
                 }
             },
+            "pagerduty_schedulev2": {
+                "current": "pagerduty:index/schedulev2:Schedulev2",
+                "majorVersion": 4,
+                "fields": {
+                    "rotation": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "event": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "assignment_strategy": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "member": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "recurrence": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "teams": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "pagerduty_service": {
                 "current": "pagerduty:index/service:Service",
                 "majorVersion": 4,
@@ -1195,6 +1231,10 @@
                 "current": "pagerduty:index/getSchedule:getSchedule",
                 "majorVersion": 4
             },
+            "pagerduty_schedulev2": {
+                "current": "pagerduty:index/getSchedulev2:getSchedulev2",
+                "majorVersion": 4
+            },
             "pagerduty_service": {
                 "current": "pagerduty:index/getService:getService",
                 "majorVersion": 4,
@@ -1372,6 +1412,7 @@
             "pagerduty:index/ruleset:Ruleset": 0,
             "pagerduty:index/rulesetRule:RulesetRule": 0,
             "pagerduty:index/schedule:Schedule": 0,
+            "pagerduty:index/schedulev2:Schedulev2": 1,
             "pagerduty:index/service:Service": 0,
             "pagerduty:index/serviceCustomField:ServiceCustomField": 1,
             "pagerduty:index/serviceCustomFieldValue:ServiceCustomFieldValue": 1,
@@ -1411,6 +1452,7 @@
             "pagerduty:index/getPriority:getPriority": 1,
             "pagerduty:index/getRuleset:getRuleset": 0,
             "pagerduty:index/getSchedule:getSchedule": 1,
+            "pagerduty:index/getSchedulev2:getSchedulev2": 1,
             "pagerduty:index/getService:getService": 1,
             "pagerduty:index/getServiceCustomField:getServiceCustomField": 1,
             "pagerduty:index/getServiceCustomFieldValue:getServiceCustomFieldValue": 1,

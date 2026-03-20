@@ -125,6 +125,10 @@ __all__ = [
     'ScheduleFinalSchedule',
     'ScheduleLayer',
     'ScheduleLayerRestriction',
+    'Schedulev2Rotation',
+    'Schedulev2RotationEvent',
+    'Schedulev2RotationEventAssignmentStrategy',
+    'Schedulev2RotationEventAssignmentStrategyMember',
     'ServiceAlertGroupingParameters',
     'ServiceAlertGroupingParametersConfig',
     'ServiceAutoPauseNotificationsParameters',
@@ -5901,6 +5905,282 @@ class ScheduleLayerRestriction(dict):
         Number of the day when restriction starts. From 1 to 7 where 1 is Monday and 7 is Sunday.
         """
         return pulumi.get(self, "start_day_of_week")
+
+
+@pulumi.output_type
+class Schedulev2Rotation(dict):
+    def __init__(__self__, *,
+                 events: Optional[Sequence['outputs.Schedulev2RotationEvent']] = None,
+                 id: Optional[_builtins.str] = None):
+        """
+        :param Sequence['Schedulev2RotationEventArgs'] events: One or more event blocks defining on-call periods within this rotation. Events documented below.
+        :param _builtins.str id: The ID of the schedule.
+               * `rotation.*.id` - The ID of each rotation.
+               * `rotation.*.event.*.id` - The ID of each event within a rotation.
+        """
+        if events is not None:
+            pulumi.set(__self__, "events", events)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def events(self) -> Optional[Sequence['outputs.Schedulev2RotationEvent']]:
+        """
+        One or more event blocks defining on-call periods within this rotation. Events documented below.
+        """
+        return pulumi.get(self, "events")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the schedule.
+        * `rotation.*.id` - The ID of each rotation.
+        * `rotation.*.event.*.id` - The ID of each event within a rotation.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class Schedulev2RotationEvent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "effectiveSince":
+            suggest = "effective_since"
+        elif key == "endTime":
+            suggest = "end_time"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "assignmentStrategies":
+            suggest = "assignment_strategies"
+        elif key == "effectiveUntil":
+            suggest = "effective_until"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Schedulev2RotationEvent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Schedulev2RotationEvent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Schedulev2RotationEvent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 effective_since: _builtins.str,
+                 end_time: _builtins.str,
+                 name: _builtins.str,
+                 recurrences: Sequence[_builtins.str],
+                 start_time: _builtins.str,
+                 assignment_strategies: Optional[Sequence['outputs.Schedulev2RotationEventAssignmentStrategy']] = None,
+                 effective_until: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str effective_since: When this event configuration begins producing shifts (ISO-8601 UTC). The API adjusts past values to the current time.
+        :param _builtins.str end_time: The shift end time in ISO-8601 format. The v3 API normalizes this to UTC.
+        :param _builtins.str name: The name of the event. Maximum 255 characters.
+        :param Sequence[_builtins.str] recurrences: List of RFC 5545 recurrence rule strings. Must contain exactly one `RRULE` entry. May optionally include one or more `EXDATE` entries (dates to exclude) and one or more `RDATE` entries (additional dates to include). Example: `["RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR"]`. You can generate RRULE strings interactively using tools like [RRULE Tool](https://icalendar.org/rrule-tool.html).
+        :param _builtins.str start_time: The shift start time in ISO-8601 format (e.g. `2026-06-01T09:00:00Z`). The v3 API normalizes this to UTC.
+        :param Sequence['Schedulev2RotationEventAssignmentStrategyArgs'] assignment_strategies: A block defining how on-call responsibility is assigned. Assignment strategy documented below.
+        :param _builtins.str effective_until: When this event configuration stops producing shifts (ISO-8601 UTC). Omit for an indefinite schedule.
+        :param _builtins.str id: The ID of the schedule.
+               * `rotation.*.id` - The ID of each rotation.
+               * `rotation.*.event.*.id` - The ID of each event within a rotation.
+        """
+        pulumi.set(__self__, "effective_since", effective_since)
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "recurrences", recurrences)
+        pulumi.set(__self__, "start_time", start_time)
+        if assignment_strategies is not None:
+            pulumi.set(__self__, "assignment_strategies", assignment_strategies)
+        if effective_until is not None:
+            pulumi.set(__self__, "effective_until", effective_until)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter(name="effectiveSince")
+    def effective_since(self) -> _builtins.str:
+        """
+        When this event configuration begins producing shifts (ISO-8601 UTC). The API adjusts past values to the current time.
+        """
+        return pulumi.get(self, "effective_since")
+
+    @_builtins.property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> _builtins.str:
+        """
+        The shift end time in ISO-8601 format. The v3 API normalizes this to UTC.
+        """
+        return pulumi.get(self, "end_time")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the event. Maximum 255 characters.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def recurrences(self) -> Sequence[_builtins.str]:
+        """
+        List of RFC 5545 recurrence rule strings. Must contain exactly one `RRULE` entry. May optionally include one or more `EXDATE` entries (dates to exclude) and one or more `RDATE` entries (additional dates to include). Example: `["RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR"]`. You can generate RRULE strings interactively using tools like [RRULE Tool](https://icalendar.org/rrule-tool.html).
+        """
+        return pulumi.get(self, "recurrences")
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> _builtins.str:
+        """
+        The shift start time in ISO-8601 format (e.g. `2026-06-01T09:00:00Z`). The v3 API normalizes this to UTC.
+        """
+        return pulumi.get(self, "start_time")
+
+    @_builtins.property
+    @pulumi.getter(name="assignmentStrategies")
+    def assignment_strategies(self) -> Optional[Sequence['outputs.Schedulev2RotationEventAssignmentStrategy']]:
+        """
+        A block defining how on-call responsibility is assigned. Assignment strategy documented below.
+        """
+        return pulumi.get(self, "assignment_strategies")
+
+    @_builtins.property
+    @pulumi.getter(name="effectiveUntil")
+    def effective_until(self) -> Optional[_builtins.str]:
+        """
+        When this event configuration stops producing shifts (ISO-8601 UTC). Omit for an indefinite schedule.
+        """
+        return pulumi.get(self, "effective_until")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the schedule.
+        * `rotation.*.id` - The ID of each rotation.
+        * `rotation.*.event.*.id` - The ID of each event within a rotation.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class Schedulev2RotationEventAssignmentStrategy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "shiftsPerMember":
+            suggest = "shifts_per_member"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Schedulev2RotationEventAssignmentStrategy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Schedulev2RotationEventAssignmentStrategy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Schedulev2RotationEventAssignmentStrategy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 members: Optional[Sequence['outputs.Schedulev2RotationEventAssignmentStrategyMember']] = None,
+                 shifts_per_member: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str type: The assignment strategy type. Supported values:
+               * `"rotating_member_assignment_strategy"` — listed members rotate in sequence. Each member covers `shifts_per_member` consecutive shift periods before the next member takes over.
+               * `"every_member_assignment_strategy"` — all listed members are on-call simultaneously for every occurrence.
+               
+               > **Breaking change:** The previous value `"user_assignment_strategy"` is no longer valid. Use `"rotating_member_assignment_strategy"` instead.
+        :param Sequence['Schedulev2RotationEventAssignmentStrategyMemberArgs'] members: One or more member blocks identifying who is on call. Required for both strategy types. Maximum 20 members. Members documented below.
+        :param _builtins.int shifts_per_member: Number of consecutive shift occurrences each member covers before rotating. Minimum value: `1`. Required when `type` is `"rotating_member_assignment_strategy"`.
+        """
+        pulumi.set(__self__, "type", type)
+        if members is not None:
+            pulumi.set(__self__, "members", members)
+        if shifts_per_member is not None:
+            pulumi.set(__self__, "shifts_per_member", shifts_per_member)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The assignment strategy type. Supported values:
+        * `"rotating_member_assignment_strategy"` — listed members rotate in sequence. Each member covers `shifts_per_member` consecutive shift periods before the next member takes over.
+        * `"every_member_assignment_strategy"` — all listed members are on-call simultaneously for every occurrence.
+
+        > **Breaking change:** The previous value `"user_assignment_strategy"` is no longer valid. Use `"rotating_member_assignment_strategy"` instead.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def members(self) -> Optional[Sequence['outputs.Schedulev2RotationEventAssignmentStrategyMember']]:
+        """
+        One or more member blocks identifying who is on call. Required for both strategy types. Maximum 20 members. Members documented below.
+        """
+        return pulumi.get(self, "members")
+
+    @_builtins.property
+    @pulumi.getter(name="shiftsPerMember")
+    def shifts_per_member(self) -> Optional[_builtins.int]:
+        """
+        Number of consecutive shift occurrences each member covers before rotating. Minimum value: `1`. Required when `type` is `"rotating_member_assignment_strategy"`.
+        """
+        return pulumi.get(self, "shifts_per_member")
+
+
+@pulumi.output_type
+class Schedulev2RotationEventAssignmentStrategyMember(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userId":
+            suggest = "user_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Schedulev2RotationEventAssignmentStrategyMember. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Schedulev2RotationEventAssignmentStrategyMember.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Schedulev2RotationEventAssignmentStrategyMember.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 user_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str type: The member type. Supported values: `"user_member"`, `"empty_member"`.
+        :param _builtins.str user_id: The ID of the user to assign. Required when `type` is `"user_member"`.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The member type. Supported values: `"user_member"`, `"empty_member"`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the user to assign. Required when `type` is `"user_member"`.
+        """
+        return pulumi.get(self, "user_id")
 
 
 @pulumi.output_type

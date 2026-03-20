@@ -2276,6 +2276,86 @@ export interface ScheduleLayerRestriction {
     type: string;
 }
 
+export interface Schedulev2Rotation {
+    /**
+     * One or more event blocks defining on-call periods within this rotation. Events documented below.
+     */
+    events?: outputs.Schedulev2RotationEvent[];
+    /**
+     * The ID of the schedule.
+     * * `rotation.*.id` - The ID of each rotation.
+     * * `rotation.*.event.*.id` - The ID of each event within a rotation.
+     */
+    id: string;
+}
+
+export interface Schedulev2RotationEvent {
+    /**
+     * A block defining how on-call responsibility is assigned. Assignment strategy documented below.
+     */
+    assignmentStrategies?: outputs.Schedulev2RotationEventAssignmentStrategy[];
+    /**
+     * When this event configuration begins producing shifts (ISO-8601 UTC). The API adjusts past values to the current time.
+     */
+    effectiveSince: string;
+    /**
+     * When this event configuration stops producing shifts (ISO-8601 UTC). Omit for an indefinite schedule.
+     */
+    effectiveUntil?: string;
+    /**
+     * The shift end time in ISO-8601 format. The v3 API normalizes this to UTC.
+     */
+    endTime: string;
+    /**
+     * The ID of the schedule.
+     * * `rotation.*.id` - The ID of each rotation.
+     * * `rotation.*.event.*.id` - The ID of each event within a rotation.
+     */
+    id: string;
+    /**
+     * The name of the event. Maximum 255 characters.
+     */
+    name: string;
+    /**
+     * List of RFC 5545 recurrence rule strings. Must contain exactly one `RRULE` entry. May optionally include one or more `EXDATE` entries (dates to exclude) and one or more `RDATE` entries (additional dates to include). Example: `["RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR"]`. You can generate RRULE strings interactively using tools like [RRULE Tool](https://icalendar.org/rrule-tool.html).
+     */
+    recurrences: string[];
+    /**
+     * The shift start time in ISO-8601 format (e.g. `2026-06-01T09:00:00Z`). The v3 API normalizes this to UTC.
+     */
+    startTime: string;
+}
+
+export interface Schedulev2RotationEventAssignmentStrategy {
+    /**
+     * One or more member blocks identifying who is on call. Required for both strategy types. Maximum 20 members. Members documented below.
+     */
+    members?: outputs.Schedulev2RotationEventAssignmentStrategyMember[];
+    /**
+     * Number of consecutive shift occurrences each member covers before rotating. Minimum value: `1`. Required when `type` is `"rotatingMemberAssignmentStrategy"`.
+     */
+    shiftsPerMember?: number;
+    /**
+     * The assignment strategy type. Supported values:
+     * * `"rotatingMemberAssignmentStrategy"` — listed members rotate in sequence. Each member covers `shiftsPerMember` consecutive shift periods before the next member takes over.
+     * * `"everyMemberAssignmentStrategy"` — all listed members are on-call simultaneously for every occurrence.
+     *
+     * > **Breaking change:** The previous value `"userAssignmentStrategy"` is no longer valid. Use `"rotatingMemberAssignmentStrategy"` instead.
+     */
+    type: string;
+}
+
+export interface Schedulev2RotationEventAssignmentStrategyMember {
+    /**
+     * The member type. Supported values: `"userMember"`, `"emptyMember"`.
+     */
+    type: string;
+    /**
+     * The ID of the user to assign. Required when `type` is `"userMember"`.
+     */
+    userId?: string;
+}
+
 export interface ServiceAlertGroupingParameters {
     /**
      * Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.

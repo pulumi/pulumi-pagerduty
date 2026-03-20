@@ -15235,6 +15235,521 @@ func (o ScheduleLayerRestrictionArrayOutput) Index(i pulumi.IntInput) ScheduleLa
 	}).(ScheduleLayerRestrictionOutput)
 }
 
+type Schedulev2Rotation struct {
+	// One or more event blocks defining on-call periods within this rotation. Events documented below.
+	Events []Schedulev2RotationEvent `pulumi:"events"`
+	// The ID of the schedule.
+	// * `rotation.*.id` - The ID of each rotation.
+	// * `rotation.*.event.*.id` - The ID of each event within a rotation.
+	Id *string `pulumi:"id"`
+}
+
+// Schedulev2RotationInput is an input type that accepts Schedulev2RotationArgs and Schedulev2RotationOutput values.
+// You can construct a concrete instance of `Schedulev2RotationInput` via:
+//
+//	Schedulev2RotationArgs{...}
+type Schedulev2RotationInput interface {
+	pulumi.Input
+
+	ToSchedulev2RotationOutput() Schedulev2RotationOutput
+	ToSchedulev2RotationOutputWithContext(context.Context) Schedulev2RotationOutput
+}
+
+type Schedulev2RotationArgs struct {
+	// One or more event blocks defining on-call periods within this rotation. Events documented below.
+	Events Schedulev2RotationEventArrayInput `pulumi:"events"`
+	// The ID of the schedule.
+	// * `rotation.*.id` - The ID of each rotation.
+	// * `rotation.*.event.*.id` - The ID of each event within a rotation.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (Schedulev2RotationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Schedulev2Rotation)(nil)).Elem()
+}
+
+func (i Schedulev2RotationArgs) ToSchedulev2RotationOutput() Schedulev2RotationOutput {
+	return i.ToSchedulev2RotationOutputWithContext(context.Background())
+}
+
+func (i Schedulev2RotationArgs) ToSchedulev2RotationOutputWithContext(ctx context.Context) Schedulev2RotationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Schedulev2RotationOutput)
+}
+
+// Schedulev2RotationArrayInput is an input type that accepts Schedulev2RotationArray and Schedulev2RotationArrayOutput values.
+// You can construct a concrete instance of `Schedulev2RotationArrayInput` via:
+//
+//	Schedulev2RotationArray{ Schedulev2RotationArgs{...} }
+type Schedulev2RotationArrayInput interface {
+	pulumi.Input
+
+	ToSchedulev2RotationArrayOutput() Schedulev2RotationArrayOutput
+	ToSchedulev2RotationArrayOutputWithContext(context.Context) Schedulev2RotationArrayOutput
+}
+
+type Schedulev2RotationArray []Schedulev2RotationInput
+
+func (Schedulev2RotationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Schedulev2Rotation)(nil)).Elem()
+}
+
+func (i Schedulev2RotationArray) ToSchedulev2RotationArrayOutput() Schedulev2RotationArrayOutput {
+	return i.ToSchedulev2RotationArrayOutputWithContext(context.Background())
+}
+
+func (i Schedulev2RotationArray) ToSchedulev2RotationArrayOutputWithContext(ctx context.Context) Schedulev2RotationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Schedulev2RotationArrayOutput)
+}
+
+type Schedulev2RotationOutput struct{ *pulumi.OutputState }
+
+func (Schedulev2RotationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Schedulev2Rotation)(nil)).Elem()
+}
+
+func (o Schedulev2RotationOutput) ToSchedulev2RotationOutput() Schedulev2RotationOutput {
+	return o
+}
+
+func (o Schedulev2RotationOutput) ToSchedulev2RotationOutputWithContext(ctx context.Context) Schedulev2RotationOutput {
+	return o
+}
+
+// One or more event blocks defining on-call periods within this rotation. Events documented below.
+func (o Schedulev2RotationOutput) Events() Schedulev2RotationEventArrayOutput {
+	return o.ApplyT(func(v Schedulev2Rotation) []Schedulev2RotationEvent { return v.Events }).(Schedulev2RotationEventArrayOutput)
+}
+
+// The ID of the schedule.
+// * `rotation.*.id` - The ID of each rotation.
+// * `rotation.*.event.*.id` - The ID of each event within a rotation.
+func (o Schedulev2RotationOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Schedulev2Rotation) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type Schedulev2RotationArrayOutput struct{ *pulumi.OutputState }
+
+func (Schedulev2RotationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Schedulev2Rotation)(nil)).Elem()
+}
+
+func (o Schedulev2RotationArrayOutput) ToSchedulev2RotationArrayOutput() Schedulev2RotationArrayOutput {
+	return o
+}
+
+func (o Schedulev2RotationArrayOutput) ToSchedulev2RotationArrayOutputWithContext(ctx context.Context) Schedulev2RotationArrayOutput {
+	return o
+}
+
+func (o Schedulev2RotationArrayOutput) Index(i pulumi.IntInput) Schedulev2RotationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Schedulev2Rotation {
+		return vs[0].([]Schedulev2Rotation)[vs[1].(int)]
+	}).(Schedulev2RotationOutput)
+}
+
+type Schedulev2RotationEvent struct {
+	// A block defining how on-call responsibility is assigned. Assignment strategy documented below.
+	AssignmentStrategies []Schedulev2RotationEventAssignmentStrategy `pulumi:"assignmentStrategies"`
+	// When this event configuration begins producing shifts (ISO-8601 UTC). The API adjusts past values to the current time.
+	EffectiveSince string `pulumi:"effectiveSince"`
+	// When this event configuration stops producing shifts (ISO-8601 UTC). Omit for an indefinite schedule.
+	EffectiveUntil *string `pulumi:"effectiveUntil"`
+	// The shift end time in ISO-8601 format. The v3 API normalizes this to UTC.
+	EndTime string `pulumi:"endTime"`
+	// The ID of the schedule.
+	// * `rotation.*.id` - The ID of each rotation.
+	// * `rotation.*.event.*.id` - The ID of each event within a rotation.
+	Id *string `pulumi:"id"`
+	// The name of the event. Maximum 255 characters.
+	Name string `pulumi:"name"`
+	// List of RFC 5545 recurrence rule strings. Must contain exactly one `RRULE` entry. May optionally include one or more `EXDATE` entries (dates to exclude) and one or more `RDATE` entries (additional dates to include). Example: `["RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR"]`. You can generate RRULE strings interactively using tools like [RRULE Tool](https://icalendar.org/rrule-tool.html).
+	Recurrences []string `pulumi:"recurrences"`
+	// The shift start time in ISO-8601 format (e.g. `2026-06-01T09:00:00Z`). The v3 API normalizes this to UTC.
+	StartTime string `pulumi:"startTime"`
+}
+
+// Schedulev2RotationEventInput is an input type that accepts Schedulev2RotationEventArgs and Schedulev2RotationEventOutput values.
+// You can construct a concrete instance of `Schedulev2RotationEventInput` via:
+//
+//	Schedulev2RotationEventArgs{...}
+type Schedulev2RotationEventInput interface {
+	pulumi.Input
+
+	ToSchedulev2RotationEventOutput() Schedulev2RotationEventOutput
+	ToSchedulev2RotationEventOutputWithContext(context.Context) Schedulev2RotationEventOutput
+}
+
+type Schedulev2RotationEventArgs struct {
+	// A block defining how on-call responsibility is assigned. Assignment strategy documented below.
+	AssignmentStrategies Schedulev2RotationEventAssignmentStrategyArrayInput `pulumi:"assignmentStrategies"`
+	// When this event configuration begins producing shifts (ISO-8601 UTC). The API adjusts past values to the current time.
+	EffectiveSince pulumi.StringInput `pulumi:"effectiveSince"`
+	// When this event configuration stops producing shifts (ISO-8601 UTC). Omit for an indefinite schedule.
+	EffectiveUntil pulumi.StringPtrInput `pulumi:"effectiveUntil"`
+	// The shift end time in ISO-8601 format. The v3 API normalizes this to UTC.
+	EndTime pulumi.StringInput `pulumi:"endTime"`
+	// The ID of the schedule.
+	// * `rotation.*.id` - The ID of each rotation.
+	// * `rotation.*.event.*.id` - The ID of each event within a rotation.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the event. Maximum 255 characters.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of RFC 5545 recurrence rule strings. Must contain exactly one `RRULE` entry. May optionally include one or more `EXDATE` entries (dates to exclude) and one or more `RDATE` entries (additional dates to include). Example: `["RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR"]`. You can generate RRULE strings interactively using tools like [RRULE Tool](https://icalendar.org/rrule-tool.html).
+	Recurrences pulumi.StringArrayInput `pulumi:"recurrences"`
+	// The shift start time in ISO-8601 format (e.g. `2026-06-01T09:00:00Z`). The v3 API normalizes this to UTC.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+}
+
+func (Schedulev2RotationEventArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Schedulev2RotationEvent)(nil)).Elem()
+}
+
+func (i Schedulev2RotationEventArgs) ToSchedulev2RotationEventOutput() Schedulev2RotationEventOutput {
+	return i.ToSchedulev2RotationEventOutputWithContext(context.Background())
+}
+
+func (i Schedulev2RotationEventArgs) ToSchedulev2RotationEventOutputWithContext(ctx context.Context) Schedulev2RotationEventOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Schedulev2RotationEventOutput)
+}
+
+// Schedulev2RotationEventArrayInput is an input type that accepts Schedulev2RotationEventArray and Schedulev2RotationEventArrayOutput values.
+// You can construct a concrete instance of `Schedulev2RotationEventArrayInput` via:
+//
+//	Schedulev2RotationEventArray{ Schedulev2RotationEventArgs{...} }
+type Schedulev2RotationEventArrayInput interface {
+	pulumi.Input
+
+	ToSchedulev2RotationEventArrayOutput() Schedulev2RotationEventArrayOutput
+	ToSchedulev2RotationEventArrayOutputWithContext(context.Context) Schedulev2RotationEventArrayOutput
+}
+
+type Schedulev2RotationEventArray []Schedulev2RotationEventInput
+
+func (Schedulev2RotationEventArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Schedulev2RotationEvent)(nil)).Elem()
+}
+
+func (i Schedulev2RotationEventArray) ToSchedulev2RotationEventArrayOutput() Schedulev2RotationEventArrayOutput {
+	return i.ToSchedulev2RotationEventArrayOutputWithContext(context.Background())
+}
+
+func (i Schedulev2RotationEventArray) ToSchedulev2RotationEventArrayOutputWithContext(ctx context.Context) Schedulev2RotationEventArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Schedulev2RotationEventArrayOutput)
+}
+
+type Schedulev2RotationEventOutput struct{ *pulumi.OutputState }
+
+func (Schedulev2RotationEventOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Schedulev2RotationEvent)(nil)).Elem()
+}
+
+func (o Schedulev2RotationEventOutput) ToSchedulev2RotationEventOutput() Schedulev2RotationEventOutput {
+	return o
+}
+
+func (o Schedulev2RotationEventOutput) ToSchedulev2RotationEventOutputWithContext(ctx context.Context) Schedulev2RotationEventOutput {
+	return o
+}
+
+// A block defining how on-call responsibility is assigned. Assignment strategy documented below.
+func (o Schedulev2RotationEventOutput) AssignmentStrategies() Schedulev2RotationEventAssignmentStrategyArrayOutput {
+	return o.ApplyT(func(v Schedulev2RotationEvent) []Schedulev2RotationEventAssignmentStrategy {
+		return v.AssignmentStrategies
+	}).(Schedulev2RotationEventAssignmentStrategyArrayOutput)
+}
+
+// When this event configuration begins producing shifts (ISO-8601 UTC). The API adjusts past values to the current time.
+func (o Schedulev2RotationEventOutput) EffectiveSince() pulumi.StringOutput {
+	return o.ApplyT(func(v Schedulev2RotationEvent) string { return v.EffectiveSince }).(pulumi.StringOutput)
+}
+
+// When this event configuration stops producing shifts (ISO-8601 UTC). Omit for an indefinite schedule.
+func (o Schedulev2RotationEventOutput) EffectiveUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Schedulev2RotationEvent) *string { return v.EffectiveUntil }).(pulumi.StringPtrOutput)
+}
+
+// The shift end time in ISO-8601 format. The v3 API normalizes this to UTC.
+func (o Schedulev2RotationEventOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v Schedulev2RotationEvent) string { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// The ID of the schedule.
+// * `rotation.*.id` - The ID of each rotation.
+// * `rotation.*.event.*.id` - The ID of each event within a rotation.
+func (o Schedulev2RotationEventOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Schedulev2RotationEvent) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the event. Maximum 255 characters.
+func (o Schedulev2RotationEventOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Schedulev2RotationEvent) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of RFC 5545 recurrence rule strings. Must contain exactly one `RRULE` entry. May optionally include one or more `EXDATE` entries (dates to exclude) and one or more `RDATE` entries (additional dates to include). Example: `["RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR"]`. You can generate RRULE strings interactively using tools like [RRULE Tool](https://icalendar.org/rrule-tool.html).
+func (o Schedulev2RotationEventOutput) Recurrences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Schedulev2RotationEvent) []string { return v.Recurrences }).(pulumi.StringArrayOutput)
+}
+
+// The shift start time in ISO-8601 format (e.g. `2026-06-01T09:00:00Z`). The v3 API normalizes this to UTC.
+func (o Schedulev2RotationEventOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v Schedulev2RotationEvent) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+type Schedulev2RotationEventArrayOutput struct{ *pulumi.OutputState }
+
+func (Schedulev2RotationEventArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Schedulev2RotationEvent)(nil)).Elem()
+}
+
+func (o Schedulev2RotationEventArrayOutput) ToSchedulev2RotationEventArrayOutput() Schedulev2RotationEventArrayOutput {
+	return o
+}
+
+func (o Schedulev2RotationEventArrayOutput) ToSchedulev2RotationEventArrayOutputWithContext(ctx context.Context) Schedulev2RotationEventArrayOutput {
+	return o
+}
+
+func (o Schedulev2RotationEventArrayOutput) Index(i pulumi.IntInput) Schedulev2RotationEventOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Schedulev2RotationEvent {
+		return vs[0].([]Schedulev2RotationEvent)[vs[1].(int)]
+	}).(Schedulev2RotationEventOutput)
+}
+
+type Schedulev2RotationEventAssignmentStrategy struct {
+	// One or more member blocks identifying who is on call. Required for both strategy types. Maximum 20 members. Members documented below.
+	Members []Schedulev2RotationEventAssignmentStrategyMember `pulumi:"members"`
+	// Number of consecutive shift occurrences each member covers before rotating. Minimum value: `1`. Required when `type` is `"rotatingMemberAssignmentStrategy"`.
+	ShiftsPerMember *int `pulumi:"shiftsPerMember"`
+	// The assignment strategy type. Supported values:
+	// * `"rotatingMemberAssignmentStrategy"` — listed members rotate in sequence. Each member covers `shiftsPerMember` consecutive shift periods before the next member takes over.
+	// * `"everyMemberAssignmentStrategy"` — all listed members are on-call simultaneously for every occurrence.
+	//
+	// > **Breaking change:** The previous value `"userAssignmentStrategy"` is no longer valid. Use `"rotatingMemberAssignmentStrategy"` instead.
+	Type string `pulumi:"type"`
+}
+
+// Schedulev2RotationEventAssignmentStrategyInput is an input type that accepts Schedulev2RotationEventAssignmentStrategyArgs and Schedulev2RotationEventAssignmentStrategyOutput values.
+// You can construct a concrete instance of `Schedulev2RotationEventAssignmentStrategyInput` via:
+//
+//	Schedulev2RotationEventAssignmentStrategyArgs{...}
+type Schedulev2RotationEventAssignmentStrategyInput interface {
+	pulumi.Input
+
+	ToSchedulev2RotationEventAssignmentStrategyOutput() Schedulev2RotationEventAssignmentStrategyOutput
+	ToSchedulev2RotationEventAssignmentStrategyOutputWithContext(context.Context) Schedulev2RotationEventAssignmentStrategyOutput
+}
+
+type Schedulev2RotationEventAssignmentStrategyArgs struct {
+	// One or more member blocks identifying who is on call. Required for both strategy types. Maximum 20 members. Members documented below.
+	Members Schedulev2RotationEventAssignmentStrategyMemberArrayInput `pulumi:"members"`
+	// Number of consecutive shift occurrences each member covers before rotating. Minimum value: `1`. Required when `type` is `"rotatingMemberAssignmentStrategy"`.
+	ShiftsPerMember pulumi.IntPtrInput `pulumi:"shiftsPerMember"`
+	// The assignment strategy type. Supported values:
+	// * `"rotatingMemberAssignmentStrategy"` — listed members rotate in sequence. Each member covers `shiftsPerMember` consecutive shift periods before the next member takes over.
+	// * `"everyMemberAssignmentStrategy"` — all listed members are on-call simultaneously for every occurrence.
+	//
+	// > **Breaking change:** The previous value `"userAssignmentStrategy"` is no longer valid. Use `"rotatingMemberAssignmentStrategy"` instead.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (Schedulev2RotationEventAssignmentStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Schedulev2RotationEventAssignmentStrategy)(nil)).Elem()
+}
+
+func (i Schedulev2RotationEventAssignmentStrategyArgs) ToSchedulev2RotationEventAssignmentStrategyOutput() Schedulev2RotationEventAssignmentStrategyOutput {
+	return i.ToSchedulev2RotationEventAssignmentStrategyOutputWithContext(context.Background())
+}
+
+func (i Schedulev2RotationEventAssignmentStrategyArgs) ToSchedulev2RotationEventAssignmentStrategyOutputWithContext(ctx context.Context) Schedulev2RotationEventAssignmentStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Schedulev2RotationEventAssignmentStrategyOutput)
+}
+
+// Schedulev2RotationEventAssignmentStrategyArrayInput is an input type that accepts Schedulev2RotationEventAssignmentStrategyArray and Schedulev2RotationEventAssignmentStrategyArrayOutput values.
+// You can construct a concrete instance of `Schedulev2RotationEventAssignmentStrategyArrayInput` via:
+//
+//	Schedulev2RotationEventAssignmentStrategyArray{ Schedulev2RotationEventAssignmentStrategyArgs{...} }
+type Schedulev2RotationEventAssignmentStrategyArrayInput interface {
+	pulumi.Input
+
+	ToSchedulev2RotationEventAssignmentStrategyArrayOutput() Schedulev2RotationEventAssignmentStrategyArrayOutput
+	ToSchedulev2RotationEventAssignmentStrategyArrayOutputWithContext(context.Context) Schedulev2RotationEventAssignmentStrategyArrayOutput
+}
+
+type Schedulev2RotationEventAssignmentStrategyArray []Schedulev2RotationEventAssignmentStrategyInput
+
+func (Schedulev2RotationEventAssignmentStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Schedulev2RotationEventAssignmentStrategy)(nil)).Elem()
+}
+
+func (i Schedulev2RotationEventAssignmentStrategyArray) ToSchedulev2RotationEventAssignmentStrategyArrayOutput() Schedulev2RotationEventAssignmentStrategyArrayOutput {
+	return i.ToSchedulev2RotationEventAssignmentStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i Schedulev2RotationEventAssignmentStrategyArray) ToSchedulev2RotationEventAssignmentStrategyArrayOutputWithContext(ctx context.Context) Schedulev2RotationEventAssignmentStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Schedulev2RotationEventAssignmentStrategyArrayOutput)
+}
+
+type Schedulev2RotationEventAssignmentStrategyOutput struct{ *pulumi.OutputState }
+
+func (Schedulev2RotationEventAssignmentStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Schedulev2RotationEventAssignmentStrategy)(nil)).Elem()
+}
+
+func (o Schedulev2RotationEventAssignmentStrategyOutput) ToSchedulev2RotationEventAssignmentStrategyOutput() Schedulev2RotationEventAssignmentStrategyOutput {
+	return o
+}
+
+func (o Schedulev2RotationEventAssignmentStrategyOutput) ToSchedulev2RotationEventAssignmentStrategyOutputWithContext(ctx context.Context) Schedulev2RotationEventAssignmentStrategyOutput {
+	return o
+}
+
+// One or more member blocks identifying who is on call. Required for both strategy types. Maximum 20 members. Members documented below.
+func (o Schedulev2RotationEventAssignmentStrategyOutput) Members() Schedulev2RotationEventAssignmentStrategyMemberArrayOutput {
+	return o.ApplyT(func(v Schedulev2RotationEventAssignmentStrategy) []Schedulev2RotationEventAssignmentStrategyMember {
+		return v.Members
+	}).(Schedulev2RotationEventAssignmentStrategyMemberArrayOutput)
+}
+
+// Number of consecutive shift occurrences each member covers before rotating. Minimum value: `1`. Required when `type` is `"rotatingMemberAssignmentStrategy"`.
+func (o Schedulev2RotationEventAssignmentStrategyOutput) ShiftsPerMember() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Schedulev2RotationEventAssignmentStrategy) *int { return v.ShiftsPerMember }).(pulumi.IntPtrOutput)
+}
+
+// The assignment strategy type. Supported values:
+// * `"rotatingMemberAssignmentStrategy"` — listed members rotate in sequence. Each member covers `shiftsPerMember` consecutive shift periods before the next member takes over.
+// * `"everyMemberAssignmentStrategy"` — all listed members are on-call simultaneously for every occurrence.
+//
+// > **Breaking change:** The previous value `"userAssignmentStrategy"` is no longer valid. Use `"rotatingMemberAssignmentStrategy"` instead.
+func (o Schedulev2RotationEventAssignmentStrategyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v Schedulev2RotationEventAssignmentStrategy) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type Schedulev2RotationEventAssignmentStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (Schedulev2RotationEventAssignmentStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Schedulev2RotationEventAssignmentStrategy)(nil)).Elem()
+}
+
+func (o Schedulev2RotationEventAssignmentStrategyArrayOutput) ToSchedulev2RotationEventAssignmentStrategyArrayOutput() Schedulev2RotationEventAssignmentStrategyArrayOutput {
+	return o
+}
+
+func (o Schedulev2RotationEventAssignmentStrategyArrayOutput) ToSchedulev2RotationEventAssignmentStrategyArrayOutputWithContext(ctx context.Context) Schedulev2RotationEventAssignmentStrategyArrayOutput {
+	return o
+}
+
+func (o Schedulev2RotationEventAssignmentStrategyArrayOutput) Index(i pulumi.IntInput) Schedulev2RotationEventAssignmentStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Schedulev2RotationEventAssignmentStrategy {
+		return vs[0].([]Schedulev2RotationEventAssignmentStrategy)[vs[1].(int)]
+	}).(Schedulev2RotationEventAssignmentStrategyOutput)
+}
+
+type Schedulev2RotationEventAssignmentStrategyMember struct {
+	// The member type. Supported values: `"userMember"`, `"emptyMember"`.
+	Type string `pulumi:"type"`
+	// The ID of the user to assign. Required when `type` is `"userMember"`.
+	UserId *string `pulumi:"userId"`
+}
+
+// Schedulev2RotationEventAssignmentStrategyMemberInput is an input type that accepts Schedulev2RotationEventAssignmentStrategyMemberArgs and Schedulev2RotationEventAssignmentStrategyMemberOutput values.
+// You can construct a concrete instance of `Schedulev2RotationEventAssignmentStrategyMemberInput` via:
+//
+//	Schedulev2RotationEventAssignmentStrategyMemberArgs{...}
+type Schedulev2RotationEventAssignmentStrategyMemberInput interface {
+	pulumi.Input
+
+	ToSchedulev2RotationEventAssignmentStrategyMemberOutput() Schedulev2RotationEventAssignmentStrategyMemberOutput
+	ToSchedulev2RotationEventAssignmentStrategyMemberOutputWithContext(context.Context) Schedulev2RotationEventAssignmentStrategyMemberOutput
+}
+
+type Schedulev2RotationEventAssignmentStrategyMemberArgs struct {
+	// The member type. Supported values: `"userMember"`, `"emptyMember"`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The ID of the user to assign. Required when `type` is `"userMember"`.
+	UserId pulumi.StringPtrInput `pulumi:"userId"`
+}
+
+func (Schedulev2RotationEventAssignmentStrategyMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Schedulev2RotationEventAssignmentStrategyMember)(nil)).Elem()
+}
+
+func (i Schedulev2RotationEventAssignmentStrategyMemberArgs) ToSchedulev2RotationEventAssignmentStrategyMemberOutput() Schedulev2RotationEventAssignmentStrategyMemberOutput {
+	return i.ToSchedulev2RotationEventAssignmentStrategyMemberOutputWithContext(context.Background())
+}
+
+func (i Schedulev2RotationEventAssignmentStrategyMemberArgs) ToSchedulev2RotationEventAssignmentStrategyMemberOutputWithContext(ctx context.Context) Schedulev2RotationEventAssignmentStrategyMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Schedulev2RotationEventAssignmentStrategyMemberOutput)
+}
+
+// Schedulev2RotationEventAssignmentStrategyMemberArrayInput is an input type that accepts Schedulev2RotationEventAssignmentStrategyMemberArray and Schedulev2RotationEventAssignmentStrategyMemberArrayOutput values.
+// You can construct a concrete instance of `Schedulev2RotationEventAssignmentStrategyMemberArrayInput` via:
+//
+//	Schedulev2RotationEventAssignmentStrategyMemberArray{ Schedulev2RotationEventAssignmentStrategyMemberArgs{...} }
+type Schedulev2RotationEventAssignmentStrategyMemberArrayInput interface {
+	pulumi.Input
+
+	ToSchedulev2RotationEventAssignmentStrategyMemberArrayOutput() Schedulev2RotationEventAssignmentStrategyMemberArrayOutput
+	ToSchedulev2RotationEventAssignmentStrategyMemberArrayOutputWithContext(context.Context) Schedulev2RotationEventAssignmentStrategyMemberArrayOutput
+}
+
+type Schedulev2RotationEventAssignmentStrategyMemberArray []Schedulev2RotationEventAssignmentStrategyMemberInput
+
+func (Schedulev2RotationEventAssignmentStrategyMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Schedulev2RotationEventAssignmentStrategyMember)(nil)).Elem()
+}
+
+func (i Schedulev2RotationEventAssignmentStrategyMemberArray) ToSchedulev2RotationEventAssignmentStrategyMemberArrayOutput() Schedulev2RotationEventAssignmentStrategyMemberArrayOutput {
+	return i.ToSchedulev2RotationEventAssignmentStrategyMemberArrayOutputWithContext(context.Background())
+}
+
+func (i Schedulev2RotationEventAssignmentStrategyMemberArray) ToSchedulev2RotationEventAssignmentStrategyMemberArrayOutputWithContext(ctx context.Context) Schedulev2RotationEventAssignmentStrategyMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Schedulev2RotationEventAssignmentStrategyMemberArrayOutput)
+}
+
+type Schedulev2RotationEventAssignmentStrategyMemberOutput struct{ *pulumi.OutputState }
+
+func (Schedulev2RotationEventAssignmentStrategyMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Schedulev2RotationEventAssignmentStrategyMember)(nil)).Elem()
+}
+
+func (o Schedulev2RotationEventAssignmentStrategyMemberOutput) ToSchedulev2RotationEventAssignmentStrategyMemberOutput() Schedulev2RotationEventAssignmentStrategyMemberOutput {
+	return o
+}
+
+func (o Schedulev2RotationEventAssignmentStrategyMemberOutput) ToSchedulev2RotationEventAssignmentStrategyMemberOutputWithContext(ctx context.Context) Schedulev2RotationEventAssignmentStrategyMemberOutput {
+	return o
+}
+
+// The member type. Supported values: `"userMember"`, `"emptyMember"`.
+func (o Schedulev2RotationEventAssignmentStrategyMemberOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v Schedulev2RotationEventAssignmentStrategyMember) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The ID of the user to assign. Required when `type` is `"userMember"`.
+func (o Schedulev2RotationEventAssignmentStrategyMemberOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Schedulev2RotationEventAssignmentStrategyMember) *string { return v.UserId }).(pulumi.StringPtrOutput)
+}
+
+type Schedulev2RotationEventAssignmentStrategyMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (Schedulev2RotationEventAssignmentStrategyMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Schedulev2RotationEventAssignmentStrategyMember)(nil)).Elem()
+}
+
+func (o Schedulev2RotationEventAssignmentStrategyMemberArrayOutput) ToSchedulev2RotationEventAssignmentStrategyMemberArrayOutput() Schedulev2RotationEventAssignmentStrategyMemberArrayOutput {
+	return o
+}
+
+func (o Schedulev2RotationEventAssignmentStrategyMemberArrayOutput) ToSchedulev2RotationEventAssignmentStrategyMemberArrayOutputWithContext(ctx context.Context) Schedulev2RotationEventAssignmentStrategyMemberArrayOutput {
+	return o
+}
+
+func (o Schedulev2RotationEventAssignmentStrategyMemberArrayOutput) Index(i pulumi.IntInput) Schedulev2RotationEventAssignmentStrategyMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Schedulev2RotationEventAssignmentStrategyMember {
+		return vs[0].([]Schedulev2RotationEventAssignmentStrategyMember)[vs[1].(int)]
+	}).(Schedulev2RotationEventAssignmentStrategyMemberOutput)
+}
+
 type ServiceAlertGroupingParameters struct {
 	// Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
 	Config *ServiceAlertGroupingParametersConfig `pulumi:"config"`
@@ -24691,6 +25206,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleLayerArrayInput)(nil)).Elem(), ScheduleLayerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleLayerRestrictionInput)(nil)).Elem(), ScheduleLayerRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleLayerRestrictionArrayInput)(nil)).Elem(), ScheduleLayerRestrictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Schedulev2RotationInput)(nil)).Elem(), Schedulev2RotationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Schedulev2RotationArrayInput)(nil)).Elem(), Schedulev2RotationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Schedulev2RotationEventInput)(nil)).Elem(), Schedulev2RotationEventArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Schedulev2RotationEventArrayInput)(nil)).Elem(), Schedulev2RotationEventArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Schedulev2RotationEventAssignmentStrategyInput)(nil)).Elem(), Schedulev2RotationEventAssignmentStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Schedulev2RotationEventAssignmentStrategyArrayInput)(nil)).Elem(), Schedulev2RotationEventAssignmentStrategyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Schedulev2RotationEventAssignmentStrategyMemberInput)(nil)).Elem(), Schedulev2RotationEventAssignmentStrategyMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Schedulev2RotationEventAssignmentStrategyMemberArrayInput)(nil)).Elem(), Schedulev2RotationEventAssignmentStrategyMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAlertGroupingParametersInput)(nil)).Elem(), ServiceAlertGroupingParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAlertGroupingParametersPtrInput)(nil)).Elem(), ServiceAlertGroupingParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAlertGroupingParametersConfigInput)(nil)).Elem(), ServiceAlertGroupingParametersConfigArgs{})
@@ -25045,6 +25568,14 @@ func init() {
 	pulumi.RegisterOutputType(ScheduleLayerArrayOutput{})
 	pulumi.RegisterOutputType(ScheduleLayerRestrictionOutput{})
 	pulumi.RegisterOutputType(ScheduleLayerRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(Schedulev2RotationOutput{})
+	pulumi.RegisterOutputType(Schedulev2RotationArrayOutput{})
+	pulumi.RegisterOutputType(Schedulev2RotationEventOutput{})
+	pulumi.RegisterOutputType(Schedulev2RotationEventArrayOutput{})
+	pulumi.RegisterOutputType(Schedulev2RotationEventAssignmentStrategyOutput{})
+	pulumi.RegisterOutputType(Schedulev2RotationEventAssignmentStrategyArrayOutput{})
+	pulumi.RegisterOutputType(Schedulev2RotationEventAssignmentStrategyMemberOutput{})
+	pulumi.RegisterOutputType(Schedulev2RotationEventAssignmentStrategyMemberArrayOutput{})
 	pulumi.RegisterOutputType(ServiceAlertGroupingParametersOutput{})
 	pulumi.RegisterOutputType(ServiceAlertGroupingParametersPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAlertGroupingParametersConfigOutput{})

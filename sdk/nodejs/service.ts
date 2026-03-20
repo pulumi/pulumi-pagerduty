@@ -133,7 +133,7 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
     declare public /*out*/ readonly htmlUrl: pulumi.Output<string>;
     declare public readonly incidentUrgencyRule: pulumi.Output<outputs.ServiceIncidentUrgencyRule>;
     /**
-     * Last incident timestamp of the service.
+     * @deprecated The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
      */
     declare public /*out*/ readonly lastIncidentTimestamp: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
     declare public readonly responsePlay: pulumi.Output<string>;
     declare public readonly scheduledActions: pulumi.Output<outputs.ServiceScheduledAction[] | undefined>;
     /**
-     * The status of the service.
+     * @deprecated The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     declare public readonly supportHours: pulumi.Output<outputs.ServiceSupportHours | undefined>;
@@ -275,7 +275,7 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
     htmlUrl?: pulumi.Input<string>;
     incidentUrgencyRule?: pulumi.Input<inputs.ServiceIncidentUrgencyRule>;
     /**
-     * Last incident timestamp of the service.
+     * @deprecated The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
      */
     lastIncidentTimestamp?: pulumi.Input<string>;
     /**
@@ -288,7 +288,7 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
     responsePlay?: pulumi.Input<string>;
     scheduledActions?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledAction>[]>;
     /**
-     * The status of the service.
+     * @deprecated The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
      */
     status?: pulumi.Input<string>;
     supportHours?: pulumi.Input<inputs.ServiceSupportHours>;

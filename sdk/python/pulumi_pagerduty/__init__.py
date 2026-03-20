@@ -49,6 +49,7 @@ from .get_licenses import *
 from .get_priority import *
 from .get_ruleset import *
 from .get_schedule import *
+from .get_schedulev2 import *
 from .get_service import *
 from .get_service_custom_field import *
 from .get_service_custom_field_value import *
@@ -77,6 +78,7 @@ from .response_play import *
 from .ruleset import *
 from .ruleset_rule import *
 from .schedule import *
+from .schedulev2 import *
 from .service import *
 from .service_custom_field import *
 from .service_custom_field_value import *
@@ -376,6 +378,14 @@ _utilities.register(
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/schedule:Schedule": "Schedule"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/schedulev2",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/schedulev2:Schedulev2": "Schedulev2"
   }
  },
  {

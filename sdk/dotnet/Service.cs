@@ -147,9 +147,6 @@ namespace Pulumi.Pagerduty
         [Output("incidentUrgencyRule")]
         public Output<Outputs.ServiceIncidentUrgencyRule> IncidentUrgencyRule { get; private set; } = null!;
 
-        /// <summary>
-        /// Last incident timestamp of the service.
-        /// </summary>
         [Output("lastIncidentTimestamp")]
         public Output<string> LastIncidentTimestamp { get; private set; } = null!;
 
@@ -168,9 +165,6 @@ namespace Pulumi.Pagerduty
         [Output("scheduledActions")]
         public Output<ImmutableArray<Outputs.ServiceScheduledAction>> ScheduledActions { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of the service.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -389,9 +383,6 @@ namespace Pulumi.Pagerduty
         [Input("incidentUrgencyRule")]
         public Input<Inputs.ServiceIncidentUrgencyRuleGetArgs>? IncidentUrgencyRule { get; set; }
 
-        /// <summary>
-        /// Last incident timestamp of the service.
-        /// </summary>
         [Input("lastIncidentTimestamp")]
         public Input<string>? LastIncidentTimestamp { get; set; }
 
@@ -415,9 +406,6 @@ namespace Pulumi.Pagerduty
             set => _scheduledActions = value;
         }
 
-        /// <summary>
-        /// The status of the service.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

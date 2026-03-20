@@ -63,14 +63,6 @@ import javax.annotation.Nullable;
  *             .description("The environment this service runs in")
  *             .build());
  * 
- *         var region = new ServiceCustomField("region", ServiceCustomFieldArgs.builder()
- *             .name("region")
- *             .displayName("Region")
- *             .dataType("string")
- *             .fieldType("single_value")
- *             .description("The region this service is deployed in")
- *             .build());
- * 
  *         var isCritical = new ServiceCustomField("isCritical", ServiceCustomFieldArgs.builder()
  *             .name("is_critical")
  *             .displayName("Is Critical")
@@ -88,6 +80,10 @@ import javax.annotation.Nullable;
  *             .fieldOptions(            
  *                 ServiceCustomFieldFieldOptionArgs.builder()
  *                     .value("us-east-1")
+ *                     .dataType("string")
+ *                     .build(),
+ *                 ServiceCustomFieldFieldOptionArgs.builder()
+ *                     .value("us-east-2")
  *                     .dataType("string")
  *                     .build(),
  *                 ServiceCustomFieldFieldOptionArgs.builder()
@@ -112,11 +108,6 @@ import javax.annotation.Nullable;
  *                     .name(environment.name())
  *                     .value(serializeJson(
  *                         "production"))
- *                     .build(),
- *                 ServiceCustomFieldValueCustomFieldArgs.builder()
- *                     .name(region.name())
- *                     .value(serializeJson(
- *                         "us-east-1"))
  *                     .build(),
  *                 ServiceCustomFieldValueCustomFieldArgs.builder()
  *                     .name(isCritical.name())

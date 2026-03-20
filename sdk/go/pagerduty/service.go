@@ -114,14 +114,14 @@ type Service struct {
 	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl             pulumi.StringOutput              `pulumi:"htmlUrl"`
 	IncidentUrgencyRule ServiceIncidentUrgencyRuleOutput `pulumi:"incidentUrgencyRule"`
-	// Last incident timestamp of the service.
+	// Deprecated: The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
 	LastIncidentTimestamp pulumi.StringOutput `pulumi:"lastIncidentTimestamp"`
 	// The name of the service.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// (Deprecated) The response play used by this service.
 	ResponsePlay     pulumi.StringOutput               `pulumi:"responsePlay"`
 	ScheduledActions ServiceScheduledActionArrayOutput `pulumi:"scheduledActions"`
-	// The status of the service.
+	// Deprecated: The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
 	Status       pulumi.StringOutput          `pulumi:"status"`
 	SupportHours ServiceSupportHoursPtrOutput `pulumi:"supportHours"`
 	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
@@ -195,14 +195,14 @@ type serviceState struct {
 	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl             *string                     `pulumi:"htmlUrl"`
 	IncidentUrgencyRule *ServiceIncidentUrgencyRule `pulumi:"incidentUrgencyRule"`
-	// Last incident timestamp of the service.
+	// Deprecated: The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
 	LastIncidentTimestamp *string `pulumi:"lastIncidentTimestamp"`
 	// The name of the service.
 	Name *string `pulumi:"name"`
 	// (Deprecated) The response play used by this service.
 	ResponsePlay     *string                  `pulumi:"responsePlay"`
 	ScheduledActions []ServiceScheduledAction `pulumi:"scheduledActions"`
-	// The status of the service.
+	// Deprecated: The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
 	Status       *string              `pulumi:"status"`
 	SupportHours *ServiceSupportHours `pulumi:"supportHours"`
 	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
@@ -241,14 +241,14 @@ type ServiceState struct {
 	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl             pulumi.StringPtrInput
 	IncidentUrgencyRule ServiceIncidentUrgencyRulePtrInput
-	// Last incident timestamp of the service.
+	// Deprecated: The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
 	LastIncidentTimestamp pulumi.StringPtrInput
 	// The name of the service.
 	Name pulumi.StringPtrInput
 	// (Deprecated) The response play used by this service.
 	ResponsePlay     pulumi.StringPtrInput
 	ScheduledActions ServiceScheduledActionArrayInput
-	// The status of the service.
+	// Deprecated: The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
 	Status       pulumi.StringPtrInput
 	SupportHours ServiceSupportHoursPtrInput
 	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
@@ -488,7 +488,7 @@ func (o ServiceOutput) IncidentUrgencyRule() ServiceIncidentUrgencyRuleOutput {
 	return o.ApplyT(func(v *Service) ServiceIncidentUrgencyRuleOutput { return v.IncidentUrgencyRule }).(ServiceIncidentUrgencyRuleOutput)
 }
 
-// Last incident timestamp of the service.
+// Deprecated: The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
 func (o ServiceOutput) LastIncidentTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.LastIncidentTimestamp }).(pulumi.StringOutput)
 }
@@ -507,7 +507,7 @@ func (o ServiceOutput) ScheduledActions() ServiceScheduledActionArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceScheduledActionArrayOutput { return v.ScheduledActions }).(ServiceScheduledActionArrayOutput)
 }
 
-// The status of the service.
+// Deprecated: The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
 func (o ServiceOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

@@ -225,16 +225,20 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
     }
 
     /**
-     * Last incident timestamp of the service.
+     * @deprecated
+     * The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
      * 
      */
+    @Deprecated /* The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value. */
     @Import(name="lastIncidentTimestamp")
     private @Nullable Output<String> lastIncidentTimestamp;
 
     /**
-     * @return Last incident timestamp of the service.
+     * @deprecated
+     * The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
      * 
      */
+    @Deprecated /* The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value. */
     public Optional<Output<String>> lastIncidentTimestamp() {
         return Optional.ofNullable(this.lastIncidentTimestamp);
     }
@@ -277,16 +281,20 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
     }
 
     /**
-     * The status of the service.
+     * @deprecated
+     * The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
      * 
      */
+    @Deprecated /* The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value. */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the service.
+     * @deprecated
+     * The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
      * 
      */
+    @Deprecated /* The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value. */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -626,22 +634,26 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
         }
 
         /**
-         * @param lastIncidentTimestamp Last incident timestamp of the service.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
+         * 
          */
+        @Deprecated /* The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value. */
         public Builder lastIncidentTimestamp(@Nullable Output<String> lastIncidentTimestamp) {
             $.lastIncidentTimestamp = lastIncidentTimestamp;
             return this;
         }
 
         /**
-         * @param lastIncidentTimestamp Last incident timestamp of the service.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
+         * 
          */
+        @Deprecated /* The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value. */
         public Builder lastIncidentTimestamp(String lastIncidentTimestamp) {
             return lastIncidentTimestamp(Output.of(lastIncidentTimestamp));
         }
@@ -702,22 +714,26 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
         }
 
         /**
-         * @param status The status of the service.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
+         * 
          */
+        @Deprecated /* The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value. */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
         /**
-         * @param status The status of the service.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
+         * 
          */
+        @Deprecated /* The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value. */
         public Builder status(String status) {
             return status(Output.of(status));
         }

@@ -294,10 +294,8 @@ class _ServiceState:
                If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[_builtins.str] escalation_policy: The escalation policy used by this service.
         :param pulumi.Input[_builtins.str] html_url: URL at which the entity is uniquely displayed in the Web app.
-        :param pulumi.Input[_builtins.str] last_incident_timestamp: Last incident timestamp of the service.
         :param pulumi.Input[_builtins.str] name: The name of the service.
         :param pulumi.Input[_builtins.str] response_play: (Deprecated) The response play used by this service.
-        :param pulumi.Input[_builtins.str] status: The status of the service.
         :param pulumi.Input[_builtins.str] type: The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         """
         if acknowledgement_timeout is not None:
@@ -338,6 +336,9 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
         if incident_urgency_rule is not None:
             pulumi.set(__self__, "incident_urgency_rule", incident_urgency_rule)
         if last_incident_timestamp is not None:
+            warnings.warn("""The last_incident_timestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.""", DeprecationWarning)
+            pulumi.log.warn("""last_incident_timestamp is deprecated: The last_incident_timestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.""")
+        if last_incident_timestamp is not None:
             pulumi.set(__self__, "last_incident_timestamp", last_incident_timestamp)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -345,6 +346,9 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
             pulumi.set(__self__, "response_play", response_play)
         if scheduled_actions is not None:
             pulumi.set(__self__, "scheduled_actions", scheduled_actions)
+        if status is not None:
+            warnings.warn("""The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.""", DeprecationWarning)
+            pulumi.log.warn("""status is deprecated: The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.""")
         if status is not None:
             pulumi.set(__self__, "status", status)
         if support_hours is not None:
@@ -500,10 +504,8 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
 
     @_builtins.property
     @pulumi.getter(name="lastIncidentTimestamp")
+    @_utilities.deprecated("""The last_incident_timestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.""")
     def last_incident_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Last incident timestamp of the service.
-        """
         return pulumi.get(self, "last_incident_timestamp")
 
     @last_incident_timestamp.setter
@@ -545,10 +547,8 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.""")
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The status of the service.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -814,10 +814,8 @@ class Service(pulumi.CustomResource):
                If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[_builtins.str] escalation_policy: The escalation policy used by this service.
         :param pulumi.Input[_builtins.str] html_url: URL at which the entity is uniquely displayed in the Web app.
-        :param pulumi.Input[_builtins.str] last_incident_timestamp: Last incident timestamp of the service.
         :param pulumi.Input[_builtins.str] name: The name of the service.
         :param pulumi.Input[_builtins.str] response_play: (Deprecated) The response play used by this service.
-        :param pulumi.Input[_builtins.str] status: The status of the service.
         :param pulumi.Input[_builtins.str] type: The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -945,10 +943,8 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
 
     @_builtins.property
     @pulumi.getter(name="lastIncidentTimestamp")
+    @_utilities.deprecated("""The last_incident_timestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.""")
     def last_incident_timestamp(self) -> pulumi.Output[_builtins.str]:
-        """
-        Last incident timestamp of the service.
-        """
         return pulumi.get(self, "last_incident_timestamp")
 
     @_builtins.property
@@ -974,10 +970,8 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.""")
     def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The status of the service.
-        """
         return pulumi.get(self, "status")
 
     @_builtins.property

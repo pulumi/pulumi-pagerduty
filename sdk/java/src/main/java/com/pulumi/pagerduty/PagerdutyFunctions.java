@@ -51,6 +51,8 @@ import com.pulumi.pagerduty.inputs.GetRulesetArgs;
 import com.pulumi.pagerduty.inputs.GetRulesetPlainArgs;
 import com.pulumi.pagerduty.inputs.GetScheduleArgs;
 import com.pulumi.pagerduty.inputs.GetSchedulePlainArgs;
+import com.pulumi.pagerduty.inputs.GetSchedulev2Args;
+import com.pulumi.pagerduty.inputs.GetSchedulev2PlainArgs;
 import com.pulumi.pagerduty.inputs.GetServiceArgs;
 import com.pulumi.pagerduty.inputs.GetServiceCustomFieldArgs;
 import com.pulumi.pagerduty.inputs.GetServiceCustomFieldPlainArgs;
@@ -102,6 +104,7 @@ import com.pulumi.pagerduty.outputs.GetLicensesResult;
 import com.pulumi.pagerduty.outputs.GetPriorityResult;
 import com.pulumi.pagerduty.outputs.GetRulesetResult;
 import com.pulumi.pagerduty.outputs.GetScheduleResult;
+import com.pulumi.pagerduty.outputs.GetSchedulev2Result;
 import com.pulumi.pagerduty.outputs.GetServiceCustomFieldResult;
 import com.pulumi.pagerduty.outputs.GetServiceCustomFieldValueResult;
 import com.pulumi.pagerduty.outputs.GetServiceIntegrationResult;
@@ -5732,6 +5735,291 @@ public final class PagerdutyFunctions {
      */
     public static CompletableFuture<GetScheduleResult> getSchedulePlain(GetSchedulePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getSchedule:getSchedule", TypeShape.of(GetScheduleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a specific [v3 schedule](https://developer.pagerduty.com/api-reference/d90c4c94e3ce2-create-a-schedule) by name so you can reference its ID in other resources such as escalation policies.
+     * 
+     * &gt; **Note:** This data source requires the `flexible-schedules-early-access` early access flag on your PagerDuty account. The required `X-Early-Access` header is sent automatically by the provider.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetSchedulev2Args;
+     * import com.pulumi.pagerduty.EscalationPolicy;
+     * import com.pulumi.pagerduty.EscalationPolicyArgs;
+     * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var oncall = PagerdutyFunctions.getSchedulev2(GetSchedulev2Args.builder()
+     *             .name("Engineering On-Call")
+     *             .build());
+     * 
+     *         var example = new EscalationPolicy("example", EscalationPolicyArgs.builder()
+     *             .name("Engineering Escalation Policy")
+     *             .numLoops(2)
+     *             .rules(EscalationPolicyRuleArgs.builder()
+     *                 .escalationDelayInMinutes(10)
+     *                 .targets(EscalationPolicyRuleTargetArgs.builder()
+     *                     .type("schedule_reference")
+     *                     .id(oncall.id())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSchedulev2Result> getSchedulev2(GetSchedulev2Args args) {
+        return getSchedulev2(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a specific [v3 schedule](https://developer.pagerduty.com/api-reference/d90c4c94e3ce2-create-a-schedule) by name so you can reference its ID in other resources such as escalation policies.
+     * 
+     * &gt; **Note:** This data source requires the `flexible-schedules-early-access` early access flag on your PagerDuty account. The required `X-Early-Access` header is sent automatically by the provider.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetSchedulev2Args;
+     * import com.pulumi.pagerduty.EscalationPolicy;
+     * import com.pulumi.pagerduty.EscalationPolicyArgs;
+     * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var oncall = PagerdutyFunctions.getSchedulev2(GetSchedulev2Args.builder()
+     *             .name("Engineering On-Call")
+     *             .build());
+     * 
+     *         var example = new EscalationPolicy("example", EscalationPolicyArgs.builder()
+     *             .name("Engineering Escalation Policy")
+     *             .numLoops(2)
+     *             .rules(EscalationPolicyRuleArgs.builder()
+     *                 .escalationDelayInMinutes(10)
+     *                 .targets(EscalationPolicyRuleTargetArgs.builder()
+     *                     .type("schedule_reference")
+     *                     .id(oncall.id())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSchedulev2Result> getSchedulev2Plain(GetSchedulev2PlainArgs args) {
+        return getSchedulev2Plain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to look up a specific [v3 schedule](https://developer.pagerduty.com/api-reference/d90c4c94e3ce2-create-a-schedule) by name so you can reference its ID in other resources such as escalation policies.
+     * 
+     * &gt; **Note:** This data source requires the `flexible-schedules-early-access` early access flag on your PagerDuty account. The required `X-Early-Access` header is sent automatically by the provider.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetSchedulev2Args;
+     * import com.pulumi.pagerduty.EscalationPolicy;
+     * import com.pulumi.pagerduty.EscalationPolicyArgs;
+     * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var oncall = PagerdutyFunctions.getSchedulev2(GetSchedulev2Args.builder()
+     *             .name("Engineering On-Call")
+     *             .build());
+     * 
+     *         var example = new EscalationPolicy("example", EscalationPolicyArgs.builder()
+     *             .name("Engineering Escalation Policy")
+     *             .numLoops(2)
+     *             .rules(EscalationPolicyRuleArgs.builder()
+     *                 .escalationDelayInMinutes(10)
+     *                 .targets(EscalationPolicyRuleTargetArgs.builder()
+     *                     .type("schedule_reference")
+     *                     .id(oncall.id())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSchedulev2Result> getSchedulev2(GetSchedulev2Args args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getSchedulev2:getSchedulev2", TypeShape.of(GetSchedulev2Result.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a specific [v3 schedule](https://developer.pagerduty.com/api-reference/d90c4c94e3ce2-create-a-schedule) by name so you can reference its ID in other resources such as escalation policies.
+     * 
+     * &gt; **Note:** This data source requires the `flexible-schedules-early-access` early access flag on your PagerDuty account. The required `X-Early-Access` header is sent automatically by the provider.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetSchedulev2Args;
+     * import com.pulumi.pagerduty.EscalationPolicy;
+     * import com.pulumi.pagerduty.EscalationPolicyArgs;
+     * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var oncall = PagerdutyFunctions.getSchedulev2(GetSchedulev2Args.builder()
+     *             .name("Engineering On-Call")
+     *             .build());
+     * 
+     *         var example = new EscalationPolicy("example", EscalationPolicyArgs.builder()
+     *             .name("Engineering Escalation Policy")
+     *             .numLoops(2)
+     *             .rules(EscalationPolicyRuleArgs.builder()
+     *                 .escalationDelayInMinutes(10)
+     *                 .targets(EscalationPolicyRuleTargetArgs.builder()
+     *                     .type("schedule_reference")
+     *                     .id(oncall.id())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSchedulev2Result> getSchedulev2(GetSchedulev2Args args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getSchedulev2:getSchedulev2", TypeShape.of(GetSchedulev2Result.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to look up a specific [v3 schedule](https://developer.pagerduty.com/api-reference/d90c4c94e3ce2-create-a-schedule) by name so you can reference its ID in other resources such as escalation policies.
+     * 
+     * &gt; **Note:** This data source requires the `flexible-schedules-early-access` early access flag on your PagerDuty account. The required `X-Early-Access` header is sent automatically by the provider.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetSchedulev2Args;
+     * import com.pulumi.pagerduty.EscalationPolicy;
+     * import com.pulumi.pagerduty.EscalationPolicyArgs;
+     * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var oncall = PagerdutyFunctions.getSchedulev2(GetSchedulev2Args.builder()
+     *             .name("Engineering On-Call")
+     *             .build());
+     * 
+     *         var example = new EscalationPolicy("example", EscalationPolicyArgs.builder()
+     *             .name("Engineering Escalation Policy")
+     *             .numLoops(2)
+     *             .rules(EscalationPolicyRuleArgs.builder()
+     *                 .escalationDelayInMinutes(10)
+     *                 .targets(EscalationPolicyRuleTargetArgs.builder()
+     *                     .type("schedule_reference")
+     *                     .id(oncall.id())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSchedulev2Result> getSchedulev2Plain(GetSchedulev2PlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getSchedulev2:getSchedulev2", TypeShape.of(GetSchedulev2Result.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).

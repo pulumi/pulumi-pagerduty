@@ -41,9 +41,9 @@ import (
 //			}
 //			_, err = pagerduty.NewIncidentWorkflowTrigger(ctx, "automatic_trigger", &pagerduty.IncidentWorkflowTriggerArgs{
 //				Type:     pulumi.String("conditional"),
-//				Workflow: pulumi.String(myWorkflow.Id),
+//				Workflow: pulumi.String(pulumi.String(myWorkflow.Id)),
 //				Services: pulumi.StringArray{
-//					pulumi.String(firstService.Id),
+//					pulumi.String(pulumi.String(firstService.Id)),
 //				},
 //				Condition: pulumi.String("incident.priority matches 'P1'"),
 //			})

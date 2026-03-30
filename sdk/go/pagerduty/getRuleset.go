@@ -51,7 +51,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewRulesetRule(ctx, "foo", &pagerduty.RulesetRuleArgs{
-//				Ruleset:  pulumi.String(example.Id),
+//				Ruleset:  pulumi.String(pulumi.String(example.Id)),
 //				Position: pulumi.Int(0),
 //				Disabled: pulumi.Bool(false),
 //				Conditions: &pagerduty.RulesetRuleConditionsArgs{

@@ -37,7 +37,7 @@ import (
 //				Name:                   pulumi.String("My Web App"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       pulumi.String(test.Id),
+//				EscalationPolicy:       pulumi.String(pulumi.String(test.Id)),
 //			})
 //			if err != nil {
 //				return err

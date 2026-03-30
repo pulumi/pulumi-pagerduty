@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewEventOrchestrationGlobalCacheVariable(ctx, "cache_var", &pagerduty.EventOrchestrationGlobalCacheVariableArgs{
-//				EventOrchestration: pulumi.String(tfMyMonitor.EventOrchestrations[0].Id),
+//				EventOrchestration: pulumi.String(pulumi.String(tfMyMonitor.EventOrchestrations[0].Id)),
 //				Name:               pulumi.String("recent_host"),
 //				Conditions: pagerduty.EventOrchestrationGlobalCacheVariableConditionArray{
 //					&pagerduty.EventOrchestrationGlobalCacheVariableConditionArgs{

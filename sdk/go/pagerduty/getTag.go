@@ -40,8 +40,8 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewTagAssignment(ctx, "foo", &pagerduty.TagAssignmentArgs{
-//				TagId:      pulumi.String(devops.Id),
-//				EntityId:   pulumi.String(me.Id),
+//				TagId:      pulumi.String(pulumi.String(devops.Id)),
+//				EntityId:   pulumi.String(pulumi.String(me.Id)),
 //				EntityType: pulumi.String("users"),
 //			})
 //			if err != nil {

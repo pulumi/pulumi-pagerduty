@@ -42,7 +42,7 @@ import (
 //			_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
 //				Name:     pulumi.String("DevOps Escalation Policy"),
 //				NumLoops: pulumi.Int(2),
-//				Teams:    pulumi.String(devops.Id),
+//				Teams:    pulumi.String(pulumi.String(devops.Id)),
 //				Rules: pagerduty.EscalationPolicyRuleArray{
 //					&pagerduty.EscalationPolicyRuleArgs{
 //						EscalationDelayInMinutes: pulumi.Int(10),

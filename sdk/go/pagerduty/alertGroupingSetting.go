@@ -37,7 +37,7 @@ import (
 //			}
 //			basic, err := pagerduty.NewService(ctx, "basic", &pagerduty.ServiceArgs{
 //				Name:             pulumi.String("Example"),
-//				EscalationPolicy: pulumi.String(_default.Id),
+//				EscalationPolicy: pulumi.String(pulumi.String(_default.Id)),
 //			})
 //			if err != nil {
 //				return err
@@ -102,7 +102,7 @@ import (
 //			}
 //			_, err = pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
 //				Name:             pulumi.String("Foo"),
-//				EscalationPolicy: pulumi.String(_default.Id),
+//				EscalationPolicy: pulumi.String(pulumi.String(_default.Id)),
 //				AlertGroupingParameters: &pagerduty.ServiceAlertGroupingParametersArgs{
 //					Type: pulumi.String("time"),
 //					Config: &pagerduty.ServiceAlertGroupingParametersConfigArgs{
@@ -140,7 +140,7 @@ import (
 //			}
 //			foo, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
 //				Name:             pulumi.String("Foo"),
-//				EscalationPolicy: pulumi.String(_default.Id),
+//				EscalationPolicy: pulumi.String(pulumi.String(_default.Id)),
 //			})
 //			if err != nil {
 //				return err

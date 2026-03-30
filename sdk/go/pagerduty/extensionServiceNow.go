@@ -70,7 +70,7 @@ import (
 //			}
 //			_, err = pagerduty.NewExtensionServiceNow(ctx, "snow", &pagerduty.ExtensionServiceNowArgs{
 //				Name:            pulumi.String("My Web App Extension"),
-//				ExtensionSchema: pulumi.String(servicenow.Id),
+//				ExtensionSchema: pulumi.String(pulumi.String(servicenow.Id)),
 //				ExtensionObjects: pulumi.StringArray{
 //					exampleService.ID(),
 //				},

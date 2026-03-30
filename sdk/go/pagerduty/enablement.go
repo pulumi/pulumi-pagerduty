@@ -36,7 +36,7 @@ import (
 //			}
 //			_, err = pagerduty.NewEnablement(ctx, "example", &pagerduty.EnablementArgs{
 //				EntityType: pulumi.String("service"),
-//				EntityId:   pulumi.String(example.Id),
+//				EntityId:   pulumi.String(pulumi.String(example.Id)),
 //				Feature:    pulumi.String("aiops"),
 //				Enabled:    pulumi.Bool(true),
 //			})

@@ -58,7 +58,7 @@ import (
 //			}
 //			foo, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
 //				Name:             pulumi.String("My Web App"),
-//				EscalationPolicy: pulumi.String(_default.Id),
+//				EscalationPolicy: pulumi.String(pulumi.String(_default.Id)),
 //			})
 //			if err != nil {
 //				return err
@@ -97,7 +97,7 @@ import (
 //								TargetIssueField:     pulumi.String("security"),
 //								TargetIssueFieldName: pulumi.String("Security Level"),
 //								Type:                 pulumi.String("jira_value"),
-//								Value:                pulumi.String(json0),
+//								Value:                pulumi.String(pulumi.String(json0)),
 //							},
 //						},
 //						IssueType: &pagerduty.JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs{

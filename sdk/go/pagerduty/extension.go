@@ -71,7 +71,7 @@ import (
 //			_, err = pagerduty.NewExtension(ctx, "slack", &pagerduty.ExtensionArgs{
 //				Name:            pulumi.String("My Web App Extension"),
 //				EndpointUrl:     pulumi.String("https://generic_webhook_url/XXXXXX/BBBBBB"),
-//				ExtensionSchema: pulumi.String(webhook.Id),
+//				ExtensionSchema: pulumi.String(pulumi.String(webhook.Id)),
 //				ExtensionObjects: pulumi.StringArray{
 //					exampleService.ID(),
 //				},

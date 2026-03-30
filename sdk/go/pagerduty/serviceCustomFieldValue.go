@@ -114,15 +114,15 @@ import (
 //				CustomFields: pagerduty.ServiceCustomFieldValueCustomFieldArray{
 //					&pagerduty.ServiceCustomFieldValueCustomFieldArgs{
 //						Name:  environment.Name,
-//						Value: pulumi.String(json0),
+//						Value: pulumi.String(pulumi.String(json0)),
 //					},
 //					&pagerduty.ServiceCustomFieldValueCustomFieldArgs{
 //						Name:  isCritical.Name,
-//						Value: pulumi.String(json1),
+//						Value: pulumi.String(pulumi.String(json1)),
 //					},
 //					&pagerduty.ServiceCustomFieldValueCustomFieldArgs{
 //						Name:  regions.Name,
-//						Value: pulumi.String(json2),
+//						Value: pulumi.String(pulumi.String(json2)),
 //					},
 //				},
 //			})

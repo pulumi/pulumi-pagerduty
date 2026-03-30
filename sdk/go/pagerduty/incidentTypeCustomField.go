@@ -45,7 +45,7 @@ import (
 //				DisplayName:  pulumi.String("Alarm Time"),
 //				DataType:     pulumi.String("integer"),
 //				FieldType:    pulumi.String("single_value"),
-//				DefaultValue: pulumi.String(json0),
+//				DefaultValue: pulumi.String(pulumi.String(json0)),
 //				IncidentType: pulumi.String("incident_default"),
 //			})
 //			if err != nil {
@@ -59,7 +59,7 @@ import (
 //			}
 //			_, err = pagerduty.NewIncidentTypeCustomField(ctx, "level", &pagerduty.IncidentTypeCustomFieldArgs{
 //				Name:         pulumi.String("level"),
-//				IncidentType: pulumi.String(foo.Id),
+//				IncidentType: pulumi.String(pulumi.String(foo.Id)),
 //				DisplayName:  pulumi.String("Level"),
 //				DataType:     pulumi.String("string"),
 //				FieldType:    pulumi.String("single_value_fixed"),
@@ -77,7 +77,7 @@ import (
 //			}
 //			_, err = pagerduty.NewIncidentTypeCustomField(ctx, "cs_impact", &pagerduty.IncidentTypeCustomFieldArgs{
 //				Name:         pulumi.String("impact"),
-//				IncidentType: pulumi.String(foo.Id),
+//				IncidentType: pulumi.String(pulumi.String(foo.Id)),
 //				DisplayName:  pulumi.String("Customer Impact"),
 //				DataType:     pulumi.String("string"),
 //				FieldType:    pulumi.String("multi_value"),

@@ -101,9 +101,9 @@ import (
 //			}
 //			json2 := string(tmpJSON2)
 //			_, err = pagerduty.NewEventRule(ctx, "second", &pagerduty.EventRuleArgs{
-//				ActionJson:            pulumi.String(json0),
-//				ConditionJson:         pulumi.String(json1),
-//				AdvancedConditionJson: pulumi.String(json2),
+//				ActionJson:            pulumi.String(pulumi.String(json0)),
+//				ConditionJson:         pulumi.String(pulumi.String(json1)),
+//				AdvancedConditionJson: pulumi.String(pulumi.String(json2)),
 //			})
 //			if err != nil {
 //				return err
@@ -158,8 +158,8 @@ import (
 //			}
 //			json4 := string(tmpJSON4)
 //			_, err = pagerduty.NewEventRule(ctx, "third", &pagerduty.EventRuleArgs{
-//				ActionJson:    pulumi.String(json3),
-//				ConditionJson: pulumi.String(json4),
+//				ActionJson:    pulumi.String(pulumi.String(json3)),
+//				ConditionJson: pulumi.String(pulumi.String(json4)),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				two,
 //			}))

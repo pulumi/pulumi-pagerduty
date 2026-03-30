@@ -41,8 +41,8 @@ import (
 //			}
 //			_, err = pagerduty.NewServiceIntegration(ctx, "example", &pagerduty.ServiceIntegrationArgs{
 //				Name:    pulumi.String("Datadog Integration"),
-//				Vendor:  pulumi.String(datadog.Id),
-//				Service: pulumi.String(example.Id),
+//				Vendor:  pulumi.String(pulumi.String(datadog.Id)),
+//				Service: pulumi.String(pulumi.String(example.Id)),
 //				Type:    pulumi.String("generic_events_api_inbound_integration"),
 //			})
 //			if err != nil {

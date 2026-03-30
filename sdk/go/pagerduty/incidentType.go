@@ -47,7 +47,7 @@ import (
 //			_, err = pagerduty.NewIncidentType(ctx, "example", &pagerduty.IncidentTypeArgs{
 //				Name:        pulumi.String("backoffice"),
 //				DisplayName: pulumi.String("Backoffice Incident"),
-//				ParentType:  pulumi.String(base.Id),
+//				ParentType:  pulumi.String(pulumi.String(base.Id)),
 //				Description: pulumi.String("Internal incidents not facing customer"),
 //			})
 //			if err != nil {

@@ -38,7 +38,7 @@ import (
 //				Description:    pulumi.String("Description of the Runner created via TF"),
 //				RunnerType:     pulumi.String("runbook"),
 //				RunbookBaseUri: pulumi.String("rdcat.stg"),
-//				RunbookApiKey:  pulumi.String(RUNBOOK_API_KEY),
+//				RunbookApiKey:  pulumi.String(pulumi.String(RUNBOOK_API_KEY)),
 //			})
 //			if err != nil {
 //				return err

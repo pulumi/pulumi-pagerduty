@@ -97,9 +97,9 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewServiceIntegration(ctx, "datadog", &pagerduty.ServiceIntegrationArgs{
-//				Name:    pulumi.String(datadog.Name),
+//				Name:    pulumi.String(pulumi.String(datadog.Name)),
 //				Service: exampleService.ID(),
-//				Vendor:  pulumi.String(datadog.Id),
+//				Vendor:  pulumi.String(pulumi.String(datadog.Id)),
 //			})
 //			if err != nil {
 //				return err
@@ -111,9 +111,9 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewServiceIntegration(ctx, "cloudwatch", &pagerduty.ServiceIntegrationArgs{
-//				Name:    pulumi.String(cloudwatch.Name),
+//				Name:    pulumi.String(pulumi.String(cloudwatch.Name)),
 //				Service: exampleService.ID(),
-//				Vendor:  pulumi.String(cloudwatch.Id),
+//				Vendor:  pulumi.String(pulumi.String(cloudwatch.Id)),
 //			})
 //			if err != nil {
 //				return err
@@ -125,9 +125,9 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewServiceIntegration(ctx, "email", &pagerduty.ServiceIntegrationArgs{
-//				Name:                  pulumi.String(email.Name),
+//				Name:                  pulumi.String(pulumi.String(email.Name)),
 //				Service:               exampleService.ID(),
-//				Vendor:                pulumi.String(email.Id),
+//				Vendor:                pulumi.String(pulumi.String(email.Id)),
 //				IntegrationEmail:      pulumi.String("s1@your_account.pagerduty.com"),
 //				EmailIncidentCreation: pulumi.String("use_rules"),
 //				EmailFilterMode:       pulumi.String("and-rules-email"),

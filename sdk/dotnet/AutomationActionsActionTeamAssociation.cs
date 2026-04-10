@@ -22,13 +22,13 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Pagerduty.Team("example", new()
+    ///     var example = new Pagerduty.Index.Team("example", new()
     ///     {
     ///         Name = "Engineering",
     ///         Description = "All engineering",
     ///     });
     /// 
-    ///     var paActionExample = new Pagerduty.AutomationActionsAction("pa_action_example", new()
+    ///     var paActionExample = new Pagerduty.Index.AutomationActionsAction("pa_action_example", new()
     ///     {
     ///         Name = "PA Action created via TF",
     ///         Description = "Description of the PA Action created via TF",
@@ -39,7 +39,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var foo = new Pagerduty.AutomationActionsActionTeamAssociation("foo", new()
+    ///     var foo = new Pagerduty.Index.AutomationActionsActionTeamAssociation("foo", new()
     ///     {
     ///         ActionId = paActionExample.Id,
     ///         TeamId = example.Id,

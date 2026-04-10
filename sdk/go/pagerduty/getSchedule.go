@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := pagerduty.LookupSchedule(ctx, &pagerduty.LookupScheduleArgs{
+//			test, err := pagerduty.GetSchedule(ctx, &pagerduty.LookupScheduleArgs{
 //				Name: "Daily Engineering Rotation",
 //			}, nil)
 //			if err != nil {

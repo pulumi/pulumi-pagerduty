@@ -55,7 +55,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			sreEscPolicy, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
+//			sreEscPolicy, err := pagerduty.GetEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
 //				Name: "SRE Escalation Policy",
 //			}, nil)
 //			if err != nil {

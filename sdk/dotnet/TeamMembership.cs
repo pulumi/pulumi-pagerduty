@@ -24,19 +24,19 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Pagerduty.User("foo", new()
+    ///     var foo = new Pagerduty.Index.User("foo", new()
     ///     {
     ///         Name = "foo",
     ///         Email = "foo@bar.com",
     ///     });
     /// 
-    ///     var fooTeam = new Pagerduty.Team("foo", new()
+    ///     var fooTeam = new Pagerduty.Index.Team("foo", new()
     ///     {
     ///         Name = "foo",
     ///         Description = "foo",
     ///     });
     /// 
-    ///     var fooTeamMembership = new Pagerduty.TeamMembership("foo", new()
+    ///     var fooTeamMembership = new Pagerduty.Index.TeamMembership("foo", new()
     ///     {
     ///         UserId = foo.Id,
     ///         TeamId = fooTeam.Id,

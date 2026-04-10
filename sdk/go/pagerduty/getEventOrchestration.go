@@ -33,7 +33,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tfMyMonitor := pagerduty.LookupEventOrchestrationOutput(ctx, pagerduty.GetEventOrchestrationOutputArgs{
+//			tfMyMonitor := pagerduty.GetEventOrchestrationOutput(ctx, pagerduty.GetEventOrchestrationOutputArgs{
 //				Name: tfOrchA.Name,
 //			}, nil)
 //			_, err = pagerduty.NewEventOrchestrationUnrouted(ctx, "unrouted", &pagerduty.EventOrchestrationUnroutedArgs{

@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			oncall, err := pagerduty.LookupSchedulev2(ctx, &pagerduty.LookupSchedulev2Args{
+//			oncall, err := pagerduty.GetSchedulev2(ctx, &pagerduty.LookupSchedulev2Args{
 //				Name: "Engineering On-Call",
 //			}, nil)
 //			if err != nil {

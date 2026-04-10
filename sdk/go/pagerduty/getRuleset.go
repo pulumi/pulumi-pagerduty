@@ -44,7 +44,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := pagerduty.LookupRuleset(ctx, &pagerduty.LookupRulesetArgs{
+//			example, err := pagerduty.GetRuleset(ctx, &pagerduty.LookupRulesetArgs{
 //				Name: "My Ruleset",
 //			}, nil)
 //			if err != nil {
@@ -108,7 +108,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pagerduty.LookupRuleset(ctx, &pagerduty.LookupRulesetArgs{
+//			_, err := pagerduty.GetRuleset(ctx, &pagerduty.LookupRulesetArgs{
 //				Name: "Default Global",
 //			}, nil)
 //			if err != nil {

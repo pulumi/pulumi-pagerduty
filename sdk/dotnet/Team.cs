@@ -24,13 +24,13 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var parent = new Pagerduty.Team("parent", new()
+    ///     var parent = new Pagerduty.Index.Team("parent", new()
     ///     {
     ///         Name = "Product Development",
     ///         Description = "Product and Engineering",
     ///     });
     /// 
-    ///     var example = new Pagerduty.Team("example", new()
+    ///     var example = new Pagerduty.Index.Team("example", new()
     ///     {
     ///         Name = "Engineering",
     ///         Description = "All engineering",

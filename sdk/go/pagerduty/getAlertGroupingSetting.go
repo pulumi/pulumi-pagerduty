@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pagerduty.LookupAlertGroupingSetting(ctx, &pagerduty.LookupAlertGroupingSettingArgs{
+//			_, err := pagerduty.GetAlertGroupingSetting(ctx, &pagerduty.LookupAlertGroupingSettingArgs{
 //				Name: "My example setting",
 //			}, nil)
 //			if err != nil {

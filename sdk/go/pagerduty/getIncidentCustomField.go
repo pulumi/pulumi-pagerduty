@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			environment, err := pagerduty.LookupIncidentCustomField(ctx, &pagerduty.LookupIncidentCustomFieldArgs{
+//			environment, err := pagerduty.GetIncidentCustomField(ctx, &pagerduty.LookupIncidentCustomFieldArgs{
 //				Name: "environment",
 //			}, nil)
 //			if err != nil {

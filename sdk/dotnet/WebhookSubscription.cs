@@ -22,12 +22,12 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = Pagerduty.GetService.Invoke(new()
+    ///     var example = Pagerduty.Index.GetService.Invoke(new()
     ///     {
     ///         Name = "My Service",
     ///     });
     /// 
-    ///     var foo = new Pagerduty.WebhookSubscription("foo", new()
+    ///     var foo = new Pagerduty.Index.WebhookSubscription("foo", new()
     ///     {
     ///         DeliveryMethods = new[]
     ///         {

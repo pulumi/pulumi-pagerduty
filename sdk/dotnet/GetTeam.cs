@@ -24,17 +24,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var me = Pagerduty.GetUser.Invoke(new()
+        ///     var me = Pagerduty.Index.GetUser.Invoke(new()
         ///     {
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var devops = Pagerduty.GetTeam.Invoke(new()
+        ///     var devops = Pagerduty.Index.GetTeam.Invoke(new()
         ///     {
         ///         Name = "devops",
         ///     });
         /// 
-        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     var foo = new Pagerduty.Index.EscalationPolicy("foo", new()
         ///     {
         ///         Name = "DevOps Escalation Policy",
         ///         NumLoops = 2,
@@ -75,17 +75,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var me = Pagerduty.GetUser.Invoke(new()
+        ///     var me = Pagerduty.Index.GetUser.Invoke(new()
         ///     {
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var devops = Pagerduty.GetTeam.Invoke(new()
+        ///     var devops = Pagerduty.Index.GetTeam.Invoke(new()
         ///     {
         ///         Name = "devops",
         ///     });
         /// 
-        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     var foo = new Pagerduty.Index.EscalationPolicy("foo", new()
         ///     {
         ///         Name = "DevOps Escalation Policy",
         ///         NumLoops = 2,
@@ -126,17 +126,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var me = Pagerduty.GetUser.Invoke(new()
+        ///     var me = Pagerduty.Index.GetUser.Invoke(new()
         ///     {
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var devops = Pagerduty.GetTeam.Invoke(new()
+        ///     var devops = Pagerduty.Index.GetTeam.Invoke(new()
         ///     {
         ///         Name = "devops",
         ///     });
         /// 
-        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     var foo = new Pagerduty.Index.EscalationPolicy("foo", new()
         ///     {
         ///         Name = "DevOps Escalation Policy",
         ///         NumLoops = 2,

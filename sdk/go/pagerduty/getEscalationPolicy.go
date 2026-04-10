@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
+//			test, err := pagerduty.GetEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
 //				Name: "Engineering Escalation Policy",
 //			}, nil)
 //			if err != nil {

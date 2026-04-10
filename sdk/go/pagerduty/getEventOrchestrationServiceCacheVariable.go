@@ -71,7 +71,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_ = pagerduty.LookupEventOrchestrationServiceCacheVariableOutput(ctx, pagerduty.GetEventOrchestrationServiceCacheVariableOutputArgs{
+//			_ = pagerduty.GetEventOrchestrationServiceCacheVariableOutput(ctx, pagerduty.GetEventOrchestrationServiceCacheVariableOutputArgs{
 //				Service: service.ID(),
 //				Name:    pulumi.String("example_cache_variable"),
 //			}, nil)

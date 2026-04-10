@@ -26,13 +26,13 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := pagerduty.LookupTeam(ctx, &pagerduty.LookupTeamArgs{
+// _, err := pagerduty.GetTeam(ctx, &pagerduty.LookupTeamArgs{
 // Name: "devops",
 // }, nil);
 // if err != nil {
 // return err
 // }
-// _, err = pagerduty.LookupUser(ctx, &pagerduty.LookupUserArgs{
+// _, err = pagerduty.GetUser(ctx, &pagerduty.LookupUserArgs{
 // Email: "me@example.com",
 // }, nil);
 // if err != nil {

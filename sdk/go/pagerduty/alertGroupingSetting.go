@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
+//			_default, err := pagerduty.GetEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
 //				Name: "Default",
 //			}, nil)
 //			if err != nil {
@@ -94,7 +94,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
+//			_default, err := pagerduty.GetEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
 //				Name: "Default",
 //			}, nil)
 //			if err != nil {
@@ -132,7 +132,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
+//			_default, err := pagerduty.GetEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
 //				Name: "Default",
 //			}, nil)
 //			if err != nil {

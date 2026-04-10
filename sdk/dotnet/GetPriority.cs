@@ -24,17 +24,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var p1 = Pagerduty.GetPriority.Invoke(new()
+        ///     var p1 = Pagerduty.Index.GetPriority.Invoke(new()
         ///     {
         ///         Name = "P1",
         ///     });
         /// 
-        ///     var foo = new Pagerduty.Ruleset("foo", new()
+        ///     var foo = new Pagerduty.Index.Ruleset("foo", new()
         ///     {
         ///         Name = "Primary Ruleset",
         ///     });
         /// 
-        ///     var fooRulesetRule = new Pagerduty.RulesetRule("foo", new()
+        ///     var fooRulesetRule = new Pagerduty.Index.RulesetRule("foo", new()
         ///     {
         ///         Ruleset = foo.Id,
         ///         Position = 0,
@@ -108,17 +108,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var p1 = Pagerduty.GetPriority.Invoke(new()
+        ///     var p1 = Pagerduty.Index.GetPriority.Invoke(new()
         ///     {
         ///         Name = "P1",
         ///     });
         /// 
-        ///     var foo = new Pagerduty.Ruleset("foo", new()
+        ///     var foo = new Pagerduty.Index.Ruleset("foo", new()
         ///     {
         ///         Name = "Primary Ruleset",
         ///     });
         /// 
-        ///     var fooRulesetRule = new Pagerduty.RulesetRule("foo", new()
+        ///     var fooRulesetRule = new Pagerduty.Index.RulesetRule("foo", new()
         ///     {
         ///         Ruleset = foo.Id,
         ///         Position = 0,
@@ -192,17 +192,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var p1 = Pagerduty.GetPriority.Invoke(new()
+        ///     var p1 = Pagerduty.Index.GetPriority.Invoke(new()
         ///     {
         ///         Name = "P1",
         ///     });
         /// 
-        ///     var foo = new Pagerduty.Ruleset("foo", new()
+        ///     var foo = new Pagerduty.Index.Ruleset("foo", new()
         ///     {
         ///         Name = "Primary Ruleset",
         ///     });
         /// 
-        ///     var fooRulesetRule = new Pagerduty.RulesetRule("foo", new()
+        ///     var fooRulesetRule = new Pagerduty.Index.RulesetRule("foo", new()
         ///     {
         ///         Ruleset = foo.Id,
         ///         Position = 0,

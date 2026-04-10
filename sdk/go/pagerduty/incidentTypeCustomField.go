@@ -51,7 +51,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			foo, err := pagerduty.LookupIncidentType(ctx, &pagerduty.LookupIncidentTypeArgs{
+//			foo, err := pagerduty.GetIncidentType(ctx, &pagerduty.LookupIncidentTypeArgs{
 //				DisplayName: "Foo",
 //			}, nil)
 //			if err != nil {

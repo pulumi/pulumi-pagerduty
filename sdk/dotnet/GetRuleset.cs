@@ -39,12 +39,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.GetRuleset.Invoke(new()
+        ///     var example = Pagerduty.Index.GetRuleset.Invoke(new()
         ///     {
         ///         Name = "My Ruleset",
         ///     });
         /// 
-        ///     var foo = new Pagerduty.RulesetRule("foo", new()
+        ///     var foo = new Pagerduty.Index.RulesetRule("foo", new()
         ///     {
         ///         Ruleset = example.Apply(getRulesetResult =&gt; getRulesetResult.Id),
         ///         Position = 0,
@@ -105,7 +105,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var defaultGlobal = Pagerduty.GetRuleset.Invoke(new()
+        ///     var defaultGlobal = Pagerduty.Index.GetRuleset.Invoke(new()
         ///     {
         ///         Name = "Default Global",
         ///     });
@@ -144,12 +144,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.GetRuleset.Invoke(new()
+        ///     var example = Pagerduty.Index.GetRuleset.Invoke(new()
         ///     {
         ///         Name = "My Ruleset",
         ///     });
         /// 
-        ///     var foo = new Pagerduty.RulesetRule("foo", new()
+        ///     var foo = new Pagerduty.Index.RulesetRule("foo", new()
         ///     {
         ///         Ruleset = example.Apply(getRulesetResult =&gt; getRulesetResult.Id),
         ///         Position = 0,
@@ -210,7 +210,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var defaultGlobal = Pagerduty.GetRuleset.Invoke(new()
+        ///     var defaultGlobal = Pagerduty.Index.GetRuleset.Invoke(new()
         ///     {
         ///         Name = "Default Global",
         ///     });
@@ -249,12 +249,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.GetRuleset.Invoke(new()
+        ///     var example = Pagerduty.Index.GetRuleset.Invoke(new()
         ///     {
         ///         Name = "My Ruleset",
         ///     });
         /// 
-        ///     var foo = new Pagerduty.RulesetRule("foo", new()
+        ///     var foo = new Pagerduty.Index.RulesetRule("foo", new()
         ///     {
         ///         Ruleset = example.Apply(getRulesetResult =&gt; getRulesetResult.Id),
         ///         Position = 0,
@@ -315,7 +315,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var defaultGlobal = Pagerduty.GetRuleset.Invoke(new()
+        ///     var defaultGlobal = Pagerduty.Index.GetRuleset.Invoke(new()
         ///     {
         ///         Name = "Default Global",
         ///     });

@@ -22,18 +22,18 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Pagerduty.User("example", new()
+    ///     var example = new Pagerduty.Index.User("example", new()
     ///     {
     ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///     });
     /// 
-    ///     var exampleTeam = new Pagerduty.Team("example", new()
+    ///     var exampleTeam = new Pagerduty.Index.Team("example", new()
     ///     {
     ///         Name = "A Team",
     ///     });
     /// 
-    ///     var foo = new Pagerduty.Schedule("foo", new()
+    ///     var foo = new Pagerduty.Index.Schedule("foo", new()
     ///     {
     ///         Name = "Daily Engineering Rotation",
     ///         TimeZone = "America/New_York",

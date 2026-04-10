@@ -26,17 +26,17 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Pagerduty.Team("foo", new()
+    ///     var foo = new Pagerduty.Index.Team("foo", new()
     ///     {
     ///         Name = "Team Foo",
     ///     });
     /// 
-    ///     var p1 = Pagerduty.GetPriority.Invoke(new()
+    ///     var p1 = Pagerduty.Index.GetPriority.Invoke(new()
     ///     {
     ///         Name = "P1",
     ///     });
     /// 
-    ///     var fooSlackConnection = new Pagerduty.SlackConnection("foo", new()
+    ///     var fooSlackConnection = new Pagerduty.Index.SlackConnection("foo", new()
     ///     {
     ///         SourceId = foo.Id,
     ///         SourceType = "team_reference",

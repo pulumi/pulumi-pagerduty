@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Pagerduty.User("example", new()
+    ///     var example = new Pagerduty.Index.User("example", new()
     ///     {
     ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
@@ -32,7 +32,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+    ///     var foo = new Pagerduty.Index.EscalationPolicy("foo", new()
     ///     {
     ///         Name = "Engineering Escalation Policy",
     ///         NumLoops = 2,
@@ -53,7 +53,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var exampleService = new Pagerduty.Service("example", new()
+    ///     var exampleService = new Pagerduty.Index.Service("example", new()
     ///     {
     ///         Name = "My Web App",
     ///         AutoResolveTimeout = "14400",
@@ -61,21 +61,21 @@ namespace Pulumi.Pagerduty
     ///         EscalationPolicy = examplePagerdutyEscalationPolicy.Id,
     ///     });
     /// 
-    ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("example", new()
+    ///     var exampleServiceIntegration = new Pagerduty.Index.ServiceIntegration("example", new()
     ///     {
     ///         Name = "Generic API Service Integration",
     ///         Type = "generic_events_api_inbound_integration",
     ///         Service = exampleService.Id,
     ///     });
     /// 
-    ///     var apiv2 = new Pagerduty.ServiceIntegration("apiv2", new()
+    ///     var apiv2 = new Pagerduty.Index.ServiceIntegration("apiv2", new()
     ///     {
     ///         Name = "API V2",
     ///         Type = "events_api_v2_inbound_integration",
     ///         Service = exampleService.Id,
     ///     });
     /// 
-    ///     var emailX = new Pagerduty.ServiceIntegration("email_x", new()
+    ///     var emailX = new Pagerduty.Index.ServiceIntegration("email_x", new()
     ///     {
     ///         Name = "Email X",
     ///         Type = "generic_email_inbound_integration",
@@ -83,36 +83,36 @@ namespace Pulumi.Pagerduty
     ///         Service = exampleService.Id,
     ///     });
     /// 
-    ///     var datadog = Pagerduty.GetVendor.Invoke(new()
+    ///     var datadog = Pagerduty.Index.GetVendor.Invoke(new()
     ///     {
     ///         Name = "Datadog",
     ///     });
     /// 
-    ///     var datadogServiceIntegration = new Pagerduty.ServiceIntegration("datadog", new()
+    ///     var datadogServiceIntegration = new Pagerduty.Index.ServiceIntegration("datadog", new()
     ///     {
     ///         Name = datadog.Apply(getVendorResult =&gt; getVendorResult.Name),
     ///         Service = exampleService.Id,
     ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),
     ///     });
     /// 
-    ///     var cloudwatch = Pagerduty.GetVendor.Invoke(new()
+    ///     var cloudwatch = Pagerduty.Index.GetVendor.Invoke(new()
     ///     {
     ///         Name = "Cloudwatch",
     ///     });
     /// 
-    ///     var cloudwatchServiceIntegration = new Pagerduty.ServiceIntegration("cloudwatch", new()
+    ///     var cloudwatchServiceIntegration = new Pagerduty.Index.ServiceIntegration("cloudwatch", new()
     ///     {
     ///         Name = cloudwatch.Apply(getVendorResult =&gt; getVendorResult.Name),
     ///         Service = exampleService.Id,
     ///         Vendor = cloudwatch.Apply(getVendorResult =&gt; getVendorResult.Id),
     ///     });
     /// 
-    ///     var email = Pagerduty.GetVendor.Invoke(new()
+    ///     var email = Pagerduty.Index.GetVendor.Invoke(new()
     ///     {
     ///         Name = "Email",
     ///     });
     /// 
-    ///     var emailServiceIntegration = new Pagerduty.ServiceIntegration("email", new()
+    ///     var emailServiceIntegration = new Pagerduty.Index.ServiceIntegration("email", new()
     ///     {
     ///         Name = email.Apply(getVendorResult =&gt; getVendorResult.Name),
     ///         Service = exampleService.Id,

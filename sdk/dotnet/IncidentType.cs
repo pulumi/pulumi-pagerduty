@@ -30,12 +30,12 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @base = Pagerduty.GetIncidentType.Invoke(new()
+    ///     var @base = Pagerduty.Index.GetIncidentType.Invoke(new()
     ///     {
     ///         DisplayName = "Base Incident",
     ///     });
     /// 
-    ///     var example = new Pagerduty.IncidentType("example", new()
+    ///     var example = new Pagerduty.Index.IncidentType("example", new()
     ///     {
     ///         Name = "backoffice",
     ///         DisplayName = "Backoffice Incident",

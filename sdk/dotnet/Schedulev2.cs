@@ -26,13 +26,13 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Pagerduty.User("example", new()
+    ///     var example = new Pagerduty.Index.User("example", new()
     ///     {
     ///         Name = "Earline Greenholt",
     ///         Email = "earline@example.com",
     ///     });
     /// 
-    ///     var exampleSchedulev2 = new Pagerduty.Schedulev2("example", new()
+    ///     var exampleSchedulev2 = new Pagerduty.Index.Schedulev2("example", new()
     ///     {
     ///         Name = "Engineering On-Call",
     ///         TimeZone = "America/New_York",
@@ -88,19 +88,19 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Pagerduty.User("primary", new()
+    ///     var primary = new Pagerduty.Index.User("primary", new()
     ///     {
     ///         Name = "Alice",
     ///         Email = "alice@example.com",
     ///     });
     /// 
-    ///     var secondary = new Pagerduty.User("secondary", new()
+    ///     var secondary = new Pagerduty.Index.User("secondary", new()
     ///     {
     ///         Name = "Bob",
     ///         Email = "bob@example.com",
     ///     });
     /// 
-    ///     var allHands = new Pagerduty.Schedulev2("all_hands", new()
+    ///     var allHands = new Pagerduty.Index.Schedulev2("all_hands", new()
     ///     {
     ///         Name = "Weekend All-Hands On-Call",
     ///         TimeZone = "UTC",

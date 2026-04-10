@@ -22,13 +22,13 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Pagerduty.User("example", new()
+    ///     var example = new Pagerduty.Index.User("example", new()
     ///     {
     ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///     });
     /// 
-    ///     var email = new Pagerduty.UserContactMethod("email", new()
+    ///     var email = new Pagerduty.Index.UserContactMethod("email", new()
     ///     {
     ///         UserId = example.Id,
     ///         Type = "email_contact_method",
@@ -36,7 +36,7 @@ namespace Pulumi.Pagerduty
     ///         Label = "Work",
     ///     });
     /// 
-    ///     var phone = new Pagerduty.UserContactMethod("phone", new()
+    ///     var phone = new Pagerduty.Index.UserContactMethod("phone", new()
     ///     {
     ///         UserId = example.Id,
     ///         Type = "phone_contact_method",
@@ -45,7 +45,7 @@ namespace Pulumi.Pagerduty
     ///         Label = "Work",
     ///     });
     /// 
-    ///     var sms = new Pagerduty.UserContactMethod("sms", new()
+    ///     var sms = new Pagerduty.Index.UserContactMethod("sms", new()
     ///     {
     ///         UserId = example.Id,
     ///         Type = "sms_contact_method",
@@ -54,7 +54,7 @@ namespace Pulumi.Pagerduty
     ///         Label = "Work",
     ///     });
     /// 
-    ///     var highUrgencyPhone = new Pagerduty.UserNotificationRule("high_urgency_phone", new()
+    ///     var highUrgencyPhone = new Pagerduty.Index.UserNotificationRule("high_urgency_phone", new()
     ///     {
     ///         UserId = example.Id,
     ///         StartDelayInMinutes = 1,
@@ -66,7 +66,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var lowUrgencyEmail = new Pagerduty.UserNotificationRule("low_urgency_email", new()
+    ///     var lowUrgencyEmail = new Pagerduty.Index.UserNotificationRule("low_urgency_email", new()
     ///     {
     ///         UserId = example.Id,
     ///         StartDelayInMinutes = 1,
@@ -78,7 +78,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var lowUrgencySms = new Pagerduty.UserNotificationRule("low_urgency_sms", new()
+    ///     var lowUrgencySms = new Pagerduty.Index.UserNotificationRule("low_urgency_sms", new()
     ///     {
     ///         UserId = example.Id,
     ///         StartDelayInMinutes = 10,

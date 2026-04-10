@@ -24,17 +24,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var myWorkflow = Pagerduty.GetIncidentWorkflow.Invoke(new()
+        ///     var myWorkflow = Pagerduty.Index.GetIncidentWorkflow.Invoke(new()
         ///     {
         ///         Name = "Some Workflow Name",
         ///     });
         /// 
-        ///     var firstService = Pagerduty.GetService.Invoke(new()
+        ///     var firstService = Pagerduty.Index.GetService.Invoke(new()
         ///     {
         ///         Name = "My First Service",
         ///     });
         /// 
-        ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automatic_trigger", new()
+        ///     var automaticTrigger = new Pagerduty.Index.IncidentWorkflowTrigger("automatic_trigger", new()
         ///     {
         ///         Type = "conditional",
         ///         Workflow = myWorkflow.Apply(getIncidentWorkflowResult =&gt; getIncidentWorkflowResult.Id),
@@ -64,17 +64,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var myWorkflow = Pagerduty.GetIncidentWorkflow.Invoke(new()
+        ///     var myWorkflow = Pagerduty.Index.GetIncidentWorkflow.Invoke(new()
         ///     {
         ///         Name = "Some Workflow Name",
         ///     });
         /// 
-        ///     var firstService = Pagerduty.GetService.Invoke(new()
+        ///     var firstService = Pagerduty.Index.GetService.Invoke(new()
         ///     {
         ///         Name = "My First Service",
         ///     });
         /// 
-        ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automatic_trigger", new()
+        ///     var automaticTrigger = new Pagerduty.Index.IncidentWorkflowTrigger("automatic_trigger", new()
         ///     {
         ///         Type = "conditional",
         ///         Workflow = myWorkflow.Apply(getIncidentWorkflowResult =&gt; getIncidentWorkflowResult.Id),
@@ -104,17 +104,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var myWorkflow = Pagerduty.GetIncidentWorkflow.Invoke(new()
+        ///     var myWorkflow = Pagerduty.Index.GetIncidentWorkflow.Invoke(new()
         ///     {
         ///         Name = "Some Workflow Name",
         ///     });
         /// 
-        ///     var firstService = Pagerduty.GetService.Invoke(new()
+        ///     var firstService = Pagerduty.Index.GetService.Invoke(new()
         ///     {
         ///         Name = "My First Service",
         ///     });
         /// 
-        ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automatic_trigger", new()
+        ///     var automaticTrigger = new Pagerduty.Index.IncidentWorkflowTrigger("automatic_trigger", new()
         ///     {
         ///         Type = "conditional",
         ///         Workflow = myWorkflow.Apply(getIncidentWorkflowResult =&gt; getIncidentWorkflowResult.Id),

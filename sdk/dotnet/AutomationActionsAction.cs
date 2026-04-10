@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var paActionExample = new Pagerduty.AutomationActionsAction("pa_action_example", new()
+    ///     var paActionExample = new Pagerduty.Index.AutomationActionsAction("pa_action_example", new()
     ///     {
     ///         Name = "PA Action created via TF",
     ///         Description = "Description of the PA Action created via TF",
@@ -33,7 +33,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var scriptActionExample = new Pagerduty.AutomationActionsAction("script_action_example", new()
+    ///     var scriptActionExample = new Pagerduty.Index.AutomationActionsAction("script_action_example", new()
     ///     {
     ///         Name = "Script Action created via TF",
     ///         Description = "Description of the Script Action created via TF",

@@ -22,13 +22,13 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var teamEntEng = new Pagerduty.Team("team_ent_eng", new()
+    ///     var teamEntEng = new Pagerduty.Index.Team("team_ent_eng", new()
     ///     {
     ///         Name = "Enterprise Engineering",
     ///         Description = "Enterprise engineering",
     ///     });
     /// 
-    ///     var paRunbookRunner = new Pagerduty.AutomationActionsRunner("pa_runbook_runner", new()
+    ///     var paRunbookRunner = new Pagerduty.Index.AutomationActionsRunner("pa_runbook_runner", new()
     ///     {
     ///         Name = "Runner created via TF",
     ///         Description = "Description of the Runner created via TF",
@@ -37,7 +37,7 @@ namespace Pulumi.Pagerduty
     ///         RunbookApiKey = "cat-secret",
     ///     });
     /// 
-    ///     var paRunnerEntEngAssoc = new Pagerduty.AutomationActionsRunnerTeamAssociation("pa_runner_ent_eng_assoc", new()
+    ///     var paRunnerEntEngAssoc = new Pagerduty.Index.AutomationActionsRunnerTeamAssociation("pa_runner_ent_eng_assoc", new()
     ///     {
     ///         RunnerId = paRunbookRunner.Id,
     ///         TeamId = teamEntEng.Id,

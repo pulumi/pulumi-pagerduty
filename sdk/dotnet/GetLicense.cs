@@ -31,13 +31,13 @@ namespace Pulumi.Pagerduty
         ///         "owner",
         ///     };
         /// 
-        ///     var fullUser = Pagerduty.GetLicense.Invoke(new()
+        ///     var fullUser = Pagerduty.Index.GetLicense.Invoke(new()
         ///     {
         ///         Name = "Full User",
         ///         Description = "",
         ///     });
         /// 
-        ///     var example = new Pagerduty.User("example", new()
+        ///     var example = new Pagerduty.Index.User("example", new()
         ///     {
         ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",
@@ -71,13 +71,13 @@ namespace Pulumi.Pagerduty
         ///         "owner",
         ///     };
         /// 
-        ///     var fullUser = Pagerduty.GetLicense.Invoke(new()
+        ///     var fullUser = Pagerduty.Index.GetLicense.Invoke(new()
         ///     {
         ///         Name = "Full User",
         ///         Description = "",
         ///     });
         /// 
-        ///     var example = new Pagerduty.User("example", new()
+        ///     var example = new Pagerduty.Index.User("example", new()
         ///     {
         ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",
@@ -111,13 +111,13 @@ namespace Pulumi.Pagerduty
         ///         "owner",
         ///     };
         /// 
-        ///     var fullUser = Pagerduty.GetLicense.Invoke(new()
+        ///     var fullUser = Pagerduty.Index.GetLicense.Invoke(new()
         ///     {
         ///         Name = "Full User",
         ///         Description = "",
         ///     });
         /// 
-        ///     var example = new Pagerduty.User("example", new()
+        ///     var example = new Pagerduty.Index.User("example", new()
         ///     {
         ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",

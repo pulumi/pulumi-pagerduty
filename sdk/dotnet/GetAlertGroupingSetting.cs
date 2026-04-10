@@ -24,7 +24,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.GetAlertGroupingSetting.Invoke(new()
+        ///     var example = Pagerduty.Index.GetAlertGroupingSetting.Invoke(new()
         ///     {
         ///         Name = "My example setting",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.GetAlertGroupingSetting.Invoke(new()
+        ///     var example = Pagerduty.Index.GetAlertGroupingSetting.Invoke(new()
         ///     {
         ///         Name = "My example setting",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.GetAlertGroupingSetting.Invoke(new()
+        ///     var example = Pagerduty.Index.GetAlertGroupingSetting.Invoke(new()
         ///     {
         ///         Name = "My example setting",
         ///     });

@@ -24,12 +24,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
+        ///     var eventOrchestration = new Pagerduty.Index.EventOrchestration("event_orchestration", new()
         ///     {
         ///         Name = "Test Event Orchestration",
         ///     });
         /// 
-        ///     var integration = Pagerduty.GetEventOrchestrationIntegration.Invoke(new()
+        ///     var integration = Pagerduty.Index.GetEventOrchestrationIntegration.Invoke(new()
         ///     {
         ///         EventOrchestration = eventOrchestration.Id,
         ///         Label = "Test Event Orchestration Default Integration",
@@ -54,12 +54,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
+        ///     var eventOrchestration = new Pagerduty.Index.EventOrchestration("event_orchestration", new()
         ///     {
         ///         Name = "Test Event Orchestration",
         ///     });
         /// 
-        ///     var integration = Pagerduty.GetEventOrchestrationIntegration.Invoke(new()
+        ///     var integration = Pagerduty.Index.GetEventOrchestrationIntegration.Invoke(new()
         ///     {
         ///         EventOrchestration = eventOrchestration.Id,
         ///         Label = "Test Event Orchestration Default Integration",
@@ -84,12 +84,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
+        ///     var eventOrchestration = new Pagerduty.Index.EventOrchestration("event_orchestration", new()
         ///     {
         ///         Name = "Test Event Orchestration",
         ///     });
         /// 
-        ///     var integration = Pagerduty.GetEventOrchestrationIntegration.Invoke(new()
+        ///     var integration = Pagerduty.Index.GetEventOrchestrationIntegration.Invoke(new()
         ///     {
         ///         EventOrchestration = eventOrchestration.Id,
         ///         Label = "Test Event Orchestration Default Integration",

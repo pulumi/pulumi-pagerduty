@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Pagerduty.BusinessService("example", new()
+    ///     var example = new Pagerduty.Index.BusinessService("example", new()
     ///     {
     ///         Name = "My Web App",
     ///         Description = "A very descriptive description of this business service",

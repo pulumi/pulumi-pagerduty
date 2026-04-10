@@ -29,7 +29,7 @@ namespace Pulumi.Pagerduty
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // First, create service custom fields
-    ///     var environment = new Pagerduty.ServiceCustomField("environment", new()
+    ///     var environment = new Pagerduty.Index.ServiceCustomField("environment", new()
     ///     {
     ///         Name = "environment",
     ///         DisplayName = "Environment",
@@ -38,7 +38,7 @@ namespace Pulumi.Pagerduty
     ///         Description = "The environment this service runs in",
     ///     });
     /// 
-    ///     var isCritical = new Pagerduty.ServiceCustomField("is_critical", new()
+    ///     var isCritical = new Pagerduty.Index.ServiceCustomField("is_critical", new()
     ///     {
     ///         Name = "is_critical",
     ///         DisplayName = "Is Critical",
@@ -47,7 +47,7 @@ namespace Pulumi.Pagerduty
     ///         Description = "Whether this service is critical",
     ///     });
     /// 
-    ///     var regions = new Pagerduty.ServiceCustomField("regions", new()
+    ///     var regions = new Pagerduty.Index.ServiceCustomField("regions", new()
     ///     {
     ///         Name = "regions",
     ///         DisplayName = "AWS Regions",
@@ -75,7 +75,7 @@ namespace Pulumi.Pagerduty
     ///     });
     /// 
     ///     // Create a service
-    ///     var example = new Pagerduty.Service("example", new()
+    ///     var example = new Pagerduty.Index.Service("example", new()
     ///     {
     ///         Name = "Example Service",
     ///         AutoResolveTimeout = "14400",
@@ -84,7 +84,7 @@ namespace Pulumi.Pagerduty
     ///     });
     /// 
     ///     // Set custom field values on the service
-    ///     var exampleServiceCustomFieldValue = new Pagerduty.ServiceCustomFieldValue("example", new()
+    ///     var exampleServiceCustomFieldValue = new Pagerduty.Index.ServiceCustomFieldValue("example", new()
     ///     {
     ///         ServiceId = example.Id,
     ///         CustomFields = new[]

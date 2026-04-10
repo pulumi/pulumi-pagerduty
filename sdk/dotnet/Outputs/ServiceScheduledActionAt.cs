@@ -28,7 +28,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = new Pagerduty.Service("foo", new()
+        ///     var foo = new Pagerduty.Index.Service("foo", new()
         ///     {
         ///         Name = "bar",
         ///         Description = "bar bar bar",

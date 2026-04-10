@@ -24,10 +24,10 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var allTeams = Pagerduty.GetTeams.Invoke();
+        ///     var allTeams = Pagerduty.Index.GetTeams.Invoke();
         /// 
         ///     // Fetch only teams whose name matches "devops"
-        ///     var devops = Pagerduty.GetTeams.Invoke(new()
+        ///     var devops = Pagerduty.Index.GetTeams.Invoke(new()
         ///     {
         ///         Query = "devops",
         ///     });
@@ -51,10 +51,10 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var allTeams = Pagerduty.GetTeams.Invoke();
+        ///     var allTeams = Pagerduty.Index.GetTeams.Invoke();
         /// 
         ///     // Fetch only teams whose name matches "devops"
-        ///     var devops = Pagerduty.GetTeams.Invoke(new()
+        ///     var devops = Pagerduty.Index.GetTeams.Invoke(new()
         ///     {
         ///         Query = "devops",
         ///     });
@@ -78,10 +78,10 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var allTeams = Pagerduty.GetTeams.Invoke();
+        ///     var allTeams = Pagerduty.Index.GetTeams.Invoke();
         /// 
         ///     // Fetch only teams whose name matches "devops"
-        ///     var devops = Pagerduty.GetTeams.Invoke(new()
+        ///     var devops = Pagerduty.Index.GetTeams.Invoke(new()
         ///     {
         ///         Query = "devops",
         ///     });

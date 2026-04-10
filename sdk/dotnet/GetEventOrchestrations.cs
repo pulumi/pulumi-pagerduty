@@ -24,22 +24,22 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tfOrchA = new Pagerduty.EventOrchestration("tf_orch_a", new()
+        ///     var tfOrchA = new Pagerduty.Index.EventOrchestration("tf_orch_a", new()
         ///     {
         ///         Name = "Test Event A Orchestration",
         ///     });
         /// 
-        ///     var tfOrchB = new Pagerduty.EventOrchestration("tf_orch_b", new()
+        ///     var tfOrchB = new Pagerduty.Index.EventOrchestration("tf_orch_b", new()
         ///     {
         ///         Name = "Test Event B Orchestration",
         ///     });
         /// 
-        ///     var tfMyMonitor = Pagerduty.GetEventOrchestrations.Invoke(new()
+        ///     var tfMyMonitor = Pagerduty.Index.GetEventOrchestrations.Invoke(new()
         ///     {
         ///         NameFilter = ".*Orchestration$",
         ///     });
         /// 
-        ///     var cacheVar = new Pagerduty.EventOrchestrationGlobalCacheVariable("cache_var", new()
+        ///     var cacheVar = new Pagerduty.Index.EventOrchestrationGlobalCacheVariable("cache_var", new()
         ///     {
         ///         EventOrchestration = tfMyMonitor.Apply(getEventOrchestrationsResult =&gt; getEventOrchestrationsResult.EventOrchestrations[0]?.Id),
         ///         Name = "recent_host",
@@ -77,22 +77,22 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tfOrchA = new Pagerduty.EventOrchestration("tf_orch_a", new()
+        ///     var tfOrchA = new Pagerduty.Index.EventOrchestration("tf_orch_a", new()
         ///     {
         ///         Name = "Test Event A Orchestration",
         ///     });
         /// 
-        ///     var tfOrchB = new Pagerduty.EventOrchestration("tf_orch_b", new()
+        ///     var tfOrchB = new Pagerduty.Index.EventOrchestration("tf_orch_b", new()
         ///     {
         ///         Name = "Test Event B Orchestration",
         ///     });
         /// 
-        ///     var tfMyMonitor = Pagerduty.GetEventOrchestrations.Invoke(new()
+        ///     var tfMyMonitor = Pagerduty.Index.GetEventOrchestrations.Invoke(new()
         ///     {
         ///         NameFilter = ".*Orchestration$",
         ///     });
         /// 
-        ///     var cacheVar = new Pagerduty.EventOrchestrationGlobalCacheVariable("cache_var", new()
+        ///     var cacheVar = new Pagerduty.Index.EventOrchestrationGlobalCacheVariable("cache_var", new()
         ///     {
         ///         EventOrchestration = tfMyMonitor.Apply(getEventOrchestrationsResult =&gt; getEventOrchestrationsResult.EventOrchestrations[0]?.Id),
         ///         Name = "recent_host",
@@ -130,22 +130,22 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tfOrchA = new Pagerduty.EventOrchestration("tf_orch_a", new()
+        ///     var tfOrchA = new Pagerduty.Index.EventOrchestration("tf_orch_a", new()
         ///     {
         ///         Name = "Test Event A Orchestration",
         ///     });
         /// 
-        ///     var tfOrchB = new Pagerduty.EventOrchestration("tf_orch_b", new()
+        ///     var tfOrchB = new Pagerduty.Index.EventOrchestration("tf_orch_b", new()
         ///     {
         ///         Name = "Test Event B Orchestration",
         ///     });
         /// 
-        ///     var tfMyMonitor = Pagerduty.GetEventOrchestrations.Invoke(new()
+        ///     var tfMyMonitor = Pagerduty.Index.GetEventOrchestrations.Invoke(new()
         ///     {
         ///         NameFilter = ".*Orchestration$",
         ///     });
         /// 
-        ///     var cacheVar = new Pagerduty.EventOrchestrationGlobalCacheVariable("cache_var", new()
+        ///     var cacheVar = new Pagerduty.Index.EventOrchestrationGlobalCacheVariable("cache_var", new()
         ///     {
         ///         EventOrchestration = tfMyMonitor.Apply(getEventOrchestrationsResult =&gt; getEventOrchestrationsResult.EventOrchestrations[0]?.Id),
         ///         Name = "recent_host",

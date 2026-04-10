@@ -38,7 +38,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Pagerduty.User("example", new()
+    ///     var example = new Pagerduty.Index.User("example", new()
     ///     {
     ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
@@ -48,7 +48,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("example", new()
+    ///     var exampleEscalationPolicy = new Pagerduty.Index.EscalationPolicy("example", new()
     ///     {
     ///         Name = "Engineering Escalation Policy",
     ///         NumLoops = 2,
@@ -69,7 +69,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var exampleResponsePlay = new Pagerduty.ResponsePlay("example", new()
+    ///     var exampleResponsePlay = new Pagerduty.Index.ResponsePlay("example", new()
     ///     {
     ///         Name = "My Response Play",
     ///         From = example.Email,

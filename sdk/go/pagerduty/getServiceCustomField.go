@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pagerduty.LookupServiceCustomField(ctx, &pagerduty.LookupServiceCustomFieldArgs{
+//			_, err := pagerduty.GetServiceCustomField(ctx, &pagerduty.LookupServiceCustomFieldArgs{
 //				DisplayName: "AWS Regions",
 //			}, nil)
 //			if err != nil {

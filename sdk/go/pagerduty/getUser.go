@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			me, err := pagerduty.LookupUser(ctx, &pagerduty.LookupUserArgs{
+//			me, err := pagerduty.GetUser(ctx, &pagerduty.LookupUserArgs{
 //				Email: "me@example.com",
 //			}, nil)
 //			if err != nil {

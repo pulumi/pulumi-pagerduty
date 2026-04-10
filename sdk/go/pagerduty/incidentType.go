@@ -38,7 +38,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			base, err := pagerduty.LookupIncidentType(ctx, &pagerduty.LookupIncidentTypeArgs{
+//			base, err := pagerduty.GetIncidentType(ctx, &pagerduty.LookupIncidentTypeArgs{
 //				DisplayName: "Base Incident",
 //			}, nil)
 //			if err != nil {

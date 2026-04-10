@@ -24,12 +24,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var environment = Pagerduty.GetIncidentCustomField.Invoke(new()
+        ///     var environment = Pagerduty.Index.GetIncidentCustomField.Invoke(new()
         ///     {
         ///         Name = "environment",
         ///     });
         /// 
-        ///     var devEnvironment = new Pagerduty.IncidentCustomFieldOption("dev_environment", new()
+        ///     var devEnvironment = new Pagerduty.Index.IncidentCustomFieldOption("dev_environment", new()
         ///     {
         ///         Field = environment.Apply(getIncidentCustomFieldResult =&gt; getIncidentCustomFieldResult.Id),
         ///         Datatype = "string",
@@ -55,12 +55,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var environment = Pagerduty.GetIncidentCustomField.Invoke(new()
+        ///     var environment = Pagerduty.Index.GetIncidentCustomField.Invoke(new()
         ///     {
         ///         Name = "environment",
         ///     });
         /// 
-        ///     var devEnvironment = new Pagerduty.IncidentCustomFieldOption("dev_environment", new()
+        ///     var devEnvironment = new Pagerduty.Index.IncidentCustomFieldOption("dev_environment", new()
         ///     {
         ///         Field = environment.Apply(getIncidentCustomFieldResult =&gt; getIncidentCustomFieldResult.Id),
         ///         Datatype = "string",
@@ -86,12 +86,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var environment = Pagerduty.GetIncidentCustomField.Invoke(new()
+        ///     var environment = Pagerduty.Index.GetIncidentCustomField.Invoke(new()
         ///     {
         ///         Name = "environment",
         ///     });
         /// 
-        ///     var devEnvironment = new Pagerduty.IncidentCustomFieldOption("dev_environment", new()
+        ///     var devEnvironment = new Pagerduty.Index.IncidentCustomFieldOption("dev_environment", new()
         ///     {
         ///         Field = environment.Apply(getIncidentCustomFieldResult =&gt; getIncidentCustomFieldResult.Id),
         ///         Datatype = "string",

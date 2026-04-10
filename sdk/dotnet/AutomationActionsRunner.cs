@@ -26,7 +26,7 @@ namespace Pulumi.Pagerduty
     /// {
     ///     var config = new Config();
     ///     var RUNBOOK_API_KEY = config.Require("RUNBOOK_API_KEY");
-    ///     var example = new Pagerduty.AutomationActionsRunner("example", new()
+    ///     var example = new Pagerduty.Index.AutomationActionsRunner("example", new()
     ///     {
     ///         Name = "Runner created via TF",
     ///         Description = "Description of the Runner created via TF",

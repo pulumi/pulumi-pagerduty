@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myFirstWorkflow = new Pagerduty.IncidentWorkflow("my_first_workflow", new()
+    ///     var myFirstWorkflow = new Pagerduty.Index.IncidentWorkflow("my_first_workflow", new()
     ///     {
     ///         Name = "Example Incident Workflow",
     ///         Description = "This Incident Workflow is an example",
@@ -44,12 +44,12 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var firstService = Pagerduty.GetService.Invoke(new()
+    ///     var firstService = Pagerduty.Index.GetService.Invoke(new()
     ///     {
     ///         Name = "My First Service",
     ///     });
     /// 
-    ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automatic_trigger", new()
+    ///     var automaticTrigger = new Pagerduty.Index.IncidentWorkflowTrigger("automatic_trigger", new()
     ///     {
     ///         Type = "conditional",
     ///         Workflow = myFirstWorkflow.Id,
@@ -61,12 +61,12 @@ namespace Pulumi.Pagerduty
     ///         SubscribedToAllServices = false,
     ///     });
     /// 
-    ///     var devops = Pagerduty.GetTeam.Invoke(new()
+    ///     var devops = Pagerduty.Index.GetTeam.Invoke(new()
     ///     {
     ///         Name = "devops",
     ///     });
     /// 
-    ///     var manualTrigger = new Pagerduty.IncidentWorkflowTrigger("manual_trigger", new()
+    ///     var manualTrigger = new Pagerduty.Index.IncidentWorkflowTrigger("manual_trigger", new()
     ///     {
     ///         Type = "manual",
     ///         Workflow = myFirstWorkflow.Id,

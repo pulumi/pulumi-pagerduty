@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Pagerduty.Tag("example", new()
+    ///     var example = new Pagerduty.Index.Tag("example", new()
     ///     {
     ///         Label = "Product",
     ///     });

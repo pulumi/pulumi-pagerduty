@@ -27,13 +27,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myWorkflow, err := pagerduty.LookupIncidentWorkflow(ctx, &pagerduty.LookupIncidentWorkflowArgs{
+//			myWorkflow, err := pagerduty.GetIncidentWorkflow(ctx, &pagerduty.LookupIncidentWorkflowArgs{
 //				Name: "Some Workflow Name",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			firstService, err := pagerduty.LookupService(ctx, &pagerduty.LookupServiceArgs{
+//			firstService, err := pagerduty.GetService(ctx, &pagerduty.LookupServiceArgs{
 //				Name: "My First Service",
 //			}, nil)
 //			if err != nil {

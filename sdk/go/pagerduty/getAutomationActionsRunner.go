@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pagerduty.LookupAutomationActionsRunner(ctx, &pagerduty.LookupAutomationActionsRunnerArgs{
+//			_, err := pagerduty.GetAutomationActionsRunner(ctx, &pagerduty.LookupAutomationActionsRunnerArgs{
 //				Id: "01DBJLIGED17S1DQKQC2AV8XYZ",
 //			}, nil)
 //			if err != nil {

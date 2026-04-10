@@ -106,21 +106,21 @@ using Pagerduty = Pulumi.Pagerduty;
 return await Deployment.RunAsync(() =>
 {
     // Create a PagerDuty team
-    var engineering = new Pagerduty.Team("engineering", new()
+    var engineering = new Pagerduty.Index.Team("engineering", new()
     {
         Name = "Engineering",
         Description = "All engineering",
     });
 
     // Create a PagerDuty user
-    var earline = new Pagerduty.User("earline", new()
+    var earline = new Pagerduty.Index.User("earline", new()
     {
         Name = "Earline Greenholt",
         Email = "125.greenholt.earline@graham.name",
     });
 
     // Create a team membership
-    var earlineEngineering = new Pagerduty.TeamMembership("earline_engineering", new()
+    var earlineEngineering = new Pagerduty.Index.TeamMembership("earline_engineering", new()
     {
         UserId = earline.Id,
         TeamId = engineering.Id,
@@ -371,21 +371,21 @@ using Pagerduty = Pulumi.Pagerduty;
 return await Deployment.RunAsync(() =>
 {
     // Create a PagerDuty team
-    var engineering = new Pagerduty.Team("engineering", new()
+    var engineering = new Pagerduty.Index.Team("engineering", new()
     {
         Name = "Engineering",
         Description = "All engineering",
     });
 
     // Create a PagerDuty user
-    var earline = new Pagerduty.User("earline", new()
+    var earline = new Pagerduty.Index.User("earline", new()
     {
         Name = "Earline Greenholt",
         Email = "125.greenholt.earline@graham.name",
     });
 
     // Create a team membership
-    var earlineEngineering = new Pagerduty.TeamMembership("earline_engineering", new()
+    var earlineEngineering = new Pagerduty.Index.TeamMembership("earline_engineering", new()
     {
         UserId = earline.Id,
         TeamId = engineering.Id,

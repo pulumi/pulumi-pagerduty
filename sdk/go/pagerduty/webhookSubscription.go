@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := pagerduty.LookupService(ctx, &pagerduty.LookupServiceArgs{
+//			example, err := pagerduty.GetService(ctx, &pagerduty.LookupServiceArgs{
 //				Name: "My Service",
 //			}, nil)
 //			if err != nil {

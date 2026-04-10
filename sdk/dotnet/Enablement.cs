@@ -22,12 +22,12 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = Pagerduty.GetService.Invoke(new()
+    ///     var example = Pagerduty.Index.GetService.Invoke(new()
     ///     {
     ///         Name = "My Web Service",
     ///     });
     /// 
-    ///     var exampleEnablement = new Pagerduty.Enablement("example", new()
+    ///     var exampleEnablement = new Pagerduty.Index.Enablement("example", new()
     ///     {
     ///         EntityType = "service",
     ///         EntityId = example.Apply(getServiceResult =&gt; getServiceResult.Id),

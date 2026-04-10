@@ -22,13 +22,13 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Pagerduty.User("example", new()
+    ///     var example = new Pagerduty.Index.User("example", new()
     ///     {
     ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///     });
     /// 
-    ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+    ///     var foo = new Pagerduty.Index.EscalationPolicy("foo", new()
     ///     {
     ///         Name = "Engineering Escalation Policy",
     ///         NumLoops = 2,
@@ -49,7 +49,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var exampleService = new Pagerduty.Service("example", new()
+    ///     var exampleService = new Pagerduty.Index.Service("example", new()
     ///     {
     ///         Name = "My Web App",
     ///         AutoResolveTimeout = "14400",

@@ -24,12 +24,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Pagerduty.GetEscalationPolicy.Invoke(new()
+        ///     var test = Pagerduty.Index.GetEscalationPolicy.Invoke(new()
         ///     {
         ///         Name = "Engineering Escalation Policy",
         ///     });
         /// 
-        ///     var testService = new Pagerduty.Service("test", new()
+        ///     var testService = new Pagerduty.Index.Service("test", new()
         ///     {
         ///         Name = "My Web App",
         ///         AutoResolveTimeout = "14400",
@@ -56,12 +56,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Pagerduty.GetEscalationPolicy.Invoke(new()
+        ///     var test = Pagerduty.Index.GetEscalationPolicy.Invoke(new()
         ///     {
         ///         Name = "Engineering Escalation Policy",
         ///     });
         /// 
-        ///     var testService = new Pagerduty.Service("test", new()
+        ///     var testService = new Pagerduty.Index.Service("test", new()
         ///     {
         ///         Name = "My Web App",
         ///         AutoResolveTimeout = "14400",
@@ -88,12 +88,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Pagerduty.GetEscalationPolicy.Invoke(new()
+        ///     var test = Pagerduty.Index.GetEscalationPolicy.Invoke(new()
         ///     {
         ///         Name = "Engineering Escalation Policy",
         ///     });
         /// 
-        ///     var testService = new Pagerduty.Service("test", new()
+        ///     var testService = new Pagerduty.Index.Service("test", new()
         ///     {
         ///         Name = "My Web App",
         ///         AutoResolveTimeout = "14400",

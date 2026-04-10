@@ -26,7 +26,7 @@ namespace Pulumi.Pagerduty
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Simple string field
-    ///     var environment = new Pagerduty.ServiceCustomField("environment", new()
+    ///     var environment = new Pagerduty.Index.ServiceCustomField("environment", new()
     ///     {
     ///         Name = "environment",
     ///         DisplayName = "Environment",
@@ -36,7 +36,7 @@ namespace Pulumi.Pagerduty
     ///     });
     /// 
     ///     // Field with fixed options
-    ///     var deploymentTier = new Pagerduty.ServiceCustomField("deployment_tier", new()
+    ///     var deploymentTier = new Pagerduty.Index.ServiceCustomField("deployment_tier", new()
     ///     {
     ///         Name = "deployment_tier",
     ///         DisplayName = "Deployment Tier",
@@ -64,7 +64,7 @@ namespace Pulumi.Pagerduty
     ///     });
     /// 
     ///     // Multi-value field with fixed options
-    ///     var regions = new Pagerduty.ServiceCustomField("regions", new()
+    ///     var regions = new Pagerduty.Index.ServiceCustomField("regions", new()
     ///     {
     ///         Name = "regions",
     ///         DisplayName = "AWS Regions",
@@ -87,7 +87,7 @@ namespace Pulumi.Pagerduty
     ///     });
     /// 
     ///     // Boolean field
-    ///     var critical = new Pagerduty.ServiceCustomField("critical", new()
+    ///     var critical = new Pagerduty.Index.ServiceCustomField("critical", new()
     ///     {
     ///         Name = "is_critical",
     ///         DisplayName = "Is Critical",
@@ -97,7 +97,7 @@ namespace Pulumi.Pagerduty
     ///     });
     /// 
     ///     // Integer field
-    ///     var priority = new Pagerduty.ServiceCustomField("priority", new()
+    ///     var priority = new Pagerduty.Index.ServiceCustomField("priority", new()
     ///     {
     ///         Name = "priority_level",
     ///         DisplayName = "Priority Level",

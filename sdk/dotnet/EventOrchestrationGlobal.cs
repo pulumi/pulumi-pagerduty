@@ -30,28 +30,28 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var databaseTeam = new Pagerduty.Team("database_team", new()
+    ///     var databaseTeam = new Pagerduty.Index.Team("database_team", new()
     ///     {
     ///         Name = "Database Team",
     ///     });
     /// 
-    ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
+    ///     var eventOrchestration = new Pagerduty.Index.EventOrchestration("event_orchestration", new()
     ///     {
     ///         Name = "Example Orchestration",
     ///         Team = databaseTeam.Id,
     ///     });
     /// 
-    ///     var p1 = Pagerduty.GetPriority.Invoke(new()
+    ///     var p1 = Pagerduty.Index.GetPriority.Invoke(new()
     ///     {
     ///         Name = "P1",
     ///     });
     /// 
-    ///     var sreEscPolicy = Pagerduty.GetEscalationPolicy.Invoke(new()
+    ///     var sreEscPolicy = Pagerduty.Index.GetEscalationPolicy.Invoke(new()
     ///     {
     ///         Name = "SRE Escalation Policy",
     ///     });
     /// 
-    ///     var @global = new Pagerduty.EventOrchestrationGlobal("global", new()
+    ///     var @global = new Pagerduty.Index.EventOrchestrationGlobal("global", new()
     ///     {
     ///         EventOrchestration = eventOrchestration.Id,
     ///         Sets = new[]

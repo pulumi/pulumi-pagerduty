@@ -27,7 +27,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var unrouted = new Pagerduty.EventOrchestrationUnrouted("unrouted", new()
+    ///     var unrouted = new Pagerduty.Index.EventOrchestrationUnrouted("unrouted", new()
     ///     {
     ///         EventOrchestration = myMonitor.Id,
     ///         Sets = new[]

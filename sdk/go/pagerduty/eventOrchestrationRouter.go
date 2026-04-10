@@ -30,13 +30,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			database, err := pagerduty.LookupService(ctx, &pagerduty.LookupServiceArgs{
+//			database, err := pagerduty.GetService(ctx, &pagerduty.LookupServiceArgs{
 //				Name: "Primary Data Store",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			www, err := pagerduty.LookupService(ctx, &pagerduty.LookupServiceArgs{
+//			www, err := pagerduty.GetService(ctx, &pagerduty.LookupServiceArgs{
 //				Name: "Web Server App",
 //			}, nil)
 //			if err != nil {

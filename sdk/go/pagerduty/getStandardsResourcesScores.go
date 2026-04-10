@@ -27,19 +27,19 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// foo, err := pagerduty.LookupService(ctx, &pagerduty.LookupServiceArgs{
+// foo, err := pagerduty.GetService(ctx, &pagerduty.LookupServiceArgs{
 // Name: "foo",
 // }, nil);
 // if err != nil {
 // return err
 // }
-// bar, err := pagerduty.LookupService(ctx, &pagerduty.LookupServiceArgs{
+// bar, err := pagerduty.GetService(ctx, &pagerduty.LookupServiceArgs{
 // Name: "bar",
 // }, nil);
 // if err != nil {
 // return err
 // }
-// baz, err := pagerduty.LookupService(ctx, &pagerduty.LookupServiceArgs{
+// baz, err := pagerduty.GetService(ctx, &pagerduty.LookupServiceArgs{
 // Name: "baz",
 // }, nil);
 // if err != nil {

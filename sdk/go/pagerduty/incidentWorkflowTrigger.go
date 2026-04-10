@@ -47,7 +47,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.LookupService(ctx, &pagerduty.LookupServiceArgs{
+//			_, err = pagerduty.GetService(ctx, &pagerduty.LookupServiceArgs{
 //				Name: "My First Service",
 //			}, nil)
 //			if err != nil {
@@ -65,7 +65,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.LookupTeam(ctx, &pagerduty.LookupTeamArgs{
+//			_, err = pagerduty.GetTeam(ctx, &pagerduty.LookupTeamArgs{
 //				Name: "devops",
 //			}, nil)
 //			if err != nil {

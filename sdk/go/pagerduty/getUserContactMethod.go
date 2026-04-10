@@ -27,13 +27,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			me, err := pagerduty.LookupUser(ctx, &pagerduty.LookupUserArgs{
+//			me, err := pagerduty.GetUser(ctx, &pagerduty.LookupUserArgs{
 //				Email: "me@example.com",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			phonePush, err := pagerduty.LookupUserContactMethod(ctx, &pagerduty.LookupUserContactMethodArgs{
+//			phonePush, err := pagerduty.GetUserContactMethod(ctx, &pagerduty.LookupUserContactMethodArgs{
 //				UserId: me.Id,
 //				Type:   "push_notification_contact_method",
 //				Label:  "iPhone (John)",

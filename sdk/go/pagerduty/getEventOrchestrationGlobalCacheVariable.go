@@ -33,7 +33,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_ = pagerduty.LookupEventOrchestrationGlobalCacheVariableOutput(ctx, pagerduty.GetEventOrchestrationGlobalCacheVariableOutputArgs{
+//			_ = pagerduty.GetEventOrchestrationGlobalCacheVariableOutput(ctx, pagerduty.GetEventOrchestrationGlobalCacheVariableOutputArgs{
 //				EventOrchestration: eventOrchestration.ID(),
 //				Name:               pulumi.String("example_cache_variable"),
 //			}, nil)

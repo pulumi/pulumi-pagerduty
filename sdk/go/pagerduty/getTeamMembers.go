@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			devops, err := pagerduty.LookupTeam(ctx, &pagerduty.LookupTeamArgs{
+//			devops, err := pagerduty.GetTeam(ctx, &pagerduty.LookupTeamArgs{
 //				Name: "devops",
 //			}, nil)
 //			if err != nil {

@@ -25,12 +25,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.GetService.Invoke(new()
+        ///     var example = Pagerduty.Index.GetService.Invoke(new()
         ///     {
         ///         Name = "My Service",
         ///     });
         /// 
-        ///     var scores = Pagerduty.GetStandardsResourceScores.Invoke(new()
+        ///     var scores = Pagerduty.Index.GetStandardsResourceScores.Invoke(new()
         ///     {
         ///         ResourceType = "technical_services",
         ///         Id = example.Apply(getServiceResult =&gt; getServiceResult.Id),
@@ -56,12 +56,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.GetService.Invoke(new()
+        ///     var example = Pagerduty.Index.GetService.Invoke(new()
         ///     {
         ///         Name = "My Service",
         ///     });
         /// 
-        ///     var scores = Pagerduty.GetStandardsResourceScores.Invoke(new()
+        ///     var scores = Pagerduty.Index.GetStandardsResourceScores.Invoke(new()
         ///     {
         ///         ResourceType = "technical_services",
         ///         Id = example.Apply(getServiceResult =&gt; getServiceResult.Id),
@@ -87,12 +87,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.GetService.Invoke(new()
+        ///     var example = Pagerduty.Index.GetService.Invoke(new()
         ///     {
         ///         Name = "My Service",
         ///     });
         /// 
-        ///     var scores = Pagerduty.GetStandardsResourceScores.Invoke(new()
+        ///     var scores = Pagerduty.Index.GetStandardsResourceScores.Invoke(new()
         ///     {
         ///         ResourceType = "technical_services",
         ///         Id = example.Apply(getServiceResult =&gt; getServiceResult.Id),

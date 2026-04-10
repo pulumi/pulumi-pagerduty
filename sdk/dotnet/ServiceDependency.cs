@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Pagerduty.ServiceDependency("foo", new()
+    ///     var foo = new Pagerduty.Index.ServiceDependency("foo", new()
     ///     {
     ///         Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs
     ///         {
@@ -39,7 +39,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var bar = new Pagerduty.ServiceDependency("bar", new()
+    ///     var bar = new Pagerduty.Index.ServiceDependency("bar", new()
     ///     {
     ///         Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs
     ///         {

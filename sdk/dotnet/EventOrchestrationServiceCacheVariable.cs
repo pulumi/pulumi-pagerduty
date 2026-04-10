@@ -24,12 +24,12 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var databaseTeam = new Pagerduty.Team("database_team", new()
+    ///     var databaseTeam = new Pagerduty.Index.Team("database_team", new()
     ///     {
     ///         Name = "Database Team",
     ///     });
     /// 
-    ///     var user1 = new Pagerduty.User("user_1", new()
+    ///     var user1 = new Pagerduty.Index.User("user_1", new()
     ///     {
     ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
@@ -39,7 +39,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var dbEp = new Pagerduty.EscalationPolicy("db_ep", new()
+    ///     var dbEp = new Pagerduty.Index.EscalationPolicy("db_ep", new()
     ///     {
     ///         Name = "Database Escalation Policy",
     ///         NumLoops = 2,
@@ -60,7 +60,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var svc = new Pagerduty.Service("svc", new()
+    ///     var svc = new Pagerduty.Index.Service("svc", new()
     ///     {
     ///         Name = "My Database Service",
     ///         AutoResolveTimeout = "14400",
@@ -69,7 +69,7 @@ namespace Pulumi.Pagerduty
     ///         AlertCreation = "create_alerts_and_incidents",
     ///     });
     /// 
-    ///     var numDbTriggers = new Pagerduty.EventOrchestrationServiceCacheVariable("num_db_triggers", new()
+    ///     var numDbTriggers = new Pagerduty.Index.EventOrchestrationServiceCacheVariable("num_db_triggers", new()
     ///     {
     ///         Service = svc.Id,
     ///         Name = "num_db_triggers",
@@ -87,7 +87,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var isMaintenance = new Pagerduty.EventOrchestrationServiceCacheVariable("is_maintenance", new()
+    ///     var isMaintenance = new Pagerduty.Index.EventOrchestrationServiceCacheVariable("is_maintenance", new()
     ///     {
     ///         Service = svc.Id,
     ///         Name = "is_maintenance",
@@ -99,7 +99,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var eventOrchestration = new Pagerduty.EventOrchestrationService("event_orchestration", new()
+    ///     var eventOrchestration = new Pagerduty.Index.EventOrchestrationService("event_orchestration", new()
     ///     {
     ///         Service = svc.Id,
     ///         EnableEventOrchestrationForService = true,

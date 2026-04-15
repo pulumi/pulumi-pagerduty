@@ -95,13 +95,6 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"use_app_oauth_scoped_token": {
 				MaxItemsOne: tfbridge.True(),
-				Elem: &tfbridge.SchemaInfo{
-					Fields: map[string]*tfbridge.SchemaInfo{
-						"pd_client_id":     {Name: "pdClientId"},
-						"pd_client_secret": {Name: "pdClientSecret"},
-						"pd_subdomain":     {Name: "pdSubdomain"},
-					},
-				},
 			},
 		},
 		UpstreamRepoPath: "./upstream",

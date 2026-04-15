@@ -93,6 +93,9 @@ func Provider() tfbridge.ProviderInfo {
 					Value: false,
 				},
 			},
+			"use_app_oauth_scoped_token": {
+				MaxItemsOne: tfbridge.True(),
+			},
 		},
 		UpstreamRepoPath: "./upstream",
 		Resources: map[string]*tfbridge.ResourceInfo{

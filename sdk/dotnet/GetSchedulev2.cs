@@ -12,7 +12,7 @@ namespace Pulumi.Pagerduty
     public static class GetSchedulev2
     {
         /// <summary>
-        /// Use this data source to look up a specific [v3 schedule](https://developer.pagerduty.com/api-reference/d90c4c94e3ce2-create-a-schedule) by name so you can reference its ID in other resources such as escalation policies.
+        /// Use this data source to look up a specific [v3 schedule](https://developer.pagerduty.com/api-reference/e792b51909787-create-a-schedule) by name so you can reference its ID in other resources such as escalation policies.
         /// 
         /// &gt; **Note:** This data source requires the `flexible-schedules-early-access` early access flag on your PagerDuty account. The required `X-Early-Access` header is sent automatically by the provider.
         /// 
@@ -59,7 +59,7 @@ namespace Pulumi.Pagerduty
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchedulev2Result>("pagerduty:index/getSchedulev2:getSchedulev2", args ?? new GetSchedulev2Args(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to look up a specific [v3 schedule](https://developer.pagerduty.com/api-reference/d90c4c94e3ce2-create-a-schedule) by name so you can reference its ID in other resources such as escalation policies.
+        /// Use this data source to look up a specific [v3 schedule](https://developer.pagerduty.com/api-reference/e792b51909787-create-a-schedule) by name so you can reference its ID in other resources such as escalation policies.
         /// 
         /// &gt; **Note:** This data source requires the `flexible-schedules-early-access` early access flag on your PagerDuty account. The required `X-Early-Access` header is sent automatically by the provider.
         /// 
@@ -106,7 +106,7 @@ namespace Pulumi.Pagerduty
             => global::Pulumi.Deployment.Instance.Invoke<GetSchedulev2Result>("pagerduty:index/getSchedulev2:getSchedulev2", args ?? new GetSchedulev2InvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to look up a specific [v3 schedule](https://developer.pagerduty.com/api-reference/d90c4c94e3ce2-create-a-schedule) by name so you can reference its ID in other resources such as escalation policies.
+        /// Use this data source to look up a specific [v3 schedule](https://developer.pagerduty.com/api-reference/e792b51909787-create-a-schedule) by name so you can reference its ID in other resources such as escalation policies.
         /// 
         /// &gt; **Note:** This data source requires the `flexible-schedules-early-access` early access flag on your PagerDuty account. The required `X-Early-Access` header is sent automatically by the provider.
         /// 

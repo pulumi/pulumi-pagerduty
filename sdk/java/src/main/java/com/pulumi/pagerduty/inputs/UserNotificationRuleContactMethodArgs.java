@@ -30,14 +30,14 @@ public final class UserNotificationRuleContactMethodArgs extends com.pulumi.reso
     }
 
     /**
-     * The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+     * The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod`, `smsContactMethod` or `whatsappContactMethod`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+     * @return The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod`, `smsContactMethod` or `whatsappContactMethod`.
      * 
      */
     public Output<String> type() {
@@ -91,7 +91,7 @@ public final class UserNotificationRuleContactMethodArgs extends com.pulumi.reso
         }
 
         /**
-         * @param type The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+         * @param type The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod`, `smsContactMethod` or `whatsappContactMethod`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class UserNotificationRuleContactMethodArgs extends com.pulumi.reso
         }
 
         /**
-         * @param type The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+         * @param type The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod`, `smsContactMethod` or `whatsappContactMethod`.
          * 
          * @return builder
          * 

@@ -16,7 +16,7 @@ public final class UserNotificationRuleContactMethod {
      */
     private String id;
     /**
-     * @return The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+     * @return The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod`, `smsContactMethod` or `whatsappContactMethod`.
      * 
      */
     private String type;
@@ -30,7 +30,7 @@ public final class UserNotificationRuleContactMethod {
         return this.id;
     }
     /**
-     * @return The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+     * @return The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod`, `smsContactMethod` or `whatsappContactMethod`.
      * 
      */
     public String type() {

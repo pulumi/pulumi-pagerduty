@@ -1,3 +1,0 @@
-name: pagerduty
-description: A Pulumi resource provider for pagerduty.
-language: java

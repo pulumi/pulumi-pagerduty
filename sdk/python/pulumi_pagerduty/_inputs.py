@@ -11440,7 +11440,7 @@ class UserNotificationRuleContactMethodArgsDict(TypedDict):
     """
     type: pulumi.Input[_builtins.str]
     """
-    The type of contact method. Can be `email_contact_method`, `phone_contact_method`, `push_notification_contact_method` or `sms_contact_method`.
+    The type of contact method. Can be `email_contact_method`, `phone_contact_method`, `push_notification_contact_method`, `sms_contact_method` or `whatsapp_contact_method`.
     """
 
 @pulumi.input_type
@@ -11450,7 +11450,7 @@ class UserNotificationRuleContactMethodArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] id: The id of the referenced contact method.
-        :param pulumi.Input[_builtins.str] type: The type of contact method. Can be `email_contact_method`, `phone_contact_method`, `push_notification_contact_method` or `sms_contact_method`.
+        :param pulumi.Input[_builtins.str] type: The type of contact method. Can be `email_contact_method`, `phone_contact_method`, `push_notification_contact_method`, `sms_contact_method` or `whatsapp_contact_method`.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
@@ -11471,7 +11471,7 @@ class UserNotificationRuleContactMethodArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of contact method. Can be `email_contact_method`, `phone_contact_method`, `push_notification_contact_method` or `sms_contact_method`.
+        The type of contact method. Can be `email_contact_method`, `phone_contact_method`, `push_notification_contact_method`, `sms_contact_method` or `whatsapp_contact_method`.
         """
         return pulumi.get(self, "type")
 

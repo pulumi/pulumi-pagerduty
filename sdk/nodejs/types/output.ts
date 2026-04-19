@@ -2943,7 +2943,7 @@ export interface UserNotificationRuleContactMethod {
      */
     id: string;
     /**
-     * The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+     * The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod`, `smsContactMethod` or `whatsappContactMethod`.
      */
     type: string;
 }

@@ -2531,7 +2531,7 @@ export interface UserNotificationRuleContactMethod {
      */
     id: pulumi.Input<string>;
     /**
-     * The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+     * The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod`, `smsContactMethod` or `whatsappContactMethod`.
      */
     type: pulumi.Input<string>;
 }

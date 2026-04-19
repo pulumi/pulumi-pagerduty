@@ -21006,7 +21006,7 @@ func (o UserHandoffNotificationRuleContactMethodPtrOutput) Type() pulumi.StringP
 type UserNotificationRuleContactMethod struct {
 	// The id of the referenced contact method.
 	Id string `pulumi:"id"`
-	// The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+	// The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod`, `smsContactMethod` or `whatsappContactMethod`.
 	Type string `pulumi:"type"`
 }
 
@@ -21024,7 +21024,7 @@ type UserNotificationRuleContactMethodInput interface {
 type UserNotificationRuleContactMethodArgs struct {
 	// The id of the referenced contact method.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+	// The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod`, `smsContactMethod` or `whatsappContactMethod`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -21110,7 +21110,7 @@ func (o UserNotificationRuleContactMethodOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v UserNotificationRuleContactMethod) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+// The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod`, `smsContactMethod` or `whatsappContactMethod`.
 func (o UserNotificationRuleContactMethodOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v UserNotificationRuleContactMethod) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -21149,7 +21149,7 @@ func (o UserNotificationRuleContactMethodPtrOutput) Id() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
+// The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod`, `smsContactMethod` or `whatsappContactMethod`.
 func (o UserNotificationRuleContactMethodPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserNotificationRuleContactMethod) *string {
 		if v == nil {

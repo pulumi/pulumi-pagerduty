@@ -24,31 +24,31 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var devops = Pagerduty.Index.GetTeam.Invoke(new()
+        ///     var devops = Pagerduty.GetTeam.Invoke(new()
         ///     {
         ///         Name = "devops",
         ///     });
         /// 
-        ///     var me = Pagerduty.Index.GetUser.Invoke(new()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var exampleWTeam = new Pagerduty.Index.User("example_w_team", new()
+        ///     var exampleWTeam = new Pagerduty.User("example_w_team", new()
         ///     {
         ///         Name = "user-with-team",
         ///         Email = "user-with-team@example.com",
         ///     });
         /// 
-        ///     var example = new Pagerduty.Index.TeamMembership("example", new()
+        ///     var example = new Pagerduty.TeamMembership("example", new()
         ///     {
         ///         TeamId = devopsPagerdutyTeam.Id,
         ///         UserId = exampleWTeam.Id,
         ///     });
         /// 
-        ///     var allUsers = Pagerduty.Index.GetUsers.Invoke();
+        ///     var allUsers = Pagerduty.GetUsers.Invoke();
         /// 
-        ///     var fromDevopsTeam = Pagerduty.Index.GetUsers.Invoke(new()
+        ///     var fromDevopsTeam = Pagerduty.GetUsers.Invoke(new()
         ///     {
         ///         TeamIds = new[]
         ///         {
@@ -75,31 +75,31 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var devops = Pagerduty.Index.GetTeam.Invoke(new()
+        ///     var devops = Pagerduty.GetTeam.Invoke(new()
         ///     {
         ///         Name = "devops",
         ///     });
         /// 
-        ///     var me = Pagerduty.Index.GetUser.Invoke(new()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var exampleWTeam = new Pagerduty.Index.User("example_w_team", new()
+        ///     var exampleWTeam = new Pagerduty.User("example_w_team", new()
         ///     {
         ///         Name = "user-with-team",
         ///         Email = "user-with-team@example.com",
         ///     });
         /// 
-        ///     var example = new Pagerduty.Index.TeamMembership("example", new()
+        ///     var example = new Pagerduty.TeamMembership("example", new()
         ///     {
         ///         TeamId = devopsPagerdutyTeam.Id,
         ///         UserId = exampleWTeam.Id,
         ///     });
         /// 
-        ///     var allUsers = Pagerduty.Index.GetUsers.Invoke();
+        ///     var allUsers = Pagerduty.GetUsers.Invoke();
         /// 
-        ///     var fromDevopsTeam = Pagerduty.Index.GetUsers.Invoke(new()
+        ///     var fromDevopsTeam = Pagerduty.GetUsers.Invoke(new()
         ///     {
         ///         TeamIds = new[]
         ///         {
@@ -126,31 +126,31 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var devops = Pagerduty.Index.GetTeam.Invoke(new()
+        ///     var devops = Pagerduty.GetTeam.Invoke(new()
         ///     {
         ///         Name = "devops",
         ///     });
         /// 
-        ///     var me = Pagerduty.Index.GetUser.Invoke(new()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var exampleWTeam = new Pagerduty.Index.User("example_w_team", new()
+        ///     var exampleWTeam = new Pagerduty.User("example_w_team", new()
         ///     {
         ///         Name = "user-with-team",
         ///         Email = "user-with-team@example.com",
         ///     });
         /// 
-        ///     var example = new Pagerduty.Index.TeamMembership("example", new()
+        ///     var example = new Pagerduty.TeamMembership("example", new()
         ///     {
         ///         TeamId = devopsPagerdutyTeam.Id,
         ///         UserId = exampleWTeam.Id,
         ///     });
         /// 
-        ///     var allUsers = Pagerduty.Index.GetUsers.Invoke();
+        ///     var allUsers = Pagerduty.GetUsers.Invoke();
         /// 
-        ///     var fromDevopsTeam = Pagerduty.Index.GetUsers.Invoke(new()
+        ///     var fromDevopsTeam = Pagerduty.GetUsers.Invoke(new()
         ///     {
         ///         TeamIds = new[]
         ///         {

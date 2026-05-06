@@ -25,22 +25,22 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = Pagerduty.Index.GetService.Invoke(new()
+        ///     var foo = Pagerduty.GetService.Invoke(new()
         ///     {
         ///         Name = "foo",
         ///     });
         /// 
-        ///     var bar = Pagerduty.Index.GetService.Invoke(new()
+        ///     var bar = Pagerduty.GetService.Invoke(new()
         ///     {
         ///         Name = "bar",
         ///     });
         /// 
-        ///     var baz = Pagerduty.Index.GetService.Invoke(new()
+        ///     var baz = Pagerduty.GetService.Invoke(new()
         ///     {
         ///         Name = "baz",
         ///     });
         /// 
-        ///     var scores = Pagerduty.Index.GetStandardsResourcesScores.Invoke(new()
+        ///     var scores = Pagerduty.GetStandardsResourcesScores.Invoke(new()
         ///     {
         ///         ResourceType = "technical_services",
         ///         Ids = new[]
@@ -71,22 +71,22 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = Pagerduty.Index.GetService.Invoke(new()
+        ///     var foo = Pagerduty.GetService.Invoke(new()
         ///     {
         ///         Name = "foo",
         ///     });
         /// 
-        ///     var bar = Pagerduty.Index.GetService.Invoke(new()
+        ///     var bar = Pagerduty.GetService.Invoke(new()
         ///     {
         ///         Name = "bar",
         ///     });
         /// 
-        ///     var baz = Pagerduty.Index.GetService.Invoke(new()
+        ///     var baz = Pagerduty.GetService.Invoke(new()
         ///     {
         ///         Name = "baz",
         ///     });
         /// 
-        ///     var scores = Pagerduty.Index.GetStandardsResourcesScores.Invoke(new()
+        ///     var scores = Pagerduty.GetStandardsResourcesScores.Invoke(new()
         ///     {
         ///         ResourceType = "technical_services",
         ///         Ids = new[]
@@ -117,22 +117,22 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var foo = Pagerduty.Index.GetService.Invoke(new()
+        ///     var foo = Pagerduty.GetService.Invoke(new()
         ///     {
         ///         Name = "foo",
         ///     });
         /// 
-        ///     var bar = Pagerduty.Index.GetService.Invoke(new()
+        ///     var bar = Pagerduty.GetService.Invoke(new()
         ///     {
         ///         Name = "bar",
         ///     });
         /// 
-        ///     var baz = Pagerduty.Index.GetService.Invoke(new()
+        ///     var baz = Pagerduty.GetService.Invoke(new()
         ///     {
         ///         Name = "baz",
         ///     });
         /// 
-        ///     var scores = Pagerduty.Index.GetStandardsResourcesScores.Invoke(new()
+        ///     var scores = Pagerduty.GetStandardsResourcesScores.Invoke(new()
         ///     {
         ///         ResourceType = "technical_services",
         ///         Ids = new[]

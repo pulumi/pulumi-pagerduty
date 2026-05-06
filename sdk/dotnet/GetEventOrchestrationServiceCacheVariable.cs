@@ -24,12 +24,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var engineering = new Pagerduty.Index.Team("engineering", new()
+        ///     var engineering = new Pagerduty.Team("engineering", new()
         ///     {
         ///         Name = "Engineering",
         ///     });
         /// 
-        ///     var example = new Pagerduty.Index.User("example", new()
+        ///     var example = new Pagerduty.User("example", new()
         ///     {
         ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",
@@ -39,7 +39,7 @@ namespace Pulumi.Pagerduty
         ///         },
         ///     });
         /// 
-        ///     var exampleEscalationPolicy = new Pagerduty.Index.EscalationPolicy("example", new()
+        ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("example", new()
         ///     {
         ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,
@@ -60,7 +60,7 @@ namespace Pulumi.Pagerduty
         ///         },
         ///     });
         /// 
-        ///     var service = new Pagerduty.Index.Service("service", new()
+        ///     var service = new Pagerduty.Service("service", new()
         ///     {
         ///         Name = "My Web App",
         ///         AutoResolveTimeout = "14400",
@@ -69,7 +69,7 @@ namespace Pulumi.Pagerduty
         ///         AlertCreation = "create_alerts_and_incidents",
         ///     });
         /// 
-        ///     var cacheVariable = Pagerduty.Index.GetEventOrchestrationServiceCacheVariable.Invoke(new()
+        ///     var cacheVariable = Pagerduty.GetEventOrchestrationServiceCacheVariable.Invoke(new()
         ///     {
         ///         Service = service.Id,
         ///         Name = "example_cache_variable",
@@ -94,12 +94,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var engineering = new Pagerduty.Index.Team("engineering", new()
+        ///     var engineering = new Pagerduty.Team("engineering", new()
         ///     {
         ///         Name = "Engineering",
         ///     });
         /// 
-        ///     var example = new Pagerduty.Index.User("example", new()
+        ///     var example = new Pagerduty.User("example", new()
         ///     {
         ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",
@@ -109,7 +109,7 @@ namespace Pulumi.Pagerduty
         ///         },
         ///     });
         /// 
-        ///     var exampleEscalationPolicy = new Pagerduty.Index.EscalationPolicy("example", new()
+        ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("example", new()
         ///     {
         ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,
@@ -130,7 +130,7 @@ namespace Pulumi.Pagerduty
         ///         },
         ///     });
         /// 
-        ///     var service = new Pagerduty.Index.Service("service", new()
+        ///     var service = new Pagerduty.Service("service", new()
         ///     {
         ///         Name = "My Web App",
         ///         AutoResolveTimeout = "14400",
@@ -139,7 +139,7 @@ namespace Pulumi.Pagerduty
         ///         AlertCreation = "create_alerts_and_incidents",
         ///     });
         /// 
-        ///     var cacheVariable = Pagerduty.Index.GetEventOrchestrationServiceCacheVariable.Invoke(new()
+        ///     var cacheVariable = Pagerduty.GetEventOrchestrationServiceCacheVariable.Invoke(new()
         ///     {
         ///         Service = service.Id,
         ///         Name = "example_cache_variable",
@@ -164,12 +164,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var engineering = new Pagerduty.Index.Team("engineering", new()
+        ///     var engineering = new Pagerduty.Team("engineering", new()
         ///     {
         ///         Name = "Engineering",
         ///     });
         /// 
-        ///     var example = new Pagerduty.Index.User("example", new()
+        ///     var example = new Pagerduty.User("example", new()
         ///     {
         ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",
@@ -179,7 +179,7 @@ namespace Pulumi.Pagerduty
         ///         },
         ///     });
         /// 
-        ///     var exampleEscalationPolicy = new Pagerduty.Index.EscalationPolicy("example", new()
+        ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("example", new()
         ///     {
         ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,
@@ -200,7 +200,7 @@ namespace Pulumi.Pagerduty
         ///         },
         ///     });
         /// 
-        ///     var service = new Pagerduty.Index.Service("service", new()
+        ///     var service = new Pagerduty.Service("service", new()
         ///     {
         ///         Name = "My Web App",
         ///         AutoResolveTimeout = "14400",
@@ -209,7 +209,7 @@ namespace Pulumi.Pagerduty
         ///         AlertCreation = "create_alerts_and_incidents",
         ///     });
         /// 
-        ///     var cacheVariable = Pagerduty.Index.GetEventOrchestrationServiceCacheVariable.Invoke(new()
+        ///     var cacheVariable = Pagerduty.GetEventOrchestrationServiceCacheVariable.Invoke(new()
         ///     {
         ///         Service = service.Id,
         ///         Name = "example_cache_variable",

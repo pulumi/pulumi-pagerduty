@@ -22,13 +22,13 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Pagerduty.Index.User("example", new()
+    ///     var example = new Pagerduty.User("example", new()
     ///     {
     ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@foo.test",
     ///     });
     /// 
-    ///     var phone = new Pagerduty.Index.UserContactMethod("phone", new()
+    ///     var phone = new Pagerduty.UserContactMethod("phone", new()
     ///     {
     ///         UserId = example.Id,
     ///         Type = "phone_contact_method",
@@ -37,7 +37,7 @@ namespace Pulumi.Pagerduty
     ///         Label = "Work",
     ///     });
     /// 
-    ///     var example_oncall_offcall = new Pagerduty.Index.UserHandoffNotificationRule("example-oncall-offcall", new()
+    ///     var example_oncall_offcall = new Pagerduty.UserHandoffNotificationRule("example-oncall-offcall", new()
     ///     {
     ///         UserId = example.Id,
     ///         HandoffType = "both",

@@ -22,18 +22,18 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var servicenow = Pagerduty.Index.GetExtensionSchema.Invoke(new()
+    ///     var servicenow = Pagerduty.GetExtensionSchema.Invoke(new()
     ///     {
     ///         Name = "ServiceNow (v7)",
     ///     });
     /// 
-    ///     var example = new Pagerduty.Index.User("example", new()
+    ///     var example = new Pagerduty.User("example", new()
     ///     {
     ///         Name = "Howard James",
     ///         Email = "howard.james@example.domain",
     ///     });
     /// 
-    ///     var exampleEscalationPolicy = new Pagerduty.Index.EscalationPolicy("example", new()
+    ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("example", new()
     ///     {
     ///         Name = "Engineering Escalation Policy",
     ///         NumLoops = 2,
@@ -54,7 +54,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var exampleService = new Pagerduty.Index.Service("example", new()
+    ///     var exampleService = new Pagerduty.Service("example", new()
     ///     {
     ///         Name = "My Web App",
     ///         AutoResolveTimeout = "14400",
@@ -62,7 +62,7 @@ namespace Pulumi.Pagerduty
     ///         EscalationPolicy = exampleEscalationPolicy.Id,
     ///     });
     /// 
-    ///     var snow = new Pagerduty.Index.ExtensionServiceNow("snow", new()
+    ///     var snow = new Pagerduty.ExtensionServiceNow("snow", new()
     ///     {
     ///         Name = "My Web App Extension",
     ///         ExtensionSchema = servicenow.Apply(getExtensionSchemaResult =&gt; getExtensionSchemaResult.Id),

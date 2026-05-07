@@ -24,12 +24,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var me = Pagerduty.Index.GetUser.Invoke(new()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var foo = new Pagerduty.Index.EscalationPolicy("foo", new()
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
         ///     {
         ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,
@@ -69,12 +69,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var me = Pagerduty.Index.GetUser.Invoke(new()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var foo = new Pagerduty.Index.EscalationPolicy("foo", new()
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
         ///     {
         ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,
@@ -114,12 +114,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var me = Pagerduty.Index.GetUser.Invoke(new()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var foo = new Pagerduty.Index.EscalationPolicy("foo", new()
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
         ///     {
         ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,

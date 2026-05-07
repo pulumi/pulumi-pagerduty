@@ -25,7 +25,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var standards = Pagerduty.Index.GetStandards.Invoke();
+        ///     var standards = Pagerduty.GetStandards.Invoke();
         /// 
         /// });
         /// ```
@@ -47,7 +47,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var standards = Pagerduty.Index.GetStandards.Invoke();
+        ///     var standards = Pagerduty.GetStandards.Invoke();
         /// 
         /// });
         /// ```
@@ -69,7 +69,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var standards = Pagerduty.Index.GetStandards.Invoke();
+        ///     var standards = Pagerduty.GetStandards.Invoke();
         /// 
         /// });
         /// ```

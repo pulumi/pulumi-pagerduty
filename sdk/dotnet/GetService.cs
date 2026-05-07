@@ -24,17 +24,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.Index.GetService.Invoke(new()
+        ///     var example = Pagerduty.GetService.Invoke(new()
         ///     {
         ///         Name = "My Service",
         ///     });
         /// 
-        ///     var datadog = Pagerduty.Index.GetVendor.Invoke(new()
+        ///     var datadog = Pagerduty.GetVendor.Invoke(new()
         ///     {
         ///         Name = "Datadog",
         ///     });
         /// 
-        ///     var exampleServiceIntegration = new Pagerduty.Index.ServiceIntegration("example", new()
+        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("example", new()
         ///     {
         ///         Name = "Datadog Integration",
         ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),
@@ -61,17 +61,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.Index.GetService.Invoke(new()
+        ///     var example = Pagerduty.GetService.Invoke(new()
         ///     {
         ///         Name = "My Service",
         ///     });
         /// 
-        ///     var datadog = Pagerduty.Index.GetVendor.Invoke(new()
+        ///     var datadog = Pagerduty.GetVendor.Invoke(new()
         ///     {
         ///         Name = "Datadog",
         ///     });
         /// 
-        ///     var exampleServiceIntegration = new Pagerduty.Index.ServiceIntegration("example", new()
+        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("example", new()
         ///     {
         ///         Name = "Datadog Integration",
         ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),
@@ -98,17 +98,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.Index.GetService.Invoke(new()
+        ///     var example = Pagerduty.GetService.Invoke(new()
         ///     {
         ///         Name = "My Service",
         ///     });
         /// 
-        ///     var datadog = Pagerduty.Index.GetVendor.Invoke(new()
+        ///     var datadog = Pagerduty.GetVendor.Invoke(new()
         ///     {
         ///         Name = "Datadog",
         ///     });
         /// 
-        ///     var exampleServiceIntegration = new Pagerduty.Index.ServiceIntegration("example", new()
+        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("example", new()
         ///     {
         ///         Name = "Datadog Integration",
         ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),

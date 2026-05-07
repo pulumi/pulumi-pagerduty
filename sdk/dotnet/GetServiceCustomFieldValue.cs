@@ -26,7 +26,7 @@ namespace Pulumi.Pagerduty
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Create a service
-        ///     var exampleService = new Pagerduty.Index.Service("example", new()
+        ///     var exampleService = new Pagerduty.Service("example", new()
         ///     {
         ///         Name = "Example Service",
         ///         AutoResolveTimeout = "14400",
@@ -34,13 +34,13 @@ namespace Pulumi.Pagerduty
         ///         EscalationPolicy = examplePagerdutyEscalationPolicy.Id,
         ///     });
         /// 
-        ///     var example = Pagerduty.Index.GetServiceCustomFieldValue.Invoke(new()
+        ///     var example = Pagerduty.GetServiceCustomFieldValue.Invoke(new()
         ///     {
         ///         ServiceId = exampleService.Id,
         ///     });
         /// 
         ///     // Set custom field values on the service
-        ///     var exampleServiceCustomFieldValue = new Pagerduty.Index.ServiceCustomFieldValue("example", new()
+        ///     var exampleServiceCustomFieldValue = new Pagerduty.ServiceCustomFieldValue("example", new()
         ///     {
         ///         ServiceId = exampleService.Id,
         ///         CustomFields = new[]
@@ -86,7 +86,7 @@ namespace Pulumi.Pagerduty
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Create a service
-        ///     var exampleService = new Pagerduty.Index.Service("example", new()
+        ///     var exampleService = new Pagerduty.Service("example", new()
         ///     {
         ///         Name = "Example Service",
         ///         AutoResolveTimeout = "14400",
@@ -94,13 +94,13 @@ namespace Pulumi.Pagerduty
         ///         EscalationPolicy = examplePagerdutyEscalationPolicy.Id,
         ///     });
         /// 
-        ///     var example = Pagerduty.Index.GetServiceCustomFieldValue.Invoke(new()
+        ///     var example = Pagerduty.GetServiceCustomFieldValue.Invoke(new()
         ///     {
         ///         ServiceId = exampleService.Id,
         ///     });
         /// 
         ///     // Set custom field values on the service
-        ///     var exampleServiceCustomFieldValue = new Pagerduty.Index.ServiceCustomFieldValue("example", new()
+        ///     var exampleServiceCustomFieldValue = new Pagerduty.ServiceCustomFieldValue("example", new()
         ///     {
         ///         ServiceId = exampleService.Id,
         ///         CustomFields = new[]
@@ -146,7 +146,7 @@ namespace Pulumi.Pagerduty
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Create a service
-        ///     var exampleService = new Pagerduty.Index.Service("example", new()
+        ///     var exampleService = new Pagerduty.Service("example", new()
         ///     {
         ///         Name = "Example Service",
         ///         AutoResolveTimeout = "14400",
@@ -154,13 +154,13 @@ namespace Pulumi.Pagerduty
         ///         EscalationPolicy = examplePagerdutyEscalationPolicy.Id,
         ///     });
         /// 
-        ///     var example = Pagerduty.Index.GetServiceCustomFieldValue.Invoke(new()
+        ///     var example = Pagerduty.GetServiceCustomFieldValue.Invoke(new()
         ///     {
         ///         ServiceId = exampleService.Id,
         ///     });
         /// 
         ///     // Set custom field values on the service
-        ///     var exampleServiceCustomFieldValue = new Pagerduty.Index.ServiceCustomFieldValue("example", new()
+        ///     var exampleServiceCustomFieldValue = new Pagerduty.ServiceCustomFieldValue("example", new()
         ///     {
         ///         ServiceId = exampleService.Id,
         ///         CustomFields = new[]

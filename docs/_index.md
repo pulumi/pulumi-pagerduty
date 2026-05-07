@@ -106,21 +106,21 @@ using Pagerduty = Pulumi.Pagerduty;
 return await Deployment.RunAsync(() =>
 {
     // Create a PagerDuty team
-    var engineering = new Pagerduty.Index.Team("engineering", new()
+    var engineering = new Pagerduty.Team("engineering", new()
     {
         Name = "Engineering",
         Description = "All engineering",
     });
 
     // Create a PagerDuty user
-    var earline = new Pagerduty.Index.User("earline", new()
+    var earline = new Pagerduty.User("earline", new()
     {
         Name = "Earline Greenholt",
         Email = "125.greenholt.earline@graham.name",
     });
 
     // Create a team membership
-    var earlineEngineering = new Pagerduty.Index.TeamMembership("earline_engineering", new()
+    var earlineEngineering = new Pagerduty.TeamMembership("earline_engineering", new()
     {
         UserId = earline.Id,
         TeamId = engineering.Id,
@@ -240,8 +240,8 @@ import com.pulumi.pagerduty.User;
 import com.pulumi.pagerduty.UserArgs;
 import com.pulumi.pagerduty.TeamMembership;
 import com.pulumi.pagerduty.TeamMembershipArgs;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;
@@ -371,21 +371,21 @@ using Pagerduty = Pulumi.Pagerduty;
 return await Deployment.RunAsync(() =>
 {
     // Create a PagerDuty team
-    var engineering = new Pagerduty.Index.Team("engineering", new()
+    var engineering = new Pagerduty.Team("engineering", new()
     {
         Name = "Engineering",
         Description = "All engineering",
     });
 
     // Create a PagerDuty user
-    var earline = new Pagerduty.Index.User("earline", new()
+    var earline = new Pagerduty.User("earline", new()
     {
         Name = "Earline Greenholt",
         Email = "125.greenholt.earline@graham.name",
     });
 
     // Create a team membership
-    var earlineEngineering = new Pagerduty.Index.TeamMembership("earline_engineering", new()
+    var earlineEngineering = new Pagerduty.TeamMembership("earline_engineering", new()
     {
         UserId = earline.Id,
         TeamId = engineering.Id,
@@ -496,8 +496,8 @@ import com.pulumi.pagerduty.User;
 import com.pulumi.pagerduty.UserArgs;
 import com.pulumi.pagerduty.TeamMembership;
 import com.pulumi.pagerduty.TeamMembershipArgs;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;

@@ -26,12 +26,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var oncall = Pagerduty.Index.GetSchedulev2.Invoke(new()
+        ///     var oncall = Pagerduty.GetSchedulev2.Invoke(new()
         ///     {
         ///         Name = "Engineering On-Call",
         ///     });
         /// 
-        ///     var example = new Pagerduty.Index.EscalationPolicy("example", new()
+        ///     var example = new Pagerduty.EscalationPolicy("example", new()
         ///     {
         ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,
@@ -73,12 +73,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var oncall = Pagerduty.Index.GetSchedulev2.Invoke(new()
+        ///     var oncall = Pagerduty.GetSchedulev2.Invoke(new()
         ///     {
         ///         Name = "Engineering On-Call",
         ///     });
         /// 
-        ///     var example = new Pagerduty.Index.EscalationPolicy("example", new()
+        ///     var example = new Pagerduty.EscalationPolicy("example", new()
         ///     {
         ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,
@@ -120,12 +120,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var oncall = Pagerduty.Index.GetSchedulev2.Invoke(new()
+        ///     var oncall = Pagerduty.GetSchedulev2.Invoke(new()
         ///     {
         ///         Name = "Engineering On-Call",
         ///     });
         /// 
-        ///     var example = new Pagerduty.Index.EscalationPolicy("example", new()
+        ///     var example = new Pagerduty.EscalationPolicy("example", new()
         ///     {
         ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,

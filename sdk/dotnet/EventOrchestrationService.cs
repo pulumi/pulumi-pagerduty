@@ -32,25 +32,25 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var engineering = new Pagerduty.Index.Team("engineering", new()
+    ///     var engineering = new Pagerduty.Team("engineering", new()
     ///     {
     ///         Name = "Engineering",
     ///     });
     /// 
-    ///     var example = new Pagerduty.Index.User("example", new()
+    ///     var example = new Pagerduty.User("example", new()
     ///     {
     ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///     });
     /// 
-    ///     var foo = new Pagerduty.Index.TeamMembership("foo", new()
+    ///     var foo = new Pagerduty.TeamMembership("foo", new()
     ///     {
     ///         UserId = example.Id,
     ///         TeamId = engineering.Id,
     ///         Role = "manager",
     ///     });
     /// 
-    ///     var exampleEscalationPolicy = new Pagerduty.Index.EscalationPolicy("example", new()
+    ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("example", new()
     ///     {
     ///         Name = "Engineering Escalation Policy",
     ///         NumLoops = 2,
@@ -71,7 +71,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var exampleService = new Pagerduty.Index.Service("example", new()
+    ///     var exampleService = new Pagerduty.Service("example", new()
     ///     {
     ///         Name = "My Web App",
     ///         AutoResolveTimeout = "14400",
@@ -80,24 +80,24 @@ namespace Pulumi.Pagerduty
     ///         AlertCreation = "create_alerts_and_incidents",
     ///     });
     /// 
-    ///     var csImpact = new Pagerduty.Index.IncidentCustomField("cs_impact", new()
+    ///     var csImpact = new Pagerduty.IncidentCustomField("cs_impact", new()
     ///     {
     ///         Name = "impact",
     ///         DataType = "string",
     ///         FieldType = "single_value",
     ///     });
     /// 
-    ///     var p1 = Pagerduty.Index.GetPriority.Invoke(new()
+    ///     var p1 = Pagerduty.GetPriority.Invoke(new()
     ///     {
     ///         Name = "P1",
     ///     });
     /// 
-    ///     var sreEscPolicy = Pagerduty.Index.GetEscalationPolicy.Invoke(new()
+    ///     var sreEscPolicy = Pagerduty.GetEscalationPolicy.Invoke(new()
     ///     {
     ///         Name = "SRE Escalation Policy",
     ///     });
     /// 
-    ///     var www = new Pagerduty.Index.EventOrchestrationService("www", new()
+    ///     var www = new Pagerduty.EventOrchestrationService("www", new()
     ///     {
     ///         Service = exampleService.Id,
     ///         EnableEventOrchestrationForService = true,

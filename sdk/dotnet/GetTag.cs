@@ -24,17 +24,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var me = Pagerduty.Index.GetUser.Invoke(new()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var devops = Pagerduty.Index.GetTag.Invoke(new()
+        ///     var devops = Pagerduty.GetTag.Invoke(new()
         ///     {
         ///         Label = "devops",
         ///     });
         /// 
-        ///     var foo = new Pagerduty.Index.TagAssignment("foo", new()
+        ///     var foo = new Pagerduty.TagAssignment("foo", new()
         ///     {
         ///         TagId = devops.Apply(getTagResult =&gt; getTagResult.Id),
         ///         EntityId = me.Apply(getUserResult =&gt; getUserResult.Id),
@@ -60,17 +60,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var me = Pagerduty.Index.GetUser.Invoke(new()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var devops = Pagerduty.Index.GetTag.Invoke(new()
+        ///     var devops = Pagerduty.GetTag.Invoke(new()
         ///     {
         ///         Label = "devops",
         ///     });
         /// 
-        ///     var foo = new Pagerduty.Index.TagAssignment("foo", new()
+        ///     var foo = new Pagerduty.TagAssignment("foo", new()
         ///     {
         ///         TagId = devops.Apply(getTagResult =&gt; getTagResult.Id),
         ///         EntityId = me.Apply(getUserResult =&gt; getUserResult.Id),
@@ -96,17 +96,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var me = Pagerduty.Index.GetUser.Invoke(new()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var devops = Pagerduty.Index.GetTag.Invoke(new()
+        ///     var devops = Pagerduty.GetTag.Invoke(new()
         ///     {
         ///         Label = "devops",
         ///     });
         /// 
-        ///     var foo = new Pagerduty.Index.TagAssignment("foo", new()
+        ///     var foo = new Pagerduty.TagAssignment("foo", new()
         ///     {
         ///         TagId = devops.Apply(getTagResult =&gt; getTagResult.Id),
         ///         EntityId = me.Apply(getUserResult =&gt; getUserResult.Id),

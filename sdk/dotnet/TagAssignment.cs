@@ -22,17 +22,17 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Pagerduty.Index.Tag("example", new()
+    ///     var example = new Pagerduty.Tag("example", new()
     ///     {
     ///         Label = "API",
     ///     });
     /// 
-    ///     var engteam = new Pagerduty.Index.Team("engteam", new()
+    ///     var engteam = new Pagerduty.Team("engteam", new()
     ///     {
     ///         Name = "Engineering",
     ///     });
     /// 
-    ///     var exampleTagAssignment = new Pagerduty.Index.TagAssignment("example", new()
+    ///     var exampleTagAssignment = new Pagerduty.TagAssignment("example", new()
     ///     {
     ///         TagId = example.Id,
     ///         EntityType = "teams",

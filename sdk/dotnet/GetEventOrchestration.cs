@@ -24,17 +24,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tfOrchA = new Pagerduty.Index.EventOrchestration("tf_orch_a", new()
+        ///     var tfOrchA = new Pagerduty.EventOrchestration("tf_orch_a", new()
         ///     {
         ///         Name = "Test Event Orchestration",
         ///     });
         /// 
-        ///     var tfMyMonitor = Pagerduty.Index.GetEventOrchestration.Invoke(new()
+        ///     var tfMyMonitor = Pagerduty.GetEventOrchestration.Invoke(new()
         ///     {
         ///         Name = tfOrchA.Name,
         ///     });
         /// 
-        ///     var unrouted = new Pagerduty.Index.EventOrchestrationUnrouted("unrouted", new()
+        ///     var unrouted = new Pagerduty.EventOrchestrationUnrouted("unrouted", new()
         ///     {
         ///         EventOrchestration = tfMyMonitor.Apply(getEventOrchestrationResult =&gt; getEventOrchestrationResult.Id),
         ///         CatchAll = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllArgs
@@ -89,17 +89,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tfOrchA = new Pagerduty.Index.EventOrchestration("tf_orch_a", new()
+        ///     var tfOrchA = new Pagerduty.EventOrchestration("tf_orch_a", new()
         ///     {
         ///         Name = "Test Event Orchestration",
         ///     });
         /// 
-        ///     var tfMyMonitor = Pagerduty.Index.GetEventOrchestration.Invoke(new()
+        ///     var tfMyMonitor = Pagerduty.GetEventOrchestration.Invoke(new()
         ///     {
         ///         Name = tfOrchA.Name,
         ///     });
         /// 
-        ///     var unrouted = new Pagerduty.Index.EventOrchestrationUnrouted("unrouted", new()
+        ///     var unrouted = new Pagerduty.EventOrchestrationUnrouted("unrouted", new()
         ///     {
         ///         EventOrchestration = tfMyMonitor.Apply(getEventOrchestrationResult =&gt; getEventOrchestrationResult.Id),
         ///         CatchAll = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllArgs
@@ -154,17 +154,17 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tfOrchA = new Pagerduty.Index.EventOrchestration("tf_orch_a", new()
+        ///     var tfOrchA = new Pagerduty.EventOrchestration("tf_orch_a", new()
         ///     {
         ///         Name = "Test Event Orchestration",
         ///     });
         /// 
-        ///     var tfMyMonitor = Pagerduty.Index.GetEventOrchestration.Invoke(new()
+        ///     var tfMyMonitor = Pagerduty.GetEventOrchestration.Invoke(new()
         ///     {
         ///         Name = tfOrchA.Name,
         ///     });
         /// 
-        ///     var unrouted = new Pagerduty.Index.EventOrchestrationUnrouted("unrouted", new()
+        ///     var unrouted = new Pagerduty.EventOrchestrationUnrouted("unrouted", new()
         ///     {
         ///         EventOrchestration = tfMyMonitor.Apply(getEventOrchestrationResult =&gt; getEventOrchestrationResult.Id),
         ///         CatchAll = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllArgs

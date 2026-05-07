@@ -22,13 +22,13 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Pagerduty.Index.Team("example", new()
+    ///     var example = new Pagerduty.Team("example", new()
     ///     {
     ///         Name = "Engineering",
     ///         Description = "All engineering",
     ///     });
     /// 
-    ///     var exampleUser = new Pagerduty.Index.User("example", new()
+    ///     var exampleUser = new Pagerduty.User("example", new()
     ///     {
     ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
@@ -38,7 +38,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var exampleEscalationPolicy = new Pagerduty.Index.EscalationPolicy("example", new()
+    ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("example", new()
     ///     {
     ///         Name = "Engineering Escalation Policy",
     ///         NumLoops = 2,

@@ -26,18 +26,18 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var databaseTeam = new Pagerduty.Index.Team("database_team", new()
+    ///     var databaseTeam = new Pagerduty.Team("database_team", new()
     ///     {
     ///         Name = "Database Team",
     ///     });
     /// 
-    ///     var eventOrchestration = new Pagerduty.Index.EventOrchestration("event_orchestration", new()
+    ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
     ///     {
     ///         Name = "Example Orchestration",
     ///         Team = databaseTeam.Id,
     ///     });
     /// 
-    ///     var integration = new Pagerduty.Index.EventOrchestrationIntegration("integration", new()
+    ///     var integration = new Pagerduty.EventOrchestrationIntegration("integration", new()
     ///     {
     ///         EventOrchestration = eventOrchestration.Id,
     ///         Label = "Example integration",

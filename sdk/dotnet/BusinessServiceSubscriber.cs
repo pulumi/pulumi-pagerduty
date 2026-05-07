@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Pagerduty.Index.BusinessService("example", new()
+    ///     var example = new Pagerduty.BusinessService("example", new()
     ///     {
     ///         Name = "My Web App",
     ///         Description = "A very descriptive description of this business service",
@@ -30,25 +30,25 @@ namespace Pulumi.Pagerduty
     ///         Team = "P37RSRS",
     ///     });
     /// 
-    ///     var engteam = new Pagerduty.Index.Team("engteam", new()
+    ///     var engteam = new Pagerduty.Team("engteam", new()
     ///     {
     ///         Name = "Engineering",
     ///     });
     /// 
-    ///     var exampleUser = new Pagerduty.Index.User("example", new()
+    ///     var exampleUser = new Pagerduty.User("example", new()
     ///     {
     ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///     });
     /// 
-    ///     var teamExample = new Pagerduty.Index.BusinessServiceSubscriber("team_example", new()
+    ///     var teamExample = new Pagerduty.BusinessServiceSubscriber("team_example", new()
     ///     {
     ///         SubscriberId = engteam.Id,
     ///         SubscriberType = "team",
     ///         BusinessServiceId = example.Id,
     ///     });
     /// 
-    ///     var userExample = new Pagerduty.Index.BusinessServiceSubscriber("user_example", new()
+    ///     var userExample = new Pagerduty.BusinessServiceSubscriber("user_example", new()
     ///     {
     ///         SubscriberId = exampleUser.Id,
     ///         SubscriberType = "user",

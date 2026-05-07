@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var csImpact = new Pagerduty.Index.IncidentCustomField("cs_impact", new()
+    ///     var csImpact = new Pagerduty.IncidentCustomField("cs_impact", new()
     ///     {
     ///         Name = "impact",
     ///         DisplayName = "Customer Impact",
@@ -30,7 +30,7 @@ namespace Pulumi.Pagerduty
     ///         FieldType = "single_value",
     ///     });
     /// 
-    ///     var sreEnvironment = new Pagerduty.Index.IncidentCustomField("sre_environment", new()
+    ///     var sreEnvironment = new Pagerduty.IncidentCustomField("sre_environment", new()
     ///     {
     ///         Name = "environment",
     ///         DisplayName = "Environment",
@@ -38,7 +38,7 @@ namespace Pulumi.Pagerduty
     ///         FieldType = "single_value_fixed",
     ///     });
     /// 
-    ///     var falseAlarm = new Pagerduty.Index.IncidentCustomField("false_alarm", new()
+    ///     var falseAlarm = new Pagerduty.IncidentCustomField("false_alarm", new()
     ///     {
     ///         Name = "false_alarm",
     ///         DisplayName = "False Alarm",

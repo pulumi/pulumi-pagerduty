@@ -196,48 +196,48 @@ export interface IncidentTypeCustomFieldState {
     /**
      * [Updating causes resource replacement] The type of the data of this custom field. Can be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url` when `dataType` is `singleValue`, otherwise must be `string`. Update
      */
-    dataType?: pulumi.Input<string>;
+    dataType?: pulumi.Input<string | undefined>;
     /**
      * The default value to set when new incidents are created. Always specified as a string.
      */
-    defaultValue?: pulumi.Input<string>;
+    defaultValue?: pulumi.Input<string | undefined>;
     /**
      * The description of the custom field.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the custom Type.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Whether the custom field is enabled. Defaults to true if not provided.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The options for the custom field. Can only be applied to fields with a type of `singleValueFixed` or `multiValueFixed`.
      */
-    fieldOptions?: pulumi.Input<pulumi.Input<string>[]>;
+    fieldOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * [Updating causes resource replacement] The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      */
-    fieldType?: pulumi.Input<string>;
+    fieldType?: pulumi.Input<string | undefined>;
     /**
      * [Updating causes resource replacement] The id of the incident type the custom field is associated with.
      */
-    incidentType?: pulumi.Input<string>;
+    incidentType?: pulumi.Input<string | undefined>;
     /**
      * [Updating causes resource replacement] The name of the custom field.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The API show URL at which the object is accessible.
      */
-    self?: pulumi.Input<string>;
+    self?: pulumi.Input<string | undefined>;
     /**
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
      */
-    summary?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    summary?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -251,11 +251,11 @@ export interface IncidentTypeCustomFieldArgs {
     /**
      * The default value to set when new incidents are created. Always specified as a string.
      */
-    defaultValue?: pulumi.Input<string>;
+    defaultValue?: pulumi.Input<string | undefined>;
     /**
      * The description of the custom field.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the custom Type.
      */
@@ -263,15 +263,15 @@ export interface IncidentTypeCustomFieldArgs {
     /**
      * Whether the custom field is enabled. Defaults to true if not provided.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The options for the custom field. Can only be applied to fields with a type of `singleValueFixed` or `multiValueFixed`.
      */
-    fieldOptions?: pulumi.Input<pulumi.Input<string>[]>;
+    fieldOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * [Updating causes resource replacement] The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      */
-    fieldType?: pulumi.Input<string>;
+    fieldType?: pulumi.Input<string | undefined>;
     /**
      * [Updating causes resource replacement] The id of the incident type the custom field is associated with.
      */
@@ -279,5 +279,5 @@ export interface IncidentTypeCustomFieldArgs {
     /**
      * [Updating causes resource replacement] The name of the custom field.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

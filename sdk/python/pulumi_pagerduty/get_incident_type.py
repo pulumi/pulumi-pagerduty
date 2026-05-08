@@ -118,7 +118,7 @@ def get_incident_type(display_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         parent_type=pulumi.get(__ret__, 'parent_type'),
         type=pulumi.get(__ret__, 'type'))
-def get_incident_type_output(display_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_incident_type_output(display_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIncidentTypeResult]:
     """
     Use this data source to access information about an existing resource.

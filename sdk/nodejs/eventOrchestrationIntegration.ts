@@ -116,12 +116,12 @@ export interface EventOrchestrationIntegrationState {
     /**
      * ID of the Event Orchestration to which this Integration belongs to. If value is changed, current Integration is associated with a newly provided ID.
      */
-    eventOrchestration?: pulumi.Input<string>;
+    eventOrchestration?: pulumi.Input<string | undefined>;
     /**
      * Name/description of the Integration.
      */
-    label?: pulumi.Input<string>;
-    parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationIntegrationParameter>[]>;
+    label?: pulumi.Input<string | undefined>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationIntegrationParameter>[] | undefined>;
 }
 
 /**

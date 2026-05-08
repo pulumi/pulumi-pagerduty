@@ -24,50 +24,51 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := pagerduty.GetTeam(ctx, &pagerduty.LookupTeamArgs{
-// Name: "devops",
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = pagerduty.GetUser(ctx, &pagerduty.LookupUserArgs{
-// Email: "me@example.com",
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleWTeam, err := pagerduty.NewUser(ctx, "example_w_team", &pagerduty.UserArgs{
-// Name: pulumi.String("user-with-team"),
-// Email: pulumi.String("user-with-team@example.com"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = pagerduty.NewTeamMembership(ctx, "example", &pagerduty.TeamMembershipArgs{
-// TeamId: pulumi.Any(devopsPagerdutyTeam.Id),
-// UserId: exampleWTeam.ID(),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = pagerduty.GetUsers(ctx, &pagerduty.GetUsersArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = pagerduty.GetUsers(ctx, &pagerduty.GetUsersArgs{
-// TeamIds: interface{}{
-// devopsPagerdutyTeam.Id,
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.GetTeam(ctx, &pagerduty.LookupTeamArgs{
+//				Name: "devops",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.GetUser(ctx, &pagerduty.LookupUserArgs{
+//				Email: "me@example.com",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleWTeam, err := pagerduty.NewUser(ctx, "example_w_team", &pagerduty.UserArgs{
+//				Name:  pulumi.String("user-with-team"),
+//				Email: pulumi.String("user-with-team@example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewTeamMembership(ctx, "example", &pagerduty.TeamMembershipArgs{
+//				TeamId: pulumi.Any(devopsPagerdutyTeam.Id),
+//				UserId: exampleWTeam.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.GetUsers(ctx, &pagerduty.GetUsersArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.GetUsers(ctx, &pagerduty.GetUsersArgs{
+//				TeamIds: pulumi.StringArray{
+//					devopsPagerdutyTeam.Id,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

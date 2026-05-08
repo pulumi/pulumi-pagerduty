@@ -21,8 +21,8 @@ __all__ = ['RulesetArgs', 'Ruleset']
 @pulumi.input_type
 class RulesetArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 team: Optional[pulumi.Input['RulesetTeamArgs']] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 team: pulumi.Input[Optional['RulesetTeamArgs']] = None):
         """
         The set of arguments for constructing a Ruleset resource.
 
@@ -36,36 +36,36 @@ class RulesetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the ruleset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def team(self) -> Optional[pulumi.Input['RulesetTeamArgs']]:
+    def team(self) -> pulumi.Input[Optional['RulesetTeamArgs']]:
         """
         Reference to the team that owns the ruleset. If none is specified, only admins have access.
         """
         return pulumi.get(self, "team")
 
     @team.setter
-    def team(self, value: Optional[pulumi.Input['RulesetTeamArgs']]):
+    def team(self, value: pulumi.Input[Optional['RulesetTeamArgs']]):
         pulumi.set(self, "team", value)
 
 
 @pulumi.input_type
 class _RulesetState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 team: Optional[pulumi.Input['RulesetTeamArgs']] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 team: pulumi.Input[Optional['RulesetTeamArgs']] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Ruleset resources.
 
@@ -85,50 +85,50 @@ class _RulesetState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the ruleset.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingKeys")
-    def routing_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def routing_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Routing keys routed to this ruleset.
         """
         return pulumi.get(self, "routing_keys")
 
     @routing_keys.setter
-    def routing_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def routing_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "routing_keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def team(self) -> Optional[pulumi.Input['RulesetTeamArgs']]:
+    def team(self) -> pulumi.Input[Optional['RulesetTeamArgs']]:
         """
         Reference to the team that owns the ruleset. If none is specified, only admins have access.
         """
         return pulumi.get(self, "team")
 
     @team.setter
-    def team(self, value: Optional[pulumi.Input['RulesetTeamArgs']]):
+    def team(self, value: pulumi.Input[Optional['RulesetTeamArgs']]):
         pulumi.set(self, "team", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of ruleset. Currently, only sets to `global`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -138,8 +138,8 @@ class Ruleset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 team: Optional[pulumi.Input[Union['RulesetTeamArgs', 'RulesetTeamArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 team: pulumi.Input[Optional[Union['RulesetTeamArgs', 'RulesetTeamArgsDict']]] = None,
                  __props__=None):
         """
         [Rulesets](https://support.pagerduty.com/docs/rulesets) allow you to route events to an endpoint and create collections of event rules, which define sets of actions to take based on event content.
@@ -249,8 +249,8 @@ class Ruleset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 team: Optional[pulumi.Input[Union['RulesetTeamArgs', 'RulesetTeamArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 team: pulumi.Input[Optional[Union['RulesetTeamArgs', 'RulesetTeamArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -274,10 +274,10 @@ class Ruleset(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            team: Optional[pulumi.Input[Union['RulesetTeamArgs', 'RulesetTeamArgsDict']]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Ruleset':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            team: pulumi.Input[Optional[Union['RulesetTeamArgs', 'RulesetTeamArgsDict']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Ruleset':
         """
         Get an existing Ruleset resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -37,7 +37,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Pagerduty.Index.Service("example", new()
+    ///     var example = new Pagerduty.Service("example", new()
     ///     {
     ///         Name = "Checkout API Service",
     ///         AutoResolveTimeout = "14400",
@@ -46,7 +46,7 @@ namespace Pulumi.Pagerduty
     ///         AlertCreation = "create_alerts_and_incidents",
     ///     });
     /// 
-    ///     var foo = new Pagerduty.Index.ServiceEventRule("foo", new()
+    ///     var foo = new Pagerduty.ServiceEventRule("foo", new()
     ///     {
     ///         Service = example.Id,
     ///         Position = 0,
@@ -112,7 +112,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var bar = new Pagerduty.Index.ServiceEventRule("bar", new()
+    ///     var bar = new Pagerduty.ServiceEventRule("bar", new()
     ///     {
     ///         Service = fooPagerdutyService.Id,
     ///         Position = 1,

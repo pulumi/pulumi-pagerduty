@@ -20,7 +20,7 @@ __all__ = ['AddonArgs', 'Addon']
 class AddonArgs:
     def __init__(__self__, *,
                  src: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Addon resource.
 
@@ -45,22 +45,22 @@ class AddonArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the add-on.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _AddonState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 src: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 src: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Addon resources.
 
@@ -74,26 +74,26 @@ class _AddonState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the add-on.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def src(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def src(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
         """
         return pulumi.get(self, "src")
 
     @src.setter
-    def src(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def src(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "src", value)
 
 
@@ -103,8 +103,8 @@ class Addon(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 src: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 src: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         With [add-ons](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEwNQ-install-an-add-on), third-party developers can write their own add-ons to PagerDuty's UI. Given a configuration containing a src parameter, that URL will be embedded in an iframe on a page that's available to users from a drop-down menu.
@@ -178,8 +178,8 @@ class Addon(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 src: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 src: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -203,8 +203,8 @@ class Addon(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            src: Optional[pulumi.Input[_builtins.str]] = None) -> 'Addon':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            src: pulumi.Input[Optional[_builtins.str]] = None) -> 'Addon':
         """
         Get an existing Addon resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

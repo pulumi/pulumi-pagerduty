@@ -98,7 +98,7 @@ def get_team_members(team_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         members=pulumi.get(__ret__, 'members'),
         team_id=pulumi.get(__ret__, 'team_id'))
-def get_team_members_output(team_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_team_members_output(team_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamMembersResult]:
     """
     Use this data source to get information about a specific [team's members][1].

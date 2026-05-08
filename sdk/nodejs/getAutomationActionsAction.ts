@@ -196,23 +196,23 @@ export interface GetAutomationActionsActionOutputArgs {
     /**
      * (Optional) The category of the action, e.g. `diagnostic`, `remediation`.
      */
-    actionClassification?: pulumi.Input<string>;
+    actionClassification?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Whether or not the action can be invoked automatically from a PagerDuty Event Orchestration.
      */
-    allowInvocationFromEventOrchestration?: pulumi.Input<boolean>;
+    allowInvocationFromEventOrchestration?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) Whether or not the action can be invoked manually by a user on the PagerDuty website.
      */
-    allowInvocationManually?: pulumi.Input<boolean>;
+    allowInvocationManually?: pulumi.Input<boolean | undefined>;
     /**
      * The time action was created. Represented as an ISO 8601 timestamp.
      */
-    creationTime?: pulumi.Input<string>;
+    creationTime?: pulumi.Input<string | undefined>;
     /**
      * (Optional) The description of the action.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The id of the automation actions action in the PagerDuty API.
      */
@@ -220,25 +220,25 @@ export interface GetAutomationActionsActionOutputArgs {
     /**
      * (Optional) If the action should be able to be run against all services or just specified ones.
      */
-    mapToAllServices?: pulumi.Input<boolean>;
+    mapToAllServices?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      */
-    modifyTime?: pulumi.Input<string>;
+    modifyTime?: pulumi.Input<string | undefined>;
     /**
      * (Optional) Whether or not the action can be invoked on unresolved incidents.
      */
-    onlyInvocableOnUnresolvedIncidents?: pulumi.Input<boolean>;
+    onlyInvocableOnUnresolvedIncidents?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) The Process Automation Actions runner to associate the action with.
      */
-    runnerId?: pulumi.Input<string>;
+    runnerId?: pulumi.Input<string | undefined>;
     /**
      * (Optional) The type of the runner associated with the action.
      */
-    runnerType?: pulumi.Input<string>;
+    runnerType?: pulumi.Input<string | undefined>;
     /**
      * The type of object. The value returned will be `action`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

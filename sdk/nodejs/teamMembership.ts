@@ -125,15 +125,15 @@ export interface TeamMembershipState {
      * * User role of `user` is a Team role of `manager`
      * * User role of `limitedUser` is a Team role of `responder`
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * The ID of the team in which the user will belong.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the user to add to the team.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -146,7 +146,7 @@ export interface TeamMembershipArgs {
      * * User role of `user` is a Team role of `manager`
      * * User role of `limitedUser` is a Team role of `responder`
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * The ID of the team in which the user will belong.
      */

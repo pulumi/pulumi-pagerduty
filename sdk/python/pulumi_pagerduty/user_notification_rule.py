@@ -24,7 +24,7 @@ class UserNotificationRuleArgs:
                  start_delay_in_minutes: pulumi.Input[_builtins.int],
                  urgency: pulumi.Input[_builtins.str],
                  user_id: pulumi.Input[_builtins.str],
-                 contact_method: Optional[pulumi.Input['UserNotificationRuleContactMethodArgs']] = None):
+                 contact_method: pulumi.Input[Optional['UserNotificationRuleContactMethodArgs']] = None):
         """
         The set of arguments for constructing a UserNotificationRule resource.
 
@@ -77,24 +77,24 @@ class UserNotificationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="contactMethod")
-    def contact_method(self) -> Optional[pulumi.Input['UserNotificationRuleContactMethodArgs']]:
+    def contact_method(self) -> pulumi.Input[Optional['UserNotificationRuleContactMethodArgs']]:
         """
         A contact method block, configured as a block described below.
         """
         return pulumi.get(self, "contact_method")
 
     @contact_method.setter
-    def contact_method(self, value: Optional[pulumi.Input['UserNotificationRuleContactMethodArgs']]):
+    def contact_method(self, value: pulumi.Input[Optional['UserNotificationRuleContactMethodArgs']]):
         pulumi.set(self, "contact_method", value)
 
 
 @pulumi.input_type
 class _UserNotificationRuleState:
     def __init__(__self__, *,
-                 contact_method: Optional[pulumi.Input['UserNotificationRuleContactMethodArgs']] = None,
-                 start_delay_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 urgency: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 contact_method: pulumi.Input[Optional['UserNotificationRuleContactMethodArgs']] = None,
+                 start_delay_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 urgency: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserNotificationRule resources.
 
@@ -114,50 +114,50 @@ class _UserNotificationRuleState:
 
     @_builtins.property
     @pulumi.getter(name="contactMethod")
-    def contact_method(self) -> Optional[pulumi.Input['UserNotificationRuleContactMethodArgs']]:
+    def contact_method(self) -> pulumi.Input[Optional['UserNotificationRuleContactMethodArgs']]:
         """
         A contact method block, configured as a block described below.
         """
         return pulumi.get(self, "contact_method")
 
     @contact_method.setter
-    def contact_method(self, value: Optional[pulumi.Input['UserNotificationRuleContactMethodArgs']]):
+    def contact_method(self, value: pulumi.Input[Optional['UserNotificationRuleContactMethodArgs']]):
         pulumi.set(self, "contact_method", value)
 
     @_builtins.property
     @pulumi.getter(name="startDelayInMinutes")
-    def start_delay_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_delay_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The delay before firing the rule, in minutes.
         """
         return pulumi.get(self, "start_delay_in_minutes")
 
     @start_delay_in_minutes.setter
-    def start_delay_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_delay_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_delay_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def urgency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def urgency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
         """
         return pulumi.get(self, "urgency")
 
     @urgency.setter
-    def urgency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def urgency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "urgency", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the user.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -167,10 +167,10 @@ class UserNotificationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_method: Optional[pulumi.Input[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict']]] = None,
-                 start_delay_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 urgency: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact_method: pulumi.Input[Optional[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict']]] = None,
+                 start_delay_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 urgency: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A [notification rule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0NQ-create-a-user-notification-rule) configures where and when a PagerDuty user is notified when a triggered incident is assigned to them. Unique notification rules can be created for both high and low-urgency incidents.
@@ -328,10 +328,10 @@ class UserNotificationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_method: Optional[pulumi.Input[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict']]] = None,
-                 start_delay_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 urgency: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact_method: pulumi.Input[Optional[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict']]] = None,
+                 start_delay_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 urgency: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -361,10 +361,10 @@ class UserNotificationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            contact_method: Optional[pulumi.Input[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict']]] = None,
-            start_delay_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            urgency: Optional[pulumi.Input[_builtins.str]] = None,
-            user_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'UserNotificationRule':
+            contact_method: pulumi.Input[Optional[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict']]] = None,
+            start_delay_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            urgency: pulumi.Input[Optional[_builtins.str]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserNotificationRule':
         """
         Get an existing UserNotificationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

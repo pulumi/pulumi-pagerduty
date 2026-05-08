@@ -209,27 +209,27 @@ export interface JiraCloudAccountMappingRuleState {
     /**
      * [Updating can cause a resource replacement] The account mapping this rule belongs to.
      */
-    accountMapping?: pulumi.Input<string>;
+    accountMapping?: pulumi.Input<string | undefined>;
     /**
      * If auto-creation using JQL is disabled, this field provides the reason for the disablement.
      */
-    autocreateJqlDisabledReason?: pulumi.Input<string>;
+    autocreateJqlDisabledReason?: pulumi.Input<string | undefined>;
     /**
      * The timestamp until which the auto-creation using JQL feature is disabled.
      */
-    autocreateJqlDisabledUntil?: pulumi.Input<string>;
+    autocreateJqlDisabledUntil?: pulumi.Input<string | undefined>;
     /**
      * Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.
      */
-    config?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfig>;
+    config?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfig | undefined>;
     /**
      * Indicates if the rule is enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -243,13 +243,13 @@ export interface JiraCloudAccountMappingRuleArgs {
     /**
      * Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.
      */
-    config?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfig>;
+    config?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfig | undefined>;
     /**
      * Indicates if the rule is enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

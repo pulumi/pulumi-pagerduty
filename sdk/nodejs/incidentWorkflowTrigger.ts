@@ -157,27 +157,27 @@ export interface IncidentWorkflowTriggerState {
     /**
      * A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
      */
-    condition?: pulumi.Input<string>;
+    condition?: pulumi.Input<string | undefined>;
     /**
      * Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
      */
-    permissions?: pulumi.Input<inputs.IncidentWorkflowTriggerPermissions>;
+    permissions?: pulumi.Input<inputs.IncidentWorkflowTriggerPermissions | undefined>;
     /**
      * A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
      */
-    services?: pulumi.Input<pulumi.Input<string>[]>;
+    services?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
      */
-    subscribedToAllServices?: pulumi.Input<boolean>;
+    subscribedToAllServices?: pulumi.Input<boolean | undefined>;
     /**
      * [Updating causes resource replacement] May be either `manual` or `conditional`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The workflow ID for the workflow to trigger.
      */
-    workflow?: pulumi.Input<string>;
+    workflow?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -187,15 +187,15 @@ export interface IncidentWorkflowTriggerArgs {
     /**
      * A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
      */
-    condition?: pulumi.Input<string>;
+    condition?: pulumi.Input<string | undefined>;
     /**
      * Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
      */
-    permissions?: pulumi.Input<inputs.IncidentWorkflowTriggerPermissions>;
+    permissions?: pulumi.Input<inputs.IncidentWorkflowTriggerPermissions | undefined>;
     /**
      * A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
      */
-    services?: pulumi.Input<pulumi.Input<string>[]>;
+    services?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
      */

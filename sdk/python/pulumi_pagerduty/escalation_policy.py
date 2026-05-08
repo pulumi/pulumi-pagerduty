@@ -22,10 +22,10 @@ __all__ = ['EscalationPolicyArgs', 'EscalationPolicy']
 class EscalationPolicyArgs:
     def __init__(__self__, *,
                  rules: pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_loops: Optional[pulumi.Input[_builtins.int]] = None,
-                 teams: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_loops: pulumi.Input[Optional[_builtins.int]] = None,
+                 teams: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EscalationPolicy resource.
 
@@ -62,7 +62,7 @@ class EscalationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-friendly description of the escalation policy.
         If not set, a placeholder of "Managed by Pulumi" will be set.
@@ -70,54 +70,54 @@ class EscalationPolicyArgs:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the escalation policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="numLoops")
-    def num_loops(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def num_loops(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of times the escalation policy will repeat after reaching the end of its escalation.
         """
         return pulumi.get(self, "num_loops")
 
     @num_loops.setter
-    def num_loops(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def num_loops(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "num_loops", value)
 
     @_builtins.property
     @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def teams(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
         """
         return pulumi.get(self, "teams")
 
     @teams.setter
-    def teams(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def teams(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "teams", value)
 
 
 @pulumi.input_type
 class _EscalationPolicyState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_loops: Optional[pulumi.Input[_builtins.int]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]]] = None,
-                 teams: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_loops: pulumi.Input[Optional[_builtins.int]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]]] = None,
+                 teams: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EscalationPolicy resources.
 
@@ -143,7 +143,7 @@ class _EscalationPolicyState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-friendly description of the escalation policy.
         If not set, a placeholder of "Managed by Pulumi" will be set.
@@ -151,55 +151,55 @@ class _EscalationPolicyState:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the escalation policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="numLoops")
-    def num_loops(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def num_loops(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of times the escalation policy will repeat after reaching the end of its escalation.
         """
         return pulumi.get(self, "num_loops")
 
     @num_loops.setter
-    def num_loops(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def num_loops(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "num_loops", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]]]:
         """
         An Escalation rule block. Escalation rules documented below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def teams(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
         """
         return pulumi.get(self, "teams")
 
     @teams.setter
-    def teams(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def teams(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "teams", value)
 
 
@@ -209,11 +209,11 @@ class EscalationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_loops: Optional[pulumi.Input[_builtins.int]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]]] = None,
-                 teams: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_loops: pulumi.Input[Optional[_builtins.int]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]]] = None,
+                 teams: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNQ-create-an-escalation-policy) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
@@ -341,11 +341,11 @@ class EscalationPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_loops: Optional[pulumi.Input[_builtins.int]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]]] = None,
-                 teams: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_loops: pulumi.Input[Optional[_builtins.int]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]]] = None,
+                 teams: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -374,11 +374,11 @@ class EscalationPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            num_loops: Optional[pulumi.Input[_builtins.int]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]]] = None,
-            teams: Optional[pulumi.Input[_builtins.str]] = None) -> 'EscalationPolicy':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            num_loops: pulumi.Input[Optional[_builtins.int]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]]] = None,
+            teams: pulumi.Input[Optional[_builtins.str]] = None) -> 'EscalationPolicy':
         """
         Get an existing EscalationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

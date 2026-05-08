@@ -25,39 +25,39 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = Pagerduty.Index.GetEscalationPolicy.Invoke(new()
+    ///     var @default = Pagerduty.GetEscalationPolicy.Invoke(new()
     ///     {
     ///         Name = "Default",
     ///     });
     /// 
-    ///     var p1 = Pagerduty.Index.GetPriority.Invoke(new()
+    ///     var p1 = Pagerduty.GetPriority.Invoke(new()
     ///     {
     ///         Name = "P1",
     ///     });
     /// 
-    ///     var p2 = Pagerduty.Index.GetPriority.Invoke(new()
+    ///     var p2 = Pagerduty.GetPriority.Invoke(new()
     ///     {
     ///         Name = "P2",
     ///     });
     /// 
-    ///     var p3 = Pagerduty.Index.GetPriority.Invoke(new()
+    ///     var p3 = Pagerduty.GetPriority.Invoke(new()
     ///     {
     ///         Name = "P3",
     ///     });
     /// 
-    ///     var foo = new Pagerduty.Index.Service("foo", new()
+    ///     var foo = new Pagerduty.Service("foo", new()
     ///     {
     ///         Name = "My Web App",
     ///         EscalationPolicy = @default.Apply(@default =&gt; @default.Apply(getEscalationPolicyResult =&gt; getEscalationPolicyResult.Id)),
     ///     });
     /// 
-    ///     var fooUser = new Pagerduty.Index.User("foo", new()
+    ///     var fooUser = new Pagerduty.User("foo", new()
     ///     {
     ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///     });
     /// 
-    ///     var fooJiraCloudAccountMappingRule = new Pagerduty.Index.JiraCloudAccountMappingRule("foo", new()
+    ///     var fooJiraCloudAccountMappingRule = new Pagerduty.JiraCloudAccountMappingRule("foo", new()
     ///     {
     ///         Name = "Integration with My Web App",
     ///         AccountMapping = "PLBP09X",

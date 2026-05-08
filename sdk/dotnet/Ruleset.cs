@@ -37,12 +37,12 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Pagerduty.Index.Team("foo", new()
+    ///     var foo = new Pagerduty.Team("foo", new()
     ///     {
     ///         Name = "Engineering (Seattle)",
     ///     });
     /// 
-    ///     var fooRuleset = new Pagerduty.Index.Ruleset("foo", new()
+    ///     var fooRuleset = new Pagerduty.Ruleset("foo", new()
     ///     {
     ///         Name = "Primary Ruleset",
     ///         Team = new Pagerduty.Inputs.RulesetTeamArgs

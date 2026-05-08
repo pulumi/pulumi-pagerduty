@@ -111,7 +111,7 @@ export interface ServiceDependencyState {
     /**
      * The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
      */
-    dependency?: pulumi.Input<inputs.ServiceDependencyDependency>;
+    dependency?: pulumi.Input<inputs.ServiceDependencyDependency | undefined>;
 }
 
 /**

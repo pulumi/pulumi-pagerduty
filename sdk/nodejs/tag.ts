@@ -102,15 +102,15 @@ export interface TagState {
     /**
      * URL at which the entity is uniquely displayed in the Web app.
      */
-    htmlUrl?: pulumi.Input<string>;
+    htmlUrl?: pulumi.Input<string | undefined>;
     /**
      * The label of the tag.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
      */
-    summary?: pulumi.Input<string>;
+    summary?: pulumi.Input<string | undefined>;
 }
 
 /**

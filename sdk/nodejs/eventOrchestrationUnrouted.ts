@@ -138,15 +138,15 @@ export interface EventOrchestrationUnroutedState {
     /**
      * the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      */
-    catchAll?: pulumi.Input<inputs.EventOrchestrationUnroutedCatchAll>;
+    catchAll?: pulumi.Input<inputs.EventOrchestrationUnroutedCatchAll | undefined>;
     /**
      * The Event Orchestration to which this Unrouted Orchestration belongs to.
      */
-    eventOrchestration?: pulumi.Input<string>;
+    eventOrchestration?: pulumi.Input<string | undefined>;
     /**
      * An Unrouted Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
      */
-    sets?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedSet>[]>;
+    sets?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedSet>[] | undefined>;
 }
 
 /**

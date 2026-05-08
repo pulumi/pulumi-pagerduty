@@ -45,7 +45,7 @@ class ServiceDependencyArgs:
 @pulumi.input_type
 class _ServiceDependencyState:
     def __init__(__self__, *,
-                 dependency: Optional[pulumi.Input['ServiceDependencyDependencyArgs']] = None):
+                 dependency: pulumi.Input[Optional['ServiceDependencyDependencyArgs']] = None):
         """
         Input properties used for looking up and filtering ServiceDependency resources.
 
@@ -56,14 +56,14 @@ class _ServiceDependencyState:
 
     @_builtins.property
     @pulumi.getter
-    def dependency(self) -> Optional[pulumi.Input['ServiceDependencyDependencyArgs']]:
+    def dependency(self) -> pulumi.Input[Optional['ServiceDependencyDependencyArgs']]:
         """
         The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
         return pulumi.get(self, "dependency")
 
     @dependency.setter
-    def dependency(self, value: Optional[pulumi.Input['ServiceDependencyDependencyArgs']]):
+    def dependency(self, value: pulumi.Input[Optional['ServiceDependencyDependencyArgs']]):
         pulumi.set(self, "dependency", value)
 
 
@@ -73,7 +73,7 @@ class ServiceDependency(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dependency: Optional[pulumi.Input[Union['ServiceDependencyDependencyArgs', 'ServiceDependencyDependencyArgsDict']]] = None,
+                 dependency: pulumi.Input[Optional[Union['ServiceDependencyDependencyArgs', 'ServiceDependencyDependencyArgsDict']]] = None,
                  __props__=None):
         """
         A [service dependency](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Mg-associate-service-dependencies) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
@@ -180,7 +180,7 @@ class ServiceDependency(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dependency: Optional[pulumi.Input[Union['ServiceDependencyDependencyArgs', 'ServiceDependencyDependencyArgsDict']]] = None,
+                 dependency: pulumi.Input[Optional[Union['ServiceDependencyDependencyArgs', 'ServiceDependencyDependencyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -203,7 +203,7 @@ class ServiceDependency(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dependency: Optional[pulumi.Input[Union['ServiceDependencyDependencyArgs', 'ServiceDependencyDependencyArgsDict']]] = None) -> 'ServiceDependency':
+            dependency: pulumi.Input[Optional[Union['ServiceDependencyDependencyArgs', 'ServiceDependencyDependencyArgsDict']]] = None) -> 'ServiceDependency':
         """
         Get an existing ServiceDependency resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

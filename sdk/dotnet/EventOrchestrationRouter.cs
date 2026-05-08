@@ -24,17 +24,17 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var database = Pagerduty.Index.GetService.Invoke(new()
+    ///     var database = Pagerduty.GetService.Invoke(new()
     ///     {
     ///         Name = "Primary Data Store",
     ///     });
     /// 
-    ///     var www = Pagerduty.Index.GetService.Invoke(new()
+    ///     var www = Pagerduty.GetService.Invoke(new()
     ///     {
     ///         Name = "Web Server App",
     ///     });
     /// 
-    ///     var router = new Pagerduty.Index.EventOrchestrationRouter("router", new()
+    ///     var router = new Pagerduty.EventOrchestrationRouter("router", new()
     ///     {
     ///         EventOrchestration = myMonitor.Id,
     ///         Set = new Pagerduty.Inputs.EventOrchestrationRouterSetArgs

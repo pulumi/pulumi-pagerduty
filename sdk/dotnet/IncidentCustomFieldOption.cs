@@ -23,7 +23,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sreEnvironment = new Pagerduty.Index.IncidentCustomField("sre_environment", new()
+    ///     var sreEnvironment = new Pagerduty.IncidentCustomField("sre_environment", new()
     ///     {
     ///         Name = "environment",
     ///         DisplayName = "Environment",
@@ -31,21 +31,21 @@ namespace Pulumi.Pagerduty
     ///         FieldType = "single_value_fixed",
     ///     });
     /// 
-    ///     var devEnvironment = new Pagerduty.Index.IncidentCustomFieldOption("dev_environment", new()
+    ///     var devEnvironment = new Pagerduty.IncidentCustomFieldOption("dev_environment", new()
     ///     {
     ///         Field = sreEnvironment.Id,
     ///         DataType = "string",
     ///         Value = "dev",
     ///     });
     /// 
-    ///     var stageEnvironment = new Pagerduty.Index.IncidentCustomFieldOption("stage_environment", new()
+    ///     var stageEnvironment = new Pagerduty.IncidentCustomFieldOption("stage_environment", new()
     ///     {
     ///         Field = sreEnvironment.Id,
     ///         DataType = "string",
     ///         Value = "stage",
     ///     });
     /// 
-    ///     var prodEnvironment = new Pagerduty.Index.IncidentCustomFieldOption("prod_environment", new()
+    ///     var prodEnvironment = new Pagerduty.IncidentCustomFieldOption("prod_environment", new()
     ///     {
     ///         Field = sreEnvironment.Id,
     ///         DataType = "string",

@@ -21,7 +21,7 @@ class EventRuleArgs:
     def __init__(__self__, *,
                  action_json: pulumi.Input[_builtins.str],
                  condition_json: pulumi.Input[_builtins.str],
-                 advanced_condition_json: Optional[pulumi.Input[_builtins.str]] = None):
+                 advanced_condition_json: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventRule resource.
 
@@ -60,24 +60,24 @@ class EventRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="advancedConditionJson")
-    def advanced_condition_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def advanced_condition_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
         """
         return pulumi.get(self, "advanced_condition_json")
 
     @advanced_condition_json.setter
-    def advanced_condition_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def advanced_condition_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "advanced_condition_json", value)
 
 
 @pulumi.input_type
 class _EventRuleState:
     def __init__(__self__, *,
-                 action_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 advanced_condition_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 catch_all: Optional[pulumi.Input[_builtins.bool]] = None,
-                 condition_json: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 advanced_condition_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 condition_json: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventRule resources.
 
@@ -97,50 +97,50 @@ class _EventRuleState:
 
     @_builtins.property
     @pulumi.getter(name="actionJson")
-    def action_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A list of one or more actions for each rule. Each action within the list is itself a list.
         """
         return pulumi.get(self, "action_json")
 
     @action_json.setter
-    def action_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_json", value)
 
     @_builtins.property
     @pulumi.getter(name="advancedConditionJson")
-    def advanced_condition_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def advanced_condition_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
         """
         return pulumi.get(self, "advanced_condition_json")
 
     @advanced_condition_json.setter
-    def advanced_condition_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def advanced_condition_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "advanced_condition_json", value)
 
     @_builtins.property
     @pulumi.getter(name="catchAll")
-    def catch_all(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def catch_all(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.
         """
         return pulumi.get(self, "catch_all")
 
     @catch_all.setter
-    def catch_all(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def catch_all(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "catch_all", value)
 
     @_builtins.property
     @pulumi.getter(name="conditionJson")
-    def condition_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
         """
         return pulumi.get(self, "condition_json")
 
     @condition_json.setter
-    def condition_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition_json", value)
 
 
@@ -150,9 +150,9 @@ class EventRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 advanced_condition_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 advanced_condition_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_json: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         *NOTE: The `EventRule` resource has been deprecated in favor of the Ruleset and RulesetRule resources. Please use the `ruleset` based resources for working with Event Rules.*
@@ -423,9 +423,9 @@ class EventRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 advanced_condition_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 advanced_condition_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_json: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -453,10 +453,10 @@ class EventRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action_json: Optional[pulumi.Input[_builtins.str]] = None,
-            advanced_condition_json: Optional[pulumi.Input[_builtins.str]] = None,
-            catch_all: Optional[pulumi.Input[_builtins.bool]] = None,
-            condition_json: Optional[pulumi.Input[_builtins.str]] = None) -> 'EventRule':
+            action_json: pulumi.Input[Optional[_builtins.str]] = None,
+            advanced_condition_json: pulumi.Input[Optional[_builtins.str]] = None,
+            catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
+            condition_json: pulumi.Input[Optional[_builtins.str]] = None) -> 'EventRule':
         """
         Get an existing EventRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

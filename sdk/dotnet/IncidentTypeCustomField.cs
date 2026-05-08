@@ -28,7 +28,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var alarmTime = new Pagerduty.Index.IncidentTypeCustomField("alarm_time", new()
+    ///     var alarmTime = new Pagerduty.IncidentTypeCustomField("alarm_time", new()
     ///     {
     ///         Name = "alarm_time_minutes",
     ///         DisplayName = "Alarm Time",
@@ -38,12 +38,12 @@ namespace Pulumi.Pagerduty
     ///         IncidentType = "incident_default",
     ///     });
     /// 
-    ///     var foo = Pagerduty.Index.GetIncidentType.Invoke(new()
+    ///     var foo = Pagerduty.GetIncidentType.Invoke(new()
     ///     {
     ///         DisplayName = "Foo",
     ///     });
     /// 
-    ///     var level = new Pagerduty.Index.IncidentTypeCustomField("level", new()
+    ///     var level = new Pagerduty.IncidentTypeCustomField("level", new()
     ///     {
     ///         Name = "level",
     ///         IncidentType = foo.Apply(getIncidentTypeResult =&gt; getIncidentTypeResult.Id),
@@ -61,7 +61,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var csImpact = new Pagerduty.Index.IncidentTypeCustomField("cs_impact", new()
+    ///     var csImpact = new Pagerduty.IncidentTypeCustomField("cs_impact", new()
     ///     {
     ///         Name = "impact",
     ///         IncidentType = foo.Apply(getIncidentTypeResult =&gt; getIncidentTypeResult.Id),

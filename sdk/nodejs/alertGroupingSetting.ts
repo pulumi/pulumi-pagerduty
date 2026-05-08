@@ -194,23 +194,23 @@ export interface AlertGroupingSettingState {
     /**
      * The set of values used for configuration.
      */
-    config?: pulumi.Input<inputs.AlertGroupingSettingConfig>;
+    config?: pulumi.Input<inputs.AlertGroupingSettingConfig | undefined>;
     /**
      * A human-friendly text to describe and identify this alert grouping setting.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name for the alert grouping settings.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * [Updating can cause a resource replacement] The list IDs of services associated to this setting.
      */
-    services?: pulumi.Input<pulumi.Input<string>[]>;
+    services?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The type of alert grouping; one of `intelligent`, `time`, `contentBased` or  `contentBasedIntelligent`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -220,15 +220,15 @@ export interface AlertGroupingSettingArgs {
     /**
      * The set of values used for configuration.
      */
-    config?: pulumi.Input<inputs.AlertGroupingSettingConfig>;
+    config?: pulumi.Input<inputs.AlertGroupingSettingConfig | undefined>;
     /**
      * A human-friendly text to describe and identify this alert grouping setting.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name for the alert grouping settings.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * [Updating can cause a resource replacement] The list IDs of services associated to this setting.
      */

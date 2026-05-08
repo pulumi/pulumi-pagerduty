@@ -148,23 +148,23 @@ export interface EscalationPolicyState {
      * A human-friendly description of the escalation policy.
      * If not set, a placeholder of "Managed by Pulumi" will be set.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the escalation policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of times the escalation policy will repeat after reaching the end of its escalation.
      */
-    numLoops?: pulumi.Input<number>;
+    numLoops?: pulumi.Input<number | undefined>;
     /**
      * An Escalation rule block. Escalation rules documented below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.EscalationPolicyRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.EscalationPolicyRule>[] | undefined>;
     /**
      * Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
      */
-    teams?: pulumi.Input<string>;
+    teams?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -175,15 +175,15 @@ export interface EscalationPolicyArgs {
      * A human-friendly description of the escalation policy.
      * If not set, a placeholder of "Managed by Pulumi" will be set.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the escalation policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of times the escalation policy will repeat after reaching the end of its escalation.
      */
-    numLoops?: pulumi.Input<number>;
+    numLoops?: pulumi.Input<number | undefined>;
     /**
      * An Escalation rule block. Escalation rules documented below.
      */
@@ -191,5 +191,5 @@ export interface EscalationPolicyArgs {
     /**
      * Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
      */
-    teams?: pulumi.Input<string>;
+    teams?: pulumi.Input<string | undefined>;
 }

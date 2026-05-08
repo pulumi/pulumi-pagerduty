@@ -24,7 +24,7 @@ class UserHandoffNotificationRuleArgs:
                  contact_method: pulumi.Input['UserHandoffNotificationRuleContactMethodArgs'],
                  notify_advance_in_minutes: pulumi.Input[_builtins.int],
                  user_id: pulumi.Input[_builtins.str],
-                 handoff_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 handoff_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserHandoffNotificationRule resource.
 
@@ -77,24 +77,24 @@ class UserHandoffNotificationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="handoffType")
-    def handoff_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def handoff_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of handoff to notify the user about. Possible values are `oncall`, `offcall`, `both`.
         """
         return pulumi.get(self, "handoff_type")
 
     @handoff_type.setter
-    def handoff_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def handoff_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "handoff_type", value)
 
 
 @pulumi.input_type
 class _UserHandoffNotificationRuleState:
     def __init__(__self__, *,
-                 contact_method: Optional[pulumi.Input['UserHandoffNotificationRuleContactMethodArgs']] = None,
-                 handoff_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_advance_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 contact_method: pulumi.Input[Optional['UserHandoffNotificationRuleContactMethodArgs']] = None,
+                 handoff_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_advance_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserHandoffNotificationRule resources.
 
@@ -114,50 +114,50 @@ class _UserHandoffNotificationRuleState:
 
     @_builtins.property
     @pulumi.getter(name="contactMethod")
-    def contact_method(self) -> Optional[pulumi.Input['UserHandoffNotificationRuleContactMethodArgs']]:
+    def contact_method(self) -> pulumi.Input[Optional['UserHandoffNotificationRuleContactMethodArgs']]:
         """
         The contact method to notify the user. Contact method documented below.
         """
         return pulumi.get(self, "contact_method")
 
     @contact_method.setter
-    def contact_method(self, value: Optional[pulumi.Input['UserHandoffNotificationRuleContactMethodArgs']]):
+    def contact_method(self, value: pulumi.Input[Optional['UserHandoffNotificationRuleContactMethodArgs']]):
         pulumi.set(self, "contact_method", value)
 
     @_builtins.property
     @pulumi.getter(name="handoffType")
-    def handoff_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def handoff_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of handoff to notify the user about. Possible values are `oncall`, `offcall`, `both`.
         """
         return pulumi.get(self, "handoff_type")
 
     @handoff_type.setter
-    def handoff_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def handoff_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "handoff_type", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyAdvanceInMinutes")
-    def notify_advance_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def notify_advance_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of minutes before the handoff that the user should be notified. Must be a positive integer greater than or equal to 0.
         """
         return pulumi.get(self, "notify_advance_in_minutes")
 
     @notify_advance_in_minutes.setter
-    def notify_advance_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def notify_advance_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "notify_advance_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the user.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -167,10 +167,10 @@ class UserHandoffNotificationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_method: Optional[pulumi.Input[Union['UserHandoffNotificationRuleContactMethodArgs', 'UserHandoffNotificationRuleContactMethodArgsDict']]] = None,
-                 handoff_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_advance_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact_method: pulumi.Input[Optional[Union['UserHandoffNotificationRuleContactMethodArgs', 'UserHandoffNotificationRuleContactMethodArgsDict']]] = None,
+                 handoff_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_advance_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An [user handoff notification rule](https://developer.pagerduty.com/api-reference/f2ab7a3c1418a-create-a-user-handoff-notification-rule) is a rule that specifies how a user should be notified when they are handed off an incident.
@@ -274,10 +274,10 @@ class UserHandoffNotificationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_method: Optional[pulumi.Input[Union['UserHandoffNotificationRuleContactMethodArgs', 'UserHandoffNotificationRuleContactMethodArgsDict']]] = None,
-                 handoff_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_advance_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact_method: pulumi.Input[Optional[Union['UserHandoffNotificationRuleContactMethodArgs', 'UserHandoffNotificationRuleContactMethodArgsDict']]] = None,
+                 handoff_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_advance_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -307,10 +307,10 @@ class UserHandoffNotificationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            contact_method: Optional[pulumi.Input[Union['UserHandoffNotificationRuleContactMethodArgs', 'UserHandoffNotificationRuleContactMethodArgsDict']]] = None,
-            handoff_type: Optional[pulumi.Input[_builtins.str]] = None,
-            notify_advance_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            user_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'UserHandoffNotificationRule':
+            contact_method: pulumi.Input[Optional[Union['UserHandoffNotificationRuleContactMethodArgs', 'UserHandoffNotificationRuleContactMethodArgsDict']]] = None,
+            handoff_type: pulumi.Input[Optional[_builtins.str]] = None,
+            notify_advance_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserHandoffNotificationRule':
         """
         Get an existing UserHandoffNotificationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -22,9 +22,9 @@ __all__ = ['JiraCloudAccountMappingRuleArgs', 'JiraCloudAccountMappingRule']
 class JiraCloudAccountMappingRuleArgs:
     def __init__(__self__, *,
                  account_mapping: pulumi.Input[_builtins.str],
-                 config: Optional[pulumi.Input['JiraCloudAccountMappingRuleConfigArgs']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 config: pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigArgs']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JiraCloudAccountMappingRule resource.
 
@@ -55,50 +55,50 @@ class JiraCloudAccountMappingRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input['JiraCloudAccountMappingRuleConfigArgs']]:
+    def config(self) -> pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigArgs']]:
         """
         Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input['JiraCloudAccountMappingRuleConfigArgs']]):
+    def config(self, value: pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigArgs']]):
         pulumi.set(self, "config", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the rule is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _JiraCloudAccountMappingRuleState:
     def __init__(__self__, *,
-                 account_mapping: Optional[pulumi.Input[_builtins.str]] = None,
-                 autocreate_jql_disabled_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 autocreate_jql_disabled_until: Optional[pulumi.Input[_builtins.str]] = None,
-                 config: Optional[pulumi.Input['JiraCloudAccountMappingRuleConfigArgs']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_mapping: pulumi.Input[Optional[_builtins.str]] = None,
+                 autocreate_jql_disabled_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 autocreate_jql_disabled_until: pulumi.Input[Optional[_builtins.str]] = None,
+                 config: pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigArgs']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering JiraCloudAccountMappingRule resources.
 
@@ -124,74 +124,74 @@ class _JiraCloudAccountMappingRuleState:
 
     @_builtins.property
     @pulumi.getter(name="accountMapping")
-    def account_mapping(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_mapping(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [Updating can cause a resource replacement] The account mapping this rule belongs to.
         """
         return pulumi.get(self, "account_mapping")
 
     @account_mapping.setter
-    def account_mapping(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_mapping(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_mapping", value)
 
     @_builtins.property
     @pulumi.getter(name="autocreateJqlDisabledReason")
-    def autocreate_jql_disabled_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def autocreate_jql_disabled_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If auto-creation using JQL is disabled, this field provides the reason for the disablement.
         """
         return pulumi.get(self, "autocreate_jql_disabled_reason")
 
     @autocreate_jql_disabled_reason.setter
-    def autocreate_jql_disabled_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def autocreate_jql_disabled_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "autocreate_jql_disabled_reason", value)
 
     @_builtins.property
     @pulumi.getter(name="autocreateJqlDisabledUntil")
-    def autocreate_jql_disabled_until(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def autocreate_jql_disabled_until(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp until which the auto-creation using JQL feature is disabled.
         """
         return pulumi.get(self, "autocreate_jql_disabled_until")
 
     @autocreate_jql_disabled_until.setter
-    def autocreate_jql_disabled_until(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def autocreate_jql_disabled_until(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "autocreate_jql_disabled_until", value)
 
     @_builtins.property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input['JiraCloudAccountMappingRuleConfigArgs']]:
+    def config(self) -> pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigArgs']]:
         """
         Configuration for bidirectional synchronization between Jira issues and PagerDuty incidents.
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input['JiraCloudAccountMappingRuleConfigArgs']]):
+    def config(self, value: pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigArgs']]):
         pulumi.set(self, "config", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the rule is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -201,10 +201,10 @@ class JiraCloudAccountMappingRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_mapping: Optional[pulumi.Input[_builtins.str]] = None,
-                 config: Optional[pulumi.Input[Union['JiraCloudAccountMappingRuleConfigArgs', 'JiraCloudAccountMappingRuleConfigArgsDict']]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_mapping: pulumi.Input[Optional[_builtins.str]] = None,
+                 config: pulumi.Input[Optional[Union['JiraCloudAccountMappingRuleConfigArgs', 'JiraCloudAccountMappingRuleConfigArgsDict']]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An Jira Cloud's account mapping [rule](https://developer.pagerduty.com/api-reference/85dc30ba966a6-create-a-rule)
@@ -430,10 +430,10 @@ class JiraCloudAccountMappingRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_mapping: Optional[pulumi.Input[_builtins.str]] = None,
-                 config: Optional[pulumi.Input[Union['JiraCloudAccountMappingRuleConfigArgs', 'JiraCloudAccountMappingRuleConfigArgsDict']]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_mapping: pulumi.Input[Optional[_builtins.str]] = None,
+                 config: pulumi.Input[Optional[Union['JiraCloudAccountMappingRuleConfigArgs', 'JiraCloudAccountMappingRuleConfigArgsDict']]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -461,12 +461,12 @@ class JiraCloudAccountMappingRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_mapping: Optional[pulumi.Input[_builtins.str]] = None,
-            autocreate_jql_disabled_reason: Optional[pulumi.Input[_builtins.str]] = None,
-            autocreate_jql_disabled_until: Optional[pulumi.Input[_builtins.str]] = None,
-            config: Optional[pulumi.Input[Union['JiraCloudAccountMappingRuleConfigArgs', 'JiraCloudAccountMappingRuleConfigArgsDict']]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'JiraCloudAccountMappingRule':
+            account_mapping: pulumi.Input[Optional[_builtins.str]] = None,
+            autocreate_jql_disabled_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            autocreate_jql_disabled_until: pulumi.Input[Optional[_builtins.str]] = None,
+            config: pulumi.Input[Optional[Union['JiraCloudAccountMappingRuleConfigArgs', 'JiraCloudAccountMappingRuleConfigArgsDict']]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'JiraCloudAccountMappingRule':
         """
         Get an existing JiraCloudAccountMappingRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

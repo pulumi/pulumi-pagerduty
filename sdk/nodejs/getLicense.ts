@@ -128,13 +128,13 @@ export interface GetLicenseOutputArgs {
     /**
      * Used to determine if the data config *description* is a valid substring of a valid license description assigned to the account.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Used to match the data config *id* with an exact match of a valid license ID assigned to the account.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Used to determine if the data config *name* is a valid substring of a valid license name assigned to the account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

@@ -82,5 +82,5 @@ export interface GetStandardsOutputArgs {
     /**
      * Filter by `resourceType` the received standards. Allowed values are `technicalService`.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
 }

@@ -9,46 +9,46 @@ export interface AlertGroupingSettingConfig {
     /**
      * One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
      */
-    aggregate?: pulumi.Input<string>;
+    aggregate?: pulumi.Input<string | undefined>;
     /**
      * Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
      */
-    fields?: pulumi.Input<pulumi.Input<string>[]>;
+    fields?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An array of strings which represent the iag fields with which to intelligently group against.  This setting applies only when `type` is set to `intelligent`. Default: ["summary"].
      */
-    iagFields?: pulumi.Input<pulumi.Input<string>[]>;
+    iagFields?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
      */
-    timeWindow?: pulumi.Input<number>;
+    timeWindow?: pulumi.Input<number | undefined>;
     /**
      * The duration in seconds within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
 }
 
 export interface AutomationActionsActionActionDataReference {
     /**
      * The command to execute the script with.
      */
-    invocationCommand?: pulumi.Input<string>;
+    invocationCommand?: pulumi.Input<string | undefined>;
     /**
      * The arguments to pass to the Process Automation job execution.
      */
-    processAutomationJobArguments?: pulumi.Input<string>;
+    processAutomationJobArguments?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Process Automation job to execute.
      */
-    processAutomationJobId?: pulumi.Input<string>;
+    processAutomationJobId?: pulumi.Input<string | undefined>;
     /**
      * The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
      */
-    processAutomationNodeFilter?: pulumi.Input<string>;
+    processAutomationNodeFilter?: pulumi.Input<string | undefined>;
     /**
      * Body of the script to be executed on the Runner. Max length is 16777215 characters.
      */
-    script?: pulumi.Input<string>;
+    script?: pulumi.Input<string | undefined>;
 }
 
 export interface EscalationPolicyRule {
@@ -59,11 +59,11 @@ export interface EscalationPolicyRule {
     /**
      * The strategy used to assign the escalation rule to an incident. Documented below.
      */
-    escalationRuleAssignmentStrategy?: pulumi.Input<inputs.EscalationPolicyRuleEscalationRuleAssignmentStrategy>;
+    escalationRuleAssignmentStrategy?: pulumi.Input<inputs.EscalationPolicyRuleEscalationRuleAssignmentStrategy | undefined>;
     /**
      * The ID of the escalation policy.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     targets: pulumi.Input<pulumi.Input<inputs.EscalationPolicyRuleTarget>[]>;
 }
 
@@ -71,7 +71,7 @@ export interface EscalationPolicyRuleEscalationRuleAssignmentStrategy {
     /**
      * Can be `roundRobin` or `assignToEveryone`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface EscalationPolicyRuleTarget {
@@ -82,7 +82,7 @@ export interface EscalationPolicyRuleTarget {
     /**
      * Can be `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface EventOrchestrationGlobalCacheVariableCondition {
@@ -96,19 +96,19 @@ export interface EventOrchestrationGlobalCacheVariableConfiguration {
     /**
      * The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
      */
-    dataType?: pulumi.Input<string>;
+    dataType?: pulumi.Input<string | undefined>;
     /**
      * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
      */
-    regex?: pulumi.Input<string>;
+    regex?: pulumi.Input<string | undefined>;
     /**
      * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
      */
-    ttlSeconds?: pulumi.Input<number>;
+    ttlSeconds?: pulumi.Input<number | undefined>;
     /**
      * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
      */
@@ -126,66 +126,66 @@ export interface EventOrchestrationGlobalCatchAllActions {
     /**
      * Add this text as a note on the resulting incident.
      */
-    annotate?: pulumi.Input<string>;
+    annotate?: pulumi.Input<string | undefined>;
     /**
      * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      */
-    automationAction?: pulumi.Input<inputs.EventOrchestrationGlobalCatchAllActionsAutomationAction>;
+    automationAction?: pulumi.Input<inputs.EventOrchestrationGlobalCatchAllActionsAutomationAction | undefined>;
     /**
      * When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
      */
-    dropEvent?: pulumi.Input<boolean>;
+    dropEvent?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
      */
-    escalationPolicy?: pulumi.Input<string>;
+    escalationPolicy?: pulumi.Input<string | undefined>;
     /**
      * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      */
-    eventAction?: pulumi.Input<string>;
+    eventAction?: pulumi.Input<string | undefined>;
     /**
      * Replace any CEF field or Custom Details object field using custom variables.
      */
-    extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalCatchAllActionsExtraction>[]>;
+    extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalCatchAllActionsExtraction>[] | undefined>;
     /**
      * Assign a custom field to the resulting incident.
      */
-    incidentCustomFieldUpdates?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate>[]>;
+    incidentCustomFieldUpdates?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate>[] | undefined>;
     /**
      * The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
      */
-    routeTo?: pulumi.Input<string>;
+    routeTo?: pulumi.Input<string | undefined>;
     /**
      * sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
      */
-    severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string | undefined>;
     /**
      * Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
      */
-    suppress?: pulumi.Input<boolean>;
+    suppress?: pulumi.Input<boolean | undefined>;
     /**
      * The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
      */
-    suspend?: pulumi.Input<number>;
+    suspend?: pulumi.Input<number | undefined>;
     /**
      * Populate variables from event payloads and use those variables in other event actions.
      */
-    variables?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalCatchAllActionsVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalCatchAllActionsVariable>[] | undefined>;
 }
 
 export interface EventOrchestrationGlobalCatchAllActionsAutomationAction {
     /**
      * When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
      */
-    autoSend?: pulumi.Input<boolean>;
+    autoSend?: pulumi.Input<boolean | undefined>;
     /**
      * Specify custom key/value pairs that'll be sent with the webhook request as request headers.
      */
-    headers?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalCatchAllActionsAutomationActionHeader>[]>;
+    headers?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalCatchAllActionsAutomationActionHeader>[] | undefined>;
     /**
      * Name of this Webhook.
      */
@@ -193,11 +193,11 @@ export interface EventOrchestrationGlobalCatchAllActionsAutomationAction {
     /**
      * Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalCatchAllActionsAutomationActionParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalCatchAllActionsAutomationActionParameter>[] | undefined>;
     /**
      * The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
      */
-    triggerTypes?: pulumi.Input<string>;
+    triggerTypes?: pulumi.Input<string | undefined>;
     /**
      * The API endpoint where PagerDuty's servers will send the webhook request.
      */
@@ -230,11 +230,11 @@ export interface EventOrchestrationGlobalCatchAllActionsExtraction {
     /**
      * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
      */
-    regex?: pulumi.Input<string>;
+    regex?: pulumi.Input<string | undefined>;
     /**
      * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
      */
@@ -244,7 +244,7 @@ export interface EventOrchestrationGlobalCatchAllActionsExtraction {
      * * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
      * * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
      */
-    template?: pulumi.Input<string>;
+    template?: pulumi.Input<string | undefined>;
 }
 
 export interface EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate {
@@ -285,7 +285,7 @@ export interface EventOrchestrationGlobalSet {
     /**
      * The Global Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRule>[] | undefined>;
 }
 
 export interface EventOrchestrationGlobalSetRule {
@@ -296,85 +296,85 @@ export interface EventOrchestrationGlobalSetRule {
     /**
      * Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRuleCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRuleCondition>[] | undefined>;
     /**
      * Indicates whether the rule is disabled and would therefore not be evaluated.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the rule within the set.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * A description of this rule's purpose.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
 }
 
 export interface EventOrchestrationGlobalSetRuleActions {
     /**
      * Add this text as a note on the resulting incident.
      */
-    annotate?: pulumi.Input<string>;
+    annotate?: pulumi.Input<string | undefined>;
     /**
      * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      */
-    automationAction?: pulumi.Input<inputs.EventOrchestrationGlobalSetRuleActionsAutomationAction>;
+    automationAction?: pulumi.Input<inputs.EventOrchestrationGlobalSetRuleActionsAutomationAction | undefined>;
     /**
      * When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
      */
-    dropEvent?: pulumi.Input<boolean>;
+    dropEvent?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
      */
-    escalationPolicy?: pulumi.Input<string>;
+    escalationPolicy?: pulumi.Input<string | undefined>;
     /**
      * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      */
-    eventAction?: pulumi.Input<string>;
+    eventAction?: pulumi.Input<string | undefined>;
     /**
      * Replace any CEF field or Custom Details object field using custom variables.
      */
-    extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRuleActionsExtraction>[]>;
+    extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRuleActionsExtraction>[] | undefined>;
     /**
      * Assign a custom field to the resulting incident.
      */
-    incidentCustomFieldUpdates?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate>[]>;
+    incidentCustomFieldUpdates?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate>[] | undefined>;
     /**
      * The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
      */
-    routeTo?: pulumi.Input<string>;
+    routeTo?: pulumi.Input<string | undefined>;
     /**
      * sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
      */
-    severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string | undefined>;
     /**
      * Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
      */
-    suppress?: pulumi.Input<boolean>;
+    suppress?: pulumi.Input<boolean | undefined>;
     /**
      * The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
      */
-    suspend?: pulumi.Input<number>;
+    suspend?: pulumi.Input<number | undefined>;
     /**
      * Populate variables from event payloads and use those variables in other event actions.
      */
-    variables?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRuleActionsVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRuleActionsVariable>[] | undefined>;
 }
 
 export interface EventOrchestrationGlobalSetRuleActionsAutomationAction {
     /**
      * When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
      */
-    autoSend?: pulumi.Input<boolean>;
+    autoSend?: pulumi.Input<boolean | undefined>;
     /**
      * Specify custom key/value pairs that'll be sent with the webhook request as request headers.
      */
-    headers?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRuleActionsAutomationActionHeader>[]>;
+    headers?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRuleActionsAutomationActionHeader>[] | undefined>;
     /**
      * Name of this Webhook.
      */
@@ -382,11 +382,11 @@ export interface EventOrchestrationGlobalSetRuleActionsAutomationAction {
     /**
      * Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRuleActionsAutomationActionParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRuleActionsAutomationActionParameter>[] | undefined>;
     /**
      * The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
      */
-    triggerTypes?: pulumi.Input<string>;
+    triggerTypes?: pulumi.Input<string | undefined>;
     /**
      * The API endpoint where PagerDuty's servers will send the webhook request.
      */
@@ -419,11 +419,11 @@ export interface EventOrchestrationGlobalSetRuleActionsExtraction {
     /**
      * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
      */
-    regex?: pulumi.Input<string>;
+    regex?: pulumi.Input<string | undefined>;
     /**
      * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
      */
@@ -433,7 +433,7 @@ export interface EventOrchestrationGlobalSetRuleActionsExtraction {
      * * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
      * * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
      */
-    template?: pulumi.Input<string>;
+    template?: pulumi.Input<string | undefined>;
 }
 
 export interface EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate {
@@ -477,23 +477,23 @@ export interface EventOrchestrationIntegration {
     /**
      * ID of the integration
      */
-    id?: pulumi.Input<string>;
-    label?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * A single-item list containing a parameter object describing the integration
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationIntegrationParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationIntegrationParameter>[] | undefined>;
 }
 
 export interface EventOrchestrationIntegrationParameter {
     /**
      * Routing key that routes to this Orchestration.
      */
-    routingKey?: pulumi.Input<string>;
+    routingKey?: pulumi.Input<string | undefined>;
     /**
      * Type of the routing key. `global` is the default type.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface EventOrchestrationRouterCatchAll {
@@ -518,7 +518,7 @@ export interface EventOrchestrationRouterSet {
     /**
      * The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationRouterSetRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationRouterSetRule>[] | undefined>;
 }
 
 export interface EventOrchestrationRouterSetRule {
@@ -529,27 +529,27 @@ export interface EventOrchestrationRouterSetRule {
     /**
      * Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationRouterSetRuleCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationRouterSetRuleCondition>[] | undefined>;
     /**
      * Indicates whether the rule is disabled and would therefore not be evaluated.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the rule within the `start` set.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * A description of this rule's purpose.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
 }
 
 export interface EventOrchestrationRouterSetRuleActions {
     /**
      * supports the following:
      */
-    dynamicRouteTos?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationRouterSetRuleActionsDynamicRouteTo>[]>;
-    routeTo?: pulumi.Input<string>;
+    dynamicRouteTos?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationRouterSetRuleActionsDynamicRouteTo>[] | undefined>;
+    routeTo?: pulumi.Input<string | undefined>;
 }
 
 export interface EventOrchestrationRouterSetRuleActionsDynamicRouteTo {
@@ -587,19 +587,19 @@ export interface EventOrchestrationServiceCacheVariableConfiguration {
     /**
      * The type of data that will eventually be set for the Cache Variable via an API request. This field is only used when type is `externalData`
      */
-    dataType?: pulumi.Input<string>;
+    dataType?: pulumi.Input<string | undefined>;
     /**
      * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
      */
-    regex?: pulumi.Input<string>;
+    regex?: pulumi.Input<string | undefined>;
     /**
      * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount` or `externalData`
      */
-    ttlSeconds?: pulumi.Input<number>;
+    ttlSeconds?: pulumi.Input<number | undefined>;
     /**
      * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue`, `triggerEventCount` or `externalData`.
      */
@@ -617,68 +617,68 @@ export interface EventOrchestrationServiceCatchAllActions {
     /**
      * Add this text as a note on the resulting incident.
      */
-    annotate?: pulumi.Input<string>;
+    annotate?: pulumi.Input<string | undefined>;
     /**
      * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      */
-    automationAction?: pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsAutomationAction>;
+    automationAction?: pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsAutomationAction | undefined>;
     /**
      * The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
      */
-    escalationPolicy?: pulumi.Input<string>;
+    escalationPolicy?: pulumi.Input<string | undefined>;
     /**
      * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      */
-    eventAction?: pulumi.Input<string>;
+    eventAction?: pulumi.Input<string | undefined>;
     /**
      * Replace any CEF field or Custom Details object field using custom variables.
      */
-    extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsExtraction>[]>;
+    extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsExtraction>[] | undefined>;
     /**
      * Assign a custom field to the resulting incident.
      */
-    incidentCustomFieldUpdates?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate>[]>;
+    incidentCustomFieldUpdates?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate>[] | undefined>;
     /**
      * Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
      */
-    pagerdutyAutomationAction?: pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction>;
+    pagerdutyAutomationAction?: pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction | undefined>;
     /**
      * The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
      *
      * @deprecated The 'route_to' attribute is no longer supported for catch-all rules.
      */
-    routeTo?: pulumi.Input<string>;
+    routeTo?: pulumi.Input<string | undefined>;
     /**
      * sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
      */
-    severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string | undefined>;
     /**
      * Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
      */
-    suppress?: pulumi.Input<boolean>;
+    suppress?: pulumi.Input<boolean | undefined>;
     /**
      * The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
      */
-    suspend?: pulumi.Input<number>;
+    suspend?: pulumi.Input<number | undefined>;
     /**
      * Populate variables from event payloads and use those variables in other event actions.
      */
-    variables?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsVariable>[] | undefined>;
 }
 
 export interface EventOrchestrationServiceCatchAllActionsAutomationAction {
     /**
      * When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
      */
-    autoSend?: pulumi.Input<boolean>;
+    autoSend?: pulumi.Input<boolean | undefined>;
     /**
      * Specify custom key/value pairs that'll be sent with the webhook request as request headers.
      */
-    headers?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsAutomationActionHeader>[]>;
+    headers?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsAutomationActionHeader>[] | undefined>;
     /**
      * Name of this Webhook.
      */
@@ -686,11 +686,11 @@ export interface EventOrchestrationServiceCatchAllActionsAutomationAction {
     /**
      * Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsAutomationActionParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsAutomationActionParameter>[] | undefined>;
     /**
      * The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
      */
-    triggerTypes?: pulumi.Input<string>;
+    triggerTypes?: pulumi.Input<string | undefined>;
     /**
      * The API endpoint where PagerDuty's servers will send the webhook request.
      */
@@ -723,11 +723,11 @@ export interface EventOrchestrationServiceCatchAllActionsExtraction {
     /**
      * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
      */
-    regex?: pulumi.Input<string>;
+    regex?: pulumi.Input<string | undefined>;
     /**
      * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
      */
@@ -737,7 +737,7 @@ export interface EventOrchestrationServiceCatchAllActionsExtraction {
      * * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
      * * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
      */
-    template?: pulumi.Input<string>;
+    template?: pulumi.Input<string | undefined>;
 }
 
 export interface EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate {
@@ -759,7 +759,7 @@ export interface EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActi
     /**
      * The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`
      */
-    triggerTypes?: pulumi.Input<string>;
+    triggerTypes?: pulumi.Input<string | undefined>;
 }
 
 export interface EventOrchestrationServiceCatchAllActionsVariable {
@@ -789,7 +789,7 @@ export interface EventOrchestrationServiceSet {
     /**
      * The service orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRule>[] | undefined>;
 }
 
 export interface EventOrchestrationServiceSetRule {
@@ -800,85 +800,85 @@ export interface EventOrchestrationServiceSetRule {
     /**
      * Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleCondition>[] | undefined>;
     /**
      * Indicates whether the rule is disabled and would therefore not be evaluated.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the rule within the set.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * A description of this rule's purpose.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
 }
 
 export interface EventOrchestrationServiceSetRuleActions {
     /**
      * Add this text as a note on the resulting incident.
      */
-    annotate?: pulumi.Input<string>;
+    annotate?: pulumi.Input<string | undefined>;
     /**
      * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
      */
-    automationAction?: pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsAutomationAction>;
+    automationAction?: pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsAutomationAction | undefined>;
     /**
      * The ID of the Escalation Policy you want to assign incidents to. Event rules with this action will override the Escalation Policy already set on a Service's settings, with what is configured by this action.
      */
-    escalationPolicy?: pulumi.Input<string>;
+    escalationPolicy?: pulumi.Input<string | undefined>;
     /**
      * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      */
-    eventAction?: pulumi.Input<string>;
+    eventAction?: pulumi.Input<string | undefined>;
     /**
      * Replace any CEF field or Custom Details object field using custom variables.
      */
-    extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsExtraction>[]>;
+    extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsExtraction>[] | undefined>;
     /**
      * Assign a custom field to the resulting incident.
      */
-    incidentCustomFieldUpdates?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate>[]>;
+    incidentCustomFieldUpdates?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate>[] | undefined>;
     /**
      * Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
      */
-    pagerdutyAutomationAction?: pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction>;
+    pagerdutyAutomationAction?: pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction | undefined>;
     /**
      * The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
      */
-    priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
      */
-    routeTo?: pulumi.Input<string>;
+    routeTo?: pulumi.Input<string | undefined>;
     /**
      * sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
      */
-    severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string | undefined>;
     /**
      * Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
      */
-    suppress?: pulumi.Input<boolean>;
+    suppress?: pulumi.Input<boolean | undefined>;
     /**
      * The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
      */
-    suspend?: pulumi.Input<number>;
+    suspend?: pulumi.Input<number | undefined>;
     /**
      * Populate variables from event payloads and use those variables in other event actions.
      */
-    variables?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsVariable>[] | undefined>;
 }
 
 export interface EventOrchestrationServiceSetRuleActionsAutomationAction {
     /**
      * When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
      */
-    autoSend?: pulumi.Input<boolean>;
+    autoSend?: pulumi.Input<boolean | undefined>;
     /**
      * Specify custom key/value pairs that'll be sent with the webhook request as request headers.
      */
-    headers?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsAutomationActionHeader>[]>;
+    headers?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsAutomationActionHeader>[] | undefined>;
     /**
      * Name of this Webhook.
      */
@@ -886,11 +886,11 @@ export interface EventOrchestrationServiceSetRuleActionsAutomationAction {
     /**
      * Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsAutomationActionParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsAutomationActionParameter>[] | undefined>;
     /**
      * The Webhook will be associated (or automatically triggered, if `autoSend` is `true`) with the incident or alert, whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`. NOTE: `autoSend` must be `true` for trigger types of `["alertSuspended"]` and `["alertSuppressed"]`
      */
-    triggerTypes?: pulumi.Input<string>;
+    triggerTypes?: pulumi.Input<string | undefined>;
     /**
      * The API endpoint where PagerDuty's servers will send the webhook request.
      */
@@ -923,11 +923,11 @@ export interface EventOrchestrationServiceSetRuleActionsExtraction {
     /**
      * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
      */
-    regex?: pulumi.Input<string>;
+    regex?: pulumi.Input<string | undefined>;
     /**
      * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
      */
@@ -937,7 +937,7 @@ export interface EventOrchestrationServiceSetRuleActionsExtraction {
      * * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
      * * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
      */
-    template?: pulumi.Input<string>;
+    template?: pulumi.Input<string | undefined>;
 }
 
 export interface EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate {
@@ -959,7 +959,7 @@ export interface EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActio
     /**
      * The Automation Action will be triggered whenever an alert reaches the specified state. Allowed values are: `["alertTriggered"]`, `["alertSuspended"]`, `["alertSuppressed"]`
      */
-    triggerTypes?: pulumi.Input<string>;
+    triggerTypes?: pulumi.Input<string | undefined>;
 }
 
 export interface EventOrchestrationServiceSetRuleActionsVariable {
@@ -999,31 +999,31 @@ export interface EventOrchestrationUnroutedCatchAllActions {
     /**
      * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      */
-    eventAction?: pulumi.Input<string>;
+    eventAction?: pulumi.Input<string | undefined>;
     /**
      * Replace any CEF field or Custom Details object field using custom variables.
      */
-    extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedCatchAllActionsExtraction>[]>;
+    extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedCatchAllActionsExtraction>[] | undefined>;
     /**
      * sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
      */
-    severity?: pulumi.Input<string>;
-    suppress?: pulumi.Input<boolean>;
+    severity?: pulumi.Input<string | undefined>;
+    suppress?: pulumi.Input<boolean | undefined>;
     /**
      * Populate variables from event payloads and use those variables in other event actions.
      */
-    variables?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedCatchAllActionsVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedCatchAllActionsVariable>[] | undefined>;
 }
 
 export interface EventOrchestrationUnroutedCatchAllActionsExtraction {
     /**
      * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
      */
-    regex?: pulumi.Input<string>;
+    regex?: pulumi.Input<string | undefined>;
     /**
      * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
      */
@@ -1033,7 +1033,7 @@ export interface EventOrchestrationUnroutedCatchAllActionsExtraction {
      * * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
      * * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
      */
-    template?: pulumi.Input<string>;
+    template?: pulumi.Input<string | undefined>;
 }
 
 export interface EventOrchestrationUnroutedCatchAllActionsVariable {
@@ -1063,7 +1063,7 @@ export interface EventOrchestrationUnroutedSet {
     /**
      * The Unrouted Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedSetRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedSetRule>[] | undefined>;
 }
 
 export interface EventOrchestrationUnroutedSetRule {
@@ -1074,53 +1074,53 @@ export interface EventOrchestrationUnroutedSetRule {
     /**
      * Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedSetRuleCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedSetRuleCondition>[] | undefined>;
     /**
      * Indicates whether the rule is disabled and would therefore not be evaluated.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the rule within the set.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * A description of this rule's purpose.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
 }
 
 export interface EventOrchestrationUnroutedSetRuleActions {
     /**
      * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      */
-    eventAction?: pulumi.Input<string>;
+    eventAction?: pulumi.Input<string | undefined>;
     /**
      * Replace any CEF field or Custom Details object field using custom variables.
      */
-    extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedSetRuleActionsExtraction>[]>;
+    extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedSetRuleActionsExtraction>[] | undefined>;
     /**
      * The ID of a Set from this Unrouted Orchestration whose rules you also want to use with events that match this rule.
      */
-    routeTo?: pulumi.Input<string>;
+    routeTo?: pulumi.Input<string | undefined>;
     /**
      * sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
      */
-    severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string | undefined>;
     /**
      * Populate variables from event payloads and use those variables in other event actions.
      */
-    variables?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedSetRuleActionsVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedSetRuleActionsVariable>[] | undefined>;
 }
 
 export interface EventOrchestrationUnroutedSetRuleActionsExtraction {
     /**
      * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
      */
-    regex?: pulumi.Input<string>;
+    regex?: pulumi.Input<string | undefined>;
     /**
      * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
      */
@@ -1130,7 +1130,7 @@ export interface EventOrchestrationUnroutedSetRuleActionsExtraction {
      * * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
      * * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
      */
-    template?: pulumi.Input<string>;
+    template?: pulumi.Input<string | undefined>;
 }
 
 export interface EventOrchestrationUnroutedSetRuleActionsVariable {
@@ -1186,23 +1186,23 @@ export interface GetAlertGroupingSettingConfigArgs {
     /**
      * One of `any` or `all`. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`. Group alerts based on one or all of `fields` value(s).
      */
-    aggregate?: pulumi.Input<string>;
+    aggregate?: pulumi.Input<string | undefined>;
     /**
      * Alerts will be grouped together if the content of these fields match. This setting is only required and applies when `type` is set to `contentBased` or `contentBasedIntelligent`.
      */
-    fields?: pulumi.Input<pulumi.Input<string>[]>;
+    fields?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An array of strings which represent the iag fields with which to intelligently group against.
      */
-    iagFields?: pulumi.Input<pulumi.Input<string>[]>;
+    iagFields?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent`, `contentBased`, `contentBasedIntelligent`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours. To use the recommended time window leave this value unset or set it to `null`.
      */
-    timeWindow?: pulumi.Input<number>;
+    timeWindow?: pulumi.Input<number | undefined>;
     /**
      * The duration in minutes within which to automatically group incoming alerts. This setting is only required and applies when `type` is set to `time`. To continue grouping alerts until the incident is resolved leave this value unset or set it to `null`.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
 }
 
 export interface GetEventOrchestrationIntegrationDetail {
@@ -1221,12 +1221,12 @@ export interface GetEventOrchestrationIntegrationDetailArgs {
     /**
      * ID of the integration
      */
-    id?: pulumi.Input<string>;
-    label?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * A single-item list containing a parameter object describing the integration
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.GetEventOrchestrationIntegrationDetailParameterArgs>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.GetEventOrchestrationIntegrationDetailParameterArgs>[] | undefined>;
 }
 
 export interface GetEventOrchestrationIntegrationDetailParameter {
@@ -1244,11 +1244,11 @@ export interface GetEventOrchestrationIntegrationDetailParameterArgs {
     /**
      * Routing key that routes to this Orchestration.
      */
-    routingKey?: pulumi.Input<string>;
+    routingKey?: pulumi.Input<string | undefined>;
     /**
      * Type of the routing key. `global` is the default type.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface IncidentWorkflowStep {
@@ -1259,15 +1259,15 @@ export interface IncidentWorkflowStep {
     /**
      * The ID of the incident workflow.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The list of inputs that contain a series of inline steps for the workflow action.
      */
-    inlineStepsInputs?: pulumi.Input<pulumi.Input<inputs.IncidentWorkflowStepInlineStepsInput>[]>;
+    inlineStepsInputs?: pulumi.Input<pulumi.Input<inputs.IncidentWorkflowStepInlineStepsInput>[] | undefined>;
     /**
      * The list of standard inputs for the workflow action.
      */
-    inputs?: pulumi.Input<pulumi.Input<inputs.IncidentWorkflowStepInput>[]>;
+    inputs?: pulumi.Input<pulumi.Input<inputs.IncidentWorkflowStepInput>[] | undefined>;
     /**
      * The name of the workflow step.
      */
@@ -1282,7 +1282,7 @@ export interface IncidentWorkflowStepInlineStepsInput {
     /**
      * The inline steps of the input. An inline step adheres to the step schema described above.
      */
-    steps?: pulumi.Input<pulumi.Input<inputs.IncidentWorkflowStepInlineStepsInputStep>[]>;
+    steps?: pulumi.Input<pulumi.Input<inputs.IncidentWorkflowStepInlineStepsInputStep>[] | undefined>;
 }
 
 export interface IncidentWorkflowStepInlineStepsInputStep {
@@ -1293,7 +1293,7 @@ export interface IncidentWorkflowStepInlineStepsInputStep {
     /**
      * The list of standard inputs for the workflow action.
      */
-    inputs?: pulumi.Input<pulumi.Input<inputs.IncidentWorkflowStepInlineStepsInputStepInput>[]>;
+    inputs?: pulumi.Input<pulumi.Input<inputs.IncidentWorkflowStepInlineStepsInputStepInput>[] | undefined>;
     /**
      * The name of the workflow step.
      */
@@ -1301,7 +1301,7 @@ export interface IncidentWorkflowStepInlineStepsInputStep {
 }
 
 export interface IncidentWorkflowStepInlineStepsInputStepInput {
-    generated?: pulumi.Input<boolean>;
+    generated?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the input.
      */
@@ -1313,7 +1313,7 @@ export interface IncidentWorkflowStepInlineStepsInputStepInput {
 }
 
 export interface IncidentWorkflowStepInput {
-    generated?: pulumi.Input<boolean>;
+    generated?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the input.
      */
@@ -1328,18 +1328,18 @@ export interface IncidentWorkflowTriggerPermissions {
     /**
      * If `true`, indicates that the Trigger can only be started by authorized Users. If `false` (default), any user can start this Trigger. Applicable only to `manual`-type triggers.
      */
-    restricted?: pulumi.Input<boolean>;
+    restricted?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Team whose members can manually start this Trigger. Required and allowed only if `restricted` is `true`.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
 }
 
 export interface JiraCloudAccountMappingRuleConfig {
     /**
      * Synchronization settings.
      */
-    jira?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJira>;
+    jira?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJira | undefined>;
     /**
      * [Updating can cause a resource replacement] The ID of the linked PagerDuty service.
      */
@@ -1350,42 +1350,42 @@ export interface JiraCloudAccountMappingRuleConfigJira {
     /**
      * JQL query to automatically create PagerDuty incidents when matching Jira issues are created. Leave empty to disable this feature.
      */
-    autocreateJql?: pulumi.Input<string>;
+    autocreateJql?: pulumi.Input<string | undefined>;
     /**
      * When enabled, automatically creates a Jira issue whenever a PagerDuty incident is triggered.
      */
-    createIssueOnIncidentTrigger?: pulumi.Input<boolean>;
+    createIssueOnIncidentTrigger?: pulumi.Input<boolean | undefined>;
     /**
      * Defines how Jira fields are populated when a Jira Issue is created from a PagerDuty Incident.
      */
-    customFields?: pulumi.Input<pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraCustomField>[]>;
+    customFields?: pulumi.Input<pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraCustomField>[] | undefined>;
     /**
      * Specifies the Jira issue type to be created or synchronized with PagerDuty incidents.
      */
-    issueType?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraIssueType>;
+    issueType?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraIssueType | undefined>;
     /**
      * Maps PagerDuty incident priorities to Jira issue priorities for synchronization.
      */
-    priorities?: pulumi.Input<pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraPriority>[]>;
+    priorities?: pulumi.Input<pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraPriority>[] | undefined>;
     /**
      * [Updating can cause a resource replacement] Defines the Jira project where issues will be created or synchronized.
      */
-    project?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraProject>;
+    project?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraProject | undefined>;
     /**
      * Maps PagerDuty incident statuses to corresponding Jira issue statuses for synchronization.
      */
-    statusMapping?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraStatusMapping>;
+    statusMapping?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraStatusMapping | undefined>;
     /**
      * ID of the PagerDuty user for syncing notes and comments between Jira issues and PagerDuty incidents. If not provided, note synchronization is disabled.
      */
-    syncNotesUser?: pulumi.Input<string>;
+    syncNotesUser?: pulumi.Input<string | undefined>;
 }
 
 export interface JiraCloudAccountMappingRuleConfigJiraCustomField {
     /**
      * The PagerDuty incident field from which the value will be extracted (only applicable if `type` is `attribute`); one of `incidentNumber`, `incidentTitle`, `incidentDescription`, `incidentStatus`, `incidentCreatedAt`, `incidentService`, `incidentEscalationPolicy`, `incidentImpactedServices`, `incidentHtmlUrl`, `incidentAssignees`, `incidentAcknowledgers`, `incidentLastStatusChangeAt`, `incidentLastStatusChangeBy`, `incidentUrgency` or `incidentPriority`.
      */
-    sourceIncidentField?: pulumi.Input<string>;
+    sourceIncidentField?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier key of the Jira field that will be set.
      */
@@ -1401,7 +1401,7 @@ export interface JiraCloudAccountMappingRuleConfigJiraCustomField {
     /**
      * The value to be set for the Jira field (only applicable if `type` is `const` or `jiraValue`). It must be set as a JSON string.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface JiraCloudAccountMappingRuleConfigJiraIssueType {
@@ -1445,37 +1445,37 @@ export interface JiraCloudAccountMappingRuleConfigJiraStatusMapping {
     /**
      * Jira status that maps to the PagerDuty `acknowledged` status.
      */
-    acknowledged?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged>;
+    acknowledged?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged | undefined>;
     /**
      * Jira status that maps to the PagerDuty `resolved` status.
      */
-    resolved?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved>;
+    resolved?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved | undefined>;
     /**
      * Jira status that maps to the PagerDuty `triggered` status.
      */
-    triggered?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered>;
+    triggered?: pulumi.Input<inputs.JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered | undefined>;
 }
 
 export interface JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledged {
     /**
      * Unique identifier for the Jira status.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Name of the Jira status.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface JiraCloudAccountMappingRuleConfigJiraStatusMappingResolved {
     /**
      * Unique identifier for the Jira status.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Name of the Jira status.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered {
@@ -1490,59 +1490,59 @@ export interface JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggered {
 }
 
 export interface ProviderUseAppOauthScopedToken {
-    pdClientId?: pulumi.Input<string>;
-    pdClientSecret?: pulumi.Input<string>;
-    pdSubdomain?: pulumi.Input<string>;
+    pdClientId?: pulumi.Input<string | undefined>;
+    pdClientSecret?: pulumi.Input<string | undefined>;
+    pdSubdomain?: pulumi.Input<string | undefined>;
 }
 
 export interface ResponsePlayResponder {
     /**
      * Description of escalation policy
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The escalation rules
      */
-    escalationRules?: pulumi.Input<pulumi.Input<inputs.ResponsePlayResponderEscalationRule>[]>;
+    escalationRules?: pulumi.Input<pulumi.Input<inputs.ResponsePlayResponderEscalationRule>[] | undefined>;
     /**
      * ID of the user defined as the responder
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Name of the escalation policy
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of times the escalation policy will repeat after reaching the end of its escalation.
      */
-    numLoops?: pulumi.Input<number>;
+    numLoops?: pulumi.Input<number | undefined>;
     /**
      * Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "ifHasServices". Could be "ifHasServices", "always
      */
-    onCallHandoffNotifications?: pulumi.Input<string>;
+    onCallHandoffNotifications?: pulumi.Input<string | undefined>;
     /**
      * There can be multiple services associated with a policy.
      */
-    services?: pulumi.Input<pulumi.Input<inputs.ResponsePlayResponderService>[]>;
+    services?: pulumi.Input<pulumi.Input<inputs.ResponsePlayResponderService>[] | undefined>;
     /**
      * Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
      */
-    teams?: pulumi.Input<pulumi.Input<inputs.ResponsePlayResponderTeam>[]>;
+    teams?: pulumi.Input<pulumi.Input<inputs.ResponsePlayResponderTeam>[] | undefined>;
     /**
      * Should be set as `escalationPolicy` for escalation policy responders.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface ResponsePlayResponderEscalationRule {
     /**
      * The number of minutes before an unacknowledged incident escalates away from this rule.
      */
-    escalationDelayInMinutes?: pulumi.Input<number>;
+    escalationDelayInMinutes?: pulumi.Input<number | undefined>;
     /**
      * The ID of the response play.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The targets an incident should be assigned to upon reaching this rule.
      */
@@ -1553,29 +1553,29 @@ export interface ResponsePlayResponderEscalationRuleTarget {
     /**
      * The ID of the response play.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Type of object of the target. Supported types are `userReference`, `scheduleReference`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface ResponsePlayResponderService {
     /**
      * The ID of the response play.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * A string that determines the schema of the object. If not set, the default value is "responsePlay".
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface ResponsePlayResponderTeam {
     /**
      * The ID of the response play.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * A string that determines the schema of the object. If not set, the default value is "responsePlay".
      */
@@ -1586,60 +1586,60 @@ export interface ResponsePlaySubscriber {
     /**
      * The ID of the response play.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * A string that determines the schema of the object. If not set, the default value is "responsePlay".
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface RulesetRuleActions {
     /**
      * Note added to the event.
      */
-    annotates?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsAnnotate>[]>;
+    annotates?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsAnnotate>[] | undefined>;
     /**
      * An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
      */
-    eventActions?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsEventAction>[]>;
+    eventActions?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsEventAction>[] | undefined>;
     /**
      * Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
      */
-    extractions?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsExtraction>[]>;
+    extractions?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsExtraction>[] | undefined>;
     /**
      * The ID of the priority applied to the event.
      */
-    priorities?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsPriority>[]>;
+    priorities?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsPriority>[] | undefined>;
     /**
      * The ID of the service where the event will be routed.
      */
-    routes?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsRoute>[] | undefined>;
     /**
      * The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`warning`,`error`, or `critical`.
      */
-    severities?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsSeverity>[]>;
+    severities?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsSeverity>[] | undefined>;
     /**
      * Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
      */
-    suppresses?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsSuppress>[]>;
+    suppresses?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsSuppress>[] | undefined>;
     /**
      * An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
      */
-    suspends?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsSuspend>[]>;
+    suspends?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsSuspend>[] | undefined>;
 }
 
 export interface RulesetRuleActionsAnnotate {
     /**
      * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface RulesetRuleActionsEventAction {
     /**
      * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface RulesetRuleActionsExtraction {
@@ -1648,150 +1648,150 @@ export interface RulesetRuleActionsExtraction {
      *
      * *- **OR** -*
      */
-    regex?: pulumi.Input<string>;
+    regex?: pulumi.Input<string | undefined>;
     /**
      * Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
      *
      * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
      */
-    target?: pulumi.Input<string>;
+    target?: pulumi.Input<string | undefined>;
     /**
      * A customized field message. This can also include variables extracted from the payload by using string interpolation.
      */
-    template?: pulumi.Input<string>;
+    template?: pulumi.Input<string | undefined>;
 }
 
 export interface RulesetRuleActionsPriority {
     /**
      * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface RulesetRuleActionsRoute {
     /**
      * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface RulesetRuleActionsSeverity {
     /**
      * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface RulesetRuleActionsSuppress {
     /**
      * The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
      */
-    thresholdTimeAmount?: pulumi.Input<number>;
+    thresholdTimeAmount?: pulumi.Input<number | undefined>;
     /**
      * The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
      */
-    thresholdTimeUnit?: pulumi.Input<string>;
+    thresholdTimeUnit?: pulumi.Input<string | undefined>;
     /**
      * The number of alerts that should be suppressed. Must be greater than 0.
      */
-    thresholdValue?: pulumi.Input<number>;
+    thresholdValue?: pulumi.Input<number | undefined>;
     /**
      * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
-    value?: pulumi.Input<boolean>;
+    value?: pulumi.Input<boolean | undefined>;
 }
 
 export interface RulesetRuleActionsSuspend {
     /**
      * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
-    value?: pulumi.Input<number>;
+    value?: pulumi.Input<number | undefined>;
 }
 
 export interface RulesetRuleConditions {
     /**
      * Operator to combine sub-conditions. Can be `and` or `or`.
      */
-    operator?: pulumi.Input<string>;
+    operator?: pulumi.Input<string | undefined>;
     /**
      * List of sub-conditions that define the condition.
      */
-    subconditions?: pulumi.Input<pulumi.Input<inputs.RulesetRuleConditionsSubcondition>[]>;
+    subconditions?: pulumi.Input<pulumi.Input<inputs.RulesetRuleConditionsSubcondition>[] | undefined>;
 }
 
 export interface RulesetRuleConditionsSubcondition {
     /**
      * Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
      */
-    operator?: pulumi.Input<string>;
+    operator?: pulumi.Input<string | undefined>;
     /**
      * Parameter for the sub-condition. It requires both a `path` and `value` to be set.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.RulesetRuleConditionsSubconditionParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.RulesetRuleConditionsSubconditionParameter>[] | undefined>;
 }
 
 export interface RulesetRuleConditionsSubconditionParameter {
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface RulesetRuleTimeFrame {
     /**
      * Values for executing the rule during a specific time period.
      */
-    activeBetweens?: pulumi.Input<pulumi.Input<inputs.RulesetRuleTimeFrameActiveBetween>[]>;
+    activeBetweens?: pulumi.Input<pulumi.Input<inputs.RulesetRuleTimeFrameActiveBetween>[] | undefined>;
     /**
      * Values for executing the rule on a recurring schedule.
      */
-    scheduledWeeklies?: pulumi.Input<pulumi.Input<inputs.RulesetRuleTimeFrameScheduledWeekly>[]>;
+    scheduledWeeklies?: pulumi.Input<pulumi.Input<inputs.RulesetRuleTimeFrameScheduledWeekly>[] | undefined>;
 }
 
 export interface RulesetRuleTimeFrameActiveBetween {
-    endTime?: pulumi.Input<number>;
+    endTime?: pulumi.Input<number | undefined>;
     /**
      * A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
      */
-    startTime?: pulumi.Input<number>;
+    startTime?: pulumi.Input<number | undefined>;
 }
 
 export interface RulesetRuleTimeFrameScheduledWeekly {
     /**
      * Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `startTime`.
      */
-    duration?: pulumi.Input<number>;
+    duration?: pulumi.Input<number | undefined>;
     /**
      * A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
      */
-    startTime?: pulumi.Input<number>;
+    startTime?: pulumi.Input<number | undefined>;
     /**
      * [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
     /**
      * An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
      */
-    weekdays?: pulumi.Input<pulumi.Input<number>[]>;
+    weekdays?: pulumi.Input<pulumi.Input<number>[] | undefined>;
 }
 
 export interface RulesetRuleVariable {
-    name?: pulumi.Input<string>;
-    parameters?: pulumi.Input<pulumi.Input<inputs.RulesetRuleVariableParameter>[]>;
-    type?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.RulesetRuleVariableParameter>[] | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface RulesetRuleVariableParameter {
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface RulesetTeam {
@@ -1805,28 +1805,28 @@ export interface ScheduleFinalSchedule {
     /**
      * The name of the schedule.
      */
-    name?: pulumi.Input<string>;
-    renderedCoveragePercentage?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
+    renderedCoveragePercentage?: pulumi.Input<string | undefined>;
 }
 
 export interface ScheduleLayer {
     /**
      * The end time of the schedule layer. If not specified, the layer does not end.
      */
-    end?: pulumi.Input<string>;
+    end?: pulumi.Input<string | undefined>;
     /**
      * The ID of the schedule.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the schedule layer.
      */
-    name?: pulumi.Input<string>;
-    renderedCoveragePercentage?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
+    renderedCoveragePercentage?: pulumi.Input<string | undefined>;
     /**
      * A schedule layer restriction block. Restriction blocks documented below.
      */
-    restrictions?: pulumi.Input<pulumi.Input<inputs.ScheduleLayerRestriction>[]>;
+    restrictions?: pulumi.Input<pulumi.Input<inputs.ScheduleLayerRestriction>[] | undefined>;
     /**
      * The duration of each on-call shift in `seconds`.
      */
@@ -1853,7 +1853,7 @@ export interface ScheduleLayerRestriction {
     /**
      * Number of the day when restriction starts. From 1 to 7 where 1 is Monday and 7 is Sunday.
      */
-    startDayOfWeek?: pulumi.Input<number>;
+    startDayOfWeek?: pulumi.Input<number | undefined>;
     /**
      * The start time in `HH:mm:ss` format.
      */
@@ -1868,20 +1868,20 @@ export interface Schedulev2Rotation {
     /**
      * One or more event blocks defining on-call periods within this rotation. Events documented below.
      */
-    events?: pulumi.Input<pulumi.Input<inputs.Schedulev2RotationEvent>[]>;
+    events?: pulumi.Input<pulumi.Input<inputs.Schedulev2RotationEvent>[] | undefined>;
     /**
      * The ID of the schedule.
      * * `rotation.*.id` - The ID of each rotation.
      * * `rotation.*.event.*.id` - The ID of each event within a rotation.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }
 
 export interface Schedulev2RotationEvent {
     /**
      * A block defining how on-call responsibility is assigned. Assignment strategy documented below.
      */
-    assignmentStrategies?: pulumi.Input<pulumi.Input<inputs.Schedulev2RotationEventAssignmentStrategy>[]>;
+    assignmentStrategies?: pulumi.Input<pulumi.Input<inputs.Schedulev2RotationEventAssignmentStrategy>[] | undefined>;
     /**
      * When this event configuration begins producing shifts (ISO-8601 UTC). The API adjusts past values to the current time.
      */
@@ -1889,7 +1889,7 @@ export interface Schedulev2RotationEvent {
     /**
      * When this event configuration stops producing shifts (ISO-8601 UTC). Omit for an indefinite schedule.
      */
-    effectiveUntil?: pulumi.Input<string>;
+    effectiveUntil?: pulumi.Input<string | undefined>;
     /**
      * The shift end time in ISO-8601 format. The v3 API normalizes this to UTC.
      */
@@ -1899,7 +1899,7 @@ export interface Schedulev2RotationEvent {
      * * `rotation.*.id` - The ID of each rotation.
      * * `rotation.*.event.*.id` - The ID of each event within a rotation.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the event. Maximum 255 characters.
      */
@@ -1918,11 +1918,11 @@ export interface Schedulev2RotationEventAssignmentStrategy {
     /**
      * One or more member blocks identifying who is on call. Required for both strategy types. Maximum 20 members. Members documented below.
      */
-    members?: pulumi.Input<pulumi.Input<inputs.Schedulev2RotationEventAssignmentStrategyMember>[]>;
+    members?: pulumi.Input<pulumi.Input<inputs.Schedulev2RotationEventAssignmentStrategyMember>[] | undefined>;
     /**
      * Number of consecutive shift occurrences each member covers before rotating. Minimum value: `1`. Required when `type` is `"rotatingMemberAssignmentStrategy"`.
      */
-    shiftsPerMember?: pulumi.Input<number>;
+    shiftsPerMember?: pulumi.Input<number | undefined>;
     /**
      * The assignment strategy type. Supported values:
      * * `"rotatingMemberAssignmentStrategy"` — listed members rotate in sequence. Each member covers `shiftsPerMember` consecutive shift periods before the next member takes over.
@@ -1941,48 +1941,48 @@ export interface Schedulev2RotationEventAssignmentStrategyMember {
     /**
      * The ID of the user to assign. Required when `type` is `"userMember"`.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceAlertGroupingParameters {
     /**
      * Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
      */
-    config?: pulumi.Input<inputs.ServiceAlertGroupingParametersConfig>;
+    config?: pulumi.Input<inputs.ServiceAlertGroupingParametersConfig | undefined>;
     /**
      * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceAlertGroupingParametersConfig {
     /**
      * One of `any` or `all`. This setting applies only when `type` is set to `contentBased`. Group alerts based on one or all of `fields` value(s).
      */
-    aggregate?: pulumi.Input<string>;
+    aggregate?: pulumi.Input<string | undefined>;
     /**
      * Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
      */
-    fields?: pulumi.Input<pulumi.Input<string>[]>;
+    fields?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600` or exactly `86400` (86400 is supported only for `contentBased` alert grouping). Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
      */
-    timeWindow?: pulumi.Input<number>;
+    timeWindow?: pulumi.Input<number | undefined>;
     /**
      * The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
 }
 
 export interface ServiceAutoPauseNotificationsParameters {
     /**
      * Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
 }
 
 export interface ServiceCustomFieldFieldOption {
@@ -1993,7 +1993,7 @@ export interface ServiceCustomFieldFieldOption {
     /**
      * The ID of the service custom field.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The value of the option.
      */
@@ -2027,7 +2027,7 @@ export interface ServiceDependencyDependency {
     /**
      * Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceDependencyDependencyDependentService {
@@ -2056,39 +2056,39 @@ export interface ServiceEventRuleActions {
     /**
      * Note added to the event.
      */
-    annotates?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleActionsAnnotate>[]>;
+    annotates?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleActionsAnnotate>[] | undefined>;
     /**
      * An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
      */
-    eventActions?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleActionsEventAction>[]>;
+    eventActions?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleActionsEventAction>[] | undefined>;
     /**
      * Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
      */
-    extractions?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleActionsExtraction>[]>;
+    extractions?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleActionsExtraction>[] | undefined>;
     /**
      * The ID of the priority applied to the event.
      */
-    priorities?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleActionsPriority>[]>;
+    priorities?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleActionsPriority>[] | undefined>;
     /**
      * The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
      */
-    severities?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleActionsSeverity>[]>;
+    severities?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleActionsSeverity>[] | undefined>;
     /**
      * Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
      */
-    suppresses?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleActionsSuppress>[]>;
+    suppresses?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleActionsSuppress>[] | undefined>;
     /**
      * An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
      */
-    suspends?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleActionsSuspend>[]>;
+    suspends?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleActionsSuspend>[] | undefined>;
 }
 
 export interface ServiceEventRuleActionsAnnotate {
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceEventRuleActionsEventAction {
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceEventRuleActionsExtraction {
@@ -2097,157 +2097,157 @@ export interface ServiceEventRuleActionsExtraction {
      *
      * *- **OR** -*
      */
-    regex?: pulumi.Input<string>;
+    regex?: pulumi.Input<string | undefined>;
     /**
      * Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
      *
      * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
      */
-    target?: pulumi.Input<string>;
+    target?: pulumi.Input<string | undefined>;
     /**
      * A customized field message. This can also include variables extracted from the payload by using string interpolation.
      */
-    template?: pulumi.Input<string>;
+    template?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceEventRuleActionsPriority {
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceEventRuleActionsSeverity {
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceEventRuleActionsSuppress {
     /**
      * The number value of the `thresholdTimeUnit` before an incident is created.
      */
-    thresholdTimeAmount?: pulumi.Input<number>;
+    thresholdTimeAmount?: pulumi.Input<number | undefined>;
     /**
      * The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
      */
-    thresholdTimeUnit?: pulumi.Input<string>;
+    thresholdTimeUnit?: pulumi.Input<string | undefined>;
     /**
      * The number of alerts that should be suppressed.
      */
-    thresholdValue?: pulumi.Input<number>;
+    thresholdValue?: pulumi.Input<number | undefined>;
     /**
      * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
-    value?: pulumi.Input<boolean>;
+    value?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ServiceEventRuleActionsSuspend {
-    value?: pulumi.Input<number>;
+    value?: pulumi.Input<number | undefined>;
 }
 
 export interface ServiceEventRuleConditions {
     /**
      * Operator to combine sub-conditions. Can be `and` or `or`.
      */
-    operator?: pulumi.Input<string>;
+    operator?: pulumi.Input<string | undefined>;
     /**
      * List of sub-conditions that define the condition.
      */
-    subconditions?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleConditionsSubcondition>[]>;
+    subconditions?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleConditionsSubcondition>[] | undefined>;
 }
 
 export interface ServiceEventRuleConditionsSubcondition {
     /**
      * Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
      */
-    operator?: pulumi.Input<string>;
+    operator?: pulumi.Input<string | undefined>;
     /**
      * Parameter for the sub-condition. It requires both a `path` and `value` to be set. The `path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleConditionsSubconditionParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleConditionsSubconditionParameter>[] | undefined>;
 }
 
 export interface ServiceEventRuleConditionsSubconditionParameter {
     /**
      * Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
      */
-    path?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceEventRuleTimeFrame {
     /**
      * Values for executing the rule during a specific time period.
      */
-    activeBetweens?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleTimeFrameActiveBetween>[]>;
+    activeBetweens?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleTimeFrameActiveBetween>[] | undefined>;
     /**
      * Values for executing the rule on a recurring schedule.
      */
-    scheduledWeeklies?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleTimeFrameScheduledWeekly>[]>;
+    scheduledWeeklies?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleTimeFrameScheduledWeekly>[] | undefined>;
 }
 
 export interface ServiceEventRuleTimeFrameActiveBetween {
     /**
      * Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
      */
-    endTime?: pulumi.Input<number>;
+    endTime?: pulumi.Input<number | undefined>;
     /**
      * Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
      */
-    startTime?: pulumi.Input<number>;
+    startTime?: pulumi.Input<number | undefined>;
 }
 
 export interface ServiceEventRuleTimeFrameScheduledWeekly {
     /**
      * Length of time the schedule will be active.  Unix timestamp in milliseconds.
      */
-    duration?: pulumi.Input<number>;
+    duration?: pulumi.Input<number | undefined>;
     /**
      * Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
      */
-    startTime?: pulumi.Input<number>;
+    startTime?: pulumi.Input<number | undefined>;
     /**
      * Timezone for the given schedule.
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
     /**
      * An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
      */
-    weekdays?: pulumi.Input<pulumi.Input<number>[]>;
+    weekdays?: pulumi.Input<pulumi.Input<number>[] | undefined>;
 }
 
 export interface ServiceEventRuleVariable {
     /**
      * The name of the variable.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parameters for performing the operation to populate the variable.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleVariableParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleVariableParameter>[] | undefined>;
     /**
      * Type of operation to populate the variable. Usually `regex`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceEventRuleVariableParameter {
     /**
      * Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
      */
-    path?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceIncidentUrgencyRule {
     /**
      * Incidents' urgency during support hours.
      */
-    duringSupportHours?: pulumi.Input<inputs.ServiceIncidentUrgencyRuleDuringSupportHours>;
+    duringSupportHours?: pulumi.Input<inputs.ServiceIncidentUrgencyRuleDuringSupportHours | undefined>;
     /**
      * Incidents' urgency outside support hours.
      */
-    outsideSupportHours?: pulumi.Input<inputs.ServiceIncidentUrgencyRuleOutsideSupportHours>;
+    outsideSupportHours?: pulumi.Input<inputs.ServiceIncidentUrgencyRuleOutsideSupportHours | undefined>;
     /**
      * The type of incident urgency: `constant` or `useSupportHours` (when depending on specific support hours; see `supportHours`).
      */
@@ -2255,60 +2255,60 @@ export interface ServiceIncidentUrgencyRule {
     /**
      * The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
      */
-    urgency?: pulumi.Input<string>;
+    urgency?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceIncidentUrgencyRuleDuringSupportHours {
     /**
      * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
      */
-    urgency?: pulumi.Input<string>;
+    urgency?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceIncidentUrgencyRuleOutsideSupportHours {
     /**
      * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
      */
-    urgency?: pulumi.Input<string>;
+    urgency?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceIntegrationEmailFilter {
     /**
      * Can be `always`, `match` or `no-match`.
      */
-    bodyMode?: pulumi.Input<string>;
+    bodyMode?: pulumi.Input<string | undefined>;
     /**
      * Should be a valid regex or `null`
      */
-    bodyRegex?: pulumi.Input<string>;
+    bodyRegex?: pulumi.Input<string | undefined>;
     /**
      * Can be `always`, `match` or `no-match`.
      */
-    fromEmailMode?: pulumi.Input<string>;
+    fromEmailMode?: pulumi.Input<string | undefined>;
     /**
      * Should be a valid regex or `null`
      */
-    fromEmailRegex?: pulumi.Input<string>;
+    fromEmailRegex?: pulumi.Input<string | undefined>;
     /**
      * The ID of the service integration.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Can be `always`, `match` or `no-match`.
      */
-    subjectMode?: pulumi.Input<string>;
+    subjectMode?: pulumi.Input<string | undefined>;
     /**
      * Should be a valid regex or `null`
      */
-    subjectRegex?: pulumi.Input<string>;
+    subjectRegex?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceIntegrationEmailParser {
@@ -2319,13 +2319,13 @@ export interface ServiceIntegrationEmailParser {
     /**
      * The ID of the service integration.
      */
-    id?: pulumi.Input<number>;
+    id?: pulumi.Input<number | undefined>;
     matchPredicate: pulumi.Input<inputs.ServiceIntegrationEmailParserMatchPredicate>;
-    valueExtractors?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParserValueExtractor>[]>;
+    valueExtractors?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParserValueExtractor>[] | undefined>;
 }
 
 export interface ServiceIntegrationEmailParserMatchPredicate {
-    predicates?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParserMatchPredicatePredicate>[]>;
+    predicates?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParserMatchPredicatePredicate>[] | undefined>;
     /**
      * Can be `any` or `all`.
      */
@@ -2336,12 +2336,12 @@ export interface ServiceIntegrationEmailParserMatchPredicatePredicate {
     /**
      * Predicate value or valid regex.
      */
-    matcher?: pulumi.Input<string>;
+    matcher?: pulumi.Input<string | undefined>;
     /**
      * Can be `subject`, `body` or `fromAddresses`.
      */
-    part?: pulumi.Input<string>;
-    predicates?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParserMatchPredicatePredicatePredicate>[]>;
+    part?: pulumi.Input<string | undefined>;
+    predicates?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParserMatchPredicatePredicatePredicate>[] | undefined>;
     /**
      * Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
      */
@@ -2364,7 +2364,7 @@ export interface ServiceIntegrationEmailParserMatchPredicatePredicatePredicate {
 }
 
 export interface ServiceIntegrationEmailParserValueExtractor {
-    endsBefore?: pulumi.Input<string>;
+    endsBefore?: pulumi.Input<string | undefined>;
     /**
      * Can be `subject` or `body`.
      */
@@ -2374,8 +2374,8 @@ export interface ServiceIntegrationEmailParserValueExtractor {
      *
      * **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
      */
-    regex?: pulumi.Input<string>;
-    startsAfter?: pulumi.Input<string>;
+    regex?: pulumi.Input<string | undefined>;
+    startsAfter?: pulumi.Input<string | undefined>;
     /**
      * Can be `between`, `entire` or `regex`.
      */
@@ -2390,15 +2390,15 @@ export interface ServiceScheduledAction {
     /**
      * A block representing when the scheduled action will occur.
      */
-    ats?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledActionAt>[]>;
+    ats?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledActionAt>[] | undefined>;
     /**
      * The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
      */
-    toUrgency?: pulumi.Input<string>;
+    toUrgency?: pulumi.Input<string | undefined>;
     /**
      * The type of scheduled action. Currently, this must be set to `urgencyChange`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceScheduledActionAt {
@@ -2454,11 +2454,11 @@ export interface ServiceScheduledActionAt {
      * });
      * ```
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The type of time specification. Currently, this must be set to `namedTime`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceSupportHours {
@@ -2466,23 +2466,23 @@ export interface ServiceSupportHours {
      * Array of days of week as integers. `1` to `7`, `1` being
      * Monday and `7` being Sunday.
      */
-    daysOfWeeks?: pulumi.Input<pulumi.Input<number>[]>;
+    daysOfWeeks?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * The support hours' ending time of day.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * The support hours' starting time of day.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * The time zone for the support hours.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
     /**
      * The type of support hours. Can be `fixedTimePerDay`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface SlackConnectionConfig {
@@ -2507,11 +2507,11 @@ export interface SlackConnectionConfig {
      * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behavior is to set `priorities` to `No Priority` value.
      * - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
      */
-    priorities?: pulumi.Input<pulumi.Input<string>[]>;
+    priorities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Allows you to filter events by urgency. Either `high`, `low` or `null` for Any urgency. Default is `null`.
      */
-    urgency?: pulumi.Input<string>;
+    urgency?: pulumi.Input<string | undefined>;
 }
 
 export interface UserHandoffNotificationRuleContactMethod {
@@ -2540,19 +2540,19 @@ export interface WebhookSubscriptionDeliveryMethod {
     /**
      * The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
      */
-    customHeaders?: pulumi.Input<pulumi.Input<inputs.WebhookSubscriptionDeliveryMethodCustomHeader>[]>;
+    customHeaders?: pulumi.Input<pulumi.Input<inputs.WebhookSubscriptionDeliveryMethodCustomHeader>[] | undefined>;
     /**
      * Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
      */
-    temporarilyDisabled?: pulumi.Input<boolean>;
+    temporarilyDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The destination URL for webhook delivery.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 export interface WebhookSubscriptionDeliveryMethodCustomHeader {
@@ -2564,7 +2564,7 @@ export interface WebhookSubscriptionFilter {
     /**
      * The id of the object being used as the filter. This field is required for all filter types except account_reference.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The type of object being used as the filter. Allowed values are `accountReference`, `serviceReference`, and `teamReference`.
      */

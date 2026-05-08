@@ -135,19 +135,19 @@ export interface UserHandoffNotificationRuleState {
     /**
      * The contact method to notify the user. Contact method documented below.
      */
-    contactMethod?: pulumi.Input<inputs.UserHandoffNotificationRuleContactMethod>;
+    contactMethod?: pulumi.Input<inputs.UserHandoffNotificationRuleContactMethod | undefined>;
     /**
      * The type of handoff to notify the user about. Possible values are `oncall`, `offcall`, `both`.
      */
-    handoffType?: pulumi.Input<string>;
+    handoffType?: pulumi.Input<string | undefined>;
     /**
      * The number of minutes before the handoff that the user should be notified. Must be a positive integer greater than or equal to 0.
      */
-    notifyAdvanceInMinutes?: pulumi.Input<number>;
+    notifyAdvanceInMinutes?: pulumi.Input<number | undefined>;
     /**
      * The ID of the user.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -161,7 +161,7 @@ export interface UserHandoffNotificationRuleArgs {
     /**
      * The type of handoff to notify the user about. Possible values are `oncall`, `offcall`, `both`.
      */
-    handoffType?: pulumi.Input<string>;
+    handoffType?: pulumi.Input<string | undefined>;
     /**
      * The number of minutes before the handoff that the user should be notified. Must be a positive integer greater than or equal to 0.
      */

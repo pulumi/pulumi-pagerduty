@@ -211,7 +211,7 @@ def get_service_custom_field(display_name: Optional[_builtins.str] = None,
         self=pulumi.get(__ret__, 'self'),
         summary=pulumi.get(__ret__, 'summary'),
         type=pulumi.get(__ret__, 'type'))
-def get_service_custom_field_output(display_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_custom_field_output(display_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceCustomFieldResult]:
     """
     Use this data source to get information about a specific Service Custom Field that has been configured in your PagerDuty account.

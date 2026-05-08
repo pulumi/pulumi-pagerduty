@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myFirstWorkflow = new Pagerduty.Index.IncidentWorkflow("my_first_workflow", new()
+    ///     var myFirstWorkflow = new Pagerduty.IncidentWorkflow("my_first_workflow", new()
     ///     {
     ///         Name = "Example Incident Workflow",
     ///         Description = "This Incident Workflow is an example",

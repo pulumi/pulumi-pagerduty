@@ -75,9 +75,9 @@ class EventOrchestrationUnroutedArgs:
 @pulumi.input_type
 class _EventOrchestrationUnroutedState:
     def __init__(__self__, *,
-                 catch_all: Optional[pulumi.Input['EventOrchestrationUnroutedCatchAllArgs']] = None,
-                 event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                 sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]]] = None):
+                 catch_all: pulumi.Input[Optional['EventOrchestrationUnroutedCatchAllArgs']] = None,
+                 event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                 sets: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]]] = None):
         """
         Input properties used for looking up and filtering EventOrchestrationUnrouted resources.
 
@@ -94,38 +94,38 @@ class _EventOrchestrationUnroutedState:
 
     @_builtins.property
     @pulumi.getter(name="catchAll")
-    def catch_all(self) -> Optional[pulumi.Input['EventOrchestrationUnroutedCatchAllArgs']]:
+    def catch_all(self) -> pulumi.Input[Optional['EventOrchestrationUnroutedCatchAllArgs']]:
         """
         the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         """
         return pulumi.get(self, "catch_all")
 
     @catch_all.setter
-    def catch_all(self, value: Optional[pulumi.Input['EventOrchestrationUnroutedCatchAllArgs']]):
+    def catch_all(self, value: pulumi.Input[Optional['EventOrchestrationUnroutedCatchAllArgs']]):
         pulumi.set(self, "catch_all", value)
 
     @_builtins.property
     @pulumi.getter(name="eventOrchestration")
-    def event_orchestration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_orchestration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Event Orchestration to which this Unrouted Orchestration belongs to.
         """
         return pulumi.get(self, "event_orchestration")
 
     @event_orchestration.setter
-    def event_orchestration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_orchestration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_orchestration", value)
 
     @_builtins.property
     @pulumi.getter
-    def sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]]]:
+    def sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]]]:
         """
         An Unrouted Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
         """
         return pulumi.get(self, "sets")
 
     @sets.setter
-    def sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]]]):
+    def sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]]]):
         pulumi.set(self, "sets", value)
 
 
@@ -135,9 +135,9 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catch_all: Optional[pulumi.Input[Union['EventOrchestrationUnroutedCatchAllArgs', 'EventOrchestrationUnroutedCatchAllArgsDict']]] = None,
-                 event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                 sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationUnroutedSetArgs', 'EventOrchestrationUnroutedSetArgsDict']]]]] = None,
+                 catch_all: pulumi.Input[Optional[Union['EventOrchestrationUnroutedCatchAllArgs', 'EventOrchestrationUnroutedCatchAllArgsDict']]] = None,
+                 event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                 sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationUnroutedSetArgs', 'EventOrchestrationUnroutedSetArgsDict']]]]] = None,
                  __props__=None):
         """
         An Unrouted Orchestration allows users to create a set of Event Rules that will be evaluated against all events that don't match any rules in the Orchestration's Router.
@@ -262,9 +262,9 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catch_all: Optional[pulumi.Input[Union['EventOrchestrationUnroutedCatchAllArgs', 'EventOrchestrationUnroutedCatchAllArgsDict']]] = None,
-                 event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                 sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationUnroutedSetArgs', 'EventOrchestrationUnroutedSetArgsDict']]]]] = None,
+                 catch_all: pulumi.Input[Optional[Union['EventOrchestrationUnroutedCatchAllArgs', 'EventOrchestrationUnroutedCatchAllArgsDict']]] = None,
+                 event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                 sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationUnroutedSetArgs', 'EventOrchestrationUnroutedSetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -293,9 +293,9 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            catch_all: Optional[pulumi.Input[Union['EventOrchestrationUnroutedCatchAllArgs', 'EventOrchestrationUnroutedCatchAllArgsDict']]] = None,
-            event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-            sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationUnroutedSetArgs', 'EventOrchestrationUnroutedSetArgsDict']]]]] = None) -> 'EventOrchestrationUnrouted':
+            catch_all: pulumi.Input[Optional[Union['EventOrchestrationUnroutedCatchAllArgs', 'EventOrchestrationUnroutedCatchAllArgsDict']]] = None,
+            event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+            sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationUnroutedSetArgs', 'EventOrchestrationUnroutedSetArgsDict']]]]] = None) -> 'EventOrchestrationUnrouted':
         """
         Get an existing EventOrchestrationUnrouted resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

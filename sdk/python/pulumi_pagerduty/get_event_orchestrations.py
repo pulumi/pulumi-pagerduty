@@ -113,7 +113,7 @@ def get_event_orchestrations(name_filter: Optional[_builtins.str] = None,
         event_orchestrations=pulumi.get(__ret__, 'event_orchestrations'),
         id=pulumi.get(__ret__, 'id'),
         name_filter=pulumi.get(__ret__, 'name_filter'))
-def get_event_orchestrations_output(name_filter: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_orchestrations_output(name_filter: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventOrchestrationsResult]:
     """
     Use this data source to get information as a list about specific Global [Event Orchestrations](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations) filtered by a Regular Expression provided.

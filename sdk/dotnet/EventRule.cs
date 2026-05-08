@@ -25,7 +25,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var second = new Pagerduty.Index.EventRule("second", new()
+    ///     var second = new Pagerduty.EventRule("second", new()
     ///     {
     ///         ActionJson = JsonSerializer.Serialize(new[]
     ///         {
@@ -98,7 +98,7 @@ namespace Pulumi.Pagerduty
     ///         }),
     ///     });
     /// 
-    ///     var third = new Pagerduty.Index.EventRule("third", new()
+    ///     var third = new Pagerduty.EventRule("third", new()
     ///     {
     ///         ActionJson = JsonSerializer.Serialize(new[]
     ///         {

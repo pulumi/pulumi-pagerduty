@@ -115,20 +115,20 @@ export interface EventOrchestrationState {
     /**
      * A human-friendly description of the Event Orchestration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A list of integrations for the Event Orchestration.
      */
-    integrations?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationIntegration>[]>;
+    integrations?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationIntegration>[] | undefined>;
     /**
      * Name of the Event Orchestration.
      */
-    name?: pulumi.Input<string>;
-    routes?: pulumi.Input<number>;
+    name?: pulumi.Input<string | undefined>;
+    routes?: pulumi.Input<number | undefined>;
     /**
      * ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
      */
-    team?: pulumi.Input<string>;
+    team?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -138,17 +138,17 @@ export interface EventOrchestrationArgs {
     /**
      * A human-friendly description of the Event Orchestration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A list of integrations for the Event Orchestration.
      */
-    integrations?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationIntegration>[]>;
+    integrations?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationIntegration>[] | undefined>;
     /**
      * Name of the Event Orchestration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
      */
-    team?: pulumi.Input<string>;
+    team?: pulumi.Input<string | undefined>;
 }

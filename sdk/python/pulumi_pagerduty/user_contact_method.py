@@ -23,9 +23,9 @@ class UserContactMethodArgs:
                  label: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
                  user_id: pulumi.Input[_builtins.str],
-                 country_code: Optional[pulumi.Input[_builtins.int]] = None,
-                 device_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_short_email: Optional[pulumi.Input[_builtins.bool]] = None):
+                 country_code: pulumi.Input[Optional[_builtins.int]] = None,
+                 device_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_short_email: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a UserContactMethod resource.
 
@@ -97,50 +97,50 @@ class UserContactMethodArgs:
 
     @_builtins.property
     @pulumi.getter(name="countryCode")
-    def country_code(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def country_code(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
         """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
-    def country_code(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def country_code(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "country_code", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceType")
-    def device_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "device_type")
 
     @device_type.setter
-    def device_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_type", value)
 
     @_builtins.property
     @pulumi.getter(name="sendShortEmail")
-    def send_short_email(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_short_email(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Send an abbreviated email message instead of the standard email output.
         """
         return pulumi.get(self, "send_short_email")
 
     @send_short_email.setter
-    def send_short_email(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_short_email(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_short_email", value)
 
 
 @pulumi.input_type
 class _UserContactMethodState:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 blacklisted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 country_code: Optional[pulumi.Input[_builtins.int]] = None,
-                 device_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_short_email: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 blacklisted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 country_code: pulumi.Input[Optional[_builtins.int]] = None,
+                 device_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_short_email: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserContactMethod resources.
 
@@ -174,107 +174,107 @@ class _UserContactMethodState:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter
-    def blacklisted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blacklisted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
         """
         return pulumi.get(self, "blacklisted")
 
     @blacklisted.setter
-    def blacklisted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blacklisted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blacklisted", value)
 
     @_builtins.property
     @pulumi.getter(name="countryCode")
-    def country_code(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def country_code(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
         """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
-    def country_code(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def country_code(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "country_code", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceType")
-    def device_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "device_type")
 
     @device_type.setter
-    def device_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, this phone is capable of receiving SMS messages.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The label (e.g., "Work", "Mobile", etc.).
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter(name="sendShortEmail")
-    def send_short_email(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_short_email(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Send an abbreviated email message instead of the standard email output.
         """
         return pulumi.get(self, "send_short_email")
 
     @send_short_email.setter
-    def send_short_email(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_short_email(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_short_email", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`, `whatsapp_contact_method`).
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the user.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -284,13 +284,13 @@ class UserContactMethod(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 country_code: Optional[pulumi.Input[_builtins.int]] = None,
-                 device_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_short_email: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 country_code: pulumi.Input[Optional[_builtins.int]] = None,
+                 device_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_short_email: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > This resource behaves a little differently than may be expected. If the defined contact method already exists for the user in PagerDuty this resource will import the values of the existing contact method into your Terraform state.
@@ -408,13 +408,13 @@ class UserContactMethod(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 country_code: Optional[pulumi.Input[_builtins.int]] = None,
-                 device_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_short_email: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 country_code: pulumi.Input[Optional[_builtins.int]] = None,
+                 device_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_short_email: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -451,15 +451,15 @@ class UserContactMethod(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            address: Optional[pulumi.Input[_builtins.str]] = None,
-            blacklisted: Optional[pulumi.Input[_builtins.bool]] = None,
-            country_code: Optional[pulumi.Input[_builtins.int]] = None,
-            device_type: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            label: Optional[pulumi.Input[_builtins.str]] = None,
-            send_short_email: Optional[pulumi.Input[_builtins.bool]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            user_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'UserContactMethod':
+            address: pulumi.Input[Optional[_builtins.str]] = None,
+            blacklisted: pulumi.Input[Optional[_builtins.bool]] = None,
+            country_code: pulumi.Input[Optional[_builtins.int]] = None,
+            device_type: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            send_short_email: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserContactMethod':
         """
         Get an existing UserContactMethod resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

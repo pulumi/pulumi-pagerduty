@@ -128,7 +128,7 @@ export interface GetEventOrchestrationOutputArgs {
     /**
      * A list of integrations for the Event Orchestration.
      */
-    integrationDetail?: pulumi.Input<pulumi.Input<inputs.GetEventOrchestrationIntegrationDetailArgs>[]>;
+    integrationDetail?: pulumi.Input<pulumi.Input<inputs.GetEventOrchestrationIntegrationDetailArgs>[] | undefined>;
     /**
      * The name of the Global Event Orchestration to find in the PagerDuty API.
      */

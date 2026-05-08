@@ -88,7 +88,7 @@ def get_tag(label: Optional[_builtins.str] = None,
     return AwaitableGetTagResult(
         id=pulumi.get(__ret__, 'id'),
         label=pulumi.get(__ret__, 'label'))
-def get_tag_output(label: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tag_output(label: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagResult]:
     """
     Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.

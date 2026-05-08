@@ -122,7 +122,7 @@ export interface GetAutomationActionsRunnerOutputArgs {
     /**
      * (Optional) The description of the runner.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The id of the automation actions runner in the PagerDuty API.
      */
@@ -132,9 +132,9 @@ export interface GetAutomationActionsRunnerOutputArgs {
      *
      * @deprecated This field will be set as Computed-only in a future version. The lastSeen timestamp represents runtime state and may not be consistently available.
      */
-    lastSeen?: pulumi.Input<string>;
+    lastSeen?: pulumi.Input<string | undefined>;
     /**
      * (Optional) The base URI of the Runbook server to connect to. Applicable to `runbook` type runners only.
      */
-    runbookBaseUri?: pulumi.Input<string>;
+    runbookBaseUri?: pulumi.Input<string | undefined>;
 }

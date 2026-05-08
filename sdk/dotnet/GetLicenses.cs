@@ -29,9 +29,9 @@ namespace Pulumi.Pagerduty
         ///         "owner",
         ///     };
         /// 
-        ///     var licenses = Pagerduty.Index.GetLicenses.Invoke();
+        ///     var licenses = Pagerduty.GetLicenses.Invoke();
         /// 
-        ///     var example = new Pagerduty.Index.User("example", new()
+        ///     var example = new Pagerduty.User("example", new()
         ///     {
         ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",
@@ -63,9 +63,9 @@ namespace Pulumi.Pagerduty
         ///         "owner",
         ///     };
         /// 
-        ///     var licenses = Pagerduty.Index.GetLicenses.Invoke();
+        ///     var licenses = Pagerduty.GetLicenses.Invoke();
         /// 
-        ///     var example = new Pagerduty.Index.User("example", new()
+        ///     var example = new Pagerduty.User("example", new()
         ///     {
         ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",
@@ -97,9 +97,9 @@ namespace Pulumi.Pagerduty
         ///         "owner",
         ///     };
         /// 
-        ///     var licenses = Pagerduty.Index.GetLicenses.Invoke();
+        ///     var licenses = Pagerduty.GetLicenses.Invoke();
         /// 
-        ///     var example = new Pagerduty.Index.User("example", new()
+        ///     var example = new Pagerduty.User("example", new()
         ///     {
         ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",

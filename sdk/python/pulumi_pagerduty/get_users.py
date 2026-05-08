@@ -106,7 +106,7 @@ def get_users(team_ids: Optional[Sequence[_builtins.str]] = None,
         id=pulumi.get(__ret__, 'id'),
         team_ids=pulumi.get(__ret__, 'team_ids'),
         users=pulumi.get(__ret__, 'users'))
-def get_users_output(team_ids: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def get_users_output(team_ids: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
     Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.

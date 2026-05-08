@@ -23,18 +23,18 @@ class AutomationActionsActionArgs:
     def __init__(__self__, *,
                  action_data_reference: pulumi.Input['AutomationActionsActionActionDataReferenceArgs'],
                  action_type: pulumi.Input[_builtins.str],
-                 action_classification: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_invocation_from_event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_invocation_manually: Optional[pulumi.Input[_builtins.str]] = None,
-                 creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 map_to_all_services: Optional[pulumi.Input[_builtins.bool]] = None,
-                 modify_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 only_invocable_on_unresolved_incidents: Optional[pulumi.Input[_builtins.bool]] = None,
-                 runner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runner_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_classification: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_invocation_from_event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_invocation_manually: pulumi.Input[Optional[_builtins.str]] = None,
+                 creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 map_to_all_services: pulumi.Input[Optional[_builtins.bool]] = None,
+                 modify_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 only_invocable_on_unresolved_incidents: pulumi.Input[Optional[_builtins.bool]] = None,
+                 runner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runner_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutomationActionsAction resource.
 
@@ -106,166 +106,166 @@ class AutomationActionsActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionClassification")
-    def action_classification(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_classification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The category of the action, e.g. `diagnostic`, `remediation`.
         """
         return pulumi.get(self, "action_classification")
 
     @action_classification.setter
-    def action_classification(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_classification(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_classification", value)
 
     @_builtins.property
     @pulumi.getter(name="allowInvocationFromEventOrchestration")
-    def allow_invocation_from_event_orchestration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allow_invocation_from_event_orchestration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
         """
         return pulumi.get(self, "allow_invocation_from_event_orchestration")
 
     @allow_invocation_from_event_orchestration.setter
-    def allow_invocation_from_event_orchestration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allow_invocation_from_event_orchestration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allow_invocation_from_event_orchestration", value)
 
     @_builtins.property
     @pulumi.getter(name="allowInvocationManually")
-    def allow_invocation_manually(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allow_invocation_manually(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the action can be invoked manually by a user on the PagerDuty website.
         """
         return pulumi.get(self, "allow_invocation_manually")
 
     @allow_invocation_manually.setter
-    def allow_invocation_manually(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allow_invocation_manually(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allow_invocation_manually", value)
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def creation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time action was created. Represented as an ISO 8601 timestamp.
         """
         return pulumi.get(self, "creation_time")
 
     @creation_time.setter
-    def creation_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def creation_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "creation_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the action. Max length is 1024 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="mapToAllServices")
-    def map_to_all_services(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def map_to_all_services(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the action will be associated with every service.
         """
         return pulumi.get(self, "map_to_all_services")
 
     @map_to_all_services.setter
-    def map_to_all_services(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def map_to_all_services(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "map_to_all_services", value)
 
     @_builtins.property
     @pulumi.getter(name="modifyTime")
-    def modify_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def modify_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
         """
         return pulumi.get(self, "modify_time")
 
     @modify_time.setter
-    def modify_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def modify_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "modify_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the action. Max length is 255 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="onlyInvocableOnUnresolvedIncidents")
-    def only_invocable_on_unresolved_incidents(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def only_invocable_on_unresolved_incidents(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the action can be invoked on unresolved incidents.
         """
         return pulumi.get(self, "only_invocable_on_unresolved_incidents")
 
     @only_invocable_on_unresolved_incidents.setter
-    def only_invocable_on_unresolved_incidents(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def only_invocable_on_unresolved_incidents(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "only_invocable_on_unresolved_incidents", value)
 
     @_builtins.property
     @pulumi.getter(name="runnerId")
-    def runner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
         """
         return pulumi.get(self, "runner_id")
 
     @runner_id.setter
-    def runner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="runnerType")
-    def runner_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runner_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The type of the runner associated with the action.
         """
         return pulumi.get(self, "runner_type")
 
     @runner_type.setter
-    def runner_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runner_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runner_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of object. The value returned will be `action`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class _AutomationActionsActionState:
     def __init__(__self__, *,
-                 action_classification: Optional[pulumi.Input[_builtins.str]] = None,
-                 action_data_reference: Optional[pulumi.Input['AutomationActionsActionActionDataReferenceArgs']] = None,
-                 action_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_invocation_from_event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_invocation_manually: Optional[pulumi.Input[_builtins.str]] = None,
-                 creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 map_to_all_services: Optional[pulumi.Input[_builtins.bool]] = None,
-                 modify_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 only_invocable_on_unresolved_incidents: Optional[pulumi.Input[_builtins.bool]] = None,
-                 runner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runner_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 action_classification: pulumi.Input[Optional[_builtins.str]] = None,
+                 action_data_reference: pulumi.Input[Optional['AutomationActionsActionActionDataReferenceArgs']] = None,
+                 action_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_invocation_from_event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_invocation_manually: pulumi.Input[Optional[_builtins.str]] = None,
+                 creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 map_to_all_services: pulumi.Input[Optional[_builtins.bool]] = None,
+                 modify_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 only_invocable_on_unresolved_incidents: pulumi.Input[Optional[_builtins.bool]] = None,
+                 runner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runner_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutomationActionsAction resources.
 
@@ -315,170 +315,170 @@ class _AutomationActionsActionState:
 
     @_builtins.property
     @pulumi.getter(name="actionClassification")
-    def action_classification(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_classification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The category of the action, e.g. `diagnostic`, `remediation`.
         """
         return pulumi.get(self, "action_classification")
 
     @action_classification.setter
-    def action_classification(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_classification(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_classification", value)
 
     @_builtins.property
     @pulumi.getter(name="actionDataReference")
-    def action_data_reference(self) -> Optional[pulumi.Input['AutomationActionsActionActionDataReferenceArgs']]:
+    def action_data_reference(self) -> pulumi.Input[Optional['AutomationActionsActionActionDataReferenceArgs']]:
         """
         Action Data block. Action Data is documented below.
         """
         return pulumi.get(self, "action_data_reference")
 
     @action_data_reference.setter
-    def action_data_reference(self, value: Optional[pulumi.Input['AutomationActionsActionActionDataReferenceArgs']]):
+    def action_data_reference(self, value: pulumi.Input[Optional['AutomationActionsActionActionDataReferenceArgs']]):
         pulumi.set(self, "action_data_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="actionType")
-    def action_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
         """
         return pulumi.get(self, "action_type")
 
     @action_type.setter
-    def action_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action_type", value)
 
     @_builtins.property
     @pulumi.getter(name="allowInvocationFromEventOrchestration")
-    def allow_invocation_from_event_orchestration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allow_invocation_from_event_orchestration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
         """
         return pulumi.get(self, "allow_invocation_from_event_orchestration")
 
     @allow_invocation_from_event_orchestration.setter
-    def allow_invocation_from_event_orchestration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allow_invocation_from_event_orchestration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allow_invocation_from_event_orchestration", value)
 
     @_builtins.property
     @pulumi.getter(name="allowInvocationManually")
-    def allow_invocation_manually(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allow_invocation_manually(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the action can be invoked manually by a user on the PagerDuty website.
         """
         return pulumi.get(self, "allow_invocation_manually")
 
     @allow_invocation_manually.setter
-    def allow_invocation_manually(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allow_invocation_manually(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allow_invocation_manually", value)
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def creation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time action was created. Represented as an ISO 8601 timestamp.
         """
         return pulumi.get(self, "creation_time")
 
     @creation_time.setter
-    def creation_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def creation_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "creation_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the action. Max length is 1024 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="mapToAllServices")
-    def map_to_all_services(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def map_to_all_services(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the action will be associated with every service.
         """
         return pulumi.get(self, "map_to_all_services")
 
     @map_to_all_services.setter
-    def map_to_all_services(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def map_to_all_services(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "map_to_all_services", value)
 
     @_builtins.property
     @pulumi.getter(name="modifyTime")
-    def modify_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def modify_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
         """
         return pulumi.get(self, "modify_time")
 
     @modify_time.setter
-    def modify_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def modify_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "modify_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the action. Max length is 255 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="onlyInvocableOnUnresolvedIncidents")
-    def only_invocable_on_unresolved_incidents(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def only_invocable_on_unresolved_incidents(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the action can be invoked on unresolved incidents.
         """
         return pulumi.get(self, "only_invocable_on_unresolved_incidents")
 
     @only_invocable_on_unresolved_incidents.setter
-    def only_invocable_on_unresolved_incidents(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def only_invocable_on_unresolved_incidents(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "only_invocable_on_unresolved_incidents", value)
 
     @_builtins.property
     @pulumi.getter(name="runnerId")
-    def runner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
         """
         return pulumi.get(self, "runner_id")
 
     @runner_id.setter
-    def runner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="runnerType")
-    def runner_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runner_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The type of the runner associated with the action.
         """
         return pulumi.get(self, "runner_type")
 
     @runner_type.setter
-    def runner_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runner_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runner_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of object. The value returned will be `action`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -488,20 +488,20 @@ class AutomationActionsAction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_classification: Optional[pulumi.Input[_builtins.str]] = None,
-                 action_data_reference: Optional[pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']]] = None,
-                 action_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_invocation_from_event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_invocation_manually: Optional[pulumi.Input[_builtins.str]] = None,
-                 creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 map_to_all_services: Optional[pulumi.Input[_builtins.bool]] = None,
-                 modify_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 only_invocable_on_unresolved_incidents: Optional[pulumi.Input[_builtins.bool]] = None,
-                 runner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runner_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_classification: pulumi.Input[Optional[_builtins.str]] = None,
+                 action_data_reference: pulumi.Input[Optional[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']]] = None,
+                 action_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_invocation_from_event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_invocation_manually: pulumi.Input[Optional[_builtins.str]] = None,
+                 creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 map_to_all_services: pulumi.Input[Optional[_builtins.bool]] = None,
+                 modify_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 only_invocable_on_unresolved_incidents: pulumi.Input[Optional[_builtins.bool]] = None,
+                 runner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runner_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An Automation Actions [action](https://developer.pagerduty.com/api-reference/d64584a4371d3-create-an-automation-action) invokes jobs and workflows that are staged in Runbook Automation or Process Automation. It may also execute a command line script run by a Process Automation runner installed in your infrastructure.
@@ -611,20 +611,20 @@ class AutomationActionsAction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_classification: Optional[pulumi.Input[_builtins.str]] = None,
-                 action_data_reference: Optional[pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']]] = None,
-                 action_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_invocation_from_event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_invocation_manually: Optional[pulumi.Input[_builtins.str]] = None,
-                 creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 map_to_all_services: Optional[pulumi.Input[_builtins.bool]] = None,
-                 modify_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 only_invocable_on_unresolved_incidents: Optional[pulumi.Input[_builtins.bool]] = None,
-                 runner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 runner_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 action_classification: pulumi.Input[Optional[_builtins.str]] = None,
+                 action_data_reference: pulumi.Input[Optional[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']]] = None,
+                 action_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_invocation_from_event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_invocation_manually: pulumi.Input[Optional[_builtins.str]] = None,
+                 creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 map_to_all_services: pulumi.Input[Optional[_builtins.bool]] = None,
+                 modify_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 only_invocable_on_unresolved_incidents: pulumi.Input[Optional[_builtins.bool]] = None,
+                 runner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 runner_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -662,20 +662,20 @@ class AutomationActionsAction(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action_classification: Optional[pulumi.Input[_builtins.str]] = None,
-            action_data_reference: Optional[pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']]] = None,
-            action_type: Optional[pulumi.Input[_builtins.str]] = None,
-            allow_invocation_from_event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-            allow_invocation_manually: Optional[pulumi.Input[_builtins.str]] = None,
-            creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            map_to_all_services: Optional[pulumi.Input[_builtins.bool]] = None,
-            modify_time: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            only_invocable_on_unresolved_incidents: Optional[pulumi.Input[_builtins.bool]] = None,
-            runner_id: Optional[pulumi.Input[_builtins.str]] = None,
-            runner_type: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'AutomationActionsAction':
+            action_classification: pulumi.Input[Optional[_builtins.str]] = None,
+            action_data_reference: pulumi.Input[Optional[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']]] = None,
+            action_type: pulumi.Input[Optional[_builtins.str]] = None,
+            allow_invocation_from_event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+            allow_invocation_manually: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            map_to_all_services: pulumi.Input[Optional[_builtins.bool]] = None,
+            modify_time: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            only_invocable_on_unresolved_incidents: pulumi.Input[Optional[_builtins.bool]] = None,
+            runner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            runner_type: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'AutomationActionsAction':
         """
         Get an existing AutomationActionsAction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

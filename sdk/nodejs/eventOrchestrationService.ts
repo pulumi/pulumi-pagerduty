@@ -268,19 +268,19 @@ export interface EventOrchestrationServiceState {
     /**
      * the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      */
-    catchAll?: pulumi.Input<inputs.EventOrchestrationServiceCatchAll>;
+    catchAll?: pulumi.Input<inputs.EventOrchestrationServiceCatchAll | undefined>;
     /**
      * Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
      */
-    enableEventOrchestrationForService?: pulumi.Input<boolean>;
+    enableEventOrchestrationForService?: pulumi.Input<boolean | undefined>;
     /**
      * ID of the Service to which this Service Orchestration belongs to.
      */
-    service?: pulumi.Input<string>;
+    service?: pulumi.Input<string | undefined>;
     /**
      * A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
      */
-    sets?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSet>[]>;
+    sets?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSet>[] | undefined>;
 }
 
 /**
@@ -294,7 +294,7 @@ export interface EventOrchestrationServiceArgs {
     /**
      * Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
      */
-    enableEventOrchestrationForService?: pulumi.Input<boolean>;
+    enableEventOrchestrationForService?: pulumi.Input<boolean | undefined>;
     /**
      * ID of the Service to which this Service Orchestration belongs to.
      */

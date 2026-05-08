@@ -283,37 +283,37 @@ export interface ServiceIntegrationState {
     /**
      * Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
      */
-    emailFilterMode?: pulumi.Input<string>;
-    emailFilters?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailFilter>[]>;
+    emailFilterMode?: pulumi.Input<string | undefined>;
+    emailFilters?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailFilter>[] | undefined>;
     /**
      * Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `onNewEmail`, `onNewEmailSubject`, `onlyIfNoOpenIncidents` or `useRules`.
      */
-    emailIncidentCreation?: pulumi.Input<string>;
-    emailParsers?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParser>[]>;
+    emailIncidentCreation?: pulumi.Input<string | undefined>;
+    emailParsers?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParser>[] | undefined>;
     /**
      * Can be `openNewIncident` or `discard`.
      */
-    emailParsingFallback?: pulumi.Input<string>;
+    emailParsingFallback?: pulumi.Input<string | undefined>;
     /**
      * URL at which the entity is uniquely displayed in the Web app.
      */
-    htmlUrl?: pulumi.Input<string>;
+    htmlUrl?: pulumi.Input<string | undefined>;
     /**
      * This is the unique fully-qualified email address used for routing emails to this integration for processing.
      */
-    integrationEmail?: pulumi.Input<string>;
+    integrationEmail?: pulumi.Input<string | undefined>;
     /**
      * (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
      */
-    integrationKey?: pulumi.Input<string>;
+    integrationKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the service integration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the service the integration should belong to.
      */
-    service?: pulumi.Input<string>;
+    service?: pulumi.Input<string | undefined>;
     /**
      * The service type. Can be:
      * `awsCloudwatchInboundIntegration`,
@@ -329,11 +329,11 @@ export interface ServiceIntegrationState {
      * **Note:** This is meant for **generic** service integrations.
      * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
      */
-    vendor?: pulumi.Input<string>;
+    vendor?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -343,29 +343,29 @@ export interface ServiceIntegrationArgs {
     /**
      * Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
      */
-    emailFilterMode?: pulumi.Input<string>;
-    emailFilters?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailFilter>[]>;
+    emailFilterMode?: pulumi.Input<string | undefined>;
+    emailFilters?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailFilter>[] | undefined>;
     /**
      * Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `onNewEmail`, `onNewEmailSubject`, `onlyIfNoOpenIncidents` or `useRules`.
      */
-    emailIncidentCreation?: pulumi.Input<string>;
-    emailParsers?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParser>[]>;
+    emailIncidentCreation?: pulumi.Input<string | undefined>;
+    emailParsers?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParser>[] | undefined>;
     /**
      * Can be `openNewIncident` or `discard`.
      */
-    emailParsingFallback?: pulumi.Input<string>;
+    emailParsingFallback?: pulumi.Input<string | undefined>;
     /**
      * This is the unique fully-qualified email address used for routing emails to this integration for processing.
      */
-    integrationEmail?: pulumi.Input<string>;
+    integrationEmail?: pulumi.Input<string | undefined>;
     /**
      * (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
      */
-    integrationKey?: pulumi.Input<string>;
+    integrationKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the service integration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the service the integration should belong to.
      */
@@ -385,9 +385,9 @@ export interface ServiceIntegrationArgs {
      * **Note:** This is meant for **generic** service integrations.
      * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
      */
-    vendor?: pulumi.Input<string>;
+    vendor?: pulumi.Input<string | undefined>;
 }

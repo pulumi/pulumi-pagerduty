@@ -174,10 +174,10 @@ def get_automation_actions_runner(description: Optional[_builtins.str] = None,
         runbook_base_uri=pulumi.get(__ret__, 'runbook_base_uri'),
         runner_type=pulumi.get(__ret__, 'runner_type'),
         type=pulumi.get(__ret__, 'type'))
-def get_automation_actions_runner_output(description: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         id: Optional[pulumi.Input[_builtins.str]] = None,
-                                         last_seen: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         runbook_base_uri: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_automation_actions_runner_output(description: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         id: pulumi.Input[Optional[_builtins.str]] = None,
+                                         last_seen: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         runbook_base_uri: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutomationActionsRunnerResult]:
     """
     Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).

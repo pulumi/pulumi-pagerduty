@@ -191,15 +191,15 @@ export interface EventOrchestrationGlobalState {
     /**
      * the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      */
-    catchAll?: pulumi.Input<inputs.EventOrchestrationGlobalCatchAll>;
+    catchAll?: pulumi.Input<inputs.EventOrchestrationGlobalCatchAll | undefined>;
     /**
      * ID of the Event Orchestration to which this Global Orchestration belongs to.
      */
-    eventOrchestration?: pulumi.Input<string>;
+    eventOrchestration?: pulumi.Input<string | undefined>;
     /**
      * A Global Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
      */
-    sets?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSet>[]>;
+    sets?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSet>[] | undefined>;
 }
 
 /**

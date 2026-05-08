@@ -240,35 +240,35 @@ export interface RulesetRuleState {
     /**
      * Actions to apply to an event if the conditions match.
      */
-    actions?: pulumi.Input<inputs.RulesetRuleActions>;
+    actions?: pulumi.Input<inputs.RulesetRuleActions | undefined>;
     /**
      * Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
      */
-    catchAll?: pulumi.Input<boolean>;
+    catchAll?: pulumi.Input<boolean | undefined>;
     /**
      * Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
      */
-    conditions?: pulumi.Input<inputs.RulesetRuleConditions>;
+    conditions?: pulumi.Input<inputs.RulesetRuleConditions | undefined>;
     /**
      * Indicates whether the rule is disabled and would therefore not be evaluated.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Position/index of the rule within the ruleset.
      */
-    position?: pulumi.Input<number>;
+    position?: pulumi.Input<number | undefined>;
     /**
      * The ID of the ruleset that the rule belongs to.
      */
-    ruleset?: pulumi.Input<string>;
+    ruleset?: pulumi.Input<string | undefined>;
     /**
      * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
      */
-    timeFrame?: pulumi.Input<inputs.RulesetRuleTimeFrame>;
+    timeFrame?: pulumi.Input<inputs.RulesetRuleTimeFrame | undefined>;
     /**
      * Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
      */
-    variables?: pulumi.Input<pulumi.Input<inputs.RulesetRuleVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.RulesetRuleVariable>[] | undefined>;
 }
 
 /**
@@ -278,23 +278,23 @@ export interface RulesetRuleArgs {
     /**
      * Actions to apply to an event if the conditions match.
      */
-    actions?: pulumi.Input<inputs.RulesetRuleActions>;
+    actions?: pulumi.Input<inputs.RulesetRuleActions | undefined>;
     /**
      * Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
      */
-    catchAll?: pulumi.Input<boolean>;
+    catchAll?: pulumi.Input<boolean | undefined>;
     /**
      * Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
      */
-    conditions?: pulumi.Input<inputs.RulesetRuleConditions>;
+    conditions?: pulumi.Input<inputs.RulesetRuleConditions | undefined>;
     /**
      * Indicates whether the rule is disabled and would therefore not be evaluated.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Position/index of the rule within the ruleset.
      */
-    position?: pulumi.Input<number>;
+    position?: pulumi.Input<number | undefined>;
     /**
      * The ID of the ruleset that the rule belongs to.
      */
@@ -302,9 +302,9 @@ export interface RulesetRuleArgs {
     /**
      * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
      */
-    timeFrame?: pulumi.Input<inputs.RulesetRuleTimeFrame>;
+    timeFrame?: pulumi.Input<inputs.RulesetRuleTimeFrame | undefined>;
     /**
      * Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
      */
-    variables?: pulumi.Input<pulumi.Input<inputs.RulesetRuleVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.RulesetRuleVariable>[] | undefined>;
 }

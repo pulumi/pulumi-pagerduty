@@ -213,19 +213,19 @@ export interface EventRuleState {
     /**
      * A list of one or more actions for each rule. Each action within the list is itself a list.
      */
-    actionJson?: pulumi.Input<string>;
+    actionJson?: pulumi.Input<string | undefined>;
     /**
      * Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
      */
-    advancedConditionJson?: pulumi.Input<string>;
+    advancedConditionJson?: pulumi.Input<string | undefined>;
     /**
      * A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.
      */
-    catchAll?: pulumi.Input<boolean>;
+    catchAll?: pulumi.Input<boolean | undefined>;
     /**
      * Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
      */
-    conditionJson?: pulumi.Input<string>;
+    conditionJson?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -239,7 +239,7 @@ export interface EventRuleArgs {
     /**
      * Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
      */
-    advancedConditionJson?: pulumi.Input<string>;
+    advancedConditionJson?: pulumi.Input<string | undefined>;
     /**
      * Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
      */

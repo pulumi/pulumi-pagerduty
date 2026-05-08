@@ -22,12 +22,12 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var engineering = new Pagerduty.Index.Team("engineering", new()
+    ///     var engineering = new Pagerduty.Team("engineering", new()
     ///     {
     ///         Name = "Engineering",
     ///     });
     /// 
-    ///     var myMonitor = new Pagerduty.Index.EventOrchestration("my_monitor", new()
+    ///     var myMonitor = new Pagerduty.EventOrchestration("my_monitor", new()
     ///     {
     ///         Name = "My Monitoring Orchestration",
     ///         Description = "Send events to a pair of services",

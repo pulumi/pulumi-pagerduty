@@ -128,19 +128,19 @@ export interface RulesetState {
     /**
      * Name of the ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Routing keys routed to this ruleset.
      */
-    routingKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    routingKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Reference to the team that owns the ruleset. If none is specified, only admins have access.
      */
-    team?: pulumi.Input<inputs.RulesetTeam>;
+    team?: pulumi.Input<inputs.RulesetTeam | undefined>;
     /**
      * Type of ruleset. Currently, only sets to `global`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -150,9 +150,9 @@ export interface RulesetArgs {
     /**
      * Name of the ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Reference to the team that owns the ruleset. If none is specified, only admins have access.
      */
-    team?: pulumi.Input<inputs.RulesetTeam>;
+    team?: pulumi.Input<inputs.RulesetTeam | undefined>;
 }

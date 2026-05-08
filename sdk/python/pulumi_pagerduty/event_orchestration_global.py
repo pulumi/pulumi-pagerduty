@@ -75,9 +75,9 @@ class EventOrchestrationGlobalArgs:
 @pulumi.input_type
 class _EventOrchestrationGlobalState:
     def __init__(__self__, *,
-                 catch_all: Optional[pulumi.Input['EventOrchestrationGlobalCatchAllArgs']] = None,
-                 event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                 sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetArgs']]]] = None):
+                 catch_all: pulumi.Input[Optional['EventOrchestrationGlobalCatchAllArgs']] = None,
+                 event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                 sets: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetArgs']]]] = None):
         """
         Input properties used for looking up and filtering EventOrchestrationGlobal resources.
 
@@ -94,38 +94,38 @@ class _EventOrchestrationGlobalState:
 
     @_builtins.property
     @pulumi.getter(name="catchAll")
-    def catch_all(self) -> Optional[pulumi.Input['EventOrchestrationGlobalCatchAllArgs']]:
+    def catch_all(self) -> pulumi.Input[Optional['EventOrchestrationGlobalCatchAllArgs']]:
         """
         the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         """
         return pulumi.get(self, "catch_all")
 
     @catch_all.setter
-    def catch_all(self, value: Optional[pulumi.Input['EventOrchestrationGlobalCatchAllArgs']]):
+    def catch_all(self, value: pulumi.Input[Optional['EventOrchestrationGlobalCatchAllArgs']]):
         pulumi.set(self, "catch_all", value)
 
     @_builtins.property
     @pulumi.getter(name="eventOrchestration")
-    def event_orchestration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_orchestration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Event Orchestration to which this Global Orchestration belongs to.
         """
         return pulumi.get(self, "event_orchestration")
 
     @event_orchestration.setter
-    def event_orchestration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_orchestration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_orchestration", value)
 
     @_builtins.property
     @pulumi.getter
-    def sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetArgs']]]]:
+    def sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetArgs']]]]:
         """
         A Global Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
         """
         return pulumi.get(self, "sets")
 
     @sets.setter
-    def sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetArgs']]]]):
+    def sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetArgs']]]]):
         pulumi.set(self, "sets", value)
 
 
@@ -135,9 +135,9 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catch_all: Optional[pulumi.Input[Union['EventOrchestrationGlobalCatchAllArgs', 'EventOrchestrationGlobalCatchAllArgsDict']]] = None,
-                 event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                 sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationGlobalSetArgs', 'EventOrchestrationGlobalSetArgsDict']]]]] = None,
+                 catch_all: pulumi.Input[Optional[Union['EventOrchestrationGlobalCatchAllArgs', 'EventOrchestrationGlobalCatchAllArgsDict']]] = None,
+                 event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                 sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationGlobalSetArgs', 'EventOrchestrationGlobalSetArgsDict']]]]] = None,
                  __props__=None):
         """
         A [Global Orchestration](https://support.pagerduty.com/docs/event-orchestration#global-orchestrations) allows you to create a set of Event Rules. The Global Orchestration evaluates Events sent to it against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Global Orchestration for further processing.
@@ -358,9 +358,9 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catch_all: Optional[pulumi.Input[Union['EventOrchestrationGlobalCatchAllArgs', 'EventOrchestrationGlobalCatchAllArgsDict']]] = None,
-                 event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                 sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationGlobalSetArgs', 'EventOrchestrationGlobalSetArgsDict']]]]] = None,
+                 catch_all: pulumi.Input[Optional[Union['EventOrchestrationGlobalCatchAllArgs', 'EventOrchestrationGlobalCatchAllArgsDict']]] = None,
+                 event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                 sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationGlobalSetArgs', 'EventOrchestrationGlobalSetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -389,9 +389,9 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            catch_all: Optional[pulumi.Input[Union['EventOrchestrationGlobalCatchAllArgs', 'EventOrchestrationGlobalCatchAllArgsDict']]] = None,
-            event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-            sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationGlobalSetArgs', 'EventOrchestrationGlobalSetArgsDict']]]]] = None) -> 'EventOrchestrationGlobal':
+            catch_all: pulumi.Input[Optional[Union['EventOrchestrationGlobalCatchAllArgs', 'EventOrchestrationGlobalCatchAllArgsDict']]] = None,
+            event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+            sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationGlobalSetArgs', 'EventOrchestrationGlobalSetArgsDict']]]]] = None) -> 'EventOrchestrationGlobal':
         """
         Get an existing EventOrchestrationGlobal resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -24,12 +24,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var eventOrchestration = new Pagerduty.Index.EventOrchestration("event_orchestration", new()
+        ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
         ///     {
         ///         Name = "Test Event Orchestration",
         ///     });
         /// 
-        ///     var cacheVariable = Pagerduty.Index.GetEventOrchestrationGlobalCacheVariable.Invoke(new()
+        ///     var cacheVariable = Pagerduty.GetEventOrchestrationGlobalCacheVariable.Invoke(new()
         ///     {
         ///         EventOrchestration = eventOrchestration.Id,
         ///         Name = "example_cache_variable",
@@ -54,12 +54,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var eventOrchestration = new Pagerduty.Index.EventOrchestration("event_orchestration", new()
+        ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
         ///     {
         ///         Name = "Test Event Orchestration",
         ///     });
         /// 
-        ///     var cacheVariable = Pagerduty.Index.GetEventOrchestrationGlobalCacheVariable.Invoke(new()
+        ///     var cacheVariable = Pagerduty.GetEventOrchestrationGlobalCacheVariable.Invoke(new()
         ///     {
         ///         EventOrchestration = eventOrchestration.Id,
         ///         Name = "example_cache_variable",
@@ -84,12 +84,12 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var eventOrchestration = new Pagerduty.Index.EventOrchestration("event_orchestration", new()
+        ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
         ///     {
         ///         Name = "Test Event Orchestration",
         ///     });
         /// 
-        ///     var cacheVariable = Pagerduty.Index.GetEventOrchestrationGlobalCacheVariable.Invoke(new()
+        ///     var cacheVariable = Pagerduty.GetEventOrchestrationGlobalCacheVariable.Invoke(new()
         ///     {
         ///         EventOrchestration = eventOrchestration.Id,
         ///         Name = "example_cache_variable",

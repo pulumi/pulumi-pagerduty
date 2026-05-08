@@ -24,7 +24,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var regions = Pagerduty.Index.GetServiceCustomField.Invoke(new()
+        ///     var regions = Pagerduty.GetServiceCustomField.Invoke(new()
         ///     {
         ///         DisplayName = "AWS Regions",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var regions = Pagerduty.Index.GetServiceCustomField.Invoke(new()
+        ///     var regions = Pagerduty.GetServiceCustomField.Invoke(new()
         ///     {
         ///         DisplayName = "AWS Regions",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var regions = Pagerduty.Index.GetServiceCustomField.Invoke(new()
+        ///     var regions = Pagerduty.GetServiceCustomField.Invoke(new()
         ///     {
         ///         DisplayName = "AWS Regions",
         ///     });

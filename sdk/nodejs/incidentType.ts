@@ -139,27 +139,27 @@ export interface IncidentTypeState {
     /**
      * A succinct description of the Incident Type.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the Incident Type. Usage of the prefixes PD, PagerDuty, or the suffixes Default, or (Default) is prohibited.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * State of this Incident Type object. Defaults to true if not provided.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Incident Type. Usage of the suffix `_default` is prohibited. This cannot be changed once the incident type has been created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parent type of the Incident Type. Either name or id of the parent type can be used.
      */
-    parentType?: pulumi.Input<string>;
+    parentType?: pulumi.Input<string | undefined>;
     /**
      * A string that determines the schema of the object.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -169,7 +169,7 @@ export interface IncidentTypeArgs {
     /**
      * A succinct description of the Incident Type.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the Incident Type. Usage of the prefixes PD, PagerDuty, or the suffixes Default, or (Default) is prohibited.
      */
@@ -177,11 +177,11 @@ export interface IncidentTypeArgs {
     /**
      * State of this Incident Type object. Defaults to true if not provided.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Incident Type. Usage of the suffix `_default` is prohibited. This cannot be changed once the incident type has been created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parent type of the Incident Type. Either name or id of the parent type can be used.
      */

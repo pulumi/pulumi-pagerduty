@@ -24,19 +24,19 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var me = Pagerduty.Index.GetUser.Invoke(new()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var phonePush = Pagerduty.Index.GetUserContactMethod.Invoke(new()
+        ///     var phonePush = Pagerduty.GetUserContactMethod.Invoke(new()
         ///     {
         ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
         ///         Type = "push_notification_contact_method",
         ///         Label = "iPhone (John)",
         ///     });
         /// 
-        ///     var lowUrgencySms = new Pagerduty.Index.UserNotificationRule("low_urgency_sms", new()
+        ///     var lowUrgencySms = new Pagerduty.UserNotificationRule("low_urgency_sms", new()
         ///     {
         ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
         ///         StartDelayInMinutes = 5,
@@ -67,19 +67,19 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var me = Pagerduty.Index.GetUser.Invoke(new()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var phonePush = Pagerduty.Index.GetUserContactMethod.Invoke(new()
+        ///     var phonePush = Pagerduty.GetUserContactMethod.Invoke(new()
         ///     {
         ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
         ///         Type = "push_notification_contact_method",
         ///         Label = "iPhone (John)",
         ///     });
         /// 
-        ///     var lowUrgencySms = new Pagerduty.Index.UserNotificationRule("low_urgency_sms", new()
+        ///     var lowUrgencySms = new Pagerduty.UserNotificationRule("low_urgency_sms", new()
         ///     {
         ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
         ///         StartDelayInMinutes = 5,
@@ -110,19 +110,19 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var me = Pagerduty.Index.GetUser.Invoke(new()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var phonePush = Pagerduty.Index.GetUserContactMethod.Invoke(new()
+        ///     var phonePush = Pagerduty.GetUserContactMethod.Invoke(new()
         ///     {
         ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
         ///         Type = "push_notification_contact_method",
         ///         Label = "iPhone (John)",
         ///     });
         /// 
-        ///     var lowUrgencySms = new Pagerduty.Index.UserNotificationRule("low_urgency_sms", new()
+        ///     var lowUrgencySms = new Pagerduty.UserNotificationRule("low_urgency_sms", new()
         ///     {
         ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
         ///         StartDelayInMinutes = 5,

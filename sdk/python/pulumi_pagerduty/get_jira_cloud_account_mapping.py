@@ -89,7 +89,7 @@ def get_jira_cloud_account_mapping(subdomain: Optional[_builtins.str] = None,
         base_url=pulumi.get(__ret__, 'base_url'),
         id=pulumi.get(__ret__, 'id'),
         subdomain=pulumi.get(__ret__, 'subdomain'))
-def get_jira_cloud_account_mapping_output(subdomain: Optional[pulumi.Input[_builtins.str]] = None,
+def get_jira_cloud_account_mapping_output(subdomain: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJiraCloudAccountMappingResult]:
     """
     Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).

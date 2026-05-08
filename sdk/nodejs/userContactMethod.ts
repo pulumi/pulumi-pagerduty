@@ -170,36 +170,36 @@ export interface UserContactMethodState {
     /**
      * The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
      */
-    address?: pulumi.Input<string>;
+    address?: pulumi.Input<string | undefined>;
     /**
      * If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
      */
-    blacklisted?: pulumi.Input<boolean>;
+    blacklisted?: pulumi.Input<boolean | undefined>;
     /**
      * The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
      */
-    countryCode?: pulumi.Input<number>;
-    deviceType?: pulumi.Input<string>;
+    countryCode?: pulumi.Input<number | undefined>;
+    deviceType?: pulumi.Input<string | undefined>;
     /**
      * If true, this phone is capable of receiving SMS messages.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The label (e.g., "Work", "Mobile", etc.).
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Send an abbreviated email message instead of the standard email output.
      */
-    sendShortEmail?: pulumi.Input<boolean>;
+    sendShortEmail?: pulumi.Input<boolean | undefined>;
     /**
      * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The ID of the user.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -213,8 +213,8 @@ export interface UserContactMethodArgs {
     /**
      * The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
      */
-    countryCode?: pulumi.Input<number>;
-    deviceType?: pulumi.Input<string>;
+    countryCode?: pulumi.Input<number | undefined>;
+    deviceType?: pulumi.Input<string | undefined>;
     /**
      * The label (e.g., "Work", "Mobile", etc.).
      */
@@ -222,7 +222,7 @@ export interface UserContactMethodArgs {
     /**
      * Send an abbreviated email message instead of the standard email output.
      */
-    sendShortEmail?: pulumi.Input<boolean>;
+    sendShortEmail?: pulumi.Input<boolean | undefined>;
     /**
      * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
      */

@@ -128,15 +128,15 @@ export interface BusinessServiceSubscriberState {
     /**
      * The ID of the business service to subscribe to.
      */
-    businessServiceId?: pulumi.Input<string>;
+    businessServiceId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the subscriber entity.
      */
-    subscriberId?: pulumi.Input<string>;
+    subscriberId?: pulumi.Input<string | undefined>;
     /**
      * Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
      */
-    subscriberType?: pulumi.Input<string>;
+    subscriberType?: pulumi.Input<string | undefined>;
 }
 
 /**

@@ -60,9 +60,9 @@ class EventOrchestrationIntegrationInitArgs:
 @pulumi.input_type
 class _EventOrchestrationIntegrationState:
     def __init__(__self__, *,
-                 event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]] = None):
+                 event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]] = None):
         """
         Input properties used for looking up and filtering EventOrchestrationIntegration resources.
 
@@ -78,35 +78,35 @@ class _EventOrchestrationIntegrationState:
 
     @_builtins.property
     @pulumi.getter(name="eventOrchestration")
-    def event_orchestration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_orchestration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Event Orchestration to which this Integration belongs to. If value is changed, current Integration is associated with a newly provided ID.
         """
         return pulumi.get(self, "event_orchestration")
 
     @event_orchestration.setter
-    def event_orchestration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_orchestration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_orchestration", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name/description of the Integration.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]]:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -116,8 +116,8 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An Event Orchestration Integration allows you to create and manage multiple Integrations (and Routing Keys) per Event Orchestration _and_ will allow you to move (migrate) Integrations _between_ two Event Orchestrations.
@@ -207,8 +207,8 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -235,9 +235,9 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-            label: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationParameterArgs', 'EventOrchestrationIntegrationParameterArgsDict']]]]] = None) -> 'EventOrchestrationIntegration':
+            event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationParameterArgs', 'EventOrchestrationIntegrationParameterArgsDict']]]]] = None) -> 'EventOrchestrationIntegration':
         """
         Get an existing EventOrchestrationIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

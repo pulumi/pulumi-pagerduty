@@ -23,10 +23,10 @@ class ScheduleArgs:
     def __init__(__self__, *,
                  layers: pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]],
                  time_zone: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overflow: Optional[pulumi.Input[_builtins.bool]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overflow: pulumi.Input[Optional[_builtins.bool]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Schedule resource.
 
@@ -78,31 +78,31 @@ class ScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the schedule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the schedule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def overflow(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overflow(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
         If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
@@ -111,32 +111,32 @@ class ScheduleArgs:
         return pulumi.get(self, "overflow")
 
     @overflow.setter
-    def overflow(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overflow(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overflow", value)
 
     @_builtins.property
     @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Teams associated with the schedule.
         """
         return pulumi.get(self, "teams")
 
     @teams.setter
-    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def teams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "teams", value)
 
 
 @pulumi.input_type
 class _ScheduleState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleFinalScheduleArgs']]]] = None,
-                 layers: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overflow: Optional[pulumi.Input[_builtins.bool]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_schedules: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleFinalScheduleArgs']]]] = None,
+                 layers: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleLayerArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overflow: pulumi.Input[Optional[_builtins.bool]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Schedule resources.
 
@@ -168,52 +168,52 @@ class _ScheduleState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the schedule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="finalSchedules")
-    def final_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleFinalScheduleArgs']]]]:
+    def final_schedules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleFinalScheduleArgs']]]]:
         return pulumi.get(self, "final_schedules")
 
     @final_schedules.setter
-    def final_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleFinalScheduleArgs']]]]):
+    def final_schedules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleFinalScheduleArgs']]]]):
         pulumi.set(self, "final_schedules", value)
 
     @_builtins.property
     @pulumi.getter
-    def layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]]]:
+    def layers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleLayerArgs']]]]:
         """
         A schedule layer block. Schedule layers documented below.
         """
         return pulumi.get(self, "layers")
 
     @layers.setter
-    def layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]]]):
+    def layers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleLayerArgs']]]]):
         pulumi.set(self, "layers", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the schedule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def overflow(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def overflow(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
         If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
@@ -222,31 +222,31 @@ class _ScheduleState:
         return pulumi.get(self, "overflow")
 
     @overflow.setter
-    def overflow(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def overflow(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "overflow", value)
 
     @_builtins.property
     @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Teams associated with the schedule.
         """
         return pulumi.get(self, "teams")
 
     @teams.setter
-    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def teams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "teams", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time zone of the schedule (e.g. `Europe/Berlin`).
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
@@ -256,12 +256,12 @@ class Schedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 layers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overflow: Optional[pulumi.Input[_builtins.bool]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overflow: pulumi.Input[Optional[_builtins.bool]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4Mg-create-a-schedule) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
@@ -375,12 +375,12 @@ class Schedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 layers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overflow: Optional[pulumi.Input[_builtins.bool]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overflow: pulumi.Input[Optional[_builtins.bool]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -413,13 +413,13 @@ class Schedule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            final_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleFinalScheduleArgs', 'ScheduleFinalScheduleArgsDict']]]]] = None,
-            layers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            overflow: Optional[pulumi.Input[_builtins.bool]] = None,
-            teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            time_zone: Optional[pulumi.Input[_builtins.str]] = None) -> 'Schedule':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            final_schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleFinalScheduleArgs', 'ScheduleFinalScheduleArgsDict']]]]] = None,
+            layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            overflow: pulumi.Input[Optional[_builtins.bool]] = None,
+            teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'Schedule':
         """
         Get an existing Schedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

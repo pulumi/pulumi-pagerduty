@@ -24,7 +24,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.Index.GetServiceIntegration.Invoke(new()
+        ///     var example = Pagerduty.GetServiceIntegration.Invoke(new()
         ///     {
         ///         ServiceName = "My Service",
         ///         IntegrationSummary = "Datadog",
@@ -49,7 +49,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.Index.GetServiceIntegration.Invoke(new()
+        ///     var example = Pagerduty.GetServiceIntegration.Invoke(new()
         ///     {
         ///         ServiceName = "My Service",
         ///         IntegrationSummary = "Datadog",
@@ -74,7 +74,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.Index.GetServiceIntegration.Invoke(new()
+        ///     var example = Pagerduty.GetServiceIntegration.Invoke(new()
         ///     {
         ///         ServiceName = "My Service",
         ///         IntegrationSummary = "Datadog",

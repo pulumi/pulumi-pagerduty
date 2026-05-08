@@ -189,59 +189,59 @@ export interface AutomationActionsActionState {
     /**
      * The category of the action, e.g. `diagnostic`, `remediation`.
      */
-    actionClassification?: pulumi.Input<string>;
+    actionClassification?: pulumi.Input<string | undefined>;
     /**
      * Action Data block. Action Data is documented below.
      */
-    actionDataReference?: pulumi.Input<inputs.AutomationActionsActionActionDataReference>;
+    actionDataReference?: pulumi.Input<inputs.AutomationActionsActionActionDataReference | undefined>;
     /**
      * The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
      */
-    actionType?: pulumi.Input<string>;
+    actionType?: pulumi.Input<string | undefined>;
     /**
      * Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
      */
-    allowInvocationFromEventOrchestration?: pulumi.Input<string>;
+    allowInvocationFromEventOrchestration?: pulumi.Input<string | undefined>;
     /**
      * Whether the action can be invoked manually by a user on the PagerDuty website.
      */
-    allowInvocationManually?: pulumi.Input<string>;
+    allowInvocationManually?: pulumi.Input<string | undefined>;
     /**
      * The time action was created. Represented as an ISO 8601 timestamp.
      */
-    creationTime?: pulumi.Input<string>;
+    creationTime?: pulumi.Input<string | undefined>;
     /**
      * The description of the action. Max length is 1024 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * If true, the action will be associated with every service.
      */
-    mapToAllServices?: pulumi.Input<boolean>;
+    mapToAllServices?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      */
-    modifyTime?: pulumi.Input<string>;
+    modifyTime?: pulumi.Input<string | undefined>;
     /**
      * The name of the action. Max length is 255 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the action can be invoked on unresolved incidents.
      */
-    onlyInvocableOnUnresolvedIncidents?: pulumi.Input<boolean>;
+    onlyInvocableOnUnresolvedIncidents?: pulumi.Input<boolean | undefined>;
     /**
      * The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
      */
-    runnerId?: pulumi.Input<string>;
+    runnerId?: pulumi.Input<string | undefined>;
     /**
      * (Optional) The type of the runner associated with the action.
      */
-    runnerType?: pulumi.Input<string>;
+    runnerType?: pulumi.Input<string | undefined>;
     /**
      * The type of object. The value returned will be `action`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -251,7 +251,7 @@ export interface AutomationActionsActionArgs {
     /**
      * The category of the action, e.g. `diagnostic`, `remediation`.
      */
-    actionClassification?: pulumi.Input<string>;
+    actionClassification?: pulumi.Input<string | undefined>;
     /**
      * Action Data block. Action Data is documented below.
      */
@@ -263,45 +263,45 @@ export interface AutomationActionsActionArgs {
     /**
      * Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
      */
-    allowInvocationFromEventOrchestration?: pulumi.Input<string>;
+    allowInvocationFromEventOrchestration?: pulumi.Input<string | undefined>;
     /**
      * Whether the action can be invoked manually by a user on the PagerDuty website.
      */
-    allowInvocationManually?: pulumi.Input<string>;
+    allowInvocationManually?: pulumi.Input<string | undefined>;
     /**
      * The time action was created. Represented as an ISO 8601 timestamp.
      */
-    creationTime?: pulumi.Input<string>;
+    creationTime?: pulumi.Input<string | undefined>;
     /**
      * The description of the action. Max length is 1024 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * If true, the action will be associated with every service.
      */
-    mapToAllServices?: pulumi.Input<boolean>;
+    mapToAllServices?: pulumi.Input<boolean | undefined>;
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      */
-    modifyTime?: pulumi.Input<string>;
+    modifyTime?: pulumi.Input<string | undefined>;
     /**
      * The name of the action. Max length is 255 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the action can be invoked on unresolved incidents.
      */
-    onlyInvocableOnUnresolvedIncidents?: pulumi.Input<boolean>;
+    onlyInvocableOnUnresolvedIncidents?: pulumi.Input<boolean | undefined>;
     /**
      * The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
      */
-    runnerId?: pulumi.Input<string>;
+    runnerId?: pulumi.Input<string | undefined>;
     /**
      * (Optional) The type of the runner associated with the action.
      */
-    runnerType?: pulumi.Input<string>;
+    runnerType?: pulumi.Input<string | undefined>;
     /**
      * The type of object. The value returned will be `action`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

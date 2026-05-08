@@ -176,35 +176,35 @@ export interface ExtensionState {
     /**
      * The configuration of the service extension as string containing plain JSON-encoded data.
      */
-    config?: pulumi.Input<string>;
+    config?: pulumi.Input<string | undefined>;
     /**
      * The url of the extension.
      * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpointUrl`, but one with named `Slack` accepts.
      */
-    endpointUrl?: pulumi.Input<string>;
+    endpointUrl?: pulumi.Input<string | undefined>;
     /**
      * This is the objects for which the extension applies (An array of service ids).
      */
-    extensionObjects?: pulumi.Input<pulumi.Input<string>[]>;
+    extensionObjects?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * This is the schema for this extension.
      */
-    extensionSchema?: pulumi.Input<string>;
+    extensionSchema?: pulumi.Input<string | undefined>;
     /**
      * URL at which the entity is uniquely displayed in the Web app
      */
-    htmlUrl?: pulumi.Input<string>;
+    htmlUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of the service extension.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
      *
      * **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
      */
-    summary?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    summary?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -214,12 +214,12 @@ export interface ExtensionArgs {
     /**
      * The configuration of the service extension as string containing plain JSON-encoded data.
      */
-    config?: pulumi.Input<string>;
+    config?: pulumi.Input<string | undefined>;
     /**
      * The url of the extension.
      * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpointUrl`, but one with named `Slack` accepts.
      */
-    endpointUrl?: pulumi.Input<string>;
+    endpointUrl?: pulumi.Input<string | undefined>;
     /**
      * This is the objects for which the extension applies (An array of service ids).
      */
@@ -231,6 +231,6 @@ export interface ExtensionArgs {
     /**
      * The name of the service extension.
      */
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }

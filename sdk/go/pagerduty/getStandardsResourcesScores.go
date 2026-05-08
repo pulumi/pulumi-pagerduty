@@ -25,40 +25,42 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// foo, err := pagerduty.GetService(ctx, &pagerduty.LookupServiceArgs{
-// Name: "foo",
-// }, nil);
-// if err != nil {
-// return err
-// }
-// bar, err := pagerduty.GetService(ctx, &pagerduty.LookupServiceArgs{
-// Name: "bar",
-// }, nil);
-// if err != nil {
-// return err
-// }
-// baz, err := pagerduty.GetService(ctx, &pagerduty.LookupServiceArgs{
-// Name: "baz",
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = pagerduty.GetStandardsResourcesScores(ctx, &pagerduty.GetStandardsResourcesScoresArgs{
-// ResourceType: "technical_services",
-// Ids: interface{}{
-// foo.Id,
-// bar.Id,
-// baz.Id,
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := pagerduty.GetService(ctx, &pagerduty.LookupServiceArgs{
+//				Name: "foo",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			bar, err := pagerduty.GetService(ctx, &pagerduty.LookupServiceArgs{
+//				Name: "bar",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			baz, err := pagerduty.GetService(ctx, &pagerduty.LookupServiceArgs{
+//				Name: "baz",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.GetStandardsResourcesScores(ctx, &pagerduty.GetStandardsResourcesScoresArgs{
+//				ResourceType: "technical_services",
+//				Ids: pulumi.StringArray{
+//					foo.Id,
+//					bar.Id,
+//					baz.Id,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetStandardsResourcesScores(ctx *pulumi.Context, args *GetStandardsResourcesScoresArgs, opts ...pulumi.InvokeOption) (*GetStandardsResourcesScoresResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

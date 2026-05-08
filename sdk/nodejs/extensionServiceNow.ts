@@ -210,59 +210,59 @@ export class ExtensionServiceNow extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ExtensionServiceNow resources.
  */
 export interface ExtensionServiceNowState {
-    endpointUrl?: pulumi.Input<string>;
+    endpointUrl?: pulumi.Input<string | undefined>;
     /**
      * This is the objects for which the extension applies (An array of service ids).
      */
-    extensionObjects?: pulumi.Input<pulumi.Input<string>[]>;
+    extensionObjects?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * This is the schema for this extension.
      */
-    extensionSchema?: pulumi.Input<string>;
+    extensionSchema?: pulumi.Input<string | undefined>;
     /**
      * URL at which the entity is uniquely displayed in the Web app.
      */
-    htmlUrl?: pulumi.Input<string>;
+    htmlUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of the service extension.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ServiceNow referer.
      */
-    referer?: pulumi.Input<string>;
+    referer?: pulumi.Input<string | undefined>;
     /**
      * The ServiceNow password.
      */
-    snowPassword?: pulumi.Input<string>;
+    snowPassword?: pulumi.Input<string | undefined>;
     /**
      * The ServiceNow username.
      */
-    snowUser?: pulumi.Input<string>;
+    snowUser?: pulumi.Input<string | undefined>;
     /**
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
      */
-    summary?: pulumi.Input<string>;
+    summary?: pulumi.Input<string | undefined>;
     /**
      * The ServiceNow sync option.
      */
-    syncOptions?: pulumi.Input<string>;
+    syncOptions?: pulumi.Input<string | undefined>;
     /**
      * Target Webhook URL.
      */
-    target?: pulumi.Input<string>;
+    target?: pulumi.Input<string | undefined>;
     /**
      * The ServiceNow task type, typically `incident`.
      */
-    taskType?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    taskType?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
  * The set of arguments for constructing a ExtensionServiceNow resource.
  */
 export interface ExtensionServiceNowArgs {
-    endpointUrl?: pulumi.Input<string>;
+    endpointUrl?: pulumi.Input<string | undefined>;
     /**
      * This is the objects for which the extension applies (An array of service ids).
      */
@@ -274,7 +274,7 @@ export interface ExtensionServiceNowArgs {
     /**
      * The name of the service extension.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ServiceNow referer.
      */
@@ -290,7 +290,7 @@ export interface ExtensionServiceNowArgs {
     /**
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
      */
-    summary?: pulumi.Input<string>;
+    summary?: pulumi.Input<string | undefined>;
     /**
      * The ServiceNow sync option.
      */
@@ -303,5 +303,5 @@ export interface ExtensionServiceNowArgs {
      * The ServiceNow task type, typically `incident`.
      */
     taskType: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

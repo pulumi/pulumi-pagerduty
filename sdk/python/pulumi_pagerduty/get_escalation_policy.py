@@ -117,7 +117,7 @@ def get_escalation_policy(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         teams=pulumi.get(__ret__, 'teams'))
-def get_escalation_policy_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_escalation_policy_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEscalationPolicyResult]:
     """
     Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.

@@ -123,8 +123,8 @@ def get_event_orchestration(integration_detail: Optional[Sequence[Union['GetEven
         id=pulumi.get(__ret__, 'id'),
         integration_detail=pulumi.get(__ret__, 'integration_detail'),
         name=pulumi.get(__ret__, 'name'))
-def get_event_orchestration_output(integration_detail: Optional[pulumi.Input[Optional[Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']]]]] = None,
-                                   name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_orchestration_output(integration_detail: pulumi.Input[Optional[Optional[Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']]]]] = None,
+                                   name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventOrchestrationResult]:
     """
     Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)

@@ -187,23 +187,23 @@ export interface Schedulev2State {
     /**
      * A description of the schedule. Maximum 1024 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the schedule. Maximum 255 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more rotation blocks. Rotations documented below.
      */
-    rotations?: pulumi.Input<pulumi.Input<inputs.Schedulev2Rotation>[]>;
+    rotations?: pulumi.Input<pulumi.Input<inputs.Schedulev2Rotation>[] | undefined>;
     /**
      * List of team IDs to associate with this schedule.
      */
-    teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The time zone of the schedule (IANA format, e.g. `America/New_York`).
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -213,19 +213,19 @@ export interface Schedulev2Args {
     /**
      * A description of the schedule. Maximum 1024 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the schedule. Maximum 255 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more rotation blocks. Rotations documented below.
      */
-    rotations?: pulumi.Input<pulumi.Input<inputs.Schedulev2Rotation>[]>;
+    rotations?: pulumi.Input<pulumi.Input<inputs.Schedulev2Rotation>[] | undefined>;
     /**
      * List of team IDs to associate with this schedule.
      */
-    teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The time zone of the schedule (IANA format, e.g. `America/New_York`).
      */

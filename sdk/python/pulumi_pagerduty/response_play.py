@@ -22,17 +22,17 @@ __all__ = ['ResponsePlayArgs', 'ResponsePlay']
 class ResponsePlayArgs:
     def __init__(__self__, *,
                  from_: pulumi.Input[_builtins.str],
-                 conference_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 conference_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderArgs']]]] = None,
-                 responders_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 runnability: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlaySubscriberArgs']]]] = None,
-                 subscribers_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 team: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 conference_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 conference_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlayResponderArgs']]]] = None,
+                 responders_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 runnability: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlaySubscriberArgs']]]] = None,
+                 subscribers_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 team: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResponsePlay resource.
 
@@ -90,31 +90,31 @@ class ResponsePlayArgs:
 
     @_builtins.property
     @pulumi.getter(name="conferenceNumber")
-    def conference_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def conference_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The telephone number that will be set as the conference number for any incident on which this response play is run.
         """
         return pulumi.get(self, "conference_number")
 
     @conference_number.setter
-    def conference_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def conference_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "conference_number", value)
 
     @_builtins.property
     @pulumi.getter(name="conferenceUrl")
-    def conference_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def conference_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL that will be set as the conference URL for any incident on which this response play is run.
         """
         return pulumi.get(self, "conference_url")
 
     @conference_url.setter
-    def conference_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def conference_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "conference_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-friendly description of the response play.
         If not set, a placeholder of "Managed by Pulumi" will be set.
@@ -122,121 +122,121 @@ class ResponsePlayArgs:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the response play.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def responders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderArgs']]]]:
+    def responders(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlayResponderArgs']]]]:
         """
         A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
         """
         return pulumi.get(self, "responders")
 
     @responders.setter
-    def responders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderArgs']]]]):
+    def responders(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlayResponderArgs']]]]):
         pulumi.set(self, "responders", value)
 
     @_builtins.property
     @pulumi.getter(name="respondersMessage")
-    def responders_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responders_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
         """
         return pulumi.get(self, "responders_message")
 
     @responders_message.setter
-    def responders_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responders_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responders_message", value)
 
     @_builtins.property
     @pulumi.getter
-    def runnability(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runnability(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String representing how this response play is allowed to be run. Valid options are:
         """
         return pulumi.get(self, "runnability")
 
     @runnability.setter
-    def runnability(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runnability(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runnability", value)
 
     @_builtins.property
     @pulumi.getter
-    def subscribers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlaySubscriberArgs']]]]:
+    def subscribers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlaySubscriberArgs']]]]:
         """
         A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
         """
         return pulumi.get(self, "subscribers")
 
     @subscribers.setter
-    def subscribers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlaySubscriberArgs']]]]):
+    def subscribers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlaySubscriberArgs']]]]):
         pulumi.set(self, "subscribers", value)
 
     @_builtins.property
     @pulumi.getter(name="subscribersMessage")
-    def subscribers_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscribers_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
         """
         return pulumi.get(self, "subscribers_message")
 
     @subscribers_message.setter
-    def subscribers_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscribers_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscribers_message", value)
 
     @_builtins.property
     @pulumi.getter
-    def team(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the team associated with the response play.
         """
         return pulumi.get(self, "team")
 
     @team.setter
-    def team(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that determines the schema of the object. If not set, the default value is "response_play".
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class _ResponsePlayState:
     def __init__(__self__, *,
-                 conference_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 conference_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderArgs']]]] = None,
-                 responders_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 runnability: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlaySubscriberArgs']]]] = None,
-                 subscribers_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 team: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 conference_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 conference_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlayResponderArgs']]]] = None,
+                 responders_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 runnability: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlaySubscriberArgs']]]] = None,
+                 subscribers_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 team: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResponsePlay resources.
 
@@ -283,31 +283,31 @@ class _ResponsePlayState:
 
     @_builtins.property
     @pulumi.getter(name="conferenceNumber")
-    def conference_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def conference_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The telephone number that will be set as the conference number for any incident on which this response play is run.
         """
         return pulumi.get(self, "conference_number")
 
     @conference_number.setter
-    def conference_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def conference_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "conference_number", value)
 
     @_builtins.property
     @pulumi.getter(name="conferenceUrl")
-    def conference_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def conference_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL that will be set as the conference URL for any incident on which this response play is run.
         """
         return pulumi.get(self, "conference_url")
 
     @conference_url.setter
-    def conference_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def conference_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "conference_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-friendly description of the response play.
         If not set, a placeholder of "Managed by Pulumi" will be set.
@@ -315,115 +315,115 @@ class _ResponsePlayState:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="from")
-    def from_(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def from_(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
         """
         return pulumi.get(self, "from_")
 
     @from_.setter
-    def from_(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def from_(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "from_", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the response play.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def responders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderArgs']]]]:
+    def responders(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlayResponderArgs']]]]:
         """
         A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
         """
         return pulumi.get(self, "responders")
 
     @responders.setter
-    def responders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderArgs']]]]):
+    def responders(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlayResponderArgs']]]]):
         pulumi.set(self, "responders", value)
 
     @_builtins.property
     @pulumi.getter(name="respondersMessage")
-    def responders_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responders_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
         """
         return pulumi.get(self, "responders_message")
 
     @responders_message.setter
-    def responders_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responders_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responders_message", value)
 
     @_builtins.property
     @pulumi.getter
-    def runnability(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runnability(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String representing how this response play is allowed to be run. Valid options are:
         """
         return pulumi.get(self, "runnability")
 
     @runnability.setter
-    def runnability(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runnability(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runnability", value)
 
     @_builtins.property
     @pulumi.getter
-    def subscribers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlaySubscriberArgs']]]]:
+    def subscribers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlaySubscriberArgs']]]]:
         """
         A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
         """
         return pulumi.get(self, "subscribers")
 
     @subscribers.setter
-    def subscribers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlaySubscriberArgs']]]]):
+    def subscribers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlaySubscriberArgs']]]]):
         pulumi.set(self, "subscribers", value)
 
     @_builtins.property
     @pulumi.getter(name="subscribersMessage")
-    def subscribers_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscribers_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
         """
         return pulumi.get(self, "subscribers_message")
 
     @subscribers_message.setter
-    def subscribers_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscribers_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscribers_message", value)
 
     @_builtins.property
     @pulumi.getter
-    def team(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the team associated with the response play.
         """
         return pulumi.get(self, "team")
 
     @team.setter
-    def team(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that determines the schema of the object. If not set, the default value is "response_play".
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -433,18 +433,18 @@ class ResponsePlay(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conference_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 conference_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]]] = None,
-                 responders_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 runnability: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict']]]]] = None,
-                 subscribers_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 team: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 conference_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 conference_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]]] = None,
+                 responders_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 runnability: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict']]]]] = None,
+                 subscribers_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 team: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A [response play](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2Ng-create-a-response-play) allows you to create packages of Incident Actions that can be applied during an Incident's life cycle.
@@ -607,18 +607,18 @@ class ResponsePlay(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conference_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 conference_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]]] = None,
-                 responders_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 runnability: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict']]]]] = None,
-                 subscribers_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 team: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 conference_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 conference_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]]] = None,
+                 responders_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 runnability: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict']]]]] = None,
+                 subscribers_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 team: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -654,18 +654,18 @@ class ResponsePlay(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            conference_number: Optional[pulumi.Input[_builtins.str]] = None,
-            conference_url: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            from_: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            responders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]]] = None,
-            responders_message: Optional[pulumi.Input[_builtins.str]] = None,
-            runnability: Optional[pulumi.Input[_builtins.str]] = None,
-            subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict']]]]] = None,
-            subscribers_message: Optional[pulumi.Input[_builtins.str]] = None,
-            team: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'ResponsePlay':
+            conference_number: pulumi.Input[Optional[_builtins.str]] = None,
+            conference_url: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            from_: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]]] = None,
+            responders_message: pulumi.Input[Optional[_builtins.str]] = None,
+            runnability: pulumi.Input[Optional[_builtins.str]] = None,
+            subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict']]]]] = None,
+            subscribers_message: pulumi.Input[Optional[_builtins.str]] = None,
+            team: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ResponsePlay':
         """
         Get an existing ResponsePlay resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

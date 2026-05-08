@@ -99,11 +99,11 @@ export interface AddonState {
     /**
      * The name of the add-on.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
      */
-    src?: pulumi.Input<string>;
+    src?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -113,7 +113,7 @@ export interface AddonArgs {
     /**
      * The name of the add-on.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
      */

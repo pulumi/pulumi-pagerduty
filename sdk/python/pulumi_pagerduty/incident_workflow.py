@@ -21,11 +21,11 @@ __all__ = ['IncidentWorkflowArgs', 'IncidentWorkflow']
 @pulumi.input_type
 class IncidentWorkflowArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]] = None,
-                 team: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]] = None,
+                 team: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IncidentWorkflow resource.
 
@@ -48,73 +48,73 @@ class IncidentWorkflowArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the workflow.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the workflow.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]]:
+    def steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]]:
         """
         The steps in the workflow.
         """
         return pulumi.get(self, "steps")
 
     @steps.setter
-    def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]]):
+    def steps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]]):
         pulumi.set(self, "steps", value)
 
     @_builtins.property
     @pulumi.getter
-    def team(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A team ID. If specified then workflow edit permissions will be scoped to members of this team.
         """
         return pulumi.get(self, "team")
 
     @team.setter
-    def team(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team", value)
 
 
 @pulumi.input_type
 class _IncidentWorkflowState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]] = None,
-                 team: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]] = None,
+                 team: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IncidentWorkflow resources.
 
@@ -137,62 +137,62 @@ class _IncidentWorkflowState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the workflow.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the workflow.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]]:
+    def steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]]:
         """
         The steps in the workflow.
         """
         return pulumi.get(self, "steps")
 
     @steps.setter
-    def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]]):
+    def steps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]]):
         pulumi.set(self, "steps", value)
 
     @_builtins.property
     @pulumi.getter
-    def team(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A team ID. If specified then workflow edit permissions will be scoped to members of this team.
         """
         return pulumi.get(self, "team")
 
     @team.setter
-    def team(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team", value)
 
 
@@ -202,11 +202,11 @@ class IncidentWorkflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]]] = None,
-                 team: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]]] = None,
+                 team: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) is a series of steps which can be executed on an incident.
@@ -299,11 +299,11 @@ class IncidentWorkflow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]]] = None,
-                 team: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]]] = None,
+                 team: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -328,11 +328,11 @@ class IncidentWorkflow(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            is_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]]] = None,
-            team: Optional[pulumi.Input[_builtins.str]] = None) -> 'IncidentWorkflow':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]]] = None,
+            team: pulumi.Input[Optional[_builtins.str]] = None) -> 'IncidentWorkflow':
         """
         Get an existing IncidentWorkflow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

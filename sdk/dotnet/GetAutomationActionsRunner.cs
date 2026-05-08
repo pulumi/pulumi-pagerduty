@@ -24,7 +24,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.Index.GetAutomationActionsRunner.Invoke(new()
+        ///     var example = Pagerduty.GetAutomationActionsRunner.Invoke(new()
         ///     {
         ///         Id = "01DBJLIGED17S1DQKQC2AV8XYZ",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.Index.GetAutomationActionsRunner.Invoke(new()
+        ///     var example = Pagerduty.GetAutomationActionsRunner.Invoke(new()
         ///     {
         ///         Id = "01DBJLIGED17S1DQKQC2AV8XYZ",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.Index.GetAutomationActionsRunner.Invoke(new()
+        ///     var example = Pagerduty.GetAutomationActionsRunner.Invoke(new()
         ///     {
         ///         Id = "01DBJLIGED17S1DQKQC2AV8XYZ",
         ///     });

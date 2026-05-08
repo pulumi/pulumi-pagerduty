@@ -100,7 +100,7 @@ export interface GetAlertGroupingSettingOutputArgs {
     /**
      * The values for the configuration setup for this setting.
      */
-    config?: pulumi.Input<inputs.GetAlertGroupingSettingConfigArgs>;
+    config?: pulumi.Input<inputs.GetAlertGroupingSettingConfigArgs | undefined>;
     /**
      * The name to use to find an alert grouping setting in the PagerDuty API.
      */

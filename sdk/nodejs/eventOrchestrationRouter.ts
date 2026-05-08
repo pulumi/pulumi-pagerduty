@@ -162,15 +162,15 @@ export interface EventOrchestrationRouterState {
     /**
      * When none of the rules match an event, the event will be routed according to the catchAll settings.
      */
-    catchAll?: pulumi.Input<inputs.EventOrchestrationRouterCatchAll>;
+    catchAll?: pulumi.Input<inputs.EventOrchestrationRouterCatchAll | undefined>;
     /**
      * ID of the Event Orchestration to which the Router belongs.
      */
-    eventOrchestration?: pulumi.Input<string>;
+    eventOrchestration?: pulumi.Input<string | undefined>;
     /**
      * The Router contains a single set of rules  (the "start" set).
      */
-    set?: pulumi.Input<inputs.EventOrchestrationRouterSet>;
+    set?: pulumi.Input<inputs.EventOrchestrationRouterSet | undefined>;
 }
 
 /**

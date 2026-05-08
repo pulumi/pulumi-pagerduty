@@ -61,8 +61,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.inputs.RulesetRuleConditionsArgs;
  * import com.pulumi.pagerduty.inputs.RulesetRuleVariableArgs;
  * import com.pulumi.pagerduty.inputs.RulesetRuleActionsArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -103,8 +103,12 @@ import javax.annotation.Nullable;
  *                         2,
  *                         4,
  *                         6)
- *                     .startTime(easternTimeAt0930.unix().applyValue(_unix -> _unix.applyValue(___convert -> ___convert * 1000)))
- *                     .duration(2 * 60 * 60 * 1000)
+ *                     .startTime(easternTimeAt0930.unix().applyValue(_unix -> _unix * 1000))
+ *                     .duration(Output.tuple(60, 1000).applyValue(values -> {
+ *                         var __convert = values.t1;
+ *                         var __convert1 = values.t2;
+ *                         return 2 * 60 * __convert * __convert1;
+ *                     }).applyValue(_n -> _n))
  *                     .timezone("America/New_York")
  *                     .build())
  *                 .build())

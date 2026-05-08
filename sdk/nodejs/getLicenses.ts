@@ -90,5 +90,5 @@ export interface GetLicensesOutputArgs {
     /**
      * Allows to override the default behavior for setting the `id` attribute that is required for data sources.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

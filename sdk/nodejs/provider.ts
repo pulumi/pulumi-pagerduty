@@ -69,13 +69,13 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
-    apiUrlOverride?: pulumi.Input<string>;
-    insecureTls?: pulumi.Input<boolean>;
-    serviceRegion?: pulumi.Input<string>;
-    skipCredentialsValidation?: pulumi.Input<boolean>;
-    token?: pulumi.Input<string>;
-    useAppOauthScopedToken?: pulumi.Input<inputs.ProviderUseAppOauthScopedToken>;
-    userToken?: pulumi.Input<string>;
+    apiUrlOverride?: pulumi.Input<string | undefined>;
+    insecureTls?: pulumi.Input<boolean | undefined>;
+    serviceRegion?: pulumi.Input<string | undefined>;
+    skipCredentialsValidation?: pulumi.Input<boolean | undefined>;
+    token?: pulumi.Input<string | undefined>;
+    useAppOauthScopedToken?: pulumi.Input<inputs.ProviderUseAppOauthScopedToken | undefined>;
+    userToken?: pulumi.Input<string | undefined>;
 }
 
 export namespace Provider {

@@ -113,11 +113,11 @@ export interface AutomationActionsRunnerTeamAssociationState {
     /**
      * Id of the runner.
      */
-    runnerId?: pulumi.Input<string>;
+    runnerId?: pulumi.Input<string | undefined>;
     /**
      * Id of the team associated with the runner.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
 }
 
 /**

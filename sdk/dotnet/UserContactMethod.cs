@@ -24,7 +24,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Pagerduty.Index.User("example", new()
+    ///     var example = new Pagerduty.User("example", new()
     ///     {
     ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
@@ -34,7 +34,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var email = new Pagerduty.Index.UserContactMethod("email", new()
+    ///     var email = new Pagerduty.UserContactMethod("email", new()
     ///     {
     ///         UserId = example.Id,
     ///         Type = "email_contact_method",
@@ -42,7 +42,7 @@ namespace Pulumi.Pagerduty
     ///         Label = "Work",
     ///     });
     /// 
-    ///     var phone = new Pagerduty.Index.UserContactMethod("phone", new()
+    ///     var phone = new Pagerduty.UserContactMethod("phone", new()
     ///     {
     ///         UserId = example.Id,
     ///         Type = "phone_contact_method",
@@ -51,7 +51,7 @@ namespace Pulumi.Pagerduty
     ///         Label = "Work",
     ///     });
     /// 
-    ///     var sms = new Pagerduty.Index.UserContactMethod("sms", new()
+    ///     var sms = new Pagerduty.UserContactMethod("sms", new()
     ///     {
     ///         UserId = example.Id,
     ///         Type = "sms_contact_method",

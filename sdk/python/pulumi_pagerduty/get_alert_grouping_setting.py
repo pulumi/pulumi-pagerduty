@@ -143,8 +143,8 @@ def get_alert_grouping_setting(config: Optional[Union['GetAlertGroupingSettingCo
         name=pulumi.get(__ret__, 'name'),
         services=pulumi.get(__ret__, 'services'),
         type=pulumi.get(__ret__, 'type'))
-def get_alert_grouping_setting_output(config: Optional[pulumi.Input[Optional[Union['GetAlertGroupingSettingConfigArgs', 'GetAlertGroupingSettingConfigArgsDict']]]] = None,
-                                      name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_alert_grouping_setting_output(config: pulumi.Input[Optional[Optional[Union['GetAlertGroupingSettingConfigArgs', 'GetAlertGroupingSettingConfigArgsDict']]]] = None,
+                                      name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertGroupingSettingResult]:
     """
     Use this data source to get information about a specific [alert grouping setting](https://developer.pagerduty.com/api-reference/9b5a6c8d7379b-get-an-alert-grouping-setting).

@@ -23,9 +23,9 @@ class EventOrchestrationServiceCacheVariableArgs:
     def __init__(__self__, *,
                  configuration: pulumi.Input['EventOrchestrationServiceCacheVariableConfigurationArgs'],
                  service: pulumi.Input[_builtins.str],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventOrchestrationServiceCacheVariable resource.
 
@@ -70,49 +70,49 @@ class EventOrchestrationServiceCacheVariableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]]]:
         """
         Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Cache Variable associated with the Service Event Orchestration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _EventOrchestrationServiceCacheVariableState:
     def __init__(__self__, *,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]]] = None,
-                 configuration: Optional[pulumi.Input['EventOrchestrationServiceCacheVariableConfigurationArgs']] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service: Optional[pulumi.Input[_builtins.str]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]]] = None,
+                 configuration: pulumi.Input[Optional['EventOrchestrationServiceCacheVariableConfigurationArgs']] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventOrchestrationServiceCacheVariable resources.
 
@@ -135,62 +135,62 @@ class _EventOrchestrationServiceCacheVariableState:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]]]:
         """
         Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceCacheVariableConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['EventOrchestrationServiceCacheVariableConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['EventOrchestrationServiceCacheVariableConfigurationArgs']]:
         """
         A configuration object to define what and how values will be stored in the Cache Variable.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['EventOrchestrationServiceCacheVariableConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['EventOrchestrationServiceCacheVariableConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Cache Variable associated with the Service Event Orchestration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Service Event Orchestration to which this Cache Variable belongs.
         """
         return pulumi.get(self, "service")
 
     @service.setter
-    def service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service", value)
 
 
@@ -200,11 +200,11 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]]] = None,
-                 configuration: Optional[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service: Optional[pulumi.Input[_builtins.str]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]]] = None,
+                 configuration: pulumi.Input[Optional[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) can be created on a Service Event Orchestration, in order to temporarily store event data to be referenced later within the Service Event Orchestration
@@ -425,11 +425,11 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]]] = None,
-                 configuration: Optional[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service: Optional[pulumi.Input[_builtins.str]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]]] = None,
+                 configuration: pulumi.Input[Optional[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -458,11 +458,11 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]]] = None,
-            configuration: Optional[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']]] = None,
-            disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            service: Optional[pulumi.Input[_builtins.str]] = None) -> 'EventOrchestrationServiceCacheVariable':
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]]] = None,
+            configuration: pulumi.Input[Optional[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            service: pulumi.Input[Optional[_builtins.str]] = None) -> 'EventOrchestrationServiceCacheVariable':
         """
         Get an existing EventOrchestrationServiceCacheVariable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

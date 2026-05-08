@@ -158,9 +158,9 @@ def get_event_orchestration_service_cache_variable(id: Optional[_builtins.str] =
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         service=pulumi.get(__ret__, 'service'))
-def get_event_orchestration_service_cache_variable_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                          name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                          service: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_orchestration_service_cache_variable_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                          name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                          service: pulumi.Input[Optional[_builtins.str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventOrchestrationServiceCacheVariableResult]:
     """
     Use this data source to get information about a specific [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) for a Service Event Orchestration.

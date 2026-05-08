@@ -109,9 +109,9 @@ def get_event_orchestration_integration(event_orchestration: Optional[_builtins.
         id=pulumi.get(__ret__, 'id'),
         label=pulumi.get(__ret__, 'label'),
         parameters=pulumi.get(__ret__, 'parameters'))
-def get_event_orchestration_integration_output(event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                                               id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                               label: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_event_orchestration_integration_output(event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                                               id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                               label: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventOrchestrationIntegrationResult]:
     """
     Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.

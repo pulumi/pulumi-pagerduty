@@ -122,19 +122,19 @@ export interface EnablementState {
     /**
      * Whether the feature should be enabled (`true`) or disabled (`false`) for the specified entity.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the entity for which to manage the enablement.
      */
-    entityId?: pulumi.Input<string>;
+    entityId?: pulumi.Input<string | undefined>;
     /**
      * The type of entity for which to manage the enablement. Possible values can be `service` and `eventOrchestration`.
      */
-    entityType?: pulumi.Input<string>;
+    entityType?: pulumi.Input<string | undefined>;
     /**
      * The name of the feature to enable or disable. Possible values can be `aiops`.
      */
-    feature?: pulumi.Input<string>;
+    feature?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -144,7 +144,7 @@ export interface EnablementArgs {
     /**
      * Whether the feature should be enabled (`true`) or disabled (`false`) for the specified entity.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the entity for which to manage the enablement.
      */

@@ -199,23 +199,23 @@ export interface EventOrchestrationServiceCacheVariableState {
     /**
      * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCacheVariableCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCacheVariableCondition>[] | undefined>;
     /**
      * A configuration object to define what and how values will be stored in the Cache Variable.
      */
-    configuration?: pulumi.Input<inputs.EventOrchestrationServiceCacheVariableConfiguration>;
+    configuration?: pulumi.Input<inputs.EventOrchestrationServiceCacheVariableConfiguration | undefined>;
     /**
      * Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the Cache Variable associated with the Service Event Orchestration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the Service Event Orchestration to which this Cache Variable belongs.
      */
-    service?: pulumi.Input<string>;
+    service?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -225,7 +225,7 @@ export interface EventOrchestrationServiceCacheVariableArgs {
     /**
      * Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCacheVariableCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCacheVariableCondition>[] | undefined>;
     /**
      * A configuration object to define what and how values will be stored in the Cache Variable.
      */
@@ -233,11 +233,11 @@ export interface EventOrchestrationServiceCacheVariableArgs {
     /**
      * Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the Cache Variable associated with the Service Event Orchestration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the Service Event Orchestration to which this Cache Variable belongs.
      */

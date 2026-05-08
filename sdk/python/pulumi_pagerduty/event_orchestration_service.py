@@ -24,7 +24,7 @@ class EventOrchestrationServiceArgs:
                  catch_all: pulumi.Input['EventOrchestrationServiceCatchAllArgs'],
                  service: pulumi.Input[_builtins.str],
                  sets: pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]],
-                 enable_event_orchestration_for_service: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enable_event_orchestration_for_service: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EventOrchestrationService resource.
 
@@ -77,24 +77,24 @@ class EventOrchestrationServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableEventOrchestrationForService")
-    def enable_event_orchestration_for_service(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_event_orchestration_for_service(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
         """
         return pulumi.get(self, "enable_event_orchestration_for_service")
 
     @enable_event_orchestration_for_service.setter
-    def enable_event_orchestration_for_service(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_event_orchestration_for_service(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_event_orchestration_for_service", value)
 
 
 @pulumi.input_type
 class _EventOrchestrationServiceState:
     def __init__(__self__, *,
-                 catch_all: Optional[pulumi.Input['EventOrchestrationServiceCatchAllArgs']] = None,
-                 enable_event_orchestration_for_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service: Optional[pulumi.Input[_builtins.str]] = None,
-                 sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]]] = None):
+                 catch_all: pulumi.Input[Optional['EventOrchestrationServiceCatchAllArgs']] = None,
+                 enable_event_orchestration_for_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service: pulumi.Input[Optional[_builtins.str]] = None,
+                 sets: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]]] = None):
         """
         Input properties used for looking up and filtering EventOrchestrationService resources.
 
@@ -114,50 +114,50 @@ class _EventOrchestrationServiceState:
 
     @_builtins.property
     @pulumi.getter(name="catchAll")
-    def catch_all(self) -> Optional[pulumi.Input['EventOrchestrationServiceCatchAllArgs']]:
+    def catch_all(self) -> pulumi.Input[Optional['EventOrchestrationServiceCatchAllArgs']]:
         """
         the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         """
         return pulumi.get(self, "catch_all")
 
     @catch_all.setter
-    def catch_all(self, value: Optional[pulumi.Input['EventOrchestrationServiceCatchAllArgs']]):
+    def catch_all(self, value: pulumi.Input[Optional['EventOrchestrationServiceCatchAllArgs']]):
         pulumi.set(self, "catch_all", value)
 
     @_builtins.property
     @pulumi.getter(name="enableEventOrchestrationForService")
-    def enable_event_orchestration_for_service(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_event_orchestration_for_service(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
         """
         return pulumi.get(self, "enable_event_orchestration_for_service")
 
     @enable_event_orchestration_for_service.setter
-    def enable_event_orchestration_for_service(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_event_orchestration_for_service(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_event_orchestration_for_service", value)
 
     @_builtins.property
     @pulumi.getter
-    def service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Service to which this Service Orchestration belongs to.
         """
         return pulumi.get(self, "service")
 
     @service.setter
-    def service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service", value)
 
     @_builtins.property
     @pulumi.getter
-    def sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]]]:
+    def sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]]]:
         """
         A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
         """
         return pulumi.get(self, "sets")
 
     @sets.setter
-    def sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]]]):
+    def sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]]]):
         pulumi.set(self, "sets", value)
 
 
@@ -167,10 +167,10 @@ class EventOrchestrationService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catch_all: Optional[pulumi.Input[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']]] = None,
-                 enable_event_orchestration_for_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service: Optional[pulumi.Input[_builtins.str]] = None,
-                 sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict']]]]] = None,
+                 catch_all: pulumi.Input[Optional[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']]] = None,
+                 enable_event_orchestration_for_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service: pulumi.Input[Optional[_builtins.str]] = None,
+                 sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict']]]]] = None,
                  __props__=None):
         """
         A [Service Orchestration](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) allows you to create a set of Event Rules. The Service Orchestration evaluates Events sent to this Service against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Service Orchestration for further processing.
@@ -526,10 +526,10 @@ class EventOrchestrationService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catch_all: Optional[pulumi.Input[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']]] = None,
-                 enable_event_orchestration_for_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service: Optional[pulumi.Input[_builtins.str]] = None,
-                 sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict']]]]] = None,
+                 catch_all: pulumi.Input[Optional[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']]] = None,
+                 enable_event_orchestration_for_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service: pulumi.Input[Optional[_builtins.str]] = None,
+                 sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -559,10 +559,10 @@ class EventOrchestrationService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            catch_all: Optional[pulumi.Input[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']]] = None,
-            enable_event_orchestration_for_service: Optional[pulumi.Input[_builtins.bool]] = None,
-            service: Optional[pulumi.Input[_builtins.str]] = None,
-            sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict']]]]] = None) -> 'EventOrchestrationService':
+            catch_all: pulumi.Input[Optional[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']]] = None,
+            enable_event_orchestration_for_service: pulumi.Input[Optional[_builtins.bool]] = None,
+            service: pulumi.Input[Optional[_builtins.str]] = None,
+            sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict']]]]] = None) -> 'EventOrchestrationService':
         """
         Get an existing EventOrchestrationService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -111,5 +111,5 @@ export interface GetUsersOutputArgs {
     /**
      * List of team IDs. Only results related to these teams will be returned. Account must have the `teams` ability to use this parameter.
      */
-    teamIds?: pulumi.Input<pulumi.Input<string>[]>;
+    teamIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

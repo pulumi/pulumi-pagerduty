@@ -24,7 +24,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.Index.GetBusinessService.Invoke(new()
+        ///     var example = Pagerduty.GetBusinessService.Invoke(new()
         ///     {
         ///         Name = "My Service",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.Index.GetBusinessService.Invoke(new()
+        ///     var example = Pagerduty.GetBusinessService.Invoke(new()
         ///     {
         ///         Name = "My Service",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Pagerduty.Index.GetBusinessService.Invoke(new()
+        ///     var example = Pagerduty.GetBusinessService.Invoke(new()
         ///     {
         ///         Name = "My Service",
         ///     });

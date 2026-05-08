@@ -136,11 +136,11 @@ export interface AutomationActionsActionServiceAssociationState {
     /**
      * Id of the action.
      */
-    actionId?: pulumi.Input<string>;
+    actionId?: pulumi.Input<string | undefined>;
     /**
      * Id of the service associated to the action.
      */
-    serviceId?: pulumi.Input<string>;
+    serviceId?: pulumi.Input<string | undefined>;
 }
 
 /**

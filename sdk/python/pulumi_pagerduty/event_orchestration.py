@@ -21,10 +21,10 @@ __all__ = ['EventOrchestrationArgs', 'EventOrchestration']
 @pulumi.input_type
 class EventOrchestrationArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integrations: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 team: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integrations: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 team: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventOrchestration resource.
 
@@ -44,61 +44,61 @@ class EventOrchestrationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-friendly description of the Event Orchestration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]]:
+    def integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]]:
         """
         A list of integrations for the Event Orchestration.
         """
         return pulumi.get(self, "integrations")
 
     @integrations.setter
-    def integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]]):
+    def integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]]):
         pulumi.set(self, "integrations", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Event Orchestration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def team(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
         """
         return pulumi.get(self, "team")
 
     @team.setter
-    def team(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team", value)
 
 
 @pulumi.input_type
 class _EventOrchestrationState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integrations: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routes: Optional[pulumi.Input[_builtins.int]] = None,
-                 team: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integrations: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routes: pulumi.Input[Optional[_builtins.int]] = None,
+                 team: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventOrchestration resources.
 
@@ -120,59 +120,59 @@ class _EventOrchestrationState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-friendly description of the Event Orchestration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]]:
+    def integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]]:
         """
         A list of integrations for the Event Orchestration.
         """
         return pulumi.get(self, "integrations")
 
     @integrations.setter
-    def integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]]):
+    def integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]]):
         pulumi.set(self, "integrations", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Event Orchestration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def routes(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def routes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "routes", value)
 
     @_builtins.property
     @pulumi.getter
-    def team(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def team(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
         """
         return pulumi.get(self, "team")
 
     @team.setter
-    def team(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def team(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "team", value)
 
 
@@ -182,10 +182,10 @@ class EventOrchestration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integrations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 team: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 team: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         [Event Orchestrations](https://support.pagerduty.com/docs/event-orchestration) allow you define a set of Event Rules, so that when you ingest events using the Orchestration's Routing Key your events will be routed to the correct Global and/or Service Orchestration, based on the event's content.
@@ -265,10 +265,10 @@ class EventOrchestration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integrations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 team: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 team: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -293,11 +293,11 @@ class EventOrchestration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            integrations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            routes: Optional[pulumi.Input[_builtins.int]] = None,
-            team: Optional[pulumi.Input[_builtins.str]] = None) -> 'EventOrchestration':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            integrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            routes: pulumi.Input[Optional[_builtins.int]] = None,
+            team: pulumi.Input[Optional[_builtins.str]] = None) -> 'EventOrchestration':
         """
         Get an existing EventOrchestration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

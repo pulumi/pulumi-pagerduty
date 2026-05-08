@@ -22,12 +22,12 @@ __all__ = ['ServiceEventRuleArgs', 'ServiceEventRule']
 class ServiceEventRuleArgs:
     def __init__(__self__, *,
                  service: pulumi.Input[_builtins.str],
-                 actions: Optional[pulumi.Input['ServiceEventRuleActionsArgs']] = None,
-                 conditions: Optional[pulumi.Input['ServiceEventRuleConditionsArgs']] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 position: Optional[pulumi.Input[_builtins.int]] = None,
-                 time_frame: Optional[pulumi.Input['ServiceEventRuleTimeFrameArgs']] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]] = None):
+                 actions: pulumi.Input[Optional['ServiceEventRuleActionsArgs']] = None,
+                 conditions: pulumi.Input[Optional['ServiceEventRuleConditionsArgs']] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 position: pulumi.Input[Optional[_builtins.int]] = None,
+                 time_frame: pulumi.Input[Optional['ServiceEventRuleTimeFrameArgs']] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceEventRule resource.
 
@@ -67,87 +67,87 @@ class ServiceEventRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input['ServiceEventRuleActionsArgs']]:
+    def actions(self) -> pulumi.Input[Optional['ServiceEventRuleActionsArgs']]:
         """
         Actions to apply to an event if the conditions match.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input['ServiceEventRuleActionsArgs']]):
+    def actions(self, value: pulumi.Input[Optional['ServiceEventRuleActionsArgs']]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input['ServiceEventRuleConditionsArgs']]:
+    def conditions(self) -> pulumi.Input[Optional['ServiceEventRuleConditionsArgs']]:
         """
         Conditions evaluated to check if an event matches this event rule.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input['ServiceEventRuleConditionsArgs']]):
+    def conditions(self, value: pulumi.Input[Optional['ServiceEventRuleConditionsArgs']]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the rule is disabled and would therefore not be evaluated.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def position(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def position(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Position/index of the rule within the service.
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def position(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "position", value)
 
     @_builtins.property
     @pulumi.getter(name="timeFrame")
-    def time_frame(self) -> Optional[pulumi.Input['ServiceEventRuleTimeFrameArgs']]:
+    def time_frame(self) -> pulumi.Input[Optional['ServiceEventRuleTimeFrameArgs']]:
         """
         Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
         """
         return pulumi.get(self, "time_frame")
 
     @time_frame.setter
-    def time_frame(self, value: Optional[pulumi.Input['ServiceEventRuleTimeFrameArgs']]):
+    def time_frame(self, value: pulumi.Input[Optional['ServiceEventRuleTimeFrameArgs']]):
         pulumi.set(self, "time_frame", value)
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]]:
+    def variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]]:
         """
         Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]]):
+    def variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]]):
         pulumi.set(self, "variables", value)
 
 
 @pulumi.input_type
 class _ServiceEventRuleState:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input['ServiceEventRuleActionsArgs']] = None,
-                 conditions: Optional[pulumi.Input['ServiceEventRuleConditionsArgs']] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 position: Optional[pulumi.Input[_builtins.int]] = None,
-                 service: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_frame: Optional[pulumi.Input['ServiceEventRuleTimeFrameArgs']] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]] = None):
+                 actions: pulumi.Input[Optional['ServiceEventRuleActionsArgs']] = None,
+                 conditions: pulumi.Input[Optional['ServiceEventRuleConditionsArgs']] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 position: pulumi.Input[Optional[_builtins.int]] = None,
+                 service: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_frame: pulumi.Input[Optional['ServiceEventRuleTimeFrameArgs']] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering ServiceEventRule resources.
 
@@ -176,86 +176,86 @@ class _ServiceEventRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input['ServiceEventRuleActionsArgs']]:
+    def actions(self) -> pulumi.Input[Optional['ServiceEventRuleActionsArgs']]:
         """
         Actions to apply to an event if the conditions match.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input['ServiceEventRuleActionsArgs']]):
+    def actions(self, value: pulumi.Input[Optional['ServiceEventRuleActionsArgs']]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input['ServiceEventRuleConditionsArgs']]:
+    def conditions(self) -> pulumi.Input[Optional['ServiceEventRuleConditionsArgs']]:
         """
         Conditions evaluated to check if an event matches this event rule.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input['ServiceEventRuleConditionsArgs']]):
+    def conditions(self, value: pulumi.Input[Optional['ServiceEventRuleConditionsArgs']]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the rule is disabled and would therefore not be evaluated.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def position(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def position(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Position/index of the rule within the service.
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def position(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "position", value)
 
     @_builtins.property
     @pulumi.getter
-    def service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the service that the rule belongs to.
         """
         return pulumi.get(self, "service")
 
     @service.setter
-    def service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service", value)
 
     @_builtins.property
     @pulumi.getter(name="timeFrame")
-    def time_frame(self) -> Optional[pulumi.Input['ServiceEventRuleTimeFrameArgs']]:
+    def time_frame(self) -> pulumi.Input[Optional['ServiceEventRuleTimeFrameArgs']]:
         """
         Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
         """
         return pulumi.get(self, "time_frame")
 
     @time_frame.setter
-    def time_frame(self, value: Optional[pulumi.Input['ServiceEventRuleTimeFrameArgs']]):
+    def time_frame(self, value: pulumi.Input[Optional['ServiceEventRuleTimeFrameArgs']]):
         pulumi.set(self, "time_frame", value)
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]]:
+    def variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]]:
         """
         Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]]):
+    def variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]]):
         pulumi.set(self, "variables", value)
 
 
@@ -265,13 +265,13 @@ class ServiceEventRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']]] = None,
-                 conditions: Optional[pulumi.Input[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict']]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 position: Optional[pulumi.Input[_builtins.int]] = None,
-                 service: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_frame: Optional[pulumi.Input[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict']]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']]] = None,
+                 conditions: pulumi.Input[Optional[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict']]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 position: pulumi.Input[Optional[_builtins.int]] = None,
+                 service: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_frame: pulumi.Input[Optional[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict']]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict']]]]] = None,
                  __props__=None):
         """
         A [service event rule](https://support.pagerduty.com/docs/rulesets#service-event-rules) allows you to set actions that should be taken on events for a service that meet the designated rule criteria.
@@ -500,13 +500,13 @@ class ServiceEventRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']]] = None,
-                 conditions: Optional[pulumi.Input[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict']]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 position: Optional[pulumi.Input[_builtins.int]] = None,
-                 service: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_frame: Optional[pulumi.Input[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict']]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']]] = None,
+                 conditions: pulumi.Input[Optional[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict']]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 position: pulumi.Input[Optional[_builtins.int]] = None,
+                 service: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_frame: pulumi.Input[Optional[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict']]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -535,13 +535,13 @@ class ServiceEventRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']]] = None,
-            conditions: Optional[pulumi.Input[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict']]] = None,
-            disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            position: Optional[pulumi.Input[_builtins.int]] = None,
-            service: Optional[pulumi.Input[_builtins.str]] = None,
-            time_frame: Optional[pulumi.Input[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict']]] = None,
-            variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict']]]]] = None) -> 'ServiceEventRule':
+            actions: pulumi.Input[Optional[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']]] = None,
+            conditions: pulumi.Input[Optional[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict']]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            position: pulumi.Input[Optional[_builtins.int]] = None,
+            service: pulumi.Input[Optional[_builtins.str]] = None,
+            time_frame: pulumi.Input[Optional[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict']]] = None,
+            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict']]]]] = None) -> 'ServiceEventRule':
         """
         Get an existing ServiceEventRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

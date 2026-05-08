@@ -158,7 +158,7 @@ def get_user(email: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         role=pulumi.get(__ret__, 'role'),
         time_zone=pulumi.get(__ret__, 'time_zone'))
-def get_user_output(email: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_output(email: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.

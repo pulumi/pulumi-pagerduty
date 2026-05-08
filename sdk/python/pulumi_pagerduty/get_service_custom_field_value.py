@@ -118,7 +118,7 @@ def get_service_custom_field_value(service_id: Optional[_builtins.str] = None,
         custom_fields=pulumi.get(__ret__, 'custom_fields'),
         id=pulumi.get(__ret__, 'id'),
         service_id=pulumi.get(__ret__, 'service_id'))
-def get_service_custom_field_value_output(service_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_custom_field_value_output(service_id: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceCustomFieldValueResult]:
     """
     Use this data source to get information about service custom field values in PagerDuty.

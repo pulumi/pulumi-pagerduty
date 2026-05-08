@@ -224,47 +224,47 @@ export interface ServiceCustomFieldState {
     /**
      * The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
      */
-    dataType?: pulumi.Input<string>;
+    dataType?: pulumi.Input<string | undefined>;
     /**
      * Default value for the field.
      */
-    defaultValue?: pulumi.Input<string>;
+    defaultValue?: pulumi.Input<string | undefined>;
     /**
      * A description of the data this field contains.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The human-readable name of the field. Must be unique across an account.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Whether the field is enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block for defining options for `singleValueFixed` or `multiValueFixed` field types. Can be specified multiple times for multiple options.
      */
-    fieldOptions?: pulumi.Input<pulumi.Input<inputs.ServiceCustomFieldFieldOption>[]>;
+    fieldOptions?: pulumi.Input<pulumi.Input<inputs.ServiceCustomFieldFieldOption>[] | undefined>;
     /**
      * The type of field. Must be one of: `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      */
-    fieldType?: pulumi.Input<string>;
+    fieldType?: pulumi.Input<string | undefined>;
     /**
      * The name of the field. May include ASCII characters, specifically lowercase letters, digits, and underscores. Must be unique and cannot be changed once created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The API show URL at which the object is accessible
      */
-    self?: pulumi.Input<string>;
+    self?: pulumi.Input<string | undefined>;
     /**
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to display_name
      */
-    summary?: pulumi.Input<string>;
+    summary?: pulumi.Input<string | undefined>;
     /**
      * API object type
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -278,11 +278,11 @@ export interface ServiceCustomFieldArgs {
     /**
      * Default value for the field.
      */
-    defaultValue?: pulumi.Input<string>;
+    defaultValue?: pulumi.Input<string | undefined>;
     /**
      * A description of the data this field contains.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The human-readable name of the field. Must be unique across an account.
      */
@@ -290,11 +290,11 @@ export interface ServiceCustomFieldArgs {
     /**
      * Whether the field is enabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block for defining options for `singleValueFixed` or `multiValueFixed` field types. Can be specified multiple times for multiple options.
      */
-    fieldOptions?: pulumi.Input<pulumi.Input<inputs.ServiceCustomFieldFieldOption>[]>;
+    fieldOptions?: pulumi.Input<pulumi.Input<inputs.ServiceCustomFieldFieldOption>[] | undefined>;
     /**
      * The type of field. Must be one of: `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      */
@@ -302,5 +302,5 @@ export interface ServiceCustomFieldArgs {
     /**
      * The name of the field. May include ASCII characters, specifically lowercase letters, digits, and underscores. Must be unique and cannot be changed once created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

@@ -224,78 +224,78 @@ export interface ServiceState {
     /**
      * Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
      */
-    acknowledgementTimeout?: pulumi.Input<string>;
+    acknowledgementTimeout?: pulumi.Input<string | undefined>;
     /**
      * (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
      */
-    alertCreation?: pulumi.Input<string>;
+    alertCreation?: pulumi.Input<string | undefined>;
     /**
      * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
      *
      * @deprecated Use `alert_grouping_parameters.type`
      */
-    alertGrouping?: pulumi.Input<string>;
+    alertGrouping?: pulumi.Input<string | undefined>;
     /**
      * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
      *
      * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead.
 Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
      */
-    alertGroupingParameters?: pulumi.Input<inputs.ServiceAlertGroupingParameters>;
+    alertGroupingParameters?: pulumi.Input<inputs.ServiceAlertGroupingParameters | undefined>;
     /**
      * (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
      *
      * @deprecated Use `alert_grouping_parameters.config.timeout`
      */
-    alertGroupingTimeout?: pulumi.Input<string>;
+    alertGroupingTimeout?: pulumi.Input<string | undefined>;
     /**
      * Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
      */
-    autoPauseNotificationsParameters?: pulumi.Input<inputs.ServiceAutoPauseNotificationsParameters>;
+    autoPauseNotificationsParameters?: pulumi.Input<inputs.ServiceAutoPauseNotificationsParameters | undefined>;
     /**
      * Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
      */
-    autoResolveTimeout?: pulumi.Input<string>;
+    autoResolveTimeout?: pulumi.Input<string | undefined>;
     /**
      * Creation timestamp of the service.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * A human-friendly description of the service.
      * If not set, a placeholder of "Managed by Pulumi" will be set.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The escalation policy used by this service.
      */
-    escalationPolicy?: pulumi.Input<string>;
+    escalationPolicy?: pulumi.Input<string | undefined>;
     /**
      * URL at which the entity is uniquely displayed in the Web app.
      */
-    htmlUrl?: pulumi.Input<string>;
-    incidentUrgencyRule?: pulumi.Input<inputs.ServiceIncidentUrgencyRule>;
+    htmlUrl?: pulumi.Input<string | undefined>;
+    incidentUrgencyRule?: pulumi.Input<inputs.ServiceIncidentUrgencyRule | undefined>;
     /**
      * @deprecated The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
      */
-    lastIncidentTimestamp?: pulumi.Input<string>;
+    lastIncidentTimestamp?: pulumi.Input<string | undefined>;
     /**
      * The name of the service.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Deprecated) The response play used by this service.
      */
-    responsePlay?: pulumi.Input<string>;
-    scheduledActions?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledAction>[]>;
+    responsePlay?: pulumi.Input<string | undefined>;
+    scheduledActions?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledAction>[] | undefined>;
     /**
      * @deprecated The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
      */
-    status?: pulumi.Input<string>;
-    supportHours?: pulumi.Input<inputs.ServiceSupportHours>;
+    status?: pulumi.Input<string | undefined>;
+    supportHours?: pulumi.Input<inputs.ServiceSupportHours | undefined>;
     /**
      * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -305,56 +305,56 @@ export interface ServiceArgs {
     /**
      * Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
      */
-    acknowledgementTimeout?: pulumi.Input<string>;
+    acknowledgementTimeout?: pulumi.Input<string | undefined>;
     /**
      * (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
      */
-    alertCreation?: pulumi.Input<string>;
+    alertCreation?: pulumi.Input<string | undefined>;
     /**
      * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
      *
      * @deprecated Use `alert_grouping_parameters.type`
      */
-    alertGrouping?: pulumi.Input<string>;
+    alertGrouping?: pulumi.Input<string | undefined>;
     /**
      * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
      *
      * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead.
 Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
      */
-    alertGroupingParameters?: pulumi.Input<inputs.ServiceAlertGroupingParameters>;
+    alertGroupingParameters?: pulumi.Input<inputs.ServiceAlertGroupingParameters | undefined>;
     /**
      * (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
      *
      * @deprecated Use `alert_grouping_parameters.config.timeout`
      */
-    alertGroupingTimeout?: pulumi.Input<string>;
+    alertGroupingTimeout?: pulumi.Input<string | undefined>;
     /**
      * Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
      */
-    autoPauseNotificationsParameters?: pulumi.Input<inputs.ServiceAutoPauseNotificationsParameters>;
+    autoPauseNotificationsParameters?: pulumi.Input<inputs.ServiceAutoPauseNotificationsParameters | undefined>;
     /**
      * Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
      */
-    autoResolveTimeout?: pulumi.Input<string>;
+    autoResolveTimeout?: pulumi.Input<string | undefined>;
     /**
      * A human-friendly description of the service.
      * If not set, a placeholder of "Managed by Pulumi" will be set.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The escalation policy used by this service.
      */
     escalationPolicy: pulumi.Input<string>;
-    incidentUrgencyRule?: pulumi.Input<inputs.ServiceIncidentUrgencyRule>;
+    incidentUrgencyRule?: pulumi.Input<inputs.ServiceIncidentUrgencyRule | undefined>;
     /**
      * The name of the service.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Deprecated) The response play used by this service.
      */
-    responsePlay?: pulumi.Input<string>;
-    scheduledActions?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledAction>[]>;
-    supportHours?: pulumi.Input<inputs.ServiceSupportHours>;
+    responsePlay?: pulumi.Input<string | undefined>;
+    scheduledActions?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledAction>[] | undefined>;
+    supportHours?: pulumi.Input<inputs.ServiceSupportHours | undefined>;
 }

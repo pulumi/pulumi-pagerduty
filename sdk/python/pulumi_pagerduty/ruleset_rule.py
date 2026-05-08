@@ -22,13 +22,13 @@ __all__ = ['RulesetRuleArgs', 'RulesetRule']
 class RulesetRuleArgs:
     def __init__(__self__, *,
                  ruleset: pulumi.Input[_builtins.str],
-                 actions: Optional[pulumi.Input['RulesetRuleActionsArgs']] = None,
-                 catch_all: Optional[pulumi.Input[_builtins.bool]] = None,
-                 conditions: Optional[pulumi.Input['RulesetRuleConditionsArgs']] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 position: Optional[pulumi.Input[_builtins.int]] = None,
-                 time_frame: Optional[pulumi.Input['RulesetRuleTimeFrameArgs']] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]] = None):
+                 actions: pulumi.Input[Optional['RulesetRuleActionsArgs']] = None,
+                 catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 conditions: pulumi.Input[Optional['RulesetRuleConditionsArgs']] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 position: pulumi.Input[Optional[_builtins.int]] = None,
+                 time_frame: pulumi.Input[Optional['RulesetRuleTimeFrameArgs']] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]] = None):
         """
         The set of arguments for constructing a RulesetRule resource.
 
@@ -71,100 +71,100 @@ class RulesetRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input['RulesetRuleActionsArgs']]:
+    def actions(self) -> pulumi.Input[Optional['RulesetRuleActionsArgs']]:
         """
         Actions to apply to an event if the conditions match.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input['RulesetRuleActionsArgs']]):
+    def actions(self, value: pulumi.Input[Optional['RulesetRuleActionsArgs']]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="catchAll")
-    def catch_all(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def catch_all(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
         """
         return pulumi.get(self, "catch_all")
 
     @catch_all.setter
-    def catch_all(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def catch_all(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "catch_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input['RulesetRuleConditionsArgs']]:
+    def conditions(self) -> pulumi.Input[Optional['RulesetRuleConditionsArgs']]:
         """
         Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input['RulesetRuleConditionsArgs']]):
+    def conditions(self, value: pulumi.Input[Optional['RulesetRuleConditionsArgs']]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the rule is disabled and would therefore not be evaluated.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def position(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def position(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Position/index of the rule within the ruleset.
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def position(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "position", value)
 
     @_builtins.property
     @pulumi.getter(name="timeFrame")
-    def time_frame(self) -> Optional[pulumi.Input['RulesetRuleTimeFrameArgs']]:
+    def time_frame(self) -> pulumi.Input[Optional['RulesetRuleTimeFrameArgs']]:
         """
         Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
         """
         return pulumi.get(self, "time_frame")
 
     @time_frame.setter
-    def time_frame(self, value: Optional[pulumi.Input['RulesetRuleTimeFrameArgs']]):
+    def time_frame(self, value: pulumi.Input[Optional['RulesetRuleTimeFrameArgs']]):
         pulumi.set(self, "time_frame", value)
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]]:
+    def variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]]:
         """
         Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]]):
+    def variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]]):
         pulumi.set(self, "variables", value)
 
 
 @pulumi.input_type
 class _RulesetRuleState:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input['RulesetRuleActionsArgs']] = None,
-                 catch_all: Optional[pulumi.Input[_builtins.bool]] = None,
-                 conditions: Optional[pulumi.Input['RulesetRuleConditionsArgs']] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 position: Optional[pulumi.Input[_builtins.int]] = None,
-                 ruleset: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_frame: Optional[pulumi.Input['RulesetRuleTimeFrameArgs']] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]] = None):
+                 actions: pulumi.Input[Optional['RulesetRuleActionsArgs']] = None,
+                 catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 conditions: pulumi.Input[Optional['RulesetRuleConditionsArgs']] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 position: pulumi.Input[Optional[_builtins.int]] = None,
+                 ruleset: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_frame: pulumi.Input[Optional['RulesetRuleTimeFrameArgs']] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering RulesetRule resources.
 
@@ -196,98 +196,98 @@ class _RulesetRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input['RulesetRuleActionsArgs']]:
+    def actions(self) -> pulumi.Input[Optional['RulesetRuleActionsArgs']]:
         """
         Actions to apply to an event if the conditions match.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input['RulesetRuleActionsArgs']]):
+    def actions(self, value: pulumi.Input[Optional['RulesetRuleActionsArgs']]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="catchAll")
-    def catch_all(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def catch_all(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
         """
         return pulumi.get(self, "catch_all")
 
     @catch_all.setter
-    def catch_all(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def catch_all(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "catch_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input['RulesetRuleConditionsArgs']]:
+    def conditions(self) -> pulumi.Input[Optional['RulesetRuleConditionsArgs']]:
         """
         Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input['RulesetRuleConditionsArgs']]):
+    def conditions(self, value: pulumi.Input[Optional['RulesetRuleConditionsArgs']]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the rule is disabled and would therefore not be evaluated.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def position(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def position(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Position/index of the rule within the ruleset.
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def position(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "position", value)
 
     @_builtins.property
     @pulumi.getter
-    def ruleset(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ruleset(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the ruleset that the rule belongs to.
         """
         return pulumi.get(self, "ruleset")
 
     @ruleset.setter
-    def ruleset(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ruleset(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ruleset", value)
 
     @_builtins.property
     @pulumi.getter(name="timeFrame")
-    def time_frame(self) -> Optional[pulumi.Input['RulesetRuleTimeFrameArgs']]:
+    def time_frame(self) -> pulumi.Input[Optional['RulesetRuleTimeFrameArgs']]:
         """
         Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
         """
         return pulumi.get(self, "time_frame")
 
     @time_frame.setter
-    def time_frame(self, value: Optional[pulumi.Input['RulesetRuleTimeFrameArgs']]):
+    def time_frame(self, value: pulumi.Input[Optional['RulesetRuleTimeFrameArgs']]):
         pulumi.set(self, "time_frame", value)
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]]:
+    def variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]]:
         """
         Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]]):
+    def variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]]):
         pulumi.set(self, "variables", value)
 
 
@@ -297,14 +297,14 @@ class RulesetRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']]] = None,
-                 catch_all: Optional[pulumi.Input[_builtins.bool]] = None,
-                 conditions: Optional[pulumi.Input[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict']]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 position: Optional[pulumi.Input[_builtins.int]] = None,
-                 ruleset: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_frame: Optional[pulumi.Input[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict']]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']]] = None,
+                 catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 conditions: pulumi.Input[Optional[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict']]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 position: pulumi.Input[Optional[_builtins.int]] = None,
+                 ruleset: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_frame: pulumi.Input[Optional[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict']]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]]] = None,
                  __props__=None):
         """
         An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.
@@ -353,8 +353,8 @@ class RulesetRule(pulumi.CustomResource):
                         4,
                         6,
                     ],
-                    "start_time": eastern_time_at0930.unix.apply(lambda unix: unix * 1000),
-                    "duration": 2 * 60 * 60 * 1000,
+                    "start_time": eastern_time_at0930.unix.apply(lambda unix: unix * 1000).apply(lambda x: int(x)),
+                    "duration": int(2 * 60 * float(60) * float(1000)),
                     "timezone": "America/New_York",
                 }],
             },
@@ -494,8 +494,8 @@ class RulesetRule(pulumi.CustomResource):
                         4,
                         6,
                     ],
-                    "start_time": eastern_time_at0930.unix.apply(lambda unix: unix * 1000),
-                    "duration": 2 * 60 * 60 * 1000,
+                    "start_time": eastern_time_at0930.unix.apply(lambda unix: unix * 1000).apply(lambda x: int(x)),
+                    "duration": int(2 * 60 * float(60) * float(1000)),
                     "timezone": "America/New_York",
                 }],
             },
@@ -586,14 +586,14 @@ class RulesetRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']]] = None,
-                 catch_all: Optional[pulumi.Input[_builtins.bool]] = None,
-                 conditions: Optional[pulumi.Input[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict']]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 position: Optional[pulumi.Input[_builtins.int]] = None,
-                 ruleset: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_frame: Optional[pulumi.Input[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict']]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']]] = None,
+                 catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 conditions: pulumi.Input[Optional[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict']]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 position: pulumi.Input[Optional[_builtins.int]] = None,
+                 ruleset: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_frame: pulumi.Input[Optional[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict']]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -623,14 +623,14 @@ class RulesetRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']]] = None,
-            catch_all: Optional[pulumi.Input[_builtins.bool]] = None,
-            conditions: Optional[pulumi.Input[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict']]] = None,
-            disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            position: Optional[pulumi.Input[_builtins.int]] = None,
-            ruleset: Optional[pulumi.Input[_builtins.str]] = None,
-            time_frame: Optional[pulumi.Input[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict']]] = None,
-            variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]]] = None) -> 'RulesetRule':
+            actions: pulumi.Input[Optional[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']]] = None,
+            catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
+            conditions: pulumi.Input[Optional[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict']]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            position: pulumi.Input[Optional[_builtins.int]] = None,
+            ruleset: pulumi.Input[Optional[_builtins.str]] = None,
+            time_frame: pulumi.Input[Optional[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict']]] = None,
+            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]]] = None) -> 'RulesetRule':
         """
         Get an existing RulesetRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

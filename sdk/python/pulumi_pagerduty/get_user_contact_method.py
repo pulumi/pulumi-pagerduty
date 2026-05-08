@@ -204,9 +204,9 @@ def get_user_contact_method(label: Optional[_builtins.str] = None,
         send_short_email=pulumi.get(__ret__, 'send_short_email'),
         type=pulumi.get(__ret__, 'type'),
         user_id=pulumi.get(__ret__, 'user_id'))
-def get_user_contact_method_output(label: Optional[pulumi.Input[_builtins.str]] = None,
-                                   type: Optional[pulumi.Input[_builtins.str]] = None,
-                                   user_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_contact_method_output(label: pulumi.Input[Optional[_builtins.str]] = None,
+                                   type: pulumi.Input[Optional[_builtins.str]] = None,
+                                   user_id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserContactMethodResult]:
     """
     Use this data source to get information about a specific [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzOQ-list-a-user-s-contact-methods) of a PagerDuty [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.

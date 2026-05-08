@@ -20,11 +20,11 @@ __all__ = ['AutomationActionsRunnerArgs', 'AutomationActionsRunner']
 class AutomationActionsRunnerArgs:
     def __init__(__self__, *,
                  runner_type: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_seen: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_base_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_seen: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_base_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutomationActionsRunner resource.
 
@@ -64,77 +64,77 @@ class AutomationActionsRunnerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the runner. Max length is 1024 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="lastSeen")
     @_utilities.deprecated("""This field will be set as Computed-only in a future version. The last_seen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.""")
-    def last_seen(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_seen(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
         """
         return pulumi.get(self, "last_seen")
 
     @last_seen.setter
-    def last_seen(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_seen(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_seen", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the runner. Max length is 255 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookApiKey")
-    def runbook_api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique User API Token created in Runbook Automation.
         """
         return pulumi.get(self, "runbook_api_key")
 
     @runbook_api_key.setter
-    def runbook_api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookBaseUri")
-    def runbook_base_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_base_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subdomain for your Runbook Automation Instance.
         """
         return pulumi.get(self, "runbook_base_uri")
 
     @runbook_base_uri.setter
-    def runbook_base_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_base_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_base_uri", value)
 
 
 @pulumi.input_type
 class _AutomationActionsRunnerState:
     def __init__(__self__, *,
-                 creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_seen: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_base_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 runner_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_seen: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_base_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 runner_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutomationActionsRunner resources.
 
@@ -169,99 +169,99 @@ class _AutomationActionsRunnerState:
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def creation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time runner was created. Represented as an ISO 8601 timestamp.
         """
         return pulumi.get(self, "creation_time")
 
     @creation_time.setter
-    def creation_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def creation_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "creation_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the runner. Max length is 1024 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="lastSeen")
     @_utilities.deprecated("""This field will be set as Computed-only in a future version. The last_seen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.""")
-    def last_seen(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_seen(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
         """
         return pulumi.get(self, "last_seen")
 
     @last_seen.setter
-    def last_seen(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_seen(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_seen", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the runner. Max length is 255 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookApiKey")
-    def runbook_api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique User API Token created in Runbook Automation.
         """
         return pulumi.get(self, "runbook_api_key")
 
     @runbook_api_key.setter
-    def runbook_api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="runbookBaseUri")
-    def runbook_base_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runbook_base_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subdomain for your Runbook Automation Instance.
         """
         return pulumi.get(self, "runbook_base_uri")
 
     @runbook_base_uri.setter
-    def runbook_base_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runbook_base_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runbook_base_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="runnerType")
-    def runner_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runner_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of runner. The only allowed values is `runbook`.
         """
         return pulumi.get(self, "runner_type")
 
     @runner_type.setter
-    def runner_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runner_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runner_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of object. The value returned will be `runner`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -271,12 +271,12 @@ class AutomationActionsRunner(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_seen: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_base_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 runner_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_seen: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_base_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 runner_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An Automation Actions [runner](https://developer.pagerduty.com/api-reference/d78999fb7e863-create-an-automation-action-runner) is the method for how actions are executed. This can be done locally using an installed runner agent or as a connection to a PD Runbook Automation instance.
@@ -388,12 +388,12 @@ class AutomationActionsRunner(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_seen: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 runbook_base_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 runner_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_seen: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 runbook_base_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 runner_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -425,14 +425,14 @@ class AutomationActionsRunner(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            creation_time: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            last_seen: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            runbook_api_key: Optional[pulumi.Input[_builtins.str]] = None,
-            runbook_base_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            runner_type: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'AutomationActionsRunner':
+            creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            last_seen: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            runbook_base_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            runner_type: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'AutomationActionsRunner':
         """
         Get an existing AutomationActionsRunner resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

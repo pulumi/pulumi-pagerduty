@@ -121,15 +121,15 @@ export interface IncidentCustomFieldOptionState {
     /**
      * The datatype of the field option. Only `string` is allowed here at present.
      */
-    dataType?: pulumi.Input<string>;
+    dataType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the field.
      */
-    field?: pulumi.Input<string>;
+    field?: pulumi.Input<string | undefined>;
     /**
      * The allowed value.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 /**

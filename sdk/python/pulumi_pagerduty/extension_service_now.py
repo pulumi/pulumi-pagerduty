@@ -27,10 +27,10 @@ class ExtensionServiceNowArgs:
                  sync_options: pulumi.Input[_builtins.str],
                  target: pulumi.Input[_builtins.str],
                  task_type: pulumi.Input[_builtins.str],
-                 endpoint_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 summary: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 summary: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExtensionServiceNow resource.
 
@@ -160,63 +160,63 @@ class ExtensionServiceNowArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointUrl")
-    def endpoint_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "endpoint_url")
 
     @endpoint_url.setter
-    def endpoint_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the service extension.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def summary(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def summary(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
         """
         return pulumi.get(self, "summary")
 
     @summary.setter
-    def summary(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def summary(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "summary", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class _ExtensionServiceNowState:
     def __init__(__self__, *,
-                 endpoint_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 extension_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 html_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 referer: Optional[pulumi.Input[_builtins.str]] = None,
-                 snow_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 snow_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 summary: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_options: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 task_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_objects: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 extension_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 html_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 referer: pulumi.Input[Optional[_builtins.str]] = None,
+                 snow_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 snow_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 summary: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_options: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 task_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExtensionServiceNow resources.
 
@@ -261,152 +261,152 @@ class _ExtensionServiceNowState:
 
     @_builtins.property
     @pulumi.getter(name="endpointUrl")
-    def endpoint_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "endpoint_url")
 
     @endpoint_url.setter
-    def endpoint_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_url", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionObjects")
-    def extension_objects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def extension_objects(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         This is the objects for which the extension applies (An array of service ids).
         """
         return pulumi.get(self, "extension_objects")
 
     @extension_objects.setter
-    def extension_objects(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def extension_objects(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "extension_objects", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionSchema")
-    def extension_schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extension_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the schema for this extension.
         """
         return pulumi.get(self, "extension_schema")
 
     @extension_schema.setter
-    def extension_schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extension_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extension_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="htmlUrl")
-    def html_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def html_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL at which the entity is uniquely displayed in the Web app.
         """
         return pulumi.get(self, "html_url")
 
     @html_url.setter
-    def html_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def html_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "html_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the service extension.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def referer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def referer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ServiceNow referer.
         """
         return pulumi.get(self, "referer")
 
     @referer.setter
-    def referer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def referer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "referer", value)
 
     @_builtins.property
     @pulumi.getter(name="snowPassword")
-    def snow_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snow_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ServiceNow password.
         """
         return pulumi.get(self, "snow_password")
 
     @snow_password.setter
-    def snow_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snow_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snow_password", value)
 
     @_builtins.property
     @pulumi.getter(name="snowUser")
-    def snow_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snow_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ServiceNow username.
         """
         return pulumi.get(self, "snow_user")
 
     @snow_user.setter
-    def snow_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snow_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snow_user", value)
 
     @_builtins.property
     @pulumi.getter
-    def summary(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def summary(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
         """
         return pulumi.get(self, "summary")
 
     @summary.setter
-    def summary(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def summary(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "summary", value)
 
     @_builtins.property
     @pulumi.getter(name="syncOptions")
-    def sync_options(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sync_options(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ServiceNow sync option.
         """
         return pulumi.get(self, "sync_options")
 
     @sync_options.setter
-    def sync_options(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sync_options(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sync_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target Webhook URL.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
     @_builtins.property
     @pulumi.getter(name="taskType")
-    def task_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ServiceNow task type, typically `incident`.
         """
         return pulumi.get(self, "task_type")
 
     @task_type.setter
-    def task_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -416,18 +416,18 @@ class ExtensionServiceNow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 extension_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 referer: Optional[pulumi.Input[_builtins.str]] = None,
-                 snow_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 snow_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 summary: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_options: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 task_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_objects: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 extension_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 referer: pulumi.Input[Optional[_builtins.str]] = None,
+                 snow_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 snow_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 summary: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_options: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 task_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A special case for [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMw-create-an-extension) for ServiceNow.
@@ -561,18 +561,18 @@ class ExtensionServiceNow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 extension_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 referer: Optional[pulumi.Input[_builtins.str]] = None,
-                 snow_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 snow_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 summary: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_options: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 task_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_objects: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 extension_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 referer: pulumi.Input[Optional[_builtins.str]] = None,
+                 snow_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 snow_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 summary: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_options: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 task_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -623,19 +623,19 @@ class ExtensionServiceNow(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            endpoint_url: Optional[pulumi.Input[_builtins.str]] = None,
-            extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            extension_schema: Optional[pulumi.Input[_builtins.str]] = None,
-            html_url: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            referer: Optional[pulumi.Input[_builtins.str]] = None,
-            snow_password: Optional[pulumi.Input[_builtins.str]] = None,
-            snow_user: Optional[pulumi.Input[_builtins.str]] = None,
-            summary: Optional[pulumi.Input[_builtins.str]] = None,
-            sync_options: Optional[pulumi.Input[_builtins.str]] = None,
-            target: Optional[pulumi.Input[_builtins.str]] = None,
-            task_type: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'ExtensionServiceNow':
+            endpoint_url: pulumi.Input[Optional[_builtins.str]] = None,
+            extension_objects: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            extension_schema: pulumi.Input[Optional[_builtins.str]] = None,
+            html_url: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            referer: pulumi.Input[Optional[_builtins.str]] = None,
+            snow_password: pulumi.Input[Optional[_builtins.str]] = None,
+            snow_user: pulumi.Input[Optional[_builtins.str]] = None,
+            summary: pulumi.Input[Optional[_builtins.str]] = None,
+            sync_options: pulumi.Input[Optional[_builtins.str]] = None,
+            target: pulumi.Input[Optional[_builtins.str]] = None,
+            task_type: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ExtensionServiceNow':
         """
         Get an existing ExtensionServiceNow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

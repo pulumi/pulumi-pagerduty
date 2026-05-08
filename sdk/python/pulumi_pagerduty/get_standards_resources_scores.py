@@ -122,8 +122,8 @@ def get_standards_resources_scores(ids: Optional[Sequence[_builtins.str]] = None
         ids=pulumi.get(__ret__, 'ids'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
         resources=pulumi.get(__ret__, 'resources'))
-def get_standards_resources_scores_output(ids: Optional[pulumi.Input[Sequence[_builtins.str]]] = None,
-                                          resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+def get_standards_resources_scores_output(ids: pulumi.Input[Optional[Sequence[_builtins.str]]] = None,
+                                          resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandardsResourcesScoresResult]:
     """
     Use this data source to get information about the [scores for the standards for

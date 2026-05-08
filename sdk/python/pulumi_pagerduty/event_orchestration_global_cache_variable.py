@@ -23,9 +23,9 @@ class EventOrchestrationGlobalCacheVariableArgs:
     def __init__(__self__, *,
                  configuration: pulumi.Input['EventOrchestrationGlobalCacheVariableConfigurationArgs'],
                  event_orchestration: pulumi.Input[_builtins.str],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCacheVariableConditionArgs']]]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalCacheVariableConditionArgs']]]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventOrchestrationGlobalCacheVariable resource.
 
@@ -70,49 +70,49 @@ class EventOrchestrationGlobalCacheVariableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCacheVariableConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalCacheVariableConditionArgs']]]]:
         """
         Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCacheVariableConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalCacheVariableConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Cache Variable associated with the Global Event Orchestration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _EventOrchestrationGlobalCacheVariableState:
     def __init__(__self__, *,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCacheVariableConditionArgs']]]] = None,
-                 configuration: Optional[pulumi.Input['EventOrchestrationGlobalCacheVariableConfigurationArgs']] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalCacheVariableConditionArgs']]]] = None,
+                 configuration: pulumi.Input[Optional['EventOrchestrationGlobalCacheVariableConfigurationArgs']] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventOrchestrationGlobalCacheVariable resources.
 
@@ -135,62 +135,62 @@ class _EventOrchestrationGlobalCacheVariableState:
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCacheVariableConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalCacheVariableConditionArgs']]]]:
         """
         Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCacheVariableConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalCacheVariableConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['EventOrchestrationGlobalCacheVariableConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['EventOrchestrationGlobalCacheVariableConfigurationArgs']]:
         """
         A configuration object to define what and how values will be stored in the Cache Variable.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['EventOrchestrationGlobalCacheVariableConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['EventOrchestrationGlobalCacheVariableConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="eventOrchestration")
-    def event_orchestration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_orchestration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Global Event Orchestration to which this Cache Variable belongs.
         """
         return pulumi.get(self, "event_orchestration")
 
     @event_orchestration.setter
-    def event_orchestration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_orchestration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_orchestration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Cache Variable associated with the Global Event Orchestration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -200,11 +200,11 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConditionArgs', 'EventOrchestrationGlobalCacheVariableConditionArgsDict']]]]] = None,
-                 configuration: Optional[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConfigurationArgs', 'EventOrchestrationGlobalCacheVariableConfigurationArgsDict']]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConditionArgs', 'EventOrchestrationGlobalCacheVariableConditionArgsDict']]]]] = None,
+                 configuration: pulumi.Input[Optional[Union['EventOrchestrationGlobalCacheVariableConfigurationArgs', 'EventOrchestrationGlobalCacheVariableConfigurationArgsDict']]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) can be created on a Global Event Orchestration, in order to temporarily store event data to be referenced later within the Global Event Orchestration
@@ -385,11 +385,11 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConditionArgs', 'EventOrchestrationGlobalCacheVariableConditionArgsDict']]]]] = None,
-                 configuration: Optional[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConfigurationArgs', 'EventOrchestrationGlobalCacheVariableConfigurationArgsDict']]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConditionArgs', 'EventOrchestrationGlobalCacheVariableConditionArgsDict']]]]] = None,
+                 configuration: pulumi.Input[Optional[Union['EventOrchestrationGlobalCacheVariableConfigurationArgs', 'EventOrchestrationGlobalCacheVariableConfigurationArgsDict']]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -418,11 +418,11 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConditionArgs', 'EventOrchestrationGlobalCacheVariableConditionArgsDict']]]]] = None,
-            configuration: Optional[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConfigurationArgs', 'EventOrchestrationGlobalCacheVariableConfigurationArgsDict']]] = None,
-            disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            event_orchestration: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'EventOrchestrationGlobalCacheVariable':
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConditionArgs', 'EventOrchestrationGlobalCacheVariableConditionArgsDict']]]]] = None,
+            configuration: pulumi.Input[Optional[Union['EventOrchestrationGlobalCacheVariableConfigurationArgs', 'EventOrchestrationGlobalCacheVariableConfigurationArgsDict']]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'EventOrchestrationGlobalCacheVariable':
         """
         Get an existing EventOrchestrationGlobalCacheVariable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

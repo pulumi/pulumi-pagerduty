@@ -20,13 +20,13 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 api_url_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 insecure_tls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_credentials_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_app_oauth_scoped_token: Optional[pulumi.Input['ProviderUseAppOauthScopedTokenArgs']] = None,
-                 user_token: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_url_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 insecure_tls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_credentials_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_app_oauth_scoped_token: pulumi.Input[Optional['ProviderUseAppOauthScopedTokenArgs']] = None,
+                 user_token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
         """
@@ -49,65 +49,65 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiUrlOverride")
-    def api_url_override(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_url_override(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "api_url_override")
 
     @api_url_override.setter
-    def api_url_override(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_url_override(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_url_override", value)
 
     @_builtins.property
     @pulumi.getter(name="insecureTls")
-    def insecure_tls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insecure_tls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "insecure_tls")
 
     @insecure_tls.setter
-    def insecure_tls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insecure_tls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insecure_tls", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceRegion")
-    def service_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "service_region")
 
     @service_region.setter
-    def service_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_region", value)
 
     @_builtins.property
     @pulumi.getter(name="skipCredentialsValidation")
-    def skip_credentials_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_credentials_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "skip_credentials_validation")
 
     @skip_credentials_validation.setter
-    def skip_credentials_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_credentials_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_credentials_validation", value)
 
     @_builtins.property
     @pulumi.getter
-    def token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "token")
 
     @token.setter
-    def token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token", value)
 
     @_builtins.property
     @pulumi.getter(name="useAppOauthScopedToken")
-    def use_app_oauth_scoped_token(self) -> Optional[pulumi.Input['ProviderUseAppOauthScopedTokenArgs']]:
+    def use_app_oauth_scoped_token(self) -> pulumi.Input[Optional['ProviderUseAppOauthScopedTokenArgs']]:
         return pulumi.get(self, "use_app_oauth_scoped_token")
 
     @use_app_oauth_scoped_token.setter
-    def use_app_oauth_scoped_token(self, value: Optional[pulumi.Input['ProviderUseAppOauthScopedTokenArgs']]):
+    def use_app_oauth_scoped_token(self, value: pulumi.Input[Optional['ProviderUseAppOauthScopedTokenArgs']]):
         pulumi.set(self, "use_app_oauth_scoped_token", value)
 
     @_builtins.property
     @pulumi.getter(name="userToken")
-    def user_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "user_token")
 
     @user_token.setter
-    def user_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_token", value)
 
 
@@ -117,13 +117,13 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_url_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 insecure_tls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_credentials_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_app_oauth_scoped_token: Optional[pulumi.Input[Union['ProviderUseAppOauthScopedTokenArgs', 'ProviderUseAppOauthScopedTokenArgsDict']]] = None,
-                 user_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_url_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 insecure_tls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_credentials_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_app_oauth_scoped_token: pulumi.Input[Optional[Union['ProviderUseAppOauthScopedTokenArgs', 'ProviderUseAppOauthScopedTokenArgsDict']]] = None,
+                 user_token: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The provider type for the pagerduty package. By default, resources use package-wide configuration
@@ -163,13 +163,13 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_url_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 insecure_tls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_credentials_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_app_oauth_scoped_token: Optional[pulumi.Input[Union['ProviderUseAppOauthScopedTokenArgs', 'ProviderUseAppOauthScopedTokenArgsDict']]] = None,
-                 user_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_url_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 insecure_tls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_credentials_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_app_oauth_scoped_token: pulumi.Input[Optional[Union['ProviderUseAppOauthScopedTokenArgs', 'ProviderUseAppOauthScopedTokenArgsDict']]] = None,
+                 user_token: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

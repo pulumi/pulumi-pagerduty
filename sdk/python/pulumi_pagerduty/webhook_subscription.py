@@ -24,9 +24,9 @@ class WebhookSubscriptionArgs:
                  delivery_methods: pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]],
                  events: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  filters: pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionFilterArgs']]],
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebhookSubscription resource.
 
@@ -111,50 +111,50 @@ class WebhookSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether the subscription will produce webhook events.
         """
         return pulumi.get(self, "active")
 
     @active.setter
-    def active(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def active(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "active", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A short description of the webhook subscription
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class _WebhookSubscriptionState:
     def __init__(__self__, *,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delivery_methods: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionFilterArgs']]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delivery_methods: pulumi.Input[Optional[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['WebhookSubscriptionFilterArgs']]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WebhookSubscription resources.
 
@@ -193,43 +193,43 @@ class _WebhookSubscriptionState:
 
     @_builtins.property
     @pulumi.getter
-    def active(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether the subscription will produce webhook events.
         """
         return pulumi.get(self, "active")
 
     @active.setter
-    def active(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def active(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "active", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryMethods")
-    def delivery_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]]]:
+    def delivery_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]]]:
         """
         The object describing where to send the webhooks.
         """
         return pulumi.get(self, "delivery_methods")
 
     @delivery_methods.setter
-    def delivery_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]]]):
+    def delivery_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]]]):
         pulumi.set(self, "delivery_methods", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A short description of the webhook subscription
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of outbound event types the webhook will receive. The follow event types are possible: 
         * `incident.acknowledged`
@@ -249,31 +249,31 @@ class _WebhookSubscriptionState:
         return pulumi.get(self, "events")
 
     @events.setter
-    def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "events", value)
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionFilterArgs']]]]:
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebhookSubscriptionFilterArgs']]]]:
         """
         determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionFilterArgs']]]]):
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebhookSubscriptionFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -283,12 +283,12 @@ class WebhookSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delivery_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionDeliveryMethodArgs', 'WebhookSubscriptionDeliveryMethodArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionFilterArgs', 'WebhookSubscriptionFilterArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delivery_methods: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookSubscriptionDeliveryMethodArgs', 'WebhookSubscriptionDeliveryMethodArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookSubscriptionFilterArgs', 'WebhookSubscriptionFilterArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A [webhook subscription](https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTkw-v3-overview) allow you to receive HTTP callbacks when incidents are created, updated and deleted. These are also known as V3 Webhooks.
@@ -449,12 +449,12 @@ class WebhookSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delivery_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionDeliveryMethodArgs', 'WebhookSubscriptionDeliveryMethodArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionFilterArgs', 'WebhookSubscriptionFilterArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delivery_methods: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookSubscriptionDeliveryMethodArgs', 'WebhookSubscriptionDeliveryMethodArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookSubscriptionFilterArgs', 'WebhookSubscriptionFilterArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -486,12 +486,12 @@ class WebhookSubscription(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            active: Optional[pulumi.Input[_builtins.bool]] = None,
-            delivery_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionDeliveryMethodArgs', 'WebhookSubscriptionDeliveryMethodArgsDict']]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionFilterArgs', 'WebhookSubscriptionFilterArgsDict']]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'WebhookSubscription':
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            delivery_methods: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookSubscriptionDeliveryMethodArgs', 'WebhookSubscriptionDeliveryMethodArgsDict']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookSubscriptionFilterArgs', 'WebhookSubscriptionFilterArgsDict']]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'WebhookSubscription':
         """
         Get an existing WebhookSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

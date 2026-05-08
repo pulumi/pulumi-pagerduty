@@ -101,7 +101,7 @@ def get_standards(resource_type: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
         standards=pulumi.get(__ret__, 'standards'))
-def get_standards_output(resource_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_standards_output(resource_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandardsResult]:
     """
     Use this data source to get information about the [standards](https://developer.pagerduty.com/api-reference/dbed9a0ff9355-list-standards) applicable to

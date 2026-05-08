@@ -22,19 +22,19 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  escalation_policy: pulumi.Input[_builtins.str],
-                 acknowledgement_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_creation: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_grouping: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_grouping_parameters: Optional[pulumi.Input['ServiceAlertGroupingParametersArgs']] = None,
-                 alert_grouping_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_pause_notifications_parameters: Optional[pulumi.Input['ServiceAutoPauseNotificationsParametersArgs']] = None,
-                 auto_resolve_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_urgency_rule: Optional[pulumi.Input['ServiceIncidentUrgencyRuleArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_play: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]] = None,
-                 support_hours: Optional[pulumi.Input['ServiceSupportHoursArgs']] = None):
+                 acknowledgement_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_creation: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_grouping: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_grouping_parameters: pulumi.Input[Optional['ServiceAlertGroupingParametersArgs']] = None,
+                 alert_grouping_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_pause_notifications_parameters: pulumi.Input[Optional['ServiceAutoPauseNotificationsParametersArgs']] = None,
+                 auto_resolve_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_urgency_rule: pulumi.Input[Optional['ServiceIncidentUrgencyRuleArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_play: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]] = None,
+                 support_hours: pulumi.Input[Optional['ServiceSupportHoursArgs']] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -106,95 +106,95 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
 
     @_builtins.property
     @pulumi.getter(name="acknowledgementTimeout")
-    def acknowledgement_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def acknowledgement_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
         """
         return pulumi.get(self, "acknowledgement_timeout")
 
     @acknowledgement_timeout.setter
-    def acknowledgement_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def acknowledgement_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "acknowledgement_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="alertCreation")
-    def alert_creation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_creation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
         """
         return pulumi.get(self, "alert_creation")
 
     @alert_creation.setter
-    def alert_creation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_creation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="alertGrouping")
     @_utilities.deprecated("""Use `alert_grouping_parameters.type`""")
-    def alert_grouping(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_grouping(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
         """
         return pulumi.get(self, "alert_grouping")
 
     @alert_grouping.setter
-    def alert_grouping(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_grouping(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_grouping", value)
 
     @_builtins.property
     @pulumi.getter(name="alertGroupingParameters")
     @_utilities.deprecated("""Use a resource `AlertGroupingSetting` instead.
 Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters""")
-    def alert_grouping_parameters(self) -> Optional[pulumi.Input['ServiceAlertGroupingParametersArgs']]:
+    def alert_grouping_parameters(self) -> pulumi.Input[Optional['ServiceAlertGroupingParametersArgs']]:
         """
         (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
         """
         return pulumi.get(self, "alert_grouping_parameters")
 
     @alert_grouping_parameters.setter
-    def alert_grouping_parameters(self, value: Optional[pulumi.Input['ServiceAlertGroupingParametersArgs']]):
+    def alert_grouping_parameters(self, value: pulumi.Input[Optional['ServiceAlertGroupingParametersArgs']]):
         pulumi.set(self, "alert_grouping_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="alertGroupingTimeout")
     @_utilities.deprecated("""Use `alert_grouping_parameters.config.timeout`""")
-    def alert_grouping_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_grouping_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
         """
         return pulumi.get(self, "alert_grouping_timeout")
 
     @alert_grouping_timeout.setter
-    def alert_grouping_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_grouping_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_grouping_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="autoPauseNotificationsParameters")
-    def auto_pause_notifications_parameters(self) -> Optional[pulumi.Input['ServiceAutoPauseNotificationsParametersArgs']]:
+    def auto_pause_notifications_parameters(self) -> pulumi.Input[Optional['ServiceAutoPauseNotificationsParametersArgs']]:
         """
         Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
         """
         return pulumi.get(self, "auto_pause_notifications_parameters")
 
     @auto_pause_notifications_parameters.setter
-    def auto_pause_notifications_parameters(self, value: Optional[pulumi.Input['ServiceAutoPauseNotificationsParametersArgs']]):
+    def auto_pause_notifications_parameters(self, value: pulumi.Input[Optional['ServiceAutoPauseNotificationsParametersArgs']]):
         pulumi.set(self, "auto_pause_notifications_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="autoResolveTimeout")
-    def auto_resolve_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_resolve_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         """
         return pulumi.get(self, "auto_resolve_timeout")
 
     @auto_resolve_timeout.setter
-    def auto_resolve_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_resolve_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_resolve_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-friendly description of the service.
         If not set, a placeholder of "Managed by Pulumi" will be set.
@@ -202,83 +202,83 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="incidentUrgencyRule")
-    def incident_urgency_rule(self) -> Optional[pulumi.Input['ServiceIncidentUrgencyRuleArgs']]:
+    def incident_urgency_rule(self) -> pulumi.Input[Optional['ServiceIncidentUrgencyRuleArgs']]:
         return pulumi.get(self, "incident_urgency_rule")
 
     @incident_urgency_rule.setter
-    def incident_urgency_rule(self, value: Optional[pulumi.Input['ServiceIncidentUrgencyRuleArgs']]):
+    def incident_urgency_rule(self, value: pulumi.Input[Optional['ServiceIncidentUrgencyRuleArgs']]):
         pulumi.set(self, "incident_urgency_rule", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the service.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="responsePlay")
-    def response_play(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_play(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Deprecated) The response play used by this service.
         """
         return pulumi.get(self, "response_play")
 
     @response_play.setter
-    def response_play(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_play(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_play", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduledActions")
-    def scheduled_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]]:
+    def scheduled_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]]:
         return pulumi.get(self, "scheduled_actions")
 
     @scheduled_actions.setter
-    def scheduled_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]]):
+    def scheduled_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]]):
         pulumi.set(self, "scheduled_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="supportHours")
-    def support_hours(self) -> Optional[pulumi.Input['ServiceSupportHoursArgs']]:
+    def support_hours(self) -> pulumi.Input[Optional['ServiceSupportHoursArgs']]:
         return pulumi.get(self, "support_hours")
 
     @support_hours.setter
-    def support_hours(self, value: Optional[pulumi.Input['ServiceSupportHoursArgs']]):
+    def support_hours(self, value: pulumi.Input[Optional['ServiceSupportHoursArgs']]):
         pulumi.set(self, "support_hours", value)
 
 
 @pulumi.input_type
 class _ServiceState:
     def __init__(__self__, *,
-                 acknowledgement_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_creation: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_grouping: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_grouping_parameters: Optional[pulumi.Input['ServiceAlertGroupingParametersArgs']] = None,
-                 alert_grouping_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_pause_notifications_parameters: Optional[pulumi.Input['ServiceAutoPauseNotificationsParametersArgs']] = None,
-                 auto_resolve_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 escalation_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 html_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_urgency_rule: Optional[pulumi.Input['ServiceIncidentUrgencyRuleArgs']] = None,
-                 last_incident_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_play: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_hours: Optional[pulumi.Input['ServiceSupportHoursArgs']] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 acknowledgement_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_creation: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_grouping: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_grouping_parameters: pulumi.Input[Optional['ServiceAlertGroupingParametersArgs']] = None,
+                 alert_grouping_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_pause_notifications_parameters: pulumi.Input[Optional['ServiceAutoPauseNotificationsParametersArgs']] = None,
+                 auto_resolve_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 escalation_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 html_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_urgency_rule: pulumi.Input[Optional['ServiceIncidentUrgencyRuleArgs']] = None,
+                 last_incident_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_play: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_hours: pulumi.Input[Optional['ServiceSupportHoursArgs']] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Service resources.
 
@@ -358,107 +358,107 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
 
     @_builtins.property
     @pulumi.getter(name="acknowledgementTimeout")
-    def acknowledgement_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def acknowledgement_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
         """
         return pulumi.get(self, "acknowledgement_timeout")
 
     @acknowledgement_timeout.setter
-    def acknowledgement_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def acknowledgement_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "acknowledgement_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="alertCreation")
-    def alert_creation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_creation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
         """
         return pulumi.get(self, "alert_creation")
 
     @alert_creation.setter
-    def alert_creation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_creation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="alertGrouping")
     @_utilities.deprecated("""Use `alert_grouping_parameters.type`""")
-    def alert_grouping(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_grouping(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
         """
         return pulumi.get(self, "alert_grouping")
 
     @alert_grouping.setter
-    def alert_grouping(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_grouping(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_grouping", value)
 
     @_builtins.property
     @pulumi.getter(name="alertGroupingParameters")
     @_utilities.deprecated("""Use a resource `AlertGroupingSetting` instead.
 Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters""")
-    def alert_grouping_parameters(self) -> Optional[pulumi.Input['ServiceAlertGroupingParametersArgs']]:
+    def alert_grouping_parameters(self) -> pulumi.Input[Optional['ServiceAlertGroupingParametersArgs']]:
         """
         (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
         """
         return pulumi.get(self, "alert_grouping_parameters")
 
     @alert_grouping_parameters.setter
-    def alert_grouping_parameters(self, value: Optional[pulumi.Input['ServiceAlertGroupingParametersArgs']]):
+    def alert_grouping_parameters(self, value: pulumi.Input[Optional['ServiceAlertGroupingParametersArgs']]):
         pulumi.set(self, "alert_grouping_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="alertGroupingTimeout")
     @_utilities.deprecated("""Use `alert_grouping_parameters.config.timeout`""")
-    def alert_grouping_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_grouping_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
         """
         return pulumi.get(self, "alert_grouping_timeout")
 
     @alert_grouping_timeout.setter
-    def alert_grouping_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_grouping_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_grouping_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="autoPauseNotificationsParameters")
-    def auto_pause_notifications_parameters(self) -> Optional[pulumi.Input['ServiceAutoPauseNotificationsParametersArgs']]:
+    def auto_pause_notifications_parameters(self) -> pulumi.Input[Optional['ServiceAutoPauseNotificationsParametersArgs']]:
         """
         Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
         """
         return pulumi.get(self, "auto_pause_notifications_parameters")
 
     @auto_pause_notifications_parameters.setter
-    def auto_pause_notifications_parameters(self, value: Optional[pulumi.Input['ServiceAutoPauseNotificationsParametersArgs']]):
+    def auto_pause_notifications_parameters(self, value: pulumi.Input[Optional['ServiceAutoPauseNotificationsParametersArgs']]):
         pulumi.set(self, "auto_pause_notifications_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="autoResolveTimeout")
-    def auto_resolve_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_resolve_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         """
         return pulumi.get(self, "auto_resolve_timeout")
 
     @auto_resolve_timeout.setter
-    def auto_resolve_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_resolve_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_resolve_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creation timestamp of the service.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-friendly description of the service.
         If not set, a placeholder of "Managed by Pulumi" will be set.
@@ -466,114 +466,114 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="escalationPolicy")
-    def escalation_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def escalation_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The escalation policy used by this service.
         """
         return pulumi.get(self, "escalation_policy")
 
     @escalation_policy.setter
-    def escalation_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def escalation_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "escalation_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="htmlUrl")
-    def html_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def html_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL at which the entity is uniquely displayed in the Web app.
         """
         return pulumi.get(self, "html_url")
 
     @html_url.setter
-    def html_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def html_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "html_url", value)
 
     @_builtins.property
     @pulumi.getter(name="incidentUrgencyRule")
-    def incident_urgency_rule(self) -> Optional[pulumi.Input['ServiceIncidentUrgencyRuleArgs']]:
+    def incident_urgency_rule(self) -> pulumi.Input[Optional['ServiceIncidentUrgencyRuleArgs']]:
         return pulumi.get(self, "incident_urgency_rule")
 
     @incident_urgency_rule.setter
-    def incident_urgency_rule(self, value: Optional[pulumi.Input['ServiceIncidentUrgencyRuleArgs']]):
+    def incident_urgency_rule(self, value: pulumi.Input[Optional['ServiceIncidentUrgencyRuleArgs']]):
         pulumi.set(self, "incident_urgency_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="lastIncidentTimestamp")
     @_utilities.deprecated("""The last_incident_timestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.""")
-    def last_incident_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_incident_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "last_incident_timestamp")
 
     @last_incident_timestamp.setter
-    def last_incident_timestamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_incident_timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_incident_timestamp", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the service.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="responsePlay")
-    def response_play(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_play(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Deprecated) The response play used by this service.
         """
         return pulumi.get(self, "response_play")
 
     @response_play.setter
-    def response_play(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_play(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_play", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduledActions")
-    def scheduled_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]]:
+    def scheduled_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]]:
         return pulumi.get(self, "scheduled_actions")
 
     @scheduled_actions.setter
-    def scheduled_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]]):
+    def scheduled_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]]):
         pulumi.set(self, "scheduled_actions", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.""")
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="supportHours")
-    def support_hours(self) -> Optional[pulumi.Input['ServiceSupportHoursArgs']]:
+    def support_hours(self) -> pulumi.Input[Optional['ServiceSupportHoursArgs']]:
         return pulumi.get(self, "support_hours")
 
     @support_hours.setter
-    def support_hours(self, value: Optional[pulumi.Input['ServiceSupportHoursArgs']]):
+    def support_hours(self, value: pulumi.Input[Optional['ServiceSupportHoursArgs']]):
         pulumi.set(self, "support_hours", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -583,20 +583,20 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acknowledgement_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_creation: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_grouping: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_grouping_parameters: Optional[pulumi.Input[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict']]] = None,
-                 alert_grouping_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_pause_notifications_parameters: Optional[pulumi.Input[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict']]] = None,
-                 auto_resolve_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 escalation_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_urgency_rule: Optional[pulumi.Input[Union['ServiceIncidentUrgencyRuleArgs', 'ServiceIncidentUrgencyRuleArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_play: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceScheduledActionArgs', 'ServiceScheduledActionArgsDict']]]]] = None,
-                 support_hours: Optional[pulumi.Input[Union['ServiceSupportHoursArgs', 'ServiceSupportHoursArgsDict']]] = None,
+                 acknowledgement_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_creation: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_grouping: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_grouping_parameters: pulumi.Input[Optional[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict']]] = None,
+                 alert_grouping_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_pause_notifications_parameters: pulumi.Input[Optional[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict']]] = None,
+                 auto_resolve_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 escalation_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_urgency_rule: pulumi.Input[Optional[Union['ServiceIncidentUrgencyRuleArgs', 'ServiceIncidentUrgencyRuleArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_play: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceScheduledActionArgs', 'ServiceScheduledActionArgsDict']]]]] = None,
+                 support_hours: pulumi.Input[Optional[Union['ServiceSupportHoursArgs', 'ServiceSupportHoursArgsDict']]] = None,
                  __props__=None):
         """
         A [service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Nw-create-a-service) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
@@ -720,20 +720,20 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acknowledgement_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_creation: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_grouping: Optional[pulumi.Input[_builtins.str]] = None,
-                 alert_grouping_parameters: Optional[pulumi.Input[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict']]] = None,
-                 alert_grouping_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_pause_notifications_parameters: Optional[pulumi.Input[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict']]] = None,
-                 auto_resolve_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 escalation_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 incident_urgency_rule: Optional[pulumi.Input[Union['ServiceIncidentUrgencyRuleArgs', 'ServiceIncidentUrgencyRuleArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_play: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceScheduledActionArgs', 'ServiceScheduledActionArgsDict']]]]] = None,
-                 support_hours: Optional[pulumi.Input[Union['ServiceSupportHoursArgs', 'ServiceSupportHoursArgsDict']]] = None,
+                 acknowledgement_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_creation: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_grouping: pulumi.Input[Optional[_builtins.str]] = None,
+                 alert_grouping_parameters: pulumi.Input[Optional[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict']]] = None,
+                 alert_grouping_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_pause_notifications_parameters: pulumi.Input[Optional[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict']]] = None,
+                 auto_resolve_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 escalation_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_urgency_rule: pulumi.Input[Optional[Union['ServiceIncidentUrgencyRuleArgs', 'ServiceIncidentUrgencyRuleArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_play: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceScheduledActionArgs', 'ServiceScheduledActionArgsDict']]]]] = None,
+                 support_hours: pulumi.Input[Optional[Union['ServiceSupportHoursArgs', 'ServiceSupportHoursArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -776,25 +776,25 @@ class Service(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            acknowledgement_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-            alert_creation: Optional[pulumi.Input[_builtins.str]] = None,
-            alert_grouping: Optional[pulumi.Input[_builtins.str]] = None,
-            alert_grouping_parameters: Optional[pulumi.Input[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict']]] = None,
-            alert_grouping_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_pause_notifications_parameters: Optional[pulumi.Input[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict']]] = None,
-            auto_resolve_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            escalation_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            html_url: Optional[pulumi.Input[_builtins.str]] = None,
-            incident_urgency_rule: Optional[pulumi.Input[Union['ServiceIncidentUrgencyRuleArgs', 'ServiceIncidentUrgencyRuleArgsDict']]] = None,
-            last_incident_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            response_play: Optional[pulumi.Input[_builtins.str]] = None,
-            scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceScheduledActionArgs', 'ServiceScheduledActionArgsDict']]]]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            support_hours: Optional[pulumi.Input[Union['ServiceSupportHoursArgs', 'ServiceSupportHoursArgsDict']]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Service':
+            acknowledgement_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            alert_creation: pulumi.Input[Optional[_builtins.str]] = None,
+            alert_grouping: pulumi.Input[Optional[_builtins.str]] = None,
+            alert_grouping_parameters: pulumi.Input[Optional[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict']]] = None,
+            alert_grouping_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_pause_notifications_parameters: pulumi.Input[Optional[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict']]] = None,
+            auto_resolve_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            escalation_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            html_url: pulumi.Input[Optional[_builtins.str]] = None,
+            incident_urgency_rule: pulumi.Input[Optional[Union['ServiceIncidentUrgencyRuleArgs', 'ServiceIncidentUrgencyRuleArgsDict']]] = None,
+            last_incident_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            response_play: pulumi.Input[Optional[_builtins.str]] = None,
+            scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceScheduledActionArgs', 'ServiceScheduledActionArgsDict']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            support_hours: pulumi.Input[Optional[Union['ServiceSupportHoursArgs', 'ServiceSupportHoursArgsDict']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

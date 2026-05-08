@@ -124,23 +124,23 @@ export interface IncidentWorkflowState {
     /**
      * The description of the workflow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
      */
-    isEnabled?: pulumi.Input<string>;
+    isEnabled?: pulumi.Input<string | undefined>;
     /**
      * The name of the workflow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The steps in the workflow.
      */
-    steps?: pulumi.Input<pulumi.Input<inputs.IncidentWorkflowStep>[]>;
+    steps?: pulumi.Input<pulumi.Input<inputs.IncidentWorkflowStep>[] | undefined>;
     /**
      * A team ID. If specified then workflow edit permissions will be scoped to members of this team.
      */
-    team?: pulumi.Input<string>;
+    team?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -150,21 +150,21 @@ export interface IncidentWorkflowArgs {
     /**
      * The description of the workflow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
      */
-    isEnabled?: pulumi.Input<string>;
+    isEnabled?: pulumi.Input<string | undefined>;
     /**
      * The name of the workflow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The steps in the workflow.
      */
-    steps?: pulumi.Input<pulumi.Input<inputs.IncidentWorkflowStep>[]>;
+    steps?: pulumi.Input<pulumi.Input<inputs.IncidentWorkflowStep>[] | undefined>;
     /**
      * A team ID. If specified then workflow edit permissions will be scoped to members of this team.
      */
-    team?: pulumi.Input<string>;
+    team?: pulumi.Input<string | undefined>;
 }

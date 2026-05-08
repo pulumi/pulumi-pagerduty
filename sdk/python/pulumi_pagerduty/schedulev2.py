@@ -22,10 +22,10 @@ __all__ = ['Schedulev2Args', 'Schedulev2']
 class Schedulev2Args:
     def __init__(__self__, *,
                  time_zone: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotations: Optional[pulumi.Input[Sequence[pulumi.Input['Schedulev2RotationArgs']]]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotations: pulumi.Input[Optional[Sequence[pulumi.Input['Schedulev2RotationArgs']]]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Schedulev2 resource.
 
@@ -59,61 +59,61 @@ class Schedulev2Args:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the schedule. Maximum 1024 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the schedule. Maximum 255 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def rotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Schedulev2RotationArgs']]]]:
+    def rotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['Schedulev2RotationArgs']]]]:
         """
         One or more rotation blocks. Rotations documented below.
         """
         return pulumi.get(self, "rotations")
 
     @rotations.setter
-    def rotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Schedulev2RotationArgs']]]]):
+    def rotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['Schedulev2RotationArgs']]]]):
         pulumi.set(self, "rotations", value)
 
     @_builtins.property
     @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of team IDs to associate with this schedule.
         """
         return pulumi.get(self, "teams")
 
     @teams.setter
-    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def teams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "teams", value)
 
 
 @pulumi.input_type
 class _Schedulev2State:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotations: Optional[pulumi.Input[Sequence[pulumi.Input['Schedulev2RotationArgs']]]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotations: pulumi.Input[Optional[Sequence[pulumi.Input['Schedulev2RotationArgs']]]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Schedulev2 resources.
 
@@ -136,62 +136,62 @@ class _Schedulev2State:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the schedule. Maximum 1024 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the schedule. Maximum 255 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def rotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Schedulev2RotationArgs']]]]:
+    def rotations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['Schedulev2RotationArgs']]]]:
         """
         One or more rotation blocks. Rotations documented below.
         """
         return pulumi.get(self, "rotations")
 
     @rotations.setter
-    def rotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Schedulev2RotationArgs']]]]):
+    def rotations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['Schedulev2RotationArgs']]]]):
         pulumi.set(self, "rotations", value)
 
     @_builtins.property
     @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def teams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of team IDs to associate with this schedule.
         """
         return pulumi.get(self, "teams")
 
     @teams.setter
-    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def teams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "teams", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time zone of the schedule (IANA format, e.g. `America/New_York`).
         """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
@@ -201,11 +201,11 @@ class Schedulev2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Schedulev2RotationArgs', 'Schedulev2RotationArgsDict']]]]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['Schedulev2RotationArgs', 'Schedulev2RotationArgsDict']]]]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A [v3 schedule](https://developer.pagerduty.com/api-reference/d90c4c94e3ce2-create-a-schedule) determines the time periods that users are on call using flexible rotation configurations. This resource uses the PagerDuty v3 Schedules API, which supports per-event assignment strategies and RFC 5545 recurrence rules.
@@ -410,11 +410,11 @@ class Schedulev2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Schedulev2RotationArgs', 'Schedulev2RotationArgsDict']]]]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['Schedulev2RotationArgs', 'Schedulev2RotationArgsDict']]]]] = None,
+                 teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -441,11 +441,11 @@ class Schedulev2(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            rotations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Schedulev2RotationArgs', 'Schedulev2RotationArgsDict']]]]] = None,
-            teams: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            time_zone: Optional[pulumi.Input[_builtins.str]] = None) -> 'Schedulev2':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rotations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['Schedulev2RotationArgs', 'Schedulev2RotationArgsDict']]]]] = None,
+            teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'Schedulev2':
         """
         Get an existing Schedulev2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

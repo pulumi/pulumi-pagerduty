@@ -98,7 +98,7 @@ def get_schedulev2(name: Optional[_builtins.str] = None,
     return AwaitableGetSchedulev2Result(
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-def get_schedulev2_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_schedulev2_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchedulev2Result]:
     """
     Use this data source to look up a specific [v3 schedule](https://developer.pagerduty.com/api-reference/e792b51909787-create-a-schedule) by name so you can reference its ID in other resources such as escalation policies.

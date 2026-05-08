@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Pagerduty.Index.Addon("example", new()
+    ///     var example = new Pagerduty.Addon("example", new()
     ///     {
     ///         Name = "Internal Status Page",
     ///         Src = "https://intranet.example.com/status",

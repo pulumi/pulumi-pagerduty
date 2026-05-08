@@ -107,8 +107,8 @@ def get_service_integration(integration_summary: Optional[_builtins.str] = None,
         integration_key=pulumi.get(__ret__, 'integration_key'),
         integration_summary=pulumi.get(__ret__, 'integration_summary'),
         service_name=pulumi.get(__ret__, 'service_name'))
-def get_service_integration_output(integration_summary: Optional[pulumi.Input[_builtins.str]] = None,
-                                   service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_integration_output(integration_summary: pulumi.Input[Optional[_builtins.str]] = None,
+                                   service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceIntegrationResult]:
     """
     Use this data source to get information about a specific service_integration.

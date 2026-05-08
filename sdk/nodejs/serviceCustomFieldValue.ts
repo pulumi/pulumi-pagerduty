@@ -169,11 +169,11 @@ export interface ServiceCustomFieldValueState {
     /**
      * The custom field values to set for the service.
      */
-    customFields?: pulumi.Input<pulumi.Input<inputs.ServiceCustomFieldValueCustomField>[]>;
+    customFields?: pulumi.Input<pulumi.Input<inputs.ServiceCustomFieldValueCustomField>[] | undefined>;
     /**
      * The ID of the service to set custom field values for.
      */
-    serviceId?: pulumi.Input<string>;
+    serviceId?: pulumi.Input<string | undefined>;
 }
 
 /**

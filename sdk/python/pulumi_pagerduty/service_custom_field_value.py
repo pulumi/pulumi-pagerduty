@@ -60,8 +60,8 @@ class ServiceCustomFieldValueArgs:
 @pulumi.input_type
 class _ServiceCustomFieldValueState:
     def __init__(__self__, *,
-                 custom_fields: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCustomFieldValueCustomFieldArgs']]]] = None,
-                 service_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_fields: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCustomFieldValueCustomFieldArgs']]]] = None,
+                 service_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceCustomFieldValue resources.
 
@@ -75,26 +75,26 @@ class _ServiceCustomFieldValueState:
 
     @_builtins.property
     @pulumi.getter(name="customFields")
-    def custom_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCustomFieldValueCustomFieldArgs']]]]:
+    def custom_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCustomFieldValueCustomFieldArgs']]]]:
         """
         The custom field values to set for the service.
         """
         return pulumi.get(self, "custom_fields")
 
     @custom_fields.setter
-    def custom_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCustomFieldValueCustomFieldArgs']]]]):
+    def custom_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCustomFieldValueCustomFieldArgs']]]]):
         pulumi.set(self, "custom_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceId")
-    def service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the service to set custom field values for.
         """
         return pulumi.get(self, "service_id")
 
     @service_id.setter
-    def service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_id", value)
 
 
@@ -104,8 +104,8 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict']]]]] = None,
-                 service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict']]]]] = None,
+                 service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A [service custom field value](https://developer.pagerduty.com/api-reference/6075929031f7d-update-custom-field-values)
@@ -303,8 +303,8 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict']]]]] = None,
-                 service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict']]]]] = None,
+                 service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -330,8 +330,8 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict']]]]] = None,
-            service_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServiceCustomFieldValue':
+            custom_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict']]]]] = None,
+            service_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceCustomFieldValue':
         """
         Get an existing ServiceCustomFieldValue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

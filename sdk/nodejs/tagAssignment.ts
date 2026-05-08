@@ -114,15 +114,15 @@ export interface TagAssignmentState {
     /**
      * The ID of the entity.
      */
-    entityId?: pulumi.Input<string>;
+    entityId?: pulumi.Input<string | undefined>;
     /**
      * Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
      */
-    entityType?: pulumi.Input<string>;
+    entityType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the tag.
      */
-    tagId?: pulumi.Input<string>;
+    tagId?: pulumi.Input<string | undefined>;
 }
 
 /**

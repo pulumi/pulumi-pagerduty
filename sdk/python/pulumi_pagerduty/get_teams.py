@@ -99,7 +99,7 @@ def get_teams(query: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         query=pulumi.get(__ret__, 'query'),
         teams=pulumi.get(__ret__, 'teams'))
-def get_teams_output(query: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_teams_output(query: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamsResult]:
     """
     Use this data source to [list teams](https://developer.pagerduty.com/api-reference/0138639504311-list-teams) in your PagerDuty account.

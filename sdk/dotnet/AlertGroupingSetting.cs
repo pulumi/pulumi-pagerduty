@@ -23,18 +23,18 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = Pagerduty.Index.GetEscalationPolicy.Invoke(new()
+    ///     var @default = Pagerduty.GetEscalationPolicy.Invoke(new()
     ///     {
     ///         Name = "Default",
     ///     });
     /// 
-    ///     var basic = new Pagerduty.Index.Service("basic", new()
+    ///     var basic = new Pagerduty.Service("basic", new()
     ///     {
     ///         Name = "Example",
     ///         EscalationPolicy = @default.Apply(@default =&gt; @default.Apply(getEscalationPolicyResult =&gt; getEscalationPolicyResult.Id)),
     ///     });
     /// 
-    ///     var basicSettings = new Pagerduty.Index.AlertGroupingSetting("basic_settings", new()
+    ///     var basicSettings = new Pagerduty.AlertGroupingSetting("basic_settings", new()
     ///     {
     ///         Name = "Configuration for type-1 devices",
     ///         Type = "content_based",
@@ -81,12 +81,12 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = Pagerduty.Index.GetEscalationPolicy.Invoke(new()
+    ///     var @default = Pagerduty.GetEscalationPolicy.Invoke(new()
     ///     {
     ///         Name = "Default",
     ///     });
     /// 
-    ///     var foo = new Pagerduty.Index.Service("foo", new()
+    ///     var foo = new Pagerduty.Service("foo", new()
     ///     {
     ///         Name = "Foo",
     ///         EscalationPolicy = @default.Apply(@default =&gt; @default.Apply(getEscalationPolicyResult =&gt; getEscalationPolicyResult.Id)),
@@ -112,18 +112,18 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = Pagerduty.Index.GetEscalationPolicy.Invoke(new()
+    ///     var @default = Pagerduty.GetEscalationPolicy.Invoke(new()
     ///     {
     ///         Name = "Default",
     ///     });
     /// 
-    ///     var foo = new Pagerduty.Index.Service("foo", new()
+    ///     var foo = new Pagerduty.Service("foo", new()
     ///     {
     ///         Name = "Foo",
     ///         EscalationPolicy = @default.Apply(@default =&gt; @default.Apply(getEscalationPolicyResult =&gt; getEscalationPolicyResult.Id)),
     ///     });
     /// 
-    ///     var fooAlert = new Pagerduty.Index.AlertGroupingSetting("foo_alert", new()
+    ///     var fooAlert = new Pagerduty.AlertGroupingSetting("foo_alert", new()
     ///     {
     ///         Name = "Alert Grouping for Foo-like services",
     ///         Type = "time",

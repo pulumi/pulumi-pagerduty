@@ -85,5 +85,5 @@ export interface GetTeamsOutputArgs {
     /**
      * Filters the result, showing only the records whose name matches the query.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
 }

@@ -156,37 +156,37 @@ export interface AutomationActionsRunnerState {
     /**
      * The time runner was created. Represented as an ISO 8601 timestamp.
      */
-    creationTime?: pulumi.Input<string>;
+    creationTime?: pulumi.Input<string | undefined>;
     /**
      * The description of the runner. Max length is 1024 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
      *
      * @deprecated This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.
      */
-    lastSeen?: pulumi.Input<string>;
+    lastSeen?: pulumi.Input<string | undefined>;
     /**
      * The name of the runner. Max length is 255 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The unique User API Token created in Runbook Automation.
      */
-    runbookApiKey?: pulumi.Input<string>;
+    runbookApiKey?: pulumi.Input<string | undefined>;
     /**
      * The subdomain for your Runbook Automation Instance.
      */
-    runbookBaseUri?: pulumi.Input<string>;
+    runbookBaseUri?: pulumi.Input<string | undefined>;
     /**
      * The type of runner. The only allowed values is `runbook`.
      */
-    runnerType?: pulumi.Input<string>;
+    runnerType?: pulumi.Input<string | undefined>;
     /**
      * The type of object. The value returned will be `runner`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -196,25 +196,25 @@ export interface AutomationActionsRunnerArgs {
     /**
      * The description of the runner. Max length is 1024 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
      *
      * @deprecated This field will be set as Computed-only in a future version. The lastSeen timestamp is provided by the API but should not be managed by Terraform as it represents runtime state.
      */
-    lastSeen?: pulumi.Input<string>;
+    lastSeen?: pulumi.Input<string | undefined>;
     /**
      * The name of the runner. Max length is 255 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The unique User API Token created in Runbook Automation.
      */
-    runbookApiKey?: pulumi.Input<string>;
+    runbookApiKey?: pulumi.Input<string | undefined>;
     /**
      * The subdomain for your Runbook Automation Instance.
      */
-    runbookBaseUri?: pulumi.Input<string>;
+    runbookBaseUri?: pulumi.Input<string | undefined>;
     /**
      * The type of runner. The only allowed values is `runbook`.
      */

@@ -166,19 +166,19 @@ export interface UserNotificationRuleState {
     /**
      * A contact method block, configured as a block described below.
      */
-    contactMethod?: pulumi.Input<inputs.UserNotificationRuleContactMethod>;
+    contactMethod?: pulumi.Input<inputs.UserNotificationRuleContactMethod | undefined>;
     /**
      * The delay before firing the rule, in minutes.
      */
-    startDelayInMinutes?: pulumi.Input<number>;
+    startDelayInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
      */
-    urgency?: pulumi.Input<string>;
+    urgency?: pulumi.Input<string | undefined>;
     /**
      * The ID of the user.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -188,7 +188,7 @@ export interface UserNotificationRuleArgs {
     /**
      * A contact method block, configured as a block described below.
      */
-    contactMethod?: pulumi.Input<inputs.UserNotificationRuleContactMethod>;
+    contactMethod?: pulumi.Input<inputs.UserNotificationRuleContactMethod | undefined>;
     /**
      * The delay before firing the rule, in minutes.
      */

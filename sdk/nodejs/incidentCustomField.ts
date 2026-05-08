@@ -144,27 +144,27 @@ export interface IncidentCustomFieldState {
     /**
      * The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
      */
-    dataType?: pulumi.Input<string>;
+    dataType?: pulumi.Input<string | undefined>;
     /**
      * The default value to set when new incidents are created. Always specified as a string.
      */
-    defaultValue?: pulumi.Input<string>;
+    defaultValue?: pulumi.Input<string | undefined>;
     /**
      * The description of the field.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the field.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The field type of the field. Must be one of `singleValue`, `singleValueFixed`, `multiValue`, or `multiValueFixed`.
      */
-    fieldType?: pulumi.Input<string>;
+    fieldType?: pulumi.Input<string | undefined>;
     /**
      * The name of the field.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,11 +178,11 @@ export interface IncidentCustomFieldArgs {
     /**
      * The default value to set when new incidents are created. Always specified as a string.
      */
-    defaultValue?: pulumi.Input<string>;
+    defaultValue?: pulumi.Input<string | undefined>;
     /**
      * The description of the field.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the field.
      */
@@ -194,5 +194,5 @@ export interface IncidentCustomFieldArgs {
     /**
      * The name of the field.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

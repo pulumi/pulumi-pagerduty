@@ -73,9 +73,9 @@ class BusinessServiceSubscriberArgs:
 @pulumi.input_type
 class _BusinessServiceSubscriberState:
     def __init__(__self__, *,
-                 business_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 business_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BusinessServiceSubscriber resources.
 
@@ -92,38 +92,38 @@ class _BusinessServiceSubscriberState:
 
     @_builtins.property
     @pulumi.getter(name="businessServiceId")
-    def business_service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def business_service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the business service to subscribe to.
         """
         return pulumi.get(self, "business_service_id")
 
     @business_service_id.setter
-    def business_service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def business_service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "business_service_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriberId")
-    def subscriber_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscriber_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the subscriber entity.
         """
         return pulumi.get(self, "subscriber_id")
 
     @subscriber_id.setter
-    def subscriber_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscriber_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscriber_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriberType")
-    def subscriber_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscriber_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
         """
         return pulumi.get(self, "subscriber_type")
 
     @subscriber_type.setter
-    def subscriber_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscriber_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscriber_type", value)
 
 
@@ -133,9 +133,9 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 business_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 business_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A [business service subscriber](https://developer.pagerduty.com/api-reference/b3A6NDUwNDgxOQ-list-business-service-subscribers) allows you to subscribe users or teams to automatically receive updates about key business services.
@@ -238,9 +238,9 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 business_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 business_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscriber_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -269,9 +269,9 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            business_service_id: Optional[pulumi.Input[_builtins.str]] = None,
-            subscriber_id: Optional[pulumi.Input[_builtins.str]] = None,
-            subscriber_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'BusinessServiceSubscriber':
+            business_service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subscriber_id: pulumi.Input[Optional[_builtins.str]] = None,
+            subscriber_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'BusinessServiceSubscriber':
         """
         Get an existing BusinessServiceSubscriber resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

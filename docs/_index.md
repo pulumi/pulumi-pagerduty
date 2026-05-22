@@ -22,7 +22,7 @@ The Pagerduty provider is available as a package in all Pulumi languages:
 Use the navigation to the left to read about the available resources.
 ## Example Usage
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 {{% choosable language typescript %}}
 ```yaml
 # Pulumi.yaml provider configuration file
@@ -272,6 +272,34 @@ public class App {
             .build());
 
     }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language hcl %}}
+```hcl
+pulumi {
+  required_providers {
+    pagerduty = {
+      source = "pulumi/pagerduty"
+    }
+  }
+}
+
+# Create a PagerDuty team
+resource "pagerduty_team" "engineering" {
+  name        = "Engineering"
+  description = "All engineering"
+}
+# Create a PagerDuty user
+resource "pagerduty_user" "earline" {
+  name  = "Earline Greenholt"
+  email = "125.greenholt.earline@graham.name"
+}
+# Create a team membership
+resource "pagerduty_teammembership" "earline_engineering" {
+  user_id = pagerduty_user.earline.id
+  team_id = pagerduty_team.engineering.id
 }
 ```
 
@@ -296,7 +324,7 @@ The `useAppOauthScopedToken` input has the following nested fields:
 * `pdSubdomain` - (Required) Your PagerDuty account subdomain; i.e: If the *URL* shown by the Browser when you are in your PagerDuty account is some like: <https://acme.pagerduty.com>, then your PagerDuty subdomain is `acme`. It can also be sourced from the `PAGERDUTY_SUBDOMAIN` environment variable.
 ## Example using App Oauth scoped token
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 {{% choosable language typescript %}}
 ```yaml
 # Pulumi.yaml provider configuration file
@@ -528,6 +556,34 @@ public class App {
             .build());
 
     }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language hcl %}}
+```hcl
+pulumi {
+  required_providers {
+    pagerduty = {
+      source = "pulumi/pagerduty"
+    }
+  }
+}
+
+# Create a PagerDuty team
+resource "pagerduty_team" "engineering" {
+  name        = "Engineering"
+  description = "All engineering"
+}
+# Create a PagerDuty user
+resource "pagerduty_user" "earline" {
+  name  = "Earline Greenholt"
+  email = "125.greenholt.earline@graham.name"
+}
+# Create a team membership
+resource "pagerduty_teammembership" "earline_engineering" {
+  user_id = pagerduty_user.earline.id
+  team_id = pagerduty_team.engineering.id
 }
 ```
 

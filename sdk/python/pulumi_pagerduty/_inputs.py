@@ -559,7 +559,7 @@ class EscalationPolicyRuleArgsDict(TypedDict):
     The number of minutes before an unacknowledged incident escalates away from this rule.
     """
     targets: pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleTargetArgsDict']]]
-    escalation_rule_assignment_strategy: NotRequired[pulumi.Input[Optional['EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs']]]
+    escalation_rule_assignment_strategy: NotRequired[pulumi.Input[Optional['EscalationPolicyRuleEscalationRuleAssignmentStrategyArgsDict']]]
     """
     The strategy used to assign the escalation rule to an incident. Documented below.
     """
@@ -879,7 +879,7 @@ class EventOrchestrationGlobalCatchAllActionsArgsDict(TypedDict):
     """
     Add this text as a note on the resulting incident.
     """
-    automation_action: NotRequired[pulumi.Input[Optional['EventOrchestrationGlobalCatchAllActionsAutomationActionArgs']]]
+    automation_action: NotRequired[pulumi.Input[Optional['EventOrchestrationGlobalCatchAllActionsAutomationActionArgsDict']]]
     """
     Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
     """
@@ -895,11 +895,11 @@ class EventOrchestrationGlobalCatchAllActionsArgsDict(TypedDict):
     """
     sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
     """
-    extractions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsExtractionArgs']]]]]
+    extractions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsExtractionArgsDict']]]]]
     """
     Replace any CEF field or Custom Details object field using custom variables.
     """
-    incident_custom_field_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs']]]]]
+    incident_custom_field_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgsDict']]]]]
     """
     Assign a custom field to the resulting incident.
     """
@@ -923,7 +923,7 @@ class EventOrchestrationGlobalCatchAllActionsArgsDict(TypedDict):
     """
     The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
     """
-    variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsVariableArgs']]]]]
+    variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsVariableArgsDict']]]]]
     """
     Populate variables from event payloads and use those variables in other event actions.
     """
@@ -1156,11 +1156,11 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionArgsDict(TypedDict)
     """
     When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgsDict']]]]]
     """
     Specify custom key/value pairs that'll be sent with the webhook request as request headers.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgsDict']]]]]
     """
     Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
     """
@@ -1595,7 +1595,7 @@ class EventOrchestrationGlobalSetArgsDict(TypedDict):
     """
     The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
     """
-    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleArgs']]]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleArgsDict']]]]]
     """
     The Global Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
     """
@@ -1643,7 +1643,7 @@ class EventOrchestrationGlobalSetRuleArgsDict(TypedDict):
     """
     Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
     """
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleConditionArgsDict']]]]]
     """
     Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
     """
@@ -1751,7 +1751,7 @@ class EventOrchestrationGlobalSetRuleActionsArgsDict(TypedDict):
     """
     Add this text as a note on the resulting incident.
     """
-    automation_action: NotRequired[pulumi.Input[Optional['EventOrchestrationGlobalSetRuleActionsAutomationActionArgs']]]
+    automation_action: NotRequired[pulumi.Input[Optional['EventOrchestrationGlobalSetRuleActionsAutomationActionArgsDict']]]
     """
     Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
     """
@@ -1767,11 +1767,11 @@ class EventOrchestrationGlobalSetRuleActionsArgsDict(TypedDict):
     """
     sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
     """
-    extractions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsExtractionArgs']]]]]
+    extractions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsExtractionArgsDict']]]]]
     """
     Replace any CEF field or Custom Details object field using custom variables.
     """
-    incident_custom_field_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs']]]]]
+    incident_custom_field_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgsDict']]]]]
     """
     Assign a custom field to the resulting incident.
     """
@@ -1795,7 +1795,7 @@ class EventOrchestrationGlobalSetRuleActionsArgsDict(TypedDict):
     """
     The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
     """
-    variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsVariableArgs']]]]]
+    variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsVariableArgsDict']]]]]
     """
     Populate variables from event payloads and use those variables in other event actions.
     """
@@ -2028,11 +2028,11 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionArgsDict(TypedDict):
     """
     When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgsDict']]]]]
     """
     Specify custom key/value pairs that'll be sent with the webhook request as request headers.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgsDict']]]]]
     """
     Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
     """
@@ -2496,7 +2496,7 @@ class EventOrchestrationIntegrationArgsDict(TypedDict):
     ID of the integration
     """
     label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgsDict']]]]]
     """
     A single-item list containing a parameter object describing the integration
     """
@@ -2662,7 +2662,7 @@ class EventOrchestrationRouterSetArgsDict(TypedDict):
     """
     ID of the `start` set. Router supports only one set and it's id has to be `start`
     """
-    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleArgs']]]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleArgsDict']]]]]
     """
     The Router evaluates Events against these Rules, one at a time, and routes each Event to a specific Service based on the first rule that matches. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
     """
@@ -2710,7 +2710,7 @@ class EventOrchestrationRouterSetRuleArgsDict(TypedDict):
     """
     Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
     """
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleConditionArgsDict']]]]]
     """
     Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
     """
@@ -2814,7 +2814,7 @@ class EventOrchestrationRouterSetRuleArgs:
 
 
 class EventOrchestrationRouterSetRuleActionsArgsDict(TypedDict):
-    dynamic_route_tos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleActionsDynamicRouteToArgs']]]]]
+    dynamic_route_tos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleActionsDynamicRouteToArgsDict']]]]]
     """
     supports the following:
     """
@@ -3124,7 +3124,7 @@ class EventOrchestrationServiceCatchAllActionsArgsDict(TypedDict):
     """
     Add this text as a note on the resulting incident.
     """
-    automation_action: NotRequired[pulumi.Input[Optional['EventOrchestrationServiceCatchAllActionsAutomationActionArgs']]]
+    automation_action: NotRequired[pulumi.Input[Optional['EventOrchestrationServiceCatchAllActionsAutomationActionArgsDict']]]
     """
     Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
     """
@@ -3136,15 +3136,15 @@ class EventOrchestrationServiceCatchAllActionsArgsDict(TypedDict):
     """
     sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
     """
-    extractions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsExtractionArgs']]]]]
+    extractions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsExtractionArgsDict']]]]]
     """
     Replace any CEF field or Custom Details object field using custom variables.
     """
-    incident_custom_field_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs']]]]]
+    incident_custom_field_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgsDict']]]]]
     """
     Assign a custom field to the resulting incident.
     """
-    pagerduty_automation_action: NotRequired[pulumi.Input[Optional['EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs']]]
+    pagerduty_automation_action: NotRequired[pulumi.Input[Optional['EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgsDict']]]
     """
     Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
     """
@@ -3168,7 +3168,7 @@ class EventOrchestrationServiceCatchAllActionsArgsDict(TypedDict):
     """
     The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
     """
-    variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsVariableArgs']]]]]
+    variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsVariableArgsDict']]]]]
     """
     Populate variables from event payloads and use those variables in other event actions.
     """
@@ -3405,11 +3405,11 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionArgsDict(TypedDict
     """
     When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgsDict']]]]]
     """
     Specify custom key/value pairs that'll be sent with the webhook request as request headers.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgsDict']]]]]
     """
     Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
     """
@@ -3892,7 +3892,7 @@ class EventOrchestrationServiceSetArgsDict(TypedDict):
     """
     The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
     """
-    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleArgs']]]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleArgsDict']]]]]
     """
     The service orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
     """
@@ -3940,7 +3940,7 @@ class EventOrchestrationServiceSetRuleArgsDict(TypedDict):
     """
     Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
     """
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleConditionArgsDict']]]]]
     """
     Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
     """
@@ -4048,7 +4048,7 @@ class EventOrchestrationServiceSetRuleActionsArgsDict(TypedDict):
     """
     Add this text as a note on the resulting incident.
     """
-    automation_action: NotRequired[pulumi.Input[Optional['EventOrchestrationServiceSetRuleActionsAutomationActionArgs']]]
+    automation_action: NotRequired[pulumi.Input[Optional['EventOrchestrationServiceSetRuleActionsAutomationActionArgsDict']]]
     """
     Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) to be run for certain alert states.
     """
@@ -4060,15 +4060,15 @@ class EventOrchestrationServiceSetRuleActionsArgsDict(TypedDict):
     """
     sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
     """
-    extractions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsExtractionArgs']]]]]
+    extractions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsExtractionArgsDict']]]]]
     """
     Replace any CEF field or Custom Details object field using custom variables.
     """
-    incident_custom_field_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs']]]]]
+    incident_custom_field_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgsDict']]]]]
     """
     Assign a custom field to the resulting incident.
     """
-    pagerduty_automation_action: NotRequired[pulumi.Input[Optional['EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs']]]
+    pagerduty_automation_action: NotRequired[pulumi.Input[Optional['EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgsDict']]]
     """
     Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) to be run for certain alert states.
     """
@@ -4092,7 +4092,7 @@ class EventOrchestrationServiceSetRuleActionsArgsDict(TypedDict):
     """
     The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
     """
-    variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsVariableArgs']]]]]
+    variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsVariableArgsDict']]]]]
     """
     Populate variables from event payloads and use those variables in other event actions.
     """
@@ -4325,11 +4325,11 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionArgsDict(TypedDict)
     """
     When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident or alert is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgsDict']]]]]
     """
     Specify custom key/value pairs that'll be sent with the webhook request as request headers.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgsDict']]]]]
     """
     Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
     """
@@ -4868,7 +4868,7 @@ class EventOrchestrationUnroutedCatchAllActionsArgsDict(TypedDict):
     """
     sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
     """
-    extractions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationUnroutedCatchAllActionsExtractionArgs']]]]]
+    extractions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationUnroutedCatchAllActionsExtractionArgsDict']]]]]
     """
     Replace any CEF field or Custom Details object field using custom variables.
     """
@@ -4877,7 +4877,7 @@ class EventOrchestrationUnroutedCatchAllActionsArgsDict(TypedDict):
     sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
     """
     suppress: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationUnroutedCatchAllActionsVariableArgs']]]]]
+    variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationUnroutedCatchAllActionsVariableArgsDict']]]]]
     """
     Populate variables from event payloads and use those variables in other event actions.
     """
@@ -5149,7 +5149,7 @@ class EventOrchestrationUnroutedSetArgsDict(TypedDict):
     """
     The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
     """
-    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleArgs']]]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleArgsDict']]]]]
     """
     The Unrouted Orchestration evaluates Events against these Rules, one at a time, and applies all the actions for first rule it finds where the event matches the rule's conditions. If no rules are provided as part of Terraform configuration, the API returns empty list of rules.
     """
@@ -5197,7 +5197,7 @@ class EventOrchestrationUnroutedSetRuleArgsDict(TypedDict):
     """
     Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
     """
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleConditionArgsDict']]]]]
     """
     Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
     """
@@ -5305,7 +5305,7 @@ class EventOrchestrationUnroutedSetRuleActionsArgsDict(TypedDict):
     """
     sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
     """
-    extractions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleActionsExtractionArgs']]]]]
+    extractions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleActionsExtractionArgsDict']]]]]
     """
     Replace any CEF field or Custom Details object field using custom variables.
     """
@@ -5317,7 +5317,7 @@ class EventOrchestrationUnroutedSetRuleActionsArgsDict(TypedDict):
     """
     sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
     """
-    variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleActionsVariableArgs']]]]]
+    variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleActionsVariableArgsDict']]]]]
     """
     Populate variables from event payloads and use those variables in other event actions.
     """
@@ -5629,11 +5629,11 @@ class IncidentWorkflowStepArgsDict(TypedDict):
     """
     The ID of the incident workflow.
     """
-    inline_steps_inputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IncidentWorkflowStepInlineStepsInputArgs']]]]]
+    inline_steps_inputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IncidentWorkflowStepInlineStepsInputArgsDict']]]]]
     """
     The list of inputs that contain a series of inline steps for the workflow action.
     """
-    inputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IncidentWorkflowStepInputArgs']]]]]
+    inputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IncidentWorkflowStepInputArgsDict']]]]]
     """
     The list of standard inputs for the workflow action.
     """
@@ -5728,7 +5728,7 @@ class IncidentWorkflowStepInlineStepsInputArgsDict(TypedDict):
     """
     The name of the input.
     """
-    steps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IncidentWorkflowStepInlineStepsInputStepArgs']]]]]
+    steps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IncidentWorkflowStepInlineStepsInputStepArgsDict']]]]]
     """
     The inline steps of the input. An inline step adheres to the step schema described above.
     """
@@ -5780,7 +5780,7 @@ class IncidentWorkflowStepInlineStepsInputStepArgsDict(TypedDict):
     """
     The name of the workflow step.
     """
-    inputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IncidentWorkflowStepInlineStepsInputStepInputArgs']]]]]
+    inputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IncidentWorkflowStepInlineStepsInputStepInputArgsDict']]]]]
     """
     The list of standard inputs for the workflow action.
     """
@@ -6012,7 +6012,7 @@ class JiraCloudAccountMappingRuleConfigArgsDict(TypedDict):
     """
     [Updating can cause a resource replacement] The ID of the linked PagerDuty service.
     """
-    jira: NotRequired[pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigJiraArgs']]]
+    jira: NotRequired[pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigJiraArgsDict']]]
     """
     Synchronization settings.
     """
@@ -6064,23 +6064,23 @@ class JiraCloudAccountMappingRuleConfigJiraArgsDict(TypedDict):
     """
     When enabled, automatically creates a Jira issue whenever a PagerDuty incident is triggered.
     """
-    custom_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JiraCloudAccountMappingRuleConfigJiraCustomFieldArgs']]]]]
+    custom_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JiraCloudAccountMappingRuleConfigJiraCustomFieldArgsDict']]]]]
     """
     Defines how Jira fields are populated when a Jira Issue is created from a PagerDuty Incident.
     """
-    issue_type: NotRequired[pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigJiraIssueTypeArgs']]]
+    issue_type: NotRequired[pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigJiraIssueTypeArgsDict']]]
     """
     Specifies the Jira issue type to be created or synchronized with PagerDuty incidents.
     """
-    priorities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JiraCloudAccountMappingRuleConfigJiraPriorityArgs']]]]]
+    priorities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JiraCloudAccountMappingRuleConfigJiraPriorityArgsDict']]]]]
     """
     Maps PagerDuty incident priorities to Jira issue priorities for synchronization.
     """
-    project: NotRequired[pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigJiraProjectArgs']]]
+    project: NotRequired[pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigJiraProjectArgsDict']]]
     """
     [Updating can cause a resource replacement] Defines the Jira project where issues will be created or synchronized.
     """
-    status_mapping: NotRequired[pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigJiraStatusMappingArgs']]]
+    status_mapping: NotRequired[pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigJiraStatusMappingArgsDict']]]
     """
     Maps PagerDuty incident statuses to corresponding Jira issue statuses for synchronization.
     """
@@ -6491,15 +6491,15 @@ class JiraCloudAccountMappingRuleConfigJiraProjectArgs:
 
 
 class JiraCloudAccountMappingRuleConfigJiraStatusMappingArgsDict(TypedDict):
-    acknowledged: NotRequired[pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgs']]]
+    acknowledged: NotRequired[pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigJiraStatusMappingAcknowledgedArgsDict']]]
     """
     Jira status that maps to the PagerDuty `acknowledged` status.
     """
-    resolved: NotRequired[pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgs']]]
+    resolved: NotRequired[pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigJiraStatusMappingResolvedArgsDict']]]
     """
     Jira status that maps to the PagerDuty `resolved` status.
     """
-    triggered: NotRequired[pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgs']]]
+    triggered: NotRequired[pulumi.Input[Optional['JiraCloudAccountMappingRuleConfigJiraStatusMappingTriggeredArgsDict']]]
     """
     Jira status that maps to the PagerDuty `triggered` status.
     """
@@ -6755,7 +6755,7 @@ class ResponsePlayResponderArgsDict(TypedDict):
     """
     Description of escalation policy
     """
-    escalation_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlayResponderEscalationRuleArgs']]]]]
+    escalation_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlayResponderEscalationRuleArgsDict']]]]]
     """
     The escalation rules
     """
@@ -6775,11 +6775,11 @@ class ResponsePlayResponderArgsDict(TypedDict):
     """
     Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "if_has_services". Could be "if_has_services", "always
     """
-    services: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlayResponderServiceArgs']]]]]
+    services: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlayResponderServiceArgsDict']]]]]
     """
     There can be multiple services associated with a policy.
     """
-    teams: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlayResponderTeamArgs']]]]]
+    teams: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlayResponderTeamArgsDict']]]]]
     """
     Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
     """
@@ -7203,35 +7203,35 @@ class ResponsePlaySubscriberArgs:
 
 
 class RulesetRuleActionsArgsDict(TypedDict):
-    annotates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleActionsAnnotateArgs']]]]]
+    annotates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleActionsAnnotateArgsDict']]]]]
     """
     Note added to the event.
     """
-    event_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleActionsEventActionArgs']]]]]
+    event_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleActionsEventActionArgsDict']]]]]
     """
     An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
     """
-    extractions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleActionsExtractionArgs']]]]]
+    extractions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleActionsExtractionArgsDict']]]]]
     """
     Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
     """
-    priorities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleActionsPriorityArgs']]]]]
+    priorities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleActionsPriorityArgsDict']]]]]
     """
     The ID of the priority applied to the event.
     """
-    routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleActionsRouteArgs']]]]]
+    routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleActionsRouteArgsDict']]]]]
     """
     The ID of the service where the event will be routed.
     """
-    severities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleActionsSeverityArgs']]]]]
+    severities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleActionsSeverityArgsDict']]]]]
     """
     The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`warning`,`error`, or `critical`.
     """
-    suppresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleActionsSuppressArgs']]]]]
+    suppresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleActionsSuppressArgsDict']]]]]
     """
     Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
     """
-    suspends: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleActionsSuspendArgs']]]]]
+    suspends: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleActionsSuspendArgsDict']]]]]
     """
     An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
     """
@@ -7740,7 +7740,7 @@ class RulesetRuleConditionsArgsDict(TypedDict):
     """
     Operator to combine sub-conditions. Can be `and` or `or`.
     """
-    subconditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleConditionsSubconditionArgs']]]]]
+    subconditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleConditionsSubconditionArgsDict']]]]]
     """
     List of sub-conditions that define the condition.
     """
@@ -7789,7 +7789,7 @@ class RulesetRuleConditionsSubconditionArgsDict(TypedDict):
     """
     Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleConditionsSubconditionParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleConditionsSubconditionParameterArgsDict']]]]]
     """
     Parameter for the sub-condition. It requires both a `path` and `value` to be set.
     """
@@ -7876,11 +7876,11 @@ class RulesetRuleConditionsSubconditionParameterArgs:
 
 
 class RulesetRuleTimeFrameArgsDict(TypedDict):
-    active_betweens: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleTimeFrameActiveBetweenArgs']]]]]
+    active_betweens: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleTimeFrameActiveBetweenArgsDict']]]]]
     """
     Values for executing the rule during a specific time period.
     """
-    scheduled_weeklies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleTimeFrameScheduledWeeklyArgs']]]]]
+    scheduled_weeklies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleTimeFrameScheduledWeeklyArgsDict']]]]]
     """
     Values for executing the rule on a recurring schedule.
     """
@@ -8057,7 +8057,7 @@ class RulesetRuleTimeFrameScheduledWeeklyArgs:
 
 class RulesetRuleVariableArgsDict(TypedDict):
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleVariableParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesetRuleVariableParameterArgsDict']]]]]
     type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
@@ -8243,7 +8243,7 @@ class ScheduleLayerArgsDict(TypedDict):
     The name of the schedule layer.
     """
     rendered_coverage_percentage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleLayerRestrictionArgs']]]]]
+    restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleLayerRestrictionArgsDict']]]]]
     """
     A schedule layer restriction block. Restriction blocks documented below.
     """
@@ -8478,7 +8478,7 @@ class ScheduleLayerRestrictionArgs:
 
 
 class Schedulev2RotationArgsDict(TypedDict):
-    events: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Schedulev2RotationEventArgs']]]]]
+    events: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Schedulev2RotationEventArgsDict']]]]]
     """
     One or more event blocks defining on-call periods within this rotation. Events documented below.
     """
@@ -8553,7 +8553,7 @@ class Schedulev2RotationEventArgsDict(TypedDict):
     """
     The shift start time in ISO-8601 format (e.g. `2026-06-01T09:00:00Z`). The v3 API normalizes this to UTC.
     """
-    assignment_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Schedulev2RotationEventAssignmentStrategyArgs']]]]]
+    assignment_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Schedulev2RotationEventAssignmentStrategyArgsDict']]]]]
     """
     A block defining how on-call responsibility is assigned. Assignment strategy documented below.
     """
@@ -8711,7 +8711,7 @@ class Schedulev2RotationEventAssignmentStrategyArgsDict(TypedDict):
 
     > **Breaking change:** The previous value `"user_assignment_strategy"` is no longer valid. Use `"rotating_member_assignment_strategy"` instead.
     """
-    members: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Schedulev2RotationEventAssignmentStrategyMemberArgs']]]]]
+    members: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Schedulev2RotationEventAssignmentStrategyMemberArgsDict']]]]]
     """
     One or more member blocks identifying who is on call. Required for both strategy types. Maximum 20 members. Members documented below.
     """
@@ -8831,7 +8831,7 @@ class Schedulev2RotationEventAssignmentStrategyMemberArgs:
 
 
 class ServiceAlertGroupingParametersArgsDict(TypedDict):
-    config: NotRequired[pulumi.Input[Optional['ServiceAlertGroupingParametersConfigArgs']]]
+    config: NotRequired[pulumi.Input[Optional['ServiceAlertGroupingParametersConfigArgsDict']]]
     """
     Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
     """
@@ -9312,31 +9312,31 @@ class ServiceDependencyDependencySupportingServiceArgs:
 
 
 class ServiceEventRuleActionsArgsDict(TypedDict):
-    annotates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleActionsAnnotateArgs']]]]]
+    annotates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleActionsAnnotateArgsDict']]]]]
     """
     Note added to the event.
     """
-    event_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleActionsEventActionArgs']]]]]
+    event_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleActionsEventActionArgsDict']]]]]
     """
     An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
     """
-    extractions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleActionsExtractionArgs']]]]]
+    extractions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleActionsExtractionArgsDict']]]]]
     """
     Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
     """
-    priorities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleActionsPriorityArgs']]]]]
+    priorities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleActionsPriorityArgsDict']]]]]
     """
     The ID of the priority applied to the event.
     """
-    severities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleActionsSeverityArgs']]]]]
+    severities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleActionsSeverityArgsDict']]]]]
     """
     The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
     """
-    suppresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleActionsSuppressArgs']]]]]
+    suppresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleActionsSuppressArgsDict']]]]]
     """
     Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
     """
-    suspends: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleActionsSuspendArgs']]]]]
+    suspends: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleActionsSuspendArgsDict']]]]]
     """
     An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
     """
@@ -9755,7 +9755,7 @@ class ServiceEventRuleConditionsArgsDict(TypedDict):
     """
     Operator to combine sub-conditions. Can be `and` or `or`.
     """
-    subconditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleConditionsSubconditionArgs']]]]]
+    subconditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleConditionsSubconditionArgsDict']]]]]
     """
     List of sub-conditions that define the condition.
     """
@@ -9804,7 +9804,7 @@ class ServiceEventRuleConditionsSubconditionArgsDict(TypedDict):
     """
     Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleConditionsSubconditionParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleConditionsSubconditionParameterArgsDict']]]]]
     """
     Parameter for the sub-condition. It requires both a `path` and `value` to be set. The `path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
     """
@@ -9891,11 +9891,11 @@ class ServiceEventRuleConditionsSubconditionParameterArgs:
 
 
 class ServiceEventRuleTimeFrameArgsDict(TypedDict):
-    active_betweens: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleTimeFrameActiveBetweenArgs']]]]]
+    active_betweens: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleTimeFrameActiveBetweenArgsDict']]]]]
     """
     Values for executing the rule during a specific time period.
     """
-    scheduled_weeklies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleTimeFrameScheduledWeeklyArgs']]]]]
+    scheduled_weeklies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleTimeFrameScheduledWeeklyArgsDict']]]]]
     """
     Values for executing the rule on a recurring schedule.
     """
@@ -10082,7 +10082,7 @@ class ServiceEventRuleVariableArgsDict(TypedDict):
     """
     The name of the variable.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleVariableParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEventRuleVariableParameterArgsDict']]]]]
     """
     The parameters for performing the operation to populate the variable.
     """
@@ -10193,11 +10193,11 @@ class ServiceIncidentUrgencyRuleArgsDict(TypedDict):
     """
     The type of incident urgency: `constant` or `use_support_hours` (when depending on specific support hours; see `support_hours`).
     """
-    during_support_hours: NotRequired[pulumi.Input[Optional['ServiceIncidentUrgencyRuleDuringSupportHoursArgs']]]
+    during_support_hours: NotRequired[pulumi.Input[Optional['ServiceIncidentUrgencyRuleDuringSupportHoursArgsDict']]]
     """
     Incidents' urgency during support hours.
     """
-    outside_support_hours: NotRequired[pulumi.Input[Optional['ServiceIncidentUrgencyRuleOutsideSupportHoursArgs']]]
+    outside_support_hours: NotRequired[pulumi.Input[Optional['ServiceIncidentUrgencyRuleOutsideSupportHoursArgsDict']]]
     """
     Incidents' urgency outside support hours.
     """
@@ -10533,7 +10533,7 @@ class ServiceIntegrationEmailParserArgsDict(TypedDict):
     """
     The ID of the service integration.
     """
-    value_extractors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceIntegrationEmailParserValueExtractorArgs']]]]]
+    value_extractors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceIntegrationEmailParserValueExtractorArgsDict']]]]]
 
 @pulumi.input_type
 class ServiceIntegrationEmailParserArgs:
@@ -10601,7 +10601,7 @@ class ServiceIntegrationEmailParserMatchPredicateArgsDict(TypedDict):
     """
     Can be `any` or `all`.
     """
-    predicates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceIntegrationEmailParserMatchPredicatePredicateArgs']]]]]
+    predicates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceIntegrationEmailParserMatchPredicatePredicateArgsDict']]]]]
 
 @pulumi.input_type
 class ServiceIntegrationEmailParserMatchPredicateArgs:
@@ -10650,7 +10650,7 @@ class ServiceIntegrationEmailParserMatchPredicatePredicateArgsDict(TypedDict):
     """
     Can be `subject`, `body` or `from_addresses`.
     """
-    predicates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs']]]]]
+    predicates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgsDict']]]]]
 
 @pulumi.input_type
 class ServiceIntegrationEmailParserMatchPredicatePredicateArgs:
@@ -10903,7 +10903,7 @@ class ServiceIntegrationEmailParserValueExtractorArgs:
 
 
 class ServiceScheduledActionArgsDict(TypedDict):
-    ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceScheduledActionAtArgs']]]]]
+    ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceScheduledActionAtArgsDict']]]]]
     """
     A block representing when the scheduled action will occur.
     """
@@ -11481,7 +11481,7 @@ class UserNotificationRuleContactMethodArgs:
 
 
 class WebhookSubscriptionDeliveryMethodArgsDict(TypedDict):
-    custom_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodCustomHeaderArgs']]]]]
+    custom_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodCustomHeaderArgsDict']]]]]
     """
     The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
     """

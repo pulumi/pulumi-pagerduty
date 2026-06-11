@@ -177,6 +177,8 @@ import * as utilities from "./utilities";
  * ```sh
  * $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7
  * ```
+ *
+ * > **Note:** If Terraform reports an error like _"has existing configuration that might be overwritten; please import this resource before creating it"_, the service orchestration path already has rules or non-default catch-all settings that Terraform does not yet manage. Run the import command above to bring that existing configuration into your Terraform state, then re-run `pulumi up`.
  */
 export class EventOrchestrationService extends pulumi.CustomResource {
     /**

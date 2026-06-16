@@ -1376,6 +1376,30 @@
             }
         }
     },
+    "default-resource-schema-fixups": {
+        "resources": {
+            "pagerduty_addon": {},
+            "pagerduty_alert_grouping_setting": {},
+            "pagerduty_business_service": {},
+            "pagerduty_enablement": {},
+            "pagerduty_extension": {},
+            "pagerduty_extension_servicenow": {},
+            "pagerduty_incident_type": {},
+            "pagerduty_incident_type_custom_field": {},
+            "pagerduty_jira_cloud_account_mapping_rule": {},
+            "pagerduty_schedulev2": {},
+            "pagerduty_service_custom_field": {},
+            "pagerduty_service_custom_field_value": {},
+            "pagerduty_service_dependency": {},
+            "pagerduty_tag": {},
+            "pagerduty_tag_assignment": {},
+            "pagerduty_team": {},
+            "pagerduty_team_membership": {},
+            "pagerduty_user_contact_method": {},
+            "pagerduty_user_handoff_notification_rule": {},
+            "pagerduty_user_notification_rule": {}
+        }
+    },
     "mux": {
         "resources": {
             "pagerduty:index/addon:Addon": 1,

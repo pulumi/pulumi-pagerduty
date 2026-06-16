@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.EscalationPolicy;
  * import com.pulumi.pagerduty.EscalationPolicyArgs;
  * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+ * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleTargetArgs;
  * import com.pulumi.pagerduty.Service;
  * import com.pulumi.pagerduty.ServiceArgs;
  * import com.pulumi.pagerduty.ExtensionServiceNow;

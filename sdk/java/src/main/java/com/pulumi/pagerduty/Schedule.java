@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.Schedule;
  * import com.pulumi.pagerduty.ScheduleArgs;
  * import com.pulumi.pagerduty.inputs.ScheduleLayerArgs;
+ * import com.pulumi.pagerduty.inputs.ScheduleLayerRestrictionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

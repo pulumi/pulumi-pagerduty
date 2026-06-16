@@ -50,6 +50,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.EscalationPolicy;
  * import com.pulumi.pagerduty.EscalationPolicyArgs;
  * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+ * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleTargetArgs;
  * import com.pulumi.pagerduty.ResponsePlay;
  * import com.pulumi.pagerduty.ResponsePlayArgs;
  * import com.pulumi.pagerduty.inputs.ResponsePlayResponderArgs;

@@ -36,6 +36,7 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
      * import com.pulumi.pagerduty.inputs.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs;
      * import com.pulumi.pagerduty.inputs.ServiceSupportHoursArgs;
      * import com.pulumi.pagerduty.inputs.ServiceScheduledActionArgs;
+     * import com.pulumi.pagerduty.inputs.ServiceScheduledActionAtArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -118,6 +119,7 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
      * import com.pulumi.pagerduty.inputs.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs;
      * import com.pulumi.pagerduty.inputs.ServiceSupportHoursArgs;
      * import com.pulumi.pagerduty.inputs.ServiceScheduledActionArgs;
+     * import com.pulumi.pagerduty.inputs.ServiceScheduledActionAtArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -241,6 +243,7 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
          * import com.pulumi.pagerduty.inputs.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs;
          * import com.pulumi.pagerduty.inputs.ServiceSupportHoursArgs;
          * import com.pulumi.pagerduty.inputs.ServiceScheduledActionArgs;
+         * import com.pulumi.pagerduty.inputs.ServiceScheduledActionAtArgs;
          * import java.util.ArrayList;
          * import java.util.Arrays;
          * import java.util.Map;
@@ -327,6 +330,7 @@ public final class ServiceScheduledActionAtArgs extends com.pulumi.resources.Res
          * import com.pulumi.pagerduty.inputs.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs;
          * import com.pulumi.pagerduty.inputs.ServiceSupportHoursArgs;
          * import com.pulumi.pagerduty.inputs.ServiceScheduledActionArgs;
+         * import com.pulumi.pagerduty.inputs.ServiceScheduledActionAtArgs;
          * import java.util.ArrayList;
          * import java.util.Arrays;
          * import java.util.Map;

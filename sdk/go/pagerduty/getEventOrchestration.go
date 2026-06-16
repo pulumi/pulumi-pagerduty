@@ -38,7 +38,7 @@ import (
 //			}, nil)
 //			_, err = pagerduty.NewEventOrchestrationUnrouted(ctx, "unrouted", &pagerduty.EventOrchestrationUnroutedArgs{
 //				EventOrchestration: pulumi.String(tfMyMonitor.ApplyT(func(tfMyMonitor pagerduty.GetEventOrchestrationResult) (*string, error) {
-//					return &tfMyMonitor.Id, nil
+//					return tfMyMonitor.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				CatchAll: &pagerduty.EventOrchestrationUnroutedCatchAllArgs{
 //					Actions: &pagerduty.EventOrchestrationUnroutedCatchAllActionsArgs{
@@ -55,7 +55,7 @@ import (
 //										&pagerduty.EventOrchestrationUnroutedSetRuleActionsExtractionArgs{
 //											Target: pulumi.String("event.custom_details.integration_type"),
 //											Template: tfMyMonitor.ApplyT(func(tfMyMonitor pagerduty.GetEventOrchestrationResult) (*string, error) {
-//												return &tfMyMonitor.IntegrationDetail[0].Parameters[0].Type, nil
+//												return tfMyMonitor.IntegrationDetail[0].Parameters[0].Type, nil
 //											}).(pulumi.StringPtrOutput),
 //										},
 //									},

@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.EscalationPolicy;
  * import com.pulumi.pagerduty.EscalationPolicyArgs;
  * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+ * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleTargetArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

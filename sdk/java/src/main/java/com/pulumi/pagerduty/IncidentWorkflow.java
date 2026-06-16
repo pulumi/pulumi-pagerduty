@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.IncidentWorkflow;
  * import com.pulumi.pagerduty.IncidentWorkflowArgs;
  * import com.pulumi.pagerduty.inputs.IncidentWorkflowStepArgs;
+ * import com.pulumi.pagerduty.inputs.IncidentWorkflowStepInputArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

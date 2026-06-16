@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.WebhookSubscription;
  * import com.pulumi.pagerduty.WebhookSubscriptionArgs;
  * import com.pulumi.pagerduty.inputs.WebhookSubscriptionDeliveryMethodArgs;
+ * import com.pulumi.pagerduty.inputs.WebhookSubscriptionDeliveryMethodCustomHeaderArgs;
  * import com.pulumi.pagerduty.inputs.WebhookSubscriptionFilterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;

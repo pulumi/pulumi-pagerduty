@@ -32,6 +32,7 @@ public final class ServiceScheduledActionAt {
      * import com.pulumi.pagerduty.inputs.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs;
      * import com.pulumi.pagerduty.inputs.ServiceSupportHoursArgs;
      * import com.pulumi.pagerduty.inputs.ServiceScheduledActionArgs;
+     * import com.pulumi.pagerduty.inputs.ServiceScheduledActionAtArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -119,6 +120,7 @@ public final class ServiceScheduledActionAt {
      * import com.pulumi.pagerduty.inputs.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs;
      * import com.pulumi.pagerduty.inputs.ServiceSupportHoursArgs;
      * import com.pulumi.pagerduty.inputs.ServiceScheduledActionArgs;
+     * import com.pulumi.pagerduty.inputs.ServiceScheduledActionAtArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

@@ -19,7 +19,16 @@ import javax.annotation.Nullable;
 /**
  * A [v3 schedule](https://developer.pagerduty.com/api-reference/d90c4c94e3ce2-create-a-schedule) determines the time periods that users are on call using flexible rotation configurations. This resource uses the PagerDuty v3 Schedules API, which supports per-event assignment strategies and RFC 5545 recurrence rules.
  * 
- * &gt; **Note:** This resource requires the `flexible-schedules-early-access` early access flag on your PagerDuty account. The required `X-Early-Access` header is sent automatically by the provider.
+ * ## Schedule versions and resource naming
+ * 
+ * The Terraform resource names do not line up one-to-one with the API version numbers, which is a common source of confusion. The table below maps the two:
+ * 
+ * | Schedule type        | Terraform resource     | API version            |
+ * | -------------------- | ---------------------- | ---------------------- |
+ * | Legacy schedule      | `pagerduty.Schedule`   | v2 (Accept header)     |
+ * | Shift-based schedule | `pagerduty.Schedulev2` | v3 (in the URL path)   |
+ * 
+ * `pagerduty.Schedule` manages the legacy schedule (now deprecated); `pagerduty.Schedulev2` manages the newer shift-based schedule. In the UI, legacy schedules are marked with a `legacy` tag on the schedules list page.
  * 
  * ## Example Usage
  * 
@@ -156,6 +165,158 @@ import javax.annotation.Nullable;
  * }}{@code
  * }
  * </pre>
+ * 
+ * ## Migrating from `pagerduty.Schedule`
+ * 
+ * The legacy `pagerduty.Schedule` resource models on-call coverage with `layer` blocks (a list of `users` rotating on a fixed `rotationTurnLengthSeconds`, optionally constrained by `restriction` blocks). The shift-based `pagerduty.Schedulev2` resource models the same coverage with `rotation` → `event` blocks, where an `assignmentStrategy` decides how the listed `member`s cover each occurrence of an RFC 5545 `recurrence`.
+ * 
+ * The most common legacy shape is a single layer with several users handing off once per week (a 24/7 weekly rotation) and one or more team associations. The example below shows that shape before and after migration.
+ * 
+ * **Before** — legacy `pagerduty.Schedule` (single `OnCall` layer, six users, weekly handoff, two teams):
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pagerduty.Schedule;
+ * import com.pulumi.pagerduty.ScheduleArgs;
+ * import com.pulumi.pagerduty.inputs.ScheduleLayerArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleOncall = new Schedule("exampleOncall", ScheduleArgs.builder()
+ *             .name("Example OnCall Schedule")
+ *             .description("A Example OnCall Schedule.")
+ *             .timeZone("Europe/Amsterdam")
+ *             .layers(ScheduleLayerArgs.builder()
+ *                 .name("OnCall")
+ *                 .start("2024-06-24T00:00:00-00:00")
+ *                 .rotationVirtualStart("2025-03-17T07:00:00+02:00")
+ *                 .rotationTurnLengthSeconds(604800)
+ *                 .users(                
+ *                     user1.id(),
+ *                     user2.id(),
+ *                     user3.id(),
+ *                     user4.id(),
+ *                     user5.id(),
+ *                     user6.id())
+ *                 .build())
+ *             .teams(            
+ *                 k8sPlatform.id(),
+ *                 k8sOperational.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * **After** — equivalent `pagerduty.Schedulev2`:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pagerduty.Schedulev2;
+ * import com.pulumi.pagerduty.Schedulev2Args;
+ * import com.pulumi.pagerduty.inputs.Schedulev2RotationArgs;
+ * import com.pulumi.pagerduty.inputs.Schedulev2RotationEventArgs;
+ * import com.pulumi.pagerduty.inputs.Schedulev2RotationEventAssignmentStrategyArgs;
+ * import com.pulumi.pagerduty.inputs.Schedulev2RotationEventAssignmentStrategyMemberArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleOncall = new Schedulev2("exampleOncall", Schedulev2Args.builder()
+ *             .name("Example OnCall Schedule")
+ *             .description("A Example OnCall Schedule.")
+ *             .timeZone("Europe/Amsterdam")
+ *             .teams(            
+ *                 k8sPlatform.id(),
+ *                 k8sOperational.id())
+ *             .rotations(Schedulev2RotationArgs.builder()
+ *                 .events(Schedulev2RotationEventArgs.builder()
+ *                     .name("OnCall")
+ *                     .startTime("2025-03-17T07:00:00+02:00")
+ *                     .endTime("2025-03-24T07:00:00+02:00")
+ *                     .effectiveSince("2025-03-17T07:00:00+02:00")
+ *                     .recurrences("RRULE:FREQ=WEEKLY")
+ *                     .assignmentStrategies(Schedulev2RotationEventAssignmentStrategyArgs.builder()
+ *                         .type("rotating_member_assignment_strategy")
+ *                         .shiftsPerMember(1)
+ *                         .members(                        
+ *                             Schedulev2RotationEventAssignmentStrategyMemberArgs.builder()
+ *                                 .type("user_member")
+ *                                 .userId(user1.id())
+ *                                 .build(),
+ *                             Schedulev2RotationEventAssignmentStrategyMemberArgs.builder()
+ *                                 .type("user_member")
+ *                                 .userId(user2.id())
+ *                                 .build(),
+ *                             Schedulev2RotationEventAssignmentStrategyMemberArgs.builder()
+ *                                 .type("user_member")
+ *                                 .userId(user3.id())
+ *                                 .build(),
+ *                             Schedulev2RotationEventAssignmentStrategyMemberArgs.builder()
+ *                                 .type("user_member")
+ *                                 .userId(user4.id())
+ *                                 .build(),
+ *                             Schedulev2RotationEventAssignmentStrategyMemberArgs.builder()
+ *                                 .type("user_member")
+ *                                 .userId(user5.id())
+ *                                 .build(),
+ *                             Schedulev2RotationEventAssignmentStrategyMemberArgs.builder()
+ *                                 .type("user_member")
+ *                                 .userId(user6.id())
+ *                                 .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * Field mapping:
+ * 
+ * | Legacy (`pagerduty.Schedule`)         | Shift-based (`pagerduty.Schedulev2`)                                  |
+ * | ------------------------------------- | -------------------------------------------------------------------- |
+ * | `layer`                               | `rotation` (one `rotation` per layer)                                |
+ * | `layer.name`                          | `rotation.event.name`                                                |
+ * | `layer.users`                         | `assignment_strategy.member` (one `member` per user)                 |
+ * | `layer.rotation_turn_length_seconds`  | `event.start_time`/`endTime` window + `recurrence` (e.g. one week → 7-day window + `RRULE:FREQ=WEEKLY`) |
+ * | `layer.rotation_virtual_start`        | `event.start_time` / `effectiveSince`                               |
+ * | `layer.restriction`                   | a narrower `event` window plus a `BYDAY`/`BYHOUR` `RRULE`            |
+ * | `teams`                               | `teams` (unchanged)                                                  |
+ * 
+ * &gt; **Note:** Multiple members rotate when `assignment_strategy.type` is `&#34;rotatingMemberAssignmentStrategy&#34;`; use `&#34;everyMemberAssignmentStrategy&#34;` when everyone should be on call simultaneously. To reproduce a legacy `restriction` (e.g. weekday business hours), narrow the `event` window and encode the days/hours in the `RRULE` — see the *Rotating member assignment* example above.
  * 
  * ## Import
  * 

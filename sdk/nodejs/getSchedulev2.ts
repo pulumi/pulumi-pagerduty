@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to look up a specific [v3 schedule](https://developer.pagerduty.com/api-reference/e792b51909787-create-a-schedule) by name so you can reference its ID in other resources such as escalation policies.
- *
- * > **Note:** This data source requires the `flexible-schedules-early-access` early access flag on your PagerDuty account. The required `X-Early-Access` header is sent automatically by the provider.
+ * Use this data source to look up a specific [v3 schedule](https://developer.pagerduty.com/api-reference/e792b51909787-create-a-schedule) by name so you can reference its ID in other resources such as escalation policies. This data source looks up shift-based (v3) schedules; for legacy schedules use the [`pagerduty.Schedule`](https://www.terraform.io/docs/providers/pagerduty/d/schedule.html) data source.
  *
  * ## Example Usage
  *
@@ -62,9 +60,7 @@ export interface GetSchedulev2Result {
     readonly name: string;
 }
 /**
- * Use this data source to look up a specific [v3 schedule](https://developer.pagerduty.com/api-reference/e792b51909787-create-a-schedule) by name so you can reference its ID in other resources such as escalation policies.
- *
- * > **Note:** This data source requires the `flexible-schedules-early-access` early access flag on your PagerDuty account. The required `X-Early-Access` header is sent automatically by the provider.
+ * Use this data source to look up a specific [v3 schedule](https://developer.pagerduty.com/api-reference/e792b51909787-create-a-schedule) by name so you can reference its ID in other resources such as escalation policies. This data source looks up shift-based (v3) schedules; for legacy schedules use the [`pagerduty.Schedule`](https://www.terraform.io/docs/providers/pagerduty/d/schedule.html) data source.
  *
  * ## Example Usage
  *

@@ -12,7 +12,16 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [v3 schedule](https://developer.pagerduty.com/api-reference/d90c4c94e3ce2-create-a-schedule) determines the time periods that users are on call using flexible rotation configurations. This resource uses the PagerDuty v3 Schedules API, which supports per-event assignment strategies and RFC 5545 recurrence rules.
     /// 
-    /// &gt; **Note:** This resource requires the `flexible-schedules-early-access` early access flag on your PagerDuty account. The required `X-Early-Access` header is sent automatically by the provider.
+    /// ## Schedule versions and resource naming
+    /// 
+    /// The Terraform resource names do not line up one-to-one with the API version numbers, which is a common source of confusion. The table below maps the two:
+    /// 
+    /// | Schedule type        | Terraform resource     | API version            |
+    /// | -------------------- | ---------------------- | ---------------------- |
+    /// | Legacy schedule      | `pagerduty.Schedule`   | v2 (Accept header)     |
+    /// | Shift-based schedule | `pagerduty.Schedulev2` | v3 (in the URL path)   |
+    /// 
+    /// `pagerduty.Schedule` manages the legacy schedule (now deprecated); `pagerduty.Schedulev2` manages the newer shift-based schedule. In the UI, legacy schedules are marked with a `Legacy` tag on the schedules list page.
     /// 
     /// ## Example Usage
     /// 
@@ -148,6 +157,156 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Migrating from `pagerduty.Schedule`
+    /// 
+    /// The legacy `pagerduty.Schedule` resource models on-call coverage with `Layer` blocks (a list of `Users` rotating on a fixed `RotationTurnLengthSeconds`, optionally constrained by `Restriction` blocks). The shift-based `pagerduty.Schedulev2` resource models the same coverage with `Rotation` → `Event` blocks, where an `AssignmentStrategy` decides how the listed `Member`s cover each occurrence of an RFC 5545 `Recurrence`.
+    /// 
+    /// The most common legacy shape is a single layer with several users handing off once per week (a 24/7 weekly rotation) and one or more team associations. The example below shows that shape before and after migration.
+    /// 
+    /// **Before** — legacy `pagerduty.Schedule` (single `OnCall` layer, six users, weekly handoff, two teams):
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleOncall = new Pagerduty.Schedule("example_oncall", new()
+    ///     {
+    ///         Name = "Example OnCall Schedule",
+    ///         Description = "A Example OnCall Schedule.",
+    ///         TimeZone = "Europe/Amsterdam",
+    ///         Layers = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.ScheduleLayerArgs
+    ///             {
+    ///                 Name = "OnCall",
+    ///                 Start = "2024-06-24T00:00:00-00:00",
+    ///                 RotationVirtualStart = "2025-03-17T07:00:00+02:00",
+    ///                 RotationTurnLengthSeconds = 604800,
+    ///                 Users = new[]
+    ///                 {
+    ///                     user1.Id,
+    ///                     user2.Id,
+    ///                     user3.Id,
+    ///                     user4.Id,
+    ///                     user5.Id,
+    ///                     user6.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Teams = new[]
+    ///         {
+    ///             k8sPlatform.Id,
+    ///             k8sOperational.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// **After** — equivalent `pagerduty.Schedulev2`:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleOncall = new Pagerduty.Schedulev2("example_oncall", new()
+    ///     {
+    ///         Name = "Example OnCall Schedule",
+    ///         Description = "A Example OnCall Schedule.",
+    ///         TimeZone = "Europe/Amsterdam",
+    ///         Teams = new[]
+    ///         {
+    ///             k8sPlatform.Id,
+    ///             k8sOperational.Id,
+    ///         },
+    ///         Rotations = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.Schedulev2RotationArgs
+    ///             {
+    ///                 Events = new[]
+    ///                 {
+    ///                     new Pagerduty.Inputs.Schedulev2RotationEventArgs
+    ///                     {
+    ///                         Name = "OnCall",
+    ///                         StartTime = "2025-03-17T07:00:00+02:00",
+    ///                         EndTime = "2025-03-24T07:00:00+02:00",
+    ///                         EffectiveSince = "2025-03-17T07:00:00+02:00",
+    ///                         Recurrences = new[]
+    ///                         {
+    ///                             "RRULE:FREQ=WEEKLY",
+    ///                         },
+    ///                         AssignmentStrategies = new[]
+    ///                         {
+    ///                             new Pagerduty.Inputs.Schedulev2RotationEventAssignmentStrategyArgs
+    ///                             {
+    ///                                 Type = "rotating_member_assignment_strategy",
+    ///                                 ShiftsPerMember = 1,
+    ///                                 Members = new[]
+    ///                                 {
+    ///                                     new Pagerduty.Inputs.Schedulev2RotationEventAssignmentStrategyMemberArgs
+    ///                                     {
+    ///                                         Type = "user_member",
+    ///                                         UserId = user1.Id,
+    ///                                     },
+    ///                                     new Pagerduty.Inputs.Schedulev2RotationEventAssignmentStrategyMemberArgs
+    ///                                     {
+    ///                                         Type = "user_member",
+    ///                                         UserId = user2.Id,
+    ///                                     },
+    ///                                     new Pagerduty.Inputs.Schedulev2RotationEventAssignmentStrategyMemberArgs
+    ///                                     {
+    ///                                         Type = "user_member",
+    ///                                         UserId = user3.Id,
+    ///                                     },
+    ///                                     new Pagerduty.Inputs.Schedulev2RotationEventAssignmentStrategyMemberArgs
+    ///                                     {
+    ///                                         Type = "user_member",
+    ///                                         UserId = user4.Id,
+    ///                                     },
+    ///                                     new Pagerduty.Inputs.Schedulev2RotationEventAssignmentStrategyMemberArgs
+    ///                                     {
+    ///                                         Type = "user_member",
+    ///                                         UserId = user5.Id,
+    ///                                     },
+    ///                                     new Pagerduty.Inputs.Schedulev2RotationEventAssignmentStrategyMemberArgs
+    ///                                     {
+    ///                                         Type = "user_member",
+    ///                                         UserId = user6.Id,
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Field mapping:
+    /// 
+    /// | Legacy (`pagerduty.Schedule`)         | Shift-based (`pagerduty.Schedulev2`)                                  |
+    /// | ------------------------------------- | -------------------------------------------------------------------- |
+    /// | `Layer`                               | `Rotation` (one `Rotation` per layer)                                |
+    /// | `layer.name`                          | `rotation.event.name`                                                |
+    /// | `layer.users`                         | `assignment_strategy.member` (one `Member` per user)                 |
+    /// | `layer.rotation_turn_length_seconds`  | `event.start_time`/`EndTime` window + `Recurrence` (e.g. one week → 7-day window + `RRULE:FREQ=WEEKLY`) |
+    /// | `layer.rotation_virtual_start`        | `event.start_time` / `EffectiveSince`                               |
+    /// | `layer.restriction`                   | a narrower `Event` window plus a `BYDAY`/`BYHOUR` `RRULE`            |
+    /// | `Teams`                               | `Teams` (unchanged)                                                  |
+    /// 
+    /// &gt; **Note:** Multiple members rotate when `assignment_strategy.type` is `"RotatingMemberAssignmentStrategy"`; use `"EveryMemberAssignmentStrategy"` when everyone should be on call simultaneously. To reproduce a legacy `Restriction` (e.g. weekday business hours), narrow the `Event` window and encode the days/hours in the `RRULE` — see the *Rotating member assignment* example above.
     /// 
     /// ## Import
     /// 

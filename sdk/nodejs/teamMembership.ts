@@ -67,7 +67,7 @@ export class TeamMembership extends pulumi.CustomResource {
     }
 
     /**
-     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
      * These roles match up to user roles in the following ways:
      * * User role of `user` is a Team role of `manager`
      * * User role of `limitedUser` is a Team role of `responder`
@@ -120,7 +120,7 @@ export class TeamMembership extends pulumi.CustomResource {
  */
 export interface TeamMembershipState {
     /**
-     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
      * These roles match up to user roles in the following ways:
      * * User role of `user` is a Team role of `manager`
      * * User role of `limitedUser` is a Team role of `responder`
@@ -141,7 +141,7 @@ export interface TeamMembershipState {
  */
 export interface TeamMembershipArgs {
     /**
-     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
      * These roles match up to user roles in the following ways:
      * * User role of `user` is a Team role of `manager`
      * * User role of `limitedUser` is a Team role of `responder`

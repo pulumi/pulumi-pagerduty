@@ -27,7 +27,7 @@ class TeamMembershipArgs:
 
         :param pulumi.Input[_builtins.str] team_id: The ID of the team in which the user will belong.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user to add to the team.
-        :param pulumi.Input[_builtins.str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+        :param pulumi.Input[_builtins.str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\\
                These roles match up to user roles in the following ways:
                * User role of `user` is a Team role of `manager`
                * User role of `limited_user` is a Team role of `responder`
@@ -65,7 +65,7 @@ class TeamMembershipArgs:
     @pulumi.getter
     def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+        The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\\
         These roles match up to user roles in the following ways:
         * User role of `user` is a Team role of `manager`
         * User role of `limited_user` is a Team role of `responder`
@@ -86,7 +86,7 @@ class _TeamMembershipState:
         """
         Input properties used for looking up and filtering TeamMembership resources.
 
-        :param pulumi.Input[_builtins.str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+        :param pulumi.Input[_builtins.str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\\
                These roles match up to user roles in the following ways:
                * User role of `user` is a Team role of `manager`
                * User role of `limited_user` is a Team role of `responder`
@@ -104,7 +104,7 @@ class _TeamMembershipState:
     @pulumi.getter
     def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+        The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\\
         These roles match up to user roles in the following ways:
         * User role of `user` is a Team role of `manager`
         * User role of `limited_user` is a Team role of `responder`
@@ -184,7 +184,7 @@ class TeamMembership(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+        :param pulumi.Input[_builtins.str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\\
                These roles match up to user roles in the following ways:
                * User role of `user` is a Team role of `manager`
                * User role of `limited_user` is a Team role of `responder`
@@ -283,7 +283,7 @@ class TeamMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+        :param pulumi.Input[_builtins.str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\\
                These roles match up to user roles in the following ways:
                * User role of `user` is a Team role of `manager`
                * User role of `limited_user` is a Team role of `responder`
@@ -303,7 +303,7 @@ class TeamMembership(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[_builtins.str]:
         """
-        The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+        The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\\
         These roles match up to user roles in the following ways:
         * User role of `user` is a Team role of `manager`
         * User role of `limited_user` is a Team role of `responder`

@@ -31,7 +31,7 @@ class WebhookSubscriptionArgs:
         The set of arguments for constructing a WebhookSubscription resource.
 
         :param pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]] delivery_methods: The object describing where to send the webhooks.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A set of outbound event types the webhook will receive. The follow event types are possible: 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A set of outbound event types the webhook will receive. The follow event types are possible:
                * `incident.acknowledged`
                * `incident.annotated`
                * `incident.delegated`
@@ -76,7 +76,7 @@ class WebhookSubscriptionArgs:
     @pulumi.getter
     def events(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A set of outbound event types the webhook will receive. The follow event types are possible: 
+        A set of outbound event types the webhook will receive. The follow event types are possible:
         * `incident.acknowledged`
         * `incident.annotated`
         * `incident.delegated`
@@ -161,7 +161,7 @@ class _WebhookSubscriptionState:
         :param pulumi.Input[_builtins.bool] active: Determines whether the subscription will produce webhook events.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]] delivery_methods: The object describing where to send the webhooks.
         :param pulumi.Input[_builtins.str] description: A short description of the webhook subscription
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A set of outbound event types the webhook will receive. The follow event types are possible: 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A set of outbound event types the webhook will receive. The follow event types are possible:
                * `incident.acknowledged`
                * `incident.annotated`
                * `incident.delegated`
@@ -231,7 +231,7 @@ class _WebhookSubscriptionState:
     @pulumi.getter
     def events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A set of outbound event types the webhook will receive. The follow event types are possible: 
+        A set of outbound event types the webhook will receive. The follow event types are possible:
         * `incident.acknowledged`
         * `incident.annotated`
         * `incident.delegated`
@@ -353,7 +353,7 @@ class WebhookSubscription(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] active: Determines whether the subscription will produce webhook events.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionDeliveryMethodArgs', 'WebhookSubscriptionDeliveryMethodArgsDict']]]] delivery_methods: The object describing where to send the webhooks.
         :param pulumi.Input[_builtins.str] description: A short description of the webhook subscription
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A set of outbound event types the webhook will receive. The follow event types are possible: 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A set of outbound event types the webhook will receive. The follow event types are possible:
                * `incident.acknowledged`
                * `incident.annotated`
                * `incident.delegated`
@@ -502,7 +502,7 @@ class WebhookSubscription(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] active: Determines whether the subscription will produce webhook events.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookSubscriptionDeliveryMethodArgs', 'WebhookSubscriptionDeliveryMethodArgsDict']]]] delivery_methods: The object describing where to send the webhooks.
         :param pulumi.Input[_builtins.str] description: A short description of the webhook subscription
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A set of outbound event types the webhook will receive. The follow event types are possible: 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A set of outbound event types the webhook will receive. The follow event types are possible:
                * `incident.acknowledged`
                * `incident.annotated`
                * `incident.delegated`
@@ -559,7 +559,7 @@ class WebhookSubscription(pulumi.CustomResource):
     @pulumi.getter
     def events(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A set of outbound event types the webhook will receive. The follow event types are possible: 
+        A set of outbound event types the webhook will receive. The follow event types are possible:
         * `incident.acknowledged`
         * `incident.annotated`
         * `incident.delegated`

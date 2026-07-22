@@ -82,8 +82,6 @@ type GetStandardsResourcesScoresArgs struct {
 
 // A collection of values returned by getStandardsResourcesScores.
 type GetStandardsResourcesScoresResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id  string   `pulumi:"id"`
 	Ids []string `pulumi:"ids"`
 	// Specifies the type of resource to which the standard applies.
 	ResourceType string `pulumi:"resourceType"`
@@ -125,11 +123,6 @@ func (o GetStandardsResourcesScoresResultOutput) ToGetStandardsResourcesScoresRe
 
 func (o GetStandardsResourcesScoresResultOutput) ToGetStandardsResourcesScoresResultOutputWithContext(ctx context.Context) GetStandardsResourcesScoresResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetStandardsResourcesScoresResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetStandardsResourcesScoresResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetStandardsResourcesScoresResultOutput) Ids() pulumi.StringArrayOutput {

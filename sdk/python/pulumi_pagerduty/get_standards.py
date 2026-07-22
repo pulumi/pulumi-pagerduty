@@ -27,24 +27,13 @@ class GetStandardsResult:
     """
     A collection of values returned by getStandards.
     """
-    def __init__(__self__, id=None, resource_type=None, standards=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, resource_type=None, standards=None):
         if resource_type and not isinstance(resource_type, str):
             raise TypeError("Expected argument 'resource_type' to be a str")
         pulumi.set(__self__, "resource_type", resource_type)
         if standards and not isinstance(standards, list):
             raise TypeError("Expected argument 'standards' to be a list")
         pulumi.set(__self__, "standards", standards)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
@@ -69,7 +58,6 @@ class AwaitableGetStandardsResult(GetStandardsResult):
         if False:
             yield self
         return GetStandardsResult(
-            id=self.id,
             resource_type=self.resource_type,
             standards=self.standards)
 
@@ -98,7 +86,6 @@ def get_standards(resource_type: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getStandards:getStandards', __args__, opts=opts, typ=GetStandardsResult).value
 
     return AwaitableGetStandardsResult(
-        id=pulumi.get(__ret__, 'id'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
         standards=pulumi.get(__ret__, 'standards'))
 def get_standards_output(resource_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -124,6 +111,5 @@ def get_standards_output(resource_type: pulumi.Input[Optional[Optional[_builtins
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('pagerduty:index/getStandards:getStandards', __args__, opts=opts, typ=GetStandardsResult)
     return __ret__.apply(lambda __response__: GetStandardsResult(
-        id=pulumi.get(__response__, 'id'),
         resource_type=pulumi.get(__response__, 'resource_type'),
         standards=pulumi.get(__response__, 'standards')))

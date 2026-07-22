@@ -11229,10 +11229,6 @@
             "outputs": {
                 "description": "A collection of values returned by getStandards.\n",
                 "properties": {
-                    "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.",
-                        "type": "string"
-                    },
                     "resourceType": {
                         "description": "Specifies the type of resource to which the standard applies.\n",
                         "type": "string"
@@ -11246,8 +11242,7 @@
                     }
                 },
                 "required": [
-                    "standards",
-                    "id"
+                    "standards"
                 ],
                 "type": "object"
             }
@@ -11330,10 +11325,6 @@
             "outputs": {
                 "description": "A collection of values returned by getStandardsResourcesScores.\n",
                 "properties": {
-                    "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.",
-                        "type": "string"
-                    },
                     "ids": {
                         "items": {
                             "type": "string"
@@ -11355,8 +11346,7 @@
                 "required": [
                     "ids",
                     "resourceType",
-                    "resources",
-                    "id"
+                    "resources"
                 ],
                 "type": "object"
             }

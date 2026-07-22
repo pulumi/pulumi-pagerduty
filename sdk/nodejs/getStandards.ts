@@ -42,10 +42,6 @@ export interface GetStandardsArgs {
  */
 export interface GetStandardsResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * Specifies the type of resource to which the standard applies.
      */
     readonly resourceType?: string;

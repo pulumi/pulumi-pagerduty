@@ -112,10 +112,6 @@ namespace Pulumi.Pagerduty
     public sealed class GetStandardsResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// Specifies the type of resource to which the standard applies.
         /// </summary>
         public readonly string? ResourceType;
@@ -126,13 +122,10 @@ namespace Pulumi.Pagerduty
 
         [OutputConstructor]
         private GetStandardsResult(
-            string id,
-
             string? resourceType,
 
             ImmutableArray<Outputs.GetStandardsStandardResult> standards)
         {
-            Id = id;
             ResourceType = resourceType;
             Standards = standards;
         }

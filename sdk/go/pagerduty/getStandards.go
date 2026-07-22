@@ -55,8 +55,6 @@ type GetStandardsArgs struct {
 
 // A collection of values returned by getStandards.
 type GetStandardsResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// Specifies the type of resource to which the standard applies.
 	ResourceType *string `pulumi:"resourceType"`
 	// The list of standards defined.
@@ -95,11 +93,6 @@ func (o GetStandardsResultOutput) ToGetStandardsResultOutput() GetStandardsResul
 
 func (o GetStandardsResultOutput) ToGetStandardsResultOutputWithContext(ctx context.Context) GetStandardsResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetStandardsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetStandardsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Specifies the type of resource to which the standard applies.

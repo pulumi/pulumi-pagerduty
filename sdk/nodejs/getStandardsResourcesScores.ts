@@ -61,10 +61,6 @@ export interface GetStandardsResourcesScoresArgs {
  * A collection of values returned by getStandardsResourcesScores.
  */
 export interface GetStandardsResourcesScoresResult {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly ids: string[];
     /**
      * Specifies the type of resource to which the standard applies.

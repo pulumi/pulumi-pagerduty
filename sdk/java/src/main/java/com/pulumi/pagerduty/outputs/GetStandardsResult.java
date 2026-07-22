@@ -15,11 +15,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetStandardsResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return Specifies the type of resource to which the standard applies.
      * 
      */
@@ -31,13 +26,6 @@ public final class GetStandardsResult {
     private List<GetStandardsStandard> standards;
 
     private GetStandardsResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     /**
      * @return Specifies the type of resource to which the standard applies.
      * 
@@ -62,25 +50,15 @@ public final class GetStandardsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private @Nullable String resourceType;
         private List<GetStandardsStandard> standards;
         public Builder() {}
         public Builder(GetStandardsResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.resourceType = defaults.resourceType;
     	      this.standards = defaults.standards;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetStandardsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder resourceType(@Nullable String resourceType) {
 
@@ -100,7 +78,6 @@ public final class GetStandardsResult {
         }
         public GetStandardsResult build() {
             final var _resultValue = new GetStandardsResult();
-            _resultValue.id = id;
             _resultValue.resourceType = resourceType;
             _resultValue.standards = standards;
             return _resultValue;

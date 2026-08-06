@@ -39,7 +39,7 @@ import (
 //			_, err = pagerduty.NewTeam(ctx, "example", &pagerduty.TeamArgs{
 //				Name:        pulumi.String("Engineering"),
 //				Description: pulumi.String("All engineering"),
-//				Parent:      parent.ID(),
+//				Parent:      parent.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

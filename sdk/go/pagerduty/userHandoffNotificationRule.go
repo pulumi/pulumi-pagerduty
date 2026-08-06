@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			phone, err := pagerduty.NewUserContactMethod(ctx, "phone", &pagerduty.UserContactMethodArgs{
-//				UserId:      example.ID(),
+//				UserId:      example.ID().ToIDOutput().ToStringOutput(),
 //				Type:        pulumi.String("phone_contact_method"),
 //				CountryCode: pulumi.Int(1),
 //				Address:     pulumi.String("2025550199"),
@@ -46,11 +46,11 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewUserHandoffNotificationRule(ctx, "example-oncall-offcall", &pagerduty.UserHandoffNotificationRuleArgs{
-//				UserId:                 example.ID(),
+//				UserId:                 example.ID().ToIDOutput().ToStringOutput(),
 //				HandoffType:            pulumi.String("both"),
 //				NotifyAdvanceInMinutes: pulumi.Int(180),
 //				ContactMethod: &pagerduty.UserHandoffNotificationRuleContactMethodArgs{
-//					Id:   phone.ID(),
+//					Id:   phone.ID().ToIDOutput().ToStringOutput(),
 //					Type: phone.Type,
 //				},
 //			})

@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewUserContactMethod(ctx, "email", &pagerduty.UserContactMethodArgs{
-//				UserId:  example.ID(),
+//				UserId:  example.ID().ToIDOutput().ToStringOutput(),
 //				Type:    pulumi.String("email_contact_method"),
 //				Address: pulumi.String("foo@bar.com"),
 //				Label:   pulumi.String("Work"),
@@ -50,7 +50,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewUserContactMethod(ctx, "phone", &pagerduty.UserContactMethodArgs{
-//				UserId:      example.ID(),
+//				UserId:      example.ID().ToIDOutput().ToStringOutput(),
 //				Type:        pulumi.String("phone_contact_method"),
 //				CountryCode: pulumi.Int(1),
 //				Address:     pulumi.String("2025550199"),
@@ -60,7 +60,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewUserContactMethod(ctx, "sms", &pagerduty.UserContactMethodArgs{
-//				UserId:      example.ID(),
+//				UserId:      example.ID().ToIDOutput().ToStringOutput(),
 //				Type:        pulumi.String("sms_contact_method"),
 //				CountryCode: pulumi.Int(1),
 //				Address:     pulumi.String("2025550199"),

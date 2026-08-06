@@ -70,7 +70,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"displayName": "Sec Level 1",
 //				"id":          "10000",
 //			})
@@ -82,7 +82,7 @@ import (
 //				Name:           pulumi.String("Integration with My Web App"),
 //				AccountMapping: pulumi.String("PLBP09X"),
 //				Config: &pagerduty.JiraCloudAccountMappingRuleConfigArgs{
-//					Service: foo.ID(),
+//					Service: foo.ID().ToIDOutput().ToStringOutput(),
 //					Jira: &pagerduty.JiraCloudAccountMappingRuleConfigJiraArgs{
 //						AutocreateJql:                pulumi.String("priority = Highest"),
 //						CreateIssueOnIncidentTrigger: pulumi.Bool(true),
@@ -137,7 +137,7 @@ import (
 //								Name: pulumi.String("Open"),
 //							},
 //						},
-//						SyncNotesUser: fooUser.ID(),
+//						SyncNotesUser: fooUser.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})

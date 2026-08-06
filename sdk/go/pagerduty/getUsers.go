@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = pagerduty.NewTeamMembership(ctx, "example", &pagerduty.TeamMembershipArgs{
 //				TeamId: pulumi.Any(devopsPagerdutyTeam.Id),
-//				UserId: exampleWTeam.ID(),
+//				UserId: exampleWTeam.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

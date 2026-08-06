@@ -36,7 +36,7 @@ import (
 //			_, err = pagerduty.NewEventOrchestration(ctx, "my_monitor", &pagerduty.EventOrchestrationArgs{
 //				Name:        pulumi.String("My Monitoring Orchestration"),
 //				Description: pulumi.String("Send events to a pair of services"),
-//				Team:        engineering.ID(),
+//				Team:        engineering.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

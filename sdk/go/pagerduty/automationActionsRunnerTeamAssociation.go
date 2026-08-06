@@ -46,8 +46,8 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewAutomationActionsRunnerTeamAssociation(ctx, "pa_runner_ent_eng_assoc", &pagerduty.AutomationActionsRunnerTeamAssociationArgs{
-//				RunnerId: paRunbookRunner.ID(),
-//				TeamId:   teamEntEng.ID(),
+//				RunnerId: paRunbookRunner.ID().ToIDOutput().ToStringOutput(),
+//				TeamId:   teamEntEng.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -45,8 +45,8 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewTeamMembership(ctx, "foo", &pagerduty.TeamMembershipArgs{
-//				UserId: foo.ID(),
-//				TeamId: fooTeam.ID(),
+//				UserId: foo.ID().ToIDOutput().ToStringOutput(),
+//				TeamId: fooTeam.ID().ToIDOutput().ToStringOutput(),
 //				Role:   pulumi.String("manager"),
 //			})
 //			if err != nil {

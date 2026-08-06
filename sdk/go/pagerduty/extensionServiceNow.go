@@ -50,7 +50,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
-//								Id:   example.ID(),
+//								Id:   example.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
 //					},
@@ -63,7 +63,7 @@ import (
 //				Name:                   pulumi.String("My Web App"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       exampleEscalationPolicy.ID(),
+//				EscalationPolicy:       exampleEscalationPolicy.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -72,7 +72,7 @@ import (
 //				Name:            pulumi.String("My Web App Extension"),
 //				ExtensionSchema: pulumi.String(servicenow.Id),
 //				ExtensionObjects: pulumi.StringArray{
-//					exampleService.ID(),
+//					exampleService.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				SnowUser:     pulumi.String("meeps"),
 //				SnowPassword: pulumi.String("zorz"),

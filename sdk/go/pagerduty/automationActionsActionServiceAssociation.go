@@ -44,7 +44,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user_reference"),
-//								Id:   example.ID(),
+//								Id:   example.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
 //					},
@@ -57,7 +57,7 @@ import (
 //				Name:                   pulumi.String("My Web App"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       foo.ID(),
+//				EscalationPolicy:       foo.ID().ToIDOutput().ToStringOutput(),
 //				AlertCreation:          pulumi.String("create_alerts_and_incidents"),
 //				AutoPauseNotificationsParameters: &pagerduty.ServiceAutoPauseNotificationsParametersArgs{
 //					Enabled: pulumi.Bool(true),
@@ -79,8 +79,8 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewAutomationActionsActionServiceAssociation(ctx, "foo", &pagerduty.AutomationActionsActionServiceAssociationArgs{
-//				ActionId:  paActionExample.ID(),
-//				ServiceId: exampleService.ID(),
+//				ActionId:  paActionExample.ID().ToIDOutput().ToStringOutput(),
+//				ServiceId: exampleService.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

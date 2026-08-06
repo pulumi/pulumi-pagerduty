@@ -65,7 +65,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
-//								Id:   example.ID(),
+//								Id:   example.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
 //					},
@@ -80,13 +80,13 @@ import (
 //				Responders: pagerduty.ResponsePlayResponderArray{
 //					&pagerduty.ResponsePlayResponderArgs{
 //						Type: pulumi.String("escalation_policy_reference"),
-//						Id:   exampleEscalationPolicy.ID(),
+//						Id:   exampleEscalationPolicy.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				Subscribers: pagerduty.ResponsePlaySubscriberArray{
 //					&pagerduty.ResponsePlaySubscriberArgs{
 //						Type: pulumi.String("user_reference"),
-//						Id:   example.ID(),
+//						Id:   example.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				Runnability: pulumi.String("services"),

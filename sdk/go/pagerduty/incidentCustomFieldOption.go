@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewIncidentCustomFieldOption(ctx, "dev_environment", &pagerduty.IncidentCustomFieldOptionArgs{
-//				Field:    sreEnvironment.ID(),
+//				Field:    sreEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				DataType: pulumi.String("string"),
 //				Value:    pulumi.String("dev"),
 //			})
@@ -47,7 +47,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewIncidentCustomFieldOption(ctx, "stage_environment", &pagerduty.IncidentCustomFieldOptionArgs{
-//				Field:    sreEnvironment.ID(),
+//				Field:    sreEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				DataType: pulumi.String("string"),
 //				Value:    pulumi.String("stage"),
 //			})
@@ -55,7 +55,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewIncidentCustomFieldOption(ctx, "prod_environment", &pagerduty.IncidentCustomFieldOptionArgs{
-//				Field:    sreEnvironment.ID(),
+//				Field:    sreEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				DataType: pulumi.String("string"),
 //				Value:    pulumi.String("prod"),
 //			})

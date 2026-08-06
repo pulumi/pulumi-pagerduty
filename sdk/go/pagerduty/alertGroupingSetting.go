@@ -46,7 +46,7 @@ import (
 //				Name: pulumi.String("Configuration for type-1 devices"),
 //				Type: pulumi.String("content_based"),
 //				Services: pulumi.StringArray{
-//					basic.ID(),
+//					basic.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Config: &pagerduty.AlertGroupingSettingConfigArgs{
 //					TimeWindow: pulumi.Int(300),
@@ -152,7 +152,7 @@ import (
 //					Time: nil,
 //				},
 //				Services: pulumi.StringArray{
-//					foo.ID(),
+//					foo.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

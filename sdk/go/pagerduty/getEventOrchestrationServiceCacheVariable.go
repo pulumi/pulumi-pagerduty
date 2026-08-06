@@ -37,7 +37,7 @@ import (
 //				Name:  pulumi.String("Earline Greenholt"),
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //				Teams: pulumi.StringArray{
-//					engineering.ID(),
+//					engineering.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -52,7 +52,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
-//								Id:   example.ID(),
+//								Id:   example.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
 //					},
@@ -65,14 +65,14 @@ import (
 //				Name:                   pulumi.String("My Web App"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       exampleEscalationPolicy.ID(),
+//				EscalationPolicy:       exampleEscalationPolicy.ID().ToIDOutput().ToStringOutput(),
 //				AlertCreation:          pulumi.String("create_alerts_and_incidents"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_ = pagerduty.GetEventOrchestrationServiceCacheVariableOutput(ctx, pagerduty.GetEventOrchestrationServiceCacheVariableOutputArgs{
-//				Service: service.ID(),
+//				Service: service.ID().ToIDOutput().ToStringOutput(),
 //				Name:    pulumi.String("example_cache_variable"),
 //			}, nil)
 //			return nil

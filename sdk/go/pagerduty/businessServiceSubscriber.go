@@ -51,17 +51,17 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewBusinessServiceSubscriber(ctx, "team_example", &pagerduty.BusinessServiceSubscriberArgs{
-//				SubscriberId:      engteam.ID(),
+//				SubscriberId:      engteam.ID().ToIDOutput().ToStringOutput(),
 //				SubscriberType:    pulumi.String("team"),
-//				BusinessServiceId: example.ID(),
+//				BusinessServiceId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = pagerduty.NewBusinessServiceSubscriber(ctx, "user_example", &pagerduty.BusinessServiceSubscriberArgs{
-//				SubscriberId:      exampleUser.ID(),
+//				SubscriberId:      exampleUser.ID().ToIDOutput().ToStringOutput(),
 //				SubscriberType:    pulumi.String("user"),
-//				BusinessServiceId: example.ID(),
+//				BusinessServiceId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

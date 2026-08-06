@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewRulesetRule(ctx, "foo", &pagerduty.RulesetRuleArgs{
-//				Ruleset:  foo.ID(),
+//				Ruleset:  foo.ID().ToIDOutput().ToStringOutput(),
 //				Position: pulumi.Int(0),
 //				Disabled: pulumi.Bool(false),
 //				Conditions: &pagerduty.RulesetRuleConditionsArgs{

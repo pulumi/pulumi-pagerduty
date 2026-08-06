@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			email, err := pagerduty.NewUserContactMethod(ctx, "email", &pagerduty.UserContactMethodArgs{
-//				UserId:  example.ID(),
+//				UserId:  example.ID().ToIDOutput().ToStringOutput(),
 //				Type:    pulumi.String("email_contact_method"),
 //				Address: pulumi.String("foo@bar.com"),
 //				Label:   pulumi.String("Work"),
@@ -45,7 +45,7 @@ import (
 //				return err
 //			}
 //			phone, err := pagerduty.NewUserContactMethod(ctx, "phone", &pagerduty.UserContactMethodArgs{
-//				UserId:      example.ID(),
+//				UserId:      example.ID().ToIDOutput().ToStringOutput(),
 //				Type:        pulumi.String("phone_contact_method"),
 //				CountryCode: pulumi.Int(1),
 //				Address:     pulumi.String("2025550199"),
@@ -55,7 +55,7 @@ import (
 //				return err
 //			}
 //			sms, err := pagerduty.NewUserContactMethod(ctx, "sms", &pagerduty.UserContactMethodArgs{
-//				UserId:      example.ID(),
+//				UserId:      example.ID().ToIDOutput().ToStringOutput(),
 //				Type:        pulumi.String("sms_contact_method"),
 //				CountryCode: pulumi.Int(1),
 //				Address:     pulumi.String("2025550199"),
@@ -65,36 +65,36 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewUserNotificationRule(ctx, "high_urgency_phone", &pagerduty.UserNotificationRuleArgs{
-//				UserId:              example.ID(),
+//				UserId:              example.ID().ToIDOutput().ToStringOutput(),
 //				StartDelayInMinutes: pulumi.Int(1),
 //				Urgency:             pulumi.String("high"),
 //				ContactMethod: &pagerduty.UserNotificationRuleContactMethodArgs{
 //					Type: pulumi.String("phone_contact_method"),
-//					Id:   phone.ID(),
+//					Id:   phone.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = pagerduty.NewUserNotificationRule(ctx, "low_urgency_email", &pagerduty.UserNotificationRuleArgs{
-//				UserId:              example.ID(),
+//				UserId:              example.ID().ToIDOutput().ToStringOutput(),
 //				StartDelayInMinutes: pulumi.Int(1),
 //				Urgency:             pulumi.String("low"),
 //				ContactMethod: &pagerduty.UserNotificationRuleContactMethodArgs{
 //					Type: pulumi.String("email_contact_method"),
-//					Id:   email.ID(),
+//					Id:   email.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = pagerduty.NewUserNotificationRule(ctx, "low_urgency_sms", &pagerduty.UserNotificationRuleArgs{
-//				UserId:              example.ID(),
+//				UserId:              example.ID().ToIDOutput().ToStringOutput(),
 //				StartDelayInMinutes: pulumi.Int(10),
 //				Urgency:             pulumi.String("low"),
 //				ContactMethod: &pagerduty.UserNotificationRuleContactMethodArgs{
 //					Type: pulumi.String("sms_contact_method"),
-//					Id:   sms.ID(),
+//					Id:   sms.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     name: tfOrchA.name,
  * });
  * const unrouted = new pagerduty.EventOrchestrationUnrouted("unrouted", {
- *     eventOrchestration: tfMyMonitor.apply(tfMyMonitor => tfMyMonitor.id),
+ *     eventOrchestration: tfMyMonitor.id,
  *     catchAll: {
  *         actions: {
  *             severity: "info",
@@ -93,7 +93,7 @@ export interface GetEventOrchestrationResult {
  *     name: tfOrchA.name,
  * });
  * const unrouted = new pagerduty.EventOrchestrationUnrouted("unrouted", {
- *     eventOrchestration: tfMyMonitor.apply(tfMyMonitor => tfMyMonitor.id),
+ *     eventOrchestration: tfMyMonitor.id,
  *     catchAll: {
  *         actions: {
  *             severity: "info",

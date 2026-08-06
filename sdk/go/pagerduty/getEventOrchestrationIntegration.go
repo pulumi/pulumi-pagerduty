@@ -34,7 +34,7 @@ import (
 //				return err
 //			}
 //			_ = pagerduty.GetEventOrchestrationIntegrationOutput(ctx, pagerduty.GetEventOrchestrationIntegrationOutputArgs{
-//				EventOrchestration: eventOrchestration.ID(),
+//				EventOrchestration: eventOrchestration.ID().ToIDOutput().ToStringOutput(),
 //				Label:              pulumi.String("Test Event Orchestration Default Integration"),
 //			}, nil)
 //			return nil

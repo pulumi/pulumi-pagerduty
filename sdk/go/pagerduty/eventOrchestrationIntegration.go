@@ -40,13 +40,13 @@ import (
 //			}
 //			eventOrchestration, err := pagerduty.NewEventOrchestration(ctx, "event_orchestration", &pagerduty.EventOrchestrationArgs{
 //				Name: pulumi.String("Example Orchestration"),
-//				Team: databaseTeam.ID(),
+//				Team: databaseTeam.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = pagerduty.NewEventOrchestrationIntegration(ctx, "integration", &pagerduty.EventOrchestrationIntegrationArgs{
-//				EventOrchestration: eventOrchestration.ID(),
+//				EventOrchestration: eventOrchestration.ID().ToIDOutput().ToStringOutput(),
 //				Label:              pulumi.String("Example integration"),
 //			})
 //			if err != nil {

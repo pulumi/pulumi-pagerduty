@@ -37,9 +37,7 @@ import (
 //				Name: tfOrchA.Name,
 //			}, nil)
 //			_, err = pagerduty.NewEventOrchestrationUnrouted(ctx, "unrouted", &pagerduty.EventOrchestrationUnroutedArgs{
-//				EventOrchestration: pulumi.String(tfMyMonitor.ApplyT(func(tfMyMonitor pagerduty.GetEventOrchestrationResult) (*string, error) {
-//					return tfMyMonitor.Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				EventOrchestration: tfMyMonitor.Id(),
 //				CatchAll: &pagerduty.EventOrchestrationUnroutedCatchAllArgs{
 //					Actions: &pagerduty.EventOrchestrationUnroutedCatchAllActionsArgs{
 //						Severity: pulumi.String("info"),

@@ -110,7 +110,7 @@ import (
 //			json2 := string(tmpJSON2)
 //			// Set custom field values on the service
 //			_, err = pagerduty.NewServiceCustomFieldValue(ctx, "example", &pagerduty.ServiceCustomFieldValueArgs{
-//				ServiceId: example.ID(),
+//				ServiceId: example.ID().ToIDOutput().ToStringOutput(),
 //				CustomFields: pagerduty.ServiceCustomFieldValueCustomFieldArray{
 //					&pagerduty.ServiceCustomFieldValueCustomFieldArgs{
 //						Name:  environment.Name,

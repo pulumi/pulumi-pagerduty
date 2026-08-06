@@ -40,7 +40,7 @@ import (
 //				Name:  pulumi.String("Earline Greenholt"),
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //				Teams: pulumi.StringArray{
-//					databaseTeam.ID(),
+//					databaseTeam.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -55,7 +55,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
-//								Id:   user1.ID(),
+//								Id:   user1.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
 //					},
@@ -68,14 +68,14 @@ import (
 //				Name:                   pulumi.String("My Database Service"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       dbEp.ID(),
+//				EscalationPolicy:       dbEp.ID().ToIDOutput().ToStringOutput(),
 //				AlertCreation:          pulumi.String("create_alerts_and_incidents"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = pagerduty.NewEventOrchestrationServiceCacheVariable(ctx, "num_db_triggers", &pagerduty.EventOrchestrationServiceCacheVariableArgs{
-//				Service: svc.ID(),
+//				Service: svc.ID().ToIDOutput().ToStringOutput(),
 //				Name:    pulumi.String("num_db_triggers"),
 //				Conditions: pagerduty.EventOrchestrationServiceCacheVariableConditionArray{
 //					&pagerduty.EventOrchestrationServiceCacheVariableConditionArgs{
@@ -91,7 +91,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewEventOrchestrationServiceCacheVariable(ctx, "is_maintenance", &pagerduty.EventOrchestrationServiceCacheVariableArgs{
-//				Service: svc.ID(),
+//				Service: svc.ID().ToIDOutput().ToStringOutput(),
 //				Name:    pulumi.String("is_maintenance"),
 //				Configuration: &pagerduty.EventOrchestrationServiceCacheVariableConfigurationArgs{
 //					Type:       pulumi.String("external_data"),
@@ -103,7 +103,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewEventOrchestrationService(ctx, "event_orchestration", &pagerduty.EventOrchestrationServiceArgs{
-//				Service:                            svc.ID(),
+//				Service:                            svc.ID().ToIDOutput().ToStringOutput(),
 //				EnableEventOrchestrationForService: pulumi.Bool(true),
 //				Sets: pagerduty.EventOrchestrationServiceSetArray{
 //					&pagerduty.EventOrchestrationServiceSetArgs{

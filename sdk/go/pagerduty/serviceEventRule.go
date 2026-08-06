@@ -56,7 +56,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewServiceEventRule(ctx, "foo", &pagerduty.ServiceEventRuleArgs{
-//				Service:  example.ID(),
+//				Service:  example.ID().ToIDOutput().ToStringOutput(),
 //				Position: pulumi.Int(0),
 //				Disabled: pulumi.Bool(true),
 //				Conditions: &pagerduty.ServiceEventRuleConditionsArgs{

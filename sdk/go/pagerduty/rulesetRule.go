@@ -55,7 +55,7 @@ import (
 //			fooRuleset, err := pagerduty.NewRuleset(ctx, "foo", &pagerduty.RulesetArgs{
 //				Name: pulumi.String("Primary Ruleset"),
 //				Team: &pagerduty.RulesetTeamArgs{
-//					Id: foo.ID(),
+//					Id: foo.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -72,7 +72,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewRulesetRule(ctx, "foo", &pagerduty.RulesetRuleArgs{
-//				Ruleset:  fooRuleset.ID(),
+//				Ruleset:  fooRuleset.ID().ToIDOutput().ToStringOutput(),
 //				Position: pulumi.Int(0),
 //				Disabled: pulumi.Bool(false),
 //				TimeFrame: &pagerduty.RulesetRuleTimeFrameArgs{
@@ -159,7 +159,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewRulesetRule(ctx, "catch_all", &pagerduty.RulesetRuleArgs{
-//				Ruleset:  fooRuleset.ID(),
+//				Ruleset:  fooRuleset.ID().ToIDOutput().ToStringOutput(),
 //				Position: pulumi.Int(1),
 //				CatchAll: pulumi.Bool(true),
 //				Actions: &pagerduty.RulesetRuleActionsArgs{

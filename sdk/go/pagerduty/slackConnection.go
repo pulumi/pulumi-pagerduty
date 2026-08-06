@@ -45,7 +45,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewSlackConnection(ctx, "foo", &pagerduty.SlackConnectionArgs{
-//				SourceId:         foo.ID(),
+//				SourceId:         foo.ID().ToIDOutput().ToStringOutput(),
 //				SourceType:       pulumi.String("team_reference"),
 //				WorkspaceId:      pulumi.String("T02A123LV1A"),
 //				ChannelId:        pulumi.String("C02CABCDAC9"),

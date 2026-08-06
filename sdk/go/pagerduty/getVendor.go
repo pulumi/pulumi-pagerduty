@@ -54,7 +54,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
-//								Id:   example.ID(),
+//								Id:   example.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
 //					},
@@ -75,7 +75,7 @@ import (
 //			_, err = pagerduty.NewServiceIntegration(ctx, "example", &pagerduty.ServiceIntegrationArgs{
 //				Name:    pulumi.String("Datadog Integration"),
 //				Vendor:  pulumi.String(datadog.Id),
-//				Service: exampleService.ID(),
+//				Service: exampleService.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

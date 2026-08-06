@@ -55,7 +55,7 @@ import (
 //			}
 //			_, err = pagerduty.NewIncidentWorkflowTrigger(ctx, "automatic_trigger", &pagerduty.IncidentWorkflowTriggerArgs{
 //				Type:     pulumi.String("conditional"),
-//				Workflow: myFirstWorkflow.ID(),
+//				Workflow: myFirstWorkflow.ID().ToIDOutput().ToStringOutput(),
 //				Services: pulumi.StringArray{
 //					firstServicePagerdutyService.Id,
 //				},
@@ -73,7 +73,7 @@ import (
 //			}
 //			_, err = pagerduty.NewIncidentWorkflowTrigger(ctx, "manual_trigger", &pagerduty.IncidentWorkflowTriggerArgs{
 //				Type:     pulumi.String("manual"),
-//				Workflow: myFirstWorkflow.ID(),
+//				Workflow: myFirstWorkflow.ID().ToIDOutput().ToStringOutput(),
 //				Services: pulumi.StringArray{
 //					firstServicePagerdutyService.Id,
 //				},

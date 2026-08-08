@@ -16,6 +16,8 @@ import (
 //
 // A [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0MA-create-a-user-contact-method) is a contact method for a PagerDuty user (email, phone or SMS).
 //
+// > If a contact method managed by Terraform is deleted directly in the PagerDuty web interface, a normal `pulumi preview`/`pulumi up` detects that it is gone during refresh and re-creates it. Removing it from state with `terraform state rm` is not needed. If your workflow applies a saved plan file or runs with `-refresh=false`, the deletion cannot be detected before the apply, so run `pulumi up -refresh-only` (or re-plan with refresh enabled) first.
+//
 // ## Example Usage
 //
 // ```go
@@ -100,7 +102,7 @@ type UserContactMethod struct {
 	SendShortEmail pulumi.BoolOutput `pulumi:"sendShortEmail"`
 	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The ID of the user.
+	// The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
 	UserId pulumi.StringOutput `pulumi:"userId"`
 }
 
@@ -161,7 +163,7 @@ type userContactMethodState struct {
 	SendShortEmail *bool `pulumi:"sendShortEmail"`
 	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
 	Type *string `pulumi:"type"`
-	// The ID of the user.
+	// The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
 	UserId *string `pulumi:"userId"`
 }
 
@@ -181,7 +183,7 @@ type UserContactMethodState struct {
 	SendShortEmail pulumi.BoolPtrInput
 	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
 	Type pulumi.StringPtrInput
-	// The ID of the user.
+	// The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
 	UserId pulumi.StringPtrInput
 }
 
@@ -201,7 +203,7 @@ type userContactMethodArgs struct {
 	SendShortEmail *bool `pulumi:"sendShortEmail"`
 	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
 	Type string `pulumi:"type"`
-	// The ID of the user.
+	// The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
 	UserId string `pulumi:"userId"`
 }
 
@@ -218,7 +220,7 @@ type UserContactMethodArgs struct {
 	SendShortEmail pulumi.BoolPtrInput
 	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`, `whatsappContactMethod`).
 	Type pulumi.StringInput
-	// The ID of the user.
+	// The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
 	UserId pulumi.StringInput
 }
 
@@ -348,7 +350,7 @@ func (o UserContactMethodOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserContactMethod) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// The ID of the user.
+// The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
 func (o UserContactMethodOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserContactMethod) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }

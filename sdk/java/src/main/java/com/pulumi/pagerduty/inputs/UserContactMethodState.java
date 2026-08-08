@@ -130,14 +130,14 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The ID of the user.
+     * The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
      * 
      */
     @Import(name="userId")
     private @Nullable Output<String> userId;
 
     /**
-     * @return The ID of the user.
+     * @return The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> userId() {
@@ -333,7 +333,7 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param userId The ID of the user.
+         * @param userId The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param userId The ID of the user.
+         * @param userId The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
          * 
          * @return builder
          * 

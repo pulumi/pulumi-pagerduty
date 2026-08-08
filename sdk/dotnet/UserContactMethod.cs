@@ -14,6 +14,8 @@ namespace Pulumi.Pagerduty
     /// 
     /// A [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0MA-create-a-user-contact-method) is a contact method for a PagerDuty user (email, phone or SMS).
     /// 
+    /// &gt; If a contact method managed by Terraform is deleted directly in the PagerDuty web interface, a normal `pulumi preview`/`pulumi up` detects that it is gone during refresh and re-creates it. Removing it from state with `terraform state rm` is not needed. If your workflow applies a saved plan file or runs with `-refresh=false`, the deletion cannot be detected before the apply, so run `pulumi up -refresh-only` (or re-plan with refresh enabled) first.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -120,7 +122,7 @@ namespace Pulumi.Pagerduty
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the user.
+        /// The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
         /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
@@ -205,7 +207,7 @@ namespace Pulumi.Pagerduty
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the user.
+        /// The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
         /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
@@ -264,7 +266,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The ID of the user.
+        /// The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }

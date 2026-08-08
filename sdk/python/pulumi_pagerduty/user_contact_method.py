@@ -32,7 +32,7 @@ class UserContactMethodArgs:
         :param pulumi.Input[_builtins.str] address: The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
         :param pulumi.Input[_builtins.str] label: The label (e.g., "Work", "Mobile", etc.).
         :param pulumi.Input[_builtins.str] type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`, `whatsapp_contact_method`).
-        :param pulumi.Input[_builtins.str] user_id: The ID of the user.
+        :param pulumi.Input[_builtins.str] user_id: The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] country_code: The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
         :param pulumi.Input[_builtins.bool] send_short_email: Send an abbreviated email message instead of the standard email output.
         """
@@ -87,7 +87,7 @@ class UserContactMethodArgs:
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the user.
+        The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user_id")
 
@@ -151,7 +151,7 @@ class _UserContactMethodState:
         :param pulumi.Input[_builtins.str] label: The label (e.g., "Work", "Mobile", etc.).
         :param pulumi.Input[_builtins.bool] send_short_email: Send an abbreviated email message instead of the standard email output.
         :param pulumi.Input[_builtins.str] type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`, `whatsapp_contact_method`).
-        :param pulumi.Input[_builtins.str] user_id: The ID of the user.
+        :param pulumi.Input[_builtins.str] user_id: The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -269,7 +269,7 @@ class _UserContactMethodState:
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the user.
+        The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user_id")
 
@@ -296,6 +296,8 @@ class UserContactMethod(pulumi.CustomResource):
         > This resource behaves a little differently than may be expected. If the defined contact method already exists for the user in PagerDuty this resource will import the values of the existing contact method into your Terraform state.
 
         A [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0MA-create-a-user-contact-method) is a contact method for a PagerDuty user (email, phone or SMS).
+
+        > If a contact method managed by Terraform is deleted directly in the PagerDuty web interface, a normal `pulumi preview`/`pulumi up` detects that it is gone during refresh and re-creates it. Removing it from state with `terraform state rm` is not needed. If your workflow applies a saved plan file or runs with `-refresh=false`, the deletion cannot be detected before the apply, so run `pulumi up -refresh-only` (or re-plan with refresh enabled) first.
 
         ## Example Usage
 
@@ -342,7 +344,7 @@ class UserContactMethod(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] label: The label (e.g., "Work", "Mobile", etc.).
         :param pulumi.Input[_builtins.bool] send_short_email: Send an abbreviated email message instead of the standard email output.
         :param pulumi.Input[_builtins.str] type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`, `whatsapp_contact_method`).
-        :param pulumi.Input[_builtins.str] user_id: The ID of the user.
+        :param pulumi.Input[_builtins.str] user_id: The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -354,6 +356,8 @@ class UserContactMethod(pulumi.CustomResource):
         > This resource behaves a little differently than may be expected. If the defined contact method already exists for the user in PagerDuty this resource will import the values of the existing contact method into your Terraform state.
 
         A [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0MA-create-a-user-contact-method) is a contact method for a PagerDuty user (email, phone or SMS).
+
+        > If a contact method managed by Terraform is deleted directly in the PagerDuty web interface, a normal `pulumi preview`/`pulumi up` detects that it is gone during refresh and re-creates it. Removing it from state with `terraform state rm` is not needed. If your workflow applies a saved plan file or runs with `-refresh=false`, the deletion cannot be detected before the apply, so run `pulumi up -refresh-only` (or re-plan with refresh enabled) first.
 
         ## Example Usage
 
@@ -474,7 +478,7 @@ class UserContactMethod(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] label: The label (e.g., "Work", "Mobile", etc.).
         :param pulumi.Input[_builtins.bool] send_short_email: Send an abbreviated email message instead of the standard email output.
         :param pulumi.Input[_builtins.str] type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`, `whatsapp_contact_method`).
-        :param pulumi.Input[_builtins.str] user_id: The ID of the user.
+        :param pulumi.Input[_builtins.str] user_id: The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -556,7 +560,7 @@ class UserContactMethod(pulumi.CustomResource):
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the user.
+        The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user_id")
 

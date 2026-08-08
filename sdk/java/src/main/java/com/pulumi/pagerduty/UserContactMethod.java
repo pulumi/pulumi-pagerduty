@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * 
  * A [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0MA-create-a-user-contact-method) is a contact method for a PagerDuty user (email, phone or SMS).
  * 
+ * &gt; If a contact method managed by Terraform is deleted directly in the PagerDuty web interface, a normal `pulumi preview`/`pulumi up` detects that it is gone during refresh and re-creates it. Removing it from state with `terraform state rm` is not needed. If your workflow applies a saved plan file or runs with `-refresh=false`, the deletion cannot be detected before the apply, so run `pulumi up -refresh-only` (or re-plan with refresh enabled) first.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -197,14 +199,14 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
         return this.type;
     }
     /**
-     * The ID of the user.
+     * The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
-     * @return The ID of the user.
+     * @return The ID of the user. A contact method cannot be moved between users, so changing this forces a new resource to be created.
      * 
      */
     public Output<String> userId() {

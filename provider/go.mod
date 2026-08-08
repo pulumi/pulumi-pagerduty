@@ -231,7 +231,7 @@ require (
 	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
 	github.com/yuin/goldmark v1.7.17 // indirect
 	github.com/zclconf/go-cty v1.18.1 // indirect
-	go.mongodb.org/mongo-driver v1.17.1 // indirect
+	go.mongodb.org/mongo-driver v1.17.7 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/collector/featuregate v1.64.0 // indirect
 	go.opentelemetry.io/collector/pdata v1.64.0 // indirect

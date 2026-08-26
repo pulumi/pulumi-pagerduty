@@ -56,6 +56,7 @@ import * as utilities from "./utilities";
  *     }],
  *     type: "webhook_subscription",
  * });
+ * export const webhookSecret = foo.deliveryMethods[0].secret;
  * ```
  *
  * ## Import

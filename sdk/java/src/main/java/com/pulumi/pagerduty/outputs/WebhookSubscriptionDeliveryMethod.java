@@ -20,6 +20,11 @@ public final class WebhookSubscriptionDeliveryMethod {
      */
     private @Nullable List<WebhookSubscriptionDeliveryMethodCustomHeader> customHeaders;
     /**
+     * @return The shared secret used to verify the `X-PagerDuty-Signature` on incoming webhook payloads. It is only returned by the API when the webhook subscription is created, so it is only populated for subscriptions created by Terraform; it is empty for subscriptions brought in with `pulumi import`.
+     * 
+     */
+    private @Nullable String secret;
+    /**
      * @return Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
      * 
      */
@@ -42,6 +47,13 @@ public final class WebhookSubscriptionDeliveryMethod {
      */
     public List<WebhookSubscriptionDeliveryMethodCustomHeader> customHeaders() {
         return this.customHeaders == null ? List.of() : this.customHeaders;
+    }
+    /**
+     * @return The shared secret used to verify the `X-PagerDuty-Signature` on incoming webhook payloads. It is only returned by the API when the webhook subscription is created, so it is only populated for subscriptions created by Terraform; it is empty for subscriptions brought in with `pulumi import`.
+     * 
+     */
+    public Optional<String> secret() {
+        return Optional.ofNullable(this.secret);
     }
     /**
      * @return Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
@@ -75,6 +87,7 @@ public final class WebhookSubscriptionDeliveryMethod {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<WebhookSubscriptionDeliveryMethodCustomHeader> customHeaders;
+        private @Nullable String secret;
         private @Nullable Boolean temporarilyDisabled;
         private @Nullable String type;
         private @Nullable String url;
@@ -82,6 +95,7 @@ public final class WebhookSubscriptionDeliveryMethod {
         public Builder(WebhookSubscriptionDeliveryMethod defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customHeaders = defaults.customHeaders;
+    	      this.secret = defaults.secret;
     	      this.temporarilyDisabled = defaults.temporarilyDisabled;
     	      this.type = defaults.type;
     	      this.url = defaults.url;
@@ -95,6 +109,12 @@ public final class WebhookSubscriptionDeliveryMethod {
         }
         public Builder customHeaders(WebhookSubscriptionDeliveryMethodCustomHeader... customHeaders) {
             return customHeaders(List.of(customHeaders));
+        }
+        @CustomType.Setter
+        public Builder secret(@Nullable String secret) {
+
+            this.secret = secret;
+            return this;
         }
         @CustomType.Setter
         public Builder temporarilyDisabled(@Nullable Boolean temporarilyDisabled) {
@@ -117,6 +137,7 @@ public final class WebhookSubscriptionDeliveryMethod {
         public WebhookSubscriptionDeliveryMethod build() {
             final var _resultValue = new WebhookSubscriptionDeliveryMethod();
             _resultValue.customHeaders = customHeaders;
+            _resultValue.secret = secret;
             _resultValue.temporarilyDisabled = temporarilyDisabled;
             _resultValue.type = type;
             _resultValue.url = url;

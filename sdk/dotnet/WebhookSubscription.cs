@@ -79,6 +79,10 @@ namespace Pulumi.Pagerduty
     ///         Type = "webhook_subscription",
     ///     });
     /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["webhookSecret"] = foo.DeliveryMethods.Apply(deliveryMethods =&gt; deliveryMethods[0].Secret),
+    ///     };
     /// });
     /// ```
     /// 

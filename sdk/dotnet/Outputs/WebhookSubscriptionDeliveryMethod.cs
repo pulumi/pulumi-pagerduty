@@ -18,6 +18,10 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.WebhookSubscriptionDeliveryMethodCustomHeader> CustomHeaders;
         /// <summary>
+        /// The shared secret used to verify the `X-PagerDuty-Signature` on incoming webhook payloads. It is only returned by the API when the webhook subscription is created, so it is only populated for subscriptions created by Terraform; it is empty for subscriptions brought in with `pulumi import`.
+        /// </summary>
+        public readonly string? Secret;
+        /// <summary>
         /// Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
         /// </summary>
         public readonly bool? TemporarilyDisabled;
@@ -34,6 +38,8 @@ namespace Pulumi.Pagerduty.Outputs
         private WebhookSubscriptionDeliveryMethod(
             ImmutableArray<Outputs.WebhookSubscriptionDeliveryMethodCustomHeader> customHeaders,
 
+            string? secret,
+
             bool? temporarilyDisabled,
 
             string? type,
@@ -41,6 +47,7 @@ namespace Pulumi.Pagerduty.Outputs
             string? url)
         {
             CustomHeaders = customHeaders;
+            Secret = secret;
             TemporarilyDisabled = temporarilyDisabled;
             Type = type;
             Url = url;

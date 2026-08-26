@@ -337,6 +337,7 @@ class WebhookSubscription(pulumi.CustomResource):
                 "type": "service_reference",
             }],
             type="webhook_subscription")
+        pulumi.export("webhookSecret", foo.delivery_methods.apply(lambda delivery_methods: delivery_methods[0].secret))
         ```
 
         ## Import
@@ -423,6 +424,7 @@ class WebhookSubscription(pulumi.CustomResource):
                 "type": "service_reference",
             }],
             type="webhook_subscription")
+        pulumi.export("webhookSecret", foo.delivery_methods.apply(lambda delivery_methods: delivery_methods[0].secret))
         ```
 
         ## Import

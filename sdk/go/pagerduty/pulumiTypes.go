@@ -21162,6 +21162,8 @@ func (o UserNotificationRuleContactMethodPtrOutput) Type() pulumi.StringPtrOutpu
 type WebhookSubscriptionDeliveryMethod struct {
 	// The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
 	CustomHeaders []WebhookSubscriptionDeliveryMethodCustomHeader `pulumi:"customHeaders"`
+	// The shared secret used to verify the `X-PagerDuty-Signature` on incoming webhook payloads. It is only returned by the API when the webhook subscription is created, so it is only populated for subscriptions created by Terraform; it is empty for subscriptions brought in with `pulumi import`.
+	Secret *string `pulumi:"secret"`
 	// Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
 	TemporarilyDisabled *bool `pulumi:"temporarilyDisabled"`
 	// Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
@@ -21184,6 +21186,8 @@ type WebhookSubscriptionDeliveryMethodInput interface {
 type WebhookSubscriptionDeliveryMethodArgs struct {
 	// The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
 	CustomHeaders WebhookSubscriptionDeliveryMethodCustomHeaderArrayInput `pulumi:"customHeaders"`
+	// The shared secret used to verify the `X-PagerDuty-Signature` on incoming webhook payloads. It is only returned by the API when the webhook subscription is created, so it is only populated for subscriptions created by Terraform; it is empty for subscriptions brought in with `pulumi import`.
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
 	// Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
 	TemporarilyDisabled pulumi.BoolPtrInput `pulumi:"temporarilyDisabled"`
 	// Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
@@ -21248,6 +21252,11 @@ func (o WebhookSubscriptionDeliveryMethodOutput) CustomHeaders() WebhookSubscrip
 	return o.ApplyT(func(v WebhookSubscriptionDeliveryMethod) []WebhookSubscriptionDeliveryMethodCustomHeader {
 		return v.CustomHeaders
 	}).(WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput)
+}
+
+// The shared secret used to verify the `X-PagerDuty-Signature` on incoming webhook payloads. It is only returned by the API when the webhook subscription is created, so it is only populated for subscriptions created by Terraform; it is empty for subscriptions brought in with `pulumi import`.
+func (o WebhookSubscriptionDeliveryMethodOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookSubscriptionDeliveryMethod) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
 
 // Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.

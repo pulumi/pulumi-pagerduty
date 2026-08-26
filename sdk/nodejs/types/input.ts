@@ -2542,6 +2542,10 @@ export interface WebhookSubscriptionDeliveryMethod {
      */
     customHeaders?: pulumi.Input<pulumi.Input<inputs.WebhookSubscriptionDeliveryMethodCustomHeader>[] | undefined>;
     /**
+     * The shared secret used to verify the `X-PagerDuty-Signature` on incoming webhook payloads. It is only returned by the API when the webhook subscription is created, so it is only populated for subscriptions created by Terraform; it is empty for subscriptions brought in with `pulumi import`.
+     */
+    secret?: pulumi.Input<string | undefined>;
+    /**
      * Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
      */
     temporarilyDisabled?: pulumi.Input<boolean | undefined>;

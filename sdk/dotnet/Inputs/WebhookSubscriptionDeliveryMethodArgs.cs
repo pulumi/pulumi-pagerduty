@@ -24,6 +24,22 @@ namespace Pulumi.Pagerduty.Inputs
             set => _customHeaders = value;
         }
 
+        [Input("secret")]
+        private Input<string>? _secret;
+
+        /// <summary>
+        /// The shared secret used to verify the `X-PagerDuty-Signature` on incoming webhook payloads. It is only returned by the API when the webhook subscription is created, so it is only populated for subscriptions created by Terraform; it is empty for subscriptions brought in with `pulumi import`.
+        /// </summary>
+        public Input<string>? Secret
+        {
+            get => _secret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         /// <summary>
         /// Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
         /// </summary>

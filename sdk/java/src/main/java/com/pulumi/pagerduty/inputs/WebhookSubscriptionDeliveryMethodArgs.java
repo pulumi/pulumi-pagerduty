@@ -34,6 +34,21 @@ public final class WebhookSubscriptionDeliveryMethodArgs extends com.pulumi.reso
     }
 
     /**
+     * The shared secret used to verify the `X-PagerDuty-Signature` on incoming webhook payloads. It is only returned by the API when the webhook subscription is created, so it is only populated for subscriptions created by Terraform; it is empty for subscriptions brought in with `pulumi import`.
+     * 
+     */
+    @Import(name="secret")
+    private @Nullable Output<String> secret;
+
+    /**
+     * @return The shared secret used to verify the `X-PagerDuty-Signature` on incoming webhook payloads. It is only returned by the API when the webhook subscription is created, so it is only populated for subscriptions created by Terraform; it is empty for subscriptions brought in with `pulumi import`.
+     * 
+     */
+    public Optional<Output<String>> secret() {
+        return Optional.ofNullable(this.secret);
+    }
+
+    /**
      * Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
      * 
      */
@@ -82,6 +97,7 @@ public final class WebhookSubscriptionDeliveryMethodArgs extends com.pulumi.reso
 
     private WebhookSubscriptionDeliveryMethodArgs(WebhookSubscriptionDeliveryMethodArgs $) {
         this.customHeaders = $.customHeaders;
+        this.secret = $.secret;
         this.temporarilyDisabled = $.temporarilyDisabled;
         this.type = $.type;
         this.url = $.url;
@@ -134,6 +150,27 @@ public final class WebhookSubscriptionDeliveryMethodArgs extends com.pulumi.reso
          */
         public Builder customHeaders(WebhookSubscriptionDeliveryMethodCustomHeaderArgs... customHeaders) {
             return customHeaders(List.of(customHeaders));
+        }
+
+        /**
+         * @param secret The shared secret used to verify the `X-PagerDuty-Signature` on incoming webhook payloads. It is only returned by the API when the webhook subscription is created, so it is only populated for subscriptions created by Terraform; it is empty for subscriptions brought in with `pulumi import`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secret(@Nullable Output<String> secret) {
+            $.secret = secret;
+            return this;
+        }
+
+        /**
+         * @param secret The shared secret used to verify the `X-PagerDuty-Signature` on incoming webhook payloads. It is only returned by the API when the webhook subscription is created, so it is only populated for subscriptions created by Terraform; it is empty for subscriptions brought in with `pulumi import`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secret(String secret) {
+            return secret(Output.of(secret));
         }
 
         /**

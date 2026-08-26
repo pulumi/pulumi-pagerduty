@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewWebhookSubscription(ctx, "foo", &pagerduty.WebhookSubscriptionArgs{
+//			foo, err := pagerduty.NewWebhookSubscription(ctx, "foo", &pagerduty.WebhookSubscriptionArgs{
 //				DeliveryMethods: pagerduty.WebhookSubscriptionDeliveryMethodArray{
 //					&pagerduty.WebhookSubscriptionDeliveryMethodArgs{
 //						Type: pulumi.String("http_delivery_method"),
@@ -79,6 +79,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			ctx.Export("webhookSecret", foo.DeliveryMethods.ApplyT(func(deliveryMethods []pagerduty.WebhookSubscriptionDeliveryMethod) (*string, error) {
+//				return deliveryMethods[0].Secret, nil
+//			}).(pulumi.StringPtrOutput))
 //			return nil
 //		})
 //	}

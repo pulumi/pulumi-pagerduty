@@ -8132,17 +8132,21 @@ class WebhookSubscriptionDeliveryMethod(dict):
 
     def __init__(__self__, *,
                  custom_headers: Optional[Sequence['outputs.WebhookSubscriptionDeliveryMethodCustomHeader']] = None,
+                 secret: Optional[_builtins.str] = None,
                  temporarily_disabled: Optional[_builtins.bool] = None,
                  type: Optional[_builtins.str] = None,
                  url: Optional[_builtins.str] = None):
         """
         :param Sequence['WebhookSubscriptionDeliveryMethodCustomHeaderArgs'] custom_headers: The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+        :param _builtins.str secret: The shared secret used to verify the `X-PagerDuty-Signature` on incoming webhook payloads. It is only returned by the API when the webhook subscription is created, so it is only populated for subscriptions created by Terraform; it is empty for subscriptions brought in with `pulumi import`.
         :param _builtins.bool temporarily_disabled: Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
         :param _builtins.str type: Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
         :param _builtins.str url: The destination URL for webhook delivery.
         """
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
         if temporarily_disabled is not None:
             pulumi.set(__self__, "temporarily_disabled", temporarily_disabled)
         if type is not None:
@@ -8157,6 +8161,14 @@ class WebhookSubscriptionDeliveryMethod(dict):
         The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
         """
         return pulumi.get(self, "custom_headers")
+
+    @_builtins.property
+    @pulumi.getter
+    def secret(self) -> Optional[_builtins.str]:
+        """
+        The shared secret used to verify the `X-PagerDuty-Signature` on incoming webhook payloads. It is only returned by the API when the webhook subscription is created, so it is only populated for subscriptions created by Terraform; it is empty for subscriptions brought in with `pulumi import`.
+        """
+        return pulumi.get(self, "secret")
 
     @_builtins.property
     @pulumi.getter(name="temporarilyDisabled")

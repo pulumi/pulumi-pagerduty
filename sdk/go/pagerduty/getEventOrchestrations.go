@@ -94,12 +94,8 @@ type GetEventOrchestrationsResult struct {
 }
 
 func GetEventOrchestrationsOutput(ctx *pulumi.Context, args GetEventOrchestrationsOutputArgs, opts ...pulumi.InvokeOption) GetEventOrchestrationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEventOrchestrationsResultOutput, error) {
-			args := v.(GetEventOrchestrationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("pagerduty:index/getEventOrchestrations:getEventOrchestrations", args, GetEventOrchestrationsResultOutput{}, options).(GetEventOrchestrationsResultOutput), nil
-		}).(GetEventOrchestrationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("pagerduty:index/getEventOrchestrations:getEventOrchestrations", args, GetEventOrchestrationsResultOutput{}, options).(GetEventOrchestrationsResultOutput)
 }
 
 // A collection of arguments for invoking getEventOrchestrations.

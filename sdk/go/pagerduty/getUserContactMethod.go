@@ -102,12 +102,8 @@ type LookupUserContactMethodResult struct {
 }
 
 func LookupUserContactMethodOutput(ctx *pulumi.Context, args LookupUserContactMethodOutputArgs, opts ...pulumi.InvokeOption) LookupUserContactMethodResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserContactMethodResultOutput, error) {
-			args := v.(LookupUserContactMethodArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("pagerduty:index/getUserContactMethod:getUserContactMethod", args, LookupUserContactMethodResultOutput{}, options).(LookupUserContactMethodResultOutput), nil
-		}).(LookupUserContactMethodResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("pagerduty:index/getUserContactMethod:getUserContactMethod", args, LookupUserContactMethodResultOutput{}, options).(LookupUserContactMethodResultOutput)
 }
 
 // A collection of arguments for invoking getUserContactMethod.

@@ -73,12 +73,8 @@ type LookupAlertGroupingSettingResult struct {
 }
 
 func LookupAlertGroupingSettingOutput(ctx *pulumi.Context, args LookupAlertGroupingSettingOutputArgs, opts ...pulumi.InvokeOption) LookupAlertGroupingSettingResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAlertGroupingSettingResultOutput, error) {
-			args := v.(LookupAlertGroupingSettingArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("pagerduty:index/getAlertGroupingSetting:getAlertGroupingSetting", args, LookupAlertGroupingSettingResultOutput{}, options).(LookupAlertGroupingSettingResultOutput), nil
-		}).(LookupAlertGroupingSettingResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("pagerduty:index/getAlertGroupingSetting:getAlertGroupingSetting", args, LookupAlertGroupingSettingResultOutput{}, options).(LookupAlertGroupingSettingResultOutput)
 }
 
 // A collection of arguments for invoking getAlertGroupingSetting.

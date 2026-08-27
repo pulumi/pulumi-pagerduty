@@ -71,12 +71,8 @@ type LookupEventOrchestrationIntegrationResult struct {
 }
 
 func LookupEventOrchestrationIntegrationOutput(ctx *pulumi.Context, args LookupEventOrchestrationIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupEventOrchestrationIntegrationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEventOrchestrationIntegrationResultOutput, error) {
-			args := v.(LookupEventOrchestrationIntegrationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", args, LookupEventOrchestrationIntegrationResultOutput{}, options).(LookupEventOrchestrationIntegrationResultOutput), nil
-		}).(LookupEventOrchestrationIntegrationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", args, LookupEventOrchestrationIntegrationResultOutput{}, options).(LookupEventOrchestrationIntegrationResultOutput)
 }
 
 // A collection of arguments for invoking getEventOrchestrationIntegration.

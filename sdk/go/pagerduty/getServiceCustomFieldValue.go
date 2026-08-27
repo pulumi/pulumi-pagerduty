@@ -40,12 +40,8 @@ type LookupServiceCustomFieldValueResult struct {
 }
 
 func LookupServiceCustomFieldValueOutput(ctx *pulumi.Context, args LookupServiceCustomFieldValueOutputArgs, opts ...pulumi.InvokeOption) LookupServiceCustomFieldValueResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServiceCustomFieldValueResultOutput, error) {
-			args := v.(LookupServiceCustomFieldValueArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("pagerduty:index/getServiceCustomFieldValue:getServiceCustomFieldValue", args, LookupServiceCustomFieldValueResultOutput{}, options).(LookupServiceCustomFieldValueResultOutput), nil
-		}).(LookupServiceCustomFieldValueResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("pagerduty:index/getServiceCustomFieldValue:getServiceCustomFieldValue", args, LookupServiceCustomFieldValueResultOutput{}, options).(LookupServiceCustomFieldValueResultOutput)
 }
 
 // A collection of arguments for invoking getServiceCustomFieldValue.

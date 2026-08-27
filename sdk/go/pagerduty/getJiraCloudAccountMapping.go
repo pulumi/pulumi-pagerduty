@@ -40,12 +40,8 @@ type GetJiraCloudAccountMappingResult struct {
 }
 
 func GetJiraCloudAccountMappingOutput(ctx *pulumi.Context, args GetJiraCloudAccountMappingOutputArgs, opts ...pulumi.InvokeOption) GetJiraCloudAccountMappingResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetJiraCloudAccountMappingResultOutput, error) {
-			args := v.(GetJiraCloudAccountMappingArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping", args, GetJiraCloudAccountMappingResultOutput{}, options).(GetJiraCloudAccountMappingResultOutput), nil
-		}).(GetJiraCloudAccountMappingResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping", args, GetJiraCloudAccountMappingResultOutput{}, options).(GetJiraCloudAccountMappingResultOutput)
 }
 
 // A collection of arguments for invoking getJiraCloudAccountMapping.

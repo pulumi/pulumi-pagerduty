@@ -80,12 +80,8 @@ type LookupIncidentWorkflowResult struct {
 }
 
 func LookupIncidentWorkflowOutput(ctx *pulumi.Context, args LookupIncidentWorkflowOutputArgs, opts ...pulumi.InvokeOption) LookupIncidentWorkflowResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIncidentWorkflowResultOutput, error) {
-			args := v.(LookupIncidentWorkflowArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", args, LookupIncidentWorkflowResultOutput{}, options).(LookupIncidentWorkflowResultOutput), nil
-		}).(LookupIncidentWorkflowResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", args, LookupIncidentWorkflowResultOutput{}, options).(LookupIncidentWorkflowResultOutput)
 }
 
 // A collection of arguments for invoking getIncidentWorkflow.

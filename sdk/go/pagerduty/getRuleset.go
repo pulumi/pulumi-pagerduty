@@ -146,12 +146,8 @@ type LookupRulesetResult struct {
 }
 
 func LookupRulesetOutput(ctx *pulumi.Context, args LookupRulesetOutputArgs, opts ...pulumi.InvokeOption) LookupRulesetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRulesetResultOutput, error) {
-			args := v.(LookupRulesetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("pagerduty:index/getRuleset:getRuleset", args, LookupRulesetResultOutput{}, options).(LookupRulesetResultOutput), nil
-		}).(LookupRulesetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("pagerduty:index/getRuleset:getRuleset", args, LookupRulesetResultOutput{}, options).(LookupRulesetResultOutput)
 }
 
 // A collection of arguments for invoking getRuleset.

@@ -114,12 +114,8 @@ type LookupEventOrchestrationServiceCacheVariableResult struct {
 }
 
 func LookupEventOrchestrationServiceCacheVariableOutput(ctx *pulumi.Context, args LookupEventOrchestrationServiceCacheVariableOutputArgs, opts ...pulumi.InvokeOption) LookupEventOrchestrationServiceCacheVariableResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEventOrchestrationServiceCacheVariableResultOutput, error) {
-			args := v.(LookupEventOrchestrationServiceCacheVariableArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("pagerduty:index/getEventOrchestrationServiceCacheVariable:getEventOrchestrationServiceCacheVariable", args, LookupEventOrchestrationServiceCacheVariableResultOutput{}, options).(LookupEventOrchestrationServiceCacheVariableResultOutput), nil
-		}).(LookupEventOrchestrationServiceCacheVariableResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("pagerduty:index/getEventOrchestrationServiceCacheVariable:getEventOrchestrationServiceCacheVariable", args, LookupEventOrchestrationServiceCacheVariableResultOutput{}, options).(LookupEventOrchestrationServiceCacheVariableResultOutput)
 }
 
 // A collection of arguments for invoking getEventOrchestrationServiceCacheVariable.

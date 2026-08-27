@@ -62,12 +62,8 @@ type GetStandardsResult struct {
 }
 
 func GetStandardsOutput(ctx *pulumi.Context, args GetStandardsOutputArgs, opts ...pulumi.InvokeOption) GetStandardsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetStandardsResultOutput, error) {
-			args := v.(GetStandardsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("pagerduty:index/getStandards:getStandards", args, GetStandardsResultOutput{}, options).(GetStandardsResultOutput), nil
-		}).(GetStandardsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("pagerduty:index/getStandards:getStandards", args, GetStandardsResultOutput{}, options).(GetStandardsResultOutput)
 }
 
 // A collection of arguments for invoking getStandards.

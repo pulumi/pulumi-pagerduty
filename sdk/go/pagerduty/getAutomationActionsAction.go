@@ -111,12 +111,8 @@ type LookupAutomationActionsActionResult struct {
 }
 
 func LookupAutomationActionsActionOutput(ctx *pulumi.Context, args LookupAutomationActionsActionOutputArgs, opts ...pulumi.InvokeOption) LookupAutomationActionsActionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAutomationActionsActionResultOutput, error) {
-			args := v.(LookupAutomationActionsActionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("pagerduty:index/getAutomationActionsAction:getAutomationActionsAction", args, LookupAutomationActionsActionResultOutput{}, options).(LookupAutomationActionsActionResultOutput), nil
-		}).(LookupAutomationActionsActionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("pagerduty:index/getAutomationActionsAction:getAutomationActionsAction", args, LookupAutomationActionsActionResultOutput{}, options).(LookupAutomationActionsActionResultOutput)
 }
 
 // A collection of arguments for invoking getAutomationActionsAction.

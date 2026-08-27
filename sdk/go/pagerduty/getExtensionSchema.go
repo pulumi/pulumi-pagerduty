@@ -113,12 +113,8 @@ type GetExtensionSchemaResult struct {
 }
 
 func GetExtensionSchemaOutput(ctx *pulumi.Context, args GetExtensionSchemaOutputArgs, opts ...pulumi.InvokeOption) GetExtensionSchemaResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetExtensionSchemaResultOutput, error) {
-			args := v.(GetExtensionSchemaArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("pagerduty:index/getExtensionSchema:getExtensionSchema", args, GetExtensionSchemaResultOutput{}, options).(GetExtensionSchemaResultOutput), nil
-		}).(GetExtensionSchemaResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("pagerduty:index/getExtensionSchema:getExtensionSchema", args, GetExtensionSchemaResultOutput{}, options).(GetExtensionSchemaResultOutput)
 }
 
 // A collection of arguments for invoking getExtensionSchema.

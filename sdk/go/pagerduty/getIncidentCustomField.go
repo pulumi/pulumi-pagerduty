@@ -74,12 +74,8 @@ type LookupIncidentCustomFieldResult struct {
 }
 
 func LookupIncidentCustomFieldOutput(ctx *pulumi.Context, args LookupIncidentCustomFieldOutputArgs, opts ...pulumi.InvokeOption) LookupIncidentCustomFieldResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIncidentCustomFieldResultOutput, error) {
-			args := v.(LookupIncidentCustomFieldArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("pagerduty:index/getIncidentCustomField:getIncidentCustomField", args, LookupIncidentCustomFieldResultOutput{}, options).(LookupIncidentCustomFieldResultOutput), nil
-		}).(LookupIncidentCustomFieldResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("pagerduty:index/getIncidentCustomField:getIncidentCustomField", args, LookupIncidentCustomFieldResultOutput{}, options).(LookupIncidentCustomFieldResultOutput)
 }
 
 // A collection of arguments for invoking getIncidentCustomField.

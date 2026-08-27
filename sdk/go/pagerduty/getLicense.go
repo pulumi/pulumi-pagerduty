@@ -94,12 +94,8 @@ type GetLicenseResult struct {
 }
 
 func GetLicenseOutput(ctx *pulumi.Context, args GetLicenseOutputArgs, opts ...pulumi.InvokeOption) GetLicenseResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLicenseResultOutput, error) {
-			args := v.(GetLicenseArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("pagerduty:index/getLicense:getLicense", args, GetLicenseResultOutput{}, options).(GetLicenseResultOutput), nil
-		}).(GetLicenseResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("pagerduty:index/getLicense:getLicense", args, GetLicenseResultOutput{}, options).(GetLicenseResultOutput)
 }
 
 // A collection of arguments for invoking getLicense.

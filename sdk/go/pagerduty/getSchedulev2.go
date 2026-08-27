@@ -81,12 +81,8 @@ type LookupSchedulev2Result struct {
 }
 
 func LookupSchedulev2Output(ctx *pulumi.Context, args LookupSchedulev2OutputArgs, opts ...pulumi.InvokeOption) LookupSchedulev2ResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSchedulev2ResultOutput, error) {
-			args := v.(LookupSchedulev2Args)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("pagerduty:index/getSchedulev2:getSchedulev2", args, LookupSchedulev2ResultOutput{}, options).(LookupSchedulev2ResultOutput), nil
-		}).(LookupSchedulev2ResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("pagerduty:index/getSchedulev2:getSchedulev2", args, LookupSchedulev2ResultOutput{}, options).(LookupSchedulev2ResultOutput)
 }
 
 // A collection of arguments for invoking getSchedulev2.

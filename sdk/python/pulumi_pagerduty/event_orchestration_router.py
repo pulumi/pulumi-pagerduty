@@ -135,9 +135,9 @@ class EventOrchestrationRouter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catch_all: pulumi.Input[Optional[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict']]] = None,
+                 catch_all: pulumi.Input[Optional[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict', 'outputs.EventOrchestrationRouterCatchAll']]] = None,
                  event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
-                 set: pulumi.Input[Optional[Union['EventOrchestrationRouterSetArgs', 'EventOrchestrationRouterSetArgsDict']]] = None,
+                 set: pulumi.Input[Optional[Union['EventOrchestrationRouterSetArgs', 'EventOrchestrationRouterSetArgsDict', 'outputs.EventOrchestrationRouterSet']]] = None,
                  __props__=None):
         """
         An Orchestration Router allows users to create a set of Event Rules. The Router evaluates events sent to this Orchestration against each of its rules, one at a time, and routes the event to a specific Service based on the first rule that matches. If an event doesn't match any rules, it'll be sent to service specified in the `catch_all` or to the "Unrouted" Orchestration if no service is specified.
@@ -211,9 +211,9 @@ class EventOrchestrationRouter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict']] catch_all: When none of the rules match an event, the event will be routed according to the catch_all settings.
+        :param pulumi.Input[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict', 'outputs.EventOrchestrationRouterCatchAll']] catch_all: When none of the rules match an event, the event will be routed according to the catch_all settings.
         :param pulumi.Input[_builtins.str] event_orchestration: ID of the Event Orchestration to which the Router belongs.
-        :param pulumi.Input[Union['EventOrchestrationRouterSetArgs', 'EventOrchestrationRouterSetArgsDict']] set: The Router contains a single set of rules  (the "start" set).
+        :param pulumi.Input[Union['EventOrchestrationRouterSetArgs', 'EventOrchestrationRouterSetArgsDict', 'outputs.EventOrchestrationRouterSet']] set: The Router contains a single set of rules  (the "start" set).
         """
         ...
     @overload
@@ -306,9 +306,9 @@ class EventOrchestrationRouter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catch_all: pulumi.Input[Optional[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict']]] = None,
+                 catch_all: pulumi.Input[Optional[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict', 'outputs.EventOrchestrationRouterCatchAll']]] = None,
                  event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
-                 set: pulumi.Input[Optional[Union['EventOrchestrationRouterSetArgs', 'EventOrchestrationRouterSetArgsDict']]] = None,
+                 set: pulumi.Input[Optional[Union['EventOrchestrationRouterSetArgs', 'EventOrchestrationRouterSetArgsDict', 'outputs.EventOrchestrationRouterSet']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -337,9 +337,9 @@ class EventOrchestrationRouter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            catch_all: pulumi.Input[Optional[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict']]] = None,
+            catch_all: pulumi.Input[Optional[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict', 'outputs.EventOrchestrationRouterCatchAll']]] = None,
             event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
-            set: pulumi.Input[Optional[Union['EventOrchestrationRouterSetArgs', 'EventOrchestrationRouterSetArgsDict']]] = None) -> 'EventOrchestrationRouter':
+            set: pulumi.Input[Optional[Union['EventOrchestrationRouterSetArgs', 'EventOrchestrationRouterSetArgsDict', 'outputs.EventOrchestrationRouterSet']]] = None) -> 'EventOrchestrationRouter':
         """
         Get an existing EventOrchestrationRouter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -347,9 +347,9 @@ class EventOrchestrationRouter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict']] catch_all: When none of the rules match an event, the event will be routed according to the catch_all settings.
+        :param pulumi.Input[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict', 'outputs.EventOrchestrationRouterCatchAll']] catch_all: When none of the rules match an event, the event will be routed according to the catch_all settings.
         :param pulumi.Input[_builtins.str] event_orchestration: ID of the Event Orchestration to which the Router belongs.
-        :param pulumi.Input[Union['EventOrchestrationRouterSetArgs', 'EventOrchestrationRouterSetArgsDict']] set: The Router contains a single set of rules  (the "start" set).
+        :param pulumi.Input[Union['EventOrchestrationRouterSetArgs', 'EventOrchestrationRouterSetArgsDict', 'outputs.EventOrchestrationRouterSet']] set: The Router contains a single set of rules  (the "start" set).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

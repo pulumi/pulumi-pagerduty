@@ -262,7 +262,7 @@ class SlackConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlackConnectionConfigArgs', 'SlackConnectionConfigArgsDict']]]]] = None,
+                 configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlackConnectionConfigArgs', 'SlackConnectionConfigArgsDict', 'outputs.SlackConnectionConfig']]]]] = None,
                  notification_type: pulumi.Input[Optional[_builtins.str]] = None,
                  source_id: pulumi.Input[Optional[_builtins.str]] = None,
                  source_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -321,7 +321,7 @@ class SlackConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_id: The ID of a Slack channel in the workspace.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SlackConnectionConfigArgs', 'SlackConnectionConfigArgsDict']]]] configs: Configuration options for the Slack connection that provide options to filter events.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SlackConnectionConfigArgs', 'SlackConnectionConfigArgsDict', 'outputs.SlackConnectionConfig']]]] configs: Configuration options for the Slack connection that provide options to filter events.
         :param pulumi.Input[_builtins.str] notification_type: Type of notification. Either `responder` or `stakeholder`.
         :param pulumi.Input[_builtins.str] source_id: The ID of the source in PagerDuty. Valid sources are services or teams.
         :param pulumi.Input[_builtins.str] source_type: The type of the source. Either `team_reference` or `service_reference`.
@@ -399,7 +399,7 @@ class SlackConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlackConnectionConfigArgs', 'SlackConnectionConfigArgsDict']]]]] = None,
+                 configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlackConnectionConfigArgs', 'SlackConnectionConfigArgsDict', 'outputs.SlackConnectionConfig']]]]] = None,
                  notification_type: pulumi.Input[Optional[_builtins.str]] = None,
                  source_id: pulumi.Input[Optional[_builtins.str]] = None,
                  source_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -443,7 +443,7 @@ class SlackConnection(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             channel_id: pulumi.Input[Optional[_builtins.str]] = None,
             channel_name: pulumi.Input[Optional[_builtins.str]] = None,
-            configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlackConnectionConfigArgs', 'SlackConnectionConfigArgsDict']]]]] = None,
+            configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlackConnectionConfigArgs', 'SlackConnectionConfigArgsDict', 'outputs.SlackConnectionConfig']]]]] = None,
             notification_type: pulumi.Input[Optional[_builtins.str]] = None,
             source_id: pulumi.Input[Optional[_builtins.str]] = None,
             source_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -458,7 +458,7 @@ class SlackConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_id: The ID of a Slack channel in the workspace.
         :param pulumi.Input[_builtins.str] channel_name: Name of the Slack channel in Slack connection.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SlackConnectionConfigArgs', 'SlackConnectionConfigArgsDict']]]] configs: Configuration options for the Slack connection that provide options to filter events.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SlackConnectionConfigArgs', 'SlackConnectionConfigArgsDict', 'outputs.SlackConnectionConfig']]]] configs: Configuration options for the Slack connection that provide options to filter events.
         :param pulumi.Input[_builtins.str] notification_type: Type of notification. Either `responder` or `stakeholder`.
         :param pulumi.Input[_builtins.str] source_id: The ID of the source in PagerDuty. Valid sources are services or teams.
         :param pulumi.Input[_builtins.str] source_name: Name of the source (team or service) in Slack connection.

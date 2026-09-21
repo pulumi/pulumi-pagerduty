@@ -200,7 +200,7 @@ class AlertGroupingSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: pulumi.Input[Optional[Union['AlertGroupingSettingConfigArgs', 'AlertGroupingSettingConfigArgsDict']]] = None,
+                 config: pulumi.Input[Optional[Union['AlertGroupingSettingConfigArgs', 'AlertGroupingSettingConfigArgsDict', 'outputs.AlertGroupingSettingConfig']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -293,7 +293,7 @@ class AlertGroupingSetting(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AlertGroupingSettingConfigArgs', 'AlertGroupingSettingConfigArgsDict']] config: The set of values used for configuration.
+        :param pulumi.Input[Union['AlertGroupingSettingConfigArgs', 'AlertGroupingSettingConfigArgsDict', 'outputs.AlertGroupingSettingConfig']] config: The set of values used for configuration.
         :param pulumi.Input[_builtins.str] description: A human-friendly text to describe and identify this alert grouping setting.
         :param pulumi.Input[_builtins.str] name: The name for the alert grouping settings.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] services: [Updating can cause a resource replacement] The list IDs of services associated to this setting.
@@ -405,7 +405,7 @@ class AlertGroupingSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: pulumi.Input[Optional[Union['AlertGroupingSettingConfigArgs', 'AlertGroupingSettingConfigArgsDict']]] = None,
+                 config: pulumi.Input[Optional[Union['AlertGroupingSettingConfigArgs', 'AlertGroupingSettingConfigArgsDict', 'outputs.AlertGroupingSettingConfig']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -438,7 +438,7 @@ class AlertGroupingSetting(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config: pulumi.Input[Optional[Union['AlertGroupingSettingConfigArgs', 'AlertGroupingSettingConfigArgsDict']]] = None,
+            config: pulumi.Input[Optional[Union['AlertGroupingSettingConfigArgs', 'AlertGroupingSettingConfigArgsDict', 'outputs.AlertGroupingSettingConfig']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -450,7 +450,7 @@ class AlertGroupingSetting(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AlertGroupingSettingConfigArgs', 'AlertGroupingSettingConfigArgsDict']] config: The set of values used for configuration.
+        :param pulumi.Input[Union['AlertGroupingSettingConfigArgs', 'AlertGroupingSettingConfigArgsDict', 'outputs.AlertGroupingSettingConfig']] config: The set of values used for configuration.
         :param pulumi.Input[_builtins.str] description: A human-friendly text to describe and identify this alert grouping setting.
         :param pulumi.Input[_builtins.str] name: The name for the alert grouping settings.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] services: [Updating can cause a resource replacement] The list IDs of services associated to this setting.

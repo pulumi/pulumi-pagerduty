@@ -104,7 +104,7 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict']]]]] = None,
+                 custom_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict', 'outputs.ServiceCustomFieldValueCustomField']]]]] = None,
                  service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -194,7 +194,7 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict']]]] custom_fields: The custom field values to set for the service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict', 'outputs.ServiceCustomFieldValueCustomField']]]] custom_fields: The custom field values to set for the service.
         :param pulumi.Input[_builtins.str] service_id: The ID of the service to set custom field values for.
         """
         ...
@@ -303,7 +303,7 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict']]]]] = None,
+                 custom_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict', 'outputs.ServiceCustomFieldValueCustomField']]]]] = None,
                  service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -330,7 +330,7 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict']]]]] = None,
+            custom_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict', 'outputs.ServiceCustomFieldValueCustomField']]]]] = None,
             service_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceCustomFieldValue':
         """
         Get an existing ServiceCustomFieldValue resource's state with the given name, id, and optional extra
@@ -339,7 +339,7 @@ class ServiceCustomFieldValue(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict']]]] custom_fields: The custom field values to set for the service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCustomFieldValueCustomFieldArgs', 'ServiceCustomFieldValueCustomFieldArgsDict', 'outputs.ServiceCustomFieldValueCustomField']]]] custom_fields: The custom field values to set for the service.
         :param pulumi.Input[_builtins.str] service_id: The ID of the service to set custom field values for.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

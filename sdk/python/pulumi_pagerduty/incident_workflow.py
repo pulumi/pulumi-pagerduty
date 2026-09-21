@@ -205,7 +205,7 @@ class IncidentWorkflow(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict', 'outputs.IncidentWorkflowStep']]]]] = None,
                  team: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -244,7 +244,7 @@ class IncidentWorkflow(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the workflow.
         :param pulumi.Input[_builtins.str] is_enabled: Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
         :param pulumi.Input[_builtins.str] name: The name of the workflow.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]] steps: The steps in the workflow.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict', 'outputs.IncidentWorkflowStep']]]] steps: The steps in the workflow.
         :param pulumi.Input[_builtins.str] team: A team ID. If specified then workflow edit permissions will be scoped to members of this team.
         """
         ...
@@ -302,7 +302,7 @@ class IncidentWorkflow(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict', 'outputs.IncidentWorkflowStep']]]]] = None,
                  team: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -331,7 +331,7 @@ class IncidentWorkflow(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]]] = None,
+            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict', 'outputs.IncidentWorkflowStep']]]]] = None,
             team: pulumi.Input[Optional[_builtins.str]] = None) -> 'IncidentWorkflow':
         """
         Get an existing IncidentWorkflow resource's state with the given name, id, and optional extra
@@ -343,7 +343,7 @@ class IncidentWorkflow(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the workflow.
         :param pulumi.Input[_builtins.str] is_enabled: Indicates whether the Incident Workflow is enabled or not. Disabled workflows will not be triggered, and will not count toward the account's enabled workflow limit.
         :param pulumi.Input[_builtins.str] name: The name of the workflow.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict']]]] steps: The steps in the workflow.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentWorkflowStepArgs', 'IncidentWorkflowStepArgsDict', 'outputs.IncidentWorkflowStep']]]] steps: The steps in the workflow.
         :param pulumi.Input[_builtins.str] team: A team ID. If specified then workflow edit permissions will be scoped to members of this team.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

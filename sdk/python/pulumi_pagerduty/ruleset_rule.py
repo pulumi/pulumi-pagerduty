@@ -297,14 +297,14 @@ class RulesetRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']]] = None,
+                 actions: pulumi.Input[Optional[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict', 'outputs.RulesetRuleActions']]] = None,
                  catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
-                 conditions: pulumi.Input[Optional[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict']]] = None,
+                 conditions: pulumi.Input[Optional[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict', 'outputs.RulesetRuleConditions']]] = None,
                  disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  position: pulumi.Input[Optional[_builtins.int]] = None,
                  ruleset: pulumi.Input[Optional[_builtins.str]] = None,
-                 time_frame: pulumi.Input[Optional[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict']]] = None,
-                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]]] = None,
+                 time_frame: pulumi.Input[Optional[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict', 'outputs.RulesetRuleTimeFrame']]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict', 'outputs.RulesetRuleVariable']]]]] = None,
                  __props__=None):
         """
         An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.
@@ -432,14 +432,14 @@ class RulesetRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']] actions: Actions to apply to an event if the conditions match.
+        :param pulumi.Input[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict', 'outputs.RulesetRuleActions']] actions: Actions to apply to an event if the conditions match.
         :param pulumi.Input[_builtins.bool] catch_all: Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
-        :param pulumi.Input[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict']] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
+        :param pulumi.Input[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict', 'outputs.RulesetRuleConditions']] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         :param pulumi.Input[_builtins.bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[_builtins.int] position: Position/index of the rule within the ruleset.
         :param pulumi.Input[_builtins.str] ruleset: The ID of the ruleset that the rule belongs to.
-        :param pulumi.Input[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+        :param pulumi.Input[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict', 'outputs.RulesetRuleTimeFrame']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict', 'outputs.RulesetRuleVariable']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
         ...
     @overload
@@ -586,14 +586,14 @@ class RulesetRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']]] = None,
+                 actions: pulumi.Input[Optional[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict', 'outputs.RulesetRuleActions']]] = None,
                  catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
-                 conditions: pulumi.Input[Optional[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict']]] = None,
+                 conditions: pulumi.Input[Optional[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict', 'outputs.RulesetRuleConditions']]] = None,
                  disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  position: pulumi.Input[Optional[_builtins.int]] = None,
                  ruleset: pulumi.Input[Optional[_builtins.str]] = None,
-                 time_frame: pulumi.Input[Optional[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict']]] = None,
-                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]]] = None,
+                 time_frame: pulumi.Input[Optional[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict', 'outputs.RulesetRuleTimeFrame']]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict', 'outputs.RulesetRuleVariable']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -623,14 +623,14 @@ class RulesetRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: pulumi.Input[Optional[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']]] = None,
+            actions: pulumi.Input[Optional[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict', 'outputs.RulesetRuleActions']]] = None,
             catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
-            conditions: pulumi.Input[Optional[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict']]] = None,
+            conditions: pulumi.Input[Optional[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict', 'outputs.RulesetRuleConditions']]] = None,
             disabled: pulumi.Input[Optional[_builtins.bool]] = None,
             position: pulumi.Input[Optional[_builtins.int]] = None,
             ruleset: pulumi.Input[Optional[_builtins.str]] = None,
-            time_frame: pulumi.Input[Optional[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict']]] = None,
-            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]]] = None) -> 'RulesetRule':
+            time_frame: pulumi.Input[Optional[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict', 'outputs.RulesetRuleTimeFrame']]] = None,
+            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict', 'outputs.RulesetRuleVariable']]]]] = None) -> 'RulesetRule':
         """
         Get an existing RulesetRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -638,14 +638,14 @@ class RulesetRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict']] actions: Actions to apply to an event if the conditions match.
+        :param pulumi.Input[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict', 'outputs.RulesetRuleActions']] actions: Actions to apply to an event if the conditions match.
         :param pulumi.Input[_builtins.bool] catch_all: Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
-        :param pulumi.Input[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict']] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
+        :param pulumi.Input[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict', 'outputs.RulesetRuleConditions']] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         :param pulumi.Input[_builtins.bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[_builtins.int] position: Position/index of the rule within the ruleset.
         :param pulumi.Input[_builtins.str] ruleset: The ID of the ruleset that the rule belongs to.
-        :param pulumi.Input[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+        :param pulumi.Input[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict', 'outputs.RulesetRuleTimeFrame']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict', 'outputs.RulesetRuleVariable']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

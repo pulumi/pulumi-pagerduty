@@ -265,13 +265,13 @@ class ServiceEventRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']]] = None,
-                 conditions: pulumi.Input[Optional[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict']]] = None,
+                 actions: pulumi.Input[Optional[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict', 'outputs.ServiceEventRuleActions']]] = None,
+                 conditions: pulumi.Input[Optional[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict', 'outputs.ServiceEventRuleConditions']]] = None,
                  disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  position: pulumi.Input[Optional[_builtins.int]] = None,
                  service: pulumi.Input[Optional[_builtins.str]] = None,
-                 time_frame: pulumi.Input[Optional[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict']]] = None,
-                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict']]]]] = None,
+                 time_frame: pulumi.Input[Optional[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict', 'outputs.ServiceEventRuleTimeFrame']]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict', 'outputs.ServiceEventRuleVariable']]]]] = None,
                  __props__=None):
         """
         A [service event rule](https://support.pagerduty.com/docs/rulesets#service-event-rules) allows you to set actions that should be taken on events for a service that meet the designated rule criteria.
@@ -373,13 +373,13 @@ class ServiceEventRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']] actions: Actions to apply to an event if the conditions match.
-        :param pulumi.Input[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict']] conditions: Conditions evaluated to check if an event matches this event rule.
+        :param pulumi.Input[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict', 'outputs.ServiceEventRuleActions']] actions: Actions to apply to an event if the conditions match.
+        :param pulumi.Input[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict', 'outputs.ServiceEventRuleConditions']] conditions: Conditions evaluated to check if an event matches this event rule.
         :param pulumi.Input[_builtins.bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[_builtins.int] position: Position/index of the rule within the service.
         :param pulumi.Input[_builtins.str] service: The ID of the service that the rule belongs to.
-        :param pulumi.Input[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+        :param pulumi.Input[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict', 'outputs.ServiceEventRuleTimeFrame']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict', 'outputs.ServiceEventRuleVariable']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
         ...
     @overload
@@ -500,13 +500,13 @@ class ServiceEventRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']]] = None,
-                 conditions: pulumi.Input[Optional[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict']]] = None,
+                 actions: pulumi.Input[Optional[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict', 'outputs.ServiceEventRuleActions']]] = None,
+                 conditions: pulumi.Input[Optional[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict', 'outputs.ServiceEventRuleConditions']]] = None,
                  disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  position: pulumi.Input[Optional[_builtins.int]] = None,
                  service: pulumi.Input[Optional[_builtins.str]] = None,
-                 time_frame: pulumi.Input[Optional[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict']]] = None,
-                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict']]]]] = None,
+                 time_frame: pulumi.Input[Optional[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict', 'outputs.ServiceEventRuleTimeFrame']]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict', 'outputs.ServiceEventRuleVariable']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -535,13 +535,13 @@ class ServiceEventRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: pulumi.Input[Optional[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']]] = None,
-            conditions: pulumi.Input[Optional[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict']]] = None,
+            actions: pulumi.Input[Optional[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict', 'outputs.ServiceEventRuleActions']]] = None,
+            conditions: pulumi.Input[Optional[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict', 'outputs.ServiceEventRuleConditions']]] = None,
             disabled: pulumi.Input[Optional[_builtins.bool]] = None,
             position: pulumi.Input[Optional[_builtins.int]] = None,
             service: pulumi.Input[Optional[_builtins.str]] = None,
-            time_frame: pulumi.Input[Optional[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict']]] = None,
-            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict']]]]] = None) -> 'ServiceEventRule':
+            time_frame: pulumi.Input[Optional[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict', 'outputs.ServiceEventRuleTimeFrame']]] = None,
+            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict', 'outputs.ServiceEventRuleVariable']]]]] = None) -> 'ServiceEventRule':
         """
         Get an existing ServiceEventRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -549,13 +549,13 @@ class ServiceEventRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict']] actions: Actions to apply to an event if the conditions match.
-        :param pulumi.Input[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict']] conditions: Conditions evaluated to check if an event matches this event rule.
+        :param pulumi.Input[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict', 'outputs.ServiceEventRuleActions']] actions: Actions to apply to an event if the conditions match.
+        :param pulumi.Input[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict', 'outputs.ServiceEventRuleConditions']] conditions: Conditions evaluated to check if an event matches this event rule.
         :param pulumi.Input[_builtins.bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[_builtins.int] position: Position/index of the rule within the service.
         :param pulumi.Input[_builtins.str] service: The ID of the service that the rule belongs to.
-        :param pulumi.Input[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+        :param pulumi.Input[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict', 'outputs.ServiceEventRuleTimeFrame']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict', 'outputs.ServiceEventRuleVariable']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

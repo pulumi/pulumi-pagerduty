@@ -257,7 +257,7 @@ class Schedule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict']]]]] = None,
+                 layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict', 'outputs.ScheduleLayer']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  overflow: pulumi.Input[Optional[_builtins.bool]] = None,
                  teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -306,7 +306,7 @@ class Schedule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the schedule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict']]]] layers: A schedule layer block. Schedule layers documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict', 'outputs.ScheduleLayer']]]] layers: A schedule layer block. Schedule layers documented below.
         :param pulumi.Input[_builtins.str] name: The name of the schedule.
         :param pulumi.Input[_builtins.bool] overflow: Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
                If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
@@ -376,7 +376,7 @@ class Schedule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict']]]]] = None,
+                 layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict', 'outputs.ScheduleLayer']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  overflow: pulumi.Input[Optional[_builtins.bool]] = None,
                  teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -414,8 +414,8 @@ class Schedule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            final_schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleFinalScheduleArgs', 'ScheduleFinalScheduleArgsDict']]]]] = None,
-            layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict']]]]] = None,
+            final_schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleFinalScheduleArgs', 'ScheduleFinalScheduleArgsDict', 'outputs.ScheduleFinalSchedule']]]]] = None,
+            layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict', 'outputs.ScheduleLayer']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             overflow: pulumi.Input[Optional[_builtins.bool]] = None,
             teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -428,7 +428,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the schedule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict']]]] layers: A schedule layer block. Schedule layers documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduleLayerArgs', 'ScheduleLayerArgsDict', 'outputs.ScheduleLayer']]]] layers: A schedule layer block. Schedule layers documented below.
         :param pulumi.Input[_builtins.str] name: The name of the schedule.
         :param pulumi.Input[_builtins.bool] overflow: Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
                If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.

@@ -75,7 +75,7 @@ class AwaitableGetEventOrchestrationResult(GetEventOrchestrationResult):
             name=self.name)
 
 
-def get_event_orchestration(integration_detail: Optional[Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']]] = None,
+def get_event_orchestration(integration_detail: Optional[Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict', 'outputs.GetEventOrchestrationIntegrationDetailResult']]] = None,
                             name: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventOrchestrationResult:
     """
@@ -110,7 +110,7 @@ def get_event_orchestration(integration_detail: Optional[Sequence[Union['GetEven
     ```
 
 
-    :param Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']] integration_detail: A list of integrations for the Event Orchestration.
+    :param Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict', 'outputs.GetEventOrchestrationIntegrationDetailResult']] integration_detail: A list of integrations for the Event Orchestration.
     :param _builtins.str name: The name of the Global Event Orchestration to find in the PagerDuty API.
     """
     __args__ = dict()
@@ -123,7 +123,7 @@ def get_event_orchestration(integration_detail: Optional[Sequence[Union['GetEven
         id=pulumi.get(__ret__, 'id'),
         integration_detail=pulumi.get(__ret__, 'integration_detail'),
         name=pulumi.get(__ret__, 'name'))
-def get_event_orchestration_output(integration_detail: pulumi.Input[Optional[Optional[Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']]]]] = None,
+def get_event_orchestration_output(integration_detail: pulumi.Input[Optional[Optional[Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict', 'outputs.GetEventOrchestrationIntegrationDetailResult']]]]] = None,
                                    name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventOrchestrationResult]:
     """
@@ -158,7 +158,7 @@ def get_event_orchestration_output(integration_detail: pulumi.Input[Optional[Opt
     ```
 
 
-    :param Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict']] integration_detail: A list of integrations for the Event Orchestration.
+    :param Sequence[Union['GetEventOrchestrationIntegrationDetailArgs', 'GetEventOrchestrationIntegrationDetailArgsDict', 'outputs.GetEventOrchestrationIntegrationDetailResult']] integration_detail: A list of integrations for the Event Orchestration.
     :param _builtins.str name: The name of the Global Event Orchestration to find in the PagerDuty API.
     """
     __args__ = dict()

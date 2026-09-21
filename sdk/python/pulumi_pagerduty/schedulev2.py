@@ -203,7 +203,7 @@ class Schedulev2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rotations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['Schedulev2RotationArgs', 'Schedulev2RotationArgsDict']]]]] = None,
+                 rotations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['Schedulev2RotationArgs', 'Schedulev2RotationArgsDict', 'outputs.Schedulev2Rotation']]]]] = None,
                  teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -412,7 +412,7 @@ class Schedulev2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the schedule. Maximum 1024 characters.
         :param pulumi.Input[_builtins.str] name: The name of the schedule. Maximum 255 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['Schedulev2RotationArgs', 'Schedulev2RotationArgsDict']]]] rotations: One or more rotation blocks. Rotations documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['Schedulev2RotationArgs', 'Schedulev2RotationArgsDict', 'outputs.Schedulev2Rotation']]]] rotations: One or more rotation blocks. Rotations documented below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: List of team IDs to associate with this schedule.
         :param pulumi.Input[_builtins.str] time_zone: The time zone of the schedule (IANA format, e.g. `America/New_York`).
         """
@@ -640,7 +640,7 @@ class Schedulev2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rotations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['Schedulev2RotationArgs', 'Schedulev2RotationArgsDict']]]]] = None,
+                 rotations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['Schedulev2RotationArgs', 'Schedulev2RotationArgsDict', 'outputs.Schedulev2Rotation']]]]] = None,
                  teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -671,7 +671,7 @@ class Schedulev2(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            rotations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['Schedulev2RotationArgs', 'Schedulev2RotationArgsDict']]]]] = None,
+            rotations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['Schedulev2RotationArgs', 'Schedulev2RotationArgsDict', 'outputs.Schedulev2Rotation']]]]] = None,
             teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'Schedulev2':
         """
@@ -683,7 +683,7 @@ class Schedulev2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the schedule. Maximum 1024 characters.
         :param pulumi.Input[_builtins.str] name: The name of the schedule. Maximum 255 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['Schedulev2RotationArgs', 'Schedulev2RotationArgsDict']]]] rotations: One or more rotation blocks. Rotations documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['Schedulev2RotationArgs', 'Schedulev2RotationArgsDict', 'outputs.Schedulev2Rotation']]]] rotations: One or more rotation blocks. Rotations documented below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: List of team IDs to associate with this schedule.
         :param pulumi.Input[_builtins.str] time_zone: The time zone of the schedule (IANA format, e.g. `America/New_York`).
         """

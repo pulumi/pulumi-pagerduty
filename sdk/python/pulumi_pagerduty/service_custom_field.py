@@ -348,7 +348,7 @@ class ServiceCustomField(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 field_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCustomFieldFieldOptionArgs', 'ServiceCustomFieldFieldOptionArgsDict']]]]] = None,
+                 field_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCustomFieldFieldOptionArgs', 'ServiceCustomFieldFieldOptionArgsDict', 'outputs.ServiceCustomFieldFieldOption']]]]] = None,
                  field_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -441,7 +441,7 @@ class ServiceCustomField(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the data this field contains.
         :param pulumi.Input[_builtins.str] display_name: The human-readable name of the field. Must be unique across an account.
         :param pulumi.Input[_builtins.bool] enabled: Whether the field is enabled. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCustomFieldFieldOptionArgs', 'ServiceCustomFieldFieldOptionArgsDict']]]] field_options: Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCustomFieldFieldOptionArgs', 'ServiceCustomFieldFieldOptionArgsDict', 'outputs.ServiceCustomFieldFieldOption']]]] field_options: Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.
         :param pulumi.Input[_builtins.str] field_type: The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
         :param pulumi.Input[_builtins.str] name: The name of the field. May include ASCII characters, specifically lowercase letters, digits, and underscores. Must be unique and cannot be changed once created.
         """
@@ -553,7 +553,7 @@ class ServiceCustomField(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 field_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCustomFieldFieldOptionArgs', 'ServiceCustomFieldFieldOptionArgsDict']]]]] = None,
+                 field_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCustomFieldFieldOptionArgs', 'ServiceCustomFieldFieldOptionArgsDict', 'outputs.ServiceCustomFieldFieldOption']]]]] = None,
                  field_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -597,7 +597,7 @@ class ServiceCustomField(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            field_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCustomFieldFieldOptionArgs', 'ServiceCustomFieldFieldOptionArgsDict']]]]] = None,
+            field_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCustomFieldFieldOptionArgs', 'ServiceCustomFieldFieldOptionArgsDict', 'outputs.ServiceCustomFieldFieldOption']]]]] = None,
             field_type: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             self: pulumi.Input[Optional[_builtins.str]] = None,
@@ -615,7 +615,7 @@ class ServiceCustomField(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the data this field contains.
         :param pulumi.Input[_builtins.str] display_name: The human-readable name of the field. Must be unique across an account.
         :param pulumi.Input[_builtins.bool] enabled: Whether the field is enabled. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCustomFieldFieldOptionArgs', 'ServiceCustomFieldFieldOptionArgsDict']]]] field_options: Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCustomFieldFieldOptionArgs', 'ServiceCustomFieldFieldOptionArgsDict', 'outputs.ServiceCustomFieldFieldOption']]]] field_options: Configuration block for defining options for `single_value_fixed` or `multi_value_fixed` field types. Can be specified multiple times for multiple options.
         :param pulumi.Input[_builtins.str] field_type: The type of field. Must be one of: `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
         :param pulumi.Input[_builtins.str] name: The name of the field. May include ASCII characters, specifically lowercase letters, digits, and underscores. Must be unique and cannot be changed once created.
         :param pulumi.Input[_builtins.str] self: The API show URL at which the object is accessible

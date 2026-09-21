@@ -111,7 +111,7 @@ class AwaitableGetAlertGroupingSettingResult(GetAlertGroupingSettingResult):
             type=self.type)
 
 
-def get_alert_grouping_setting(config: Optional[Union['GetAlertGroupingSettingConfigArgs', 'GetAlertGroupingSettingConfigArgsDict']] = None,
+def get_alert_grouping_setting(config: Optional[Union['GetAlertGroupingSettingConfigArgs', 'GetAlertGroupingSettingConfigArgsDict', 'outputs.GetAlertGroupingSettingConfigResult']] = None,
                                name: Optional[_builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertGroupingSettingResult:
     """
@@ -127,7 +127,7 @@ def get_alert_grouping_setting(config: Optional[Union['GetAlertGroupingSettingCo
     ```
 
 
-    :param Union['GetAlertGroupingSettingConfigArgs', 'GetAlertGroupingSettingConfigArgsDict'] config: The values for the configuration setup for this setting.
+    :param Union['GetAlertGroupingSettingConfigArgs', 'GetAlertGroupingSettingConfigArgsDict', 'outputs.GetAlertGroupingSettingConfigResult'] config: The values for the configuration setup for this setting.
     :param _builtins.str name: The name to use to find an alert grouping setting in the PagerDuty API.
     """
     __args__ = dict()
@@ -143,7 +143,7 @@ def get_alert_grouping_setting(config: Optional[Union['GetAlertGroupingSettingCo
         name=pulumi.get(__ret__, 'name'),
         services=pulumi.get(__ret__, 'services'),
         type=pulumi.get(__ret__, 'type'))
-def get_alert_grouping_setting_output(config: pulumi.Input[Optional[Optional[Union['GetAlertGroupingSettingConfigArgs', 'GetAlertGroupingSettingConfigArgsDict']]]] = None,
+def get_alert_grouping_setting_output(config: pulumi.Input[Optional[Optional[Union['GetAlertGroupingSettingConfigArgs', 'GetAlertGroupingSettingConfigArgsDict', 'outputs.GetAlertGroupingSettingConfigResult']]]] = None,
                                       name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertGroupingSettingResult]:
     """
@@ -159,7 +159,7 @@ def get_alert_grouping_setting_output(config: pulumi.Input[Optional[Optional[Uni
     ```
 
 
-    :param Union['GetAlertGroupingSettingConfigArgs', 'GetAlertGroupingSettingConfigArgsDict'] config: The values for the configuration setup for this setting.
+    :param Union['GetAlertGroupingSettingConfigArgs', 'GetAlertGroupingSettingConfigArgsDict', 'outputs.GetAlertGroupingSettingConfigResult'] config: The values for the configuration setup for this setting.
     :param _builtins.str name: The name to use to find an alert grouping setting in the PagerDuty API.
     """
     __args__ = dict()

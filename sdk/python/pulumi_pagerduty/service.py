@@ -586,17 +586,17 @@ class Service(pulumi.CustomResource):
                  acknowledgement_timeout: pulumi.Input[Optional[_builtins.str]] = None,
                  alert_creation: pulumi.Input[Optional[_builtins.str]] = None,
                  alert_grouping: pulumi.Input[Optional[_builtins.str]] = None,
-                 alert_grouping_parameters: pulumi.Input[Optional[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict']]] = None,
+                 alert_grouping_parameters: pulumi.Input[Optional[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict', 'outputs.ServiceAlertGroupingParameters']]] = None,
                  alert_grouping_timeout: pulumi.Input[Optional[_builtins.str]] = None,
-                 auto_pause_notifications_parameters: pulumi.Input[Optional[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict']]] = None,
+                 auto_pause_notifications_parameters: pulumi.Input[Optional[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict', 'outputs.ServiceAutoPauseNotificationsParameters']]] = None,
                  auto_resolve_timeout: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  escalation_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 incident_urgency_rule: pulumi.Input[Optional[Union['ServiceIncidentUrgencyRuleArgs', 'ServiceIncidentUrgencyRuleArgsDict']]] = None,
+                 incident_urgency_rule: pulumi.Input[Optional[Union['ServiceIncidentUrgencyRuleArgs', 'ServiceIncidentUrgencyRuleArgsDict', 'outputs.ServiceIncidentUrgencyRule']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  response_play: pulumi.Input[Optional[_builtins.str]] = None,
-                 scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceScheduledActionArgs', 'ServiceScheduledActionArgsDict']]]]] = None,
-                 support_hours: pulumi.Input[Optional[Union['ServiceSupportHoursArgs', 'ServiceSupportHoursArgsDict']]] = None,
+                 scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceScheduledActionArgs', 'ServiceScheduledActionArgsDict', 'outputs.ServiceScheduledAction']]]]] = None,
+                 support_hours: pulumi.Input[Optional[Union['ServiceSupportHoursArgs', 'ServiceSupportHoursArgsDict', 'outputs.ServiceSupportHours']]] = None,
                  __props__=None):
         """
         A [service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Nw-create-a-service) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
@@ -646,9 +646,9 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] acknowledgement_timeout: Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
         :param pulumi.Input[_builtins.str] alert_creation: (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
         :param pulumi.Input[_builtins.str] alert_grouping: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
-        :param pulumi.Input[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict']] alert_grouping_parameters: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
+        :param pulumi.Input[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict', 'outputs.ServiceAlertGroupingParameters']] alert_grouping_parameters: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
         :param pulumi.Input[_builtins.str] alert_grouping_timeout: (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
-        :param pulumi.Input[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict']] auto_pause_notifications_parameters: Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+        :param pulumi.Input[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict', 'outputs.ServiceAutoPauseNotificationsParameters']] auto_pause_notifications_parameters: Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
         :param pulumi.Input[_builtins.str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         :param pulumi.Input[_builtins.str] description: A human-friendly description of the service.
                If not set, a placeholder of "Managed by Pulumi" will be set.
@@ -723,17 +723,17 @@ class Service(pulumi.CustomResource):
                  acknowledgement_timeout: pulumi.Input[Optional[_builtins.str]] = None,
                  alert_creation: pulumi.Input[Optional[_builtins.str]] = None,
                  alert_grouping: pulumi.Input[Optional[_builtins.str]] = None,
-                 alert_grouping_parameters: pulumi.Input[Optional[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict']]] = None,
+                 alert_grouping_parameters: pulumi.Input[Optional[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict', 'outputs.ServiceAlertGroupingParameters']]] = None,
                  alert_grouping_timeout: pulumi.Input[Optional[_builtins.str]] = None,
-                 auto_pause_notifications_parameters: pulumi.Input[Optional[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict']]] = None,
+                 auto_pause_notifications_parameters: pulumi.Input[Optional[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict', 'outputs.ServiceAutoPauseNotificationsParameters']]] = None,
                  auto_resolve_timeout: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  escalation_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 incident_urgency_rule: pulumi.Input[Optional[Union['ServiceIncidentUrgencyRuleArgs', 'ServiceIncidentUrgencyRuleArgsDict']]] = None,
+                 incident_urgency_rule: pulumi.Input[Optional[Union['ServiceIncidentUrgencyRuleArgs', 'ServiceIncidentUrgencyRuleArgsDict', 'outputs.ServiceIncidentUrgencyRule']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  response_play: pulumi.Input[Optional[_builtins.str]] = None,
-                 scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceScheduledActionArgs', 'ServiceScheduledActionArgsDict']]]]] = None,
-                 support_hours: pulumi.Input[Optional[Union['ServiceSupportHoursArgs', 'ServiceSupportHoursArgsDict']]] = None,
+                 scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceScheduledActionArgs', 'ServiceScheduledActionArgsDict', 'outputs.ServiceScheduledAction']]]]] = None,
+                 support_hours: pulumi.Input[Optional[Union['ServiceSupportHoursArgs', 'ServiceSupportHoursArgsDict', 'outputs.ServiceSupportHours']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -779,21 +779,21 @@ class Service(pulumi.CustomResource):
             acknowledgement_timeout: pulumi.Input[Optional[_builtins.str]] = None,
             alert_creation: pulumi.Input[Optional[_builtins.str]] = None,
             alert_grouping: pulumi.Input[Optional[_builtins.str]] = None,
-            alert_grouping_parameters: pulumi.Input[Optional[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict']]] = None,
+            alert_grouping_parameters: pulumi.Input[Optional[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict', 'outputs.ServiceAlertGroupingParameters']]] = None,
             alert_grouping_timeout: pulumi.Input[Optional[_builtins.str]] = None,
-            auto_pause_notifications_parameters: pulumi.Input[Optional[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict']]] = None,
+            auto_pause_notifications_parameters: pulumi.Input[Optional[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict', 'outputs.ServiceAutoPauseNotificationsParameters']]] = None,
             auto_resolve_timeout: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             escalation_policy: pulumi.Input[Optional[_builtins.str]] = None,
             html_url: pulumi.Input[Optional[_builtins.str]] = None,
-            incident_urgency_rule: pulumi.Input[Optional[Union['ServiceIncidentUrgencyRuleArgs', 'ServiceIncidentUrgencyRuleArgsDict']]] = None,
+            incident_urgency_rule: pulumi.Input[Optional[Union['ServiceIncidentUrgencyRuleArgs', 'ServiceIncidentUrgencyRuleArgsDict', 'outputs.ServiceIncidentUrgencyRule']]] = None,
             last_incident_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             response_play: pulumi.Input[Optional[_builtins.str]] = None,
-            scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceScheduledActionArgs', 'ServiceScheduledActionArgsDict']]]]] = None,
+            scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceScheduledActionArgs', 'ServiceScheduledActionArgsDict', 'outputs.ServiceScheduledAction']]]]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            support_hours: pulumi.Input[Optional[Union['ServiceSupportHoursArgs', 'ServiceSupportHoursArgsDict']]] = None,
+            support_hours: pulumi.Input[Optional[Union['ServiceSupportHoursArgs', 'ServiceSupportHoursArgsDict', 'outputs.ServiceSupportHours']]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
@@ -805,9 +805,9 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] acknowledgement_timeout: Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
         :param pulumi.Input[_builtins.str] alert_creation: (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
         :param pulumi.Input[_builtins.str] alert_grouping: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
-        :param pulumi.Input[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict']] alert_grouping_parameters: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
+        :param pulumi.Input[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict', 'outputs.ServiceAlertGroupingParameters']] alert_grouping_parameters: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `AlertGroupingSetting` resource can be found here.
         :param pulumi.Input[_builtins.str] alert_grouping_timeout: (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
-        :param pulumi.Input[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict']] auto_pause_notifications_parameters: Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+        :param pulumi.Input[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict', 'outputs.ServiceAutoPauseNotificationsParameters']] auto_pause_notifications_parameters: Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
         :param pulumi.Input[_builtins.str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         :param pulumi.Input[_builtins.str] created_at: Creation timestamp of the service.
         :param pulumi.Input[_builtins.str] description: A human-friendly description of the service.

@@ -183,7 +183,7 @@ class EventOrchestration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 integrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict']]]]] = None,
+                 integrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict', 'outputs.EventOrchestrationIntegration']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  team: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -215,7 +215,7 @@ class EventOrchestration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A human-friendly description of the Event Orchestration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict']]]] integrations: A list of integrations for the Event Orchestration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict', 'outputs.EventOrchestrationIntegration']]]] integrations: A list of integrations for the Event Orchestration.
         :param pulumi.Input[_builtins.str] name: Name of the Event Orchestration.
         :param pulumi.Input[_builtins.str] team: ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
         """
@@ -266,7 +266,7 @@ class EventOrchestration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 integrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict']]]]] = None,
+                 integrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict', 'outputs.EventOrchestrationIntegration']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  team: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -294,7 +294,7 @@ class EventOrchestration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            integrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict']]]]] = None,
+            integrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict', 'outputs.EventOrchestrationIntegration']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             routes: pulumi.Input[Optional[_builtins.int]] = None,
             team: pulumi.Input[Optional[_builtins.str]] = None) -> 'EventOrchestration':
@@ -306,7 +306,7 @@ class EventOrchestration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A human-friendly description of the Event Orchestration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict']]]] integrations: A list of integrations for the Event Orchestration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict', 'outputs.EventOrchestrationIntegration']]]] integrations: A list of integrations for the Event Orchestration.
         :param pulumi.Input[_builtins.str] name: Name of the Event Orchestration.
         :param pulumi.Input[_builtins.str] team: ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
         """

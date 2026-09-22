@@ -167,10 +167,10 @@ class EventOrchestrationService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catch_all: pulumi.Input[Optional[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']]] = None,
+                 catch_all: pulumi.Input[Optional[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict', 'outputs.EventOrchestrationServiceCatchAll']]] = None,
                  enable_event_orchestration_for_service: pulumi.Input[Optional[_builtins.bool]] = None,
                  service: pulumi.Input[Optional[_builtins.str]] = None,
-                 sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict']]]]] = None,
+                 sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict', 'outputs.EventOrchestrationServiceSet']]]]] = None,
                  __props__=None):
         """
         A [Service Orchestration](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) allows you to create a set of Event Rules. The Service Orchestration evaluates Events sent to this Service against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Service Orchestration for further processing.
@@ -339,10 +339,10 @@ class EventOrchestrationService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+        :param pulumi.Input[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict', 'outputs.EventOrchestrationServiceCatchAll']] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         :param pulumi.Input[_builtins.bool] enable_event_orchestration_for_service: Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
         :param pulumi.Input[_builtins.str] service: ID of the Service to which this Service Orchestration belongs to.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict']]]] sets: A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict', 'outputs.EventOrchestrationServiceSet']]]] sets: A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
         """
         ...
     @overload
@@ -530,10 +530,10 @@ class EventOrchestrationService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catch_all: pulumi.Input[Optional[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']]] = None,
+                 catch_all: pulumi.Input[Optional[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict', 'outputs.EventOrchestrationServiceCatchAll']]] = None,
                  enable_event_orchestration_for_service: pulumi.Input[Optional[_builtins.bool]] = None,
                  service: pulumi.Input[Optional[_builtins.str]] = None,
-                 sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict']]]]] = None,
+                 sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict', 'outputs.EventOrchestrationServiceSet']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -563,10 +563,10 @@ class EventOrchestrationService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            catch_all: pulumi.Input[Optional[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']]] = None,
+            catch_all: pulumi.Input[Optional[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict', 'outputs.EventOrchestrationServiceCatchAll']]] = None,
             enable_event_orchestration_for_service: pulumi.Input[Optional[_builtins.bool]] = None,
             service: pulumi.Input[Optional[_builtins.str]] = None,
-            sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict']]]]] = None) -> 'EventOrchestrationService':
+            sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict', 'outputs.EventOrchestrationServiceSet']]]]] = None) -> 'EventOrchestrationService':
         """
         Get an existing EventOrchestrationService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -574,10 +574,10 @@ class EventOrchestrationService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict']] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+        :param pulumi.Input[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict', 'outputs.EventOrchestrationServiceCatchAll']] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         :param pulumi.Input[_builtins.bool] enable_event_orchestration_for_service: Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
         :param pulumi.Input[_builtins.str] service: ID of the Service to which this Service Orchestration belongs to.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict']]]] sets: A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict', 'outputs.EventOrchestrationServiceSet']]]] sets: A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

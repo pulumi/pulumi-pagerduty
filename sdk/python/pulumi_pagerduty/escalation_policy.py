@@ -212,7 +212,7 @@ class EscalationPolicy(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  num_loops: pulumi.Input[Optional[_builtins.int]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict', 'outputs.EscalationPolicyRule']]]]] = None,
                  teams: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -269,7 +269,7 @@ class EscalationPolicy(pulumi.CustomResource):
                If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[_builtins.str] name: The name of the escalation policy.
         :param pulumi.Input[_builtins.int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]] rules: An Escalation rule block. Escalation rules documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict', 'outputs.EscalationPolicyRule']]]] rules: An Escalation rule block. Escalation rules documented below.
         :param pulumi.Input[_builtins.str] teams: Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
         """
         ...
@@ -344,7 +344,7 @@ class EscalationPolicy(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  num_loops: pulumi.Input[Optional[_builtins.int]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict', 'outputs.EscalationPolicyRule']]]]] = None,
                  teams: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -377,7 +377,7 @@ class EscalationPolicy(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             num_loops: pulumi.Input[Optional[_builtins.int]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict', 'outputs.EscalationPolicyRule']]]]] = None,
             teams: pulumi.Input[Optional[_builtins.str]] = None) -> 'EscalationPolicy':
         """
         Get an existing EscalationPolicy resource's state with the given name, id, and optional extra
@@ -390,7 +390,7 @@ class EscalationPolicy(pulumi.CustomResource):
                If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[_builtins.str] name: The name of the escalation policy.
         :param pulumi.Input[_builtins.int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict']]]] rules: An Escalation rule block. Escalation rules documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationPolicyRuleArgs', 'EscalationPolicyRuleArgsDict', 'outputs.EscalationPolicyRule']]]] rules: An Escalation rule block. Escalation rules documented below.
         :param pulumi.Input[_builtins.str] teams: Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

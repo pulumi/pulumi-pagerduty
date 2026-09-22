@@ -232,7 +232,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  condition: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Union['IncidentWorkflowTriggerPermissionsArgs', 'IncidentWorkflowTriggerPermissionsArgsDict']]] = None,
+                 permissions: pulumi.Input[Optional[Union['IncidentWorkflowTriggerPermissionsArgs', 'IncidentWorkflowTriggerPermissionsArgsDict', 'outputs.IncidentWorkflowTriggerPermissions']]] = None,
                  services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subscribed_to_all_services: pulumi.Input[Optional[_builtins.bool]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -284,7 +284,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] condition: A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
-        :param pulumi.Input[Union['IncidentWorkflowTriggerPermissionsArgs', 'IncidentWorkflowTriggerPermissionsArgsDict']] permissions: Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+        :param pulumi.Input[Union['IncidentWorkflowTriggerPermissionsArgs', 'IncidentWorkflowTriggerPermissionsArgsDict', 'outputs.IncidentWorkflowTriggerPermissions']] permissions: Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] services: A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
         :param pulumi.Input[_builtins.bool] subscribed_to_all_services: Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
         :param pulumi.Input[_builtins.str] type: [Updating causes resource replacement] May be either `manual` or `conditional`.
@@ -355,7 +355,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  condition: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Union['IncidentWorkflowTriggerPermissionsArgs', 'IncidentWorkflowTriggerPermissionsArgsDict']]] = None,
+                 permissions: pulumi.Input[Optional[Union['IncidentWorkflowTriggerPermissionsArgs', 'IncidentWorkflowTriggerPermissionsArgsDict', 'outputs.IncidentWorkflowTriggerPermissions']]] = None,
                  services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subscribed_to_all_services: pulumi.Input[Optional[_builtins.bool]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -392,7 +392,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             condition: pulumi.Input[Optional[_builtins.str]] = None,
-            permissions: pulumi.Input[Optional[Union['IncidentWorkflowTriggerPermissionsArgs', 'IncidentWorkflowTriggerPermissionsArgsDict']]] = None,
+            permissions: pulumi.Input[Optional[Union['IncidentWorkflowTriggerPermissionsArgs', 'IncidentWorkflowTriggerPermissionsArgsDict', 'outputs.IncidentWorkflowTriggerPermissions']]] = None,
             services: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             subscribed_to_all_services: pulumi.Input[Optional[_builtins.bool]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -405,7 +405,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] condition: A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
-        :param pulumi.Input[Union['IncidentWorkflowTriggerPermissionsArgs', 'IncidentWorkflowTriggerPermissionsArgsDict']] permissions: Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
+        :param pulumi.Input[Union['IncidentWorkflowTriggerPermissionsArgs', 'IncidentWorkflowTriggerPermissionsArgsDict', 'outputs.IncidentWorkflowTriggerPermissions']] permissions: Indicates who can start this Trigger. Applicable only to `manual`-type triggers.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] services: A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
         :param pulumi.Input[_builtins.bool] subscribed_to_all_services: Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
         :param pulumi.Input[_builtins.str] type: [Updating causes resource replacement] May be either `manual` or `conditional`.

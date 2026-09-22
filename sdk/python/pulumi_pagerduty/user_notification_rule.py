@@ -167,7 +167,7 @@ class UserNotificationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_method: pulumi.Input[Optional[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict']]] = None,
+                 contact_method: pulumi.Input[Optional[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict', 'outputs.UserNotificationRuleContactMethod']]] = None,
                  start_delay_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  urgency: pulumi.Input[Optional[_builtins.str]] = None,
                  user_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -238,7 +238,7 @@ class UserNotificationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict']] contact_method: A contact method block, configured as a block described below.
+        :param pulumi.Input[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict', 'outputs.UserNotificationRuleContactMethod']] contact_method: A contact method block, configured as a block described below.
         :param pulumi.Input[_builtins.int] start_delay_in_minutes: The delay before firing the rule, in minutes.
         :param pulumi.Input[_builtins.str] urgency: Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
@@ -328,7 +328,7 @@ class UserNotificationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_method: pulumi.Input[Optional[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict']]] = None,
+                 contact_method: pulumi.Input[Optional[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict', 'outputs.UserNotificationRuleContactMethod']]] = None,
                  start_delay_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  urgency: pulumi.Input[Optional[_builtins.str]] = None,
                  user_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -361,7 +361,7 @@ class UserNotificationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            contact_method: pulumi.Input[Optional[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict']]] = None,
+            contact_method: pulumi.Input[Optional[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict', 'outputs.UserNotificationRuleContactMethod']]] = None,
             start_delay_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
             urgency: pulumi.Input[Optional[_builtins.str]] = None,
             user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserNotificationRule':
@@ -372,7 +372,7 @@ class UserNotificationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict']] contact_method: A contact method block, configured as a block described below.
+        :param pulumi.Input[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict', 'outputs.UserNotificationRuleContactMethod']] contact_method: A contact method block, configured as a block described below.
         :param pulumi.Input[_builtins.int] start_delay_in_minutes: The delay before firing the rule, in minutes.
         :param pulumi.Input[_builtins.str] urgency: Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.

@@ -47,6 +47,10 @@ const (
 )
 
 // makeMember manufactures a type token for the package and the given module and type.
+const (
+	descriptionProperty = "description"
+)
+
 func makeMember(mod string, mem string) tokens.ModuleMember {
 	return tokens.ModuleMember(mainPkg + ":" + mod + ":" + mem)
 }
@@ -102,7 +106,7 @@ func Provider() tfbridge.ProviderInfo {
 			"pagerduty_business_service": {
 				Tok: makeResource(mainMod, "BusinessService"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {
+					descriptionProperty: {
 						Default: managedByPulumi,
 					},
 				},
@@ -110,7 +114,7 @@ func Provider() tfbridge.ProviderInfo {
 			"pagerduty_escalation_policy": {
 				Tok: makeResource(mainMod, "EscalationPolicy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {
+					descriptionProperty: {
 						Default: managedByPulumi,
 					},
 				},
@@ -119,7 +123,7 @@ func Provider() tfbridge.ProviderInfo {
 			"pagerduty_maintenance_window": {
 				Tok: makeResource(mainMod, "MaintenanceWindow"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {
+					descriptionProperty: {
 						Default: managedByPulumi,
 					},
 				},
@@ -127,7 +131,7 @@ func Provider() tfbridge.ProviderInfo {
 			"pagerduty_schedule": {
 				Tok: makeResource(mainMod, "Schedule"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {
+					descriptionProperty: {
 						Default: managedByPulumi,
 					},
 				},
@@ -135,7 +139,7 @@ func Provider() tfbridge.ProviderInfo {
 			"pagerduty_service": {
 				Tok: makeResource(mainMod, "Service"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {
+					descriptionProperty: {
 						Default: managedByPulumi,
 					},
 				},
@@ -143,7 +147,7 @@ func Provider() tfbridge.ProviderInfo {
 			"pagerduty_team": {
 				Tok: makeResource(mainMod, "Team"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {
+					descriptionProperty: {
 						Default: managedByPulumi,
 					},
 				},
@@ -151,7 +155,7 @@ func Provider() tfbridge.ProviderInfo {
 			"pagerduty_user": {
 				Tok: makeResource(mainMod, "User"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {
+					descriptionProperty: {
 						Default: managedByPulumi,
 					},
 				},
@@ -159,7 +163,7 @@ func Provider() tfbridge.ProviderInfo {
 			"pagerduty_response_play": {
 				Tok: makeResource(mainMod, "ResponsePlay"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {
+					descriptionProperty: {
 						Default: managedByPulumi,
 					},
 				},

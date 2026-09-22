@@ -200,8 +200,8 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]]] = None,
-                 configuration: pulumi.Input[Optional[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict', 'outputs.EventOrchestrationServiceCacheVariableCondition']]]]] = None,
+                 configuration: pulumi.Input[Optional[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict', 'outputs.EventOrchestrationServiceCacheVariableConfiguration']]] = None,
                  disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  service: pulumi.Input[Optional[_builtins.str]] = None,
@@ -303,8 +303,8 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
-        :param pulumi.Input[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict', 'outputs.EventOrchestrationServiceCacheVariableCondition']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+        :param pulumi.Input[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict', 'outputs.EventOrchestrationServiceCacheVariableConfiguration']] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
         :param pulumi.Input[_builtins.bool] disabled: Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
         :param pulumi.Input[_builtins.str] name: Name of the Cache Variable associated with the Service Event Orchestration.
         :param pulumi.Input[_builtins.str] service: ID of the Service Event Orchestration to which this Cache Variable belongs.
@@ -425,8 +425,8 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]]] = None,
-                 configuration: pulumi.Input[Optional[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict', 'outputs.EventOrchestrationServiceCacheVariableCondition']]]]] = None,
+                 configuration: pulumi.Input[Optional[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict', 'outputs.EventOrchestrationServiceCacheVariableConfiguration']]] = None,
                  disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  service: pulumi.Input[Optional[_builtins.str]] = None,
@@ -458,8 +458,8 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]]] = None,
-            configuration: pulumi.Input[Optional[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']]] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict', 'outputs.EventOrchestrationServiceCacheVariableCondition']]]]] = None,
+            configuration: pulumi.Input[Optional[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict', 'outputs.EventOrchestrationServiceCacheVariableConfiguration']]] = None,
             disabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             service: pulumi.Input[Optional[_builtins.str]] = None) -> 'EventOrchestrationServiceCacheVariable':
@@ -470,8 +470,8 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
-        :param pulumi.Input[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict']] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict', 'outputs.EventOrchestrationServiceCacheVariableCondition']]]] conditions: Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recent_value` or `trigger_event_count`.
+        :param pulumi.Input[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict', 'outputs.EventOrchestrationServiceCacheVariableConfiguration']] configuration: A configuration object to define what and how values will be stored in the Cache Variable.
         :param pulumi.Input[_builtins.bool] disabled: Indicates whether the Cache Variable is disabled and would therefore not be evaluated.
         :param pulumi.Input[_builtins.str] name: Name of the Cache Variable associated with the Service Event Orchestration.
         :param pulumi.Input[_builtins.str] service: ID of the Service Event Orchestration to which this Cache Variable belongs.

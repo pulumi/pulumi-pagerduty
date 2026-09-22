@@ -438,10 +438,10 @@ class ResponsePlay(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  from_: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict', 'outputs.ResponsePlayResponder']]]]] = None,
                  responders_message: pulumi.Input[Optional[_builtins.str]] = None,
                  runnability: pulumi.Input[Optional[_builtins.str]] = None,
-                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict']]]]] = None,
+                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict', 'outputs.ResponsePlaySubscriber']]]]] = None,
                  subscribers_message: pulumi.Input[Optional[_builtins.str]] = None,
                  team: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -516,10 +516,10 @@ class ResponsePlay(pulumi.CustomResource):
                If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[_builtins.str] from_: The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
         :param pulumi.Input[_builtins.str] name: The name of the response play.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]] responders: A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict', 'outputs.ResponsePlayResponder']]]] responders: A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
         :param pulumi.Input[_builtins.str] responders_message: The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
         :param pulumi.Input[_builtins.str] runnability: String representing how this response play is allowed to be run. Valid options are:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict']]]] subscribers: A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict', 'outputs.ResponsePlaySubscriber']]]] subscribers: A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
         :param pulumi.Input[_builtins.str] subscribers_message: The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
         :param pulumi.Input[_builtins.str] team: The ID of the team associated with the response play.
         :param pulumi.Input[_builtins.str] type: A string that determines the schema of the object. If not set, the default value is "response_play".
@@ -612,10 +612,10 @@ class ResponsePlay(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  from_: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]]] = None,
+                 responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict', 'outputs.ResponsePlayResponder']]]]] = None,
                  responders_message: pulumi.Input[Optional[_builtins.str]] = None,
                  runnability: pulumi.Input[Optional[_builtins.str]] = None,
-                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict']]]]] = None,
+                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict', 'outputs.ResponsePlaySubscriber']]]]] = None,
                  subscribers_message: pulumi.Input[Optional[_builtins.str]] = None,
                  team: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -659,10 +659,10 @@ class ResponsePlay(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             from_: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]]] = None,
+            responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict', 'outputs.ResponsePlayResponder']]]]] = None,
             responders_message: pulumi.Input[Optional[_builtins.str]] = None,
             runnability: pulumi.Input[Optional[_builtins.str]] = None,
-            subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict']]]]] = None,
+            subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict', 'outputs.ResponsePlaySubscriber']]]]] = None,
             subscribers_message: pulumi.Input[Optional[_builtins.str]] = None,
             team: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ResponsePlay':
@@ -679,10 +679,10 @@ class ResponsePlay(pulumi.CustomResource):
                If not set, a placeholder of "Managed by Pulumi" will be set.
         :param pulumi.Input[_builtins.str] from_: The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
         :param pulumi.Input[_builtins.str] name: The name of the response play.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict']]]] responders: A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict', 'outputs.ResponsePlayResponder']]]] responders: A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
         :param pulumi.Input[_builtins.str] responders_message: The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
         :param pulumi.Input[_builtins.str] runnability: String representing how this response play is allowed to be run. Valid options are:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict']]]] subscribers: A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict', 'outputs.ResponsePlaySubscriber']]]] subscribers: A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
         :param pulumi.Input[_builtins.str] subscribers_message: The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
         :param pulumi.Input[_builtins.str] team: The ID of the team associated with the response play.
         :param pulumi.Input[_builtins.str] type: A string that determines the schema of the object. If not set, the default value is "response_play".

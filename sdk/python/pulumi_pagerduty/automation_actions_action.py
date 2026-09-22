@@ -489,7 +489,7 @@ class AutomationActionsAction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_classification: pulumi.Input[Optional[_builtins.str]] = None,
-                 action_data_reference: pulumi.Input[Optional[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']]] = None,
+                 action_data_reference: pulumi.Input[Optional[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict', 'outputs.AutomationActionsActionActionDataReference']]] = None,
                  action_type: pulumi.Input[Optional[_builtins.str]] = None,
                  allow_invocation_from_event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
                  allow_invocation_manually: pulumi.Input[Optional[_builtins.str]] = None,
@@ -541,7 +541,7 @@ class AutomationActionsAction(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_classification: The category of the action, e.g. `diagnostic`, `remediation`.
-        :param pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']] action_data_reference: Action Data block. Action Data is documented below.
+        :param pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict', 'outputs.AutomationActionsActionActionDataReference']] action_data_reference: Action Data block. Action Data is documented below.
         :param pulumi.Input[_builtins.str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
         :param pulumi.Input[_builtins.str] allow_invocation_from_event_orchestration: Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
         :param pulumi.Input[_builtins.str] allow_invocation_manually: Whether the action can be invoked manually by a user on the PagerDuty website.
@@ -612,7 +612,7 @@ class AutomationActionsAction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_classification: pulumi.Input[Optional[_builtins.str]] = None,
-                 action_data_reference: pulumi.Input[Optional[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']]] = None,
+                 action_data_reference: pulumi.Input[Optional[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict', 'outputs.AutomationActionsActionActionDataReference']]] = None,
                  action_type: pulumi.Input[Optional[_builtins.str]] = None,
                  allow_invocation_from_event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
                  allow_invocation_manually: pulumi.Input[Optional[_builtins.str]] = None,
@@ -663,7 +663,7 @@ class AutomationActionsAction(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             action_classification: pulumi.Input[Optional[_builtins.str]] = None,
-            action_data_reference: pulumi.Input[Optional[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']]] = None,
+            action_data_reference: pulumi.Input[Optional[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict', 'outputs.AutomationActionsActionActionDataReference']]] = None,
             action_type: pulumi.Input[Optional[_builtins.str]] = None,
             allow_invocation_from_event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
             allow_invocation_manually: pulumi.Input[Optional[_builtins.str]] = None,
@@ -684,7 +684,7 @@ class AutomationActionsAction(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_classification: The category of the action, e.g. `diagnostic`, `remediation`.
-        :param pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict']] action_data_reference: Action Data block. Action Data is documented below.
+        :param pulumi.Input[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict', 'outputs.AutomationActionsActionActionDataReference']] action_data_reference: Action Data block. Action Data is documented below.
         :param pulumi.Input[_builtins.str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
         :param pulumi.Input[_builtins.str] allow_invocation_from_event_orchestration: Whether the action can be invoked automatically from a PagerDuty Event Orchestration.
         :param pulumi.Input[_builtins.str] allow_invocation_manually: Whether the action can be invoked manually by a user on the PagerDuty website.

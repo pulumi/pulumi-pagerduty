@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  *         var foo = new ServiceDependency("foo", ServiceDependencyArgs.builder()
  *             .dependency(ServiceDependencyDependencyArgs.builder()
  *                 .dependentService(Map.ofEntries(
- *                     Map.entry("id", fooPagerdutyBusinessService.id()),
- *                     Map.entry("type", fooPagerdutyBusinessService.type())
+ *                     Map.entry("id", fooPagerdutyBusinessService.get("id")),
+ *                     Map.entry("type", fooPagerdutyBusinessService.get("type"))
  *                 ))
  *                 .supportingService(Map.ofEntries(
- *                     Map.entry("id", fooPagerdutyService.id()),
- *                     Map.entry("type", fooPagerdutyService.type())
+ *                     Map.entry("id", fooPagerdutyService.get("id")),
+ *                     Map.entry("type", fooPagerdutyService.get("type"))
  *                 ))
  *                 .build())
  *             .build());
@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  *         var bar = new ServiceDependency("bar", ServiceDependencyArgs.builder()
  *             .dependency(ServiceDependencyDependencyArgs.builder()
  *                 .dependentService(Map.ofEntries(
- *                     Map.entry("id", fooPagerdutyBusinessService.id()),
- *                     Map.entry("type", fooPagerdutyBusinessService.type())
+ *                     Map.entry("id", fooPagerdutyBusinessService.get("id")),
+ *                     Map.entry("type", fooPagerdutyBusinessService.get("type"))
  *                 ))
  *                 .supportingService(Map.ofEntries(
- *                     Map.entry("id", two.id()),
- *                     Map.entry("type", two.type())
+ *                     Map.entry("id", two.get("id")),
+ *                     Map.entry("type", two.get("type"))
  *                 ))
  *                 .build())
  *             .build());

@@ -27,7 +27,7 @@ namespace Pulumi.Pagerduty
     /// {
     ///     var second = new Pagerduty.EventRule("second", new()
     ///     {
-    ///         ActionJson = JsonSerializer.Serialize(new[]
+    ///         ActionJson = JsonSerializer.Serialize(new object?[]
     ///         {
     ///             new[]
     ///             {
@@ -100,7 +100,7 @@ namespace Pulumi.Pagerduty
     /// 
     ///     var third = new Pagerduty.EventRule("third", new()
     ///     {
-    ///         ActionJson = JsonSerializer.Serialize(new[]
+    ///         ActionJson = JsonSerializer.Serialize(new object?[]
     ///         {
     ///             new[]
     ///             {

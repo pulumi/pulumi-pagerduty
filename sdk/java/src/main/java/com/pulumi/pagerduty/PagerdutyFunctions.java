@@ -1226,7 +1226,7 @@ public final class PagerdutyFunctions {
      *                     .actions(EventOrchestrationUnroutedSetRuleActionsArgs.builder()
      *                         .extractions(EventOrchestrationUnroutedSetRuleActionsExtractionArgs.builder()
      *                             .target("event.custom_details.integration_type")
-     *                             .template(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.integrationDetail()[0].parameters()[0].type()))
+     *                             .template(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.integrationDetail().get(0).parameters().get(0).type()))
      *                             .build())
      *                         .build())
      *                     .build())
@@ -1300,7 +1300,7 @@ public final class PagerdutyFunctions {
      *                     .actions(EventOrchestrationUnroutedSetRuleActionsArgs.builder()
      *                         .extractions(EventOrchestrationUnroutedSetRuleActionsExtractionArgs.builder()
      *                             .target("event.custom_details.integration_type")
-     *                             .template(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.integrationDetail()[0].parameters()[0].type()))
+     *                             .template(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.integrationDetail().get(0).parameters().get(0).type()))
      *                             .build())
      *                         .build())
      *                     .build())
@@ -1374,7 +1374,7 @@ public final class PagerdutyFunctions {
      *                     .actions(EventOrchestrationUnroutedSetRuleActionsArgs.builder()
      *                         .extractions(EventOrchestrationUnroutedSetRuleActionsExtractionArgs.builder()
      *                             .target("event.custom_details.integration_type")
-     *                             .template(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.integrationDetail()[0].parameters()[0].type()))
+     *                             .template(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.integrationDetail().get(0).parameters().get(0).type()))
      *                             .build())
      *                         .build())
      *                     .build())
@@ -1448,7 +1448,7 @@ public final class PagerdutyFunctions {
      *                     .actions(EventOrchestrationUnroutedSetRuleActionsArgs.builder()
      *                         .extractions(EventOrchestrationUnroutedSetRuleActionsExtractionArgs.builder()
      *                             .target("event.custom_details.integration_type")
-     *                             .template(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.integrationDetail()[0].parameters()[0].type()))
+     *                             .template(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.integrationDetail().get(0).parameters().get(0).type()))
      *                             .build())
      *                         .build())
      *                     .build())
@@ -1522,7 +1522,7 @@ public final class PagerdutyFunctions {
      *                     .actions(EventOrchestrationUnroutedSetRuleActionsArgs.builder()
      *                         .extractions(EventOrchestrationUnroutedSetRuleActionsExtractionArgs.builder()
      *                             .target("event.custom_details.integration_type")
-     *                             .template(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.integrationDetail()[0].parameters()[0].type()))
+     *                             .template(tfMyMonitor.applyValue(_tfMyMonitor -> _tfMyMonitor.integrationDetail().get(0).parameters().get(0).type()))
      *                             .build())
      *                         .build())
      *                     .build())
@@ -2792,7 +2792,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Howard James")
      *             .email("howard.james}{@literal @}{@code example.domain")
-     *             .teams(examplePagerdutyTeam.id())
+     *             .teams(examplePagerdutyTeam.get("id"))
      *             .build());
      * 
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
@@ -2811,7 +2811,7 @@ public final class PagerdutyFunctions {
      *             .name("My Web App")
      *             .autoResolveTimeout("14400")
      *             .acknowledgementTimeout("600")
-     *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
+     *             .escalationPolicy(examplePagerdutyEscalationPolicy.get("id"))
      *             .build());
      * 
      *         var slack = new Extension("slack", ExtensionArgs.builder()
@@ -2874,7 +2874,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Howard James")
      *             .email("howard.james}{@literal @}{@code example.domain")
-     *             .teams(examplePagerdutyTeam.id())
+     *             .teams(examplePagerdutyTeam.get("id"))
      *             .build());
      * 
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
@@ -2893,7 +2893,7 @@ public final class PagerdutyFunctions {
      *             .name("My Web App")
      *             .autoResolveTimeout("14400")
      *             .acknowledgementTimeout("600")
-     *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
+     *             .escalationPolicy(examplePagerdutyEscalationPolicy.get("id"))
      *             .build());
      * 
      *         var slack = new Extension("slack", ExtensionArgs.builder()
@@ -2956,7 +2956,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Howard James")
      *             .email("howard.james}{@literal @}{@code example.domain")
-     *             .teams(examplePagerdutyTeam.id())
+     *             .teams(examplePagerdutyTeam.get("id"))
      *             .build());
      * 
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
@@ -2975,7 +2975,7 @@ public final class PagerdutyFunctions {
      *             .name("My Web App")
      *             .autoResolveTimeout("14400")
      *             .acknowledgementTimeout("600")
-     *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
+     *             .escalationPolicy(examplePagerdutyEscalationPolicy.get("id"))
      *             .build());
      * 
      *         var slack = new Extension("slack", ExtensionArgs.builder()
@@ -3038,7 +3038,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Howard James")
      *             .email("howard.james}{@literal @}{@code example.domain")
-     *             .teams(examplePagerdutyTeam.id())
+     *             .teams(examplePagerdutyTeam.get("id"))
      *             .build());
      * 
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
@@ -3057,7 +3057,7 @@ public final class PagerdutyFunctions {
      *             .name("My Web App")
      *             .autoResolveTimeout("14400")
      *             .acknowledgementTimeout("600")
-     *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
+     *             .escalationPolicy(examplePagerdutyEscalationPolicy.get("id"))
      *             .build());
      * 
      *         var slack = new Extension("slack", ExtensionArgs.builder()
@@ -3120,7 +3120,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Howard James")
      *             .email("howard.james}{@literal @}{@code example.domain")
-     *             .teams(examplePagerdutyTeam.id())
+     *             .teams(examplePagerdutyTeam.get("id"))
      *             .build());
      * 
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
@@ -3139,7 +3139,7 @@ public final class PagerdutyFunctions {
      *             .name("My Web App")
      *             .autoResolveTimeout("14400")
      *             .acknowledgementTimeout("600")
-     *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
+     *             .escalationPolicy(examplePagerdutyEscalationPolicy.get("id"))
      *             .build());
      * 
      *         var slack = new Extension("slack", ExtensionArgs.builder()
@@ -9341,7 +9341,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var example = new TeamMembership("example", TeamMembershipArgs.builder()
-     *             .teamId(devopsPagerdutyTeam.id())
+     *             .teamId(devopsPagerdutyTeam.get("id"))
      *             .userId(exampleWTeam.id())
      *             .build());
      * 
@@ -9349,7 +9349,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
-     *             .teamIds(devopsPagerdutyTeam.id())
+     *             .teamIds(devopsPagerdutyTeam.get("id"))
      *             .build());
      * 
      *     }}{@code
@@ -9408,7 +9408,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var example = new TeamMembership("example", TeamMembershipArgs.builder()
-     *             .teamId(devopsPagerdutyTeam.id())
+     *             .teamId(devopsPagerdutyTeam.get("id"))
      *             .userId(exampleWTeam.id())
      *             .build());
      * 
@@ -9416,7 +9416,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
-     *             .teamIds(devopsPagerdutyTeam.id())
+     *             .teamIds(devopsPagerdutyTeam.get("id"))
      *             .build());
      * 
      *     }}{@code
@@ -9475,7 +9475,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var example = new TeamMembership("example", TeamMembershipArgs.builder()
-     *             .teamId(devopsPagerdutyTeam.id())
+     *             .teamId(devopsPagerdutyTeam.get("id"))
      *             .userId(exampleWTeam.id())
      *             .build());
      * 
@@ -9483,7 +9483,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
-     *             .teamIds(devopsPagerdutyTeam.id())
+     *             .teamIds(devopsPagerdutyTeam.get("id"))
      *             .build());
      * 
      *     }}{@code
@@ -9542,7 +9542,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var example = new TeamMembership("example", TeamMembershipArgs.builder()
-     *             .teamId(devopsPagerdutyTeam.id())
+     *             .teamId(devopsPagerdutyTeam.get("id"))
      *             .userId(exampleWTeam.id())
      *             .build());
      * 
@@ -9550,7 +9550,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
-     *             .teamIds(devopsPagerdutyTeam.id())
+     *             .teamIds(devopsPagerdutyTeam.get("id"))
      *             .build());
      * 
      *     }}{@code
@@ -9609,7 +9609,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var example = new TeamMembership("example", TeamMembershipArgs.builder()
-     *             .teamId(devopsPagerdutyTeam.id())
+     *             .teamId(devopsPagerdutyTeam.get("id"))
      *             .userId(exampleWTeam.id())
      *             .build());
      * 
@@ -9617,7 +9617,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
-     *             .teamIds(devopsPagerdutyTeam.id())
+     *             .teamIds(devopsPagerdutyTeam.get("id"))
      *             .build());
      * 
      *     }}{@code
@@ -9676,7 +9676,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var example = new TeamMembership("example", TeamMembershipArgs.builder()
-     *             .teamId(devopsPagerdutyTeam.id())
+     *             .teamId(devopsPagerdutyTeam.get("id"))
      *             .userId(exampleWTeam.id())
      *             .build());
      * 
@@ -9684,7 +9684,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
-     *             .teamIds(devopsPagerdutyTeam.id())
+     *             .teamIds(devopsPagerdutyTeam.get("id"))
      *             .build());
      * 
      *     }}{@code
@@ -9743,7 +9743,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         var example = new TeamMembership("example", TeamMembershipArgs.builder()
-     *             .teamId(devopsPagerdutyTeam.id())
+     *             .teamId(devopsPagerdutyTeam.get("id"))
      *             .userId(exampleWTeam.id())
      *             .build());
      * 
@@ -9751,7 +9751,7 @@ public final class PagerdutyFunctions {
      *             .build());
      * 
      *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
-     *             .teamIds(devopsPagerdutyTeam.id())
+     *             .teamIds(devopsPagerdutyTeam.get("id"))
      *             .build());
      * 
      *     }}{@code
@@ -9809,7 +9809,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .teams(examplePagerdutyTeam.id())
+     *             .teams(examplePagerdutyTeam.get("id"))
      *             .build());
      * 
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
@@ -9828,7 +9828,7 @@ public final class PagerdutyFunctions {
      *             .name("My Web App")
      *             .autoResolveTimeout("14400")
      *             .acknowledgementTimeout("600")
-     *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
+     *             .escalationPolicy(examplePagerdutyEscalationPolicy.get("id"))
      *             .build());
      * 
      *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
@@ -9892,7 +9892,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .teams(examplePagerdutyTeam.id())
+     *             .teams(examplePagerdutyTeam.get("id"))
      *             .build());
      * 
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
@@ -9911,7 +9911,7 @@ public final class PagerdutyFunctions {
      *             .name("My Web App")
      *             .autoResolveTimeout("14400")
      *             .acknowledgementTimeout("600")
-     *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
+     *             .escalationPolicy(examplePagerdutyEscalationPolicy.get("id"))
      *             .build());
      * 
      *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
@@ -9975,7 +9975,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .teams(examplePagerdutyTeam.id())
+     *             .teams(examplePagerdutyTeam.get("id"))
      *             .build());
      * 
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
@@ -9994,7 +9994,7 @@ public final class PagerdutyFunctions {
      *             .name("My Web App")
      *             .autoResolveTimeout("14400")
      *             .acknowledgementTimeout("600")
-     *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
+     *             .escalationPolicy(examplePagerdutyEscalationPolicy.get("id"))
      *             .build());
      * 
      *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
@@ -10058,7 +10058,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .teams(examplePagerdutyTeam.id())
+     *             .teams(examplePagerdutyTeam.get("id"))
      *             .build());
      * 
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
@@ -10077,7 +10077,7 @@ public final class PagerdutyFunctions {
      *             .name("My Web App")
      *             .autoResolveTimeout("14400")
      *             .acknowledgementTimeout("600")
-     *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
+     *             .escalationPolicy(examplePagerdutyEscalationPolicy.get("id"))
      *             .build());
      * 
      *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
@@ -10141,7 +10141,7 @@ public final class PagerdutyFunctions {
      *         var example = new User("example", UserArgs.builder()
      *             .name("Earline Greenholt")
      *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
-     *             .teams(examplePagerdutyTeam.id())
+     *             .teams(examplePagerdutyTeam.get("id"))
      *             .build());
      * 
      *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
@@ -10160,7 +10160,7 @@ public final class PagerdutyFunctions {
      *             .name("My Web App")
      *             .autoResolveTimeout("14400")
      *             .acknowledgementTimeout("600")
-     *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
+     *             .escalationPolicy(examplePagerdutyEscalationPolicy.get("id"))
      *             .build());
      * 
      *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()

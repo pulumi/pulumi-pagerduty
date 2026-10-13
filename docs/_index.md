@@ -278,7 +278,7 @@ public class App {
 {{% /choosable %}}
 {{% choosable language hcl %}}
 ```hcl
-pulumi {
+terraform {
   required_providers {
     pagerduty = {
       source = "pulumi/pagerduty"
@@ -288,16 +288,25 @@ pulumi {
 
 # Create a PagerDuty team
 resource "pagerduty_team" "engineering" {
+  lifecycle {
+    create_before_destroy = true
+  }
   name        = "Engineering"
   description = "All engineering"
 }
 # Create a PagerDuty user
 resource "pagerduty_user" "earline" {
+  lifecycle {
+    create_before_destroy = true
+  }
   name  = "Earline Greenholt"
   email = "125.greenholt.earline@graham.name"
 }
 # Create a team membership
-resource "pagerduty_teammembership" "earline_engineering" {
+resource "pagerduty_team_membership" "earline_engineering" {
+  lifecycle {
+    create_before_destroy = true
+  }
   user_id = pagerduty_user.earline.id
   team_id = pagerduty_team.engineering.id
 }
@@ -562,7 +571,7 @@ public class App {
 {{% /choosable %}}
 {{% choosable language hcl %}}
 ```hcl
-pulumi {
+terraform {
   required_providers {
     pagerduty = {
       source = "pulumi/pagerduty"
@@ -572,16 +581,25 @@ pulumi {
 
 # Create a PagerDuty team
 resource "pagerduty_team" "engineering" {
+  lifecycle {
+    create_before_destroy = true
+  }
   name        = "Engineering"
   description = "All engineering"
 }
 # Create a PagerDuty user
 resource "pagerduty_user" "earline" {
+  lifecycle {
+    create_before_destroy = true
+  }
   name  = "Earline Greenholt"
   email = "125.greenholt.earline@graham.name"
 }
 # Create a team membership
-resource "pagerduty_teammembership" "earline_engineering" {
+resource "pagerduty_team_membership" "earline_engineering" {
+  lifecycle {
+    create_before_destroy = true
+  }
   user_id = pagerduty_user.earline.id
   team_id = pagerduty_team.engineering.id
 }

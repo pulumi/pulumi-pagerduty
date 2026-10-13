@@ -149,7 +149,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .actions(RulesetRuleActionsArgs.builder()
  *                 .routes(RulesetRuleActionsRouteArgs.builder()
- *                     .value(fooPagerdutyService.id())
+ *                     .value(fooPagerdutyService.get("id"))
  *                     .build())
  *                 .severities(RulesetRuleActionsSeverityArgs.builder()
  *                     .value("warning")

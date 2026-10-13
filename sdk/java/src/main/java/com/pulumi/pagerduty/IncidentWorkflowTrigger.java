@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *         var automaticTrigger = new IncidentWorkflowTrigger("automaticTrigger", IncidentWorkflowTriggerArgs.builder()
  *             .type("conditional")
  *             .workflow(myFirstWorkflow.id())
- *             .services(firstServicePagerdutyService.id())
+ *             .services(firstServicePagerdutyService.get("id"))
  *             .condition("incident.priority matches 'P1'")
  *             .subscribedToAllServices(false)
  *             .build());
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *         var manualTrigger = new IncidentWorkflowTrigger("manualTrigger", IncidentWorkflowTriggerArgs.builder()
  *             .type("manual")
  *             .workflow(myFirstWorkflow.id())
- *             .services(firstServicePagerdutyService.id())
+ *             .services(firstServicePagerdutyService.get("id"))
  *             .build());
  * 
  *     }

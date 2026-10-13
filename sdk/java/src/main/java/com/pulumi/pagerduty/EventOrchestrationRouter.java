@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var router = new EventOrchestrationRouter("router", EventOrchestrationRouterArgs.builder()
- *             .eventOrchestration(myMonitor.id())
+ *             .eventOrchestration(myMonitor.get("id"))
  *             .set(EventOrchestrationRouterSetArgs.builder()
  *                 .id("start")
  *                 .rules(                

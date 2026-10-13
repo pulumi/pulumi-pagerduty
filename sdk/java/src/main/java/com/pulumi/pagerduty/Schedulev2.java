@@ -207,16 +207,16 @@ import javax.annotation.Nullable;
  *                 .rotationVirtualStart("2025-03-17T07:00:00+02:00")
  *                 .rotationTurnLengthSeconds(604800)
  *                 .users(                
- *                     user1.id(),
- *                     user2.id(),
- *                     user3.id(),
- *                     user4.id(),
- *                     user5.id(),
- *                     user6.id())
+ *                     user1.get("id"),
+ *                     user2.get("id"),
+ *                     user3.get("id"),
+ *                     user4.get("id"),
+ *                     user5.get("id"),
+ *                     user6.get("id"))
  *                 .build())
  *             .teams(            
- *                 k8sPlatform.id(),
- *                 k8sOperational.id())
+ *                 k8sPlatform.get("id"),
+ *                 k8sOperational.get("id"))
  *             .build());
  * 
  *     }
@@ -257,8 +257,8 @@ import javax.annotation.Nullable;
  *             .description("A Example OnCall Schedule.")
  *             .timeZone("Europe/Amsterdam")
  *             .teams(            
- *                 k8sPlatform.id(),
- *                 k8sOperational.id())
+ *                 k8sPlatform.get("id"),
+ *                 k8sOperational.get("id"))
  *             .rotations(Schedulev2RotationArgs.builder()
  *                 .events(Schedulev2RotationEventArgs.builder()
  *                     .name("OnCall")
@@ -272,27 +272,27 @@ import javax.annotation.Nullable;
  *                         .members(                        
  *                             Schedulev2RotationEventAssignmentStrategyMemberArgs.builder()
  *                                 .type("user_member")
- *                                 .userId(user1.id())
+ *                                 .userId(user1.get("id"))
  *                                 .build(),
  *                             Schedulev2RotationEventAssignmentStrategyMemberArgs.builder()
  *                                 .type("user_member")
- *                                 .userId(user2.id())
+ *                                 .userId(user2.get("id"))
  *                                 .build(),
  *                             Schedulev2RotationEventAssignmentStrategyMemberArgs.builder()
  *                                 .type("user_member")
- *                                 .userId(user3.id())
+ *                                 .userId(user3.get("id"))
  *                                 .build(),
  *                             Schedulev2RotationEventAssignmentStrategyMemberArgs.builder()
  *                                 .type("user_member")
- *                                 .userId(user4.id())
+ *                                 .userId(user4.get("id"))
  *                                 .build(),
  *                             Schedulev2RotationEventAssignmentStrategyMemberArgs.builder()
  *                                 .type("user_member")
- *                                 .userId(user5.id())
+ *                                 .userId(user5.get("id"))
  *                                 .build(),
  *                             Schedulev2RotationEventAssignmentStrategyMemberArgs.builder()
  *                                 .type("user_member")
- *                                 .userId(user6.id())
+ *                                 .userId(user6.get("id"))
  *                                 .build())
  *                         .build())
  *                     .build())

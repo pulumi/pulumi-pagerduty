@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *             .type("webhook_subscription")
  *             .build());
  * 
- *         ctx.export("webhookSecret", foo.deliveryMethods().applyValue(_deliveryMethods -> _deliveryMethods[0].secret()));
+ *         ctx.export("webhookSecret", foo.deliveryMethods().applyValue(_deliveryMethods -> _deliveryMethods.get(0).secret()));
  *     }
  * }
  * }

@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .name("Example Service")
  *             .autoResolveTimeout("14400")
  *             .acknowledgementTimeout("600")
- *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
+ *             .escalationPolicy(examplePagerdutyEscalationPolicy.get("id"))
  *             .build());
  * 
  *         // Set custom field values on the service

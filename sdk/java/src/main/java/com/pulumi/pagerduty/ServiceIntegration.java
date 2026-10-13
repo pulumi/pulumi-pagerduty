@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *         var example = new User("example", UserArgs.builder()
  *             .name("Earline Greenholt")
  *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
- *             .teams(examplePagerdutyTeam.id())
+ *             .teams(examplePagerdutyTeam.get("id"))
  *             .build());
  * 
  *         var foo = new EscalationPolicy("foo", EscalationPolicyArgs.builder()
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .name("My Web App")
  *             .autoResolveTimeout("14400")
  *             .acknowledgementTimeout("600")
- *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
+ *             .escalationPolicy(examplePagerdutyEscalationPolicy.get("id"))
  *             .build());
  * 
  *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()

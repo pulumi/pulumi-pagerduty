@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *         var example = new User("example", UserArgs.builder()
  *             .name("Earline Greenholt")
  *             .email("125.greenholt.earline}{@literal @}{@code graham.name")
- *             .teams(examplePagerdutyTeam.id())
+ *             .teams(examplePagerdutyTeam.get("id"))
  *             .build());
  * 
  *         var email = new UserContactMethod("email", UserContactMethodArgs.builder()

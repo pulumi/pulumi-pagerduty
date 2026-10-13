@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             .name("Checkout API Service")
  *             .autoResolveTimeout("14400")
  *             .acknowledgementTimeout("600")
- *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
+ *             .escalationPolicy(examplePagerdutyEscalationPolicy.get("id"))
  *             .alertCreation("create_alerts_and_incidents")
  *             .build());
  * 
@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bar = new ServiceEventRule("bar", ServiceEventRuleArgs.builder()
- *             .service(fooPagerdutyService.id())
+ *             .service(fooPagerdutyService.get("id"))
  *             .position(1)
  *             .disabled(true)
  *             .conditions(ServiceEventRuleConditionsArgs.builder()

@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *                         .build(),
  *                     EscalationPolicyRuleTargetArgs.builder()
  *                         .type("user_reference")
- *                         .id(example2.id())
+ *                         .id(example2.get("id"))
  *                         .build())
  *                 .build())
  *             .build());

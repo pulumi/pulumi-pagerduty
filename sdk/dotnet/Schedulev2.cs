@@ -112,7 +112,7 @@ namespace Pulumi.Pagerduty
     ///     var allHands = new Pagerduty.Schedulev2("all_hands", new()
     ///     {
     ///         Name = "Weekend All-Hands On-Call",
-    ///         TimeZone = "UTC",
+    ///         TimeZone = "Etc/UTC",
     ///         Rotations = new[]
     ///         {
     ///             new Pagerduty.Inputs.Schedulev2RotationArgs

@@ -269,7 +269,7 @@ class Schedulev2(pulumi.CustomResource):
             email="bob@example.com")
         all_hands = pagerduty.Schedulev2("all_hands",
             name="Weekend All-Hands On-Call",
-            time_zone="UTC",
+            time_zone="Etc/UTC",
             rotations=[{
                 "events": [{
                     "name": "Weekend Coverage",
@@ -484,7 +484,7 @@ class Schedulev2(pulumi.CustomResource):
             email="bob@example.com")
         all_hands = pagerduty.Schedulev2("all_hands",
             name="Weekend All-Hands On-Call",
-            time_zone="UTC",
+            time_zone="Etc/UTC",
             rotations=[{
                 "events": [{
                     "name": "Weekend Coverage",

@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  * 
  *         var allHands = new Schedulev2("allHands", Schedulev2Args.builder()
  *             .name("Weekend All-Hands On-Call")
- *             .timeZone("UTC")
+ *             .timeZone("Etc/UTC")
  *             .rotations(Schedulev2RotationArgs.builder()
  *                 .events(Schedulev2RotationEventArgs.builder()
  *                     .name("Weekend Coverage")

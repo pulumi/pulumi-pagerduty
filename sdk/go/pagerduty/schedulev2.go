@@ -119,7 +119,7 @@ import (
 //			}
 //			_, err = pagerduty.NewSchedulev2(ctx, "all_hands", &pagerduty.Schedulev2Args{
 //				Name:     pulumi.String("Weekend All-Hands On-Call"),
-//				TimeZone: pulumi.String("UTC"),
+//				TimeZone: pulumi.String("Etc/UTC"),
 //				Rotations: pagerduty.Schedulev2RotationArray{
 //					&pagerduty.Schedulev2RotationArgs{
 //						Events: pagerduty.Schedulev2RotationEventArray{

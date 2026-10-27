@@ -72,7 +72,7 @@ import * as utilities from "./utilities";
  * });
  * const allHands = new pagerduty.Schedulev2("all_hands", {
  *     name: "Weekend All-Hands On-Call",
- *     timeZone: "UTC",
+ *     timeZone: "Etc/UTC",
  *     rotations: [{
  *         events: [{
  *             name: "Weekend Coverage",

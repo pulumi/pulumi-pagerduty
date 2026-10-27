@@ -3703,6 +3703,37 @@ public final class PagerdutyFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var circular = PagerdutyFunctions.getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs.builder()
+     *             .name("pdt-circular")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetJiraCloudAccountMappingResult> getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs args) {
         return getJiraCloudAccountMapping(args, InvokeOptions.Empty);
@@ -3711,6 +3742,37 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var circular = PagerdutyFunctions.getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs.builder()
+     *             .name("pdt-circular")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetJiraCloudAccountMappingResult> getJiraCloudAccountMappingPlain(GetJiraCloudAccountMappingPlainArgs args) {
@@ -3721,6 +3783,37 @@ public final class PagerdutyFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var circular = PagerdutyFunctions.getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs.builder()
+     *             .name("pdt-circular")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetJiraCloudAccountMappingResult> getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping", TypeShape.of(GetJiraCloudAccountMappingResult.class), args, Utilities.withVersion(options));
@@ -3730,6 +3823,37 @@ public final class PagerdutyFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var circular = PagerdutyFunctions.getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs.builder()
+     *             .name("pdt-circular")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetJiraCloudAccountMappingResult> getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping", TypeShape.of(GetJiraCloudAccountMappingResult.class), args, Utilities.withVersion(options));
@@ -3738,6 +3862,37 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetJiraCloudAccountMappingArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var circular = PagerdutyFunctions.getJiraCloudAccountMapping(GetJiraCloudAccountMappingArgs.builder()
+     *             .name("pdt-circular")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetJiraCloudAccountMappingResult> getJiraCloudAccountMappingPlain(GetJiraCloudAccountMappingPlainArgs args, InvokeOptions options) {

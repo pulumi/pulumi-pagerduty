@@ -53,7 +53,7 @@ import (
 //			_, err = pagerduty.NewRuleset(ctx, "foo", &pagerduty.RulesetArgs{
 //				Name: pulumi.String("Primary Ruleset"),
 //				Team: &pagerduty.RulesetTeamArgs{
-//					Id: foo.ID().ToIDOutput().ToStringOutput(),
+//					Id: foo.ID(),
 //				},
 //			})
 //			if err != nil {

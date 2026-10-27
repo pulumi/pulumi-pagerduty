@@ -77,6 +77,13 @@ def get_jira_cloud_account_mapping(subdomain: Optional[_builtins.str] = None,
 
     ## Example Usage
 
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    circular = pagerduty.get_jira_cloud_account_mapping(name="pdt-circular")
+    ```
+
 
     :param _builtins.str subdomain: The service name to use to find a service in the PagerDuty API.
     """
@@ -95,6 +102,13 @@ def get_jira_cloud_account_mapping_output(subdomain: pulumi.Input[Optional[_buil
     Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
 
     ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    circular = pagerduty.get_jira_cloud_account_mapping(name="pdt-circular")
+    ```
 
 
     :param _builtins.str subdomain: The service name to use to find a service in the PagerDuty API.

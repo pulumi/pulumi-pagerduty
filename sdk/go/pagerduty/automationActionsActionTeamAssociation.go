@@ -47,8 +47,8 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewAutomationActionsActionTeamAssociation(ctx, "foo", &pagerduty.AutomationActionsActionTeamAssociationArgs{
-//				ActionId: paActionExample.ID().ToIDOutput().ToStringOutput(),
-//				TeamId:   example.ID().ToIDOutput().ToStringOutput(),
+//				ActionId: paActionExample.ID(),
+//				TeamId:   example.ID(),
 //			})
 //			if err != nil {
 //				return err

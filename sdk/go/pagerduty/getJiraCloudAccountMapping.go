@@ -14,6 +14,30 @@ import (
 // Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.GetJiraCloudAccountMapping(ctx, &pagerduty.GetJiraCloudAccountMappingArgs{
+//				Name: "pdt-circular",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetJiraCloudAccountMapping(ctx *pulumi.Context, args *GetJiraCloudAccountMappingArgs, opts ...pulumi.InvokeOption) (*GetJiraCloudAccountMappingResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetJiraCloudAccountMappingResult

@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = pagerduty.GetStandardsResourcesScores(ctx, &pagerduty.GetStandardsResourcesScoresArgs{
 //				ResourceType: "technical_services",
-//				Ids: pulumi.StringArray{
+//				Ids: []string{
 //					foo.Id,
 //					bar.Id,
 //					baz.Id,

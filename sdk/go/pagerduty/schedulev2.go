@@ -70,7 +70,7 @@ import (
 //										Members: pagerduty.Schedulev2RotationEventAssignmentStrategyMemberArray{
 //											&pagerduty.Schedulev2RotationEventAssignmentStrategyMemberArgs{
 //												Type:   pulumi.String("user_member"),
-//												UserId: example.ID().ToIDOutput().ToStringOutput(),
+//												UserId: example.ID(),
 //											},
 //										},
 //									},
@@ -137,11 +137,11 @@ import (
 //										Members: pagerduty.Schedulev2RotationEventAssignmentStrategyMemberArray{
 //											&pagerduty.Schedulev2RotationEventAssignmentStrategyMemberArgs{
 //												Type:   pulumi.String("user_member"),
-//												UserId: primary.ID().ToIDOutput().ToStringOutput(),
+//												UserId: primary.ID(),
 //											},
 //											&pagerduty.Schedulev2RotationEventAssignmentStrategyMemberArgs{
 //												Type:   pulumi.String("user_member"),
-//												UserId: secondary.ID().ToIDOutput().ToStringOutput(),
+//												UserId: secondary.ID(),
 //											},
 //										},
 //									},

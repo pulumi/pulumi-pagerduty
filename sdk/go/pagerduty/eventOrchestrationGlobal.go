@@ -44,7 +44,7 @@ import (
 //			}
 //			eventOrchestration, err := pagerduty.NewEventOrchestration(ctx, "event_orchestration", &pagerduty.EventOrchestrationArgs{
 //				Name: pulumi.String("Example Orchestration"),
-//				Team: databaseTeam.ID().ToIDOutput().ToStringOutput(),
+//				Team: databaseTeam.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -62,7 +62,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewEventOrchestrationGlobal(ctx, "global", &pagerduty.EventOrchestrationGlobalArgs{
-//				EventOrchestration: eventOrchestration.ID().ToIDOutput().ToStringOutput(),
+//				EventOrchestration: eventOrchestration.ID(),
 //				Sets: pagerduty.EventOrchestrationGlobalSetArray{
 //					&pagerduty.EventOrchestrationGlobalSetArgs{
 //						Id: pulumi.String("start"),

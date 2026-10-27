@@ -39,7 +39,7 @@ import (
 //				Name:  pulumi.String("Earline Greenholt"),
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //				Teams: pulumi.StringArray{
-//					example.ID().ToIDOutput().ToStringOutput(),
+//					example.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -48,14 +48,14 @@ import (
 //			_, err = pagerduty.NewEscalationPolicy(ctx, "example", &pagerduty.EscalationPolicyArgs{
 //				Name:     pulumi.String("Engineering Escalation Policy"),
 //				NumLoops: pulumi.Int(2),
-//				Teams:    example.ID().ToIDOutput().ToStringOutput(),
+//				Teams:    example.ID(),
 //				Rules: pagerduty.EscalationPolicyRuleArray{
 //					&pagerduty.EscalationPolicyRuleArgs{
 //						EscalationDelayInMinutes: pulumi.Int(10),
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user_reference"),
-//								Id:   exampleUser.ID().ToIDOutput().ToStringOutput(),
+//								Id:   exampleUser.ID(),
 //							},
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user_reference"),

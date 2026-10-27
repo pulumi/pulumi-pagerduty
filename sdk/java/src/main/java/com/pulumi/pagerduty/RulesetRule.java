@@ -113,11 +113,7 @@ import javax.annotation.Nullable;
  *                         4,
  *                         6)
  *                     .startTime(easternTimeAt0930.unix().applyValue(_unix -> _unix * 1000))
- *                     .duration(Output.tuple(60, 1000).applyValue(values -> {
- *                         var __convert = values.t1;
- *                         var __convert1 = values.t2;
- *                         return 2 * 60 * __convert * __convert1;
- *                     }).applyValue(_n -> _n))
+ *                     .duration(2 * 60 * 60 * 1000)
  *                     .timezone("America/New_York")
  *                     .build())
  *                 .build())

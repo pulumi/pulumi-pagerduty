@@ -15,6 +15,22 @@ namespace Pulumi.Pagerduty
         /// Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var circular = Pagerduty.GetJiraCloudAccountMapping.Invoke(new()
+        ///     {
+        ///         Name = "pdt-circular",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetJiraCloudAccountMappingResult> InvokeAsync(GetJiraCloudAccountMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJiraCloudAccountMappingResult>("pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping", args ?? new GetJiraCloudAccountMappingArgs(), options.WithDefaults());
@@ -23,6 +39,22 @@ namespace Pulumi.Pagerduty
         /// Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var circular = Pagerduty.GetJiraCloudAccountMapping.Invoke(new()
+        ///     {
+        ///         Name = "pdt-circular",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetJiraCloudAccountMappingResult> Invoke(GetJiraCloudAccountMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJiraCloudAccountMappingResult>("pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping", args ?? new GetJiraCloudAccountMappingInvokeArgs(), options.WithDefaults());
@@ -31,6 +63,22 @@ namespace Pulumi.Pagerduty
         /// Use this data source to get information about a specific [account mapping](https://developer.pagerduty.com/api-reference/8d707b61562b7-get-an-account-mapping).
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var circular = Pagerduty.GetJiraCloudAccountMapping.Invoke(new()
+        ///     {
+        ///         Name = "pdt-circular",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetJiraCloudAccountMappingResult> Invoke(GetJiraCloudAccountMappingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJiraCloudAccountMappingResult>("pagerduty:index/getJiraCloudAccountMapping:getJiraCloudAccountMapping", args ?? new GetJiraCloudAccountMappingInvokeArgs(), options.WithDefaults());

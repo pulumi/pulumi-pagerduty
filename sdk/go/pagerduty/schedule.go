@@ -51,7 +51,7 @@ import (
 //						RotationVirtualStart:      pulumi.String("2015-11-06T20:00:00-05:00"),
 //						RotationTurnLengthSeconds: pulumi.Int(86400),
 //						Users: pulumi.StringArray{
-//							example.ID().ToIDOutput().ToStringOutput(),
+//							example.ID(),
 //						},
 //						Restrictions: pagerduty.ScheduleLayerRestrictionArray{
 //							&pagerduty.ScheduleLayerRestrictionArgs{
@@ -63,7 +63,7 @@ import (
 //					},
 //				},
 //				Teams: pulumi.StringArray{
-//					exampleTeam.ID().ToIDOutput().ToStringOutput(),
+//					exampleTeam.ID(),
 //				},
 //			})
 //			if err != nil {

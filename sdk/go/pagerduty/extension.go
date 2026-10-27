@@ -50,7 +50,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
-//								Id:   example.ID().ToIDOutput().ToStringOutput(),
+//								Id:   example.ID(),
 //							},
 //						},
 //					},
@@ -63,7 +63,7 @@ import (
 //				Name:                   pulumi.String("My Web App"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       exampleEscalationPolicy.ID().ToIDOutput().ToStringOutput(),
+//				EscalationPolicy:       exampleEscalationPolicy.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -73,7 +73,7 @@ import (
 //				EndpointUrl:     pulumi.String("https://generic_webhook_url/XXXXXX/BBBBBB"),
 //				ExtensionSchema: pulumi.String(webhook.Id),
 //				ExtensionObjects: pulumi.StringArray{
-//					exampleService.ID().ToIDOutput().ToStringOutput(),
+//					exampleService.ID(),
 //				},
 //				Config: pulumi.String(`{
 //

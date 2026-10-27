@@ -52,7 +52,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
-//								Id:   example.ID().ToIDOutput().ToStringOutput(),
+//								Id:   example.ID(),
 //							},
 //						},
 //					},
@@ -75,7 +75,7 @@ import (
 //				EndpointUrl:     pulumi.String("https://generic_webhook_url/XXXXXX/BBBBBB"),
 //				ExtensionSchema: pulumi.String(webhook.Id),
 //				ExtensionObjects: pulumi.StringArray{
-//					exampleService.ID().ToIDOutput().ToStringOutput(),
+//					exampleService.ID(),
 //				},
 //			})
 //			if err != nil {

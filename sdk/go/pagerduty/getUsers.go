@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = pagerduty.NewTeamMembership(ctx, "example", &pagerduty.TeamMembershipArgs{
 //				TeamId: pulumi.Any(devopsPagerdutyTeam.Id),
-//				UserId: exampleWTeam.ID().ToIDOutput().ToStringOutput(),
+//				UserId: exampleWTeam.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -58,7 +58,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.GetUsers(ctx, &pagerduty.GetUsersArgs{
-//				TeamIds: pulumi.StringArray{
+//				TeamIds: []string{
 //					devopsPagerdutyTeam.Id,
 //				},
 //			}, nil)

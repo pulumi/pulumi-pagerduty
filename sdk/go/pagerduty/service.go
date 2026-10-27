@@ -44,7 +44,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user_reference"),
-//								Id:   example.ID().ToIDOutput().ToStringOutput(),
+//								Id:   example.ID(),
 //							},
 //						},
 //					},
@@ -57,7 +57,7 @@ import (
 //				Name:                   pulumi.String("My Web App"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       foo.ID().ToIDOutput().ToStringOutput(),
+//				EscalationPolicy:       foo.ID(),
 //				AlertCreation:          pulumi.String("create_alerts_and_incidents"),
 //				AutoPauseNotificationsParameters: &pagerduty.ServiceAutoPauseNotificationsParametersArgs{
 //					Enabled: pulumi.Bool(true),

@@ -41,9 +41,9 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewTagAssignment(ctx, "example", &pagerduty.TagAssignmentArgs{
-//				TagId:      example.ID().ToIDOutput().ToStringOutput(),
+//				TagId:      example.ID(),
 //				EntityType: pulumi.String("teams"),
-//				EntityId:   engteam.ID().ToIDOutput().ToStringOutput(),
+//				EntityId:   engteam.ID(),
 //			})
 //			if err != nil {
 //				return err

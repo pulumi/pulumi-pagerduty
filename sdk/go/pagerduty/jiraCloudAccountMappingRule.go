@@ -82,7 +82,7 @@ import (
 //				Name:           pulumi.String("Integration with My Web App"),
 //				AccountMapping: pulumi.String("PLBP09X"),
 //				Config: &pagerduty.JiraCloudAccountMappingRuleConfigArgs{
-//					Service: foo.ID().ToIDOutput().ToStringOutput(),
+//					Service: foo.ID(),
 //					Jira: &pagerduty.JiraCloudAccountMappingRuleConfigJiraArgs{
 //						AutocreateJql:                pulumi.String("priority = Highest"),
 //						CreateIssueOnIncidentTrigger: pulumi.Bool(true),
@@ -137,7 +137,7 @@ import (
 //								Name: pulumi.String("Open"),
 //							},
 //						},
-//						SyncNotesUser: fooUser.ID().ToIDOutput().ToStringOutput(),
+//						SyncNotesUser: fooUser.ID(),
 //					},
 //				},
 //			})

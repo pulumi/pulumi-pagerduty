@@ -52,8 +52,8 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewTeamMembership(ctx, "foo", &pagerduty.TeamMembershipArgs{
-//				UserId: example.ID().ToIDOutput().ToStringOutput(),
-//				TeamId: engineering.ID().ToIDOutput().ToStringOutput(),
+//				UserId: example.ID(),
+//				TeamId: engineering.ID(),
 //				Role:   pulumi.String("manager"),
 //			})
 //			if err != nil {
@@ -68,7 +68,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user_reference"),
-//								Id:   example.ID().ToIDOutput().ToStringOutput(),
+//								Id:   example.ID(),
 //							},
 //						},
 //					},
@@ -81,7 +81,7 @@ import (
 //				Name:                   pulumi.String("My Web App"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       exampleEscalationPolicy.ID().ToIDOutput().ToStringOutput(),
+//				EscalationPolicy:       exampleEscalationPolicy.ID(),
 //				AlertCreation:          pulumi.String("create_alerts_and_incidents"),
 //			})
 //			if err != nil {
@@ -108,7 +108,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewEventOrchestrationService(ctx, "www", &pagerduty.EventOrchestrationServiceArgs{
-//				Service:                            exampleService.ID().ToIDOutput().ToStringOutput(),
+//				Service:                            exampleService.ID(),
 //				EnableEventOrchestrationForService: pulumi.Bool(true),
 //				Sets: pagerduty.EventOrchestrationServiceSetArray{
 //					&pagerduty.EventOrchestrationServiceSetArgs{
@@ -156,7 +156,7 @@ import (
 //									Priority: pulumi.String(p1.Id),
 //									IncidentCustomFieldUpdates: pagerduty.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArray{
 //										&pagerduty.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs{
-//											Id:    csImpact.ID().ToIDOutput().ToStringOutput(),
+//											Id:    csImpact.ID(),
 //											Value: pulumi.String("High Impact"),
 //										},
 //									},

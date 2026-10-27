@@ -170,8 +170,8 @@ func main() {
 		}
 		// Create a team membership
 		_, err = pagerduty.NewTeamMembership(ctx, "earline_engineering", &pagerduty.TeamMembershipArgs{
-			UserId: earline.ID().ToIDOutput().ToStringOutput(),
-			TeamId: engineering.ID().ToIDOutput().ToStringOutput(),
+			UserId: earline.ID(),
+			TeamId: engineering.ID(),
 		})
 		if err != nil {
 			return err
@@ -469,8 +469,8 @@ func main() {
 		}
 		// Create a team membership
 		_, err = pagerduty.NewTeamMembership(ctx, "earline_engineering", &pagerduty.TeamMembershipArgs{
-			UserId: earline.ID().ToIDOutput().ToStringOutput(),
-			TeamId: engineering.ID().ToIDOutput().ToStringOutput(),
+			UserId: earline.ID(),
+			TeamId: engineering.ID(),
 		})
 		if err != nil {
 			return err

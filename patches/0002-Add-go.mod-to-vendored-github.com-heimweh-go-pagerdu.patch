@@ -9,7 +9,7 @@ https://github.com/PagerDuty/terraform-provider-pagerduty/pull/945).
 
 diff --git a/vendor/github.com/PagerDuty/go-pagerduty/go.mod b/vendor/github.com/PagerDuty/go-pagerduty/go.mod
 new file mode 100644
-index 00000000..2e595df3
+index 000000000000..2e595df35941
 --- /dev/null
 +++ b/vendor/github.com/PagerDuty/go-pagerduty/go.mod
 @@ -0,0 +1,40 @@
@@ -55,7 +55,7 @@ index 00000000..2e595df3
 +)
 diff --git a/vendor/github.com/PagerDuty/go-pagerduty/go.sum b/vendor/github.com/PagerDuty/go-pagerduty/go.sum
 new file mode 100644
-index 00000000..686f4b93
+index 000000000000..686f4b938396
 --- /dev/null
 +++ b/vendor/github.com/PagerDuty/go-pagerduty/go.sum
 @@ -0,0 +1,148 @@
@@ -209,7 +209,7 @@ index 00000000..686f4b93
 +gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
 diff --git a/vendor/github.com/heimweh/go-pagerduty/go.mod b/vendor/github.com/heimweh/go-pagerduty/go.mod
 new file mode 100644
-index 00000000..01e76d32
+index 000000000000..01e76d323fa3
 --- /dev/null
 +++ b/vendor/github.com/heimweh/go-pagerduty/go.mod
 @@ -0,0 +1,24 @@
@@ -239,7 +239,7 @@ index 00000000..01e76d32
 +)
 diff --git a/vendor/github.com/heimweh/go-pagerduty/go.sum b/vendor/github.com/heimweh/go-pagerduty/go.sum
 new file mode 100644
-index 00000000..f3ddc164
+index 000000000000..f3ddc1649c56
 --- /dev/null
 +++ b/vendor/github.com/heimweh/go-pagerduty/go.sum
 @@ -0,0 +1,64 @@

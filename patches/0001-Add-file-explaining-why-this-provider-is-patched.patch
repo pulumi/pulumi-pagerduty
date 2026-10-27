@@ -6,7 +6,7 @@ Subject: [PATCH] Add file explaining why this provider is patched
 
 diff --git a/UPSTEAM_VENDORED.md b/UPSTEAM_VENDORED.md
 new file mode 100644
-index 00000000..e07ed16d
+index 000000000000..e07ed16d01a9
 --- /dev/null
 +++ b/UPSTEAM_VENDORED.md
 @@ -0,0 +1,5 @@

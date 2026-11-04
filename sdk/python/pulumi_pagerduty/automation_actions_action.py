@@ -718,6 +718,40 @@ class AutomationActionsAction(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return AutomationActionsAction(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action_classification: pulumi.Input[Optional[_builtins.str]] = None,
+            action_data_reference: pulumi.Input[Optional[Union['AutomationActionsActionActionDataReferenceArgs', 'AutomationActionsActionActionDataReferenceArgsDict', 'outputs.AutomationActionsActionActionDataReference']]] = None,
+            action_type: pulumi.Input[Optional[_builtins.str]] = None,
+            allow_invocation_from_event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+            allow_invocation_manually: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            map_to_all_services: pulumi.Input[Optional[_builtins.bool]] = None,
+            modify_time: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            only_invocable_on_unresolved_incidents: pulumi.Input[Optional[_builtins.bool]] = None,
+            runner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            runner_type: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actionClassification"] = action_classification
+        __props__["actionDataReference"] = action_data_reference
+        __props__["actionType"] = action_type
+        __props__["allowInvocationFromEventOrchestration"] = allow_invocation_from_event_orchestration
+        __props__["allowInvocationManually"] = allow_invocation_manually
+        __props__["creationTime"] = creation_time
+        __props__["description"] = description
+        __props__["mapToAllServices"] = map_to_all_services
+        __props__["modifyTime"] = modify_time
+        __props__["name"] = name
+        __props__["onlyInvocableOnUnresolvedIncidents"] = only_invocable_on_unresolved_incidents
+        __props__["runnerId"] = runner_id
+        __props__["runnerType"] = runner_type
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/automationActionsAction:AutomationActionsAction', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="actionClassification")
     def action_classification(self) -> pulumi.Output[Optional[_builtins.str]]:

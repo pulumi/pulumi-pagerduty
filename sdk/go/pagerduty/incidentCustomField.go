@@ -158,6 +158,12 @@ func (IncidentCustomFieldState) ElementType() reflect.Type {
 	return reflect.TypeOf((*incidentCustomFieldState)(nil)).Elem()
 }
 
+// IncidentCustomFieldExists checks whether an existing IncidentCustomField resource with the given ID exists.
+func IncidentCustomFieldExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IncidentCustomFieldState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/incidentCustomField:IncidentCustomField", id, state, "", opts...)
+}
+
 type incidentCustomFieldArgs struct {
 	// The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
 	DataType string `pulumi:"dataType"`

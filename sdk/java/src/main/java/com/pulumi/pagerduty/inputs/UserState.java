@@ -181,22 +181,20 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of teams the user should belong to. Please use `pagerduty.TeamMembership` instead.
      * 
-     * @deprecated
-     * Use the &#39;pagerduty_team_membership&#39; resource instead.
+     * @deprecated Use the &#39;pagerduty_team_membership&#39; resource instead.
      * 
      */
-    @Deprecated /* Use the 'pagerduty_team_membership' resource instead. */
+    @Deprecated
     @Import(name="teams")
     private @Nullable Output<List<String>> teams;
 
     /**
      * @return A list of teams the user should belong to. Please use `pagerduty.TeamMembership` instead.
      * 
-     * @deprecated
-     * Use the &#39;pagerduty_team_membership&#39; resource instead.
+     * @deprecated Use the &#39;pagerduty_team_membership&#39; resource instead.
      * 
      */
-    @Deprecated /* Use the 'pagerduty_team_membership' resource instead. */
+    @Deprecated
     public Optional<Output<List<String>>> teams() {
         return Optional.ofNullable(this.teams);
     }
@@ -476,11 +474,10 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;pagerduty_team_membership&#39; resource instead.
+         * @deprecated Use the &#39;pagerduty_team_membership&#39; resource instead.
          * 
          */
-        @Deprecated /* Use the 'pagerduty_team_membership' resource instead. */
+        @Deprecated
         public Builder teams(@Nullable Output<List<String>> teams) {
             $.teams = teams;
             return this;
@@ -491,11 +488,10 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;pagerduty_team_membership&#39; resource instead.
+         * @deprecated Use the &#39;pagerduty_team_membership&#39; resource instead.
          * 
          */
-        @Deprecated /* Use the 'pagerduty_team_membership' resource instead. */
+        @Deprecated
         public Builder teams(List<String> teams) {
             return teams(Output.of(teams));
         }
@@ -505,11 +501,10 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;pagerduty_team_membership&#39; resource instead.
+         * @deprecated Use the &#39;pagerduty_team_membership&#39; resource instead.
          * 
          */
-        @Deprecated /* Use the 'pagerduty_team_membership' resource instead. */
+        @Deprecated
         public Builder teams(String... teams) {
             return teams(List.of(teams));
         }

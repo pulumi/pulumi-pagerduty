@@ -852,6 +852,36 @@ class ServiceIntegration(pulumi.CustomResource):
         __props__.__dict__["vendor"] = vendor
         return ServiceIntegration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            email_filter_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            email_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceIntegrationEmailFilterArgs', 'ServiceIntegrationEmailFilterArgsDict', 'outputs.ServiceIntegrationEmailFilter']]]]] = None,
+            email_incident_creation: pulumi.Input[Optional[_builtins.str]] = None,
+            email_parsers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceIntegrationEmailParserArgs', 'ServiceIntegrationEmailParserArgsDict', 'outputs.ServiceIntegrationEmailParser']]]]] = None,
+            email_parsing_fallback: pulumi.Input[Optional[_builtins.str]] = None,
+            html_url: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_email: pulumi.Input[Optional[_builtins.str]] = None,
+            integration_key: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            service: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            vendor: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["emailFilterMode"] = email_filter_mode
+        __props__["emailFilters"] = email_filters
+        __props__["emailIncidentCreation"] = email_incident_creation
+        __props__["emailParsers"] = email_parsers
+        __props__["emailParsingFallback"] = email_parsing_fallback
+        __props__["htmlUrl"] = html_url
+        __props__["integrationEmail"] = integration_email
+        __props__["integrationKey"] = integration_key
+        __props__["name"] = name
+        __props__["service"] = service
+        __props__["type"] = type
+        __props__["vendor"] = vendor
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/serviceIntegration:ServiceIntegration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="emailFilterMode")
     def email_filter_mode(self) -> pulumi.Output[_builtins.str]:

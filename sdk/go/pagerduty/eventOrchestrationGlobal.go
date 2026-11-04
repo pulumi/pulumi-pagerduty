@@ -221,6 +221,12 @@ func (EventOrchestrationGlobalState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventOrchestrationGlobalState)(nil)).Elem()
 }
 
+// EventOrchestrationGlobalExists checks whether an existing EventOrchestrationGlobal resource with the given ID exists.
+func EventOrchestrationGlobalExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventOrchestrationGlobalState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal", id, state, "", opts...)
+}
+
 type eventOrchestrationGlobalArgs struct {
 	// the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
 	CatchAll EventOrchestrationGlobalCatchAll `pulumi:"catchAll"`

@@ -223,6 +223,12 @@ func (WebhookSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webhookSubscriptionState)(nil)).Elem()
 }
 
+// WebhookSubscriptionExists checks whether an existing WebhookSubscription resource with the given ID exists.
+func WebhookSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebhookSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/webhookSubscription:WebhookSubscription", id, state, "", opts...)
+}
+
 type webhookSubscriptionArgs struct {
 	// Determines whether the subscription will produce webhook events.
 	Active *bool `pulumi:"active"`

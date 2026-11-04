@@ -130,11 +130,10 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
      * 
-     * @deprecated
-     * Use `alert_grouping_parameters.type`
+     * @deprecated Use `alert_grouping_parameters.type`
      * 
      */
-    @Deprecated /* Use `alert_grouping_parameters.type` */
+    @Deprecated
     @Export(name="alertGrouping", refs={String.class}, tree="[0]")
     private Output<String> alertGrouping;
 
@@ -148,13 +147,11 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
      * 
-     * @deprecated
-     * Use a resource `pagerduty.AlertGroupingSetting` instead.
+     * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead.
      * Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
      * 
      */
-    @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead.
-Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters */
+    @Deprecated
     @Export(name="alertGroupingParameters", refs={ServiceAlertGroupingParameters.class}, tree="[0]")
     private Output</* @Nullable */ ServiceAlertGroupingParameters> alertGroupingParameters;
 
@@ -168,11 +165,10 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
     /**
      * (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
      * 
-     * @deprecated
-     * Use `alert_grouping_parameters.config.timeout`
+     * @deprecated Use `alert_grouping_parameters.config.timeout`
      * 
      */
-    @Deprecated /* Use `alert_grouping_parameters.config.timeout` */
+    @Deprecated
     @Export(name="alertGroupingTimeout", refs={String.class}, tree="[0]")
     private Output<String> alertGroupingTimeout;
 
@@ -276,11 +272,10 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
         return this.incidentUrgencyRule;
     }
     /**
-     * @deprecated
-     * The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
+     * @deprecated The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
      * 
      */
-    @Deprecated /* The lastIncidentTimestamp attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value. */
+    @Deprecated
     @Export(name="lastIncidentTimestamp", refs={String.class}, tree="[0]")
     private Output<String> lastIncidentTimestamp;
 
@@ -322,11 +317,10 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
         return Codegen.optional(this.scheduledActions);
     }
     /**
-     * @deprecated
-     * The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
+     * @deprecated The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value.
      * 
      */
-    @Deprecated /* The status attribute is no longer set as it caused persistent drift in plan output. Use data.pagerduty_service if you need this value. */
+    @Deprecated
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 

@@ -180,6 +180,12 @@ func (EventOrchestrationRouterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventOrchestrationRouterState)(nil)).Elem()
 }
 
+// EventOrchestrationRouterExists checks whether an existing EventOrchestrationRouter resource with the given ID exists.
+func EventOrchestrationRouterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventOrchestrationRouterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter", id, state, "", opts...)
+}
+
 type eventOrchestrationRouterArgs struct {
 	// When none of the rules match an event, the event will be routed according to the catchAll settings.
 	CatchAll EventOrchestrationRouterCatchAll `pulumi:"catchAll"`

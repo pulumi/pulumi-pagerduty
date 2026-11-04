@@ -56,22 +56,20 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
      * 
-     * @deprecated
-     * Use `alert_grouping_parameters.type`
+     * @deprecated Use `alert_grouping_parameters.type`
      * 
      */
-    @Deprecated /* Use `alert_grouping_parameters.type` */
+    @Deprecated
     @Import(name="alertGrouping")
     private @Nullable Output<String> alertGrouping;
 
     /**
      * @return (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
      * 
-     * @deprecated
-     * Use `alert_grouping_parameters.type`
+     * @deprecated Use `alert_grouping_parameters.type`
      * 
      */
-    @Deprecated /* Use `alert_grouping_parameters.type` */
+    @Deprecated
     public Optional<Output<String>> alertGrouping() {
         return Optional.ofNullable(this.alertGrouping);
     }
@@ -79,26 +77,22 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
      * 
-     * @deprecated
-     * Use a resource `pagerduty.AlertGroupingSetting` instead.
+     * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead.
      * Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
      * 
      */
-    @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead.
-Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters */
+    @Deprecated
     @Import(name="alertGroupingParameters")
     private @Nullable Output<ServiceAlertGroupingParametersArgs> alertGroupingParameters;
 
     /**
      * @return (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident. Instructions on how to migrate this configuration to `pagerduty.AlertGroupingSetting` resource can be found here.
      * 
-     * @deprecated
-     * Use a resource `pagerduty.AlertGroupingSetting` instead.
+     * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead.
      * Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
      * 
      */
-    @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead.
-Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters */
+    @Deprecated
     public Optional<Output<ServiceAlertGroupingParametersArgs>> alertGroupingParameters() {
         return Optional.ofNullable(this.alertGroupingParameters);
     }
@@ -106,22 +100,20 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
     /**
      * (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
      * 
-     * @deprecated
-     * Use `alert_grouping_parameters.config.timeout`
+     * @deprecated Use `alert_grouping_parameters.config.timeout`
      * 
      */
-    @Deprecated /* Use `alert_grouping_parameters.config.timeout` */
+    @Deprecated
     @Import(name="alertGroupingTimeout")
     private @Nullable Output<String> alertGroupingTimeout;
 
     /**
      * @return (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
      * 
-     * @deprecated
-     * Use `alert_grouping_parameters.config.timeout`
+     * @deprecated Use `alert_grouping_parameters.config.timeout`
      * 
      */
-    @Deprecated /* Use `alert_grouping_parameters.config.timeout` */
+    @Deprecated
     public Optional<Output<String>> alertGroupingTimeout() {
         return Optional.ofNullable(this.alertGroupingTimeout);
     }
@@ -323,11 +315,10 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `alert_grouping_parameters.type`
+         * @deprecated Use `alert_grouping_parameters.type`
          * 
          */
-        @Deprecated /* Use `alert_grouping_parameters.type` */
+        @Deprecated
         public Builder alertGrouping(@Nullable Output<String> alertGrouping) {
             $.alertGrouping = alertGrouping;
             return this;
@@ -338,11 +329,10 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `alert_grouping_parameters.type`
+         * @deprecated Use `alert_grouping_parameters.type`
          * 
          */
-        @Deprecated /* Use `alert_grouping_parameters.type` */
+        @Deprecated
         public Builder alertGrouping(String alertGrouping) {
             return alertGrouping(Output.of(alertGrouping));
         }
@@ -352,13 +342,11 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use a resource `pagerduty.AlertGroupingSetting` instead.
+         * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead.
          * Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
          * 
          */
-        @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead.
-Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters */
+        @Deprecated
         public Builder alertGroupingParameters(@Nullable Output<ServiceAlertGroupingParametersArgs> alertGroupingParameters) {
             $.alertGroupingParameters = alertGroupingParameters;
             return this;
@@ -369,13 +357,11 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use a resource `pagerduty.AlertGroupingSetting` instead.
+         * @deprecated Use a resource `pagerduty.AlertGroupingSetting` instead.
          * Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters
          * 
          */
-        @Deprecated /* Use a resource `pagerduty.AlertGroupingSetting` instead.
-Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/resources/alert_grouping_setting#migration-from-alert_grouping_parameters */
+        @Deprecated
         public Builder alertGroupingParameters(ServiceAlertGroupingParametersArgs alertGroupingParameters) {
             return alertGroupingParameters(Output.of(alertGroupingParameters));
         }
@@ -385,11 +371,10 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `alert_grouping_parameters.config.timeout`
+         * @deprecated Use `alert_grouping_parameters.config.timeout`
          * 
          */
-        @Deprecated /* Use `alert_grouping_parameters.config.timeout` */
+        @Deprecated
         public Builder alertGroupingTimeout(@Nullable Output<String> alertGroupingTimeout) {
             $.alertGroupingTimeout = alertGroupingTimeout;
             return this;
@@ -400,11 +385,10 @@ Follow the migration guide at https://registry.terraform.io/providers/PagerDuty/
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `alert_grouping_parameters.config.timeout`
+         * @deprecated Use `alert_grouping_parameters.config.timeout`
          * 
          */
-        @Deprecated /* Use `alert_grouping_parameters.config.timeout` */
+        @Deprecated
         public Builder alertGroupingTimeout(String alertGroupingTimeout) {
             return alertGroupingTimeout(Output.of(alertGroupingTimeout));
         }

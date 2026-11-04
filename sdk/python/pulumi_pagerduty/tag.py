@@ -220,6 +220,18 @@ class Tag(pulumi.CustomResource):
         __props__.__dict__["summary"] = summary
         return Tag(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            html_url: pulumi.Input[Optional[_builtins.str]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            summary: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["htmlUrl"] = html_url
+        __props__["label"] = label
+        __props__["summary"] = summary
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/tag:Tag', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> pulumi.Output[_builtins.str]:

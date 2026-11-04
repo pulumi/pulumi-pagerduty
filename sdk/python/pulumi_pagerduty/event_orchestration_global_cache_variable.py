@@ -447,6 +447,22 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return EventOrchestrationGlobalCacheVariable(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationGlobalCacheVariableConditionArgs', 'EventOrchestrationGlobalCacheVariableConditionArgsDict', 'outputs.EventOrchestrationGlobalCacheVariableCondition']]]]] = None,
+            configuration: pulumi.Input[Optional[Union['EventOrchestrationGlobalCacheVariableConfigurationArgs', 'EventOrchestrationGlobalCacheVariableConfigurationArgsDict', 'outputs.EventOrchestrationGlobalCacheVariableConfiguration']]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["conditions"] = conditions
+        __props__["configuration"] = configuration
+        __props__["disabled"] = disabled
+        __props__["eventOrchestration"] = event_orchestration
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def conditions(self) -> pulumi.Output[Optional[Sequence['outputs.EventOrchestrationGlobalCacheVariableCondition']]]:

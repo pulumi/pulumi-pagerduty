@@ -196,6 +196,12 @@ func (SlackConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*slackConnectionState)(nil)).Elem()
 }
 
+// SlackConnectionExists checks whether an existing SlackConnection resource with the given ID exists.
+func SlackConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SlackConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/slackConnection:SlackConnection", id, state, "", opts...)
+}
+
 type slackConnectionArgs struct {
 	// The ID of a Slack channel in the workspace.
 	ChannelId string `pulumi:"channelId"`

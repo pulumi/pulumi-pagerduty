@@ -147,6 +147,12 @@ func (UserHandoffNotificationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userHandoffNotificationRuleState)(nil)).Elem()
 }
 
+// UserHandoffNotificationRuleExists checks whether an existing UserHandoffNotificationRule resource with the given ID exists.
+func UserHandoffNotificationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserHandoffNotificationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule", id, state, "", opts...)
+}
+
 type userHandoffNotificationRuleArgs struct {
 	// The contact method to notify the user. Contact method documented below.
 	ContactMethod UserHandoffNotificationRuleContactMethod `pulumi:"contactMethod"`

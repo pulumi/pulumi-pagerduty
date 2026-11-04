@@ -674,6 +674,38 @@ class ExtensionServiceNow(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return ExtensionServiceNow(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            endpoint_url: pulumi.Input[Optional[_builtins.str]] = None,
+            extension_objects: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            extension_schema: pulumi.Input[Optional[_builtins.str]] = None,
+            html_url: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            referer: pulumi.Input[Optional[_builtins.str]] = None,
+            snow_password: pulumi.Input[Optional[_builtins.str]] = None,
+            snow_user: pulumi.Input[Optional[_builtins.str]] = None,
+            summary: pulumi.Input[Optional[_builtins.str]] = None,
+            sync_options: pulumi.Input[Optional[_builtins.str]] = None,
+            target: pulumi.Input[Optional[_builtins.str]] = None,
+            task_type: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["endpointUrl"] = endpoint_url
+        __props__["extensionObjects"] = extension_objects
+        __props__["extensionSchema"] = extension_schema
+        __props__["htmlUrl"] = html_url
+        __props__["name"] = name
+        __props__["referer"] = referer
+        __props__["snowPassword"] = snow_password
+        __props__["snowUser"] = snow_user
+        __props__["summary"] = summary
+        __props__["syncOptions"] = sync_options
+        __props__["target"] = target
+        __props__["taskType"] = task_type
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/extensionServiceNow:ExtensionServiceNow', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="endpointUrl")
     def endpoint_url(self) -> pulumi.Output[Optional[_builtins.str]]:

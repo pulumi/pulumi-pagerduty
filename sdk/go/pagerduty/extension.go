@@ -215,6 +215,12 @@ func (ExtensionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*extensionState)(nil)).Elem()
 }
 
+// ExtensionExists checks whether an existing Extension resource with the given ID exists.
+func ExtensionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExtensionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/extension:Extension", id, state, "", opts...)
+}
+
 type extensionArgs struct {
 	// The configuration of the service extension as string containing plain JSON-encoded data.
 	Config *string `pulumi:"config"`

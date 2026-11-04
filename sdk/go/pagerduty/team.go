@@ -137,6 +137,12 @@ func (TeamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamState)(nil)).Elem()
 }
 
+// TeamExists checks whether an existing Team resource with the given ID exists.
+func TeamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/team:Team", id, state, "", opts...)
+}
+
 type teamArgs struct {
 	// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
 	DefaultRole *string `pulumi:"defaultRole"`

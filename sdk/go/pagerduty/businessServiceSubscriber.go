@@ -150,6 +150,12 @@ func (BusinessServiceSubscriberState) ElementType() reflect.Type {
 	return reflect.TypeOf((*businessServiceSubscriberState)(nil)).Elem()
 }
 
+// BusinessServiceSubscriberExists checks whether an existing BusinessServiceSubscriber resource with the given ID exists.
+func BusinessServiceSubscriberExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BusinessServiceSubscriberState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber", id, state, "", opts...)
+}
+
 type businessServiceSubscriberArgs struct {
 	// The ID of the business service to subscribe to.
 	BusinessServiceId string `pulumi:"businessServiceId"`

@@ -152,6 +152,12 @@ func (IncidentTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*incidentTypeState)(nil)).Elem()
 }
 
+// IncidentTypeExists checks whether an existing IncidentType resource with the given ID exists.
+func IncidentTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IncidentTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/incidentType:IncidentType", id, state, "", opts...)
+}
+
 type incidentTypeArgs struct {
 	// A succinct description of the Incident Type.
 	Description *string `pulumi:"description"`

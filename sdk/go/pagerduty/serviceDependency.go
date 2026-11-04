@@ -124,6 +124,12 @@ func (ServiceDependencyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceDependencyState)(nil)).Elem()
 }
 
+// ServiceDependencyExists checks whether an existing ServiceDependency resource with the given ID exists.
+func ServiceDependencyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceDependencyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/serviceDependency:ServiceDependency", id, state, "", opts...)
+}
+
 type serviceDependencyArgs struct {
 	// The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
 	Dependency ServiceDependencyDependency `pulumi:"dependency"`

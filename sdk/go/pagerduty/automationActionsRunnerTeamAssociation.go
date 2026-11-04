@@ -127,6 +127,12 @@ func (AutomationActionsRunnerTeamAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*automationActionsRunnerTeamAssociationState)(nil)).Elem()
 }
 
+// AutomationActionsRunnerTeamAssociationExists checks whether an existing AutomationActionsRunnerTeamAssociation resource with the given ID exists.
+func AutomationActionsRunnerTeamAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutomationActionsRunnerTeamAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation", id, state, "", opts...)
+}
+
 type automationActionsRunnerTeamAssociationArgs struct {
 	// Id of the runner.
 	RunnerId string `pulumi:"runnerId"`

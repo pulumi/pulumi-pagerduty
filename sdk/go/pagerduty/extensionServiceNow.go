@@ -248,6 +248,12 @@ func (ExtensionServiceNowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*extensionServiceNowState)(nil)).Elem()
 }
 
+// ExtensionServiceNowExists checks whether an existing ExtensionServiceNow resource with the given ID exists.
+func ExtensionServiceNowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExtensionServiceNowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/extensionServiceNow:ExtensionServiceNow", id, state, "", opts...)
+}
+
 type extensionServiceNowArgs struct {
 	EndpointUrl *string `pulumi:"endpointUrl"`
 	// This is the objects for which the extension applies (An array of service ids).

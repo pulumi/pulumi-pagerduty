@@ -132,6 +132,12 @@ func (TagAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagAssignmentState)(nil)).Elem()
 }
 
+// TagAssignmentExists checks whether an existing TagAssignment resource with the given ID exists.
+func TagAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/tagAssignment:TagAssignment", id, state, "", opts...)
+}
+
 type tagAssignmentArgs struct {
 	// The ID of the entity.
 	EntityId string `pulumi:"entityId"`

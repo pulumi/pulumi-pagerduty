@@ -238,6 +238,12 @@ func (ServiceEventRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEventRuleState)(nil)).Elem()
 }
 
+// ServiceEventRuleExists checks whether an existing ServiceEventRule resource with the given ID exists.
+func ServiceEventRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceEventRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/serviceEventRule:ServiceEventRule", id, state, "", opts...)
+}
+
 type serviceEventRuleArgs struct {
 	// Actions to apply to an event if the conditions match.
 	Actions *ServiceEventRuleActions `pulumi:"actions"`

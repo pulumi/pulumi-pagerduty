@@ -391,6 +391,12 @@ func (Schedulev2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*schedulev2State)(nil)).Elem()
 }
 
+// Schedulev2Exists checks whether an existing Schedulev2 resource with the given ID exists.
+func Schedulev2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Schedulev2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/schedulev2:Schedulev2", id, state, "", opts...)
+}
+
 type schedulev2Args struct {
 	// A description of the schedule. Maximum 1024 characters.
 	Description *string `pulumi:"description"`

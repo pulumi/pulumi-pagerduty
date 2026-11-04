@@ -286,6 +286,12 @@ func (RulesetRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rulesetRuleState)(nil)).Elem()
 }
 
+// RulesetRuleExists checks whether an existing RulesetRule resource with the given ID exists.
+func RulesetRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RulesetRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/rulesetRule:RulesetRule", id, state, "", opts...)
+}
+
 type rulesetRuleArgs struct {
 	// Actions to apply to an event if the conditions match.
 	Actions *RulesetRuleActions `pulumi:"actions"`

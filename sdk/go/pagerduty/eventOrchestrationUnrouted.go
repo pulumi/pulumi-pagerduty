@@ -154,6 +154,12 @@ func (EventOrchestrationUnroutedState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventOrchestrationUnroutedState)(nil)).Elem()
 }
 
+// EventOrchestrationUnroutedExists checks whether an existing EventOrchestrationUnrouted resource with the given ID exists.
+func EventOrchestrationUnroutedExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventOrchestrationUnroutedState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted", id, state, "", opts...)
+}
+
 type eventOrchestrationUnroutedArgs struct {
 	// the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
 	CatchAll EventOrchestrationUnroutedCatchAll `pulumi:"catchAll"`

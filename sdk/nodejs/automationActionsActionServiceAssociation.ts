@@ -75,6 +75,17 @@ export class AutomationActionsActionServiceAssociation extends pulumi.CustomReso
         return new AutomationActionsActionServiceAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing AutomationActionsActionServiceAssociation resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: AutomationActionsActionServiceAssociationState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation';
 

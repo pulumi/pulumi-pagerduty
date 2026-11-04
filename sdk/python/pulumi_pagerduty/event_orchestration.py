@@ -321,6 +321,22 @@ class EventOrchestration(pulumi.CustomResource):
         __props__.__dict__["team"] = team
         return EventOrchestration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            integrations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationArgs', 'EventOrchestrationIntegrationArgsDict', 'outputs.EventOrchestrationIntegration']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            routes: pulumi.Input[Optional[_builtins.int]] = None,
+            team: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["integrations"] = integrations
+        __props__["name"] = name
+        __props__["routes"] = routes
+        __props__["team"] = team
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/eventOrchestration:EventOrchestration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

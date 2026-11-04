@@ -220,11 +220,10 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * A list of teams the user should belong to. Please use `pagerduty.TeamMembership` instead.
      * 
-     * @deprecated
-     * Use the &#39;pagerduty_team_membership&#39; resource instead.
+     * @deprecated Use the &#39;pagerduty_team_membership&#39; resource instead.
      * 
      */
-    @Deprecated /* Use the 'pagerduty_team_membership' resource instead. */
+    @Deprecated
     @Export(name="teams", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> teams;
 

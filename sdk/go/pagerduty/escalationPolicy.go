@@ -168,6 +168,12 @@ func (EscalationPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*escalationPolicyState)(nil)).Elem()
 }
 
+// EscalationPolicyExists checks whether an existing EscalationPolicy resource with the given ID exists.
+func EscalationPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EscalationPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/escalationPolicy:EscalationPolicy", id, state, "", opts...)
+}
+
 type escalationPolicyArgs struct {
 	// A human-friendly description of the escalation policy.
 	// If not set, a placeholder of "Managed by Pulumi" will be set.

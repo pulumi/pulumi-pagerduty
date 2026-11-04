@@ -320,6 +320,18 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
         __props__.__dict__["sets"] = sets
         return EventOrchestrationUnrouted(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            catch_all: pulumi.Input[Optional[Union['EventOrchestrationUnroutedCatchAllArgs', 'EventOrchestrationUnroutedCatchAllArgsDict', 'outputs.EventOrchestrationUnroutedCatchAll']]] = None,
+            event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+            sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationUnroutedSetArgs', 'EventOrchestrationUnroutedSetArgsDict', 'outputs.EventOrchestrationUnroutedSet']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["catchAll"] = catch_all
+        __props__["eventOrchestration"] = event_orchestration
+        __props__["sets"] = sets
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="catchAll")
     def catch_all(self) -> pulumi.Output['outputs.EventOrchestrationUnroutedCatchAll']:

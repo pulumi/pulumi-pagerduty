@@ -183,6 +183,12 @@ func (IncidentWorkflowTriggerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*incidentWorkflowTriggerState)(nil)).Elem()
 }
 
+// IncidentWorkflowTriggerExists checks whether an existing IncidentWorkflowTrigger resource with the given ID exists.
+func IncidentWorkflowTriggerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IncidentWorkflowTriggerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger", id, state, "", opts...)
+}
+
 type incidentWorkflowTriggerArgs struct {
 	// A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
 	Condition *string `pulumi:"condition"`

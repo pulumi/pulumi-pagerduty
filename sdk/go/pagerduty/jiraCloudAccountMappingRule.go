@@ -240,6 +240,12 @@ func (JiraCloudAccountMappingRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jiraCloudAccountMappingRuleState)(nil)).Elem()
 }
 
+// JiraCloudAccountMappingRuleExists checks whether an existing JiraCloudAccountMappingRule resource with the given ID exists.
+func JiraCloudAccountMappingRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JiraCloudAccountMappingRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/jiraCloudAccountMappingRule:JiraCloudAccountMappingRule", id, state, "", opts...)
+}
+
 type jiraCloudAccountMappingRuleArgs struct {
 	// [Updating can cause a resource replacement] The account mapping this rule belongs to.
 	AccountMapping string `pulumi:"accountMapping"`

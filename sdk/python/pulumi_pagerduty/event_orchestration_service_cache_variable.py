@@ -487,6 +487,22 @@ class EventOrchestrationServiceCacheVariable(pulumi.CustomResource):
         __props__.__dict__["service"] = service
         return EventOrchestrationServiceCacheVariable(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceCacheVariableConditionArgs', 'EventOrchestrationServiceCacheVariableConditionArgsDict', 'outputs.EventOrchestrationServiceCacheVariableCondition']]]]] = None,
+            configuration: pulumi.Input[Optional[Union['EventOrchestrationServiceCacheVariableConfigurationArgs', 'EventOrchestrationServiceCacheVariableConfigurationArgsDict', 'outputs.EventOrchestrationServiceCacheVariableConfiguration']]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            service: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["conditions"] = conditions
+        __props__["configuration"] = configuration
+        __props__["disabled"] = disabled
+        __props__["name"] = name
+        __props__["service"] = service
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def conditions(self) -> pulumi.Output[Optional[Sequence['outputs.EventOrchestrationServiceCacheVariableCondition']]]:

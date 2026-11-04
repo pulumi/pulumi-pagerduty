@@ -116,7 +116,7 @@ namespace Pulumi.Pagerduty
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A set of outbound event types the webhook will receive. The follow event types are possible: 
+        /// A set of outbound event types the webhook will receive. The follow event types are possible:
         /// * `incident.acknowledged`
         /// * `incident.annotated`
         /// * `incident.delegated`
@@ -220,7 +220,7 @@ namespace Pulumi.Pagerduty
         private InputList<string>? _events;
 
         /// <summary>
-        /// A set of outbound event types the webhook will receive. The follow event types are possible: 
+        /// A set of outbound event types the webhook will receive. The follow event types are possible:
         /// * `incident.acknowledged`
         /// * `incident.annotated`
         /// * `incident.delegated`
@@ -295,7 +295,7 @@ namespace Pulumi.Pagerduty
         private InputList<string>? _events;
 
         /// <summary>
-        /// A set of outbound event types the webhook will receive. The follow event types are possible: 
+        /// A set of outbound event types the webhook will receive. The follow event types are possible:
         /// * `incident.acknowledged`
         /// * `incident.annotated`
         /// * `incident.delegated`

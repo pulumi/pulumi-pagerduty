@@ -843,6 +843,50 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            acknowledgement_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            alert_creation: pulumi.Input[Optional[_builtins.str]] = None,
+            alert_grouping: pulumi.Input[Optional[_builtins.str]] = None,
+            alert_grouping_parameters: pulumi.Input[Optional[Union['ServiceAlertGroupingParametersArgs', 'ServiceAlertGroupingParametersArgsDict', 'outputs.ServiceAlertGroupingParameters']]] = None,
+            alert_grouping_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_pause_notifications_parameters: pulumi.Input[Optional[Union['ServiceAutoPauseNotificationsParametersArgs', 'ServiceAutoPauseNotificationsParametersArgsDict', 'outputs.ServiceAutoPauseNotificationsParameters']]] = None,
+            auto_resolve_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            escalation_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            html_url: pulumi.Input[Optional[_builtins.str]] = None,
+            incident_urgency_rule: pulumi.Input[Optional[Union['ServiceIncidentUrgencyRuleArgs', 'ServiceIncidentUrgencyRuleArgsDict', 'outputs.ServiceIncidentUrgencyRule']]] = None,
+            last_incident_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            response_play: pulumi.Input[Optional[_builtins.str]] = None,
+            scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceScheduledActionArgs', 'ServiceScheduledActionArgsDict', 'outputs.ServiceScheduledAction']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            support_hours: pulumi.Input[Optional[Union['ServiceSupportHoursArgs', 'ServiceSupportHoursArgsDict', 'outputs.ServiceSupportHours']]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acknowledgementTimeout"] = acknowledgement_timeout
+        __props__["alertCreation"] = alert_creation
+        __props__["alertGrouping"] = alert_grouping
+        __props__["alertGroupingParameters"] = alert_grouping_parameters
+        __props__["alertGroupingTimeout"] = alert_grouping_timeout
+        __props__["autoPauseNotificationsParameters"] = auto_pause_notifications_parameters
+        __props__["autoResolveTimeout"] = auto_resolve_timeout
+        __props__["createdAt"] = created_at
+        __props__["description"] = description
+        __props__["escalationPolicy"] = escalation_policy
+        __props__["htmlUrl"] = html_url
+        __props__["incidentUrgencyRule"] = incident_urgency_rule
+        __props__["lastIncidentTimestamp"] = last_incident_timestamp
+        __props__["name"] = name
+        __props__["responsePlay"] = response_play
+        __props__["scheduledActions"] = scheduled_actions
+        __props__["status"] = status
+        __props__["supportHours"] = support_hours
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/service:Service', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acknowledgementTimeout")
     def acknowledgement_timeout(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -190,6 +190,12 @@ func (UserNotificationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userNotificationRuleState)(nil)).Elem()
 }
 
+// UserNotificationRuleExists checks whether an existing UserNotificationRule resource with the given ID exists.
+func UserNotificationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserNotificationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/userNotificationRule:UserNotificationRule", id, state, "", opts...)
+}
+
 type userNotificationRuleArgs struct {
 	// A contact method block, configured as a block described below.
 	ContactMethod *UserNotificationRuleContactMethod `pulumi:"contactMethod"`

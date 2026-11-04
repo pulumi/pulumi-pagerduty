@@ -130,6 +130,12 @@ func (EventOrchestrationIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventOrchestrationIntegrationState)(nil)).Elem()
 }
 
+// EventOrchestrationIntegrationExists checks whether an existing EventOrchestrationIntegration resource with the given ID exists.
+func EventOrchestrationIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventOrchestrationIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration", id, state, "", opts...)
+}
+
 type eventOrchestrationIntegrationArgs struct {
 	// ID of the Event Orchestration to which this Integration belongs to. If value is changed, current Integration is associated with a newly provided ID.
 	EventOrchestration string `pulumi:"eventOrchestration"`

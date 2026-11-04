@@ -589,6 +589,20 @@ class EventOrchestrationService(pulumi.CustomResource):
         __props__.__dict__["sets"] = sets
         return EventOrchestrationService(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            catch_all: pulumi.Input[Optional[Union['EventOrchestrationServiceCatchAllArgs', 'EventOrchestrationServiceCatchAllArgsDict', 'outputs.EventOrchestrationServiceCatchAll']]] = None,
+            enable_event_orchestration_for_service: pulumi.Input[Optional[_builtins.bool]] = None,
+            service: pulumi.Input[Optional[_builtins.str]] = None,
+            sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationServiceSetArgs', 'EventOrchestrationServiceSetArgsDict', 'outputs.EventOrchestrationServiceSet']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["catchAll"] = catch_all
+        __props__["enableEventOrchestrationForService"] = enable_event_orchestration_for_service
+        __props__["service"] = service
+        __props__["sets"] = sets
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/eventOrchestrationService:EventOrchestrationService', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="catchAll")
     def catch_all(self) -> pulumi.Output['outputs.EventOrchestrationServiceCatchAll']:

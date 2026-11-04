@@ -138,6 +138,12 @@ func (IncidentCustomFieldOptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*incidentCustomFieldOptionState)(nil)).Elem()
 }
 
+// IncidentCustomFieldOptionExists checks whether an existing IncidentCustomFieldOption resource with the given ID exists.
+func IncidentCustomFieldOptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IncidentCustomFieldOptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption", id, state, "", opts...)
+}
+
 type incidentCustomFieldOptionArgs struct {
 	// The datatype of the field option. Only `string` is allowed here at present.
 	DataType string `pulumi:"dataType"`

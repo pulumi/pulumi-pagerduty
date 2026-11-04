@@ -253,6 +253,12 @@ func (EventRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventRuleState)(nil)).Elem()
 }
 
+// EventRuleExists checks whether an existing EventRule resource with the given ID exists.
+func EventRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/eventRule:EventRule", id, state, "", opts...)
+}
+
 type eventRuleArgs struct {
 	// A list of one or more actions for each rule. Each action within the list is itself a list.
 	ActionJson string `pulumi:"actionJson"`

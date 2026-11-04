@@ -140,6 +140,12 @@ func (RulesetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rulesetState)(nil)).Elem()
 }
 
+// RulesetExists checks whether an existing Ruleset resource with the given ID exists.
+func RulesetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RulesetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/ruleset:Ruleset", id, state, "", opts...)
+}
+
 type rulesetArgs struct {
 	// Name of the ruleset.
 	Name *string `pulumi:"name"`

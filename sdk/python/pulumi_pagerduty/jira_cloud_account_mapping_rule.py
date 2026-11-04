@@ -493,6 +493,24 @@ class JiraCloudAccountMappingRule(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return JiraCloudAccountMappingRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_mapping: pulumi.Input[Optional[_builtins.str]] = None,
+            autocreate_jql_disabled_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            autocreate_jql_disabled_until: pulumi.Input[Optional[_builtins.str]] = None,
+            config: pulumi.Input[Optional[Union['JiraCloudAccountMappingRuleConfigArgs', 'JiraCloudAccountMappingRuleConfigArgsDict', 'outputs.JiraCloudAccountMappingRuleConfig']]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountMapping"] = account_mapping
+        __props__["autocreateJqlDisabledReason"] = autocreate_jql_disabled_reason
+        __props__["autocreateJqlDisabledUntil"] = autocreate_jql_disabled_until
+        __props__["config"] = config
+        __props__["enabled"] = enabled
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/jiraCloudAccountMappingRule:JiraCloudAccountMappingRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountMapping")
     def account_mapping(self) -> pulumi.Output[_builtins.str]:

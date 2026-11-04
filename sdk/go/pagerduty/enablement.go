@@ -133,6 +133,12 @@ func (EnablementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*enablementState)(nil)).Elem()
 }
 
+// EnablementExists checks whether an existing Enablement resource with the given ID exists.
+func EnablementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EnablementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/enablement:Enablement", id, state, "", opts...)
+}
+
 type enablementArgs struct {
 	// Whether the feature should be enabled (`true`) or disabled (`false`) for the specified entity.
 	Enabled *bool `pulumi:"enabled"`

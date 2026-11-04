@@ -38,12 +38,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var paActionExample = new AutomationActionsAction("paActionExample", AutomationActionsActionArgs.builder()
  *             .name("PA Action created via TF")
  *             .description("Description of the PA Action created via TF")
@@ -58,13 +58,13 @@ import javax.annotation.Nullable;
  *             .description("Description of the Script Action created via TF")
  *             .actionType("script")
  *             .actionDataReference(AutomationActionsActionActionDataReferenceArgs.builder()
- *                 .script("print(\"Hello from a Python script!\")")
+ *                 .script("print(}&#92;{@code "Hello from a Python script!}&#92;{@code ")")
  *                 .invocationCommand("/usr/local/bin/python3")
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

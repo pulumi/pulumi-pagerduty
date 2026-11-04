@@ -322,6 +322,12 @@ func (EventOrchestrationServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventOrchestrationServiceState)(nil)).Elem()
 }
 
+// EventOrchestrationServiceExists checks whether an existing EventOrchestrationService resource with the given ID exists.
+func EventOrchestrationServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventOrchestrationServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/eventOrchestrationService:EventOrchestrationService", id, state, "", opts...)
+}
+
 type eventOrchestrationServiceArgs struct {
 	// the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
 	CatchAll EventOrchestrationServiceCatchAll `pulumi:"catchAll"`

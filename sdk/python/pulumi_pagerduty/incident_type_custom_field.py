@@ -615,6 +615,36 @@ class IncidentTypeCustomField(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return IncidentTypeCustomField(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            data_type: pulumi.Input[Optional[_builtins.str]] = None,
+            default_value: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            field_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            field_type: pulumi.Input[Optional[_builtins.str]] = None,
+            incident_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            self: pulumi.Input[Optional[_builtins.str]] = None,
+            summary: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dataType"] = data_type
+        __props__["defaultValue"] = default_value
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["enabled"] = enabled
+        __props__["fieldOptions"] = field_options
+        __props__["fieldType"] = field_type
+        __props__["incidentType"] = incident_type
+        __props__["name"] = name
+        __props__["self"] = self
+        __props__["summary"] = summary
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/incidentTypeCustomField:IncidentTypeCustomField', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Output[_builtins.str]:

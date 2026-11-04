@@ -360,6 +360,18 @@ class EventOrchestrationRouter(pulumi.CustomResource):
         __props__.__dict__["set"] = set
         return EventOrchestrationRouter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            catch_all: pulumi.Input[Optional[Union['EventOrchestrationRouterCatchAllArgs', 'EventOrchestrationRouterCatchAllArgsDict', 'outputs.EventOrchestrationRouterCatchAll']]] = None,
+            event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+            set: pulumi.Input[Optional[Union['EventOrchestrationRouterSetArgs', 'EventOrchestrationRouterSetArgsDict', 'outputs.EventOrchestrationRouterSet']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["catchAll"] = catch_all
+        __props__["eventOrchestration"] = event_orchestration
+        __props__["set"] = set
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="catchAll")
     def catch_all(self) -> pulumi.Output['outputs.EventOrchestrationRouterCatchAll']:

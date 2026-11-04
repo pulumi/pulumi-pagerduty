@@ -242,6 +242,12 @@ func (ServiceCustomFieldState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceCustomFieldState)(nil)).Elem()
 }
 
+// ServiceCustomFieldExists checks whether an existing ServiceCustomField resource with the given ID exists.
+func ServiceCustomFieldExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceCustomFieldState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/serviceCustomField:ServiceCustomField", id, state, "", opts...)
+}
+
 type serviceCustomFieldArgs struct {
 	// The kind of data the custom field is allowed to contain. Can be one of: `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
 	DataType string `pulumi:"dataType"`

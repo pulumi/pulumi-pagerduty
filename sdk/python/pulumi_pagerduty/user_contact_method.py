@@ -495,6 +495,30 @@ class UserContactMethod(pulumi.CustomResource):
         __props__.__dict__["user_id"] = user_id
         return UserContactMethod(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address: pulumi.Input[Optional[_builtins.str]] = None,
+            blacklisted: pulumi.Input[Optional[_builtins.bool]] = None,
+            country_code: pulumi.Input[Optional[_builtins.int]] = None,
+            device_type: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            send_short_email: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["address"] = address
+        __props__["blacklisted"] = blacklisted
+        __props__["countryCode"] = country_code
+        __props__["deviceType"] = device_type
+        __props__["enabled"] = enabled
+        __props__["label"] = label
+        __props__["sendShortEmail"] = send_short_email
+        __props__["type"] = type
+        __props__["userId"] = user_id
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/userContactMethod:UserContactMethod', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def address(self) -> pulumi.Output[_builtins.str]:

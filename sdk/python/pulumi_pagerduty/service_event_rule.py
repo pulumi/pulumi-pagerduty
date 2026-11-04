@@ -570,6 +570,26 @@ class ServiceEventRule(pulumi.CustomResource):
         __props__.__dict__["variables"] = variables
         return ServiceEventRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions: pulumi.Input[Optional[Union['ServiceEventRuleActionsArgs', 'ServiceEventRuleActionsArgsDict', 'outputs.ServiceEventRuleActions']]] = None,
+            conditions: pulumi.Input[Optional[Union['ServiceEventRuleConditionsArgs', 'ServiceEventRuleConditionsArgsDict', 'outputs.ServiceEventRuleConditions']]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            position: pulumi.Input[Optional[_builtins.int]] = None,
+            service: pulumi.Input[Optional[_builtins.str]] = None,
+            time_frame: pulumi.Input[Optional[Union['ServiceEventRuleTimeFrameArgs', 'ServiceEventRuleTimeFrameArgsDict', 'outputs.ServiceEventRuleTimeFrame']]] = None,
+            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEventRuleVariableArgs', 'ServiceEventRuleVariableArgsDict', 'outputs.ServiceEventRuleVariable']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actions"] = actions
+        __props__["conditions"] = conditions
+        __props__["disabled"] = disabled
+        __props__["position"] = position
+        __props__["service"] = service
+        __props__["timeFrame"] = time_frame
+        __props__["variables"] = variables
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/serviceEventRule:ServiceEventRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Optional['outputs.ServiceEventRuleActions']]:

@@ -107,6 +107,12 @@ func (AddonState) ElementType() reflect.Type {
 	return reflect.TypeOf((*addonState)(nil)).Elem()
 }
 
+// AddonExists checks whether an existing Addon resource with the given ID exists.
+func AddonExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AddonState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/addon:Addon", id, state, "", opts...)
+}
+
 type addonArgs struct {
 	// The name of the add-on.
 	Name *string `pulumi:"name"`

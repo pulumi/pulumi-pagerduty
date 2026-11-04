@@ -86,13 +86,13 @@ import javax.annotation.Nullable;
  *             .extensionObjects(exampleService.id())
  *             .config("""
  * }{{@code
- * \t\"restrict\": \"any\",
- * \t\"notify_types\": }{{@code
- * \t\t\t\"resolve\": false,
- * \t\t\t\"acknowledge\": false,
- * \t\t\t\"assignments\": false
- * \t}}{@code ,
- * \t\"access_token\": \"XXX\"
+ * }&#92;{@code t}&#92;{@code "restrict}&#92;{@code ": }&#92;{@code "any}&#92;{@code ",
+ * }&#92;{@code t}&#92;{@code "notify_types}&#92;{@code ": }{{@code
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}&#92;{@code "resolve}&#92;{@code ": false,
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}&#92;{@code "acknowledge}&#92;{@code ": false,
+ * }&#92;{@code t}&#92;{@code t}&#92;{@code t}&#92;{@code "assignments}&#92;{@code ": false
+ * }&#92;{@code t}}{@code ,
+ * }&#92;{@code t}&#92;{@code "access_token}&#92;{@code ": }&#92;{@code "XXX}&#92;{@code "
  * }}{@code
  *             """)
  *             .build());

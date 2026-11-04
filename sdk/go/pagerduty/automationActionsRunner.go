@@ -176,6 +176,12 @@ func (AutomationActionsRunnerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*automationActionsRunnerState)(nil)).Elem()
 }
 
+// AutomationActionsRunnerExists checks whether an existing AutomationActionsRunner resource with the given ID exists.
+func AutomationActionsRunnerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutomationActionsRunnerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/automationActionsRunner:AutomationActionsRunner", id, state, "", opts...)
+}
+
 type automationActionsRunnerArgs struct {
 	// The description of the runner. Max length is 1024 characters.
 	Description *string `pulumi:"description"`

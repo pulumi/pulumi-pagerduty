@@ -128,6 +128,12 @@ func (AutomationActionsActionTeamAssociationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*automationActionsActionTeamAssociationState)(nil)).Elem()
 }
 
+// AutomationActionsActionTeamAssociationExists checks whether an existing AutomationActionsActionTeamAssociation resource with the given ID exists.
+func AutomationActionsActionTeamAssociationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutomationActionsActionTeamAssociationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation", id, state, "", opts...)
+}
+
 type automationActionsActionTeamAssociationArgs struct {
 	// Id of the action.
 	ActionId string `pulumi:"actionId"`

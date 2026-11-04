@@ -606,6 +606,36 @@ class User(pulumi.CustomResource):
         __props__.__dict__["time_zone"] = time_zone
         return User(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            avatar_url: pulumi.Input[Optional[_builtins.str]] = None,
+            color: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            html_url: pulumi.Input[Optional[_builtins.str]] = None,
+            invitation_sent: pulumi.Input[Optional[_builtins.bool]] = None,
+            job_title: pulumi.Input[Optional[_builtins.str]] = None,
+            license: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            role: pulumi.Input[Optional[_builtins.str]] = None,
+            teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["avatarUrl"] = avatar_url
+        __props__["color"] = color
+        __props__["description"] = description
+        __props__["email"] = email
+        __props__["htmlUrl"] = html_url
+        __props__["invitationSent"] = invitation_sent
+        __props__["jobTitle"] = job_title
+        __props__["license"] = license
+        __props__["name"] = name
+        __props__["role"] = role
+        __props__["teams"] = teams
+        __props__["timeZone"] = time_zone
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/user:User', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="avatarUrl")
     def avatar_url(self) -> pulumi.Output[_builtins.str]:

@@ -479,6 +479,28 @@ class SlackConnection(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = workspace_id
         return SlackConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+            channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+            configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlackConnectionConfigArgs', 'SlackConnectionConfigArgsDict', 'outputs.SlackConnectionConfig']]]]] = None,
+            notification_type: pulumi.Input[Optional[_builtins.str]] = None,
+            source_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_type: pulumi.Input[Optional[_builtins.str]] = None,
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["channelId"] = channel_id
+        __props__["channelName"] = channel_name
+        __props__["configs"] = configs
+        __props__["notificationType"] = notification_type
+        __props__["sourceId"] = source_id
+        __props__["sourceName"] = source_name
+        __props__["sourceType"] = source_type
+        __props__["workspaceId"] = workspace_id
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/slackConnection:SlackConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="channelId")
     def channel_id(self) -> pulumi.Output[_builtins.str]:

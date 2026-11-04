@@ -251,6 +251,12 @@ func (AlertGroupingSettingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*alertGroupingSettingState)(nil)).Elem()
 }
 
+// AlertGroupingSettingExists checks whether an existing AlertGroupingSetting resource with the given ID exists.
+func AlertGroupingSettingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AlertGroupingSettingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/alertGroupingSetting:AlertGroupingSetting", id, state, "", opts...)
+}
+
 type alertGroupingSettingArgs struct {
 	// The set of values used for configuration.
 	Config *AlertGroupingSettingConfig `pulumi:"config"`

@@ -133,6 +133,12 @@ func (IncidentWorkflowState) ElementType() reflect.Type {
 	return reflect.TypeOf((*incidentWorkflowState)(nil)).Elem()
 }
 
+// IncidentWorkflowExists checks whether an existing IncidentWorkflow resource with the given ID exists.
+func IncidentWorkflowExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IncidentWorkflowState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/incidentWorkflow:IncidentWorkflow", id, state, "", opts...)
+}
+
 type incidentWorkflowArgs struct {
 	// The description of the workflow.
 	Description *string `pulumi:"description"`

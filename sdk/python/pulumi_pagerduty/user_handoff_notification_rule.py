@@ -333,6 +333,20 @@ class UserHandoffNotificationRule(pulumi.CustomResource):
         __props__.__dict__["user_id"] = user_id
         return UserHandoffNotificationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            contact_method: pulumi.Input[Optional[Union['UserHandoffNotificationRuleContactMethodArgs', 'UserHandoffNotificationRuleContactMethodArgsDict', 'outputs.UserHandoffNotificationRuleContactMethod']]] = None,
+            handoff_type: pulumi.Input[Optional[_builtins.str]] = None,
+            notify_advance_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["contactMethod"] = contact_method
+        __props__["handoffType"] = handoff_type
+        __props__["notifyAdvanceInMinutes"] = notify_advance_in_minutes
+        __props__["userId"] = user_id
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/userHandoffNotificationRule:UserHandoffNotificationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="contactMethod")
     def contact_method(self) -> pulumi.Output['outputs.UserHandoffNotificationRuleContactMethod']:

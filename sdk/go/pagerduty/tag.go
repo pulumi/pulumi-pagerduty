@@ -112,6 +112,12 @@ func (TagState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagState)(nil)).Elem()
 }
 
+// TagExists checks whether an existing Tag resource with the given ID exists.
+func TagExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/tag:Tag", id, state, "", opts...)
+}
+
 type tagArgs struct {
 	// The label of the tag.
 	Label string `pulumi:"label"`

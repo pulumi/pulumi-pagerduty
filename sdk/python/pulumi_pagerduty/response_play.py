@@ -705,6 +705,36 @@ class ResponsePlay(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return ResponsePlay(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            conference_number: pulumi.Input[Optional[_builtins.str]] = None,
+            conference_url: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            from_: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            responders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlayResponderArgs', 'ResponsePlayResponderArgsDict', 'outputs.ResponsePlayResponder']]]]] = None,
+            responders_message: pulumi.Input[Optional[_builtins.str]] = None,
+            runnability: pulumi.Input[Optional[_builtins.str]] = None,
+            subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResponsePlaySubscriberArgs', 'ResponsePlaySubscriberArgsDict', 'outputs.ResponsePlaySubscriber']]]]] = None,
+            subscribers_message: pulumi.Input[Optional[_builtins.str]] = None,
+            team: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["conferenceNumber"] = conference_number
+        __props__["conferenceUrl"] = conference_url
+        __props__["description"] = description
+        __props__["from"] = from_
+        __props__["name"] = name
+        __props__["responders"] = responders
+        __props__["respondersMessage"] = responders_message
+        __props__["runnability"] = runnability
+        __props__["subscribers"] = subscribers
+        __props__["subscribersMessage"] = subscribers_message
+        __props__["team"] = team
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/responsePlay:ResponsePlay', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="conferenceNumber")
     def conference_number(self) -> pulumi.Output[Optional[_builtins.str]]:

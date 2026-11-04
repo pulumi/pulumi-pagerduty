@@ -191,6 +191,12 @@ func (UserContactMethodState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userContactMethodState)(nil)).Elem()
 }
 
+// UserContactMethodExists checks whether an existing UserContactMethod resource with the given ID exists.
+func UserContactMethodExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserContactMethodState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/userContactMethod:UserContactMethod", id, state, "", opts...)
+}
+
 type userContactMethodArgs struct {
 	// The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
 	Address string `pulumi:"address"`

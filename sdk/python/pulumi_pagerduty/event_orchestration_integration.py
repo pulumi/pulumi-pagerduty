@@ -257,6 +257,18 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
         __props__.__dict__["parameters"] = parameters
         return EventOrchestrationIntegration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            event_orchestration: pulumi.Input[Optional[_builtins.str]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventOrchestrationIntegrationParameterArgs', 'EventOrchestrationIntegrationParameterArgsDict', 'outputs.EventOrchestrationIntegrationParameter']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["eventOrchestration"] = event_orchestration
+        __props__["label"] = label
+        __props__["parameters"] = parameters
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="eventOrchestration")
     def event_orchestration(self) -> pulumi.Output[_builtins.str]:

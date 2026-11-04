@@ -220,6 +220,14 @@ class ServiceDependency(pulumi.CustomResource):
         __props__.__dict__["dependency"] = dependency
         return ServiceDependency(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dependency: pulumi.Input[Optional[Union['ServiceDependencyDependencyArgs', 'ServiceDependencyDependencyArgsDict', 'outputs.ServiceDependencyDependency']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dependency"] = dependency
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/serviceDependency:ServiceDependency', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def dependency(self) -> pulumi.Output['outputs.ServiceDependencyDependency']:

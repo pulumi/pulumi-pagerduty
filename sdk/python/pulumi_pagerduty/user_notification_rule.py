@@ -387,6 +387,20 @@ class UserNotificationRule(pulumi.CustomResource):
         __props__.__dict__["user_id"] = user_id
         return UserNotificationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            contact_method: pulumi.Input[Optional[Union['UserNotificationRuleContactMethodArgs', 'UserNotificationRuleContactMethodArgsDict', 'outputs.UserNotificationRuleContactMethod']]] = None,
+            start_delay_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            urgency: pulumi.Input[Optional[_builtins.str]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["contactMethod"] = contact_method
+        __props__["startDelayInMinutes"] = start_delay_in_minutes
+        __props__["urgency"] = urgency
+        __props__["userId"] = user_id
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/userNotificationRule:UserNotificationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="contactMethod")
     def contact_method(self) -> pulumi.Output[Optional['outputs.UserNotificationRuleContactMethod']]:

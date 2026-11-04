@@ -479,6 +479,20 @@ class EventRule(pulumi.CustomResource):
         __props__.__dict__["condition_json"] = condition_json
         return EventRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action_json: pulumi.Input[Optional[_builtins.str]] = None,
+            advanced_condition_json: pulumi.Input[Optional[_builtins.str]] = None,
+            catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
+            condition_json: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actionJson"] = action_json
+        __props__["advancedConditionJson"] = advanced_condition_json
+        __props__["catchAll"] = catch_all
+        __props__["conditionJson"] = condition_json
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/eventRule:EventRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="actionJson")
     def action_json(self) -> pulumi.Output[_builtins.str]:

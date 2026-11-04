@@ -661,6 +661,28 @@ class RulesetRule(pulumi.CustomResource):
         __props__.__dict__["variables"] = variables
         return RulesetRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions: pulumi.Input[Optional[Union['RulesetRuleActionsArgs', 'RulesetRuleActionsArgsDict', 'outputs.RulesetRuleActions']]] = None,
+            catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
+            conditions: pulumi.Input[Optional[Union['RulesetRuleConditionsArgs', 'RulesetRuleConditionsArgsDict', 'outputs.RulesetRuleConditions']]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            position: pulumi.Input[Optional[_builtins.int]] = None,
+            ruleset: pulumi.Input[Optional[_builtins.str]] = None,
+            time_frame: pulumi.Input[Optional[Union['RulesetRuleTimeFrameArgs', 'RulesetRuleTimeFrameArgsDict', 'outputs.RulesetRuleTimeFrame']]] = None,
+            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesetRuleVariableArgs', 'RulesetRuleVariableArgsDict', 'outputs.RulesetRuleVariable']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actions"] = actions
+        __props__["catchAll"] = catch_all
+        __props__["conditions"] = conditions
+        __props__["disabled"] = disabled
+        __props__["position"] = position
+        __props__["ruleset"] = ruleset
+        __props__["timeFrame"] = time_frame
+        __props__["variables"] = variables
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/rulesetRule:RulesetRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Optional['outputs.RulesetRuleActions']]:

@@ -198,6 +198,12 @@ func (AutomationActionsActionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*automationActionsActionState)(nil)).Elem()
 }
 
+// AutomationActionsActionExists checks whether an existing AutomationActionsAction resource with the given ID exists.
+func AutomationActionsActionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutomationActionsActionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/automationActionsAction:AutomationActionsAction", id, state, "", opts...)
+}
+
 type automationActionsActionArgs struct {
 	// The category of the action, e.g. `diagnostic`, `remediation`.
 	ActionClassification *string `pulumi:"actionClassification"`

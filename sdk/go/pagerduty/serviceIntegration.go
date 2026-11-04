@@ -356,6 +356,12 @@ func (ServiceIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceIntegrationState)(nil)).Elem()
 }
 
+// ServiceIntegrationExists checks whether an existing ServiceIntegration resource with the given ID exists.
+func ServiceIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/serviceIntegration:ServiceIntegration", id, state, "", opts...)
+}
+
 type serviceIntegrationArgs struct {
 	// Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
 	EmailFilterMode *string                         `pulumi:"emailFilterMode"`

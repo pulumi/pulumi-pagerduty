@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * An [incident\_type](https://developer.pagerduty.com/api-reference/1981087c1914c-create-an-incident-type)
+ * An [incident&#92;_type](https://developer.pagerduty.com/api-reference/1981087c1914c-create-an-incident-type)
  * is a feature which allows customers to categorize incidents, such as a security
  * incident, a major incident, or a fraud incident.
  * 

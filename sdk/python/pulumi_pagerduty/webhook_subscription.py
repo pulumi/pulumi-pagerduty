@@ -533,6 +533,24 @@ class WebhookSubscription(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return WebhookSubscription(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            delivery_methods: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookSubscriptionDeliveryMethodArgs', 'WebhookSubscriptionDeliveryMethodArgsDict', 'outputs.WebhookSubscriptionDeliveryMethod']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebhookSubscriptionFilterArgs', 'WebhookSubscriptionFilterArgsDict', 'outputs.WebhookSubscriptionFilter']]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["active"] = active
+        __props__["deliveryMethods"] = delivery_methods
+        __props__["description"] = description
+        __props__["events"] = events
+        __props__["filters"] = filters
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'pagerduty:index/webhookSubscription:WebhookSubscription', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def active(self) -> pulumi.Output[_builtins.bool]:

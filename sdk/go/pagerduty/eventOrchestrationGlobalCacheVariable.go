@@ -203,6 +203,12 @@ func (EventOrchestrationGlobalCacheVariableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventOrchestrationGlobalCacheVariableState)(nil)).Elem()
 }
 
+// EventOrchestrationGlobalCacheVariableExists checks whether an existing EventOrchestrationGlobalCacheVariable resource with the given ID exists.
+func EventOrchestrationGlobalCacheVariableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventOrchestrationGlobalCacheVariableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable", id, state, "", opts...)
+}
+
 type eventOrchestrationGlobalCacheVariableArgs struct {
 	// Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value. This attribute can only be used when `configuration.0.type` is `recentValue` or `triggerEventCount`.
 	Conditions []EventOrchestrationGlobalCacheVariableCondition `pulumi:"conditions"`

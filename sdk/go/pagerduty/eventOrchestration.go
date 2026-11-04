@@ -125,6 +125,12 @@ func (EventOrchestrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventOrchestrationState)(nil)).Elem()
 }
 
+// EventOrchestrationExists checks whether an existing EventOrchestration resource with the given ID exists.
+func EventOrchestrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventOrchestrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/eventOrchestration:EventOrchestration", id, state, "", opts...)
+}
+
 type eventOrchestrationArgs struct {
 	// A human-friendly description of the Event Orchestration.
 	Description *string `pulumi:"description"`

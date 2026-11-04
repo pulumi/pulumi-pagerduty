@@ -232,6 +232,12 @@ func (ResponsePlayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*responsePlayState)(nil)).Elem()
 }
 
+// ResponsePlayExists checks whether an existing ResponsePlay resource with the given ID exists.
+func ResponsePlayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResponsePlayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("pagerduty:index/responsePlay:ResponsePlay", id, state, "", opts...)
+}
+
 type responsePlayArgs struct {
 	// The telephone number that will be set as the conference number for any incident on which this response play is run.
 	ConferenceNumber *string `pulumi:"conferenceNumber"`
